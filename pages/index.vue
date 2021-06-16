@@ -163,7 +163,7 @@ export default {
         .then(function (response) {
           var result = response.data
 
-          vm.updateParamValue({ key: "total", value: vm.params.total.value + parseInt(result) })
+          vm.updateParamValue({ key: "total", value: parseInt(vm.params.total.value) + parseInt(result) })
           vm.updateParamValue({ key: "result", value: result })
 
           vm.addLine([
