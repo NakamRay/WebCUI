@@ -6,25 +6,25 @@
     >
       <div class="d-flex align-center">
         <v-img
-          v-if="app.logoIcon"
+          v-if="logo.icon"
           alt="Logo Icon"
           class="shrink mx-2"
           contain
-          :src="app.logoIcon"
+          :src="logo.icon"
           transition="scale-transition"
           width="30"
         />
 
         <v-img
-          v-if="app.logoText"
+          v-if="logo.text"
           alt="Logo Text"
           class="shrink hidden-sm-and-down"
           contain
-          :src="app.logoText"
+          :src="logo.text"
           height="40"
           width="200"
         />
-        <span v-else>{{ app.appName }}</span>
+        <span v-else>{{ name }}</span>
       </div>
 
       <v-spacer></v-spacer>
@@ -46,14 +46,15 @@
 
 <script>
 import Usage from '~/components/Usage.vue'
-import { app } from '~/assets/configs.js'
+import { name, logo } from '~/assets/configs.js'
 
 export default {
   components: {
     Usage
   },
   data: () => ({
-    app,
+    name,
+    logo
   })
 }
 </script>

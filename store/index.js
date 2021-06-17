@@ -1,5 +1,6 @@
-import { features } from '~/assets/features.js'
 import { params, messages } from '~/assets/configs.js'
+import { features } from '~/assets/features.js'
+import { variables } from '~/assets/variables.js'
 
 export const state = () => ({
   params: params,
@@ -8,26 +9,7 @@ export const state = () => ({
   features: features,
   history: [],
   variables: {
-    $x: "123",
-    $xs: "456",
-    $xs1: "456",
-    $xs2: "456",
-    $xs3: "456",
-    $xs4: "456",
-    $xs5: "456",
-    $xs6: "456",
-    $xs7: "456",
-    $xs8: "456",
-    $xs9: "456",
-    $xs10: "456",
-    $xs11: "456",
-    $xs12: "456",
-    $xs13: "456",
-    $xs14: "456",
-    $xs15: "456",
-    $xs16: "456",
-    $xs17: "456",
-    $xs18: "456",
+    ...variables,
   },
 })
 

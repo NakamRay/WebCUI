@@ -1,7 +1,8 @@
-export const app = {
-  appName: "Sample Calculator",
-  logoIcon: require('~/static/logo_icon.png'),
-  logoText: require('~/static/logo_text.png'),
+export const name = "CLI to WUI"
+
+export const logo = {
+  // icon: require('~/static/logo_icon.png'),
+  // text: require('~/static/logo_text.png')
 }
 
 export const messages = {
@@ -10,27 +11,18 @@ export const messages = {
 }
 
 export const params = {
-  formula: {
-    display: 'Formula',
+  message: {
+    display: 'A message to send to API',
     type: String,
     default: null,
     value: null,
     visible: true
   },
-  result: {
-    display: 'Result',
-    type: Number,
-    default: 0,
-    value: 0,
-    visible: true,
-    half: true
-  },
-  total: {
-    display: 'Total',
-    type: Number,
-    default: 0,
-    value: 0,
-    visible: true,
-    half: true
+  message1: {
+    display: 'A message to send to API',
+    type: String,
+    default: null,
+    value: null,
+    visible: true
   }
 }

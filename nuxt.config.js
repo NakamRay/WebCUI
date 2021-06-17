@@ -1,6 +1,12 @@
 import colors from 'vuetify/es5/util/colors'
 
+import { name } from './assets/configs.js'
+
 export default {
+  server: {
+    host: ''
+  },
+  
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
@@ -9,7 +15,7 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Sample Calculator',
+    title: name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

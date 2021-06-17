@@ -16,7 +16,7 @@
             class="mb-3 dark-card-borders"
             style="overflow: auto"
           >
-            <v-list-item three-line class="pr-2">
+            <v-list-item class="pr-2">
               <v-list-item-content class="pt-0 pb-2">
                 <v-row>
                   <v-col
@@ -133,16 +133,11 @@ export default {
       "closeDrawers",
     ]),
     ...mapActions(["clear", "showVariables"]),
-    calc() {
-      if (!this.params.formula.value) {
-        this.addLine({ text: "Value of Formula is invalid." })
-        return
-      }
-
-      if (this.hasVariable(this.params.formula.value)) {
+    run() {
+      if (this.hasVariable(this.params.message.value)) {
         this.updateParamValue({
-          key: "formula",
-          value: this.substitution(this.params.formula.value),
+          key: "message",
+          value: this.substitution(this.params.message.value),
         });
       }
 
@@ -163,12 +158,8 @@ export default {
         .then(function (response) {
           var result = response.data
 
-          vm.updateParamValue({ key: "total", value: parseInt(vm.params.total.value) + parseInt(result) })
-          vm.updateParamValue({ key: "result", value: result })
-
           vm.addLine([
             { text: "<br>" },
-            { text: `> ${vm.params.formula.value}` },
             { text: result },
           ])
         })
@@ -183,7 +174,7 @@ export default {
       } else if (this.features[key].hasOwnProperty("drawer")) {
         this.openDrawer(key)
       } else {
-        this.calc()
+        this.run()
       }
     },
     updateConsoleHeight() {
