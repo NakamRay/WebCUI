@@ -17,7 +17,7 @@
             style="overflow: auto"
           >
             <v-list-item class="pr-2">
-              <v-list-item-content class="pt-0 pb-2">
+              <v-list-item-content class="py-5">
                 <v-row>
                   <v-col
                     v-for="(param, key) in params"

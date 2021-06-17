@@ -40,6 +40,9 @@
 
       <Usage />
     </v-app-bar>
+
+    <div style="height: 10px;" />
+
     <nuxt />
   </v-app>
 </template>
