@@ -1,4 +1,5 @@
-import { params, messages } from '~/assets/configs.js'
+import { messages } from '~/assets/configs.js'
+import { params } from '~/assets/params.js'
 import { features } from '~/assets/features.js'
 import { variables } from '~/assets/variables.js'
 

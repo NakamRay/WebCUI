@@ -9,6 +9,48 @@ header("Content-Type: text/plain; charset=UTF-8");
 putenv("LANG=C.UTF-8");
 // putenv("LANG=ja_JP.UTF-8");
 
-echo 'Receive: ' . $_POST['message'];
+$prefix = '';
+$suffix = '';
+$deco_start = '';
+$deco_end   = '';
+
+switch ($_POST['enable']) {
+  case 'ps':
+  $prefix = $_POST['prefix'];
+  $suffix = $_POST['suffix'];
+  break;
+  case 'p':
+  $prefix = $_POST['prefix'];
+  break;
+  case 's':
+  $suffix = $_POST['suffix'];
+  break;
+}
+
+if ($_POST['decoration'] == 'true') {
+  if ($_POST['color'] == 'red') {
+    $deco_start = '<a class="red--text">' . $deco_start;
+    $deco_end   = $deco_end . '</a>';
+  }
+  if ($_POST['color'] == 'green') {
+    $deco_start = '<a class="green--text">' . $deco_start;
+    $deco_end   = $deco_end . '</a>';
+  }
+  if ($_POST['color'] == 'blue') {
+    $deco_start = '<a class="blue--text">' . $deco_start;
+    $deco_end   = $deco_end . '</a>';
+  }
+  if ($_POST['bold'] == 'true') {
+    $deco_start = '<b>' . $deco_start;
+    $deco_end   = $deco_end . '</b>';
+  }
+  if ($_POST['underline'] == 'true') {
+    $deco_start = '<u>' . $deco_start;
+    $deco_end   = $deco_end . '</u>';
+  }
+}
+
+echo '* Received Message<br>';
+echo $deco_start . $prefix . $_POST['message'] . $suffix . $deco_end;
 
 ?>

@@ -11,36 +11,9 @@
     <v-main>
       <v-row>
         <v-col cols="12" sm="10" offset-sm="1" class="pa-0">
-          <v-card
-            id="paramsCard"
-            class="mb-3 dark-card-borders"
-            style="overflow: auto"
-          >
-            <v-list-item class="pr-4 py-2">
-              <v-list-item-content>
-                <v-row>
-                  <v-col
-                    v-for="(param, key) in params"
-                    :key="key"
-                    :cols="param.half ? 6 : 12"
-                    class="py-1"
-                  >
-                    <v-text-field
-                      v-if="param.visible"
-                      :label="param.display"
-                      :value="param.value"
-                      @input="
-                        (value) => updateParamValue({ key: key, value: value })
-                      "
-                      spellcheck="false"
-                      hide-details
-                      flat
-                    ></v-text-field>
-                  </v-col>
-                </v-row>
-              </v-list-item-content>
-            </v-list-item>
-          </v-card>
+          <div ref="forms">
+            <Forms />
+          </div>
 
           <v-card
             id="outputConsole"
@@ -48,17 +21,7 @@
             style="overflow: auto"
             class="dark-card-borders"
           >
-            <v-list class="py-3">
-              <v-list-item
-                style="min-height: 25px; color: white"
-                v-for="(output, index) in console"
-                :key="index"
-              >
-                <v-list-item-title>
-                  <span class="drawer-text" v-html="output.text"></span>
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
+            <Console />
           </v-card>
         </v-col>
 
@@ -82,7 +45,7 @@ export default {
     messages,
 
     // for layouts
-    envHeight: 0,
+    formsHeight: 0,
     consoleHeight: 0,
   }),
   computed: {
@@ -118,52 +81,62 @@ export default {
       }
     },
     sendReq() {
+      console.log(this.params)
+
       let request = new URLSearchParams()
 
       for (var param in this.params) {
-        let value = this.substitution(this.params[param].value)
+        var value = this.params[param].value
+        if (this.params[param].type === 'text') {
+          value = this.substitution(value)
+        }
+        if (this.params[param].type === 'select') {
+          value = value.name
+        }
         request.append(param, value)
         console.log(param + ": " + value)
       }
 
       var vm = this
 
-      axios.post(this.appInfo.baseUrl + this.appInfo.apiFile, request)
-      .then(function (response) {
-        var result = response.data
+      axios
+        .post(this.appInfo.baseUrl + this.appInfo.apiFile, request)
+        .then(function (response) {
+          var result = response.data
 
-        vm.addLine([
-          { text: "<br>" },
-          { text: result },
-        ])
-      })
-      .catch(function (err) {
-        vm.addLine({ text: vm.messages.connectionErrorMessage })
-        console.error(err)
-      })
+          vm.addLine([
+            { text: "<br>" },
+            { text: result },
+          ])
+        })
+        .catch(function (err) {
+          vm.addLine({ text: vm.messages.connectionErrorMessage })
+          console.error(err)
+        })
+    },
+
+    // For layout adjustment
+    updateConsoleHeight() {
+      this.consoleHeight = window.innerHeight - this.formsHeight - 90
     }
-  },
-  created() {
-    this.preprocess()
-    this.initConsole()
   },
   mounted() {
-    this.envHeight = this.$el.querySelector("#paramsCard").clientHeight
+    this.preprocess()
+    this.initConsole()
 
-    const updateConsoleHeight = () => {
-      this.consoleHeight = window.innerHeight - this.envHeight - 100
-    }
-
-    updateConsoleHeight()
-
-    window.addEventListener("resize", updateConsoleHeight)
+    this.updateConsoleHeight()
+    
+    window.addEventListener("resize", this.updateConsoleHeight)
     document.addEventListener('keydown', (event) => {
       if (event.ctrlKey && event.key === 'Enter') {
         this.sendReq()
       }
-    });
+    })
   },
-
+  beforeUpdate() {
+    this.formsHeight = this.$refs.forms.clientHeight
+    this.updateConsoleHeight()
+  }
 }
 </script>
 
