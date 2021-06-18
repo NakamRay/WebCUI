@@ -6,7 +6,7 @@
     <VariablesDrawer />
 
     <!-- Floating Action Button -->
-    <Fab @drawer-event="drawerEvent" />
+    <Fab @feature-event="featureEvent" />
 
     <v-main>
       <v-row>
@@ -16,14 +16,14 @@
             class="mb-3 dark-card-borders"
             style="overflow: auto"
           >
-            <v-list-item class="pr-2">
-              <v-list-item-content class="py-5">
+            <v-list-item class="pr-4 py-2">
+              <v-list-item-content>
                 <v-row>
                   <v-col
                     v-for="(param, key) in params"
                     :key="key"
                     :cols="param.half ? 6 : 12"
-                    class="py-0"
+                    class="py-1"
                   >
                     <v-text-field
                       v-if="param.visible"
@@ -63,7 +63,7 @@
         </v-col>
 
         <v-col cols="1" class="text-center pl-0 d-none d-sm-flex">
-          <Features @drawer-event="drawerEvent" />
+          <Features @feature-event="featureEvent" />
         </v-col>
       </v-row>
     </v-main>
@@ -74,28 +74,11 @@
 import axios from "axios"
 import { mapState, mapMutations, mapActions, mapGetters } from "vuex"
 
-import { messages } from "~/assets/configs.js"
-
-import HistoryDrawer from "~/components/drawers/HistoryDrawer.vue"
-import ExamplesDrawer from "~/components/drawers/ExamplesDrawer.vue"
-import VariablesDrawer from "~/components/drawers/VariablesDrawer.vue"
-import Features from "~/components/Features.vue"
-import Fab from "~/components/Fab.vue"
+import { appInfo, messages } from "~/assets/configs.js"
 
 export default {
-  components: {
-    HistoryDrawer,
-    ExamplesDrawer,
-    VariablesDrawer,
-    Features,
-    Fab,
-  },
   data: () => ({
-    // for axios
-    baseUrl: "http://localhost/",
-    apiFile: "sample-api.php",
-
-    // for console
+    appInfo,
     messages,
 
     // for layouts
@@ -104,12 +87,7 @@ export default {
   }),
   computed: {
     ...mapState(["params", "console", "features", "history", "variables"]),
-    ...mapGetters([
-      "allVariables",
-      "hasVariable",
-      "hasInvalidVariable",
-      "substitution",
-    ]),
+    ...mapGetters(["allVariables", "substitution"]),
   },
   watch: {
     // scroll the console to bottom when it changes
@@ -122,77 +100,70 @@ export default {
   },
   methods: {
     ...mapMutations([
-      "init",
+      "preprocess",
       "updateParamValue",
       "initConsole",
       "addLine",
-      "addHistory",
-      "updateVariables",
-      "deleteVariables",
       "openDrawer",
-      "closeDrawers",
     ]),
-    ...mapActions(["clear", "showVariables"]),
-    run() {
-      if (this.hasVariable(this.params.message.value)) {
-        this.updateParamValue({
-          key: "message",
-          value: this.substitution(this.params.message.value),
-        });
-      }
+    ...mapActions(["clear"]),
 
-      this.sendReq()
+    featureEvent(key) {
+      if (key === "clear") {
+        this.clear()
+      } else if (this.features[key].type === 'drawer') {
+        this.openDrawer(key)
+      } else {
+        this.sendReq()
+      }
     },
     sendReq() {
       let request = new URLSearchParams()
 
       for (var param in this.params) {
-        request.append(param, this.params[param].value)
-        console.log(param + ": " + this.params[param].value)
+        let value = this.substitution(this.params[param].value)
+        request.append(param, value)
+        console.log(param + ": " + value)
       }
 
       var vm = this
 
-      axios
-        .post(this.baseUrl + this.apiFile, request)
-        .then(function (response) {
-          var result = response.data
+      axios.post(this.appInfo.baseUrl + this.appInfo.apiFile, request)
+      .then(function (response) {
+        var result = response.data
 
-          vm.addLine([
-            { text: "<br>" },
-            { text: result },
-          ])
-        })
-        .catch(function (err) {
-          vm.addLine({ text: vm.messages.connectionErrorMessage })
-          console.error(err)
-        })
-    },
-    drawerEvent(key) {
-      if (key === "clear") {
-        this.clear()
-      } else if (this.features[key].hasOwnProperty("drawer")) {
-        this.openDrawer(key)
-      } else {
-        this.run()
-      }
-    },
-    updateConsoleHeight() {
-      this.consoleHeight = window.innerHeight - this.envHeight - 100
-    },
+        vm.addLine([
+          { text: "<br>" },
+          { text: result },
+        ])
+      })
+      .catch(function (err) {
+        vm.addLine({ text: vm.messages.connectionErrorMessage })
+        console.error(err)
+      })
+    }
   },
   created() {
-    this.init()
-    this.addLine({ text: this.messages.initialMessage })
+    this.preprocess()
+    this.initConsole()
   },
   mounted() {
     this.envHeight = this.$el.querySelector("#paramsCard").clientHeight
-    window.addEventListener("resize", this.updateConsoleHeight)
-    this.updateConsoleHeight()
+
+    const updateConsoleHeight = () => {
+      this.consoleHeight = window.innerHeight - this.envHeight - 100
+    }
+
+    updateConsoleHeight()
+
+    window.addEventListener("resize", updateConsoleHeight)
+    document.addEventListener('keydown', (event) => {
+      if (event.ctrlKey && event.key === 'Enter') {
+        this.sendReq()
+      }
+    });
   },
-  destroyed() {
-    window.removeEventListener("resize", this.updateConsoleHeight)
-  },
+
 }
 </script>
 

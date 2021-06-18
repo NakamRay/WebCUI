@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
-import { name } from './assets/configs.js'
+import { appInfo } from './assets/configs.js'
 
 export default {
   server: {
@@ -15,7 +15,7 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: name,
+    title: appInfo.name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -35,7 +35,12 @@ export default {
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
+  components: [
+    {
+      path: '@/components/',
+      pathPrefix: false
+    }
+  ],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [

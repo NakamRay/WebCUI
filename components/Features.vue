@@ -5,7 +5,7 @@
       class="px-0"
       style="flex-grow: unset;"
     >
-      <v-btn icon @click="$emit('drawer-event', key)">
+      <v-btn icon @click="$emit('feature-event', key)">
         <v-icon v-text="feature.icon"></v-icon>
       </v-btn>
     </v-col>

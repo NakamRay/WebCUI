@@ -5,21 +5,26 @@ import { variables } from '~/assets/variables.js'
 export const state = () => ({
   params: params,
   console: [],
-  usageDialog: false,
+  documentDialog: false,
   features: features,
   history: [],
-  variables: {
-    ...variables,
-  },
+  variables: variables
 })
 
 export const mutations = {
-  // for Params
-  init(state) {
+  preprocess(state) {
+    // create a 'value' key in params
     for (var param in state.params) {
-      state.params[param].value = state.params[param].default
+      state.params[param] = { ...state.params[param], value: state.params[param].default }
+    }
+    // create a 'drawer' key in features
+    for (var feature in state.features) {
+      if (state.features[feature].type === 'drawer' && !state.features[feature].hasOwnProperty('drawer'))
+      state.features[feature] = { ...state.features[feature], drawer: false }
     }
   },
+
+  // for Params
   updateParamValue(state, payload) {
     const key = payload.key
     const value = payload.value
@@ -29,7 +34,7 @@ export const mutations = {
 
   // for console
   initConsole(state) {
-    state.console = []
+    state.console = [{ text: messages.initialMessage }]
   },
   addLine(state, line) {
     line = [line].flat()
@@ -61,15 +66,15 @@ export const mutations = {
   },
 
   // for dialogs and drawers
-  switchUsageDialog(state) {
-    state.usageDialog = !state.usageDialog
+  switchDocumentDialog(state) {
+    state.documentDialog = !state.documentDialog
   },
   openDrawer(state, feature) {
     state.features[feature].drawer = true
   },
   closeDrawers(state) {
     for (var feature in state.features) {
-      if (state.features[feature].hasOwnProperty('drawer')) {
+      if (state.features[feature].type === 'drawer') {
         state.features[feature].drawer = false
       }
     }
@@ -79,79 +84,34 @@ export const mutations = {
 export const actions = {
   clear({ state, commit }) {
     commit('addHistory', state.console)
+    commit('preprocess')
     commit('initConsole')
-    commit('init')
-    commit('addLine', { text: messages.initialMessage })
-  },
-
-  showVariables({ state, commit }, args) {
-    let addLine = payload => commit('addLine', payload)
-
-    addLine([{ text: '<br>' }, { text: 'Variable(s)' }])
-
-    if (!args) {
-      if (Object.keys(state.variables).length === 0) {
-        addLine({ text: 'None' })
-      } else {
-        for (let variable in state.variables) {
-          addLine({ text: `${variable} = ${state.variables[variable].replace('<', '&lt;').replace('>', '&gt;')}` })
-        }
-      }
-      return
-    }
-
-    for (let arg of args) {
-      for (let variable in state.variables) {
-        if (variable === `${arg}` || variable === `$${arg}`) {
-          addLine({ text: `${variable} = ${state.variables[variable].replace('<', '&lt;').replace('>', '&gt;')}` })
-        }
-      }
-    }
-  },
+  }
 }
 
 export const getters = {
-  replaceSpecialCharacter: (state) => (input) => {
-    // allVariables("<input>") returns "&lt;input&gt;"
-
-    return input.replace("<", "&lt;").replace(">", "&gt;")
-  },
-
   // for Variables
   allVariables: (state) => (input) => {
-    // allVariables("$x$y$z") returns ["$x", "$y", "$z"]
+    // allVariables('${x}${y}${z}') returns ['x', 'y', 'z']
 
-    let match = input.match(/\$([A-Z]|[a-z])+/g)
+    let match = input.match(/\$\{([A-Z]|[a-z])+\}/g)
     if (!match) {
       return []
     }
-    return match
-  },
-  hasVariable: (state, getters) => (input) => {
-    // hasVariable("$x") returns true
-    // hasVariable("x") returns false
-
-    return getters.allVariables(input).length > 0
-  },
-  hasInvalidVariable: (state, getters) => (input) => {
-    // hasInvalidVariable("$x") returns true if "$x" is in state.variables
-
-    if (!getters.allVariables(input)) return false
-    for (let variable of getters.allVariables(input)) {
-      if (!state.variables.hasOwnProperty(variable)) {
-        return true
-      }
-    }
-    return false
+    return match.map((value) => {
+      return value.match(/\$\{(([A-Z]|[a-z])+)\}/)[1]
+    })
   },
   substitution: (state, getters) => (input) => {
+    // substitution('${h} ${w}') returns 'Hello World' where ${h} = 'Hello' and ${w} = 'World' in state.variables
+
     for (let variable of getters.allVariables(input)) {
-      const test = `\\${variable}`;
-      const regexp = new RegExp(test);
-      input = input.replace(regexp, state.variables[variable]);
-      console.log(variable + " -> " + state.variables[variable]);
+      const test = `\\$\\{\\${variable}\\}`
+      const regexp = new RegExp(test)
+      input = input.replace(regexp, state.variables[variable])
+      console.log(variable + ' -> ' + state.variables[variable])
     }
 
-    return input;
-  },
+    return input
+  }
 }

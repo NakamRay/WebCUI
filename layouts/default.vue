@@ -24,7 +24,7 @@
           height="40"
           width="200"
         />
-        <span v-else>{{ name }}</span>
+        <span v-else>{{ appInfo.name }}</span>
       </div>
 
       <v-spacer></v-spacer>
@@ -33,12 +33,12 @@
         rounded
         outlined
         style="border-width: medium;"
-        @click="$store.commit('switchUsageDialog')"
+        @click="$store.commit('switchDocumentDialog')"
       >
-        Usage
+        Document
       </v-btn>
 
-      <Usage />
+      <Document />
     </v-app-bar>
 
     <div style="height: 10px;" />
@@ -48,15 +48,15 @@
 </template>
 
 <script>
-import Usage from '~/components/Usage.vue'
-import { name, logo } from '~/assets/configs.js'
+import Document from '~/components/Document.vue'
+import { appInfo, logo } from '~/assets/configs.js'
 
 export default {
   components: {
-    Usage
+    Document
   },
   data: () => ({
-    name,
+    appInfo,
     logo
   })
 }

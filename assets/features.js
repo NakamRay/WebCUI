@@ -2,21 +2,23 @@
 
 export const features = {
   clear: {
-    icon: 'mdi-delete'
+    icon: 'mdi-delete',
+    type: 'execute'
   },
   history: {
     icon: 'mdi-history',
-    drawer: false
+    type: 'drawer'
   },
   examples: {
     icon: 'mdi-alpha-e-box',
-    drawer: false
+    type: 'drawer'
   },
   variables: {
     icon: 'mdi-order-alphabetical-ascending',
-    drawer: false
+    type: 'drawer'
   },
-  run: {
+  sendReq: {
     icon: 'mdi-play',
+    type: 'execute'
   }
 }

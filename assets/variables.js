@@ -1,3 +1,6 @@
+// Set initial variables
+
 export const variables = {
-  $hw: 'Hello World!'
+  h: 'Hello',
+  w: 'World'
 }

@@ -24,8 +24,8 @@
       fab
       dark
       small
-      color="purple"
-      @click="$emit('drawer-event', key)"
+      color="indigo"
+      @click="$emit('feature-event', key)"
     >
       <v-icon v-text="feature.icon"></v-icon>
     </v-btn>
