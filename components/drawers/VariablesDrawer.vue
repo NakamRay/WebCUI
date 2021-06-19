@@ -27,7 +27,8 @@
                   v-model="varName"
                   label="Variable Name"
                   required
-                  prefix="$"
+                  prefix="${"
+                  suffix="}"
                 ></v-text-field>
               </v-col>
               <v-col
@@ -54,7 +55,7 @@
               addVarDialog = false;
             "
           >
-            {{ variables.hasOwnProperty('$' + varName.replaceAll('$', '')) ? 'UPDATE' : 'ADD' }}
+            {{ variables.hasOwnProperty(varName.replaceAll('$', '')) ? 'UPDATE' : 'ADD' }}
           </v-btn>
           <v-btn
             color="blue darken-1"

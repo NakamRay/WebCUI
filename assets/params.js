@@ -37,6 +37,10 @@ export const params = {
         name: 's',
         display: 'Suffix only'
       },
+      {
+        name: 'n',
+        display: 'None'
+      },
     ],
     default: {
       name: 'ps',

@@ -56,7 +56,7 @@ export const mutations = {
   },
   updateVariables(state, variables) {
     for (var variable in variables) {
-      state.variables["$" + variable] = variables[variable]
+      state.variables = { ...state.variables, [variable]: variables[variable] }
     }
   },
   deleteVariables(state, variables) {
@@ -107,7 +107,7 @@ export const getters = {
     // substitution('${h} ${w}') returns 'Hello World' where ${h} = 'Hello' and ${w} = 'World' in state.variables
 
     for (let variable of getters.allVariables(input)) {
-      const test = `\\$\\{\\${variable}\\}`
+      const test = `\\$\\{${variable}\\}`
       const regexp = new RegExp(test)
       input = input.replace(regexp, state.variables[variable])
       console.log(variable + ' -> ' + state.variables[variable])

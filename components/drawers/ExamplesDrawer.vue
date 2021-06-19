@@ -19,7 +19,7 @@
         </v-btn>
       </v-toolbar>
     </template>
-      
+
     <v-list class="py-0">
       <v-tabs color="dark">
         <v-tab v-for="(example, key) in examples" :key="key">{{ key }}</v-tab>
@@ -42,8 +42,14 @@
                 colored-border
               >
                 <div v-for="(param, key) in anexample" :key="key">
-                  <div class="overline">{{ key }}</div>
-                  <span class="drawer-text">{{ param }}</span>
+                  <div class="font-weight-bold caption mt-1">{{ params[key].display }}</div>
+                  <span class="drawer-text">
+                    {{
+                      params[key].type === 'select' ?
+                        param.display :
+                        param
+                    }}
+                  </span>
                   <hr>
                 </div>
               </v-alert>
@@ -56,7 +62,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex"
+import { mapState, mapMutations } from "vuex"
 
 import { examples } from "~/assets/examples.js"
 
@@ -66,6 +72,7 @@ export default {
     examples,
   }),
   computed: {
+    ...mapState(["params"]),
     drawer: {
       get() {
         return this.$store.state.features[this.key].drawer

@@ -29,16 +29,16 @@ switch ($_POST['enable']) {
 
 if ($_POST['decoration'] == 'true') {
   if ($_POST['color'] == 'red') {
-    $deco_start = '<a class="red--text">' . $deco_start;
-    $deco_end   = $deco_end . '</a>';
+    $deco_start = '<font class="red--text">' . $deco_start;
+    $deco_end   = $deco_end . '</font>';
   }
   if ($_POST['color'] == 'green') {
-    $deco_start = '<a class="green--text">' . $deco_start;
-    $deco_end   = $deco_end . '</a>';
+    $deco_start = '<font class="green--text">' . $deco_start;
+    $deco_end   = $deco_end . '</font>';
   }
   if ($_POST['color'] == 'blue') {
-    $deco_start = '<a class="blue--text">' . $deco_start;
-    $deco_end   = $deco_end . '</a>';
+    $deco_start = '<font class="blue--text">' . $deco_start;
+    $deco_end   = $deco_end . '</font>';
   }
   if ($_POST['bold'] == 'true') {
     $deco_start = '<b>' . $deco_start;

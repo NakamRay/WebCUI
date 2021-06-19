@@ -75,6 +75,7 @@ export default {
       if (key === "clear") {
         this.clear()
       } else if (this.features[key].type === 'drawer') {
+        console.log(this.variables)
         this.openDrawer(key)
       } else {
         this.sendReq()
