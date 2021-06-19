@@ -22,14 +22,16 @@
 
     <v-list class="py-0">
       <v-tabs color="dark">
-        <v-tab v-for="(example, key) in examples" :key="key">{{ key }}</v-tab>
-        <v-tab-item v-for="(example, key) in examples" :key="key">
+        <v-tab v-for="(example, index) in examples" :key="index">
+          {{ example.name }}
+        </v-tab>
+        <v-tab-item v-for="(example, index) in examples" :key="index">
           <v-list-item
             style="min-height: 15px"
-            v-for="(anexample, index) in example"
+            v-for="(ex, index) in example.examples"
             :key="index"
             @click.stop="
-              setExamples(anexample);
+              setExamples(ex);
               closeDrawers();
             "
           >
@@ -41,7 +43,7 @@
                 elevation="2"
                 colored-border
               >
-                <div v-for="(param, key) in anexample" :key="key">
+                <div v-for="(param, key) in ex" :key="key">
                   <div class="font-weight-bold caption mt-1">{{ params[key].display }}</div>
                   <span class="drawer-text">
                     {{
@@ -87,10 +89,10 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(["updateParamValue", "openDrawer", "closeDrawers"]),
+    ...mapMutations(["updateParam", "openDrawer", "closeDrawers"]),
     setExamples(anexample) {
       Object.keys(anexample).forEach(key => {
-        this.updateParamValue({ key: key, value: anexample[key] });
+        this.updateParam({ key: key, value: { value: anexample[key] } });
       })
     }
   }

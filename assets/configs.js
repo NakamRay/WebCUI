@@ -1,7 +1,9 @@
 export const appInfo = {
   name: 'CUI to WUI Sample',
-  apiUrl: 'http://localhost/sample-api.php',
-  htmlConsole: true // HTML tag will be enabled in the console.
+  baseUrl: 'http://localhost/',
+  apiFileName: 'sample-api.php',
+  htmlConsole: true, // HTML tag will be enabled in the console.
+  swapLayouts: false // swap forms and the console.
 }
 
 export const logo = {

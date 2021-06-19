@@ -1,86 +1,140 @@
-export const examples = {
-  examples: [
-    {
-      message: 'Plane Text',
-      enable: {
-        name: 'n',
-        display: 'None',
+export const examples = [
+  {
+    name: 'Prefix and Suffix',
+    examples: [
+      {
+        message: 'New',
+        prefix: 'Hello ',
+        suffix: ' World',
+        enable: {
+          name: 'ps',
+          display: 'Prefix and Suffix',
+        },
+        decoration: false,
       },
-      decoration: false,
-    },
-    {
-      message: 'New',
-      prefix: 'Hello ',
-      suffix: ' World',
-      enable: {
-        name: 'ps',
-        display: 'Prefix and Suffix',
+      {
+        message: 'New',
+        prefix: '${h} ',
+        suffix: ' ${w}',
+        enable: {
+          name: 'ps',
+          display: 'Prefix and Suffix',
+        },
+        decoration: false,
       },
-    },
-    {
-      message: 'New',
-      prefix: '${h} ',
-      suffix: ' ${w}',
-      enable: {
-        name: 'ps',
-        display: 'Prefix and Suffix',
+      {
+        message: 'act',
+        prefix: 're',
+        suffix: 'ive',
+        enable: {
+          name: 'ps',
+          display: 'Prefix and Suffix',
+        },
+        decoration: false,
       },
-    },
-    {
-      message: 'Red Text',
-      enable: {
-        name: 'n',
-        display: 'None',
+      {
+        message: 'act',
+        prefix: 're',
+        suffix: 'ive',
+        enable: {
+          name: 'p',
+          display: 'Prefix',
+        },
+        decoration: false,
       },
-      decoration: true,
-      color: {
-        name: 'red',
-        display: 'Red',
+      {
+        message: 'act',
+        prefix: 're',
+        suffix: 'ive',
+        enable: {
+          name: 's',
+          display: 'Suffix',
+        },
+        decoration: false,
+      }
+    ]
+  },
+  {
+    name: 'Text Decoration',
+    examples: [
+      {
+        message: 'Plane Text',
+        enable: {
+          name: 'n',
+          display: 'None',
+        },
+        decoration: false,
       },
-    },
-    {
-      message: 'Green Text',
-      enable: {
-        name: 'n',
-        display: 'None',
+      {
+        message: 'Red Text',
+        enable: {
+          name: 'n',
+          display: 'None',
+        },
+        decoration: true,
+        color: {
+          name: 'red',
+          display: 'Red',
+        },
+        bold: false,
+        underline: false
       },
-      decoration: true,
-      color: {
-        name: 'green',
-        display: 'Green',
+      {
+        message: 'Green Text',
+        enable: {
+          name: 'n',
+          display: 'None',
+        },
+        decoration: true,
+        color: {
+          name: 'green',
+          display: 'Green',
+        },
+        bold: false,
+        underline: false
       },
-    },
-    {
-      message: 'Blue Text',
-      enable: {
-        name: 'n',
-        display: 'None',
+      {
+        message: 'Blue Text',
+        enable: {
+          name: 'n',
+          display: 'None',
+        },
+        decoration: true,
+        color: {
+          name: 'blue',
+          display: 'Blue',
+        },
+        bold: false,
+        underline: false
       },
-      decoration: true,
-      color: {
-        name: 'blue',
-        display: 'Blue',
+      {
+        message: 'Bold Text',
+        enable: {
+          name: 'n',
+          display: 'None',
+        },
+        decoration: true,
+        color: {
+          name: 'white',
+          display: 'White',
+        },
+        bold: true,
+        underline: false
       },
-    },
-    {
-      message: 'Bold Text',
-      enable: {
-        name: 'n',
-        display: 'None',
-      },
-      decoration: true,
-      bold: true,
-      underline: false
-    },
-    {
-      message: 'Underline Text',
-      enable: {
-        name: 'n',
-        display: 'None',
-      },
-      decoration: true,
-      bold: false,
-      underline: true,
-    }
-  ]
-}
+      {
+        message: 'Underline Text',
+        enable: {
+          name: 'n',
+          display: 'None',
+        },
+        decoration: true,
+        color: {
+          name: 'white',
+          display: 'White',
+        },
+        bold: false,
+        underline: true,
+      }
+    ]
+  }
+]

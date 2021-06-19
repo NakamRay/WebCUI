@@ -13,18 +13,6 @@ export const state = () => ({
 })
 
 export const mutations = {
-  preprocess(state) {
-    // create a 'value' key in params
-    for (var param in state.params) {
-      state.params[param] = { ...state.params[param], value: state.params[param].default }
-    }
-    // create a 'drawer' key in toolbar
-    for (var tool in state.toolbar) {
-      if (state.toolbar[tool].type === 'drawer' && !state.toolbar[tool].hasOwnProperty('drawer'))
-      state.toolbar[tool] = { ...state.toolbar[tool], drawer: false }
-    }
-  },
-
   // for dialogs
   switchDocumentDialog(state) {
     state.documentDialog = !state.documentDialog
@@ -39,20 +27,20 @@ export const mutations = {
   },
 
   // for params
-  // updateParam(state, payload) {
-  //   const key = payload.key
-  //   const value = payload.value
+  updateParam(state, payload) {
+    // updateParam can set or update a param.
+    // for example: updateParam({ key: 'name', value: { display: 'Full Name', value: 'John Smith' } })
 
-  //   state.toolbar[key] = { ...state.toolbar[key], ...value }
-  // },
-  updateParamValue(state, payload) {
     const key = payload.key
     const value = payload.value
 
-    state.params[key] = { ...state.params[key], value }
+    state.params[key] = { ...state.params[key], ...value }
   },
 
   // for console
+  clearConsole(state) {
+    state.console = []
+  },
   initConsole(state) {
     state.console = [{ text: messages.initialMessage }]
   },
@@ -62,7 +50,7 @@ export const mutations = {
   },
 
   // for history
-  initHistory(state) {
+  clearHistory(state) {
     state.history = []
   },
   addHistory(state, history) {
@@ -70,17 +58,20 @@ export const mutations = {
   },
 
   // for variables
-  initVariables(state) {
+  clearVariables(state) {
     state.variables = {}
   },
+  initVariables(state) {
+    state.variables = variables
+  },
   updateVariables(state, variables) {
-    for (var variable in variables) {
+    for (let variable in variables) {
       state.variables = { ...state.variables, [variable]: variables[variable] }
     }
   },
   deleteVariables(state, variables) {
     variables = [variables].flat()
-    for (var variable of variables) {
+    for (let variable of variables) {
       delete state.variables[variable]
     }
   },
@@ -90,7 +81,7 @@ export const mutations = {
     state.toolbar[tool].drawer = true
   },
   closeDrawers(state) {
-    for (var tool in state.toolbar) {
+    for (let tool in state.toolbar) {
       if (state.toolbar[tool].type === 'drawer') {
         state.toolbar[tool].drawer = false
       }
@@ -99,17 +90,20 @@ export const mutations = {
 }
 
 export const actions = {
+  // set values of all params to default etc.
   preprocess({ state, commit }) {
     // create a 'value' key in params
-    for (var param in state.params) {
-      commit('updateParamValue', { key: param, value: state.params[param].default })
+    for (let param in state.params) {
+      commit('updateParam', { key: param, value: { value: state.params[param].default } })
     }
     // create a 'drawer' key in toolbar
-    for (var tool in state.toolbar) {
+    for (let tool in state.toolbar) {
       if (state.toolbar[tool].type === 'drawer' && !state.toolbar[tool].hasOwnProperty('drawer'))
         commit('updateToolbar', { key: tool, value: { drawer: false } })
     }
   },
+
+  // clear forms and console
   clear({ state, commit }) {
     commit('addHistory', state.console)
     commit('preprocess')

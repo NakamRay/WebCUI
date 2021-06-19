@@ -42,13 +42,7 @@ export default {
     ...mapGetters(['substitution']),
   },
   methods: {
-    ...mapMutations([
-      
-      'updateParamValue',
-      'initConsole',
-      'addLine',
-      'openDrawer',
-    ]),
+    ...mapMutations(['initConsole', 'addLine', 'openDrawer']),
     ...mapActions(['preprocess', 'clear']),
 
     // Change this according to the tools of toolbar.
@@ -79,7 +73,7 @@ export default {
       var vm = this
 
       axios
-        .post(this.appInfo.apiUrl, request)
+        .post(this.appInfo.baseUrl + this.appInfo.apiFileName, request)
         .then(function (response) {
           var result = response.data
 
