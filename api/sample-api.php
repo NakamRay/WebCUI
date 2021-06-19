@@ -50,7 +50,7 @@ if ($_POST['decoration'] == 'true') {
   }
 }
 
-echo '* Received Message<br>';
+echo '* Generated Message<br>';
 echo $deco_start . $prefix . $_POST['message'] . $suffix . $deco_end;
 
 ?>

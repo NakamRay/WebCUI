@@ -75,7 +75,7 @@ export default {
     ...mapState(["params"]),
     drawer: {
       get() {
-        return this.$store.state.features[this.key].drawer
+        return this.$store.state.toolbar[this.key].drawer
       },
       set(value) {
         if (value) {

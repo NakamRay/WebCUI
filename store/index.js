@@ -1,13 +1,13 @@
 import { messages } from '~/assets/configs.js'
 import { params } from '~/assets/params.js'
-import { features } from '~/assets/features.js'
+import { toolbar } from '~/assets/toolbar.js'
 import { variables } from '~/assets/variables.js'
 
 export const state = () => ({
+  documentDialog: false,
+  toolbar: toolbar,
   params: params,
   console: [],
-  documentDialog: false,
-  features: features,
   history: [],
   variables: variables
 })
@@ -18,19 +18,38 @@ export const mutations = {
     for (var param in state.params) {
       state.params[param] = { ...state.params[param], value: state.params[param].default }
     }
-    // create a 'drawer' key in features
-    for (var feature in state.features) {
-      if (state.features[feature].type === 'drawer' && !state.features[feature].hasOwnProperty('drawer'))
-      state.features[feature] = { ...state.features[feature], drawer: false }
+    // create a 'drawer' key in toolbar
+    for (var tool in state.toolbar) {
+      if (state.toolbar[tool].type === 'drawer' && !state.toolbar[tool].hasOwnProperty('drawer'))
+      state.toolbar[tool] = { ...state.toolbar[tool], drawer: false }
     }
   },
 
-  // for Params
+  // for dialogs
+  switchDocumentDialog(state) {
+    state.documentDialog = !state.documentDialog
+  },
+
+  // for toolbar
+  updateToolbar(state, payload) {
+    const key = payload.key
+    const value = payload.value
+
+    state.toolbar[key] = { ...state.toolbar[key], ...value }
+  },
+
+  // for params
+  // updateParam(state, payload) {
+  //   const key = payload.key
+  //   const value = payload.value
+
+  //   state.toolbar[key] = { ...state.toolbar[key], ...value }
+  // },
   updateParamValue(state, payload) {
     const key = payload.key
     const value = payload.value
 
-    state.params[key].value = value
+    state.params[key] = { ...state.params[key], value }
   },
 
   // for console
@@ -66,23 +85,31 @@ export const mutations = {
     }
   },
 
-  // for dialogs and drawers
-  switchDocumentDialog(state) {
-    state.documentDialog = !state.documentDialog
-  },
-  openDrawer(state, feature) {
-    state.features[feature].drawer = true
+  // for drawers
+  openDrawer(state, tool) {
+    state.toolbar[tool].drawer = true
   },
   closeDrawers(state) {
-    for (var feature in state.features) {
-      if (state.features[feature].type === 'drawer') {
-        state.features[feature].drawer = false
+    for (var tool in state.toolbar) {
+      if (state.toolbar[tool].type === 'drawer') {
+        state.toolbar[tool].drawer = false
       }
     }
   }
 }
 
 export const actions = {
+  preprocess({ state, commit }) {
+    // create a 'value' key in params
+    for (var param in state.params) {
+      commit('updateParamValue', { key: param, value: state.params[param].default })
+    }
+    // create a 'drawer' key in toolbar
+    for (var tool in state.toolbar) {
+      if (state.toolbar[tool].type === 'drawer' && !state.toolbar[tool].hasOwnProperty('drawer'))
+        commit('updateToolbar', { key: tool, value: { drawer: false } })
+    }
+  },
   clear({ state, commit }) {
     commit('addHistory', state.console)
     commit('preprocess')

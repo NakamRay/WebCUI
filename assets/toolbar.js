@@ -1,6 +1,6 @@
 // icons from https://materialdesignicons.com
 
-export const features = {
+export const toolbar = {
   clear: {
     icon: 'mdi-delete',
     type: 'execute'

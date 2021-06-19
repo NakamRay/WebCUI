@@ -97,7 +97,7 @@
           class="px-3"
         >
           <v-list-item-title>
-            {{ key }} = {{ variable }}
+            {{ `\$\{${key}\}` }} = {{ variable }}
           </v-list-item-title>
 
           <v-spacer></v-spacer>
@@ -148,7 +148,7 @@ export default {
     ...mapState(["variables"]),
     drawer: {
       get() {
-        return this.$store.state.features[this.key].drawer;
+        return this.$store.state.toolbar[this.key].drawer;
       },
       set(value) {
         if (value) {

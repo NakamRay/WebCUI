@@ -20,14 +20,14 @@
       </v-btn>
     </template>
     <v-btn
-      v-for="(feature, key) in features" :key="key"
+      v-for="(tool, key) in toolbar" :key="key"
       fab
       dark
       small
       color="indigo"
-      @click="$emit('feature-event', key)"
+      @click="$emit('toolbar-event', key)"
     >
-      <v-icon v-text="feature.icon"></v-icon>
+      <v-icon v-text="tool.icon"></v-icon>
     </v-btn>
   </v-speed-dial>
 </template>
@@ -39,6 +39,6 @@ export default {
   data: () => ({
     fab: false
   }),
-  computed: mapState(['features'])
+  computed: mapState(['toolbar'])
 }
 </script>
