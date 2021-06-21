@@ -91,7 +91,7 @@ export const mutations = {
 
 export const actions = {
   // set values of all params to default etc.
-  preprocess({ state, commit }) {
+  initState({ state, commit }) {
     // create a 'value' key in params
     for (let param in state.params) {
       commit('updateParam', { key: param, value: { value: state.params[param].default } })
@@ -101,17 +101,27 @@ export const actions = {
       if (state.toolbar[tool].type === 'drawer' && !state.toolbar[tool].hasOwnProperty('drawer'))
       commit('updateToolbar', { key: tool, value: { drawer: false } })
     }
+    commit('initConsole')
   },
 
   // clear forms and console
   clear({ state, commit, dispatch }) {
     commit('addHistory', state.console)
-    dispatch('preprocess')
-    commit('initConsole')
+    dispatch('initState')
   }
 }
 
 export const getters = {
+  isRequiredEmpty(state) {
+    for (let param in state.params) {
+      let obj = state.params[param]
+      if (obj.required && !obj.value) {
+        return false
+      }
+    }
+    return true
+  },
+
   // for Variables
   allVariables: (state) => (input) => {
     // allVariables('${x}${y}${z}') returns ['x', 'y', 'z']
@@ -140,8 +150,8 @@ export const getters = {
   request(state, getters) {
     let request = new URLSearchParams()
 
-    for (var param in state.params) {
-      var value = state.params[param].value
+    for (let param in state.params) {
+      let value = state.params[param].value
       if (state.params[param].type === 'text') {
         value = getters.substitution(value)
       }

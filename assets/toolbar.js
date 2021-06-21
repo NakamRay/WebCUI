@@ -27,6 +27,7 @@ export const toolbar = {
   },
   sendReq: {
     icon: 'mdi-play',
-    type: 'execute'
+    type: 'execute',
+    disabled: true // It will be disabled if even one of the required param is empty.
   }
 }

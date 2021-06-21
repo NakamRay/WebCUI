@@ -2,7 +2,6 @@ export const appInfo = {
   name: 'CUI to WUI Sample',
   baseUrl: 'http://localhost/',  // If you want to use multiple APIs,
   apiFileName: 'sample-api.php', // code them in '~/pages/index.vue'.
-  htmlConsole: true,             // HTML tag will be enabled in the console.
   swapLayouts: false             // swap forms and the console.
 }
 

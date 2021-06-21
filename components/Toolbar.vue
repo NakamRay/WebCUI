@@ -5,7 +5,7 @@
       class="px-0"
       style="flex-grow: unset;"
     >
-      <v-btn icon @click="$emit('toolbar-event', key)">
+      <v-btn icon @click="$emit('toolbar-event', key)" :disabled="tool.disabled && !isRequiredEmpty">
         <v-icon v-text="tool.icon"></v-icon>
       </v-btn>
     </v-col>
@@ -13,12 +13,15 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   data: () => ({
     fab: false
   }),
-  computed: mapState(['toolbar'])
+  computed: {
+    ...mapState(['toolbar']),
+    ...mapGetters(['isRequiredEmpty'])
+  }
 }
 </script>

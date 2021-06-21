@@ -11,9 +11,7 @@
     <template v-slot:prepend>
       <v-toolbar height="50px">
         <v-toolbar-title>History</v-toolbar-title>
-        
         <v-spacer></v-spacer>
-
         <v-btn icon @click.stop="closeDrawers()">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -32,8 +30,8 @@
           style="min-height: 25px"
         >
           <v-list-item-title>
-            <span class="drawer-text text-wrap" v-if="appInfo.htmlConsole" v-html="text.text"></span>
-            <span class="drawer-text text-wrap" v-else v-text="text.text"></span>
+            <span class="drawer-text text-wrap" v-if="text.text" v-text="text.text"></span>
+            <span class="drawer-text text-wrap" v-if="text.html" v-html="text.html"></span>
           </v-list-item-title>
         </v-list-item>
       </div>

@@ -11,9 +11,7 @@
     <template v-slot:prepend>
       <v-toolbar height="50px">
         <v-toolbar-title>Examples</v-toolbar-title>
-        
         <v-spacer></v-spacer>
-
         <v-btn icon @click.stop="closeDrawers()">
           <v-icon>mdi-close</v-icon>
         </v-btn>

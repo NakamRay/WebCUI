@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     ...mapMutations(['initConsole', 'addLine', 'openDrawer']),
-    ...mapActions(['preprocess', 'clear']),
+    ...mapActions(['initState', 'clear']),
 
     // Change this according to the tools of toolbar.
     toolbarEvent(key) {
@@ -65,8 +65,11 @@ export default {
 
           // Please use 'vue' instead of 'this' in this block.
           vue.addLine([
-            { text: '<br>' },
-            { text: result }
+            { text: '' },
+            { text: '* Generated HTML' },
+            { text: result },
+            { text: '* After decoration' },
+            { html: result }
           ])
         })
         .catch(function (err) {
@@ -77,8 +80,7 @@ export default {
   },
   mounted() {
     // Preprocessing
-    this.preprocess()
-    this.initConsole()
+    this.initState()
 
     // Assigning hotkeys
     document.addEventListener('keydown', (event) => {

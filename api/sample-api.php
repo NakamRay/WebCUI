@@ -9,48 +9,18 @@ header("Content-Type: text/plain; charset=UTF-8");
 putenv("LANG=C.UTF-8");
 // putenv("LANG=ja_JP.UTF-8");
 
-$prefix = '';
-$suffix = '';
-$deco_start = '';
-$deco_end   = '';
+define('app', './app/genHTMLtext');
+define('message', ' "' . $_POST['message'] . '"');
+define('prefix', ' "' . $_POST['prefix'] . '"');
+define('suffix', ' "' . $_POST['suffix'] . '"');
+define('enable', ' "' . $_POST['enable'] . '"');
+define('decoration', ' "' . $_POST['decoration'] . '"');
+define('color', ' "' . $_POST['color'] . '"');
+define('bold', ' "' . $_POST['bold'] . '"');
+define('underline', ' "' . $_POST['underline'] . '"');
 
-switch ($_POST['enable']) {
-  case 'ps':
-  $prefix = $_POST['prefix'];
-  $suffix = $_POST['suffix'];
-  break;
-  case 'p':
-  $prefix = $_POST['prefix'];
-  break;
-  case 's':
-  $suffix = $_POST['suffix'];
-  break;
-}
+exec(app . message . prefix . suffix . enable . decoration . color . bold . underline, $opt);
 
-if ($_POST['decoration'] == 'true') {
-  if ($_POST['color'] == 'red') {
-    $deco_start = '<font class="red--text">' . $deco_start;
-    $deco_end   = $deco_end . '</font>';
-  }
-  if ($_POST['color'] == 'green') {
-    $deco_start = '<font class="green--text">' . $deco_start;
-    $deco_end   = $deco_end . '</font>';
-  }
-  if ($_POST['color'] == 'blue') {
-    $deco_start = '<font class="blue--text">' . $deco_start;
-    $deco_end   = $deco_end . '</font>';
-  }
-  if ($_POST['bold'] == 'true') {
-    $deco_start = '<b>' . $deco_start;
-    $deco_end   = $deco_end . '</b>';
-  }
-  if ($_POST['underline'] == 'true') {
-    $deco_start = '<u>' . $deco_start;
-    $deco_end   = $deco_end . '</u>';
-  }
-}
-
-echo '* Generated Message<br>';
-echo $deco_start . $prefix . $_POST['message'] . $suffix . $deco_end;
+echo $opt[0];
 
 ?>

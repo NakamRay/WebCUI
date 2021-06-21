@@ -6,7 +6,8 @@ export const params = {
     type: 'text',
     default: '',
     size: 'whole', // can be omitted.
-    visible: true
+    visible: true,
+    required: true // It will be required param. This is only for 'text' type.
   },
   prefix: {
     display: 'Prefix',
@@ -98,5 +99,5 @@ export const params = {
     default: false,
     size: 'quarter',
     visible: true
-  },
+  }
 }
