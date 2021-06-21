@@ -83,14 +83,14 @@ export default {
         } else {
           this.closeDrawers()
         }
-      },
-    },
+      }
+    }
   },
   methods: {
     ...mapMutations(["updateParam", "openDrawer", "closeDrawers"]),
     setExamples(anexample) {
       Object.keys(anexample).forEach(key => {
-        this.updateParam({ key: key, value: { value: anexample[key] } });
+        this.updateParam({ key: key, value: { value: anexample[key] } })
       })
     }
   }

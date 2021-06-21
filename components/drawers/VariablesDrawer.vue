@@ -71,9 +71,7 @@
     <template v-slot:prepend>
       <v-toolbar height="50px">
         <v-toolbar-title>Variables</v-toolbar-title>
-        
         <v-spacer></v-spacer>
-
         <v-btn icon @click.stop="
           varName = '';
           varValue = '';
@@ -156,9 +154,9 @@ export default {
         } else {
           this.closeDrawers();
         }
-      },
-    },
+      }
+    }
   },
-  methods: mapMutations(["openDrawer", "closeDrawers", "updateVariables", "deleteVariables"]),
-};
+  methods: mapMutations(["openDrawer", "closeDrawers", "updateVariables", "deleteVariables"])
+}
 </script>

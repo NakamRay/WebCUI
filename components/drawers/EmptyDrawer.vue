@@ -45,9 +45,9 @@ export default {
         } else {
           this.closeDrawers()
         }
-      },
-    },
+      }
+    }
   },
-  methods: mapMutations(["openDrawer", "closeDrawers"]),
+  methods: mapMutations(["openDrawer", "closeDrawers"])
 }
 </script>

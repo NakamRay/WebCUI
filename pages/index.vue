@@ -56,14 +56,14 @@ export default {
       }
     },
     sendReq() {
-      var vue = this
+      let vue = this
 
       axios
         .post(this.appInfo.baseUrl + this.appInfo.apiFileName, this.request)
         .then(function (response) {
-          var result = response.data
-
           // Please use 'vue' instead of 'this' in this block.
+
+          let result = response.data
           vue.addLine([
             { text: '' },
             { text: '* Generated HTML' },

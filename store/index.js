@@ -151,11 +151,15 @@ export const getters = {
     let request = new URLSearchParams()
 
     for (let param in state.params) {
-      let value = state.params[param].value
-      if (state.params[param].type === 'text') {
+      let obj = state.params[param]
+
+      if (obj.hasOwnProperty('send') && !obj.send) continue
+
+      let value = obj.value
+      if (obj.type === 'text') {
         value = getters.substitution(value)
       }
-      if (state.params[param].type === 'select') {
+      if (obj.type === 'select') {
         value = value.name
       }
       request.append(param, value)

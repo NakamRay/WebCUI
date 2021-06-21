@@ -12,6 +12,9 @@
       <v-toolbar height="50px">
         <v-toolbar-title>History</v-toolbar-title>
         <v-spacer></v-spacer>
+        <v-btn icon @click.stop="clearHistory()">
+          <v-icon>mdi-delete</v-icon>
+        </v-btn>
         <v-btn icon @click.stop="closeDrawers()">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -62,9 +65,9 @@ export default {
         } else {
           this.closeDrawers()
         }
-      },
-    },
+      }
+    }
   },
-  methods: mapMutations(["openDrawer", "closeDrawers"]),
+  methods: mapMutations(["clearHistory", "openDrawer", "closeDrawers"])
 }
 </script>
