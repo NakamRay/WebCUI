@@ -1,4 +1,5 @@
-// The type can be set to 'text', 'select' or 'switch'.
+// The 'type' can be set to 'text', 'select' or 'switch'.
+// The 'size' can be set to 'whole', 'half' or 'quarter'.
 export const params = {
   message: {
     display: 'Message',

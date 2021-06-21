@@ -1,5 +1,10 @@
-// icons from https://materialdesignicons.com
+import HistoryDrawer from '@/components/drawers/HistoryDrawer.vue'
+import ExamplesDrawer from '@/components/drawers/ExamplesDrawer.vue'
+import VariablesDrawer from '@/components/drawers/VariablesDrawer.vue'
 
+// The 'type' can be set to 'execute' or 'drawer'.
+// If you use a drawer, please import component of it and set the 'component' key.
+// Icons are from https://materialdesignicons.com
 export const toolbar = {
   clear: {
     icon: 'mdi-delete',
@@ -7,15 +12,18 @@ export const toolbar = {
   },
   history: {
     icon: 'mdi-history',
-    type: 'drawer'
+    type: 'drawer',
+    component: HistoryDrawer
   },
   examples: {
     icon: 'mdi-alpha-e-box',
-    type: 'drawer'
+    type: 'drawer',
+    component: ExamplesDrawer
   },
   variables: {
     icon: 'mdi-order-alphabetical-ascending',
-    type: 'drawer'
+    type: 'drawer',
+    component: VariablesDrawer
   },
   sendReq: {
     icon: 'mdi-play',

@@ -32,7 +32,8 @@
           style="min-height: 25px"
         >
           <v-list-item-title>
-            <span class="drawer-text" v-html="text.text"></span>
+            <span class="drawer-text text-wrap" v-if="appInfo.htmlConsole" v-html="text.text"></span>
+            <span class="drawer-text text-wrap" v-else v-text="text.text"></span>
           </v-list-item-title>
         </v-list-item>
       </div>
@@ -44,9 +45,12 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 
+import { appInfo } from '~/assets/configs.js'
+
 export default {
   data: () => ({
     key: "history",
+    appInfo
   }),
   computed: {
     ...mapState(["history"]),

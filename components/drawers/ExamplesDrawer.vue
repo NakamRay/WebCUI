@@ -71,7 +71,7 @@ import { examples } from "~/assets/examples.js"
 export default {
   data: () => ({
     key: "examples",
-    examples,
+    examples
   }),
   computed: {
     ...mapState(["params"]),

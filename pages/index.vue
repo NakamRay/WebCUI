@@ -1,9 +1,9 @@
 <template>
   <v-container :fluid="!$vuetify.breakpoint.xl">
     <!-- Drawers -->
-    <HistoryDrawer />
-    <ExamplesDrawer />
-    <VariablesDrawer />
+    <div v-for="(tool, key) in toolbar" :key="key">
+      <component v-if="tool.type === 'drawer'" :is="tool.component" />
+    </div>
 
     <!-- Floating Action Button -->
     <Fab @toolbar-event="toolbarEvent" />
@@ -39,7 +39,7 @@ export default {
   }),
   computed: {
     ...mapState(['params', 'console', 'toolbar', 'variables']),
-    ...mapGetters(['substitution']),
+    ...mapGetters(['substitution', 'request']),
   },
   methods: {
     ...mapMutations(['initConsole', 'addLine', 'openDrawer']),
@@ -56,48 +56,37 @@ export default {
       }
     },
     sendReq() {
-      let request = new URLSearchParams()
-
-      for (var param in this.params) {
-        var value = this.params[param].value
-        if (this.params[param].type === 'text') {
-          value = this.substitution(value)
-        }
-        if (this.params[param].type === 'select') {
-          value = value.name
-        }
-        request.append(param, value)
-        console.log(param + ': ' + value)
-      }
-
-      var vm = this
+      var vue = this
 
       axios
-        .post(this.appInfo.baseUrl + this.appInfo.apiFileName, request)
+        .post(this.appInfo.baseUrl + this.appInfo.apiFileName, this.request)
         .then(function (response) {
           var result = response.data
 
-          vm.addLine([
+          // Please use 'vue' instead of 'this' in this block.
+          vue.addLine([
             { text: '<br>' },
-            { text: result },
+            { text: result }
           ])
         })
         .catch(function (err) {
-          vm.addLine({ text: vm.messages.connectionErrorMessage })
+          vue.addLine({ text: vue.messages.connectionErrorMessage })
           console.error(err)
         })
     }
   },
   mounted() {
+    // Preprocessing
     this.preprocess()
     this.initConsole()
 
+    // Assigning hotkeys
     document.addEventListener('keydown', (event) => {
       if (event.ctrlKey && event.key === 'Enter') {
         this.sendReq()
       }
     })
-  },
+  }
 }
 </script>
 

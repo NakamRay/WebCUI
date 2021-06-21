@@ -42,7 +42,7 @@ export const mutations = {
     state.console = []
   },
   initConsole(state) {
-    state.console = [{ text: messages.initialMessage }]
+    state.console = messages.initialMessage ? [...messages.initialMessage] : []
   },
   addLine(state, line) {
     line = [line].flat()
@@ -99,14 +99,14 @@ export const actions = {
     // create a 'drawer' key in toolbar
     for (let tool in state.toolbar) {
       if (state.toolbar[tool].type === 'drawer' && !state.toolbar[tool].hasOwnProperty('drawer'))
-        commit('updateToolbar', { key: tool, value: { drawer: false } })
+      commit('updateToolbar', { key: tool, value: { drawer: false } })
     }
   },
 
   // clear forms and console
-  clear({ state, commit }) {
+  clear({ state, commit, dispatch }) {
     commit('addHistory', state.console)
-    commit('preprocess')
+    dispatch('preprocess')
     commit('initConsole')
   }
 }
@@ -135,5 +135,23 @@ export const getters = {
     }
 
     return input
+  },
+
+  request(state, getters) {
+    let request = new URLSearchParams()
+
+    for (var param in state.params) {
+      var value = state.params[param].value
+      if (state.params[param].type === 'text') {
+        value = getters.substitution(value)
+      }
+      if (state.params[param].type === 'select') {
+        value = value.name
+      }
+      request.append(param, value)
+      console.log(param + ': ' + value)
+    }
+
+    return request
   }
 }

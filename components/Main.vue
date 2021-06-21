@@ -77,8 +77,8 @@
             :key="index"
           >
             <v-list-item-title>
-              <span class="drawer-text" v-if="appInfo.htmlConsole" v-html="output.text"></span>
-              <span class="drawer-text" v-else v-text="output.text"></span>
+              <span class="drawer-text text-wrap" v-if="appInfo.htmlConsole" v-html="output.text"></span>
+              <span class="drawer-text text-wrap" v-else v-text="output.text"></span>
             </v-list-item-title>
           </v-list-item>
         </v-list>
