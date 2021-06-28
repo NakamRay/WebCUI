@@ -39,7 +39,7 @@ export default {
   }),
   computed: {
     ...mapState(['params', 'console', 'toolbar', 'variables']),
-    ...mapGetters(['substitution', 'request']),
+    ...mapGetters(['emptyRepuiredParamExists', 'substitution', 'request']),
   },
   methods: {
     ...mapMutations(['initConsole', 'addLine', 'openDrawer']),
@@ -84,7 +84,7 @@ export default {
 
     // Assigning hotkeys
     document.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.key === 'Enter') {
+      if (event.ctrlKey && event.key === 'Enter' && this.emptyRepuiredParamExists) {
         this.sendReq()
       }
     })

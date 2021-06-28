@@ -112,7 +112,7 @@ export const actions = {
 }
 
 export const getters = {
-  isRequiredEmpty(state) {
+  emptyRepuiredParamExists(state) {
     for (let param in state.params) {
       let obj = state.params[param]
       if (obj.required && !obj.value) {
