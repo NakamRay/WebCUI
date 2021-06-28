@@ -6,21 +6,21 @@
     >
       <div class="d-flex align-center">
         <v-img
-          v-if="logo.icon"
+          v-if="appInfo.logo.icon"
           alt="Logo Icon"
           class="shrink mx-2"
           contain
-          :src="logo.icon"
+          :src="appInfo.logo.icon"
           transition="scale-transition"
           width="30"
         />
 
         <v-img
-          v-if="logo.text"
+          v-if="appInfo.logo.text"
           alt="Logo Text"
           class="shrink hidden-sm-and-down"
           contain
-          :src="logo.text"
+          :src="appInfo.logo.text"
           height="40"
           width="200"
         />
@@ -49,15 +49,14 @@
 
 <script>
 import Document from '~/components/Document.vue'
-import { appInfo, logo } from '~/assets/configs.js'
+import { appInfo } from '~/assets/configs.js'
 
 export default {
   components: {
     Document
   },
   data: () => ({
-    appInfo,
-    logo
+    appInfo
   })
 }
 </script>

@@ -92,4 +92,4 @@ export default {
 }
 </script>
 
-<style src='~/assets/styles.css'/>
+<style src='~/static/styles.css'/>

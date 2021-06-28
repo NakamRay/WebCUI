@@ -7,7 +7,7 @@ export const params = {
     default: '',
     size: 'whole', // can be omitted.
     visible: true,
-    required: true // It will be required param. This is only for 'text' type.
+    required: true // This param will be a required param. 'required' can be set when 'type' is 'text'.
   },
   prefix: {
     display: 'Prefix',
