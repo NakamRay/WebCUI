@@ -26,7 +26,7 @@
       small
       color="indigo"
       @click="$emit('toolbar-event', key)"
-      :disabled="tool.disabled && !emptyRepuiredParamExists"
+      :disabled="tool.disabled && emptyRepuiredParamExists"
     >
       <v-icon v-text="tool.icon"></v-icon>
     </v-btn>

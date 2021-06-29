@@ -120,10 +120,10 @@ export const getters = {
     for (let param in state.params) {
       let obj = state.params[param]
       if (obj.required && !obj.value) {
-        return false
+        return true
       }
     }
-    return true
+    return false
   },
 
   // for Variables

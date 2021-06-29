@@ -5,7 +5,7 @@
       class="px-0"
       style="flex-grow: unset;"
     >
-      <v-btn icon @click="$emit('toolbar-event', key)" :disabled="tool.disabled && !emptyRepuiredParamExists">
+      <v-btn icon @click="$emit('toolbar-event', key)" :disabled="tool.disabled && emptyRepuiredParamExists">
         <v-icon v-text="tool.icon"></v-icon>
       </v-btn>
     </v-col>

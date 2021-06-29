@@ -84,7 +84,7 @@ export default {
 
     // Assigning hotkeys
     document.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.key === 'Enter' && this.emptyRepuiredParamExists) {
+      if (event.ctrlKey && event.key === 'Enter' && !this.emptyRepuiredParamExists) {
         this.sendReq()
       }
     })
