@@ -24,7 +24,6 @@ if __name__ == "__main__":
     elif enable == "s":
       suffix = suf
     
-
     if isDeco == "true":
       if color == "red":
         deco_start = "<font class=\"red--text\">" + deco_start

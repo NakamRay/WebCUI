@@ -42,7 +42,7 @@ export const mutations = {
     state.console = []
   },
   initConsole(state) {
-    state.console = messages.initialMessage ? [...messages.initialMessage] : []
+    state.console = messages.initialMsg ? [...messages.initialMsg] : []
   },
   addLine(state, line) {
     line = [line].flat()
@@ -108,6 +108,10 @@ export const actions = {
   clear({ state, commit, dispatch }) {
     commit('addHistory', state.console)
     dispatch('initState')
+  },
+
+  displayConnectionErrorMsg({ commit }) {
+    commit('addLine', messages.connectionErrorMsg)
   }
 }
 

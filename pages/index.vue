@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     ...mapMutations(['initConsole', 'addLine', 'openDrawer']),
-    ...mapActions(['initState', 'clear']),
+    ...mapActions(['initState', 'clear', 'displayConnectionErrorMsg']),
 
     // Change this according to the tools of toolbar.
     toolbarEvent(key) {
@@ -73,7 +73,7 @@ export default {
           ])
         })
         .catch(function (err) {
-          vue.addLine({ text: vue.messages.connectionErrorMessage })
+          vue.displayConnectionErrorMsg()
           console.error(err)
         })
     }

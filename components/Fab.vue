@@ -26,6 +26,7 @@
       small
       color="indigo"
       @click="$emit('toolbar-event', key)"
+      :disabled="tool.disabled && !emptyRepuiredParamExists"
     >
       <v-icon v-text="tool.icon"></v-icon>
     </v-btn>
@@ -33,12 +34,15 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   data: () => ({
     fab: false
   }),
-  computed: mapState(['toolbar'])
+  computed: {
+    ...mapState(['toolbar']),
+    ...mapGetters(['emptyRepuiredParamExists']),
+  }
 }
 </script>

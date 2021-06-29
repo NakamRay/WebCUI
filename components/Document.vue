@@ -11,59 +11,22 @@
         </v-btn>
       </v-toolbar>
       
-      <v-tabs :vertical="$vuetify.breakpoint.smAndUp" color="dark">
-        <v-tab>
-          What's this?
+      <v-tabs
+        :vertical="$vuetify.breakpoint.smAndUp"
+        color="dark"
+      >
+        <v-tab v-for="(document, index) in documents" :key="index">
+          {{ document.title }}
         </v-tab>
-        <v-tab>
-          Toolbar
-        </v-tab>
 
-        <v-tab-item>
-          <v-card flat style="overflow-y: auto;" :height='windowHeight'>
-
-            <v-card-title>What's this?</v-card-title>
-            <v-card-text>
-              <p>
-                This is a sample program of "CUI to WUI". It is a framework for implementing the web user interface of your CUI application.
-              </p>
-            </v-card-text>
-            
-          </v-card>
-        </v-tab-item>
-        <v-tab-item>
-          <v-card flat style="overflow-y: auto;" :height='windowHeight'>
-
-            <v-card-title>Toolbar</v-card-title>
-            <v-card-text>
-              <p>
-                画面右にあるToolbar（縦長の画面では右下の青いボタンを押すと表示される）は，各アイコンをクリックすると以下の処理を実行します．
-              </p>
-              <div class="py-2"></div>
-              <div class="mb-2"><v-icon class="mr-3">mdi-delete</v-icon><b>コンソールのクリア</b></div>
-              <p>
-                コンソールの内容を消去します．
-                消去された内容はコンソール履歴に蓄積されます．
-              </p>
-              <div class="mb-2"><v-icon class="mr-3">mdi-history</v-icon><b>コンソール履歴の表示</b></div>
-              <p>
-                クリアされたコンソールの内容が蓄積された履歴を表示します．
-              </p>
-              <div class="mb-2"><v-icon class="mr-3">mdi-alpha-e-box</v-icon><b>例の表示</b></div>
-              <p>
-                パラメータの入力例を一覧します．クリックすることでそのパラメータがセットされます．
-              </p>
-              <div class="mb-2"><v-icon class="mr-3">mdi-order-alphabetical-ascending</v-icon><b>変数の管理</b></div>
-              <p>
-                変数の定義・確認・更新・削除ができます．ここで定義された変数は，パラメータの入力フォーム内で使うことが出来ます．
-                例えば<code>h = Hello</code>と変数が定義されている場合，入力フォームに<code>${h} World!</code>と入力すると，パラメータとして<code>Hello World!</code>が送信されます．
-              </p>
-              <div class="mb-2"><v-icon class="mr-3">mdi-play</v-icon><b>APIリクエストの送信</b></div>
-              <p>
-                セットされているパラメータが指定されたWebAPIに送信されます．
-              </p>
-            </v-card-text>
-
+        <v-tab-item v-for="(document, index) in documents" :key="index">
+          <v-card
+            class="pa-5"
+            style="overflow-y: auto;"
+            :height='windowHeight'
+            flat
+          >
+          <component :is="document.body" />
           </v-card>
         </v-tab-item>
       </v-tabs>
@@ -74,9 +37,12 @@
 <script>
 import { mapState } from 'vuex';
 
+import { documents } from '~/assets/documents.js'
+
 export default {
   data: () => ({
-    windowHeight: 0
+    windowHeight: 0,
+    documents
   }),
   computed: {
     ...mapState(['documentDialog']),
