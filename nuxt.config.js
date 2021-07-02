@@ -3,10 +3,6 @@ import colors from 'vuetify/es5/util/colors'
 import { config } from './assets/config.js'
 
 export default {
-  server: {
-    host: ''
-  },
-  
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
@@ -28,6 +24,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/static/styles.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
