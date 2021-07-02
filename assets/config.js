@@ -15,7 +15,7 @@ export const config = {
   baseUrl: `http://localhost/`,  // If you want to use multiple APIs,
   apiFileName: `sample-api.php`, // code them in '~/pages/index.vue'.
 
-  messages = {
+  messages: {
     initialMsg: [{ text: `Please refer to the DOCUMENT on the upper right of this page for the instructions.` }],
     connectionErrorMsg: [{ text: `An error occurred while communicating with the server.` }]
   },

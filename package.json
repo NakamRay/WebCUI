@@ -1,6 +1,6 @@
 {
-  "name": "ctw",
-  "version": "0.0.1",
+  "name": "wfc",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
