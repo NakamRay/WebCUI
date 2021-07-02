@@ -1,4 +1,4 @@
-import { messages } from '~/assets/configs.js'
+import { config } from '~/assets/config.js'
 import { params } from '~/assets/params.js'
 import { toolbar } from '~/assets/toolbar.js'
 import { variables } from '~/assets/variables.js'
@@ -42,7 +42,7 @@ export const mutations = {
     state.console = []
   },
   initConsole(state) {
-    state.console = messages.initialMsg ? [...messages.initialMsg] : []
+    state.console = config.messages.initialMsg ? [...config.messages.initialMsg] : []
   },
   addLine(state, line) {
     line = [line].flat()
@@ -111,7 +111,7 @@ export const actions = {
   },
 
   displayConnectionErrorMsg({ commit }) {
-    commit('addLine', messages.connectionErrorMsg)
+    commit('addLine', config.messages.connectionErrorMsg)
   }
 }
 

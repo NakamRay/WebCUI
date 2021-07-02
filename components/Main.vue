@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div :class="{ 'd-flex flex-column-reverse' : appInfo.swapLayouts }">
+    <div :class="{ 'd-flex flex-column-reverse' : config.swapLayouts }">
       <v-card
         ref="forms"
         class="dark-card-borders"
-        :class="appInfo.swapLayouts ? 'mt-3' : 'mb-3'"
+        :class="config.swapLayouts ? 'mt-3' : 'mb-3'"
       >
         <v-list-item class="px-2 py-2">
           <v-list-item-content>
@@ -91,11 +91,11 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 
-import { appInfo } from '~/assets/configs.js'
+import { config } from '~/assets/config.js'
 
 export default {
   data: () => ({
-    appInfo,
+    config,
     formsHeight: 0,
     consoleHeight: 0,
   }),

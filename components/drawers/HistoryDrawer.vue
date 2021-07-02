@@ -46,12 +46,9 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 
-import { appInfo } from '~/assets/configs.js'
-
 export default {
   data: () => ({
-    key: "history",
-    appInfo
+    key: "history"
   }),
   computed: {
     ...mapState(["history"]),

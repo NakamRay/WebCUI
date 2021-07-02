@@ -26,15 +26,11 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 
-import { appInfo } from '~/assets/configs.js'
-
 export default {
   data: () => ({
-    key: "history",
-    appInfo
+    key: "empty"
   }),
   computed: {
-    ...mapState(["history"]),
     drawer: {
       get() {
         return this.$store.state.toolbar[this.key].drawer

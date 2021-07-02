@@ -26,16 +26,11 @@
 import axios from 'axios'
 import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
-import { appInfo, messages } from '~/assets/configs.js'
+import { config } from '~/assets/config.js'
 
 export default {
   data: () => ({
-    appInfo,
-    messages,
-
-    // for layouts
-    formsHeight: 0,
-    consoleHeight: 0,
+    config
   }),
   computed: {
     ...mapState(['params', 'console', 'toolbar', 'variables']),
@@ -59,7 +54,7 @@ export default {
       let vue = this
 
       axios
-        .post(this.appInfo.baseUrl + this.appInfo.apiFileName, this.request)
+        .post(this.config.baseUrl + this.config.apiFileName, this.request)
         .then(function (response) {
           // Please use 'vue' instead of 'this' in this block.
 

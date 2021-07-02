@@ -6,25 +6,25 @@
     >
       <div class="d-flex align-center">
         <v-img
-          v-if="appInfo.logo.icon"
+          v-if="config.logo.icon"
           alt="Logo Icon"
           class="shrink mx-2"
           contain
-          :src="appInfo.logo.icon"
+          :src="config.logo.icon"
           transition="scale-transition"
           width="30"
         />
 
         <v-img
-          v-if="appInfo.logo.text"
+          v-if="config.logo.text"
           alt="Logo Text"
           class="shrink hidden-sm-and-down"
           contain
-          :src="appInfo.logo.text"
+          :src="config.logo.text"
           height="40"
           width="200"
         />
-        <span v-else>{{ appInfo.name }}</span>
+        <span v-else>{{ config.name }}</span>
       </div>
 
       <v-spacer></v-spacer>
@@ -49,14 +49,14 @@
 
 <script>
 import Document from '~/components/Document.vue'
-import { appInfo } from '~/assets/configs.js'
+import { config } from '~/assets/config.js'
 
 export default {
   components: {
     Document
   },
   data: () => ({
-    appInfo
+    config
   })
 }
 </script>

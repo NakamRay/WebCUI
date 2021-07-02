@@ -1,4 +1,4 @@
-export const appInfo = {
+export const config = {
   name: `WUI for CUI Sample`, // Your application's name
   /*
     If you want to use logo images of your application, set it to 'logo'.
@@ -11,13 +11,14 @@ export const appInfo = {
     icon: `logo_icon.png`,      // Filename in ~/static/
     // text: `logo_text.png`,   // This is needed if you want to use a text logo.
   },
+
   baseUrl: `http://localhost/`,  // If you want to use multiple APIs,
   apiFileName: `sample-api.php`, // code them in '~/pages/index.vue'.
-  swapLayouts: false             // Swap forms and the console.
-}
 
-// 'initialMsg' is initially displayed on the console.
-export const messages = {
-  initialMsg: [{ text: `Please refer to the DOCUMENT on the upper right of this page for the instructions.` }],
-  connectionErrorMsg: [{ text: `An error occurred while communicating with the server.` }]
+  messages = {
+    initialMsg: [{ text: `Please refer to the DOCUMENT on the upper right of this page for the instructions.` }],
+    connectionErrorMsg: [{ text: `An error occurred while communicating with the server.` }]
+  },
+
+  swapLayouts: false             // Swap forms and the console.
 }
