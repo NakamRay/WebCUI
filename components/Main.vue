@@ -32,7 +32,8 @@
                     param.size === 'half' ?
                       6 :
                     param.size === 'quarter' ?
-                      3 : 12
+                      3 : !isNaN(parseInt(param.size)) ?
+                      parseInt(param.size) : 12
                   "
                   cols="12"
                   class="py-1"
