@@ -68,6 +68,16 @@
                     return-object
                     hide-details
                   ></v-select>
+                  <v-autocomplete
+                    v-if="param.visible && param.type === 'autocomplete'"
+                    :label="param.display"
+                    :value="param.value"
+                    :items="param.items"
+                    item-text="display"
+                    item-value="name"
+                    @change="(value) => updateParam({ key: key, value: { value: value } })"
+                    hide-details
+                  ></v-autocomplete>
                   <v-switch
                     v-if="param.visible && param.type === 'switch'"
                     :label="param.display"
