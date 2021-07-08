@@ -17,8 +17,9 @@ export const config = {
 
   messages: {
     initialMsg: [{ text: `Please refer to the DOCUMENT on the upper right of this page for the instructions.` }],
-    connectionErrorMsg: [{ text: `An error occurred while communicating with the server.` }]
+    connectionErrorMsg: [{ text: `An error occurred while communicating with the server.` }],
+    readErrorMsg: [{ text: `An error occured while reading the file.` }]
   },
 
-  swapLayouts: false             // Swap forms and the console.
+  consoleLocation: 'bottom'      // Placing the console.
 }

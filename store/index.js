@@ -112,6 +112,10 @@ export const actions = {
 
   displayConnectionErrorMsg({ commit }) {
     commit('addLine', config.messages.connectionErrorMsg)
+  },
+
+  displayReadErrorMsg({ commit }) {
+    commit('addLine', config.messages.readErrorMsg)
   }
 }
 

@@ -1,4 +1,24 @@
-// The 'type' can be set to 'text', 'select' or 'switch'.
+// The 'type' can be set to 'text', 'select', 'switch', 'file', 'textarea'.
+/* 
+If you want to show the contents of the file, please set a 'target' key in the 'file' type object.
+For example,
+  file: {
+    display: 'File',
+    type: 'file',
+    target: 'fileBody',
+    default: [],
+    size: 'whole',
+    visible: true
+  },
+  fileBody: {
+    display: 'File body',
+    type: 'textarea',
+    rows: 5,
+    default: '',
+    size: 'whole',
+    visible: true
+  }
+*/
 // The 'size' can be set to 'whole', 'half' or 'quarter'.
 export const params = {
   message: {

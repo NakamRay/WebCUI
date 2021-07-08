@@ -41,7 +41,7 @@
       <Document />
     </v-app-bar>
 
-    <div style="height: 10px;" />
+    <div style="height: 20px;" />
 
     <nuxt />
   </v-app>
