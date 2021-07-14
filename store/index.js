@@ -54,7 +54,14 @@ export const mutations = {
     state.history = []
   },
   addHistory(state, history) {
-    state.history.push(history)
+    var date = new Date()
+    var dateStr = date.getFullYear()
+      + '/' + ('0' + (date.getMonth() + 1)).slice(-2)
+      + '/' + ('0' + date.getDate()).slice(-2)
+      + ' ' + ('0' + date.getHours()).slice(-2)
+      + ':' + ('0' + date.getMinutes()).slice(-2)
+      + ':' + ('0' + date.getSeconds()).slice(-2)
+    state.history.push({ history: history, date: dateStr })
   },
 
   // for variables
@@ -108,6 +115,14 @@ export const actions = {
   clear({ state, commit, dispatch }) {
     commit('addHistory', state.console)
     dispatch('initState')
+  },
+
+  saveHistory({ state }, history) {
+    let blob = new Blob(history.history.map(obj => obj.text ? obj.text + '\n' : obj.html + '\n'), { type: "text/plan" })
+    let link = document.createElement('a')
+    link.href = URL.createObjectURL(blob)
+    link.download = history.date.replaceAll('/', '-').replaceAll(':', '-').replace(' ', '_') + '.txt'
+    link.click()
   },
 
   displayConnectionErrorMsg({ commit }) {

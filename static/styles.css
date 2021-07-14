@@ -1,5 +1,5 @@
 .drawer-text {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 .dark-drawer {
   background-color: #1e1e1e !important;

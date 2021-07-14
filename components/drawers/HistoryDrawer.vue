@@ -22,29 +22,34 @@
     </template>
 
     <v-list
-      v-for="(ahistory, index) in history"
+      v-for="(data, index) in history"
       :key="index"
-      class="py-0"
+      class="pt-3 pb-0"
     >
-      <div class="py-3">
         <v-list-item
-          v-for="(text, index) in ahistory"
+          v-for="(text, index) in data.history"
           :key="index"
-          style="min-height: 25px"
         >
-          <v-list-item-title>
-            <span class="drawer-text text-wrap" v-if="text.text" v-text="text.text"></span>
-            <span class="drawer-text text-wrap" v-if="text.html" v-html="text.html"></span>
-          </v-list-item-title>
+          <v-list-item-content class="py-0">
+            <v-list-item-title class="drawer-text text-wrap" v-if="text.text" v-text="text.text"></v-list-item-title>
+            <v-list-item-title class="drawer-text text-wrap" v-if="text.html" v-html="text.html"></v-list-item-title>
+          </v-list-item-content>
         </v-list-item>
-      </div>
+        <v-list-item>
+          <v-list-item-subtitle v-text="'Cleared at ' + data.date"></v-list-item-subtitle>
+          <v-list-item-action class="my-0">
+            <v-btn icon @click.stop="saveHistory(data)">
+              <v-icon small color="grey lighten-1">mdi-content-save</v-icon>
+            </v-btn>
+          </v-list-item-action>
+        </v-list-item>
       <v-divider></v-divider>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   data: () => ({
@@ -65,6 +70,15 @@ export default {
       }
     }
   },
-  methods: mapMutations(["clearHistory", "openDrawer", "closeDrawers"])
+  methods: {
+    ...mapMutations(["clearHistory", "openDrawer", "closeDrawers"]),
+    ...mapActions(["saveHistory"]),
+  }
 }
 </script>
+
+<style scoped>
+.v-list-item {
+  min-height: 25px;
+}
+</style>
