@@ -9,6 +9,7 @@ export const state = () => ({
   params: params,
   console: [],
   history: [],
+  files: [],
   variables: variables
 })
 
@@ -62,6 +63,11 @@ export const mutations = {
       + ':' + ('0' + date.getMinutes()).slice(-2)
       + ':' + ('0' + date.getSeconds()).slice(-2)
     state.history.push({ history: history, date: dateStr })
+  },
+
+  // for files
+  setFiles(state, files) {
+    state.files = files
   },
 
   // for variables

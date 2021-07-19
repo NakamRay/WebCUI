@@ -54,6 +54,7 @@
                     spellcheck="false"
                     hide-details
                     :rows="param.rows"
+                    outlined
                     clearable
                     no-resize
                   ></v-textarea>
@@ -163,8 +164,6 @@ export default {
     fileChange(param, key, value) {
       const reader = new FileReader()
       let vue = this
-      console.log(value.type)
-      console.log(value.size)
       reader.onload = function(e){
         if (param.target) {
           vue.updateParam({ key: param.target, value: { value: reader.result } })

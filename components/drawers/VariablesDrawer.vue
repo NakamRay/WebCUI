@@ -133,7 +133,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations } from "vuex"
 
 export default {
   data: () => ({
@@ -146,13 +146,13 @@ export default {
     ...mapState(["variables"]),
     drawer: {
       get() {
-        return this.$store.state.toolbar[this.key].drawer;
+        return this.$store.state.toolbar[this.key].drawer
       },
       set(value) {
         if (value) {
-          this.openDrawer(this.key);
+          this.openDrawer(this.key)
         } else {
-          this.closeDrawers();
+          this.closeDrawers()
         }
       }
     }

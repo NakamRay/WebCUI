@@ -10,7 +10,7 @@
   >
     <template v-slot:prepend>
       <v-toolbar height="50px">
-        <v-toolbar-title>Examples</v-toolbar-title>
+        <v-toolbar-title>Files</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn icon @click.stop="closeDrawers()">
           <v-icon>mdi-close</v-icon>
@@ -20,16 +20,16 @@
 
     <v-list class="py-0">
       <v-tabs color="dark">
-        <v-tab v-for="(example, index) in examples" :key="index">
-          {{ example.display }}
+        <v-tab v-for="(file, index) in files" :key="index">
+          {{ file.display }}
         </v-tab>
-        <v-tab-item v-for="(example, index) in examples" :key="index">
+        <v-tab-item v-for="(file, index) in files" :key="index">
           <v-list-item
             style="min-height: 15px"
-            v-for="(ex, index) in example.examples"
+            v-for="(path, index) in file.files"
             :key="index"
             @click.stop="
-              setExamples(ex);
+              setFileData(file.name, path);
               closeDrawers();
             "
           >
@@ -41,38 +41,30 @@
                 elevation="2"
                 colored-border
               >
-                <div v-for="(param, key) in ex" :key="key">
-                  <div class="font-weight-bold caption mt-1">{{ params[key].display }}</div>
-                  <span class="drawer-text">
-                    {{
-                      params[key].type === 'select' ?
-                        param.display :
-                        param
-                    }}
-                  </span>
-                  <hr>
-                </div>
+                {{ path.replace(file.dir + '/', '') }}
               </v-alert>
             </v-list-item-title>
           </v-list-item>
         </v-tab-item>
       </v-tabs>
     </v-list>
+
   </v-navigation-drawer>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex"
+import axios from 'axios'
+import { mapState, mapMutations, mapActions } from "vuex"
 
-import { examples } from "~/assets/examples.js"
+import { config } from '~/assets/config.js'
 
 export default {
   data: () => ({
-    key: "examples",
-    examples
+    key: "files",
+    config
   }),
   computed: {
-    ...mapState(["params"]),
+    ...mapState(["files"]),
     drawer: {
       get() {
         return this.$store.state.toolbar[this.key].drawer
@@ -88,10 +80,25 @@ export default {
   },
   methods: {
     ...mapMutations(["updateParam", "openDrawer", "closeDrawers"]),
-    setExamples(anexample) {
-      Object.keys(anexample).forEach(key => {
-        this.updateParam({ key: key, value: { value: anexample[key] } })
+    ...mapActions(['displayConnectionErrorMsg']),
+
+    setFileData(name, path) {
+      let request = new URLSearchParams()
+      request.append('path', path)
+
+      let vue = this
+
+      axios
+      .post(this.config.baseUrl + '/files.php', request)
+      .then(function (response) {
+        let result = response.data
+        vue.updateParam({ key: name, value: { value: result } })
       })
+      .catch(function (err) {
+        vue.displayConnectionErrorMsg()
+        console.error(err)
+      })
+
     }
   }
 }

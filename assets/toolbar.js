@@ -1,5 +1,6 @@
 import HistoryDrawer from '@/components/drawers/HistoryDrawer.vue'
 import ExamplesDrawer from '@/components/drawers/ExamplesDrawer.vue'
+import FilesDrawer from '@/components/drawers/FilesDrawer.vue'
 import VariablesDrawer from '@/components/drawers/VariablesDrawer.vue'
 
 // The 'type' can be set to 'runFunction' or 'drawer'.
@@ -19,6 +20,11 @@ export const toolbar = {
     icon: 'mdi-alpha-e-box',
     type: 'drawer',
     component: ExamplesDrawer
+  },
+  files: {
+    icon: 'mdi-file-multiple',
+    type: 'drawer',
+    component: FilesDrawer
   },
   variables: {
     icon: 'mdi-order-alphabetical-ascending',

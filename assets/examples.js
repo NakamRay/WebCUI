@@ -10,7 +10,7 @@ In 'examples', the parameter keys set in 'params.js' must be used.
 */
 export const examples = [
   {
-    name: 'Prefix and Suffix',
+    display: 'Prefix and Suffix',
     examples: [
       {
         message: 'New',
@@ -65,7 +65,7 @@ export const examples = [
     ]
   },
   {
-    name: 'Text Decoration',
+    display: 'Text Decoration',
     examples: [
       {
         message: 'Plane Text',

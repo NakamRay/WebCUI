@@ -12,7 +12,7 @@ export const config = {
     // text: `logo_text.png`,   // This is needed if you want to use a text logo.
   },
 
-  baseUrl: `http://localhost/`,  // If you want to use multiple APIs,
+  baseUrl: `http://localhost`,   // If you want to use multiple APIs,
   apiFileName: `sample-api.php`, // code them in '~/pages/index.vue'.
 
   messages: {

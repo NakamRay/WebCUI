@@ -37,7 +37,7 @@ export default {
     ...mapGetters(['emptyRepuiredParamExists', 'substitution', 'request']),
   },
   methods: {
-    ...mapMutations(['initConsole', 'addLine', 'openDrawer']),
+    ...mapMutations(['initConsole', 'addLine', 'setFiles', 'openDrawer']),
     ...mapActions(['initState', 'clear', 'displayConnectionErrorMsg']),
 
     // Change this according to the tools of toolbar.
@@ -54,7 +54,7 @@ export default {
       let vue = this
 
       axios
-        .post(this.config.baseUrl + this.config.apiFileName, this.request)
+        .post(this.config.baseUrl + '/' + this.config.apiFileName, this.request)
         .then(function (response) {
           // Please use 'vue' instead of 'this' in this block.
 
@@ -76,6 +76,21 @@ export default {
   mounted() {
     // Preprocessing
     this.initState()
+
+    if (this.toolbar.hasOwnProperty('files')) {
+      let vue = this
+
+      axios
+      .post(this.config.baseUrl + '/' + 'files.php')
+      .then(function (response) {
+        let result = response.data
+        vue.setFiles(result)
+      })
+      .catch(function (err) {
+        vue.displayConnectionErrorMsg()
+        console.error(err)
+      })
+    }
 
     // Assigning hotkeys
     document.addEventListener('keydown', (event) => {

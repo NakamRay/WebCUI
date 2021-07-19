@@ -119,5 +119,13 @@ export const params = {
     default: false,
     size: 'quarter',
     visible: true
+  },
+  code: {
+    display: 'Code',
+    type: 'textarea',
+    rows: 5,
+    default: '',
+    size: 'whole',
+    visible: true
   }
 }
