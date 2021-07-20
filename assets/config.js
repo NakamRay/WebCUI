@@ -1,5 +1,5 @@
 export const config = {
-  name: `WUI Framework for CUI Sample`, // Your application's name
+  name: `WebCUI Sample`,        // Your application's name
   /*
     If you want to use logo images of your application, set it to 'logo'.
     Images you set to 'icon' and 'text' will be lined up next to each other on the top of the page.
