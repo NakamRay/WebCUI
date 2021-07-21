@@ -39,7 +39,7 @@
                   class="py-1"
                 >
                   <v-text-field
-                    v-if="param.visible && param.type === 'text'"
+                    v-if="param.type === 'text'"
                     :label="param.display"
                     :value="param.value"
                     @input="(value) => updateParam({ key: key, value: { value: value } })"
@@ -47,7 +47,7 @@
                     hide-details
                   ></v-text-field>
                   <v-textarea
-                    v-if="param.visible && param.type === 'textarea'"
+                    v-if="param.type === 'textarea'"
                     :label="param.display"
                     :value="param.value"
                     @input="(value) => updateParam({ key: key, value: { value: value } })"
@@ -59,7 +59,7 @@
                     no-resize
                   ></v-textarea>
                   <v-select
-                    v-if="param.visible && param.type === 'select'"
+                    v-if="param.type === 'select'"
                     :label="param.display"
                     :value="param.value"
                     :items="param.items"
@@ -70,7 +70,7 @@
                     hide-details
                   ></v-select>
                   <v-autocomplete
-                    v-if="param.visible && param.type === 'autocomplete'"
+                    v-if="param.type === 'autocomplete'"
                     :label="param.display"
                     :value="param.value"
                     :items="param.items"
@@ -80,21 +80,21 @@
                     hide-details
                   ></v-autocomplete>
                   <v-switch
-                    v-if="param.visible && param.type === 'switch'"
+                    v-if="param.type === 'switch'"
                     :label="param.display"
                     :input-value="param.value"
                     @change="(value) => updateParam({ key: key, value: { value: value } })"
                     hide-details
                   ></v-switch>
                   <v-checkbox
-                    v-if="param.visible && param.type === 'check'"
+                    v-if="param.type === 'check'"
                     :label="param.display"
                     :input-value="param.value"
                     @change="(value) => updateParam({ key: key, value: { value: value } })"
                     hide-details
                   ></v-checkbox>
                   <v-file-input
-                    v-if="param.visible && param.type === 'file'"
+                    v-if="param.type === 'file'"
                     :label="param.display"
                     :input-value="param.value"
                     @change="(value) => fileChange(param, key, value)"

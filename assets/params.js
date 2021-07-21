@@ -1,4 +1,4 @@
-// The 'type' can be set to 'text', 'select', 'switch', 'file', 'textarea'.
+// The 'type' can be set to 'text', 'select', 'autocomplete', 'switch', 'file', 'textarea' or 'invisible'.
 /* 
 If you want to show the contents of the file, please set a 'target' key in the 'file' type object.
 For example,
@@ -7,16 +7,14 @@ For example,
     type: 'file',
     target: 'fileBody',
     default: [],
-    size: 'whole',
-    visible: true
+    size: 'whole'
   },
   fileBody: {
     display: 'File body',
     type: 'textarea',
     rows: 5,
     default: '',
-    size: 'whole',
-    visible: true
+    size: 'whole'
   }
 */
 // The 'size' can be set to 'whole', 'half' or 'quarter'.
@@ -26,22 +24,19 @@ export const params = {
     type: 'text',
     default: '',
     size: 'whole', // can be omitted.
-    visible: true,
     required: true // This param will be a required param. 'required' can be set when 'type' is 'text'.
   },
   prefix: {
     display: 'Prefix',
     type: 'text',
     default: '',
-    size: 'quarter',
-    visible: true
+    size: 'quarter'
   },
   suffix: {
     display: 'Suffix',
     type: 'text',
     default: '',
-    size: 'quarter',
-    visible: true
+    size: 'quarter'
   },
   enable: {
     display: 'Enable',
@@ -68,15 +63,13 @@ export const params = {
       name: 'ps',
       display: 'Prefix and Suffix',
     },
-    size: 'half',
-    visible: true
+    size: 'half'
   },
   decoration: {
     display: 'Text Decoration',
     type: 'switch',
     default: true,
-    size: 'quarter',
-    visible: true
+    size: 'quarter'
   },
   color: {
     display: 'Color',
@@ -103,21 +96,18 @@ export const params = {
       name: 'white',
       display: 'White',
     },
-    size: 'quarter',
-    visible: true
+    size: 'quarter'
   },
   bold: {
     display: 'Bold',
     type: 'check',
     default: false,
-    size: 'quarter',
-    visible: true
+    size: 'quarter'
   },
   underline: {
     display: 'Underline',
     type: 'check',
     default: false,
-    size: 'quarter',
-    visible: true
+    size: 'quarter'
   }
 }
