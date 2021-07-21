@@ -21,11 +21,11 @@ export const toolbar = {
     type: 'drawer',
     component: ExamplesDrawer
   },
-  files: {
-    icon: 'mdi-file-multiple',
-    type: 'drawer',
-    component: FilesDrawer
-  },
+  // files: {
+  //   icon: 'mdi-file-multiple',
+  //   type: 'drawer',
+  //   component: FilesDrawer
+  // },
   variables: {
     icon: 'mdi-order-alphabetical-ascending',
     type: 'drawer',
