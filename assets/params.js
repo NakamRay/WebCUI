@@ -63,6 +63,15 @@ export const params = {
       name: 'ps',
       display: 'Prefix and Suffix',
     },
+    // If there is no need to separate the name of the parameter from its display,
+    // it can be written as follows:
+    // items: [
+    //   'Prefix and Suffix',
+    //   'Prefix only',
+    //   'Suffix only',
+    //   'None'
+    // ],
+    // default: 'Prefix and Suffix',
     size: 'half'
   },
   decoration: {

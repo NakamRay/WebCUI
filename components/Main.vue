@@ -59,7 +59,16 @@
                     no-resize
                   ></v-textarea>
                   <v-select
-                    v-if="param.type === 'select'"
+                    v-if="param.type === 'select' && (typeof param.items[0]) !== 'object'"
+                    :label="param.display"
+                    :value="param.value"
+                    :items="param.items"
+                    @change="(value) => updateParam({ key: key, value: { value: value } })"
+                    return-object
+                    hide-details
+                  ></v-select>
+                  <v-select
+                    v-if="param.type === 'select' && (typeof param.items[0]) === 'object'"
                     :label="param.display"
                     :value="param.value"
                     :items="param.items"

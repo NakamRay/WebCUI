@@ -45,7 +45,7 @@
                   <div class="font-weight-bold caption mt-1">{{ params[key].display }}</div>
                   <span class="drawer-text">
                     {{
-                      params[key].type === 'select' ?
+                      params[key].type === 'select' && (typeof param) === 'object' ?
                         param.display :
                         param
                     }}
