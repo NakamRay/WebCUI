@@ -1,4 +1,4 @@
-# WUI Framework for CUI
+# WebCUI
 
 ## Build Setup
 
