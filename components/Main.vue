@@ -36,7 +36,7 @@
                       parseInt(param.size) : 12
                   "
                   cols="12"
-                  class="py-1"
+                  :class="param.hasOwnProperty('type') ? 'py-1' : 'pa-0'"
                 >
                   <v-text-field
                     v-if="param.type === 'text'"
