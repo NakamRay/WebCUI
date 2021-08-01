@@ -21,5 +21,5 @@ export const config = {
     readErrorMsg: [{ text: `An error occured while reading the file.` }]
   },
 
-  consoleLocation: 'bottom'      // Placing the console.
+  consoleLocation: 'top'        // Placing the console.
 }

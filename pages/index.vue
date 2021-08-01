@@ -60,11 +60,7 @@ export default {
 
           let result = response.data
           vue.addLine([
-            { text: '' },
-            { text: '* Generated HTML' },
-            { text: result },
-            { text: '* After decoration' },
-            { html: result }
+            { text: result }
           ])
         })
         .catch(function (err) {
