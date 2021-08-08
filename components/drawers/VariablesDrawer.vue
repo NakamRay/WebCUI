@@ -6,7 +6,7 @@
     app
     right
     width="500"
-    class="dark-drawer"
+    :class="{ 'dark-drawer' : $vuetify.theme.dark }"
   >
     <v-dialog
       v-model="addVarDialog"

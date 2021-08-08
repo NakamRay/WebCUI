@@ -17,7 +17,7 @@
       >
         <v-card
           ref="forms"
-          class="dark-card-borders"
+          :class="{ 'dark-card-borders' : $vuetify.theme.dark }"
           height="100%"
         >
           <v-list-item class="px-2 py-2">
@@ -123,9 +123,9 @@
         id="outputConsole"
         :height="$vuetify.breakpoint.xs ? '80vh' : consoleHeight"
         style="overflow: auto"
-        class="dark-card-borders"
         :class="{
           'col-md-6' : config.consoleLocation === 'left' || config.consoleLocation === 'right',
+          'dark-card-borders' : $vuetify.theme.dark
         }"
       >
         <v-list class="py-3">
@@ -135,8 +135,16 @@
             :key="index"
           >
             <v-list-item-title>
-              <span class="drawer-text text-wrap" v-if="output.text" v-text="output.text"></span>
-              <span class="drawer-text text-wrap" v-if="output.html" v-html="output.html"></span>
+              <span
+                class="drawer-text text-wrap"
+                :class="{ 'black--text' : !$vuetify.theme.dark }"
+                v-if="output.text"
+                v-text="output.text" />
+              <span
+                class="drawer-text text-wrap"
+                :class="{ 'black--text' : !$vuetify.theme.dark }"
+                v-if="output.html"
+                v-html="output.html" />
             </v-list-item-title>
           </v-list-item>
         </v-list>
