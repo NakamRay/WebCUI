@@ -188,7 +188,7 @@ export const getters = {
       if (obj.type === 'text') {
         value = getters.substitution(value)
       }
-      if (obj.type === 'select') {
+      if ((typeof value) === 'object') {
         value = value.name
       }
       request.append(param, value)
