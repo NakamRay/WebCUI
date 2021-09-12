@@ -10,7 +10,8 @@ export const state = () => ({
   console: [],
   history: [],
   files: [],
-  variables: variables
+  variables: variables,
+  waiting: false
 })
 
 export const mutations = {
@@ -99,6 +100,10 @@ export const mutations = {
         state.toolbar[tool].drawer = false
       }
     }
+  },
+
+  setWaiting(state, bool) {
+    state.waiting = bool
   }
 }
 
@@ -131,12 +136,16 @@ export const actions = {
     link.click()
   },
 
-  displayConnectionErrorMsg({ commit }) {
-    commit('addLine', config.messages.connectionErrorMsg)
-  },
-
-  displayReadErrorMsg({ commit }) {
-    commit('addLine', config.messages.readErrorMsg)
+  displayExceptionMsg({ commit }, name) {
+    if (name === 'connection') {
+      commit('addLine', config.messages.connectionErrorMsg)
+    }
+    if (name === 'cancel') {
+      commit('addLine', config.messages.cancelRequestMsg)
+    }
+    if (name === 'read') {
+      commit('addLine', config.messages.readErrorMsg)
+    }
   }
 }
 

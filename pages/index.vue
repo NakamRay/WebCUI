@@ -30,15 +30,16 @@ import { config } from '~/assets/config.js'
 
 export default {
   data: () => ({
-    config
+    config,
+    cancelToken: axios.CancelToken.source()
   }),
   computed: {
-    ...mapState(['params', 'console', 'toolbar', 'variables']),
+    ...mapState(['params', 'console', 'toolbar', 'variables', 'waiting']),
     ...mapGetters(['emptyRepuiredParamExists', 'substitution', 'request']),
   },
   methods: {
-    ...mapMutations(['initConsole', 'addLine', 'setFiles', 'openDrawer']),
-    ...mapActions(['initState', 'clear', 'displayConnectionErrorMsg']),
+    ...mapMutations(['initConsole', 'addLine', 'setFiles', 'openDrawer', 'setWaiting']),
+    ...mapActions(['initState', 'clear', 'displayExceptionMsg']),
 
     // Change this according to the tools of toolbar.
     toolbarEvent(key) {
@@ -46,15 +47,24 @@ export default {
         this.clear()
       } else if (this.toolbar[key].type === 'drawer') {
         this.openDrawer(key)
-      } else if (key === 'sendReq') {
-        this.sendReq()
+      } else if (this.toolbar[key].type === 'sendReq') {
+        if (this.waiting) {
+          this.cancelToken.cancel('Canceled by the user.')
+        } else {
+          this.sendReq()
+        }
       }
     },
     sendReq() {
       let vue = this
 
-      axios
-        .post(this.config.baseUrl + '/' + this.config.apiFileName, this.request)
+      vue.setWaiting(true)
+
+      axios.post(
+        `${this.config.baseUrl}/${this.config.apiFileName}`,
+        this.request,
+        { cancelToken: this.cancelToken.token }
+      )
         .then(function (response) {
           // Please use 'vue' instead of 'this' in this block.
 
@@ -64,8 +74,15 @@ export default {
           ])
         })
         .catch(function (err) {
-          vue.displayConnectionErrorMsg()
-          console.error(err)
+          if (axios.isCancel(err)) {
+            vue.displayExceptionMsg('cancel')
+          } else {
+            vue.displayExceptionMsg('connection')
+            console.error(err)
+          }
+        })
+        .finally(function (err) {
+          vue.setWaiting(false)
         })
     }
   },
@@ -90,7 +107,7 @@ export default {
 
     // Assigning hotkeys
     document.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.key === 'Enter' && !this.emptyRepuiredParamExists) {
+      if (event.ctrlKey && event.key === 'Enter' && !this.emptyRepuiredParamExists && !this.waiting) {
         this.sendReq()
       }
     })

@@ -177,7 +177,7 @@ export default {
   },
   methods: {
     ...mapMutations(['updateParam']),
-    ...mapActions(['displayReadErrorMsg']),
+    ...mapActions(['displayExceptionMsg']),
     fileChange(param, key, value) {
       const reader = new FileReader()
       let vue = this
@@ -191,7 +191,7 @@ export default {
       if (value && value.size <= 10000) {
         reader.readAsText(value)
       } else {
-        this.displayReadErrorMsg()
+        this.displayExceptionMsg('read')
       }
     },
     updateConsoleHeight() {

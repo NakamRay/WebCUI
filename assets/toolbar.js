@@ -3,7 +3,7 @@ import ExamplesDrawer from '@/components/drawers/ExamplesDrawer.vue'
 import FilesDrawer from '@/components/drawers/FilesDrawer.vue'
 import VariablesDrawer from '@/components/drawers/VariablesDrawer.vue'
 
-// The 'type' can be set to 'runFunction' or 'drawer'.
+// The 'type' can be set to 'runFunction', 'sendReq' or 'drawer'.
 // If you use a drawer, please import component of it and set the 'component' key.
 // Icons are from https://materialdesignicons.com
 export const toolbar = {
@@ -33,7 +33,7 @@ export const toolbar = {
   },
   sendReq: {
     icon: 'mdi-play',
-    type: 'runFunction',
+    type: 'sendReq',
     disabled: true // This button will be disabled if even one of the required param is empty.
   }
 }

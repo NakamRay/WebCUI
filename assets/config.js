@@ -18,8 +18,11 @@ export const config = {
   messages: {
     initialMsg: [{ text: `Please refer to the DOCUMENT on the upper right of this page for the instructions.` }],
     connectionErrorMsg: [{ text: `An error occurred while communicating with the server.` }],
+    cancelRequestMsg: [{ text: `Canceled by the user.` }],
     readErrorMsg: [{ text: `An error occured while reading the file.` }]
   },
 
-  consoleLocation: 'top'        // Placing the console.
+  consoleLocation: 'top',        // Placing the console.
+
+  keepState: false
 }

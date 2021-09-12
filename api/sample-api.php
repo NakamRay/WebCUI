@@ -8,6 +8,10 @@ header('Content-Type: text/plain; charset=UTF-8');
 // Change depending on the locale of your server
 putenv('LANG=C.UTF-8');
 
+set_time_limit(9999);
+
+sleep(1);
+
 exec('python3 sample-app.py "' . $_POST['text'] . '"', $opt);
 
 echo $opt[0];
