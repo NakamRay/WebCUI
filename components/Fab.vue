@@ -26,9 +26,19 @@
       small
       color="indigo"
       @click="$emit('toolbar-event', key)"
-      :disabled="tool.disabled && emptyRepuiredParamExists"
+      :disabled="key === 'sendReq' && emptyRepuiredParamExists"
     >
-      <v-icon v-text="tool.icon"></v-icon>
+      <v-progress-circular
+          v-if="key === 'sendReq' && waiting"
+          size="25"
+          width="3"
+          indeterminate
+          color="primary"
+        />
+        <v-icon
+          v-else
+          v-text="tool.icon"
+        />
     </v-btn>
   </v-speed-dial>
 </template>
@@ -41,7 +51,7 @@ export default {
     fab: false
   }),
   computed: {
-    ...mapState(['toolbar']),
+    ...mapState(['toolbar', 'waiting']),
     ...mapGetters(['emptyRepuiredParamExists']),
   }
 }

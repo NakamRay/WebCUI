@@ -1,6 +1,6 @@
 // Set initial variables
 
 export const variables = {
-  h: 'Hello',
-  w: 'World'
+  x: '3',
+  y: '5'
 }

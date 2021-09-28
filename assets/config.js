@@ -1,19 +1,13 @@
 export const config = {
   name: `WebCUI Sample`,        // Your application's name
-  /*
-    If you want to use logo images of your application, set it to 'logo'.
-    Images you set to 'icon' and 'text' will be lined up next to each other on the top of the page.
-    If the appearance is broken, please adjust the height and width of the image in '~/layouts/default.vue'.
-    If you don't use the icon image, you cant omit 'icon'.
-    If you omit 'text', your application's name will be displayed instead of the text logo.
-  */
+
   logo: {
-    icon: `logo_icon.png`,      // Filename in ~/static/
+    icon: `logo_icon.png`,      // A filename in ~/static/
     // text: `logo_text.png`,   // This is needed if you want to use a text logo.
   },
 
-  baseUrl: `http://localhost`,   // If you want to use multiple APIs,
-  apiFileName: `sample-api.php`, // code them in '~/pages/index.vue'.
+  baseUrl: `http://localhost`,
+  apiFileName: `sample-api.php`,
 
   messages: {
     initialMsg: [{ text: `Please refer to the DOCUMENT on the upper right of this page for the instructions.` }],
@@ -22,7 +16,40 @@ export const config = {
     readErrorMsg: [{ text: `An error occured while reading the file.` }]
   },
 
-  consoleLocation: 'top',        // Placing the console.
+  features: {
+    clear: {
+      enable: true,
+      icon: 'mdi-delete'
+    },
+    history: {
+      enable: true,
+      icon: 'mdi-history'
+    },
+    examples: {
+      enable: true,
+      icon: 'mdi-alpha-e-box'
+    },
+    files: {
+      enable: false,
+      icon: 'mdi-file-multiple'
+    },
+    variables: {
+      enable: true,
+      icon: 'mdi-order-alphabetical-ascending'
+    },
+    sendReq: {
+      enable: true,
+      icon: 'mdi-play',
+      before: (webcui) => {
+        webcui.addLine({ text: 'Run' })
+      },
+      after: (webcui, result) => {
+        webcui.addLine({ text: result })
+      }
+    }
+  },
+
+  consoleLocation: 'right',        // Placing the console.
 
   keepState: false
 }

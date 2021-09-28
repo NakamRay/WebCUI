@@ -11,8 +11,10 @@
         :class="{
           'mt-3'          : config.consoleLocation === 'top',
           'mb-3'          : config.consoleLocation === 'bottom',
-          'col-md-6 pl-3' : config.consoleLocation === 'left',
-          'col-md-6 pr-3' : config.consoleLocation === 'right',
+          'col-md-6 mb-3' : config.consoleLocation === 'left' && $vuetify.breakpoint.smAndDown,
+          'col-md-6 pl-3' : config.consoleLocation === 'left' && $vuetify.breakpoint.mdAndUp,
+          'col-md-6 mt-3' : config.consoleLocation === 'right' && $vuetify.breakpoint.smAndDown,
+          'col-md-6 pr-3' : config.consoleLocation === 'right' && $vuetify.breakpoint.mdAndUp,
         }"
       >
         <v-card
@@ -45,6 +47,7 @@
                     @input="(value) => updateParam({ key: key, value: { value: value } })"
                     spellcheck="false"
                     hide-details
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-text-field>
                   <v-textarea
                     v-if="param.type === 'textarea'"
@@ -57,6 +60,7 @@
                     outlined
                     clearable
                     no-resize
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-textarea>
                   <v-select
                     v-if="param.type === 'select' && (typeof param.items[0]) !== 'object'"
@@ -66,6 +70,7 @@
                     @change="(value) => updateParam({ key: key, value: { value: value } })"
                     return-object
                     hide-details
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-select>
                   <v-select
                     v-if="param.type === 'select' && (typeof param.items[0]) === 'object'"
@@ -77,6 +82,7 @@
                     @change="(value) => updateParam({ key: key, value: { value: value } })"
                     return-object
                     hide-details
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-select>
                   <v-autocomplete
                     v-if="param.type === 'autocomplete'"
@@ -87,6 +93,7 @@
                     item-value="name"
                     @change="(value) => updateParam({ key: key, value: { value: value } })"
                     hide-details
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-autocomplete>
                   <v-switch
                     v-if="param.type === 'switch'"
@@ -94,6 +101,7 @@
                     :input-value="param.value"
                     @change="(value) => updateParam({ key: key, value: { value: value } })"
                     hide-details
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-switch>
                   <v-checkbox
                     v-if="param.type === 'check'"
@@ -101,6 +109,7 @@
                     :input-value="param.value"
                     @change="(value) => updateParam({ key: key, value: { value: value } })"
                     hide-details
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-checkbox>
                   <v-file-input
                     v-if="param.type === 'file'"
@@ -110,6 +119,7 @@
                     hide-details
                     outlined
                     dense
+                    :disabled="param.hasOwnProperty('if') && !isFlag(param.if)"
                   ></v-file-input>
                 </v-col>
               </v-row>
@@ -138,11 +148,13 @@
               <span
                 class="drawer-text text-wrap"
                 :class="{ 'black--text' : !$vuetify.theme.dark }"
+                style="font-family: Consolas, monospace;"
                 v-if="output.text"
                 v-text="output.text" />
               <span
                 class="drawer-text text-wrap"
                 :class="{ 'black--text' : !$vuetify.theme.dark }"
+                style="font-family: Consolas, monospace;"
                 v-if="output.html"
                 v-html="output.html" />
             </v-list-item-title>
@@ -155,7 +167,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 import { config } from '~/assets/config.js'
 
@@ -165,7 +177,10 @@ export default {
     formsHeight: 0,
     consoleHeight: 0,
   }),
-  computed: mapState(['params', 'console']),
+  computed: {
+    ...mapState(['params', 'console']),
+    ...mapGetters(['isFlag'])
+  },
   watch: {
     // scroll the console to bottom when it changes
     console: function () {

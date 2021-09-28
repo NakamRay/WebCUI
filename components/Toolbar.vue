@@ -5,9 +5,9 @@
       class="px-0"
       style="flex-grow: unset;"
     >
-      <v-btn icon @click="$emit('toolbar-event', key)" :disabled="tool.disabled && emptyRepuiredParamExists">
+      <v-btn icon @click="$emit('toolbar-event', key)" :disabled="key === 'sendReq' && emptyRepuiredParamExists">
         <v-progress-circular
-          v-if="tool.type === 'sendReq' && waiting"
+          v-if="key === 'sendReq' && waiting"
           size="25"
           width="3"
           indeterminate

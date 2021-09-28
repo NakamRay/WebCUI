@@ -9,15 +9,4 @@ examples = [
 In 'examples', the parameter keys set in 'params.js' must be used.
 */
 export const examples = [
-  {
-    display: 'Sample Text',
-    examples: [
-      {
-        text: 'Hello World',
-      },
-      {
-        text: '${h} ${w}',
-      }
-    ]
-  }
 ]

@@ -2,7 +2,7 @@
   <v-container :fluid="!$vuetify.breakpoint.xl">
     <!-- Drawers -->
     <div v-for="(tool, key) in toolbar" :key="key">
-      <component v-if="tool.type === 'drawer'" :is="tool.component" />
+      <component v-if="tool.hasOwnProperty('drawer')" :is="tool.component" />
     </div>
 
     <!-- Floating Action Button -->
@@ -45,20 +45,23 @@ export default {
     toolbarEvent(key) {
       if (key === 'clear') {
         this.clear()
-      } else if (this.toolbar[key].type === 'drawer') {
+      } else if (this.toolbar[key].hasOwnProperty('drawer')) {
         this.openDrawer(key)
-      } else if (this.toolbar[key].type === 'sendReq') {
+      } else if (key === 'sendReq') {
         if (this.waiting) {
           this.cancelToken.cancel('Canceled by the user.')
+          this.cancelToken = axios.CancelToken.source()
         } else {
           this.sendReq()
         }
       }
     },
     sendReq() {
-      let vue = this
+      let webcui = this
 
-      vue.setWaiting(true)
+      webcui.setWaiting(true)
+
+      this.toolbar['sendReq'].before(webcui)
 
       axios.post(
         `${this.config.baseUrl}/${this.config.apiFileName}`,
@@ -66,23 +69,19 @@ export default {
         { cancelToken: this.cancelToken.token }
       )
         .then(function (response) {
-          // Please use 'vue' instead of 'this' in this block.
-
           let result = response.data
-          vue.addLine([
-            { text: result }
-          ])
+          webcui.toolbar['sendReq'].after(webcui, result)
         })
         .catch(function (err) {
           if (axios.isCancel(err)) {
-            vue.displayExceptionMsg('cancel')
+            webcui.displayExceptionMsg('cancel')
           } else {
-            vue.displayExceptionMsg('connection')
+            webcui.displayExceptionMsg('connection')
             console.error(err)
           }
         })
         .finally(function (err) {
-          vue.setWaiting(false)
+          webcui.setWaiting(false)
         })
     }
   },

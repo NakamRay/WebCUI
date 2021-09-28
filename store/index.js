@@ -1,12 +1,35 @@
 import { config } from '~/assets/config.js'
 import { params } from '~/assets/params.js'
-import { toolbar } from '~/assets/toolbar.js'
 import { variables } from '~/assets/variables.js'
+
+import HistoryDrawer from '@/components/drawers/HistoryDrawer.vue'
+import ExamplesDrawer from '@/components/drawers/ExamplesDrawer.vue'
+import FilesDrawer from '@/components/drawers/FilesDrawer.vue'
+import VariablesDrawer from '@/components/drawers/VariablesDrawer.vue'
+
+const drawersInfo = {
+  examples: {
+    drawer: false,
+    component: ExamplesDrawer
+  },
+  history: {
+    drawer: false,
+    component: HistoryDrawer
+  },
+  files: {
+    drawer: false,
+    component: FilesDrawer
+  },
+  variables: {
+    drawer: false,
+    component: VariablesDrawer
+  }
+}
 
 export const state = () => ({
   documentDialog: false,
-  toolbar: toolbar,
   params: params,
+  toolbar: {},
   console: [],
   history: [],
   files: [],
@@ -21,6 +44,9 @@ export const mutations = {
   },
 
   // for toolbar
+  setToolbar(state, payload) {
+    state.toolbar = payload
+  },
   updateToolbar(state, payload) {
     const key = payload.key
     const value = payload.value
@@ -96,7 +122,7 @@ export const mutations = {
   },
   closeDrawers(state) {
     for (let tool in state.toolbar) {
-      if (state.toolbar[tool].type === 'drawer') {
+      if (state.toolbar[tool].hasOwnProperty('drawer')) {
         state.toolbar[tool].drawer = false
       }
     }
@@ -114,11 +140,23 @@ export const actions = {
     for (let param in state.params) {
       commit('updateParam', { key: param, value: { value: state.params[param].default } })
     }
-    // create a 'drawer' key in toolbar
-    for (let tool in state.toolbar) {
-      if (state.toolbar[tool].type === 'drawer' && !state.toolbar[tool].hasOwnProperty('drawer'))
-      commit('updateToolbar', { key: tool, value: { drawer: false } })
+    // init toolbar
+    let features = {}
+    for (let key in config.features) {
+      let feature = config.features[key]
+      if (!feature.enable) {
+        continue
+      }
+      if (drawersInfo.hasOwnProperty(key)) {
+        features[key] = {
+          ...feature,
+          ...drawersInfo[key]
+        }
+      } else {
+        features[key] = feature
+      }
     }
+    commit('setToolbar', features)
     commit('initConsole')
   },
 
@@ -158,6 +196,30 @@ export const getters = {
       }
     }
     return false
+  },
+
+  flags(state) {
+    let flags = []
+
+    for (let param in state.params) {
+      let obj = state.params[param]
+      if(obj.type === 'select') {
+        if ((typeof obj.value) === 'object' && obj.value.hasOwnProperty('flag')) {
+          flags.push(obj.value.flag)
+        }
+      }
+      if (obj.type === 'check' || obj.type === 'switch') {
+        if (obj.value && obj.hasOwnProperty('flag')) {
+          flags.push(obj.flag)
+        }
+      }
+    }
+
+    return flags
+  },
+
+  isFlag: (state, getters) => (flag) => {
+    return getters.flags.includes(flag)
   },
 
   // for Variables

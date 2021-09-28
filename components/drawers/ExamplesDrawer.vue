@@ -18,7 +18,7 @@
       </v-toolbar>
     </template>
 
-    <v-list class="py-0">
+    <v-list class="py-0 pt-3">
       <v-tabs color="dark">
         <v-tab v-for="(example, index) in examples" :key="index">
           {{ example.display }}
