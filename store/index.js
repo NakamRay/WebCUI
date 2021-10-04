@@ -226,6 +226,8 @@ export const getters = {
   allVariables: (state) => (input) => {
     // allVariables('${x}${y}${z}') returns ['x', 'y', 'z']
 
+    input = String(input)
+
     let match = input.match(/\$\{([A-Z]|[a-z])+\}/g)
     if (!match) {
       return []

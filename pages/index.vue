@@ -38,7 +38,7 @@ export default {
     ...mapGetters(['emptyRepuiredParamExists', 'substitution', 'request']),
   },
   methods: {
-    ...mapMutations(['initConsole', 'addLine', 'setFiles', 'openDrawer', 'setWaiting']),
+    ...mapMutations(['initConsole', 'addLine', 'updateParam', 'setFiles', 'openDrawer', 'setWaiting']),
     ...mapActions(['initState', 'clear', 'displayExceptionMsg']),
 
     // Change this according to the tools of toolbar.
@@ -61,7 +61,9 @@ export default {
 
       webcui.setWaiting(true)
 
-      this.toolbar['sendReq'].before(webcui)
+      if(this.toolbar['sendReq'].hasOwnProperty('before')) {
+        this.toolbar['sendReq'].before(webcui)
+      }
 
       axios.post(
         `${this.config.baseUrl}/${this.config.apiFileName}`,
@@ -70,7 +72,10 @@ export default {
       )
         .then(function (response) {
           let result = response.data
-          webcui.toolbar['sendReq'].after(webcui, result)
+
+          if(this.toolbar['sendReq'].hasOwnProperty('after')) {
+            webcui.toolbar['sendReq'].after(webcui, result)
+          }
         })
         .catch(function (err) {
           if (axios.isCancel(err)) {
@@ -89,19 +94,23 @@ export default {
     // Preprocessing
     this.initState()
 
-    if (this.toolbar.hasOwnProperty('files')) {
-      let vue = this
+    let webcui = this
 
+    if (this.toolbar.hasOwnProperty('files')) {
       axios
       .post(this.config.baseUrl + '/' + 'files.php')
       .then(function (response) {
         let result = response.data
-        vue.setFiles(result)
+        webcui.setFiles(result)
       })
       .catch(function (err) {
-        vue.displayConnectionErrorMsg()
+        webcui.displayConnectionErrorMsg()
         console.error(err)
       })
+    }
+
+    if(this.config.hasOwnProperty('preprocessing')) {
+      this.config.preprocessing(webcui)
     }
 
     // Assigning hotkeys

@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const config = {
   name: `WebCUI Sample`,        // Your application's name
 
@@ -8,6 +10,9 @@ export const config = {
 
   baseUrl: `http://localhost`,
   apiFileName: `sample-api.php`,
+
+  consoleLocation: 'right',     // Placing the console.
+  keepState: false,
 
   messages: {
     initialMsg: [{ text: `Please refer to the DOCUMENT on the upper right of this page for the instructions.` }],
@@ -47,9 +52,5 @@ export const config = {
         webcui.addLine({ text: result })
       }
     }
-  },
-
-  consoleLocation: 'right',        // Placing the console.
-
-  keepState: false
+  }
 }
