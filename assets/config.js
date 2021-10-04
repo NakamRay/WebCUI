@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export const config = {
   name: `WebCUI Sample`,        // Your application's name
 

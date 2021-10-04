@@ -73,7 +73,7 @@ export default {
         .then(function (response) {
           let result = response.data
 
-          if(this.toolbar['sendReq'].hasOwnProperty('after')) {
+          if(webcui.toolbar['sendReq'].hasOwnProperty('after')) {
             webcui.toolbar['sendReq'].after(webcui, result)
           }
         })
