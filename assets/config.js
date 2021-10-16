@@ -1,19 +1,19 @@
 export const config = {
-  name: `WebCUI Sample`,        // Your application's name
+  name: `Start Zoom`,        // Your application's name
 
   logo: {
-    icon: `logo_icon.png`,      // A filename in ~/static/
+    // icon: `logo_icon.png`,      // A filename in ~/static/
     // text: `logo_text.png`,   // This is needed if you want to use a text logo.
   },
 
-  baseUrl: `http://localhost`,
-  apiFileName: `sample-api.php`,
+  baseUrl: `http://solweb.mydns.jp/webcui/start-zoom`,
+  apiFileName: `api.php`,
 
   consoleLocation: 'right',     // Placing the console.
   keepState: false,
 
   messages: {
-    initialMsg: [{ text: `Please refer to the DOCUMENT on the upper right of this page for the instructions.` }],
+    initialMsg: [],
     connectionErrorMsg: [{ text: `An error occurred while communicating with the server.` }],
     cancelRequestMsg: [{ text: `Canceled by the user.` }],
     readErrorMsg: [{ text: `An error occured while reading the file.` }]
@@ -25,11 +25,11 @@ export const config = {
       icon: 'mdi-delete'
     },
     history: {
-      enable: true,
+      enable: false,
       icon: 'mdi-history'
     },
     examples: {
-      enable: true,
+      enable: false,
       icon: 'mdi-alpha-e-box'
     },
     files: {
@@ -37,17 +37,17 @@ export const config = {
       icon: 'mdi-file-multiple'
     },
     variables: {
-      enable: true,
+      enable: false,
       icon: 'mdi-order-alphabetical-ascending'
     },
     sendReq: {
       enable: true,
       icon: 'mdi-play',
       before: (webcui) => {
-        webcui.addLine({ text: 'Run' })
+        webcui.clearConsole()
       },
       after: (webcui, result) => {
-        webcui.addLine({ text: result })
+        webcui.addLine({ html: result })
       }
     }
   }

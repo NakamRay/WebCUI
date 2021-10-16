@@ -38,7 +38,7 @@ export default {
     ...mapGetters(['emptyRepuiredParamExists', 'substitution', 'request']),
   },
   methods: {
-    ...mapMutations(['initConsole', 'addLine', 'updateParam', 'setFiles', 'openDrawer', 'setWaiting']),
+    ...mapMutations(['initConsole', 'addLine', 'updateParam', 'setFiles', 'openDrawer', 'setWaiting', 'clearConsole']),
     ...mapActions(['initState', 'clear', 'displayExceptionMsg']),
 
     // Change this according to the tools of toolbar.
