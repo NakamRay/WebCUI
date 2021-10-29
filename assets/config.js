@@ -1,5 +1,5 @@
 export const config = {
-  name: `WebCUI Sample`,        // Your application's name
+  name: `Route`,                // Application's name
 
   logo: {
     icon: `logo_icon.png`,      // A filename in ~/static/
@@ -7,9 +7,9 @@ export const config = {
   },
 
   baseUrl: `http://localhost`,
-  apiFileName: `sample-api.php`,
+  apiFileName: `api.php`,
 
-  consoleLocation: 'right',     // Placing the console.
+  consoleLocation: 'bottom',    // Placing the console.
   keepState: false,
 
   messages: {
@@ -29,7 +29,7 @@ export const config = {
       icon: 'mdi-history'
     },
     examples: {
-      enable: true,
+      enable: false,
       icon: 'mdi-alpha-e-box'
     },
     files: {
@@ -37,17 +37,15 @@ export const config = {
       icon: 'mdi-file-multiple'
     },
     variables: {
-      enable: true,
+      enable: false,
       icon: 'mdi-order-alphabetical-ascending'
     },
     sendReq: {
       enable: true,
       icon: 'mdi-play',
-      before: (webcui) => {
-        webcui.addLine({ text: 'Run' })
-      },
       after: (webcui, result) => {
-        webcui.addLine({ text: result })
+        webcui.addLine({ html: '<br>' })
+        webcui.addLine({ html: result })
       }
     }
   }

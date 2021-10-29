@@ -1,8 +1,8 @@
 /*
 You can set multiple categories of the examples like:
 examples = [
-  { name: 'A', examples: [...some examples] },
-  { name: 'B', examples: [...some examples] },
+  { display: 'A', examples: [...some examples] },
+  { display: 'B', examples: [...some examples] },
   ...
 ]
 
