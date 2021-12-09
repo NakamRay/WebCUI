@@ -23,7 +23,7 @@ $ npm run generate
 
 そのほかのサンプルプログラムとして，以下のブランチがあります．
 
-* `sample/v0.1/lcii`
+* `sample/v0.3/lcii`
     * λ計算の対話型簡約器LCIIのWebアプリケーション
 * `sample/v0.2/sol`
     * 二階書換え系検証ツールSOLのWebアプリケーション
