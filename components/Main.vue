@@ -143,6 +143,8 @@
             style="min-height: 25px; color: white"
             v-for="(output, index) in console"
             :key="index"
+            :disabled="!output.clickable"
+            @click="$emit('console-click-event', output)"
           >
             <v-list-item-title>
               <span
@@ -175,7 +177,7 @@ export default {
   data: () => ({
     config,
     formsHeight: 0,
-    consoleHeight: 0,
+    consoleHeight: 0
   }),
   computed: {
     ...mapState(['params', 'console']),
@@ -217,7 +219,6 @@ export default {
         this.formsHeight = window.innerHeight - 90
         this.consoleHeight = window.innerHeight - 80
       }
-
     }
   },
   mounted() {

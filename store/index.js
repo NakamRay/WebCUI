@@ -72,6 +72,13 @@ export const mutations = {
   initConsole(state) {
     state.console = config.messages.initialMsg ? [...config.messages.initialMsg] : []
   },
+  falseClickableAll(state) {
+    for (var i = 0; i < state.console.length; i++) {
+      if (state.console[i].hasOwnProperty('clickable')) {
+        state.console[i] = { ...state.console[i], clickable: false }
+      }
+    }
+  },
   addLine(state, line) {
     line = [line].flat()
     state.console.push(...line)

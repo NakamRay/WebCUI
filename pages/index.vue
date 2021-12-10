@@ -11,7 +11,7 @@
     <v-main>
       <v-row>
         <v-col cols="12" sm="10" offset-sm="1" class="pa-0">
-          <Main />
+          <Main @console-click-event="consoleClickEvent"/>
         </v-col>
 
         <v-col cols="1" class="text-center d-none d-sm-flex">
@@ -38,7 +38,10 @@ export default {
     ...mapGetters(['emptyRepuiredParamExists', 'substitution', 'request']),
   },
   methods: {
-    ...mapMutations(['initConsole', 'addLine', 'updateParam', 'setFiles', 'openDrawer', 'setWaiting']),
+    ...mapMutations([
+      'clearConsole', 'initConsole', 'addLine',
+      'updateParam', 'setFiles', 'openDrawer', 'setWaiting',
+      'falseClickableAll']),
     ...mapActions(['initState', 'clear', 'displayExceptionMsg']),
 
     // Change this according to the tools of toolbar.
@@ -52,17 +55,22 @@ export default {
           this.cancelToken.cancel('Canceled by the user.')
           this.cancelToken = axios.CancelToken.source()
         } else {
-          this.sendReq()
+          this.sendReq(
+            this.toolbar['sendReq'].before,
+            this.toolbar['sendReq'].after
+          )
         }
+      } else if (this.toolbar[key].hasOwnProperty('method')) {
+        this.toolbar[key].method(this)
       }
     },
-    sendReq() {
+    sendReq(before, after) {
       let webcui = this
 
       webcui.setWaiting(true)
 
-      if(this.toolbar['sendReq'].hasOwnProperty('before')) {
-        this.toolbar['sendReq'].before(webcui)
+      if (before !== undefined && before !== null) {
+        before(webcui)
       }
 
       axios.post(
@@ -73,8 +81,8 @@ export default {
         .then(function (response) {
           let result = response.data
 
-          if(webcui.toolbar['sendReq'].hasOwnProperty('after')) {
-            webcui.toolbar['sendReq'].after(webcui, result)
+          if (after !== undefined && after !== null) {
+            after(webcui, result)
           }
         })
         .catch(function (err) {
@@ -88,6 +96,11 @@ export default {
         .finally(function (err) {
           webcui.setWaiting(false)
         })
+    },
+    consoleClickEvent(output) {
+      if (output.hasOwnProperty('clickEvent')) {
+        output.clickEvent(this, output)
+      }
     }
   },
   mounted() {
@@ -104,7 +117,7 @@ export default {
         webcui.setFiles(result)
       })
       .catch(function (err) {
-        webcui.displayConnectionErrorMsg()
+        webcui.displayExceptionMsg('connection')
         console.error(err)
       })
     }
@@ -114,11 +127,11 @@ export default {
     }
 
     // Assigning hotkeys
-    document.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.key === 'Enter' && !this.emptyRepuiredParamExists && !this.waiting) {
-        this.sendReq()
-      }
-    })
+    // document.addEventListener('keydown', (event) => {
+    //   if (event.ctrlKey && event.key === 'Enter' && !this.emptyRepuiredParamExists && !this.waiting) {
+    //     this.sendReq()
+    //   }
+    // })
   }
 }
 </script>
