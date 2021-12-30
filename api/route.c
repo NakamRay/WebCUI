@@ -89,7 +89,7 @@ void get_time(int s, int d, int hour, int o_ryomoline[][O], int t_ryomoline[][T]
     return;
   }
   terminus();
-  if(s < d) { //大前方面や小山方面の場合
+  if(s < d) { 
     for(; k >= 0; k--) { //station[]に経由した駅を前から入れていく
       station[m1] = TMP[k];
       if(END < station[m1] && !SCHEDULE[0]) { //1つの路線の最終駅を過ぎていてまだ時刻が未探索な場合
@@ -331,9 +331,9 @@ int print_time(int s, int d, int k) {
       printf(" 乗り換え -> ");
       absent++;
       if(SCHEDULE[i-1] < CHANGE[c] && CHANGE[c] < SCHEDULE[i+1]) {
-        printf("%s (再出発_", name[TMP[k]]);
+        printf("%s (再出発_", name[TMP[k+1]]);
         arrange_time(-1, hour, minute, &h, &m, c);
-        printf("%2d:%2d) -> ", h, m);
+        printf("%02d:%02d) -> ", h, m);
         c++;
       }
     }
@@ -342,20 +342,20 @@ int print_time(int s, int d, int k) {
         printf("%s [到着_", name[TMP[k]]);
         k--;
         arrange_time(i, hour, minute, &h, &m, c);
-        printf("%2d:%2d] -> ", h, m);
+        printf("%02d:%02d] -> ", h, m);
       }
       else {
         printf("%s (", name[TMP[k]]);
         k--;
         arrange_time(i, hour, minute, &h, &m, c);
-        printf("%2d:%2d) -> ", h, m);
+        printf("%02d:%02d) -> ", h, m);
       }
       absent = 0;
     }
   }
-  printf("%s [到着_", name[TMP[d]]);
+  printf("%s [到着_", name[d]);
   arrange_time(TOTAL-1, hour, minute, &h, &m, c);
-  printf("%2d:%2d]\n", h, m);
+  printf("%02d:%02d]\n", h, m);
 
   return 0;
 }
