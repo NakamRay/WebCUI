@@ -6,8 +6,7 @@ export const config = {
     // text: `logo_text.png`,   // This is needed if you want to use a text logo.
   },
 
-  baseUrl: `http://solweb.mydns.jp/webcui/route-sample`,
-  apiFileName: `api.php`,
+  webApiUrl: `http://solweb.mydns.jp/webcui/route-sample/api/api.php`,
 
   consoleLocation: 'bottom',    // Placing the console.
   keepState: false,

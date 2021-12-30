@@ -74,7 +74,7 @@ export default {
       }
 
       axios.post(
-        `${this.config.baseUrl}/${this.config.apiFileName}`,
+        this.config.webApiUrl,
         this.request,
         { cancelToken: this.cancelToken.token }
       )
