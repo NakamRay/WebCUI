@@ -111,7 +111,7 @@ export default {
 
     if (this.toolbar.hasOwnProperty('files')) {
       axios
-      .post(this.config.baseUrl + '/' + 'files.php')
+      .post(this.config.features.files.webApiUrl)
       .then(function (response) {
         let result = response.data
         webcui.setFiles(result)

@@ -33,7 +33,8 @@ export const config = {
     },
     files: {
       enable: false,
-      icon: 'mdi-file-multiple'
+      icon: 'mdi-file-multiple',
+      webApiUrl: '',
     },
     variables: {
       enable: false,

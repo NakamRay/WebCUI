@@ -89,7 +89,7 @@ export default {
       let vue = this
 
       axios
-      .post(this.config.baseUrl + '/files.php', request)
+      .post(this.config.features.files.webApiUrl, request)
       .then(function (response) {
         let result = response.data
         vue.updateParam({ key: name, value: { value: result } })
