@@ -12,19 +12,19 @@ putenv("LANG=C.UTF-8");
 setlocale(LC_CTYPE, "C.UTF-8");
 
 $prop   = getString('prop');
-$hs   = getString('hs');
+$hs   = $_POST['hs'];
 
 $ip = $_SERVER['REMOTE_ADDR'];
 
-$tmpfile = './sol/log/c' . $ip . '_' . substr(time().PHP_EOL, 0, -1);
+$tmpfile = 'c' . $ip . '_' . substr(time().PHP_EOL, 0, -1) . '.hs';
 
-$fp = fopen($tmpfile, "w");
-fwrite($fp, $rs);
+$fp = fopen("./log/$tmpfile", "w");
+fwrite($fp, $hs);
 fclose($fp);
 
 $timeout = 'timeout 10 ';
 
-$cmd = "sudo stack exec gsol $tmpfile $prop";
+$cmd = "cd ../gsol/ ; stack exec gsol ../api/log/$tmpfile $prop";
 
 exec($cmd, $output);
 
