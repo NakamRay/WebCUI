@@ -1,0 +1,25 @@
+.drawer-text {
+  font-size: 14px !important;
+}
+.dark-drawer {
+  background-color: #1e1e1e !important;
+  border-left: thin solid #393939;
+}
+.dark-card-borders {
+  background-color: #1e1e1e !important;
+  border: medium solid #393939 !important;
+}
+.theme--dark.v-alert {
+  background-color: #2a2a2a !important;
+  padding-bottom: 10px !important;
+}
+.v-dialog p {
+  text-indent: 1em;
+}
+.v-card__title {
+  padding: 8px 16px 8px !important;
+}
+
+p {
+  font-size: 0.875rem;
+}
