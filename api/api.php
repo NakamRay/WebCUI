@@ -12,19 +12,46 @@ putenv("LANG=C.UTF-8");
 setlocale(LC_CTYPE, "C.UTF-8");
 
 $prop   = getString('prop');
-$hs   = $_POST['hs'];
+$s      = $_POST['s'];
+$r      = $_POST['r'];
+$t      = $_POST['t'];
+$n      = $_POST['n'];
+$p      = $_POST['p'];
+$phases = $_POST['phases'];
+$hs     = $_POST['hs'];
 
 $ip = $_SERVER['REMOTE_ADDR'];
 
-$tmpfile = 'c' . $ip . '_' . substr(time().PHP_EOL, 0, -1) . '.hs';
+$option = '';
 
-$fp = fopen("./log/$tmpfile", "w");
+if ($s == 'true') {
+    $option = $option . ' -s';
+}
+if ($r == 'true') {
+    $option = $option . ' -r';
+}
+if ($t == 'true') {
+    $option = $option . ' -t';
+}
+if ($n == 'true') {
+    $option = $option . ' -n';
+}
+if ($p == 'true') {
+    $option = $option . ' -p';
+}
+if ($phases == 'true') {
+    $option = $option . ' --phases';
+}
+
+$tmpfile = './log/c' . $ip . '_' . substr(time().PHP_EOL, 0, -1) . '.hs';
+
+$fp = fopen("$tmpfile", "w");
 fwrite($fp, $hs);
 fclose($fp);
 
 $timeout = 'timeout 10 ';
 
-$cmd = "cd ../gsol/ ; stack exec gsol ../api/log/$tmpfile $prop";
+$cmd = "/home/t201d068/.local/bin/gsol $tmpfile $prop $option 2>&1";
 
 exec($cmd, $output);
 

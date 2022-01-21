@@ -9,8 +9,11 @@
     <Fab @toolbar-event="toolbarEvent" />
 
     <v-main>
-      <v-row>
-        <v-col cols="12" sm="10" offset-sm="1" class="pa-0">
+      <v-row :class="{ 'flex-row-reverse' : config.toolbarLocation == 'left' }">
+        <v-col cols="1" class="text-center d-none d-sm-flex">
+        </v-col>
+
+        <v-col cols="12" sm="10" class="pa-0">
           <Main @console-click-event="consoleClickEvent"/>
         </v-col>
 

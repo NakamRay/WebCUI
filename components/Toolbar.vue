@@ -18,6 +18,7 @@
           v-text="tool.icon"
         />
       </v-btn>
+      <div v-if="tool.text" v-text="tool.text" class="caption" />
     </v-col>
   </v-row>
 </template>

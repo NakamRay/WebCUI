@@ -4,7 +4,7 @@ import { config } from './assets/config.js'
 
 export default {
   router: {
-    base: '/webcui/gsol/'
+    base: config.address
   },
 
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)

@@ -4,7 +4,7 @@
     disable-resize-watcher
     temporary
     app
-    right
+    :right="config.toolbarLocation === 'right'"
     width="500"
     :class="{ 'dark-drawer' : $vuetify.theme.dark }"
   >

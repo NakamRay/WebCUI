@@ -4,7 +4,7 @@
     disable-resize-watcher
     temporary
     app
-    right
+    :right="config.toolbarLocation === 'right'"
     width="500"
     :class="{ 'dark-drawer' : $vuetify.theme.dark }"
   >
@@ -64,11 +64,13 @@
 <script>
 import { mapState, mapMutations } from "vuex"
 
+import { config } from "~/assets/config.js"
 import { examples } from "~/assets/examples.js"
 
 export default {
   data: () => ({
     key: "examples",
+    config,
     examples
   }),
   computed: {

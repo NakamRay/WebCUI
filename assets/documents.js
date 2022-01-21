@@ -1,8 +1,8 @@
-import About from './documents/About.vue'
+import Usage from './documents/About.vue'
 
 export const documents = [
   {
-    title: `About`,
-    body: About
+    title: `Usage`,
+    body: Usage
   }
 ]
