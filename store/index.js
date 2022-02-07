@@ -151,9 +151,6 @@ export const actions = {
     let features = {}
     for (let key in config.features) {
       let feature = config.features[key]
-      if (!feature.enable) {
-        continue
-      }
       if (drawersInfo.hasOwnProperty(key)) {
         features[key] = {
           ...feature,
@@ -250,7 +247,7 @@ export const getters = {
       const test = `\\$\\{${variable}\\}`
       const regexp = new RegExp(test)
       input = input.replace(regexp, state.variables[variable])
-      console.log(variable + ' -> ' + state.variables[variable])
+      // console.log(variable + ' -> ' + state.variables[variable])
     }
 
     return input
@@ -272,7 +269,7 @@ export const getters = {
         value = value.name
       }
       request.append(param, value)
-      console.log(param + ': ' + value)
+      // console.log(param + ': ' + value)
     }
 
     return request
