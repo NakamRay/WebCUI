@@ -30,11 +30,11 @@ export const config = {
     // examples: {
     //   icon: 'mdi-alpha-e-box'
     // },
-    files: {
-      icon: 'mdi-file-multiple',
-      text: 'Examples',
-      webApiUrl: 'http://solweb.mydns.jp/webcui/gsol/api/files.php',
-    },
+    // files: {
+    //   icon: 'mdi-file-multiple',
+    //   text: 'Examples',
+    //   webApiUrl: 'http://localhost/files.php',
+    // },
     // variables: {
     //   icon: 'mdi-order-alphabetical-ascending'
     // },

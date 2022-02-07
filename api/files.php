@@ -10,14 +10,14 @@ putenv('LANG=C.UTF-8');
 if ($_POST['path'] == null) {
   $dirs = array(
     array(
-      'name' => 'hs',
-      'display' => 'examples',
-      'dir' => '/home/t201d068/gsol/examples'
+      'name' => '',       // param's name
+      'display' => '',
+      'dir' => ''
     )
   );
 
   function getFiles($arr) {
-    $arr['files'] = glob($arr['dir'] . '/*.hs');
+    $arr['files'] = glob($arr['dir'] . '/*');
     return $arr;
   }
 

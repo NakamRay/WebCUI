@@ -11,47 +11,9 @@ header('Content-Type: text/plain; charset=UTF-8');
 putenv("LANG=C.UTF-8");
 setlocale(LC_CTYPE, "C.UTF-8");
 
-$prop   = getString('prop');
-$s      = $_POST['s'];
-$r      = $_POST['r'];
-$t      = $_POST['t'];
-$n      = $_POST['n'];
-$p      = $_POST['p'];
-$phases = $_POST['phases'];
-$hs     = $_POST['hs'];
+$text = getString('text');
 
-$ip = $_SERVER['REMOTE_ADDR'];
-
-$option = '';
-
-if ($s == 'true') {
-    $option = $option . ' -s';
-}
-if ($r == 'true') {
-    $option = $option . ' -r';
-}
-if ($t == 'true') {
-    $option = $option . ' -t';
-}
-if ($n == 'true') {
-    $option = $option . ' -n';
-}
-if ($p == 'true') {
-    $option = $option . ' -p';
-}
-if ($phases == 'true') {
-    $option = $option . ' --phases';
-}
-
-$tmpfile = './log/c' . $ip . '_' . substr(time().PHP_EOL, 0, -1) . '.hs';
-
-$fp = fopen("$tmpfile", "w");
-fwrite($fp, $hs);
-fclose($fp);
-
-$timeout = 'timeout 10 ';
-
-$cmd = "/home/t201d068/.local/bin/gsol $tmpfile $prop $option 2>&1";
+$cmd = "echo $text";
 
 exec($cmd, $output);
 
