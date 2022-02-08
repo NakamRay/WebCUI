@@ -55,7 +55,6 @@
 <script>
 import axios from 'axios'
 import { mapState, mapMutations, mapActions } from "vuex"
-
 import { config } from '~/assets/config.js'
 
 export default {

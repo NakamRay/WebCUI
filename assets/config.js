@@ -32,7 +32,6 @@ export const config = {
     // },
     // files: {
     //   icon: 'mdi-file-multiple',
-    //   text: 'Examples',
     //   webApiUrl: 'http://localhost/files.php',
     // },
     // variables: {
@@ -40,7 +39,7 @@ export const config = {
     // },
     sendReq: {
       icon: 'mdi-play',
-      text: 'Check',
+      text: 'Run',
       after: (webcui, result) => {
         webcui.addLine({ html: result })
       }
