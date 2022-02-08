@@ -1,12 +1,12 @@
 export const config = {
-  name: `WebCUI Sample App`,       // Application's name
+  name: `Route`,                   // Application's name
 
   // logo: `logo_icon.png`,        // Logo filename in static directory.
 
-  address: '/',                    // Host the application to http://localhost:3000/[address]
+  address: '/webcui/route',        // Host the application to http://localhost:3000/[address]
 
   consoleLocation: 'bottom',       // Placing the console. [left | right | top | bottom]
-  toolbarLocation: 'left',         // Placing the toolbar. [left | right]
+  toolbarLocation: 'right',        // Placing the toolbar. [left | right]
   
   keepState: false,                // Use localStorage to keep the application's state.
 
@@ -24,15 +24,15 @@ export const config = {
       icon: 'mdi-delete',
       text: 'Clear'
     },
-    // history: {
-    //   icon: 'mdi-history'
-    // },
+    history: {
+      icon: 'mdi-history',
+      text: 'History'
+    },
     // examples: {
     //   icon: 'mdi-alpha-e-box'
     // },
     // files: {
     //   icon: 'mdi-file-multiple',
-    //   text: 'Examples',
     //   webApiUrl: 'http://localhost/files.php',
     // },
     // variables: {
@@ -40,7 +40,7 @@ export const config = {
     // },
     sendReq: {
       icon: 'mdi-play',
-      text: 'Check',
+      text: 'Run',
       after: (webcui, result) => {
         webcui.addLine({ html: result })
       }

@@ -50,10 +50,12 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from "vuex"
+import { config } from '~/assets/config.js'
 
 export default {
   data: () => ({
-    key: "history"
+    key: "history",
+    config
   }),
   computed: {
     ...mapState(["history"]),

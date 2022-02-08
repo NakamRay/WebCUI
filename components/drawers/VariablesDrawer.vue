@@ -134,10 +134,12 @@
 
 <script>
 import { mapState, mapMutations } from "vuex"
+import { config } from '~/assets/config.js'
 
 export default {
   data: () => ({
     key: "variables",
+    config,
     addVarDialog: false,
     varName: "",
     varValue: ""

@@ -63,7 +63,6 @@
 
 <script>
 import { mapState, mapMutations } from "vuex"
-
 import { config } from "~/assets/config.js"
 import { examples } from "~/assets/examples.js"
 

@@ -9,7 +9,7 @@
     <Fab @toolbar-event="toolbarEvent" />
 
     <v-main>
-      <v-row :class="{ 'flex-row-reverse' : config.toolbarLocation == 'left' }">
+      <v-row :class="{ 'flex-row-reverse' : config.toolbarLocation === 'left' }">
         <v-col cols="1" class="text-center d-none d-sm-flex">
         </v-col>
 
