@@ -1,12 +1,12 @@
 export const config = {
-  name: `WebCUI Sample App`,       // Application's name
+  name: `LCII`,                    // Application's name
 
   // logo: `logo_icon.png`,        // Logo filename in static directory.
 
-  address: '/',                    // Host the application to http://localhost:3000/[address]
+  address: '/webcui/lcii',         // Host the application to http://localhost:3000/[address]
 
   consoleLocation: 'bottom',       // Placing the console. [left | right | top | bottom]
-  toolbarLocation: 'left',         // Placing the toolbar. [left | right]
+  toolbarLocation: 'right',        // Placing the toolbar. [left | right]
   
   keepState: false,                // Use localStorage to keep the application's state.
 
@@ -19,29 +19,127 @@ export const config = {
     readErrorMsg: [{ text: `An error occured while reading the file.` }]
   },
 
+  preprocessing: (webcui) => {
+    webcui.submitNum = (webcui, output) => {
+      webcui.sendReq((webcui) => {
+        webcui.updateParam({ key: 'num', value: { value: output.redex } })
+        webcui.updateParam({ key: 'mode', value: { value: 'red' } })
+        webcui.falseClickableAll()
+      },(webcui, result) => {
+        webcui.addLine([
+          { html: '> ' + webcui.params.num.value },
+          { html: '<br>' }
+        ])
+        
+        var resultSplit = result.split('<br>')
+        var addOutputs = []
+        var delHTML = /<([^>]*"[^>]|[^>=])*>/g
+
+        for (var i = 0; i < resultSplit.length; i++) {
+          var text = resultSplit[i]
+          var redex = text.replace(delHTML,'').substring(0,1)
+          if (text !== '') {
+            if (!isNaN(redex)) {
+              addOutputs.push({
+                html: text,
+                redex: parseInt(redex),
+                clickable: true,
+                clickEvent: webcui.submitNum
+              })
+            } else {
+              addOutputs.push({ html: text })
+            }
+          }
+        }
+
+        webcui.addLine(addOutputs)
+
+        if (result.indexOf('maximum') !== -1) {
+          return
+        }
+        if (result.indexOf('Normal') === -1 && result.indexOf('Error') === -1) {
+          webcui.addLine({ html: 'Click the redex you want to reduce.' })
+          if (result.indexOf('α') !== -1) {
+            webcui.updateParam({ key: 'newTerm', value: { value: resultSplit[1].replace(delHTML,'') } })
+          } else {
+            webcui.updateParam({ key: 'newTerm', value: { value: resultSplit[0].replace(delHTML,'') } })
+          }
+        } else {
+          webcui.updateParam({ key: 'newTerm', value: { value: '' } })
+        }
+      })
+    }
+  },
+
   features: {
     clear: {
-      icon: 'mdi-delete',
-      text: 'Clear'
+      icon: 'mdi-delete'
     },
-    // history: {
-    //   icon: 'mdi-history'
-    // },
-    // examples: {
-    //   icon: 'mdi-alpha-e-box'
-    // },
+    history: {
+      icon: 'mdi-history'
+    },
+    examples: {
+      icon: 'mdi-alpha-e-box'
+    },
     // files: {
     //   icon: 'mdi-file-multiple',
     //   webApiUrl: 'http://localhost/files.php',
     // },
-    // variables: {
-    //   icon: 'mdi-order-alphabetical-ascending'
-    // },
+    variables: {
+      icon: 'mdi-order-alphabetical-ascending'
+    },
+    check: {
+      icon: 'mdi-check',
+      method: (webcui) => {
+        webcui.sendReq((webcui) => {
+          webcui.updateParam({ key: 'mode', value: { value: 'check' } })
+        },(webcui, result) => {
+          webcui.addLine({ html: webcui.params.term.value + ' :: ' + result })
+        })
+      }
+    },
     sendReq: {
       icon: 'mdi-play',
-      text: 'Run',
+      before: (webcui) => {
+        webcui.updateParam({ key: 'mode', value: { value: 'init' } })
+        webcui.falseClickableAll()
+      },
       after: (webcui, result) => {
-        webcui.addLine({ html: result })
+        if (result.includes('error') || result.includes('Parse Error')) {
+          webcui.addLine([
+            { text: '無効な入力です．画面右上の「USAGE」からラムダ式または型環境の記法を参照してください．' }
+          ])
+          return
+        }
+
+        var resultSplit = result.split('<br>')
+        var addOutputs = []
+        var delHTML = /<([^>]*"[^>]|[^>=])*>/g
+
+        for (var i = 0; i < resultSplit.length; i++) {
+          var text = resultSplit[i]
+          var redex = text.replace(delHTML,'').substring(0,1)
+          if (text !== '') {
+            if (!isNaN(redex)) {
+              addOutputs.push({
+                html: text,
+                redex: parseInt(redex),
+                clickable: true,
+                clickEvent: webcui.submitNum
+              })
+            } else {
+              addOutputs.push({ html: text })
+            }
+          }
+        }
+
+        webcui.addLine({ html: '<br>' })
+        webcui.addLine(addOutputs)
+
+        if (result.indexOf('Normal') === -1 && result.indexOf('Error') === -1) {
+          webcui.addLine({ html: 'Click the redex you want to reduce.' })
+          webcui.updateParam({ key: 'newTerm', value: { value: resultSplit[0].replace(delHTML,'') } })
+        }
       }
     }
   }

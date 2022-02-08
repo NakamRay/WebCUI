@@ -11,11 +11,33 @@ header('Content-Type: text/plain; charset=UTF-8');
 putenv("LANG=C.UTF-8");
 setlocale(LC_CTYPE, "C.UTF-8");
 
-$text = getString('text');
+$xi = getString('xi');
+$ga = getString('ga');
+$term = getString('term');
+$newTerm = getString('newTerm');
 
-$cmd = "echo $text";
+if ($_POST['isUntyped'] == 'true') {
+    $option = '-u';
+} else {
+    $option = '';
+}
 
-exec($cmd, $output);
+$base = './lcii/API';
+
+switch ($_POST['mode']) {
+    case 'init':
+        $cmd = "$base init $option $xi $ga $term";
+        break;
+    case 'red':
+        $num = '"' . $_POST['num'] . '"';
+        $cmd = "$base red $option $xi $ga $newTerm $num";
+        break;
+    case 'check':
+        $cmd = "$base check $xi $ga $term";
+        break;
+}
+
+exec($cmd, $outputs);
 
 printOutput($output);
 
