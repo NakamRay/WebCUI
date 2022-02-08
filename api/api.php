@@ -13,10 +13,8 @@ setlocale(LC_CTYPE, "C.UTF-8");
 
 $from   = getString('from');
 $to     = getString('to');
-$hour   = getString('hour');
-$minute = getString('minute');
 
-$cmd = "./route $from $to $hour$minute";
+$cmd = "./route $from $to";
 
 exec($cmd, $output);
 
