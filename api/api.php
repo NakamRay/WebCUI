@@ -11,9 +11,12 @@ header('Content-Type: text/plain; charset=UTF-8');
 putenv("LANG=C.UTF-8");
 setlocale(LC_CTYPE, "C.UTF-8");
 
-$text = getString('text');
+$from   = getString('from');
+$to     = getString('to');
+$hour   = getString('hour');
+$minute = getString('minute');
 
-$cmd = "echo $text";
+$cmd = "./route $from $to $hour$minute";
 
 exec($cmd, $output);
 
