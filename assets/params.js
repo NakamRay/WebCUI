@@ -9,13 +9,20 @@ export const params = {
     type: 'select',
     items: stations,
     default: '高崎',
-    size: 'half'
+    size: 'quarter'
   },
   to: {
     display: 'To',
     type: 'select',
     items: stations,
     default: '前橋',
-    size: 'half'
+    size: 'quarter'
+  },
+  time: {
+    display: '出発時刻 (例：0820)',
+    type: 'text',
+    default: '',
+    size: 'half',
+    required: true
   }
 }
