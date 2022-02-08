@@ -1,11 +1,11 @@
 export const config = {
-  name: `WebCUI Sample App`,       // Application's name
+  name: `SOL`,       // Application's name
 
   // logo: `logo_icon.png`,        // Logo filename in static directory.
 
-  address: '/',                    // Host the application to http://localhost:3000/[address]
+  address: '/webcui/sol',          // Host the application to http://localhost:3000/[address]
 
-  consoleLocation: 'bottom',       // Placing the console. [left | right | top | bottom]
+  consoleLocation: 'right',        // Placing the console. [left | right | top | bottom]
   toolbarLocation: 'left',         // Placing the toolbar. [left | right]
   
   keepState: false,                // Use localStorage to keep the application's state.
@@ -30,18 +30,23 @@ export const config = {
     // examples: {
     //   icon: 'mdi-alpha-e-box'
     // },
-    // files: {
-    //   icon: 'mdi-file-multiple',
-    //   webApiUrl: 'http://localhost/files.php',
-    // },
+    files: {
+      icon: 'mdi-file-multiple',
+      text: 'Examples',
+      webApiUrl: 'http://localhost/files.php',
+    },
     // variables: {
     //   icon: 'mdi-order-alphabetical-ascending'
     // },
     sendReq: {
       icon: 'mdi-play',
-      text: 'Run',
+      text: 'Check',
+      before: (webcui) => {
+        webcui.clearConsole()
+      },
       after: (webcui, result) => {
-        webcui.addLine({ html: result })
+        console.log(result)
+        webcui.addLine({ html: result.replaceAll(' ', '&nbsp;') })
       }
     }
   }

@@ -1,4 +1,4 @@
-import Usage from './documents/About.vue'
+import Usage from './documents/Usage.vue'
 
 export const documents = [
   {
