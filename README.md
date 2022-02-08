@@ -1,4 +1,4 @@
-# WebCUI
+# WebCUI version 0.5
 
 ## Build Setup
 
@@ -19,9 +19,7 @@ $ npm run generate
 
 ## 各ブランチについて
 
-`v0.x`ブランチは，バージョン0.xのWebCUIのテンプレートです．
-
-を用いたWebCUIのサンプルプログラムとなっています．
+`main`ブランチは，WebCUIのテンプレートです．
 
 ほかに，サンプルプログラムのための以下のブランチがあります．
 
