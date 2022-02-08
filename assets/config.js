@@ -1,9 +1,9 @@
 export const config = {
-  name: `Route`,                   // Application's name
+  name: `Route2`,                  // Application's name
 
   // logo: `logo_icon.png`,        // Logo filename in static directory.
 
-  address: '/webcui/route',        // Host the application to http://localhost:3000/[address]
+  address: '/webcui/route2',       // Host the application to http://localhost:3000/[address]
 
   consoleLocation: 'bottom',       // Placing the console. [left | right | top | bottom]
   toolbarLocation: 'right',        // Placing the toolbar. [left | right]
