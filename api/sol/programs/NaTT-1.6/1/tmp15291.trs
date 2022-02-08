@@ -1,0 +1,10 @@
+(VAR X Y U V W P X1 Y1 U1 V1 W1 P1 X2 )
+(RULES
+  plus(z,X) -> X
+  plus(s(Y),U) -> plus(Y,s(U))
+  plus(plus(V,W),P) -> plus(V,plus(W,P))
+  mult(z,X1) -> z
+  mult(s(Y1),U1) -> plus(mult(Y1,U1),U1)
+  mult(plus(V1,W1),P1) -> plus(mult(V1,P1),mult(W1,P1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,15 @@
+(VAR L N Y X1 X2 )
+(RULES
+  app(nil,L) -> L
+  app(cons(N,L),Y) -> cons(N,app(L,Y))
+  reverse(nil) -> nil
+  reverse(cons(N,L)) -> app(reverse(L),cons(N,nil))
+  shuffle(nil) -> nil
+  shuffle(cons(N,L)) -> cons(N,shuffle(reverse(L)))
+  uhalf(0) -> 0
+  uhalf(s(0)) -> s(0)
+  uhalf(s(s(N))) -> s(uhalf(N))
+  tail(cons(N,L)) -> L
+  head(cons(N,L)) -> N
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

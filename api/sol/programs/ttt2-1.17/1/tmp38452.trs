@@ -1,0 +1,3 @@
+(VAR X2 Y X0 )
+(RULES
+  sub(sub(X2,Y),X0) -> sub(sub(X2,X0),sub(Y,X0)))

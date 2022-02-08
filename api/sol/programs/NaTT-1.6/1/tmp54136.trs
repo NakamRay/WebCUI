@@ -1,0 +1,14 @@
+(VAR Y X X1 X2 )
+(RULES
+  le(0,Y) -> true
+  le(s(X),0) -> false
+  le(s(X),s(Y)) -> le(X,Y)
+  minus(X,0) -> X
+  minus(s(X),s(Y)) -> minus(X,Y)
+  gcd(0,Y) -> 0
+  gcd(s(X),0) -> 0
+  gcd(s(X),s(Y)) -> if(le(Y,X),s(X),s(Y))
+  if(true,s(X),s(Y)) -> gcd(minus(X,Y),s(Y))
+  if(false,s(X),s(Y)) -> gcd(minus(Y,X),s(X))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

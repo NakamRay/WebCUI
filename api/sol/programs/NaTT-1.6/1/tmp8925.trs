@@ -1,0 +1,14 @@
+(VAR Xs Ys X Y X1 X2 )
+(RULES
+  if(true,Xs,Ys) -> Xs
+  if(false,Xs,Ys) -> Ys
+  app(nil,Xs) -> Xs
+  app(cons(X,Xs),Ys) -> cons(X,app(Xs,Ys))
+  le(0,Y) -> true
+  le(s(X),0) -> false
+  le(s(X),s(Y)) -> le(X,Y)
+  gr(0,Y) -> false
+  gr(s(X),0) -> true
+  gr(s(X),s(Y)) -> gr(X,Y)
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,7 @@
+(VAR X Y U V W1 P1 X1 X2 )
+(RULES
+  app(nil,X) -> X
+  app(cons(Y,U),V) -> cons(Y,app(U,V))
+  iconsc(W1,P1) -> cons(P1,W1)
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

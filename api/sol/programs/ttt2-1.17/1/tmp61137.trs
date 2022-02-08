@@ -1,0 +1,8 @@
+(VAR X Y Z T )
+(RULES
+  union(X,0) -> X
+  union(0,Y) -> Y
+  union(union(X,Y),Z) -> union(X,union(Y,Z))
+  union(X,Y) -> union(Y,X)
+  fix(x) -> 0
+  fix(union(x,T)) -> T)

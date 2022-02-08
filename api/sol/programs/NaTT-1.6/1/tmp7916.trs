@@ -1,0 +1,5 @@
+(VAR Y U V X X1 X2 )
+(RULES
+  bcolon(bcolon(bcolon(bcolon(c,Y),U),V),X) -> bcolon(bcolon(Y,V),bcolon(bcolon(bcolon(Y,U),V),X))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

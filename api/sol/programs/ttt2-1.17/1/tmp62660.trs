@@ -1,0 +1,13 @@
+(VAR X Y Z )
+(RULES
+  ap2(ap(xpls(x1,x2),X,x),0) -> X
+  ap2(ap(xpls(x4,x3),X,x),s(Y)) -> s(ap2(ap(xpls(x27,x28),X,x),Y))
+  ap2(ap(xpls(x7,x6),0,x),Y) -> Y
+  ap2(ap(xpls(x9,x8),s(X),x),Y) -> s(ap2(ap(xpls(x40,x39),X,x),Y))
+  ap2(ap(xmul(x11,x10),X,x),0) -> 0
+  ap2(ap(xmul(x13,x12),X,x),s(Y)) -> ap2(ap(xpls(x61,x62),ap2(ap(xmul(x63,x64),X,x),Y),x),X)
+  ap2(ap(xmul(x15,x14),0,x),Y) -> 0
+  ap2(ap(xmul(x17,x16),s(X),x),Y) -> ap2(ap(xpls(x99,x98),ap2(ap(xmul(x1,x0),X,x),Y),x),Y)
+  ap2(ap(xpls(x19,x18),ap2(ap(xpls(x21,x20),X,x),Y),x),Z) -> ap2(ap(xpls(x44,x45),X,x),ap2(ap(xpls(x46,x47),Y,x),Z))
+  ap2(ap(xpls(x23,x22),X,x),Y) -> ap2(ap(xpls(x26,x25),Y,x),X)
+  ap2(ap(xmul(x36,x35),X,x),Y) -> ap2(ap(xmul(x59,x58),Y,x),X))

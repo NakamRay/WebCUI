@@ -1,0 +1,4 @@
+(VAR X )
+(RULES
+  f(X,b) -> g(X,X)
+  g(X,a) -> f(X,X))

@@ -1,0 +1,67 @@
+Input TRS:
+    1: min(X,0()) -> 0()
+    2: min(0(),Y) -> 0()
+    3: min(s(U),s(V)) -> s(min(U,V))
+    4: diff(W,0()) -> W
+    5: diff(0(),P) -> P
+    6: diff(s(X1),s(Y1)) -> diff(X1,Y1)
+    7: gcd(s(U1),0()) -> s(U1)
+    8: gcd(0(),s(V1)) -> s(V1)
+    9: gcd(s(W1),s(P1)) -> gcd(diff(W1,P1),s(min(W1,P1)))
+    10: _(X1,X2) -> X1
+    11: _(X1,X2) -> X2
+Number of strict rules: 11
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #diff(s(X1),s(Y1)) -> #diff(X1,Y1)
+   #2: #gcd(s(W1),s(P1)) -> #gcd(diff(W1,P1),s(min(W1,P1)))
+   #3: #gcd(s(W1),s(P1)) -> #diff(W1,P1)
+   #4: #gcd(s(W1),s(P1)) -> #min(W1,P1)
+   #5: #min(s(U),s(V)) -> #min(U,V)
+Number of SCCs: 3, DPs: 3
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      diff	w: 0
+      s 	w: x1 + 1
+      gcd	w: 0
+      #min	w: 0
+      _ 	w: 0
+      0 	w: 0
+      #diff	w: x1 + x2
+      #_ 	w: 0
+      min	w: 0
+      #gcd	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 2, DPs: 2
+  SCC { #5 }
+POLO(Sum)... succeeded.
+      diff	w: 0
+      s 	w: x1 + 1
+      gcd	w: 0
+      #min	w: x1
+      _ 	w: 0
+      0 	w: 0
+      #diff	w: 0
+      #_ 	w: 0
+      min	w: 0
+      #gcd	w: 0
+    USABLE RULES: { }
+    Removed DPs: #5
+Number of SCCs: 1, DPs: 1
+  SCC { #2 }
+POLO(Sum)... POLO(max)... succeeded.
+      diff	w: max(x1 + 1, x2 + 1)
+      s 	w: x1 + 4
+      gcd	w: 0
+      #min	w: 0
+      _ 	w: 0
+      0 	w: 1
+      #diff	w: 0
+      #_ 	w: 0
+      min	w: max(x1 + 1)
+      #gcd	w: max(x1 + 2, x2)
+    USABLE RULES: { 1..6 }
+    Removed DPs: #2
+Number of SCCs: 0, DPs: 0

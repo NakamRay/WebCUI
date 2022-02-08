@@ -1,0 +1,114 @@
+Input TRS:
+    1: le(0(),X) -> true()
+    2: le(s(Y),0()) -> false()
+    3: le(s(U),s(V)) -> le(U,V)
+    4: eq(0(),0()) -> true()
+    5: eq(0(),s(W)) -> false()
+    6: eq(s(P),0()) -> false()
+    7: eq(s(X1),s(Y1)) -> eq(X1,Y1)
+    8: if(true(),U1,V1) -> U1
+    9: if(false(),W1,P1) -> P1
+    10: minsort(nil()) -> nil()
+    11: minsort(cons(X2,Y2)) -> cons(min(X2,Y2),minsort(del(min(X2,Y2),cons(X2,Y2))))
+    12: min(U2,nil()) -> U2
+    13: min(V2,cons(W2,P2)) -> if(le(V2,W2),min(V2,P2),min(W2,P2))
+    14: del(X3,nil()) -> nil()
+    15: del(Y3,cons(U3,V3)) -> if(eq(Y3,U3),V3,cons(U3,del(Y3,V3)))
+    16: _(X1,X2) -> X1
+    17: _(X1,X2) -> X2
+Number of strict rules: 17
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #min(V2,cons(W2,P2)) -> #if(le(V2,W2),min(V2,P2),min(W2,P2))
+   #2: #min(V2,cons(W2,P2)) -> #le(V2,W2)
+   #3: #min(V2,cons(W2,P2)) -> #min(V2,P2)
+   #4: #min(V2,cons(W2,P2)) -> #min(W2,P2)
+   #5: #minsort(cons(X2,Y2)) -> #min(X2,Y2)
+   #6: #minsort(cons(X2,Y2)) -> #minsort(del(min(X2,Y2),cons(X2,Y2)))
+   #7: #minsort(cons(X2,Y2)) -> #del(min(X2,Y2),cons(X2,Y2))
+   #8: #minsort(cons(X2,Y2)) -> #min(X2,Y2)
+   #9: #eq(s(X1),s(Y1)) -> #eq(X1,Y1)
+   #10: #le(s(U),s(V)) -> #le(U,V)
+   #11: #del(Y3,cons(U3,V3)) -> #if(eq(Y3,U3),V3,cons(U3,del(Y3,V3)))
+   #12: #del(Y3,cons(U3,V3)) -> #eq(Y3,U3)
+   #13: #del(Y3,cons(U3,V3)) -> #del(Y3,V3)
+Number of SCCs: 5, DPs: 6
+  SCC { #13 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      #del	w: x2
+      s 	w: 0
+      #le	w: 0
+      eq	w: 0
+      false	w: 0
+      #min	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      0 	w: 0
+      if	w: 0
+      del	w: 0
+      nil	w: 0
+      #_ 	w: 0
+      min	w: 0
+      cons	w: x2 + 1
+      #if	w: 0
+      #minsort	w: 0
+      minsort	w: 0
+    USABLE RULES: { }
+    Removed DPs: #13
+Number of SCCs: 4, DPs: 5
+  SCC { #9 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      #del	w: 0
+      s 	w: x1 + 1
+      #le	w: 0
+      eq	w: 0
+      false	w: 0
+      #min	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: x2
+      0 	w: 0
+      if	w: 0
+      del	w: 0
+      nil	w: 0
+      #_ 	w: 0
+      min	w: 0
+      cons	w: 1
+      #if	w: 0
+      #minsort	w: 0
+      minsort	w: 0
+    USABLE RULES: { }
+    Removed DPs: #9
+Number of SCCs: 3, DPs: 4
+  SCC { #10 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      #del	w: 0
+      s 	w: x1 + 1
+      #le	w: x1
+      eq	w: 0
+      false	w: 0
+      #min	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      0 	w: 0
+      if	w: 0
+      del	w: 0
+      nil	w: 0
+      #_ 	w: 0
+      min	w: 0
+      cons	w: 1
+      #if	w: 0
+      #minsort	w: 0
+      minsort	w: 0
+    USABLE RULES: { }
+    Removed DPs: #10
+Number of SCCs: 2, DPs: 3
+  SCC { #6 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

@@ -1,0 +1,8 @@
+(VAR X Y U W P V X1 Y1 U1 V1 W1 P1 X2 )
+(RULES
+  btimes(X,bplus(Y,U)) -> bplus(btimes(X,Y),btimes(X,U))
+  btimes(bplus(W,P),V) -> bplus(btimes(V,W),btimes(V,P))
+  btimes(btimes(X1,Y1),U1) -> btimes(X1,btimes(Y1,U1))
+  bplus(bplus(V1,W1),P1) -> bplus(V1,bplus(W1,P1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

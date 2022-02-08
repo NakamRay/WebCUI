@@ -1,0 +1,41 @@
+Input TRS:
+    1: and(P,all(Q)) -> all(and(P,Q))
+    2: and(all(Q),P) -> all(and(Q,P))
+    3: or(P,all(Q)) -> all(or(P,Q))
+    4: or(all(Q),P) -> all(or(Q,P))
+    5: and(P,ex(Q)) -> ex(and(P,Q))
+    6: and(ex(Q),P) -> ex(and(Q,P))
+    7: or(P,ex(Q)) -> ex(or(P,Q))
+    8: or(ex(Q),P) -> ex(or(Q,P))
+    9: not(all(Q)) -> ex(not(Q))
+    10: not(ex(Q)) -> all(not(Q))
+    11: and(P,R) -> and(R,P)
+    12: or(P,R) -> or(R,P)
+Number of strict rules: 12
+Direct POLO(bPol) ... removes: 1 5 10 9 6 2
+      and	w: 2 * x1 + 2 * x2 + 1
+      ex	w: x1 + 1
+      or	w: x1 + x2 + 1
+      all	w: x1 + 1
+      not	w: 2 * x1 + 1
+Number of strict rules: 6
+Direct POLO(bPol) ... removes: 4 8 3 7
+      and	w: 2 * x1 + 2 * x2 + 1
+      ex	w: x1 + 1
+      or	w: 2 * x1 + 2 * x2 + 1
+      all	w: x1 + 1
+      not	w: 2 * x1 + 1
+Number of strict rules: 2
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #and(P,R) -> #and(R,P)
+   #2: #or(P,R) -> #or(R,P)
+Number of SCCs: 2, DPs: 2
+  SCC { #1 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #and(R_{1},P_{1})	-#1->
+  #and(P_{1},R_{1})	--->*
+  #and(P_{1},R_{1})
+  Looping with: [ P_{1} := R_{1}; R_{1} := P_{1}; ]

@@ -1,0 +1,4 @@
+Input TRS:
+    1: f(0()) -> f(0())
+    2: 0() -> 1()
+Trivially nonterminating rule 1.

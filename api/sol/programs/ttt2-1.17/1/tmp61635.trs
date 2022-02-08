@@ -1,0 +1,3 @@
+(VAR T U V )
+(RULES
+  let_val(T,let_val(U,V)) -> let_val(let_val(T,U),V))

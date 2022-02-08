@@ -1,0 +1,7 @@
+(VAR U S X1 X2 )
+(RULES
+  car(cons(U,S)) -> U
+  cdr(cons(U,S)) -> S
+  cons(car(S),cdr(S)) -> S
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,13 @@
+(VAR X Y U V W P X1 Y1 U1 V1 W1 P1 X2 )
+(RULES
+  min(X,0) -> 0
+  min(0,Y) -> 0
+  min(s(U),s(V)) -> s(min(U,V))
+  diff(W,0) -> W
+  diff(0,P) -> P
+  diff(s(X1),s(Y1)) -> diff(X1,Y1)
+  gcd(s(U1),0) -> s(U1)
+  gcd(0,s(V1)) -> s(V1)
+  gcd(s(W1),s(P1)) -> gcd(diff(W1,P1),s(min(W1,P1)))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

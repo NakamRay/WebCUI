@@ -1,0 +1,21 @@
+Input TRS:
+    1: le(0(),W) -> true()
+    2: le(s(P),0()) -> false()
+    3: le(s(X1),s(Y1)) -> le(X1,Y1)
+    4: maxlist(U1,cons(V1,W1)) -> if(le(U1,V1),maxlist(V1,W1))
+    5: maxlist(P1,nil()) -> P1
+    6: _(X1,X2) -> X1
+    7: _(X1,X2) -> X2
+Number of strict rules: 7
+Direct POLO(bPol) ... removes: 4 1 3 5 7 6 2
+      le	w: x1 + x2 + 1
+      s 	w: 2 * x1 + 1
+      false	w: 2
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      true	w: 1
+      0 	w: 1
+      if	w: x1 + x2
+      nil	w: 1
+      maxlist	w: x1 + 2 * x2 + 1
+      cons	w: x1 + 2 * x2 + 1
+Number of strict rules: 0

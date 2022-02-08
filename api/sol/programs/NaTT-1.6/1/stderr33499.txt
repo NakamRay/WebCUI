@@ -1,0 +1,58 @@
+Input TRS:
+    1: btimes(X,bplus(Y,U)) -> bplus(btimes(X,Y),btimes(X,U))
+    2: btimes(bplus(W,P),V) -> bplus(btimes(V,W),btimes(V,P))
+    3: btimes(btimes(X1,Y1),U1) -> btimes(X1,btimes(Y1,U1))
+    4: bplus(bplus(V1,W1),P1) -> bplus(V1,bplus(W1,P1))
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #btimes(bplus(W,P),V) -> #bplus(btimes(V,W),btimes(V,P))
+   #2: #btimes(bplus(W,P),V) -> #btimes(V,W)
+   #3: #btimes(bplus(W,P),V) -> #btimes(V,P)
+   #4: #btimes(btimes(X1,Y1),U1) -> #btimes(X1,btimes(Y1,U1))
+   #5: #btimes(btimes(X1,Y1),U1) -> #btimes(Y1,U1)
+   #6: #btimes(X,bplus(Y,U)) -> #bplus(btimes(X,Y),btimes(X,U))
+   #7: #btimes(X,bplus(Y,U)) -> #btimes(X,Y)
+   #8: #btimes(X,bplus(Y,U)) -> #btimes(X,U)
+   #9: #bplus(bplus(V1,W1),P1) -> #bplus(V1,bplus(W1,P1))
+   #10: #bplus(bplus(V1,W1),P1) -> #bplus(W1,P1)
+Number of SCCs: 2, DPs: 8
+  SCC { #9 #10 }
+POLO(Sum)... succeeded.
+      _ 	w: 0
+      #btimes	w: 0
+      bplus	w: x1 + x2 + 1
+      btimes	w: 0
+      #_ 	w: 0
+      #bplus	w: x1
+    USABLE RULES: { }
+    Removed DPs: #9 #10
+Number of SCCs: 1, DPs: 6
+  SCC { #2..5 #7 #8 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... succeeded.
+      _ 	w: 0
+      #btimes	w: max(x1 + x2 - 1, 0)
+      bplus	w: max(x1 + 2, x2, 0)
+      btimes	w: max(x1 + x2, 0)
+      #_ 	w: max(x1 - 1, 0)
+      #bplus	w: 0
+    USABLE RULES: { 1..4 }
+    Removed DPs: #2 #7
+Number of SCCs: 1, DPs: 4
+  SCC { #3..5 #8 }
+POLO(Sum)... succeeded.
+      _ 	w: 0
+      #btimes	w: x1 + x2
+      bplus	w: x2
+      btimes	w: x1 + x2 + 1
+      #_ 	w: 0
+      #bplus	w: 0
+    USABLE RULES: { 1..4 }
+    Removed DPs: #5
+Number of SCCs: 1, DPs: 3
+  SCC { #3 #4 #8 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

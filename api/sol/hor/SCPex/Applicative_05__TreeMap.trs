@@ -1,0 +1,21 @@
+(VAR
+  F: c -> c 
+  Z: c -> c 
+  U: c 
+  V: b 
+  I: a -> a 
+  P: a 
+  X1: b 
+)
+(FUN
+  cons : c -> b -> b
+  map : (c -> c) -> b -> b
+  nil : b
+  node : a -> b -> c
+  treemap : (a -> a) -> c -> c
+)
+(RULES
+  (map(F,(nil))) -> (nil),
+  (map(Z,(cons(U,V)))) -> (cons((Z U),(map(Z,V)))),
+  ((treemap(I)) (node(P,X1))) -> (node((I P),(map((treemap(I)),X1))))
+)

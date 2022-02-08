@@ -1,0 +1,6 @@
+(VAR X Y Z )
+(RULES
+  fapp(lam(X),Y) -> subst(X,Y)
+  subst(v,Y) -> Y
+  subst(lam(X),Y) -> lam(X)
+  subst(fapp(X,Z),Y) -> fapp(subst(X,Y),subst(Z,Y)))

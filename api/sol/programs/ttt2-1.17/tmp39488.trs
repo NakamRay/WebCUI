@@ -1,0 +1,6 @@
+(VAR S T F G H )
+(RULES
+  app(abs(x),S) -> S
+  app(abs(T),S) -> T
+  app(abs(app(F,G)),S) -> app(app(abs(F),S),app(abs(G),S))
+  app(abs(abs(H)),S) -> abs(app(abs(H),S)))

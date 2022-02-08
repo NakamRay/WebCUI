@@ -1,0 +1,91 @@
+Input TRS:
+    1: intlist(nil()) -> nil()
+    2: intlist(cons(X,Y)) -> cons(s(X),intlist(Y))
+    3: int(0(),0()) -> cons(0(),nil())
+    4: int(0(),s(U)) -> cons(0(),int(s(0()),s(U)))
+    5: int(s(V),0()) -> nil()
+    6: int(s(W),s(P)) -> intlist(int(W,P))
+    7: _(X1,X2) -> X1
+    8: _(X1,X2) -> X2
+Number of strict rules: 8
+Direct POLO(bPol) ... removes: 8 3 5 7
+      s 	w: x1
+      _ 	w: x1 + 2 * x2 + 1
+      0 	w: 0
+      nil	w: 1
+      intlist	w: x1
+      int	w: x1 + x2 + 2
+      cons	w: x1 + x2
+Number of strict rules: 4
+Direct POLO(bPol) ... removes: 1
+      s 	w: 2 * x1
+      _ 	w: x1 + 2 * x2 + 1
+      0 	w: 0
+      nil	w: 1
+      intlist	w: 2 * x1
+      int	w: x1 + x2
+      cons	w: x1 + x2
+Number of strict rules: 3
+Direct POLO(bPol) ... failed.
+Uncurrying int
+2: intlist(cons(X,Y)) -> cons(s(X),intlist(Y))
+4: int^1_0(s(U)) -> cons(0(),int^1_s(0(),s(U)))
+6: int^1_s(W,s(P)) -> intlist(int(W,P))
+9: int(0(),_1) ->= int^1_0(_1)
+10: int(s(_1),_2) ->= int^1_s(_1,_2)
+Number of strict rules: 3
+Direct POLO(bPol) ... removes: 10
+      int^1_0	w: 2 * x1 + 1
+      s 	w: 2 * x1 + 1
+      _ 	w: x1 + x2
+      0 	w: 0
+      nil	w: 0
+      intlist	w: 2 * x1
+      int	w: x1 + 2 * x2 + 1
+      cons	w: x1 + x2 + 1
+      int^1_s	w: 2 * x1 + 2 * x2
+Number of strict rules: 3
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #intlist(cons(X,Y)) -> #intlist(Y)
+   #2: #int^1_s(W,s(P)) -> #intlist(int(W,P))
+   #3: #int^1_s(W,s(P)) -> #int(W,P)
+   #4: #int(0(),_1) ->? #int^1_0(_1)
+   #5: #int^1_0(s(U)) -> #int^1_s(0(),s(U))
+Number of SCCs: 2, DPs: 4
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      int^1_0	w: 0
+      #intlist	w: x1
+      s 	w: 0
+      _ 	w: 0
+      0 	w: 0
+      nil	w: 0
+      intlist	w: 0
+      #int^1_0	w: 0
+      int	w: 0
+      cons	w: x2 + 1
+      int^1_s	w: 0
+      #int^1_s	w: 0
+      #int	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 1, DPs: 3
+  SCC { #3..5 }
+POLO(Sum)... succeeded.
+      int^1_0	w: 0
+      #intlist	w: 0
+      s 	w: x1 + 3
+      _ 	w: 0
+      0 	w: 1
+      nil	w: 0
+      intlist	w: 0
+      #int^1_0	w: x1 + 1
+      int	w: 0
+      cons	w: 1
+      int^1_s	w: 0
+      #int^1_s	w: x2
+      #int	w: x2 + 2
+    USABLE RULES: { }
+    Removed DPs: #3..5
+Number of SCCs: 0, DPs: 0

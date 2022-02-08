@@ -1,0 +1,8 @@
+(VAR X Y U V W P X1 Y1 X2 )
+(RULES
+  f(cons(nil,X)) -> X
+  f(cons(f(cons(nil,Y)),U)) -> copy(n,Y,U)
+  copy(0,V,W) -> f(W)
+  copy(s(P),X1,Y1) -> copy(P,X1,cons(f(X1),Y1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

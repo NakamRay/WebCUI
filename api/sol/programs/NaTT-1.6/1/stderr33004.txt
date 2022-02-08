@@ -1,0 +1,55 @@
+Input TRS:
+    1: plus(X,plus(Y,Z)) -> plus(plus(X,Y),Z)
+    2: plus(plus(X,Y),Z) -> plus(X,plus(Y,Z))
+    3: plus(X,Y) -> plus(Y,X)
+    4: plus(s(X),Y) -> plus(X,s(Y))
+    5: plus(X,s(Y)) -> plus(s(X),Y)
+    6: times(X,s(Y)) -> plus(X,times(X,Y))
+    7: times(s(X),Y) -> plus(times(X,Y),Y)
+    8: times(X,Y) -> times(Y,X)
+    9: sq(X) -> times(X,X)
+    10: sq(s(X)) -> plus(times(X,X),s(plus(X,X)))
+    11: _(X1,X2) -> X1
+    12: _(X1,X2) -> X2
+Number of strict rules: 12
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #plus(plus(X,Y),Z) -> #plus(X,plus(Y,Z))
+   #2: #plus(plus(X,Y),Z) -> #plus(Y,Z)
+   #3: #times(X,s(Y)) -> #plus(X,times(X,Y))
+   #4: #times(X,s(Y)) -> #times(X,Y)
+   #5: #sq(X) -> #times(X,X)
+   #6: #times(s(X),Y) -> #plus(times(X,Y),Y)
+   #7: #times(s(X),Y) -> #times(X,Y)
+   #8: #sq(s(X)) -> #plus(times(X,X),s(plus(X,X)))
+   #9: #sq(s(X)) -> #times(X,X)
+   #10: #sq(s(X)) -> #plus(X,X)
+   #11: #plus(X,s(Y)) -> #plus(s(X),Y)
+   #12: #plus(X,Y) -> #plus(Y,X)
+   #13: #plus(X,plus(Y,Z)) -> #plus(plus(X,Y),Z)
+   #14: #plus(X,plus(Y,Z)) -> #plus(X,Y)
+   #15: #times(X,Y) -> #times(Y,X)
+   #16: #plus(s(X),Y) -> #plus(X,s(Y))
+Number of SCCs: 2, DPs: 10
+  SCC { #4 #7 #15 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #sq	w: 0
+      #plus	w: 0
+      _ 	w: 0
+      #times	w: x1 + x2
+      times	w: 0
+      #_ 	w: 0
+      plus	w: 0
+      sq	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4 #7
+Number of SCCs: 2, DPs: 8
+  SCC { #15 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #times(Y_{1},X_{1})	-#15->
+  #times(X_{1},Y_{1})	--->*
+  #times(X_{1},Y_{1})
+  Looping with: [ Y_{1} := X_{1}; X_{1} := Y_{1}; ]

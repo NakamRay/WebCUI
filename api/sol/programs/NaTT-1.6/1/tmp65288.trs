@@ -1,0 +1,7 @@
+(VAR X Y U V W X1 X2 )
+(RULES
+  ack(0,X) -> succ(X)
+  ack(succ(Y),U) -> ack(Y,succ(0))
+  ack(succ(V),succ(W)) -> ack(V,ack(succ(V),W))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,12 @@
+(VAR P Q )
+(RULES
+  and(P,forall(Q)) -> forall(and(P,Q))
+  or(P,forall(Q)) -> forall(or(P,Q))
+  and(forall(Q),P) -> forall(and(Q,P))
+  or(forall(Q),P) -> forall(or(Q,P))
+  not(forall(Q)) -> exists(not(Q))
+  and(P,exists(Q)) -> exists(and(P,Q))
+  or(P,exists(Q)) -> exists(or(P,Q))
+  and(exists(Q),P) -> exists(and(Q,P))
+  or(exists(Q),P) -> exists(or(Q,P))
+  not(exists(Q)) -> forall(not(Q)))

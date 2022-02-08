@@ -1,0 +1,5018 @@
+Rewrite Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+Apply Direct Methods...
+Inner CPs:
+   [ xpls(?X,?Z_1) = xpls(?X,xpls(0,?Z_1)),
+     xpls(xpls(?Y_2,?X_2),?Z_1) = xpls(?X_2,xpls(?Y_2,?Z_1)),
+     xpls(xpls(?X,xpls(?Y,?Z)),?Z_1) = xpls(xpls(?X,?Y),xpls(?Z,?Z_1)) ]
+Outer CPs:
+   [ xpls(?X_1,?Y_1) = xpls(?X_1,xpls(?Y_1,0)),
+     ?X = xpls(0,?X),
+     xpls(?X_1,xpls(?Y_1,?Z_1)) = xpls(?Z_1,xpls(?X_1,?Y_1)) ]
+not Overlay, check Termination...
+unknown/not Terminating
+unknown Knuth & Bendix
+Linear
+unknown Development Closed
+unknown Strongly Closed
+unknown Weakly-Non-Overlapping & Non-Collapsing & Shallow
+unknown Upside-Parallel-Closed/Outside-Closed
+(inner) Parallel CPs: (not computed)
+unknown Toyama (Parallel CPs)
+Simultaneous CPs:
+   [ xpls(?X_1,xpls(?Y_1,0)) = xpls(?X_1,?Y_1),
+     xpls(0,?X) = ?X,
+     xpls(?X,xpls(0,?Z_2)) = xpls(?X,?Z_2),
+     xpls(?X_1,xpls(?Y_1,?Y)) = xpls(xpls(?X_1,?Y_1),xpls(?Y,0)),
+     ?X = xpls(?X,xpls(0,0)),
+     xpls(?Y,?X) = xpls(?X,xpls(?Y,0)),
+     xpls(?Z,xpls(?X_1,xpls(?Y_1,?Y))) = xpls(xpls(?X_1,?Y_1),xpls(?Y,?Z)),
+     xpls(?Z,?X) = xpls(?X,xpls(0,?Z)),
+     xpls(?Z,xpls(?Y,?X)) = xpls(?X,xpls(?Y,?Z)),
+     xpls(?X,?Y) = xpls(?X,xpls(?Y,0)),
+     xpls(?Z,xpls(?X,?Y)) = xpls(?X,xpls(?Y,?Z)),
+     xpls(xpls(?X_1,xpls(?Y_1,?Y)),?Z) = xpls(xpls(?X_1,?Y_1),xpls(?Y,?Z)),
+     xpls(?X,?Z) = xpls(?X,xpls(0,?Z)),
+     xpls(xpls(?Y,?X),?Z) = xpls(?X,xpls(?Y,?Z)),
+     xpls(xpls(?X_2,xpls(?Y_2,?Y)),xpls(?Z,?Z_1)) = xpls(xpls(xpls(?X_2,?Y_2),xpls(?Y,?Z)),?Z_1),
+     xpls(?X,xpls(?Z,?Z_1)) = xpls(xpls(?X,xpls(0,?Z)),?Z_1),
+     xpls(xpls(?Y,?X),xpls(?Z,?Z_1)) = xpls(xpls(?X,xpls(?Y,?Z)),?Z_1),
+     xpls(xpls(?X,?Y),xpls(?Z,?Z_1)) = xpls(xpls(?X,xpls(?Y,?Z)),?Z_1),
+     ?X = xpls(0,?X),
+     xpls(?X_2,xpls(?Y_2,?Y)) = xpls(?Y,xpls(?X_2,?Y_2)),
+     xpls(?X,xpls(?Y,?Z_3)) = xpls(xpls(?Y,?X),?Z_3) ]
+unknown Okui (Simultaneous CPs)
+unknown Strongly Depth-Preserving & Root-E-Closed/Non-E-Overlapping
+unknown Strongly Weight-Preserving & Root-E-Closed/Non-E-Overlapping
+check Locally Decreasing Diagrams by Rule Labelling...
+Critical Pair <xpls(?X,?Z_1), xpls(?X,xpls(0,?Z_1))> by Rules <0, 1> preceded by [(xpls,1)]
+ joinable by a reduction of rules <[], [([(xpls,2)],2),([(xpls,2)],0)]>
+Critical Pair <xpls(xpls(?Y_2,?X_2),?Z_1), xpls(?X_2,xpls(?Y_2,?Z_1))> by Rules <2, 1> preceded by [(xpls,1)]
+ joinable by a reduction of rules <[([(xpls,1)],2),([],1)], []>
+ joinable by a reduction of rules <[([],1),([(xpls,2)],2)], [([],2),([],1)]>
+Critical Pair <xpls(xpls(?X,xpls(?Y,?Z)),?Z_1), xpls(xpls(?X,?Y),xpls(?Z,?Z_1))> by Rules <1, 1> preceded by [(xpls,1)]
+ joinable by a reduction of rules <[([],1),([(xpls,2)],1)], [([],1)]>
+Critical Pair <xpls(?X_1,xpls(?Y_1,0)), xpls(?X_1,?Y_1)> by Rules <1, 0> preceded by []
+ joinable by a reduction of rules <[([(xpls,2)],0)], []>
+Critical Pair <xpls(0,?X_2), ?X_2> by Rules <2, 0> preceded by []
+ joinable by a reduction of rules <[([],2),([],0)], []>
+Critical Pair <xpls(?Y_2,xpls(?X_1,?Y_1)), xpls(?X_1,xpls(?Y_1,?Y_2))> by Rules <2, 1> preceded by []
+ joinable by a reduction of rules <[([],2),([],1)], []>
+unknown Diagram Decreasing
+check Non-Confluence...
+obtain 6 rules by 3 steps unfolding
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)),
+     xpls(?X,?Y) -> xpls(?Y,?X),
+     xpls(0,?X) -> ?X,
+     xpls(?X,?Y) -> xpls(?X,?Y),
+     xpls(?X,xpls(0,0)) -> ?X ]
+19 critical pairs found (<= 100 will be examined).
+   [ xpls(?X_3,0) = ?X_3,
+     xpls(?X_4,0) = ?X_4,
+     xpls(?X_5,0) = ?X_5,
+     xpls(0,?X_2) = ?X_2,
+     xpls(0,?Y_4) = ?Y_4,
+     xpls(0,0) = 0,
+     xpls(?Y_4,?X_4) = xpls(?X_4,?Y_4),
+     xpls(?X_5,xpls(0,0)) = ?X_5,
+     xpls(xpls(0,0),?X_5) = ?X_5,
+     xpls(?X,xpls(0,?Z_1)) = xpls(?X,?Z_1),
+     xpls(?X_1,xpls(?Y_1,0)) = xpls(?X_1,?Y_1),
+     xpls(0,xpls(?X_3,?Z_1)) = xpls(?X_3,?Z_1),
+     xpls(?X_1,xpls(?Y_1,?Y_2)) = xpls(?Y_2,xpls(?X_1,?Y_1)),
+     xpls(?X_1,xpls(?Y_1,?Y_4)) = xpls(xpls(?X_1,?Y_1),?Y_4),
+     xpls(?X_2,xpls(?Y_2,?Z_1)) = xpls(xpls(?Y_2,?X_2),?Z_1),
+     xpls(?X_4,xpls(?Y_4,?Z_1)) = xpls(xpls(?X_4,?Y_4),?Z_1),
+     xpls(?X_1,xpls(?Y_1,xpls(0,0))) = xpls(?X_1,?Y_1),
+     xpls(?X_5,xpls(xpls(0,0),?Z_1)) = xpls(?X_5,?Z_1),
+     xpls(xpls(?X,?Y),xpls(?Z,?Z_1)) = xpls(xpls(?X,xpls(?Y,?Z)),?Z_1) ]
+strenghten xpls(c_1,0) and c_1
+strenghten xpls(0,c_1) and c_1
+strenghten xpls(0,0) and 0
+strenghten xpls(c_2,c_1) and xpls(c_1,c_2)
+strenghten xpls(c_1,xpls(0,0)) and c_1
+strenghten xpls(xpls(0,0),c_1) and c_1
+strenghten xpls(c_1,xpls(0,c_2)) and xpls(c_1,c_2)
+strenghten xpls(c_1,xpls(c_2,0)) and xpls(c_1,c_2)
+strenghten xpls(0,xpls(c_1,c_2)) and xpls(c_1,c_2)
+strenghten xpls(c_1,xpls(c_2,c_3)) and xpls(c_3,xpls(c_1,c_2))
+strenghten xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_1,c_2),c_3)
+strenghten xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_2,c_1),c_3)
+strenghten xpls(c_1,xpls(c_2,xpls(0,0))) and xpls(c_1,c_2)
+strenghten xpls(c_1,xpls(xpls(0,0),c_2)) and xpls(c_1,c_2)
+strenghten xpls(xpls(c_1,c_2),xpls(c_3,c_4)) and xpls(xpls(c_1,xpls(c_2,c_3)),c_4)
+candidates for finding a counterexample:
+   [ xpls(0,0) = 0,
+     xpls(0,c_1) = c_1,
+     xpls(c_1,0) = c_1,
+     xpls(c_1,c_2) = xpls(c_2,c_1),
+     xpls(c_2,c_1) = xpls(c_1,c_2),
+     xpls(0,xpls(0,c_1)) = c_1,
+     xpls(0,xpls(c_1,0)) = c_1,
+     xpls(c_1,xpls(0,0)) = c_1,
+     xpls(xpls(0,0),c_1) = c_1,
+     xpls(xpls(0,c_1),0) = c_1,
+     xpls(xpls(c_1,0),0) = c_1,
+     xpls(0,xpls(c_1,c_2)) = xpls(c_1,c_2),
+     xpls(0,xpls(c_1,c_2)) = xpls(c_2,c_1),
+     xpls(0,xpls(c_2,c_1)) = xpls(c_1,c_2),
+     xpls(0,xpls(c_2,c_1)) = xpls(c_2,c_1),
+     xpls(c_1,xpls(0,c_2)) = xpls(c_1,c_2),
+     xpls(c_1,xpls(0,c_2)) = xpls(c_2,c_1),
+     xpls(c_1,xpls(c_2,0)) = xpls(c_1,c_2),
+     xpls(c_1,xpls(c_2,0)) = xpls(c_2,c_1),
+     xpls(c_2,xpls(0,c_1)) = xpls(c_1,c_2),
+     xpls(c_2,xpls(0,c_1)) = xpls(c_2,c_1),
+     xpls(c_2,xpls(c_1,0)) = xpls(c_1,c_2),
+     xpls(c_2,xpls(c_1,0)) = xpls(c_2,c_1),
+     xpls(xpls(0,c_1),c_2) = xpls(c_1,c_2),
+     xpls(xpls(0,c_1),c_2) = xpls(c_2,c_1),
+     xpls(xpls(0,c_2),c_1) = xpls(c_1,c_2),
+     xpls(xpls(0,c_2),c_1) = xpls(c_2,c_1),
+     xpls(xpls(c_1,c_2),0) = xpls(c_1,c_2),
+     xpls(xpls(c_1,c_2),0) = xpls(c_2,c_1),
+     xpls(xpls(c_2,0),c_1) = xpls(c_1,c_2),
+     xpls(xpls(c_2,0),c_1) = xpls(c_2,c_1),
+     xpls(xpls(c_2,c_1),0) = xpls(c_1,c_2),
+     xpls(xpls(c_2,c_1),0) = xpls(c_2,c_1),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(c_1,xpls(c_3,c_2)),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(c_2,xpls(c_1,c_3)),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(c_2,xpls(c_3,c_1)),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(c_3,xpls(c_1,c_2)),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(c_3,xpls(c_2,c_1)),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(xpls(c_1,c_2),c_3),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(xpls(c_1,c_3),c_2),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(xpls(c_2,c_1),c_3),
+     xpls(c_1,xpls(c_2,c_3)) = xpls(xpls(c_2,c_3),c_1),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(c_1,xpls(c_2,c_3)),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(c_2,xpls(c_1,c_3)),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(c_2,xpls(c_3,c_1)),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(c_3,xpls(c_1,c_2)),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(c_3,xpls(c_2,c_1)),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(xpls(c_1,c_2),c_3),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(xpls(c_1,c_3),c_2),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(xpls(c_2,c_1),c_3),
+     xpls(c_1,xpls(c_3,c_2)) = xpls(xpls(c_2,c_3),c_1),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(c_1,xpls(c_2,c_3)),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(c_1,xpls(c_3,c_2)),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(c_2,xpls(c_3,c_1)),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(c_3,xpls(c_1,c_2)),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(c_3,xpls(c_2,c_1)),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(xpls(c_1,c_2),c_3),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(xpls(c_1,c_3),c_2),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(xpls(c_2,c_1),c_3),
+     xpls(c_2,xpls(c_1,c_3)) = xpls(xpls(c_2,c_3),c_1),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(c_1,xpls(c_2,c_3)),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(c_1,xpls(c_3,c_2)),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(c_2,xpls(c_1,c_3)),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(c_3,xpls(c_1,c_2)),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(c_3,xpls(c_2,c_1)),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(xpls(c_1,c_2),c_3),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(xpls(c_1,c_3),c_2),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(xpls(c_2,c_1),c_3),
+     xpls(c_2,xpls(c_3,c_1)) = xpls(xpls(c_2,c_3),c_1),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(c_1,xpls(c_2,c_3)),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(c_1,xpls(c_3,c_2)),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(c_2,xpls(c_1,c_3)),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(c_2,xpls(c_3,c_1)),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(c_3,xpls(c_1,c_2)),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(xpls(c_1,c_2),c_3),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(xpls(c_1,c_3),c_2),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(xpls(c_2,c_1),c_3),
+     xpls(c_3,xpls(c_2,c_1)) = xpls(xpls(c_2,c_3),c_1),
+     xpls(xpls(c_2,c_3),c_1) = xpls(c_1,xpls(c_2,c_3)),
+     xpls(xpls(c_2,c_3),c_1) = xpls(c_1,xpls(c_3,c_2)),
+     xpls(xpls(c_2,c_3),c_1) = xpls(c_2,xpls(c_1,c_3)),
+     xpls(xpls(c_2,c_3),c_1) = xpls(c_2,xpls(c_3,c_1)),
+     xpls(xpls(c_2,c_3),c_1) = xpls(c_3,xpls(c_1,c_2)),
+     xpls(xpls(c_2,c_3),c_1) = xpls(c_3,xpls(c_2,c_1)),
+     xpls(xpls(c_2,c_3),c_1) = xpls(xpls(c_1,c_2),c_3),
+     xpls(xpls(c_2,c_3),c_1) = xpls(xpls(c_1,c_3),c_2),
+     xpls(xpls(c_2,c_3),c_1) = xpls(xpls(c_2,c_1),c_3),
+     xpls(xpls(c_3,c_1),c_2) = xpls(c_1,xpls(c_2,c_3)),
+     xpls(xpls(c_3,c_1),c_2) = xpls(c_1,xpls(c_3,c_2)),
+     xpls(xpls(c_3,c_1),c_2) = xpls(c_2,xpls(c_1,c_3)),
+     xpls(xpls(c_3,c_1),c_2) = xpls(c_2,xpls(c_3,c_1)),
+     xpls(xpls(c_3,c_1),c_2) = xpls(c_3,xpls(c_1,c_2)),
+     xpls(xpls(c_3,c_1),c_2) = xpls(c_3,xpls(c_2,c_1)),
+     xpls(xpls(c_3,c_1),c_2) = xpls(xpls(c_1,c_2),c_3),
+     xpls(xpls(c_3,c_1),c_2) = xpls(xpls(c_1,c_3),c_2),
+     xpls(xpls(c_3,c_1),c_2) = xpls(xpls(c_2,c_1),c_3),
+     xpls(xpls(c_3,c_1),c_2) = xpls(xpls(c_2,c_3),c_1),
+     xpls(xpls(c_3,c_2),c_1) = xpls(c_1,xpls(c_2,c_3)),
+     xpls(xpls(c_3,c_2),c_1) = xpls(c_1,xpls(c_3,c_2)),
+     xpls(xpls(c_3,c_2),c_1) = xpls(c_2,xpls(c_1,c_3)),
+     xpls(xpls(c_3,c_2),c_1) = xpls(c_2,xpls(c_3,c_1)),
+     xpls(xpls(c_3,c_2),c_1) = xpls(c_3,xpls(c_1,c_2)),
+     xpls(xpls(c_3,c_2),c_1) = xpls(c_3,xpls(c_2,c_1)),
+     xpls(xpls(c_3,c_2),c_1) = xpls(xpls(c_1,c_2),c_3),
+     xpls(xpls(c_3,c_2),c_1) = xpls(xpls(c_1,c_3),c_2),
+     xpls(xpls(c_3,c_2),c_1) = xpls(xpls(c_2,c_1),c_3),
+     xpls(xpls(c_3,c_2),c_1) = xpls(xpls(c_2,c_3),c_1),
+     xpls(xpls(c_2,c_1),xpls(0,0)) = xpls(c_1,c_2),
+     xpls(xpls(c_2,c_1),xpls(0,0)) = xpls(c_2,c_1),
+     xpls(xpls(c_2,xpls(0,0)),c_1) = xpls(c_1,c_2),
+     xpls(xpls(c_2,xpls(0,0)),c_1) = xpls(c_2,c_1),
+     xpls(xpls(xpls(0,0),c_1),c_2) = xpls(c_1,c_2),
+     xpls(xpls(xpls(0,0),c_1),c_2) = xpls(c_2,c_1),
+     xpls(xpls(xpls(0,0),c_2),c_1) = xpls(c_1,c_2),
+     xpls(xpls(xpls(0,0),c_2),c_1) = xpls(c_2,c_1),
+     xpls(xpls(xpls(0,c_2),0),c_1) = xpls(c_1,c_2),
+     xpls(xpls(xpls(0,c_2),0),c_1) = xpls(c_2,c_1),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_1,xpls(c_2,xpls(c_3,c_4))) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_1,xpls(c_2,xpls(c_4,c_3))) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_1,xpls(c_3,xpls(c_4,c_2))) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_1,xpls(xpls(c_3,c_4),c_2)) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_1,xpls(xpls(c_4,c_3),c_2)) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_2,xpls(c_1,xpls(c_3,c_4))) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_2,xpls(c_1,xpls(c_4,c_3))) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_2,xpls(xpls(c_3,c_4),c_1)) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_3,xpls(c_4,xpls(c_1,c_2))) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_1,xpls(c_2,xpls(c_3,c_4))),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_1,xpls(c_2,xpls(c_4,c_3))),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_1,xpls(c_3,xpls(c_2,c_4))),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_1,xpls(c_4,xpls(c_2,c_3))),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_1,xpls(c_4,xpls(c_3,c_2))),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_1,xpls(xpls(c_2,c_3),c_4)),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_1,xpls(xpls(c_3,c_2),c_4)),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_1,xpls(xpls(c_3,c_4),c_2)),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_2,xpls(c_3,xpls(c_1,c_4))),
+     xpls(c_3,xpls(c_4,xpls(c_2,c_1))) = xpls(c_2,xpls(xpls(c_3,c_1),c_4)) ]
+obtain 100 candidates for checking non-joinability
+check by TCAP-ApproximationProve non-joinability of xpls(0,0) and 0 by tcaps
+Prove non-joinability of xpls(0,c_1) and c_1 by tcaps
+Prove non-joinability of xpls(c_1,0) and c_1 by tcaps
+Prove non-joinability of xpls(c_1,c_2) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(c_2,c_1) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(0,xpls(0,c_1)) and c_1 by tcaps
+Prove non-joinability of xpls(0,xpls(c_1,0)) and c_1 by tcaps
+Prove non-joinability of xpls(c_1,xpls(0,0)) and c_1 by tcaps
+Prove non-joinability of xpls(xpls(0,0),c_1) and c_1 by tcaps
+Prove non-joinability of xpls(xpls(0,c_1),0) and c_1 by tcaps
+Prove non-joinability of xpls(xpls(c_1,0),0) and c_1 by tcaps
+Prove non-joinability of xpls(0,xpls(c_1,c_2)) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(0,xpls(c_1,c_2)) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(0,xpls(c_2,c_1)) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(0,xpls(c_2,c_1)) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(c_1,xpls(0,c_2)) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(c_1,xpls(0,c_2)) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,0)) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,0)) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(c_2,xpls(0,c_1)) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(c_2,xpls(0,c_1)) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,0)) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,0)) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(xpls(0,c_1),c_2) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(xpls(0,c_1),c_2) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(xpls(0,c_2),c_1) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(xpls(0,c_2),c_1) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(xpls(c_1,c_2),0) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(xpls(c_1,c_2),0) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(xpls(c_2,0),c_1) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(xpls(c_2,0),c_1) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_1),0) and xpls(c_1,c_2) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_1),0) and xpls(c_2,c_1) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_1,xpls(c_3,c_2)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_2,xpls(c_1,c_3)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_2,xpls(c_3,c_1)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_3,xpls(c_1,c_2)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_3,xpls(c_2,c_1)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_1,c_2),c_3) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_1,c_3),c_2) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_2,c_1),c_3) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_2,c_3),c_1) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(c_1,xpls(c_2,c_3)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(c_2,xpls(c_1,c_3)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(c_2,xpls(c_3,c_1)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(c_3,xpls(c_1,c_2)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(c_3,xpls(c_2,c_1)) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(xpls(c_1,c_2),c_3) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(xpls(c_1,c_3),c_2) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(xpls(c_2,c_1),c_3) by tcaps
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(xpls(c_2,c_3),c_1) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(c_1,xpls(c_2,c_3)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(c_1,xpls(c_3,c_2)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(c_2,xpls(c_3,c_1)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(c_3,xpls(c_1,c_2)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(c_3,xpls(c_2,c_1)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(xpls(c_1,c_2),c_3) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(xpls(c_1,c_3),c_2) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(xpls(c_2,c_1),c_3) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_1,c_3)) and xpls(xpls(c_2,c_3),c_1) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(c_1,xpls(c_2,c_3)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(c_1,xpls(c_3,c_2)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(c_2,xpls(c_1,c_3)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(c_3,xpls(c_1,c_2)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(c_3,xpls(c_2,c_1)) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(xpls(c_1,c_2),c_3) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(xpls(c_1,c_3),c_2) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(xpls(c_2,c_1),c_3) by tcaps
+Prove non-joinability of xpls(c_2,xpls(c_3,c_1)) and xpls(xpls(c_2,c_3),c_1) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(c_1,xpls(c_2,c_3)) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(c_1,xpls(c_3,c_2)) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(c_2,xpls(c_1,c_3)) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(c_2,xpls(c_3,c_1)) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(c_3,xpls(c_1,c_2)) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(xpls(c_1,c_2),c_3) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(xpls(c_1,c_3),c_2) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(xpls(c_2,c_1),c_3) by tcaps
+Prove non-joinability of xpls(c_3,xpls(c_2,c_1)) and xpls(xpls(c_2,c_3),c_1) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(c_1,xpls(c_2,c_3)) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(c_1,xpls(c_3,c_2)) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(c_2,xpls(c_1,c_3)) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(c_2,xpls(c_3,c_1)) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(c_3,xpls(c_1,c_2)) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(c_3,xpls(c_2,c_1)) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(xpls(c_1,c_2),c_3) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(xpls(c_1,c_3),c_2) by tcaps
+Prove non-joinability of xpls(xpls(c_2,c_3),c_1) and xpls(xpls(c_2,c_1),c_3) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(c_1,xpls(c_2,c_3)) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(c_1,xpls(c_3,c_2)) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(c_2,xpls(c_1,c_3)) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(c_2,xpls(c_3,c_1)) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(c_3,xpls(c_1,c_2)) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(c_3,xpls(c_2,c_1)) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(xpls(c_1,c_2),c_3) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(xpls(c_1,c_3),c_2) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(xpls(c_2,c_1),c_3) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_1),c_2) and xpls(xpls(c_2,c_3),c_1) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_2),c_1) and xpls(c_1,xpls(c_2,c_3)) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_2),c_1) and xpls(c_1,xpls(c_3,c_2)) by tcaps
+Prove non-joinability of xpls(xpls(c_3,c_2),c_1) and xpls(c_2,xpls(c_1,c_3)) by tcaps
+ (failure)
+check by Ordering(rpo), check by Tree-Automata ApproximationProve non-joinability of xpls(0,0) and 0 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,0) -> ?X,
+     xpls(?X,?Y) -> xpls(?Y,?X),
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(0,0),0}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,xpls(*,*)}
+Delta0 = 
+   [ 0 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{0}) -> q_0,
+     0 -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     0 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(xpls,2)}
+   Q = {q_0,q_1,q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(0,c_1) and c_1 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,?Y) -> xpls(?Y,?X),
+     xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(0,c_1),c_1}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,xpls(*,*)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0,
+     c_1 -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,0) and c_1 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,0) -> ?X,
+     xpls(?X,?Y) -> xpls(?Y,?X),
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,0),c_1}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,xpls(*,*)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     c_1 -> q_1 ]
+added rules:
+   [ c_1 -> q_0,
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0 ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,c_2) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,c_2),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,xpls(*,*)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_2,c_1) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_2,c_1),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,xpls(*,*)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_0 ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(0,xpls(0,c_1)) and c_1 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,0) -> ?X,
+     xpls(?X,?Y) -> xpls(?Y,?X),
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(0,xpls(0,c_1)),c_1}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,xpls(*,*),xpls(0,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{0},q_{xpls(0,c_1)}) -> q_0,
+     c_1 -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{xpls(0,c_1)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     c_1 -> q_0,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{*},q_{0},q_{xpls(0,c_1)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(0,c_1)},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{0},q_{xpls(0,c_1)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_1)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(0,xpls(c_1,0)) and c_1 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,0) -> ?X,
+     xpls(?X,?Y) -> xpls(?Y,?X),
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(0,xpls(c_1,0)),c_1}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,xpls(*,*),xpls(c_1,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_{xpls(c_1,0)},
+     xpls(q_{0},q_{xpls(c_1,0)}) -> q_0,
+     c_1 -> q_1 ]
+added rules:
+   [ c_1 -> q_{xpls(c_1,0)},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(c_1,0)},
+     xpls(q_{xpls(c_1,0)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{xpls(c_1,0)},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{xpls(c_1,0)},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(c_1,0)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(c_1,0)},q_{0}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{0},q_{c_1}) -> q_{xpls(c_1,0)},
+     xpls(q_{0},q_{xpls(c_1,0)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(0,0)) and c_1 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,0) -> ?X,
+     xpls(?X,?Y) -> xpls(?Y,?X),
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(0,0)),c_1}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,xpls(*,*),xpls(0,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{0}) -> q_{xpls(0,0)},
+     xpls(q_{c_1},q_{xpls(0,0)}) -> q_0,
+     c_1 -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     0 -> q_{xpls(0,0)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(0,0)},q_{c_1}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{*},q_{0},q_{xpls(*,*)},q_{xpls(0,0)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     0 -> q_{xpls(0,0)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{xpls(0,0)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{0}) -> q_{xpls(0,0)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(0,0)},q_{c_1}) -> q_0 ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(0,0),c_1) and c_1 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(0,0),c_1),c_1}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,xpls(*,*),xpls(0,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{0}) -> q_{xpls(0,0)},
+     xpls(q_{xpls(0,0)},q_{c_1}) -> q_0,
+     c_1 -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     0 -> q_{xpls(0,0)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_1},q_{xpls(0,0)}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{*},q_{0},q_{xpls(*,*)},q_{xpls(0,0)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     0 -> q_{xpls(0,0)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{xpls(0,0)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{0}) -> q_{xpls(0,0)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(0,0)},q_{c_1}) -> q_0 ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(0,c_1),0) and c_1 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(0,c_1),0),c_1}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,xpls(*,*),xpls(0,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{xpls(0,c_1)},q_{0}) -> q_0,
+     c_1 -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{0},q_{xpls(0,c_1)}) -> q_0 ]
+added rules:
+   [ c_1 -> q_{xpls(0,c_1)},
+     0 -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     c_1 -> q_0,
+     c_1 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{*},q_{0},q_{xpls(0,c_1)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(0,c_1)},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{0},q_{xpls(0,c_1)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_1)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(c_1,0),0) and c_1 by rpo
+   [ ]
+   [ ]
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?Y,?Z)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+ (failure)
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(c_1,0),0),c_1}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,xpls(*,*),xpls(c_1,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_{xpls(c_1,0)},
+     xpls(q_{xpls(c_1,0)},q_{0}) -> q_0,
+     c_1 -> q_1 ]
+added rules:
+   [ c_1 -> q_{xpls(c_1,0)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(c_1,0)},
+     xpls(q_{0},q_{xpls(c_1,0)}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     c_1 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{xpls(c_1,0)},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{xpls(c_1,0)},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(c_1,0)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(c_1,0)},q_{0}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_0,
+     xpls(q_{0},q_{c_1}) -> q_{xpls(c_1,0)},
+     xpls(q_{0},q_{xpls(c_1,0)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(0,xpls(c_1,c_2)) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(0,xpls(c_1,c_2)),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_1,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{0},q_{xpls(c_1,c_2)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{xpls(c_1,c_2)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     c_2 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(c_1,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_1,c_2)}) -> q_0,
+     xpls(q_{xpls(c_1,c_2)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(0,xpls(c_1,c_2)) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(0,xpls(c_1,c_2)),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_1,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{0},q_{xpls(c_1,c_2)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{xpls(c_1,c_2)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     c_2 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(c_1,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_1,c_2)}) -> q_0,
+     xpls(q_{xpls(c_1,c_2)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(0,xpls(c_2,c_1)) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(0,xpls(c_2,c_1)),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_2,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{0},q_{xpls(c_2,c_1)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{xpls(c_2,c_1)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     c_2 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_1)},q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_1)},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_2,c_1)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(0,xpls(c_2,c_1)) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(0,xpls(c_2,c_1)),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_2,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{0},q_{xpls(c_2,c_1)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{xpls(c_2,c_1)},q_{0}) -> q_0 ]
+added rules:
+   [ xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     c_2 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_1)},q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_1)},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_2,c_1)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(0,c_2)) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(0,c_2)),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(0,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(0,c_2)},
+     xpls(q_{c_1},q_{xpls(0,c_2)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{xpls(0,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(0,c_2)} ]
+added rules:
+   [ c_2 -> q_{xpls(0,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(0,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(0,c_2)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{xpls(0,c_2)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(0,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(0,c_2)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(0,c_2)) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(0,c_2)),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(0,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(0,c_2)},
+     xpls(q_{c_1},q_{xpls(0,c_2)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(0,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(0,c_2)} ]
+added rules:
+   [ c_2 -> q_{xpls(0,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(0,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(0,c_2)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{xpls(0,c_2)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(0,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(0,c_2)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,0)) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,0)),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_2,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{0}) -> q_{xpls(c_2,0)},
+     xpls(q_{c_1},q_{xpls(c_2,0)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ c_2 -> q_{xpls(c_2,0)},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{xpls(c_2,0)},q_{c_1}) -> q_0,
+     xpls(q_{0},q_{c_2}) -> q_{xpls(c_2,0)} ]
+added rules:
+   [ xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{xpls(c_2,0)},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{xpls(c_2,0)},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{xpls(c_2,0)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(c_2,0)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(c_2,0)},q_{c_1}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(c_2,0)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,0)) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,0)),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_2,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{0}) -> q_{xpls(c_2,0)},
+     xpls(q_{c_1},q_{xpls(c_2,0)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ c_2 -> q_{xpls(c_2,0)},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,0)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{0},q_{c_2}) -> q_{xpls(c_2,0)} ]
+added rules:
+   [ xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{xpls(c_2,0)},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{xpls(c_2,0)},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{xpls(c_2,0)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(c_2,0)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(c_2,0)},q_{c_1}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(c_2,0)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_2,xpls(0,c_1)) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_2,xpls(0,c_1)),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(0,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_2},q_{xpls(0,c_1)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{xpls(0,c_1)},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)} ]
+added rules:
+   [ c_1 -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_2 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(0,c_1)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(0,c_1)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{xpls(0,c_1)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_1)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_2,xpls(0,c_1)) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_2,xpls(0,c_1)),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(0,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_2},q_{xpls(0,c_1)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{xpls(0,c_1)},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)} ]
+added rules:
+   [ c_1 -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_2 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(0,c_1)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(0,c_1)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{xpls(0,c_1)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_1)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_2,xpls(c_1,0)) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_2,xpls(c_1,0)),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_1,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_{xpls(c_1,0)},
+     xpls(q_{c_2},q_{xpls(c_1,0)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ c_1 -> q_{xpls(c_1,0)},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{0},q_{c_1}) -> q_{xpls(c_1,0)},
+     xpls(q_{xpls(c_1,0)},q_{c_2}) -> q_0 ]
+added rules:
+   [ xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_2 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{xpls(c_1,0)},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{xpls(c_1,0)},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(c_1,0)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{xpls(c_1,0)}) -> q_0,
+     xpls(q_{xpls(c_1,0)},q_{c_2}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(c_1,0)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_2,xpls(c_1,0)) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_2,xpls(c_1,0)),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_1,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{0}) -> q_{xpls(c_1,0)},
+     xpls(q_{c_2},q_{xpls(c_1,0)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ c_1 -> q_{xpls(c_1,0)},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(c_1,0)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{xpls(c_1,0)},q_{c_2}) -> q_0 ]
+added rules:
+   [ xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     0 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_2 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{xpls(c_1,0)},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{xpls(c_1,0)},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(c_1,0)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{xpls(c_1,0)}) -> q_0,
+     xpls(q_{xpls(c_1,0)},q_{c_2}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(c_1,0)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(0,c_1),c_2) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(0,c_1),c_2),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(0,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{xpls(0,c_1)},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_2},q_{xpls(0,c_1)}) -> q_0 ]
+added rules:
+   [ c_1 -> q_{xpls(0,c_1)},
+     0 -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     c_1 -> q_0,
+     c_2 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(0,c_1)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(0,c_1)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{xpls(0,c_1)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_1)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(0,c_1),c_2) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(0,c_1),c_2),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(0,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{xpls(0,c_1)},q_{c_2}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_2},q_{xpls(0,c_1)}) -> q_0 ]
+added rules:
+   [ c_1 -> q_{xpls(0,c_1)},
+     0 -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     c_1 -> q_0,
+     c_2 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(0,c_1)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(0,c_1)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{0}) -> q_{xpls(0,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{xpls(0,c_1)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_1}) -> q_{xpls(0,c_1)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_1)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(0,c_2),c_1) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(0,c_2),c_1),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(0,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(0,c_2)},
+     xpls(q_{xpls(0,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(0,c_2)},
+     xpls(q_{c_1},q_{xpls(0,c_2)}) -> q_0 ]
+added rules:
+   [ c_2 -> q_{xpls(0,c_2)},
+     0 -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_2 -> q_0,
+     c_1 -> q_0,
+     c_2 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(0,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(0,c_2)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{xpls(0,c_2)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(0,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(0,c_2)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(0,c_2),c_1) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(0,c_2),c_1),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(0,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(0,c_2)},
+     xpls(q_{xpls(0,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(0,c_2)},
+     xpls(q_{c_1},q_{xpls(0,c_2)}) -> q_0 ]
+added rules:
+   [ c_2 -> q_{xpls(0,c_2)},
+     0 -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_2 -> q_0,
+     c_1 -> q_0,
+     c_2 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(0,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(0,c_2)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{xpls(0,c_2)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(0,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(0,c_2)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(0,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(c_1,c_2),0) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(c_1,c_2),0),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_1,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{xpls(c_1,c_2)},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{0},q_{xpls(c_1,c_2)}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(c_1,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_1,c_2)}) -> q_0,
+     xpls(q_{xpls(c_1,c_2)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(c_1,c_2),0) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(c_1,c_2),0),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_1,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{xpls(c_1,c_2)},q_{0}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{0},q_{xpls(c_1,c_2)}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(c_1,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_1,c_2)}) -> q_0,
+     xpls(q_{xpls(c_1,c_2)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(c_2,0),c_1) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(c_2,0),c_1),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_2,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{0}) -> q_{xpls(c_2,0)},
+     xpls(q_{xpls(c_2,0)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ c_2 -> q_{xpls(c_2,0)},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{0},q_{c_2}) -> q_{xpls(c_2,0)},
+     xpls(q_{c_1},q_{xpls(c_2,0)}) -> q_0 ]
+added rules:
+   [ c_2 -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{xpls(c_2,0)},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{xpls(c_2,0)},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{xpls(c_2,0)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(c_2,0)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(c_2,0)},q_{c_1}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(c_2,0)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(c_2,0),c_1) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(c_2,0),c_1),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_2,0)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{0}) -> q_{xpls(c_2,0)},
+     xpls(q_{xpls(c_2,0)},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ c_2 -> q_{xpls(c_2,0)},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{0},q_{c_2}) -> q_{xpls(c_2,0)},
+     xpls(q_{c_1},q_{xpls(c_2,0)}) -> q_0 ]
+added rules:
+   [ c_2 -> q_0,
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0 ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{xpls(c_2,0)},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{xpls(c_2,0)},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{xpls(c_2,0)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{0}) -> q_{xpls(c_2,0)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(c_2,0)},q_{c_1}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{c_2}) -> q_{xpls(c_2,0)},
+     xpls(q_{0},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{0}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(c_2,c_1),0) and xpls(c_1,c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(c_2,c_1),0),xpls(c_1,c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_2,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{xpls(c_2,c_1)},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1 ]
+added rules:
+   [ xpls(q_{c_2},q_{c_1}) -> q_0,
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_2,c_1)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)} ]
+added rules:
+   [ xpls(q_{c_1},q_{c_2}) -> q_0,
+     c_2 -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_1)},q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_1)},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_2,c_1)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(xpls(c_2,c_1),0) and xpls(c_2,c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(xpls(c_2,c_1),0),xpls(c_2,c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{0,c_1,c_2,xpls(*,*),xpls(c_2,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     0 -> q_{0},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{xpls(c_2,c_1)},q_{0}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1 ]
+added rules:
+   [ xpls(q_{c_2},q_{c_1}) -> q_0,
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_2,c_1)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)} ]
+added rules:
+   [ xpls(q_{c_1},q_{c_2}) -> q_0,
+     c_2 -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_1)},q_{c_1},q_{c_2},q_{*},q_{0},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_{*},
+     0 -> q_{0},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_1)},q_{0}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{0},q_{xpls(c_2,c_1)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_1,xpls(c_3,c_2)) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(c_1,xpls(c_3,c_2))}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_2,c_3),xpls(c_3,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_3,c_2)}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(c_3,c_2)},q_{c_1}) -> q_1,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_3,c_2)} ]
+added rules:
+   [ xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     c_2 -> q_1,
+     c_3 -> q_0,
+     c_3 -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_1,
+     c_1 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     0 -> q_1,
+     c_1 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(c_3,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_3,c_2)}) -> q_1,
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_3,c_2)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_2,xpls(c_1,c_3)) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(c_2,xpls(c_1,c_3))}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_1,c_3),xpls(c_2,c_3)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_3}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(c_1,c_3)}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_3},q_{c_1}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{xpls(c_1,c_3)},q_{c_2}) -> q_1 ]
+added rules:
+   [ xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_1,
+     c_2 -> q_0,
+     c_3 -> q_0,
+     c_3 -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_1,
+     c_2 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     0 -> q_1,
+     c_2 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(c_1,c_3)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{c_3}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(c_1,c_3)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{c_1}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_1,c_3)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_2,xpls(c_3,c_1)) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(c_2,xpls(c_3,c_1))}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_2,c_3),xpls(c_3,c_1)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{c_1}) -> q_{xpls(c_3,c_1)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(c_3,c_1)}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{xpls(c_3,c_1)},q_{c_2}) -> q_1,
+     xpls(q_{c_1},q_{c_3}) -> q_{xpls(c_3,c_1)} ]
+added rules:
+   [ xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_1,
+     c_2 -> q_0,
+     c_3 -> q_0,
+     c_3 -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_1,
+     c_2 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     0 -> q_1,
+     c_2 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(c_3,c_1)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{c_3}) -> q_{xpls(c_3,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(c_3,c_1)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{c_1}) -> q_{xpls(c_3,c_1)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_3,c_1)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_3,xpls(c_1,c_2)) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(c_3,xpls(c_1,c_2))}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_1,c_2),xpls(c_2,c_3)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(c_1,c_2)}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{xpls(c_1,c_2)},q_{c_3}) -> q_1 ]
+added rules:
+   [ xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_1,
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_3 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_1,
+     c_3 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     0 -> q_1,
+     c_3 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(c_1,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(c_1,c_2)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_1,c_2)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(c_3,xpls(c_2,c_1)) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(c_3,xpls(c_2,c_1))}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_2,c_1),xpls(c_2,c_3)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(c_2,c_1)}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{xpls(c_2,c_1)},q_{c_3}) -> q_1 ]
+added rules:
+   [ xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_1,
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_3 -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_1,
+     c_3 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     0 -> q_1,
+     c_3 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_1)},q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_1)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(c_2,c_1)}) -> q_1,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_1,c_2),c_3) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(xpls(c_1,c_2),c_3)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_1,c_2),xpls(c_2,c_3)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{xpls(c_1,c_2)},q_{c_3}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(c_1,c_2)}) -> q_1 ]
+added rules:
+   [ c_1 -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     c_2 -> q_1,
+     c_3 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0 ]
+added rules:
+   [ 0 -> q_1,
+     c_3 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_1,
+     c_3 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(c_1,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_1,c_2)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(c_1,c_2)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_1,c_2)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_1,c_3),c_2) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(xpls(c_1,c_3),c_2)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_1,c_3),xpls(c_2,c_3)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_3}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{xpls(c_1,c_3)},q_{c_2}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_3},q_{c_1}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(c_1,c_3)}) -> q_1 ]
+added rules:
+   [ c_1 -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     c_3 -> q_0,
+     c_3 -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1 ]
+added rules:
+   [ 0 -> q_1,
+     c_2 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_1,
+     c_2 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(c_1,c_3)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{c_3}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(c_1,c_3)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{c_1}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_1,c_3)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_2,c_1),c_3) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(xpls(c_2,c_1),c_3)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_2,c_1),xpls(c_2,c_3)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{xpls(c_2,c_1)},q_{c_3}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_3},q_{xpls(c_2,c_1)}) -> q_1,
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)} ]
+added rules:
+   [ c_2 -> q_1,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_1,
+     c_2 -> q_0,
+     c_3 -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0 ]
+added rules:
+   [ 0 -> q_1,
+     c_3 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_1,
+     c_3 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_1)},q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_1)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{c_2}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{c_1}) -> q_{xpls(c_2,c_1)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(c_2,c_1)}) -> q_1,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_2,c_3)) and xpls(xpls(c_2,c_3),c_1) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_2,c_3)),xpls(xpls(c_2,c_3),c_1)}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_2,c_3)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_1,
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)} ]
+added rules:
+   [ c_2 -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     c_3 -> q_0,
+     c_3 -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1 ]
+added rules:
+   [ 0 -> q_1,
+     c_1 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_1,
+     c_1 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_1,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_1,
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(c_1,xpls(c_2,c_3)) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_3,c_2)),xpls(c_1,xpls(c_2,c_3))}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_2,c_3),xpls(c_3,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_1},q_{xpls(c_3,c_2)}) -> q_0,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(c_3,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_3,c_2)} ]
+added rules:
+   [ xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_2 -> q_0,
+     c_2 -> q_1,
+     c_3 -> q_0,
+     c_3 -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_1,
+     c_1 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     0 -> q_1,
+     c_1 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{xpls(c_2,c_3)},q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(c_3,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_2,c_3)},q_{c_1}) -> q_1,
+     xpls(q_{c_1},q_{xpls(c_2,c_3)}) -> q_1,
+     xpls(q_{c_1},q_{xpls(c_3,c_2)}) -> q_0,
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_2,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_3,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(c_2,xpls(c_1,c_3)) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_3,c_2)),xpls(c_2,xpls(c_1,c_3))}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_1,c_3),xpls(c_3,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{*},
+     c_1 -> q_{c_1},
+     c_2 -> q_{c_2},
+     c_3 -> q_{c_3},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_3}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_1},q_{xpls(c_3,c_2)}) -> q_0,
+     xpls(q_{c_2},q_{xpls(c_1,c_3)}) -> q_1 ]
+added rules:
+   [ 0 -> q_{xpls(*,*)},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{c_3},q_{c_1}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{xpls(c_3,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(c_1,c_3)},q_{c_2}) -> q_1,
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_3,c_2)} ]
+added rules:
+   [ xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)} ]
+added rules:
+   [ c_1 -> q_1,
+     c_2 -> q_0,
+     c_3 -> q_0,
+     c_3 -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1 ]
+added rules:
+   [ xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1 ]
+added rules:
+   [ 0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     0 -> q_1,
+     c_2 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     0 -> q_0,
+     c_1 -> q_0,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     0 -> q_1,
+     c_2 -> q_1,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1 ]
+added rules:
+   [ ]
+<F,Q,Q_f,Delta> where
+   F = {(0,0),(c_1,0),(c_2,0),(c_3,0),(xpls,2)}
+   Q = {q_0,q_1,q_{c_1},q_{c_2},q_{c_3},q_{*},q_{xpls(c_1,c_3)},q_{xpls(c_3,c_2)},q_{xpls(*,*)}}
+   Qf = {q_0,q_1}
+   Delta = 
+   [ 0 -> q_0,
+     0 -> q_1,
+     0 -> q_{*},
+     0 -> q_{xpls(*,*)},
+     c_1 -> q_0,
+     c_1 -> q_1,
+     c_1 -> q_{c_1},
+     c_1 -> q_{*},
+     c_1 -> q_{xpls(*,*)},
+     c_2 -> q_0,
+     c_2 -> q_1,
+     c_2 -> q_{c_2},
+     c_2 -> q_{*},
+     c_2 -> q_{xpls(*,*)},
+     c_3 -> q_0,
+     c_3 -> q_1,
+     c_3 -> q_{c_3},
+     c_3 -> q_{*},
+     c_3 -> q_{xpls(*,*)},
+     xpls(q_{c_1},q_{c_3}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_1},q_{xpls(c_3,c_2)}) -> q_0,
+     xpls(q_{c_1},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{c_2},q_{c_3}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_2},q_{xpls(c_1,c_3)}) -> q_1,
+     xpls(q_{c_2},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{c_1}) -> q_{xpls(c_1,c_3)},
+     xpls(q_{c_3},q_{c_2}) -> q_{xpls(c_3,c_2)},
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{c_3},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_0,
+     xpls(q_{*},q_{*}) -> q_1,
+     xpls(q_{*},q_{*}) -> q_{*},
+     xpls(q_{*},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{*},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{*},q_{xpls(*,*)}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(c_1,c_3)},q_{c_2}) -> q_1,
+     xpls(q_{xpls(c_3,c_2)},q_{c_1}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_1}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{c_2}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{c_3}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{*}) -> q_{xpls(*,*)},
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_0,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_1,
+     xpls(q_{xpls(*,*)},q_{xpls(*,*)}) -> q_{xpls(*,*)} ]
+failed (non-empty intersection)
+Prove non-joinability of xpls(c_1,xpls(c_3,c_2)) and xpls(c_2,xpls(c_3,c_1)) by rpo
+both of rs0^{-1} and rs1^{-1} are not TRSs, don't try.
+
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+
+*** degrowing completion ***
+Terms: {xpls(c_1,xpls(c_3,c_2)),xpls(c_2,xpls(c_3,c_1))}
+Rules:
+   [ xpls(?X,0) -> ?X,
+     xpls(xpls(?X,?Y),?Z) -> xpls(?X,xpls(?x_1,?x_2)),
+     xpls(?X,?Y) -> xpls(?Y,?X) ]
+{c_1,c_2,c_3,xpls(*,*),xpls(c_3,c_1),xpls(c_3,c_2)}
+Delta0 = 
+   [ 0 -> q_{*},
+     c_1 -> q_{*},
+     c_2 -> q_{*},
+     c_3 -> q_{*},
+   

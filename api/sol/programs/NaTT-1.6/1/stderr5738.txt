@@ -1,0 +1,3966 @@
+Input TRS:
+    1: active(u101(tt(),X(),Y())) -> mark(u102(isNatural(X()),Y()))
+    2: active(u102(tt(),U())) -> mark(u103(isLNat(U())))
+    3: active(u103(tt())) -> mark(tt())
+    4: active(u11(tt(),V(),W())) -> mark(snd(splitAt(V(),W())))
+    5: active(u111(tt(),P())) -> mark(u112(isLNat(P())))
+    6: active(u112(tt())) -> mark(tt())
+    7: active(u121(tt(),X1)) -> mark(u122(isNatural(X1)))
+    8: active(u122(tt())) -> mark(tt())
+    9: active(u131(tt(),Y1(),U1())) -> mark(u132(isNatural(Y1()),U1()))
+    10: active(u132(tt(),V1())) -> mark(u133(isLNat(V1())))
+    11: active(u133(tt())) -> mark(tt())
+    12: active(u141(tt(),W1(),P1())) -> mark(u142(isLNat(W1()),P1()))
+    13: active(u142(tt(),X2)) -> mark(u143(isLNat(X2)))
+    14: active(u143(tt())) -> mark(tt())
+    15: active(u151(tt(),Y2(),U2())) -> mark(u152(isNatural(Y2()),U2()))
+    16: active(u152(tt(),V2())) -> mark(u153(isLNat(V2())))
+    17: active(u153(tt())) -> mark(tt())
+    18: active(u161(tt(),W2())) -> mark(cons(W2(),natsFrom(s(W2()))))
+    19: active(u171(tt(),P2(),X3())) -> mark(head(afterNth(P2(),X3())))
+    20: active(u181(tt(),Y3())) -> mark(Y3())
+    21: active(u191(tt(),U3())) -> mark(pair(nil(),U3()))
+    22: active(u201(tt(),V3(),W3(),P3())) -> mark(u202(splitAt(V3(),P3()),W3()))
+    23: active(u202(pair(X4(),Y4()),U4())) -> mark(pair(cons(U4(),X4()),Y4()))
+    24: active(u21(tt(),V4())) -> mark(V4())
+    25: active(u211(tt(),W4())) -> mark(W4())
+    26: active(u221(tt(),P4(),X5())) -> mark(fst(splitAt(P4(),X5())))
+    27: active(u31(tt(),Y5())) -> mark(Y5())
+    28: active(u41(tt(),U5(),V5())) -> mark(u42(isNatural(U5()),V5()))
+    29: active(u42(tt(),W5())) -> mark(u43(isLNat(W5())))
+    30: active(u43(tt())) -> mark(tt())
+    31: active(u51(tt(),P5(),X6())) -> mark(u52(isNatural(P5()),X6()))
+    32: active(u52(tt(),Y6())) -> mark(u53(isLNat(Y6())))
+    33: active(u53(tt())) -> mark(tt())
+    34: active(u61(tt(),U6())) -> mark(u62(isPLNat(U6())))
+    35: active(u62(tt())) -> mark(tt())
+    36: active(u71(tt(),V6())) -> mark(u72(isNatural(V6())))
+    37: active(u72(tt())) -> mark(tt())
+    38: active(u81(tt(),W6())) -> mark(u82(isPLNat(W6())))
+    39: active(u82(tt())) -> mark(tt())
+    40: active(u91(tt(),P6())) -> mark(u92(isLNat(P6())))
+    41: active(u92(tt())) -> mark(tt())
+    42: active(afterNth(X7(),Y7())) -> mark(u11(and(and(isNatural(X7()),isNaturalKind(X7())),and(isLNat(Y7()),isLNatKind(Y7()))),X7(),Y7()))
+    43: active(and(tt(),U7())) -> mark(U7())
+    44: active(fst(pair(V7(),W7()))) -> mark(u21(and(and(isLNat(V7()),isLNatKind(V7())),and(isLNat(W7()),isLNatKind(W7()))),V7()))
+    45: active(head(cons(P7(),X8()))) -> mark(u31(and(and(isNatural(P7()),isNaturalKind(P7())),and(isLNat(X8()),isLNatKind(X8()))),P7()))
+    46: active(isLNat(nil())) -> mark(tt())
+    47: active(isLNat(afterNth(Y8(),U8()))) -> mark(u41(and(isNaturalKind(Y8()),isLNatKind(U8())),Y8(),U8()))
+    48: active(isLNat(cons(V8(),W8()))) -> mark(u51(and(isNaturalKind(V8()),isLNatKind(W8())),V8(),W8()))
+    49: active(isLNat(fst(P8()))) -> mark(u61(isPLNatKind(P8()),P8()))
+    50: active(isLNat(natsFrom(X9()))) -> mark(u71(isNaturalKind(X9()),X9()))
+    51: active(isLNat(snd(Y9()))) -> mark(u81(isPLNatKind(Y9()),Y9()))
+    52: active(isLNat(tail(U9()))) -> mark(u91(isLNatKind(U9()),U9()))
+    53: active(isLNat(take(V9(),W9()))) -> mark(u101(and(isNaturalKind(V9()),isLNatKind(W9())),V9(),W9()))
+    54: active(isLNatKind(nil())) -> mark(tt())
+    55: active(isLNatKind(afterNth(P9(),X10()))) -> mark(and(isNaturalKind(P9()),isLNatKind(X10())))
+    56: active(isLNatKind(cons(Y10(),U10()))) -> mark(and(isNaturalKind(Y10()),isLNatKind(U10())))
+    57: active(isLNatKind(fst(V10()))) -> mark(isPLNatKind(V10()))
+    58: active(isLNatKind(natsFrom(W10()))) -> mark(isNaturalKind(W10()))
+    59: active(isLNatKind(snd(P10()))) -> mark(isPLNatKind(P10()))
+    60: active(isLNatKind(tail(X11()))) -> mark(isLNatKind(X11()))
+    61: active(isLNatKind(take(Y11(),U11()))) -> mark(and(isNaturalKind(Y11()),isLNatKind(U11())))
+    62: active(isNatural(0())) -> mark(tt())
+    63: active(isNatural(head(V11()))) -> mark(u111(isLNatKind(V11()),V11()))
+    64: active(isNatural(s(W11()))) -> mark(u121(isNaturalKind(W11()),W11()))
+    65: active(isNatural(sel(P11(),X12()))) -> mark(u131(and(isNaturalKind(P11()),isLNatKind(X12())),P11(),X12()))
+    66: active(isNaturalKind(0())) -> mark(tt())
+    67: active(isNaturalKind(head(Y12()))) -> mark(isLNatKind(Y12()))
+    68: active(isNaturalKind(s(U12()))) -> mark(isNaturalKind(U12()))
+    69: active(isNaturalKind(sel(V12(),W12()))) -> mark(and(isNaturalKind(V12()),isLNatKind(W12())))
+    70: active(isPLNat(pair(P12(),X13()))) -> mark(u141(and(isLNatKind(P12()),isLNatKind(X13())),P12(),X13()))
+    71: active(isPLNat(splitAt(Y13(),U13()))) -> mark(u151(and(isNaturalKind(Y13()),isLNatKind(U13())),Y13(),U13()))
+    72: active(isPLNatKind(pair(V13(),W13()))) -> mark(and(isLNatKind(V13()),isLNatKind(W13())))
+    73: active(isPLNatKind(splitAt(P13(),X14()))) -> mark(and(isNaturalKind(P13()),isLNatKind(X14())))
+    74: active(natsFrom(Y14())) -> mark(u161(and(isNatural(Y14()),isNaturalKind(Y14())),Y14()))
+    75: active(sel(U14(),V14())) -> mark(u171(and(and(isNatural(U14()),isNaturalKind(U14())),and(isLNat(V14()),isLNatKind(V14()))),U14(),V14()))
+    76: active(snd(pair(W14(),P14()))) -> mark(u181(and(and(isLNat(W14()),isLNatKind(W14())),and(isLNat(P14()),isLNatKind(P14()))),P14()))
+    77: active(splitAt(0(),X15())) -> mark(u191(and(isLNat(X15()),isLNatKind(X15())),X15()))
+    78: active(splitAt(s(Y15()),cons(U15(),V15()))) -> mark(u201(and(and(isNatural(Y15()),isNaturalKind(Y15())),and(and(isNatural(U15()),isNaturalKind(U15())),and(isLNat(V15()),isLNatKind(V15())))),Y15(),U15(),V15()))
+    79: active(tail(cons(W15(),P15()))) -> mark(u211(and(and(isNatural(W15()),isNaturalKind(W15())),and(isLNat(P15()),isLNatKind(P15()))),P15()))
+    80: active(take(X16(),Y16())) -> mark(u221(and(and(isNatural(X16()),isNaturalKind(X16())),and(isLNat(Y16()),isLNatKind(Y16()))),X16(),Y16()))
+    81: mark(u101(U16(),V16(),W16())) -> active(u101(mark(U16()),V16(),W16()))
+    82: mark(tt()) -> active(tt())
+    83: mark(u102(P16(),X17())) -> active(u102(mark(P16()),X17()))
+    84: mark(isNatural(Y17())) -> active(isNatural(Y17()))
+    85: mark(u103(U17())) -> active(u103(mark(U17())))
+    86: mark(isLNat(V17())) -> active(isLNat(V17()))
+    87: mark(u11(W17(),P17(),X18())) -> active(u11(mark(W17()),P17(),X18()))
+    88: mark(snd(Y18())) -> active(snd(mark(Y18())))
+    89: mark(splitAt(U18(),V18())) -> active(splitAt(mark(U18()),mark(V18())))
+    90: mark(u111(W18(),P18())) -> active(u111(mark(W18()),P18()))
+    91: mark(u112(X19())) -> active(u112(mark(X19())))
+    92: mark(u121(Y19(),U19())) -> active(u121(mark(Y19()),U19()))
+    93: mark(u122(V19())) -> active(u122(mark(V19())))
+    94: mark(u131(W19(),P19(),X20())) -> active(u131(mark(W19()),P19(),X20()))
+    95: mark(u132(Y20(),U20())) -> active(u132(mark(Y20()),U20()))
+    96: mark(u133(V20())) -> active(u133(mark(V20())))
+    97: mark(u141(W20(),P20(),X21())) -> active(u141(mark(W20()),P20(),X21()))
+    98: mark(u142(Y21(),U21())) -> active(u142(mark(Y21()),U21()))
+    99: mark(u143(V21())) -> active(u143(mark(V21())))
+    100: mark(u151(W21(),P21(),X22())) -> active(u151(mark(W21()),P21(),X22()))
+    101: mark(u152(Y22(),U22())) -> active(u152(mark(Y22()),U22()))
+    102: mark(u153(V22())) -> active(u153(mark(V22())))
+    103: mark(u161(W22(),P22())) -> active(u161(mark(W22()),P22()))
+    104: mark(cons(X23(),Y23())) -> active(cons(mark(X23()),Y23()))
+    105: mark(natsFrom(U23())) -> active(natsFrom(mark(U23())))
+    106: mark(s(V23())) -> active(s(mark(V23())))
+    107: mark(u171(W23(),P23(),X24())) -> active(u171(mark(W23()),P23(),X24()))
+    108: mark(head(Y24())) -> active(head(mark(Y24())))
+    109: mark(afterNth(U24(),V24())) -> active(afterNth(mark(U24()),mark(V24())))
+    110: mark(u181(W24(),P24())) -> active(u181(mark(W24()),P24()))
+    111: mark(u191(X25(),Y25())) -> active(u191(mark(X25()),Y25()))
+    112: mark(pair(U25(),V25())) -> active(pair(mark(U25()),mark(V25())))
+    113: mark(nil()) -> active(nil())
+    114: mark(u201(W25(),P25(),X26(),Y26())) -> active(u201(mark(W25()),P25(),X26(),Y26()))
+    115: mark(u202(U26(),V26())) -> active(u202(mark(U26()),V26()))
+    116: mark(u21(W26(),P26())) -> active(u21(mark(W26()),P26()))
+    117: mark(u211(X27(),Y27())) -> active(u211(mark(X27()),Y27()))
+    118: mark(u221(U27(),V27(),W27())) -> active(u221(mark(U27()),V27(),W27()))
+    119: mark(fst(P27())) -> active(fst(mark(P27())))
+    120: mark(u31(X28(),Y28())) -> active(u31(mark(X28()),Y28()))
+    121: mark(u41(U28(),V28(),W28())) -> active(u41(mark(U28()),V28(),W28()))
+    122: mark(u42(P28(),X29())) -> active(u42(mark(P28()),X29()))
+    123: mark(u43(Y29())) -> active(u43(mark(Y29())))
+    124: mark(u51(U29(),V29(),W29())) -> active(u51(mark(U29()),V29(),W29()))
+    125: mark(u52(P29(),X30())) -> active(u52(mark(P29()),X30()))
+    126: mark(u53(Y30())) -> active(u53(mark(Y30())))
+    127: mark(u61(U30(),V30())) -> active(u61(mark(U30()),V30()))
+    128: mark(u62(W30())) -> active(u62(mark(W30())))
+    129: mark(isPLNat(P30())) -> active(isPLNat(P30()))
+    130: mark(u71(X31(),Y31())) -> active(u71(mark(X31()),Y31()))
+    131: mark(u72(U31())) -> active(u72(mark(U31())))
+    132: mark(u81(V31(),W31())) -> active(u81(mark(V31()),W31()))
+    133: mark(u82(P31())) -> active(u82(mark(P31())))
+    134: mark(u91(X32(),Y32())) -> active(u91(mark(X32()),Y32()))
+    135: mark(u92(U32())) -> active(u92(mark(U32())))
+    136: mark(and(V32(),W32())) -> active(and(mark(V32()),W32()))
+    137: mark(isNaturalKind(P32())) -> active(isNaturalKind(P32()))
+    138: mark(isLNatKind(X33())) -> active(isLNatKind(X33()))
+    139: mark(isPLNatKind(Y33())) -> active(isPLNatKind(Y33()))
+    140: mark(tail(U33())) -> active(tail(mark(U33())))
+    141: mark(take(V33(),W33())) -> active(take(mark(V33()),mark(W33())))
+    142: mark(0()) -> active(0())
+    143: mark(sel(P33(),X34())) -> active(sel(mark(P33()),mark(X34())))
+    144: u101(mark(Y34()),U34(),V34()) -> u101(Y34(),U34(),V34())
+    145: u101(W34(),mark(P34()),X35()) -> u101(W34(),P34(),X35())
+    146: u101(Y35(),U35(),mark(V35())) -> u101(Y35(),U35(),V35())
+    147: u101(active(W35()),P35(),X36()) -> u101(W35(),P35(),X36())
+    148: u101(Y36(),active(U36()),V36()) -> u101(Y36(),U36(),V36())
+    149: u101(W36(),P36(),active(X37())) -> u101(W36(),P36(),X37())
+    150: u102(mark(Y37()),U37()) -> u102(Y37(),U37())
+    151: u102(V37(),mark(W37())) -> u102(V37(),W37())
+    152: u102(active(P37()),X38()) -> u102(P37(),X38())
+    153: u102(Y38(),active(U38())) -> u102(Y38(),U38())
+    154: isNatural(mark(V38())) -> isNatural(V38())
+    155: isNatural(active(W38())) -> isNatural(W38())
+    156: u103(mark(P38())) -> u103(P38())
+    157: u103(active(X39())) -> u103(X39())
+    158: isLNat(mark(Y39())) -> isLNat(Y39())
+    159: isLNat(active(U39())) -> isLNat(U39())
+    160: u11(mark(V39()),W39(),P39()) -> u11(V39(),W39(),P39())
+    161: u11(X40(),mark(Y40()),U40()) -> u11(X40(),Y40(),U40())
+    162: u11(V40(),W40(),mark(P40())) -> u11(V40(),W40(),P40())
+    163: u11(active(X41()),Y41(),U41()) -> u11(X41(),Y41(),U41())
+    164: u11(V41(),active(W41()),P41()) -> u11(V41(),W41(),P41())
+    165: u11(X42(),Y42(),active(U42())) -> u11(X42(),Y42(),U42())
+    166: snd(mark(V42())) -> snd(V42())
+    167: snd(active(W42())) -> snd(W42())
+    168: splitAt(mark(P42()),X43()) -> splitAt(P42(),X43())
+    169: splitAt(Y43(),mark(U43())) -> splitAt(Y43(),U43())
+    170: splitAt(active(V43()),W43()) -> splitAt(V43(),W43())
+    171: splitAt(P43(),active(X44())) -> splitAt(P43(),X44())
+    172: u111(mark(Y44()),U44()) -> u111(Y44(),U44())
+    173: u111(V44(),mark(W44())) -> u111(V44(),W44())
+    174: u111(active(P44()),X45()) -> u111(P44(),X45())
+    175: u111(Y45(),active(U45())) -> u111(Y45(),U45())
+    176: u112(mark(V45())) -> u112(V45())
+    177: u112(active(W45())) -> u112(W45())
+    178: u121(mark(P45()),X46()) -> u121(P45(),X46())
+    179: u121(Y46(),mark(U46())) -> u121(Y46(),U46())
+    180: u121(active(V46()),W46()) -> u121(V46(),W46())
+    181: u121(P46(),active(X47())) -> u121(P46(),X47())
+    182: u122(mark(Y47())) -> u122(Y47())
+    183: u122(active(U47())) -> u122(U47())
+    184: u131(mark(V47()),W47(),P47()) -> u131(V47(),W47(),P47())
+    185: u131(X48(),mark(Y48()),U48()) -> u131(X48(),Y48(),U48())
+    186: u131(V48(),W48(),mark(P48())) -> u131(V48(),W48(),P48())
+    187: u131(active(X49()),Y49(),U49()) -> u131(X49(),Y49(),U49())
+    188: u131(V49(),active(W49()),P49()) -> u131(V49(),W49(),P49())
+    189: u131(X50(),Y50(),active(U50())) -> u131(X50(),Y50(),U50())
+    190: u132(mark(V50()),W50()) -> u132(V50(),W50())
+    191: u132(P50(),mark(X51())) -> u132(P50(),X51())
+    192: u132(active(Y51()),U51()) -> u132(Y51(),U51())
+    193: u132(V51(),active(W51())) -> u132(V51(),W51())
+    194: u133(mark(P51())) -> u133(P51())
+    195: u133(active(X52())) -> u133(X52())
+    196: u141(mark(Y52()),U52(),V52()) -> u141(Y52(),U52(),V52())
+    197: u141(W52(),mark(P52()),X53()) -> u141(W52(),P52(),X53())
+    198: u141(Y53(),U53(),mark(V53())) -> u141(Y53(),U53(),V53())
+    199: u141(active(W53()),P53(),X54()) -> u141(W53(),P53(),X54())
+    200: u141(Y54(),active(U54()),V54()) -> u141(Y54(),U54(),V54())
+    201: u141(W54(),P54(),active(X55())) -> u141(W54(),P54(),X55())
+    202: u142(mark(Y55()),U55()) -> u142(Y55(),U55())
+    203: u142(V55(),mark(W55())) -> u142(V55(),W55())
+    204: u142(active(P55()),X56()) -> u142(P55(),X56())
+    205: u142(Y56(),active(U56())) -> u142(Y56(),U56())
+    206: u143(mark(V56())) -> u143(V56())
+    207: u143(active(W56())) -> u143(W56())
+    208: u151(mark(P56()),X57(),Y57()) -> u151(P56(),X57(),Y57())
+    209: u151(U57(),mark(V57()),W57()) -> u151(U57(),V57(),W57())
+    210: u151(P57(),X58(),mark(Y58())) -> u151(P57(),X58(),Y58())
+    211: u151(active(U58()),V58(),W58()) -> u151(U58(),V58(),W58())
+    212: u151(P58(),active(X59()),Y59()) -> u151(P58(),X59(),Y59())
+    213: u151(U59(),V59(),active(W59())) -> u151(U59(),V59(),W59())
+    214: u152(mark(P59()),X60()) -> u152(P59(),X60())
+    215: u152(Y60(),mark(U60())) -> u152(Y60(),U60())
+    216: u152(active(V60()),W60()) -> u152(V60(),W60())
+    217: u152(P60(),active(X61())) -> u152(P60(),X61())
+    218: u153(mark(Y61())) -> u153(Y61())
+    219: u153(active(U61())) -> u153(U61())
+    220: u161(mark(V61()),W61()) -> u161(V61(),W61())
+    221: u161(P61(),mark(X62())) -> u161(P61(),X62())
+    222: u161(active(Y62()),U62()) -> u161(Y62(),U62())
+    223: u161(V62(),active(W62())) -> u161(V62(),W62())
+    224: cons(mark(P62()),X63()) -> cons(P62(),X63())
+    225: cons(Y63(),mark(U63())) -> cons(Y63(),U63())
+    226: cons(active(V63()),W63()) -> cons(V63(),W63())
+    227: cons(P63(),active(X64())) -> cons(P63(),X64())
+    228: natsFrom(mark(Y64())) -> natsFrom(Y64())
+    229: natsFrom(active(U64())) -> natsFrom(U64())
+    230: s(mark(V64())) -> s(V64())
+    231: s(active(W64())) -> s(W64())
+    232: u171(mark(P64()),X65(),Y65()) -> u171(P64(),X65(),Y65())
+    233: u171(U65(),mark(V65()),W65()) -> u171(U65(),V65(),W65())
+    234: u171(P65(),X66(),mark(Y66())) -> u171(P65(),X66(),Y66())
+    235: u171(active(U66()),V66(),W66()) -> u171(U66(),V66(),W66())
+    236: u171(P66(),active(X67()),Y67()) -> u171(P66(),X67(),Y67())
+    237: u171(U67(),V67(),active(W67())) -> u171(U67(),V67(),W67())
+    238: head(mark(P67())) -> head(P67())
+    239: head(active(X68())) -> head(X68())
+    240: afterNth(mark(Y68()),U68()) -> afterNth(Y68(),U68())
+    241: afterNth(V68(),mark(W68())) -> afterNth(V68(),W68())
+    242: afterNth(active(P68()),X69()) -> afterNth(P68(),X69())
+    243: afterNth(Y69(),active(U69())) -> afterNth(Y69(),U69())
+    244: u181(mark(V69()),W69()) -> u181(V69(),W69())
+    245: u181(P69(),mark(X70())) -> u181(P69(),X70())
+    246: u181(active(Y70()),U70()) -> u181(Y70(),U70())
+    247: u181(V70(),active(W70())) -> u181(V70(),W70())
+    248: u191(mark(P70()),X71()) -> u191(P70(),X71())
+    249: u191(Y71(),mark(U71())) -> u191(Y71(),U71())
+    250: u191(active(V71()),W71()) -> u191(V71(),W71())
+    251: u191(P71(),active(X72())) -> u191(P71(),X72())
+    252: pair(mark(Y72()),U72()) -> pair(Y72(),U72())
+    253: pair(V72(),mark(W72())) -> pair(V72(),W72())
+    254: pair(active(P72()),X73()) -> pair(P72(),X73())
+    255: pair(Y73(),active(U73())) -> pair(Y73(),U73())
+    256: u201(mark(V73()),W73(),P73(),X74()) -> u201(V73(),W73(),P73(),X74())
+    257: u201(Y74(),mark(U74()),V74(),W74()) -> u201(Y74(),U74(),V74(),W74())
+    258: u201(P74(),X75(),mark(Y75()),U75()) -> u201(P74(),X75(),Y75(),U75())
+    259: u201(V75(),W75(),P75(),mark(X76())) -> u201(V75(),W75(),P75(),X76())
+    260: u201(active(Y76()),U76(),V76(),W76()) -> u201(Y76(),U76(),V76(),W76())
+    261: u201(P76(),active(X77()),Y77(),U77()) -> u201(P76(),X77(),Y77(),U77())
+    262: u201(V77(),W77(),active(P77()),X78()) -> u201(V77(),W77(),P77(),X78())
+    263: u201(Y78(),U78(),V78(),active(W78())) -> u201(Y78(),U78(),V78(),W78())
+    264: u202(mark(P78()),X79()) -> u202(P78(),X79())
+    265: u202(Y79(),mark(U79())) -> u202(Y79(),U79())
+    266: u202(active(V79()),W79()) -> u202(V79(),W79())
+    267: u202(P79(),active(X80())) -> u202(P79(),X80())
+    268: u21(mark(Y80()),U80()) -> u21(Y80(),U80())
+    269: u21(V80(),mark(W80())) -> u21(V80(),W80())
+    270: u21(active(P80()),X81()) -> u21(P80(),X81())
+    271: u21(Y81(),active(U81())) -> u21(Y81(),U81())
+    272: u211(mark(V81()),W81()) -> u211(V81(),W81())
+    273: u211(P81(),mark(X82())) -> u211(P81(),X82())
+    274: u211(active(Y82()),U82()) -> u211(Y82(),U82())
+    275: u211(V82(),active(W82())) -> u211(V82(),W82())
+    276: u221(mark(P82()),X83(),Y83()) -> u221(P82(),X83(),Y83())
+    277: u221(U83(),mark(V83()),W83()) -> u221(U83(),V83(),W83())
+    278: u221(P83(),X84(),mark(Y84())) -> u221(P83(),X84(),Y84())
+    279: u221(active(U84()),V84(),W84()) -> u221(U84(),V84(),W84())
+    280: u221(P84(),active(X85()),Y85()) -> u221(P84(),X85(),Y85())
+    281: u221(U85(),V85(),active(W85())) -> u221(U85(),V85(),W85())
+    282: fst(mark(P85())) -> fst(P85())
+    283: fst(active(X86())) -> fst(X86())
+    284: u31(mark(Y86()),U86()) -> u31(Y86(),U86())
+    285: u31(V86(),mark(W86())) -> u31(V86(),W86())
+    286: u31(active(P86()),X87()) -> u31(P86(),X87())
+    287: u31(Y87(),active(U87())) -> u31(Y87(),U87())
+    288: u41(mark(V87()),W87(),P87()) -> u41(V87(),W87(),P87())
+    289: u41(X88(),mark(Y88()),U88()) -> u41(X88(),Y88(),U88())
+    290: u41(V88(),W88(),mark(P88())) -> u41(V88(),W88(),P88())
+    291: u41(active(X89()),Y89(),U89()) -> u41(X89(),Y89(),U89())
+    292: u41(V89(),active(W89()),P89()) -> u41(V89(),W89(),P89())
+    293: u41(X90(),Y90(),active(U90())) -> u41(X90(),Y90(),U90())
+    294: u42(mark(V90()),W90()) -> u42(V90(),W90())
+    295: u42(P90(),mark(X91())) -> u42(P90(),X91())
+    296: u42(active(Y91()),U91()) -> u42(Y91(),U91())
+    297: u42(V91(),active(W91())) -> u42(V91(),W91())
+    298: u43(mark(P91())) -> u43(P91())
+    299: u43(active(X92())) -> u43(X92())
+    300: u51(mark(Y92()),U92(),V92()) -> u51(Y92(),U92(),V92())
+    301: u51(W92(),mark(P92()),X93()) -> u51(W92(),P92(),X93())
+    302: u51(Y93(),U93(),mark(V93())) -> u51(Y93(),U93(),V93())
+    303: u51(active(W93()),P93(),X94()) -> u51(W93(),P93(),X94())
+    304: u51(Y94(),active(U94()),V94()) -> u51(Y94(),U94(),V94())
+    305: u51(W94(),P94(),active(X95())) -> u51(W94(),P94(),X95())
+    306: u52(mark(Y95()),U95()) -> u52(Y95(),U95())
+    307: u52(V95(),mark(W95())) -> u52(V95(),W95())
+    308: u52(active(P95()),X96()) -> u52(P95(),X96())
+    309: u52(Y96(),active(U96())) -> u52(Y96(),U96())
+    310: u53(mark(V96())) -> u53(V96())
+    311: u53(active(W96())) -> u53(W96())
+    312: u61(mark(P96()),X97()) -> u61(P96(),X97())
+    313: u61(Y97(),mark(U97())) -> u61(Y97(),U97())
+    314: u61(active(V97()),W97()) -> u61(V97(),W97())
+    315: u61(P97(),active(X98())) -> u61(P97(),X98())
+    316: u62(mark(Y98())) -> u62(Y98())
+    317: u62(active(U98())) -> u62(U98())
+    318: isPLNat(mark(V98())) -> isPLNat(V98())
+    319: isPLNat(active(W98())) -> isPLNat(W98())
+    320: u71(mark(P98()),X99()) -> u71(P98(),X99())
+    321: u71(Y99(),mark(U99())) -> u71(Y99(),U99())
+    322: u71(active(V99()),W99()) -> u71(V99(),W99())
+    323: u71(P99(),active(X100())) -> u71(P99(),X100())
+    324: u72(mark(Y100())) -> u72(Y100())
+    325: u72(active(U100())) -> u72(U100())
+    326: u81(mark(V100()),W100()) -> u81(V100(),W100())
+    327: u81(P100(),mark(X101())) -> u81(P100(),X101())
+    328: u81(active(Y101()),U101()) -> u81(Y101(),U101())
+    329: u81(V101(),active(W101())) -> u81(V101(),W101())
+    330: u82(mark(P101())) -> u82(P101())
+    331: u82(active(X102())) -> u82(X102())
+    332: u91(mark(Y102()),U102()) -> u91(Y102(),U102())
+    333: u91(V102(),mark(W102())) -> u91(V102(),W102())
+    334: u91(active(P102()),X103()) -> u91(P102(),X103())
+    335: u91(Y103(),active(U103())) -> u91(Y103(),U103())
+    336: u92(mark(V103())) -> u92(V103())
+    337: u92(active(W103())) -> u92(W103())
+    338: and(mark(P103()),X104()) -> and(P103(),X104())
+    339: and(Y104(),mark(U104())) -> and(Y104(),U104())
+    340: and(active(V104()),W104()) -> and(V104(),W104())
+    341: and(P104(),active(X105())) -> and(P104(),X105())
+    342: isNaturalKind(mark(Y105())) -> isNaturalKind(Y105())
+    343: isNaturalKind(active(U105())) -> isNaturalKind(U105())
+    344: isLNatKind(mark(V105())) -> isLNatKind(V105())
+    345: isLNatKind(active(W105())) -> isLNatKind(W105())
+    346: isPLNatKind(mark(P105())) -> isPLNatKind(P105())
+    347: isPLNatKind(active(X106())) -> isPLNatKind(X106())
+    348: tail(mark(Y106())) -> tail(Y106())
+    349: tail(active(U106())) -> tail(U106())
+    350: take(mark(V106()),W106()) -> take(V106(),W106())
+    351: take(P106(),mark(X107())) -> take(P106(),X107())
+    352: take(active(Y107()),U107()) -> take(Y107(),U107())
+    353: take(V107(),active(W107())) -> take(V107(),W107())
+    354: sel(mark(P107()),X108()) -> sel(P107(),X108())
+    355: sel(Y108(),mark(U108())) -> sel(Y108(),U108())
+    356: sel(active(V108()),W108()) -> sel(V108(),W108())
+    357: sel(P108(),active(X109())) -> sel(P108(),X109())
+    358: _(X1,X2) -> X1
+    359: _(X1,X2) -> X2
+Number of strict rules: 359
+Direct POLO(bPol) ... removes: 239 318 80 301 302 354 188 258 189 145 15 180 216 152 205 8 235 335 195 54 305 1 77 343 159 3 16 21 36 68 213 323 181 237 306 26 296 225 247 63 279 186 357 211 326 19 227 17 228 349 226 313 199 269 295 328 60 150 353 187 244 161 144 27 243 157 194 289 334 212 319 183 171 34 274 241 251 330 169 359 317 215 222 286 298 355 28 148 280 325 44 5 184 162 72 261 33 64 175 276 233 10 254 153 39 207 179 329 350 20 315 294 352 166 358 25 49 52 200 333 250 30 62 185 206 14 266 277 291 79 217 164 341 31 12 69 201 203 288 303 356 70 24 351 167 76 197 57 156 299 214 11 202 9 13 220 344 51 312 347 146 316 304 322 331 268 40 210 67 55 193 339 345 59 165 321 223 314 6 155 308 300 154 342 38 61 158 256 278 58 170 178 255 75 267 147 71 234 173 293 260 53 191 47 73 282 163 230 37 252 327 41 283 198 290 42 253 324 229 46 177 66 340 35 263 336 29 43 2
+      W61	w: 0
+      V1	w: 1
+      u81	w: 2 * x1 + 2 * x2
+      Y101	w: 1
+      U59	w: 0
+      U57	w: 0
+      U16	w: 0
+      W18	w: 0
+      U21	w: 1
+      V58	w: 0
+      Y29	w: 0
+      V38	w: 1
+      V106	w: 1
+      Y41	w: 0
+      V23	w: 0
+      P59	w: 1
+      V72	w: 0
+      Y79	w: 0
+      u62	w: x1 + 1
+      X67	w: 0
+      X19	w: 0
+      u133	w: x1 + 1
+      P17	w: 1
+      Y38	w: 0
+      U64	w: 1
+      V12	w: 1
+      P20	w: 1
+      Y104	w: 0
+      u132	w: x1 + 2 * x2
+      V65	w: 1
+      Y66	w: 1
+      u91	w: x1 + x2 + 1
+      V14	w: 1
+      V42	w: 1
+      X11	w: 0
+      X38	w: 0
+      X37	w: 0
+      isPLNatKind	w: 2 * x1 + 1
+      X104	w: 0
+      V30	w: 1
+      Y61	w: 0
+      V64	w: 1
+      V92	w: 0
+      V50	w: 0
+      X96	w: 0
+      W5	w: 1
+      U56	w: 1
+      Y7	w: 1
+      X83	w: 0
+      U28	w: 0
+      u102	w: x1 + x2
+      W 	w: 0
+      W26	w: 0
+      P40	w: 1
+      X62	w: 0
+      P64	w: 0
+      Y 	w: 0
+      P13	w: 1
+      U91	w: 0
+      U97	w: 1
+      u121	w: x1 + x2
+      X44	w: 1
+      W59	w: 1
+      V63	w: 1
+      X6	w: 1
+      U26	w: 0
+      W80	w: 1
+      W46	w: 0
+      P106	w: 0
+      P107	w: 1
+      take	w: x1 + x2 + 7
+      X73	w: 0
+      U71	w: 0
+      V61	w: 1
+      and	w: x1 + x2
+      Y77	w: 0
+      U80	w: 0
+      P56	w: 0
+      P96	w: 1
+      U98	w: 1
+      u103	w: x1 + 1
+      V34	w: 0
+      P99	w: 0
+      V69	w: 1
+      X13	w: 1
+      Y14	w: 1
+      P19	w: 1
+      Y53	w: 0
+      X17	w: 1
+      W78	w: 1
+      U95	w: 0
+      fst	w: x1 + 8
+      V59	w: 0
+      Y73	w: 0
+      V22	w: 0
+      Y37	w: 1
+      P94	w: 0
+      V32	w: 0
+      W105	w: 1
+      X21	w: 1
+      Y33	w: 0
+      U103	w: 1
+      X51	w: 1
+      V90	w: 1
+      Y13	w: 0
+      V105	w: 1
+      U23	w: 0
+      X26	w: 0
+      U35	w: 0
+      W100	w: 0
+      W93	w: 1
+      W14	w: 1
+      W77	w: 0
+      Y4	w: 1
+      U93	w: 0
+      X48	w: 0
+      V56	w: 1
+      X80	w: 1
+      splitAt	w: 2 * x1 + x2
+      Y5	w: 0
+      isNaturalKind	w: x1
+      P16	w: 0
+      u52	w: 2 * x1 + x2
+      V21	w: 0
+      W74	w: 0
+      P9	w: 1
+      U94	w: 1
+      u61	w: 2 * x1 + x2
+      X108	w: 0
+      u92	w: 2 * x1 + 1
+      X79	w: 0
+      P88	w: 1
+      V7	w: 1
+      Y15	w: 1
+      U34	w: 0
+      X12	w: 0
+      P69	w: 0
+      P72	w: 1
+      P76	w: 0
+      W106	w: 0
+      U50	w: 1
+      u221	w: x1 + x2 + x3 + 2
+      V62	w: 0
+      V10	w: 1
+      V49	w: 0
+      U12	w: 1
+      U68	w: 0
+      Y88	w: 1
+      _ 	w: 2 * x1 + x2 + 1
+      V27	w: 1
+      V48	w: 0
+      U27	w: 0
+      u151	w: 2 * x1 + x2 + 2 * x3 + 1
+      X29	w: 1
+      Y98	w: 1
+      P23	w: 1
+      u202	w: x1 + x2
+      Y51	w: 0
+      isNatural	w: x1
+      V9	w: 1
+      V2	w: 1
+      X42	w: 0
+      X16	w: 1
+      U54	w: 1
+      V33	w: 0
+      W88	w: 0
+      P63	w: 0
+      U19	w: 1
+      W70	w: 1
+      U100	w: 1
+      u41	w: x1 + x2 + 2 * x3
+      X30	w: 1
+      V43	w: 1
+      u211	w: 2 * x1 + x2
+      U104	w: 1
+      V95	w: 0
+      X78	w: 0
+      U37	w: 0
+      P32	w: 1
+      P51	w: 1
+      W27	w: 1
+      Y44	w: 0
+      tail	w: x1 + 7
+      V5	w: 1
+      U17	w: 0
+      U83	w: 0
+      Y95	w: 1
+      V89	w: 0
+      0 	w: 9
+      X20	w: 1
+      X23	w: 0
+      W60	w: 0
+      V25	w: 0
+      U36	w: 1
+      P10	w: 0
+      Y39	w: 1
+      X59	w: 1
+      V81	w: 0
+      X94	w: 0
+      afterNth	w: x1 + x2 + 10
+      W42	w: 1
+      W6	w: 1
+      W85	w: 0
+      W65	w: 0
+      X75	w: 0
+      W63	w: 0
+      P95	w: 1
+      isLNat	w: x1
+      X54	w: 0
+      X100	w: 1
+      U62	w: 0
+      X107	w: 1
+      X95	w: 1
+      X106	w: 1
+      mark	w: 2 * x1
+      P70	w: 0
+      W99	w: 0
+      Y23	w: 1
+      Y54	w: 0
+      U78	w: 0
+      W19	w: 0
+      V97	w: 1
+      W51	w: 1
+      W72	w: 1
+      U32	w: 0
+      W35	w: 1
+      W4	w: 1
+      u72	w: 2 * x1 + 1
+      V39	w: 0
+      u201	w: x1 + x2 + x3 + x4 + 4
+      W41	w: 1
+      u143	w: x1 + 1
+      W3	w: 1
+      U33	w: 0
+      X58	w: 0
+      isLNatKind	w: x1
+      U14	w: 1
+      P74	w: 0
+      Y60	w: 0
+      V93	w: 1
+      u43	w: x1 + 1
+      Y10	w: 0
+      W75	w: 0
+      X43	w: 0
+      Y72	w: 1
+      P78	w: 0
+      V104	w: 1
+      u161	w: x1 + x2 + 1
+      U7	w: 1
+      P35	w: 0
+      Y58	w: 1
+      P42	w: 0
+      U46	w: 1
+      X27	w: 0
+      W44	w: 1
+      U65	w: 0
+      U15	w: 1
+      U39	w: 1
+      W73	w: 0
+      U5	w: 1
+      P45	w: 1
+      W81	w: 0
+      X22	w: 1
+      V98	w: 1
+      active	w: 2 * x1
+      U31	w: 0
+      U85	w: 0
+      W86	w: 0
+      P24	w: 0
+      W83	w: 0
+      U92	w: 0
+      P100	w: 0
+      V51	w: 0
+      X55	w: 1
+      X69	w: 0
+      cons	w: 2 * x1 + x2
+      P27	w: 0
+      P66	w: 0
+      u142	w: 2 * x1 + x2
+      X68	w: 1
+      V35	w: 1
+      W43	w: 0
+      snd	w: x1 + 16
+      P 	w: 1
+      U81	w: 0
+      U88	w: 0
+      Y105	w: 1
+      X63	w: 0
+      u42	w: 2 * x1 + 2 * x2
+      V28	w: 1
+      Y18	w: 0
+      U18	w: 0
+      U69	w: 1
+      X86	w: 1
+      V3	w: 12
+      u152	w: x1 + x2
+      U13	w: 0
+      V76	w: 0
+      P101	w: 1
+      W23	w: 0
+      X56	w: 0
+      U67	w: 0
+      Y102	w: 0
+      Y20	w: 0
+      V77	w: 0
+      Y94	w: 0
+      Y70	w: 0
+      U4	w: 0
+      U22	w: 1
+      Y52	w: 0
+      Y16	w: 1
+      U51	w: 0
+      P85	w: 1
+      U107	w: 0
+      U74	w: 0
+      P12	w: 0
+      X39	w: 1
+      X105	w: 1
+      V11	w: 1
+      Y6	w: 1
+      P104	w: 0
+      U53	w: 0
+      V 	w: 0
+      X10	w: 0
+      V20	w: 0
+      W48	w: 0
+      X64	w: 1
+      P81	w: 0
+      U90	w: 1
+      V94	w: 0
+      u31	w: 2 * x1 + x2 + 1
+      Y50	w: 0
+      P60	w: 0
+      U 	w: 1
+      U66	w: 1
+      V91	w: 0
+      Y71	w: 0
+      P75	w: 0
+      u141	w: x1 + x2 + 2 * x3
+      P67	w: 0
+      Y100	w: 1
+      W15	w: 1
+      W40	w: 0
+      W49	w: 1
+      V87	w: 1
+      W64	w: 0
+      V68	w: 0
+      W97	w: 0
+      V46	w: 1
+      V52	w: 0
+      W34	w: 0
+      Y91	w: 1
+      V26	w: 1
+      P48	w: 1
+      P77	w: 0
+      P87	w: 0
+      P79	w: 0
+      V15	w: 1
+      P18	w: 1
+      U1	w: 1
+      P47	w: 0
+      W31	w: 1
+      W52	w: 0
+      X87	w: 0
+      W24	w: 0
+      P55	w: 0
+      V17	w: 1
+      U11	w: 1
+      V18	w: 0
+      V44	w: 0
+      P108	w: 0
+      W58	w: 0
+      Y81	w: 0
+      Y2	w: 1
+      W38	w: 1
+      V83	w: 1
+      W96	w: 0
+      s 	w: x1 + 4
+      P8	w: 1
+      V31	w: 0
+      U105	w: 1
+      W25	w: 0
+      X40	w: 0
+      W84	w: 0
+      W104	w: 0
+      Y11	w: 1
+      V16	w: 1
+      P98	w: 0
+      X3	w: 0
+      W8	w: 0
+      U24	w: 0
+      Y69	w: 0
+      V96	w: 0
+      V13	w: 0
+      U106	w: 1
+      Y82	w: 1
+      u111	w: x1 + x2
+      u53	w: x1 + 16
+      Y32	w: 1
+      P53	w: 0
+      X33	w: 1
+      U25	w: 0
+      X74	w: 0
+      W32	w: 1
+      u191	w: x1 + 2 * x2 + 12
+      U77	w: 0
+      Y93	w: 0
+      isPLNat	w: 2 * x1 + 2
+      W33	w: 0
+      P37	w: 1
+      Y22	w: 0
+      U89	w: 0
+      X109	w: 1
+      P50	w: 0
+      W92	w: 0
+      U42	w: 1
+      X47	w: 1
+      X66	w: 0
+      Y36	w: 0
+      P52	w: 1
+      X60	w: 0
+      V80	w: 0
+      U108	w: 1
+      X4	w: 1
+      P4	w: 1
+      P43	w: 0
+      u181	w: x1 + x2 + 1
+      Y103	w: 0
+      u153	w: x1 + 1
+      W17	w: 0
+      Y45	w: 0
+      W30	w: 0
+      W21	w: 0
+      P22	w: 0
+      P25	w: 0
+      u122	w: x1 + 8
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      U58	w: 1
+      Y86	w: 0
+      Y96	w: 0
+      V99	w: 1
+      P80	w: 0
+      W67	w: 1
+      X70	w: 0
+      Y75	w: 1
+      U101	w: 0
+      pair	w: x1 + x2 + 1
+      X46	w: 0
+      W71	w: 0
+      U8	w: 1
+      X99	w: 0
+      U29	w: 0
+      U43	w: 1
+      P11	w: 1
+      Y25	w: 1
+      P15	w: 1
+      Y49	w: 0
+      W87	w: 0
+      W91	w: 0
+      u131	w: x1 + x2 + x3 + 18
+      U86	w: 0
+      natsFrom	w: x1 + 3
+      V88	w: 0
+      P41	w: 0
+      U48	w: 0
+      V24	w: 0
+      X32	w: 0
+      X85	w: 1
+      U44	w: 0
+      U55	w: 0
+      Y76	w: 1
+      W10	w: 1
+      V70	w: 0
+      V36	w: 0
+      U84	w: 1
+      Y17	w: 1
+      V4	w: 1
+      P28	w: 0
+      U63	w: 1
+      W62	w: 1
+      Y27	w: 1
+      W76	w: 0
+      W95	w: 0
+      U72	w: 0
+      W90	w: 0
+      U38	w: 1
+      W101	w: 1
+      W20	w: 0
+      W55	w: 1
+      W56	w: 1
+      X57	w: 0
+      V19	w: 0
+      V101	w: 0
+      W28	w: 1
+      W57	w: 0
+      P44	w: 0
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      W66	w: 0
+      W37	w: 0
+      X49	w: 1
+      Y92	w: 1
+      U9	w: 0
+      V45	w: 0
+      W45	w: 1
+      P31	w: 0
+      P21	w: 1
+      X65	w: 0
+      V40	w: 0
+      U40	w: 0
+      P65	w: 0
+      U20	w: 1
+      P84	w: 0
+      P61	w: 0
+      Y63	w: 0
+      P103	w: 0
+      W54	w: 0
+      Y21	w: 0
+      P33	w: 0
+      P46	w: 0
+      U99	w: 1
+      V103	w: 1
+      P49	w: 0
+      Y85	w: 0
+      X28	w: 0
+      Y84	w: 1
+      P38	w: 1
+      W69	w: 0
+      P83	w: 0
+      W94	w: 0
+      V47	w: 1
+      W107	w: 1
+      V102	w: 0
+      X14	w: 1
+      Y64	w: 1
+      X71	w: 0
+      V67	w: 0
+      X91	w: 1
+      U10	w: 1
+      W39	w: 0
+      u51	w: x1 + x2 + 2 * x3
+      P2	w: 1
+      V79	w: 1
+      W12	w: 1
+      Y3	w: 1
+      U30	w: 0
+      U73	w: 1
+      X84	w: 0
+      P91	w: 1
+      V55	w: 0
+      Y12	w: 1
+      Y48	w: 1
+      u11	w: 2 * x1 + x2 + 2 * x3
+      Y19	w: 0
+      Y40	w: 1
+      sel	w: 2 * x1 + 2 * x2 + 18
+      Y55	w: 1
+      P90	w: 0
+      P14	w: 1
+      Y30	w: 0
+      X15	w: 1
+      Y35	w: 0
+      W82	w: 0
+      P58	w: 0
+      W2	w: 1
+      X25	w: 0
+      P97	w: 0
+      nil	w: 19
+      X36	w: 0
+      X77	w: 1
+      P89	w: 0
+      V6	w: 1
+      V74	w: 0
+      U76	w: 0
+      P82	w: 1
+      X92	w: 1
+      Y28	w: 0
+      P5	w: 1
+      Y78	w: 0
+      W79	w: 0
+      X97	w: 0
+      X102	w: 1
+      W1	w: 1
+      X5	w: 1
+      U45	w: 1
+      P92	w: 1
+      Y59	w: 0
+      Y67	w: 0
+      P73	w: 0
+      U75	w: 0
+      u101	w: 2 * x1 + 2 * x2 + 2 * x3
+      P68	w: 0
+      V8	w: 1
+      X31	w: 0
+      P86	w: 1
+      V107	w: 0
+      W108	w: 0
+      V41	w: 0
+      U60	w: 1
+      X103	w: 0
+      u21	w: 2 * x1 + 2 * x2
+      V37	w: 0
+      Y56	w: 0
+      P39	w: 0
+      Y47	w: 0
+      X7	w: 1
+      Y68	w: 0
+      P29	w: 0
+      W103	w: 0
+      W22	w: 0
+      V60	w: 1
+      V84	w: 0
+      P34	w: 1
+      X18	w: 1
+      P62	w: 0
+      X76	w: 0
+      u82	w: x1 + 1
+      X34	w: 0
+      V53	w: 1
+      X9	w: 1
+      Y26	w: 0
+      W50	w: 0
+      U52	w: 0
+      V54	w: 0
+      P7	w: 0
+      W9	w: 1
+      X35	w: 0
+      Y46	w: 0
+      U61	w: 0
+      P93	w: 0
+      V100	w: 1
+      X82	w: 0
+      X88	w: 0
+      U96	w: 0
+      V82	w: 0
+      u171	w: x1 + x2 + x3 + 15
+      Y57	w: 0
+      V73	w: 1
+      Y80	w: 1
+      Y83	w: 0
+      X98	w: 1
+      head	w: 2 * x1 + 1
+      X89	w: 1
+      Y31	w: 1
+      X90	w: 0
+      W13	w: 1
+      P26	w: 1
+      V71	w: 1
+      X72	w: 1
+      W89	w: 0
+      Y108	w: 0
+      Y62	w: 1
+      P30	w: 1
+      Y89	w: 0
+      U102	w: 0
+      Y107	w: 1
+      U70	w: 0
+      W47	w: 0
+      V29	w: 1
+      V57	w: 0
+      U49	w: 0
+      U82	w: 0
+      u112	w: x1 + 1
+      W36	w: 0
+      Y65	w: 0
+      tt	w: 8
+      Y43	w: 0
+      Y8	w: 1
+      Y42	w: 0
+      X93	w: 0
+      X61	w: 1
+      V86	w: 0
+      X101	w: 1
+      Y106	w: 0
+      U47	w: 1
+      W68	w: 1
+      W102	w: 1
+      X81	w: 0
+      V78	w: 0
+      U2	w: 1
+      V85	w: 0
+      X52	w: 1
+      P71	w: 0
+      Y74	w: 0
+      X 	w: 1
+      W16	w: 1
+      Y87	w: 0
+      u71	w: 2 * x1 + x2 + 1
+      X53	w: 0
+      P105	w: 0
+      X41	w: 1
+      V75	w: 0
+      U79	w: 0
+      U6	w: 1
+      P36	w: 0
+      P57	w: 0
+      P6	w: 1
+      Y34	w: 1
+      X24	w: 1
+      U41	w: 0
+      W53	w: 1
+      P54	w: 0
+      Y9	w: 0
+      X45	w: 0
+      Y99	w: 0
+      W29	w: 1
+      Y90	w: 0
+      P102	w: 1
+      X50	w: 0
+      V108	w: 1
+      Y24	w: 0
+      Y97	w: 0
+      V66	w: 0
+      W98	w: 1
+      U87	w: 0
+Number of strict rules: 130
+Direct POLO(bPol) ... removes: 50 4 219 103 275 204 246 242 332 231 135 297 192 259 271 320 32 172 142 262 87 281 22 65 292 338 309 7 174 106 82 133 56 270 346 45 78 236 23 273 337 249 132 123 48 240 311 97 149 287
+      W61	w: 0
+      V1	w: 0
+      u81	w: x1 + 2 * x2 + 10
+      Y101	w: 1
+      U59	w: 0
+      U57	w: 0
+      U16	w: 1
+      W18	w: 1
+      U21	w: 14
+      V58	w: 0
+      Y29	w: 0
+      V38	w: 0
+      V106	w: 1
+      Y41	w: 0
+      V23	w: 1
+      P59	w: 0
+      V72	w: 0
+      Y79	w: 0
+      u62	w: x1 + 14
+      X67	w: 1
+      X19	w: 0
+      u133	w: 2 * x1 + 14
+      P17	w: 7
+      Y38	w: 0
+      U64	w: 1
+      V12	w: 1
+      P20	w: 14
+      Y104	w: 0
+      u132	w: x1 + x2 + 13
+      V65	w: 0
+      Y66	w: 0
+      u91	w: x1 + x2 + 14
+      V14	w: 1
+      V42	w: 0
+      X11	w: 1
+      X38	w: 0
+      X37	w: 1
+      isPLNatKind	w: 2 * x1
+      X104	w: 0
+      V30	w: 3
+      Y61	w: 0
+      V64	w: 0
+      V92	w: 0
+      V50	w: 0
+      X96	w: 0
+      W5	w: 0
+      U56	w: 1
+      Y7	w: 1
+      X83	w: 0
+      U28	w: 0
+      u102	w: x1 + x2 + 13
+      W 	w: 1
+      W26	w: 0
+      P40	w: 0
+      X62	w: 0
+      P64	w: 0
+      Y 	w: 28
+      P13	w: 1
+      U91	w: 0
+      U97	w: 1
+      u121	w: x1 + 2 * x2 + 14
+      X44	w: 1
+      W59	w: 0
+      V63	w: 0
+      X6	w: 1
+      U26	w: 0
+      W80	w: 0
+      W46	w: 0
+      P106	w: 0
+      P107	w: 0
+      take	w: x1 + x2 + 14
+      X73	w: 0
+      U71	w: 1
+      V61	w: 0
+      and	w: x1 + x2
+      Y77	w: 0
+      U80	w: 0
+      P56	w: 0
+      P96	w: 1
+      U98	w: 1
+      u103	w: x1 + 14
+      V34	w: 0
+      P99	w: 0
+      V69	w: 0
+      X13	w: 1
+      Y14	w: 2
+      P19	w: 2
+      Y53	w: 0
+      X17	w: 1
+      W78	w: 0
+      U95	w: 0
+      fst	w: x1 + 14
+      V59	w: 0
+      Y73	w: 0
+      V22	w: 0
+      Y37	w: 0
+      P94	w: 0
+      V32	w: 1
+      W105	w: 1
+      X21	w: 1
+      Y33	w: 7
+      U103	w: 1
+      X51	w: 0
+      V90	w: 1
+      Y13	w: 1
+      V105	w: 1
+      U23	w: 0
+      X26	w: 1
+      U35	w: 0
+      W100	w: 0
+      W93	w: 1
+      W14	w: 0
+      W77	w: 0
+      Y4	w: 1
+      U93	w: 0
+      X48	w: 0
+      V56	w: 0
+      X80	w: 1
+      splitAt	w: x1 + x2 + 14
+      Y5	w: 1
+      isNaturalKind	w: x1
+      P16	w: 0
+      u52	w: x1 + x2
+      V21	w: 1
+      W74	w: 0
+      P9	w: 1
+      U94	w: 1
+      u61	w: x1 + x2 + 11
+      X108	w: 0
+      u92	w: x1 + 27
+      X79	w: 0
+      P88	w: 0
+      V7	w: 0
+      Y15	w: 1
+      U34	w: 0
+      X12	w: 1
+      P69	w: 0
+      P72	w: 1
+      P76	w: 0
+      W106	w: 0
+      U50	w: 1
+      u221	w: x1 + x2 + 2 * x3 + 2
+      V62	w: 0
+      V10	w: 1
+      V49	w: 0
+      U12	w: 1
+      U68	w: 0
+      Y88	w: 1
+      _ 	w: 2 * x1 + x2
+      V27	w: 0
+      V48	w: 0
+      U27	w: 0
+      u151	w: 2 * x1 + x2 + x3
+      X29	w: 0
+      Y98	w: 0
+      P23	w: 1
+      u202	w: x1 + x2 + 13
+      Y51	w: 0
+      isNatural	w: x1 + 1
+      V9	w: 0
+      V2	w: 28
+      X42	w: 0
+      X16	w: 0
+      U54	w: 1
+      V33	w: 0
+      W88	w: 0
+      P63	w: 0
+      U19	w: 0
+      W70	w: 1
+      U100	w: 1
+      u41	w: x1 + x2 + x3 + 14
+      X30	w: 14
+      V43	w: 1
+      u211	w: 2 * x1 + x2 + 11
+      U104	w: 1
+      V95	w: 0
+      X78	w: 0
+      U37	w: 0
+      P32	w: 14
+      P51	w: 0
+      W27	w: 6
+      Y44	w: 1
+      tail	w: x1 + 14
+      V5	w: 1
+      U17	w: 1
+      U83	w: 0
+      Y95	w: 1
+      V89	w: 0
+      0 	w: 68
+      X20	w: 6
+      X23	w: 0
+      W60	w: 0
+      V25	w: 0
+      U36	w: 0
+      P10	w: 0
+      Y39	w: 1
+      X59	w: 1
+      V81	w: 0
+      X94	w: 0
+      afterNth	w: x1 + x2 + 14
+      W42	w: 1
+      W6	w: 1
+      W85	w: 1
+      W65	w: 0
+      X75	w: 0
+      W63	w: 0
+      P95	w: 1
+      isLNat	w: x1
+      X54	w: 0
+      X100	w: 1
+      U62	w: 0
+      X107	w: 1
+      X95	w: 1
+      X106	w: 1
+      mark	w: 2 * x1
+      P70	w: 0
+      W99	w: 0
+      Y23	w: 13
+      Y54	w: 0
+      U78	w: 0
+      W19	w: 1
+      V97	w: 1
+      W51	w: 1
+      W72	w: 0
+      U32	w: 0
+      W35	w: 1
+      W4	w: 0
+      u72	w: 2 * x1 + 14
+      V39	w: 0
+      u201	w: x1 + x2 + x3 + x4 + 6
+      W41	w: 1
+      u143	w: x1 + 14
+      W3	w: 1
+      U33	w: 0
+      X58	w: 0
+      isLNatKind	w: x1
+      U14	w: 1
+      P74	w: 0
+      Y60	w: 0
+      V93	w: 0
+      u43	w: x1 + 56
+      Y10	w: 1
+      W75	w: 0
+      X43	w: 0
+      Y72	w: 0
+      P78	w: 0
+      V104	w: 1
+      u161	w: x1 + x2 + 8
+      U7	w: 0
+      P35	w: 0
+      Y58	w: 0
+      P42	w: 0
+      U46	w: 0
+      X27	w: 0
+      W44	w: 0
+      U65	w: 0
+      U15	w: 1
+      U39	w: 1
+      W73	w: 0
+      U5	w: 1
+      P45	w: 0
+      W81	w: 0
+      X22	w: 14
+      V98	w: 1
+      active	w: x1 + 14
+      U31	w: 0
+      U85	w: 0
+      W86	w: 0
+      P24	w: 0
+      W83	w: 0
+      U92	w: 0
+      P100	w: 0
+      V51	w: 0
+      X55	w: 1
+      X69	w: 0
+      cons	w: x1 + x2 + 1
+      P27	w: 0
+      P66	w: 0
+      u142	w: 2 * x1 + x2
+      X68	w: 1
+      V35	w: 0
+      W43	w: 0
+      snd	w: x1 + 14
+      P 	w: 0
+      U81	w: 1
+      U88	w: 0
+      Y105	w: 1
+      X63	w: 0
+      u42	w: 2 * x1 + 2 * x2 + 14
+      V28	w: 0
+      Y18	w: 0
+      U18	w: 1
+      U69	w: 1
+      X86	w: 1
+      V3	w: 1
+      u152	w: x1 + x2
+      U13	w: 1
+      V76	w: 0
+      P101	w: 1
+      W23	w: 1
+      X56	w: 0
+      U67	w: 0
+      Y102	w: 1
+      Y20	w: 1
+      V77	w: 0
+      Y94	w: 0
+      Y70	w: 1
+      U4	w: 0
+      U22	w: 14
+      Y52	w: 0
+      Y16	w: 0
+      U51	w: 0
+      P85	w: 0
+      U107	w: 0
+      U74	w: 0
+      P12	w: 0
+      X39	w: 1
+      X105	w: 0
+      V11	w: 1
+      Y6	w: 1
+      P104	w: 0
+      U53	w: 0
+      V 	w: 1
+      X10	w: 1
+      V20	w: 0
+      W48	w: 0
+      X64	w: 1
+      P81	w: 0
+      U90	w: 1
+      V94	w: 0
+      u31	w: x1 + x2
+      Y50	w: 0
+      P60	w: 0
+      U 	w: 1
+      U66	w: 1
+      V91	w: 0
+      Y71	w: 0
+      P75	w: 0
+      u141	w: x1 + x2 + x3
+      P67	w: 0
+      Y100	w: 1
+      W15	w: 0
+      W40	w: 0
+      W49	w: 1
+      V87	w: 1
+      W64	w: 1
+      V68	w: 0
+      W97	w: 0
+      V46	w: 1
+      V52	w: 0
+      W34	w: 0
+      Y91	w: 1
+      V26	w: 1
+      P48	w: 0
+      P77	w: 1
+      P87	w: 0
+      P79	w: 0
+      V15	w: 1
+      P18	w: 14
+      U1	w: 0
+      P47	w: 0
+      W31	w: 3
+      W52	w: 0
+      X87	w: 0
+      W24	w: 0
+      P55	w: 1
+      V17	w: 14
+      U11	w: 0
+      V18	w: 1
+      V44	w: 0
+      P108	w: 0
+      W58	w: 0
+      Y81	w: 0
+      Y2	w: 1
+      W38	w: 1
+      V83	w: 1
+      W96	w: 1
+      s 	w: x1 + 15
+      P8	w: 1
+      V31	w: 1
+      U105	w: 1
+      W25	w: 1
+      X40	w: 0
+      W84	w: 0
+      W104	w: 0
+      Y11	w: 0
+      V16	w: 0
+      P98	w: 1
+      X3	w: 1
+      W8	w: 1
+      U24	w: 0
+      Y69	w: 0
+      V96	w: 0
+      V13	w: 1
+      U106	w: 1
+      Y82	w: 1
+      u111	w: x1 + x2
+      u53	w: x1 + 14
+      Y32	w: 0
+      P53	w: 0
+      X33	w: 14
+      U25	w: 0
+      X74	w: 0
+      W32	w: 14
+      u191	w: x1 + x2 + 2
+      U77	w: 0
+      Y93	w: 0
+      isPLNat	w: 2 * x1
+      W33	w: 1
+      P37	w: 1
+      Y22	w: 0
+      U89	w: 0
+      X109	w: 1
+      P50	w: 0
+      W92	w: 0
+      U42	w: 1
+      X47	w: 1
+      X66	w: 0
+      Y36	w: 0
+      P52	w: 1
+      X60	w: 0
+      V80	w: 0
+      U108	w: 0
+      X4	w: 1
+      P4	w: 2
+      P43	w: 0
+      u181	w: x1 + x2 + 14
+      Y103	w: 0
+      u153	w: x1 + 14
+      W17	w: 0
+      Y45	w: 0
+      W30	w: 0
+      W21	w: 0
+      P22	w: 7
+      P25	w: 7
+      u122	w: x1 + 14
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 1
+      U58	w: 1
+      Y86	w: 0
+      Y96	w: 0
+      V99	w: 1
+      P80	w: 1
+      W67	w: 1
+      X70	w: 0
+      Y75	w: 1
+      U101	w: 0
+      pair	w: x1 + x2 + 14
+      X46	w: 0
+      W71	w: 0
+      U8	w: 1
+      X99	w: 0
+      U29	w: 1
+      U43	w: 1
+      P11	w: 1
+      Y25	w: 12
+      P15	w: 0
+      Y49	w: 0
+      W87	w: 0
+      W91	w: 1
+      u131	w: x1 + x2 + 2 * x3
+      U86	w: 0
+      natsFrom	w: x1 + 14
+      V88	w: 0
+      P41	w: 0
+      U48	w: 0
+      V24	w: 1
+      X32	w: 0
+      X85	w: 1
+      U44	w: 0
+      U55	w: 0
+      Y76	w: 1
+      W10	w: 1
+      V70	w: 0
+      V36	w: 0
+      U84	w: 1
+      Y17	w: 13
+      V4	w: 0
+      P28	w: 0
+      U63	w: 1
+      W62	w: 1
+      Y27	w: 3
+      W76	w: 0
+      W95	w: 0
+      U72	w: 0
+      W90	w: 0
+      U38	w: 1
+      W101	w: 1
+      W20	w: 0
+      W55	w: 0
+      W56	w: 1
+      X57	w: 0
+      V19	w: 1
+      V101	w: 0
+      W28	w: 0
+      W57	w: 0
+      P44	w: 1
+      P1	w: 1
+      W7	w: 0
+      W11	w: 1
+      W66	w: 0
+      W37	w: 0
+      X49	w: 1
+      Y92	w: 1
+      U9	w: 1
+      V45	w: 0
+      W45	w: 0
+      P31	w: 0
+      P21	w: 0
+      X65	w: 0
+      V40	w: 0
+      U40	w: 0
+      P65	w: 0
+      U20	w: 1
+      P84	w: 0
+      P61	w: 0
+      Y63	w: 0
+      P103	w: 1
+      W54	w: 0
+      Y21	w: 0
+      P33	w: 0
+      P46	w: 0
+      U99	w: 0
+      V103	w: 0
+      P49	w: 0
+      Y85	w: 0
+      X28	w: 0
+      Y84	w: 0
+      P38	w: 1
+      W69	w: 0
+      P83	w: 0
+      W94	w: 0
+      V47	w: 0
+      W107	w: 1
+      V102	w: 0
+      X14	w: 1
+      Y64	w: 1
+      X71	w: 0
+      V67	w: 0
+      X91	w: 0
+      U10	w: 1
+      W39	w: 0
+      u51	w: x1 + x2 + 2 * x3
+      P2	w: 1
+      V79	w: 1
+      W12	w: 1
+      Y3	w: 1
+      U30	w: 0
+      U73	w: 1
+      X84	w: 0
+      P91	w: 1
+      V55	w: 0
+      Y12	w: 0
+      Y48	w: 1
+      u11	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      Y19	w: 0
+      Y40	w: 0
+      sel	w: x1 + x2 + 14
+      Y55	w: 0
+      P90	w: 0
+      P14	w: 1
+      Y30	w: 0
+      X15	w: 1
+      Y35	w: 0
+      W82	w: 1
+      P58	w: 0
+      W2	w: 1
+      X25	w: 0
+      P97	w: 0
+      nil	w: 14
+      X36	w: 0
+      X77	w: 1
+      P89	w: 0
+      V6	w: 10
+      V74	w: 0
+      U76	w: 0
+      P82	w: 0
+      X92	w: 1
+      Y28	w: 14
+      P5	w: 1
+      Y78	w: 0
+      W79	w: 0
+      X97	w: 0
+      X102	w: 1
+      W1	w: 1
+      X5	w: 1
+      U45	w: 1
+      P92	w: 0
+      Y59	w: 0
+      Y67	w: 0
+      P73	w: 0
+      U75	w: 0
+      u101	w: x1 + 2 * x2 + x3
+      P68	w: 1
+      V8	w: 1
+      X31	w: 0
+      P86	w: 0
+      V107	w: 0
+      W108	w: 0
+      V41	w: 0
+      U60	w: 0
+      X103	w: 0
+      u21	w: x1 + 2 * x2
+      V37	w: 0
+      Y56	w: 0
+      P39	w: 0
+      Y47	w: 0
+      X7	w: 1
+      Y68	w: 1
+      P29	w: 0
+      W103	w: 1
+      W22	w: 1
+      V60	w: 1
+      V84	w: 0
+      P34	w: 0
+      X18	w: 0
+      P62	w: 0
+      X76	w: 1
+      u82	w: x1 + 31
+      X34	w: 0
+      V53	w: 0
+      X9	w: 1
+      Y26	w: 0
+      W50	w: 0
+      U52	w: 0
+      V54	w: 0
+      P7	w: 1
+      W9	w: 0
+      X35	w: 0
+      Y46	w: 0
+      U61	w: 0
+      P93	w: 0
+      V100	w: 0
+      X82	w: 1
+      X88	w: 0
+      U96	w: 1
+      V82	w: 0
+      u171	w: x1 + x2 + x3
+      Y57	w: 0
+      V73	w: 0
+      Y80	w: 0
+      Y83	w: 0
+      X98	w: 1
+      head	w: x1 + 14
+      X89	w: 1
+      Y31	w: 14
+      X90	w: 0
+      W13	w: 1
+      P26	w: 7
+      V71	w: 1
+      X72	w: 1
+      W89	w: 0
+      Y108	w: 0
+      Y62	w: 1
+      P30	w: 7
+      Y89	w: 0
+      U102	w: 0
+      Y107	w: 1
+      U70	w: 0
+      W47	w: 0
+      V29	w: 0
+      V57	w: 0
+      U49	w: 0
+      U82	w: 0
+      u112	w: x1 + 14
+      W36	w: 0
+      Y65	w: 0
+      tt	w: 41
+      Y43	w: 0
+      Y8	w: 1
+      Y42	w: 0
+      X93	w: 0
+      X61	w: 1
+      V86	w: 0
+      X101	w: 1
+      Y106	w: 0
+      U47	w: 1
+      W68	w: 1
+      W102	w: 0
+      X81	w: 0
+      V78	w: 0
+      U2	w: 1
+      V85	w: 0
+      X52	w: 0
+      P71	w: 0
+      Y74	w: 0
+      X 	w: 1
+      W16	w: 14
+      Y87	w: 0
+      u71	w: x1 + x2
+      X53	w: 0
+      P105	w: 1
+      X41	w: 0
+      V75	w: 0
+      U79	w: 0
+      U6	w: 1
+      P36	w: 0
+      P57	w: 0
+      P6	w: 16
+      Y34	w: 0
+      X24	w: 13
+      U41	w: 0
+      W53	w: 1
+      P54	w: 0
+      Y9	w: 1
+      X45	w: 0
+      Y99	w: 0
+      W29	w: 7
+      Y90	w: 0
+      P102	w: 1
+      X50	w: 0
+      V108	w: 1
+      Y24	w: 0
+      Y97	w: 0
+      V66	w: 0
+      W98	w: 1
+      U87	w: 1
+Number of strict rules: 80
+Direct POLO(bPol) ... removes: 182 18 104 102 272 221 121 141 168 160 124 140 131 122 100 105 307 176 125 143 264 117 208 137 84 120 93 92 224 136 126 108 130 310 284 111 89 209 96 118 81 128 285 134 94 109 190 245 257 98 107 90 110 196 116 151 348 113 138 74 112 218 91 99 114 265 248 232 83 238 86
+      W61	w: 0
+      V1	w: 1
+      u81	w: x1 + 2 * x2
+      Y101	w: 1
+      U59	w: 0
+      U57	w: 0
+      U16	w: 0
+      W18	w: 1
+      U21	w: 71
+      V58	w: 0
+      Y29	w: 0
+      V38	w: 1
+      V106	w: 1
+      Y41	w: 0
+      V23	w: 1
+      P59	w: 1
+      V72	w: 0
+      Y79	w: 0
+      u62	w: x1 + 71
+      X67	w: 1
+      X19	w: 0
+      u133	w: x1 + 74
+      P17	w: 1
+      Y38	w: 0
+      U64	w: 1
+      V12	w: 1
+      P20	w: 1
+      Y104	w: 0
+      u132	w: x1 + x2
+      V65	w: 0
+      Y66	w: 0
+      u91	w: x1 + x2 + 2
+      V14	w: 1
+      V42	w: 0
+      X11	w: 1
+      X38	w: 0
+      X37	w: 1
+      isPLNatKind	w: x1
+      X104	w: 0
+      V30	w: 1
+      Y61	w: 0
+      V64	w: 0
+      V92	w: 0
+      V50	w: 1
+      X96	w: 0
+      W5	w: 1
+      U56	w: 1
+      Y7	w: 1
+      X83	w: 0
+      U28	w: 0
+      u102	w: x1 + x2
+      W 	w: 1
+      W26	w: 0
+      P40	w: 0
+      X62	w: 1
+      P64	w: 1
+      Y 	w: 48
+      P13	w: 1
+      U91	w: 0
+      U97	w: 0
+      u121	w: x1 + 2 * x2 + 92
+      X44	w: 1
+      W59	w: 1
+      V63	w: 0
+      X6	w: 1
+      U26	w: 1
+      W80	w: 0
+      W46	w: 0
+      P106	w: 0
+      P107	w: 0
+      take	w: x1 + x2 + 101
+      X73	w: 0
+      U71	w: 0
+      V61	w: 0
+      and	w: x1 + x2
+      Y77	w: 0
+      U80	w: 0
+      P56	w: 1
+      P96	w: 0
+      U98	w: 1
+      u103	w: x1 + 70
+      V34	w: 0
+      P99	w: 0
+      V69	w: 0
+      X13	w: 1
+      Y14	w: 1
+      P19	w: 69
+      Y53	w: 0
+      X17	w: 71
+      W78	w: 1
+      U95	w: 0
+      fst	w: x1 + 70
+      V59	w: 0
+      Y73	w: 0
+      V22	w: 0
+      Y37	w: 0
+      P94	w: 0
+      V32	w: 1
+      W105	w: 1
+      X21	w: 1
+      Y33	w: 69
+      U103	w: 1
+      X51	w: 1
+      V90	w: 0
+      Y13	w: 1
+      V105	w: 0
+      U23	w: 1
+      X26	w: 1
+      U35	w: 0
+      W100	w: 0
+      W93	w: 1
+      W14	w: 1
+      W77	w: 0
+      Y4	w: 0
+      U93	w: 0
+      X48	w: 0
+      V56	w: 1
+      X80	w: 1
+      splitAt	w: x1 + x2 + 312
+      Y5	w: 1
+      isNaturalKind	w: x1 + 1
+      P16	w: 0
+      u52	w: x1 + x2
+      V21	w: 0
+      W74	w: 0
+      P9	w: 1
+      U94	w: 1
+      u61	w: x1 + x2 + 69
+      X108	w: 0
+      u92	w: x1
+      X79	w: 0
+      P88	w: 0
+      V7	w: 1
+      Y15	w: 1
+      U34	w: 0
+      X12	w: 1
+      P69	w: 0
+      P72	w: 1
+      P76	w: 0
+      W106	w: 0
+      U50	w: 1
+      u221	w: x1 + x2 + 2 * x3
+      V62	w: 0
+      V10	w: 0
+      V49	w: 0
+      U12	w: 1
+      U68	w: 0
+      Y88	w: 0
+      _ 	w: 2 * x1 + x2
+      V27	w: 0
+      V48	w: 0
+      U27	w: 0
+      u151	w: 2 * x1 + x2 + x3
+      X29	w: 0
+      Y98	w: 1
+      P23	w: 1
+      u202	w: 2 * x1 + x2
+      Y51	w: 1
+      isNatural	w: 2 * x1 + 81
+      V9	w: 0
+      V2	w: 76
+      X42	w: 0
+      X16	w: 0
+      U54	w: 0
+      V33	w: 1
+      W88	w: 0
+      P63	w: 0
+      U19	w: 0
+      W70	w: 1
+      U100	w: 1
+      u41	w: x1 + x2 + x3 + 639
+      X30	w: 71
+      V43	w: 1
+      u211	w: 2 * x1 + x2
+      U104	w: 0
+      V95	w: 0
+      X78	w: 0
+      U37	w: 0
+      P32	w: 69
+      P51	w: 0
+      W27	w: 36
+      Y44	w: 0
+      tail	w: x1 + 280
+      V5	w: 1
+      U17	w: 1
+      U83	w: 0
+      Y95	w: 0
+      V89	w: 0
+      0 	w: 68
+      X20	w: 1
+      X23	w: 0
+      W60	w: 0
+      V25	w: 1
+      U36	w: 1
+      P10	w: 0
+      Y39	w: 1
+      X59	w: 1
+      V81	w: 0
+      X94	w: 0
+      afterNth	w: x1 + x2 + 1221
+      W42	w: 0
+      W6	w: 1
+      W85	w: 1
+      W65	w: 0
+      X75	w: 0
+      W63	w: 0
+      P95	w: 1
+      isLNat	w: x1 + 2
+      X54	w: 0
+      X100	w: 1
+      U62	w: 0
+      X107	w: 1
+      X95	w: 1
+      X106	w: 1
+      mark	w: 2 * x1 + 1
+      P70	w: 0
+      W99	w: 0
+      Y23	w: 72
+      Y54	w: 0
+      U78	w: 0
+      W19	w: 1
+      V97	w: 1
+      W51	w: 1
+      W72	w: 0
+      U32	w: 0
+      W35	w: 1
+      W4	w: 1
+      u72	w: 2 * x1 + 72
+      V39	w: 1
+      u201	w: x1 + x2 + x3 + 2 * x4
+      W41	w: 1
+      u143	w: x1 + 71
+      W3	w: 0
+      U33	w: 1
+      X58	w: 0
+      isLNatKind	w: x1 + 1
+      U14	w: 1
+      P74	w: 0
+      Y60	w: 0
+      V93	w: 0
+      u43	w: x1 + 213
+      Y10	w: 1
+      W75	w: 0
+      X43	w: 0
+      Y72	w: 0
+      P78	w: 1
+      V104	w: 1
+      u161	w: x1 + x2
+      U7	w: 1
+      P35	w: 0
+      Y58	w: 0
+      P42	w: 1
+      U46	w: 0
+      X27	w: 0
+      W44	w: 0
+      U65	w: 0
+      U15	w: 0
+      U39	w: 1
+      W73	w: 0
+      U5	w: 1
+      P45	w: 0
+      W81	w: 0
+      X22	w: 72
+      V98	w: 0
+      active	w: x1 + 70
+      U31	w: 0
+      U85	w: 0
+      W86	w: 1
+      P24	w: 72
+      W83	w: 0
+      U92	w: 0
+      P100	w: 0
+      V51	w: 0
+      X55	w: 1
+      X69	w: 0
+      cons	w: 2 * x1 + x2
+      P27	w: 0
+      P66	w: 0
+      u142	w: x1 + x2
+      X68	w: 1
+      V35	w: 0
+      W43	w: 0
+      snd	w: x1 + 70
+      P 	w: 1
+      U81	w: 1
+      U88	w: 0
+      Y105	w: 1
+      X63	w: 0
+      u42	w: 2 * x1 + 2 * x2 + 73
+      V28	w: 0
+      Y18	w: 0
+      U18	w: 1
+      U69	w: 1
+      X86	w: 1
+      V3	w: 1
+      u152	w: x1 + x2
+      U13	w: 1
+      V76	w: 0
+      P101	w: 0
+      W23	w: 1
+      X56	w: 0
+      U67	w: 0
+      Y102	w: 1
+      Y20	w: 0
+      V77	w: 0
+      Y94	w: 0
+      Y70	w: 1
+      U4	w: 0
+      U22	w: 70
+      Y52	w: 0
+      Y16	w: 0
+      U51	w: 0
+      P85	w: 0
+      U107	w: 0
+      U74	w: 1
+      P12	w: 0
+      X39	w: 1
+      X105	w: 1
+      V11	w: 1
+      Y6	w: 1
+      P104	w: 0
+      U53	w: 0
+      V 	w: 1
+      X10	w: 2
+      V20	w: 0
+      W48	w: 0
+      X64	w: 1
+      P81	w: 0
+      U90	w: 1
+      V94	w: 0
+      u31	w: 2 * x1 + x2
+      Y50	w: 0
+      P60	w: 0
+      U 	w: 0
+      U66	w: 1
+      V91	w: 0
+      Y71	w: 0
+      P75	w: 0
+      u141	w: x1 + 2 * x2 + x3
+      P67	w: 0
+      Y100	w: 0
+      W15	w: 0
+      W40	w: 0
+      W49	w: 1
+      V87	w: 1
+      W64	w: 1
+      V68	w: 0
+      W97	w: 0
+      V46	w: 1
+      V52	w: 0
+      W34	w: 0
+      Y91	w: 1
+      V26	w: 71
+      P48	w: 0
+      P77	w: 1
+      P87	w: 0
+      P79	w: 0
+      V15	w: 1
+      P18	w: 15
+      U1	w: 1
+      P47	w: 0
+      W31	w: 0
+      W52	w: 0
+      X87	w: 0
+      W24	w: 0
+      P55	w: 1
+      V17	w: 68
+      U11	w: 1
+      V18	w: 1
+      V44	w: 0
+      P108	w: 0
+      W58	w: 0
+      Y81	w: 0
+      Y2	w: 0
+      W38	w: 1
+      V83	w: 1
+      W96	w: 1
+      s 	w: x1
+      P8	w: 1
+      V31	w: 0
+      U105	w: 1
+      W25	w: 1
+      X40	w: 0
+      W84	w: 0
+      W104	w: 0
+      Y11	w: 0
+      V16	w: 0
+      P98	w: 1
+      X3	w: 1
+      W8	w: 4
+      U24	w: 0
+      Y69	w: 0
+      V96	w: 1
+      V13	w: 1
+      U106	w: 1
+      Y82	w: 1
+      u111	w: x1 + x2 + 56
+      u53	w: x1 + 71
+      Y32	w: 69
+      P53	w: 0
+      X33	w: 69
+      U25	w: 0
+      X74	w: 0
+      W32	w: 71
+      u191	w: x1 + x2 + 219
+      U77	w: 0
+      Y93	w: 0
+      isPLNat	w: x1 + 69
+      W33	w: 0
+      P37	w: 1
+      Y22	w: 1
+      U89	w: 0
+      X109	w: 1
+      P50	w: 0
+      W92	w: 0
+      U42	w: 0
+      X47	w: 1
+      X66	w: 0
+      Y36	w: 0
+      P52	w: 0
+      X60	w: 0
+      V80	w: 0
+      U108	w: 0
+      X4	w: 1
+      P4	w: 1
+      P43	w: 0
+      u181	w: 2 * x1 + x2
+      Y103	w: 0
+      u153	w: x1 + 73
+      W17	w: 0
+      Y45	w: 0
+      W30	w: 1
+      W21	w: 1
+      P22	w: 70
+      P25	w: 70
+      u122	w: x1 + 71
+      U3	w: 1
+      P3	w: 0
+      Y1	w: 1
+      X8	w: 1
+      U58	w: 1
+      Y86	w: 0
+      Y96	w: 0
+      V99	w: 1
+      P80	w: 1
+      W67	w: 1
+      X70	w: 1
+      Y75	w: 0
+      U101	w: 0
+      pair	w: 2 * x1 + 2 * x2 + 74
+      X46	w: 0
+      W71	w: 0
+      U8	w: 2
+      X99	w: 0
+      U29	w: 1
+      U43	w: 0
+      P11	w: 1
+      Y25	w: 1
+      P15	w: 1
+      Y49	w: 0
+      W87	w: 0
+      W91	w: 1
+      u131	w: x1 + x2 + 2 * x3
+      U86	w: 0
+      natsFrom	w: x1 + 103
+      V88	w: 0
+      P41	w: 0
+      U48	w: 0
+      V24	w: 1
+      X32	w: 1
+      X85	w: 1
+      U44	w: 0
+      U55	w: 0
+      Y76	w: 1
+      W10	w: 1
+      V70	w: 0
+      V36	w: 0
+      U84	w: 1
+      Y17	w: 1
+      V4	w: 0
+      P28	w: 0
+      U63	w: 0
+      W62	w: 1
+      Y27	w: 72
+      W76	w: 0
+      W95	w: 1
+      U72	w: 0
+      W90	w: 0
+      U38	w: 1
+      W101	w: 1
+      W20	w: 1
+      W55	w: 0
+      W56	w: 1
+      X57	w: 0
+      V19	w: 0
+      V101	w: 0
+      W28	w: 0
+      W57	w: 0
+      P44	w: 1
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      W66	w: 0
+      W37	w: 1
+      X49	w: 1
+      Y92	w: 0
+      U9	w: 116
+      V45	w: 1
+      W45	w: 1
+      P31	w: 0
+      P21	w: 0
+      X65	w: 0
+      V40	w: 0
+      U40	w: 0
+      P65	w: 0
+      U20	w: 70
+      P84	w: 0
+      P61	w: 0
+      Y63	w: 0
+      P103	w: 1
+      W54	w: 0
+      Y21	w: 1
+      P33	w: 0
+      P46	w: 0
+      U99	w: 1
+      V103	w: 0
+      P49	w: 0
+      Y85	w: 0
+      X28	w: 0
+      Y84	w: 0
+      P38	w: 1
+      W69	w: 0
+      P83	w: 0
+      W94	w: 0
+      V47	w: 0
+      W107	w: 1
+      V102	w: 0
+      X14	w: 1
+      Y64	w: 0
+      X71	w: 0
+      V67	w: 0
+      X91	w: 0
+      U10	w: 1
+      W39	w: 0
+      u51	w: x1 + x2 + 2 * x3
+      P2	w: 1
+      V79	w: 0
+      W12	w: 1
+      Y3	w: 355
+      U30	w: 1
+      U73	w: 1
+      X84	w: 0
+      P91	w: 0
+      V55	w: 0
+      Y12	w: 1
+      Y48	w: 0
+      u11	w: x1 + 2 * x2 + x3 + 553
+      Y19	w: 0
+      Y40	w: 0
+      sel	w: x1 + x2 + 113
+      Y55	w: 1
+      P90	w: 0
+      P14	w: 1
+      Y30	w: 1
+      X15	w: 1
+      Y35	w: 0
+      W82	w: 1
+      P58	w: 0
+      W2	w: 1
+      X25	w: 0
+      P97	w: 0
+      nil	w: 70
+      X36	w: 0
+      X77	w: 1
+      P89	w: 0
+      V6	w: 10
+      V74	w: 0
+      U76	w: 0
+      P82	w: 0
+      X92	w: 1
+      Y28	w: 72
+      P5	w: 2
+      Y78	w: 0
+      W79	w: 0
+      X97	w: 0
+      X102	w: 0
+      W1	w: 0
+      X5	w: 1
+      U45	w: 1
+      P92	w: 0
+      Y59	w: 0
+      Y67	w: 0
+      P73	w: 0
+      U75	w: 0
+      u101	w: x1 + x2 + x3
+      P68	w: 1
+      V8	w: 62
+      X31	w: 0
+      P86	w: 1
+      V107	w: 0
+      W108	w: 0
+      V41	w: 0
+      U60	w: 0
+      X103	w: 0
+      u21	w: x1 + x2 + 71
+      V37	w: 0
+      Y56	w: 0
+      P39	w: 0
+      Y47	w: 0
+      X7	w: 1
+      Y68	w: 1
+      P29	w: 0
+      W103	w: 1
+      W22	w: 1
+      V60	w: 1
+      V84	w: 0
+      P34	w: 0
+      X18	w: 0
+      P62	w: 1
+      X76	w: 1
+      u82	w: 2 * x1
+      X34	w: 0
+      V53	w: 0
+      X9	w: 0
+      Y26	w: 0
+      W50	w: 0
+      U52	w: 0
+      V54	w: 0
+      P7	w: 1
+      W9	w: 1
+      X35	w: 0
+      Y46	w: 0
+      U61	w: 1
+      P93	w: 0
+      V100	w: 0
+      X82	w: 1
+      X88	w: 0
+      U96	w: 1
+      V82	w: 0
+      u171	w: x1 + x2 + x3
+      Y57	w: 0
+      V73	w: 0
+      Y80	w: 0
+      Y83	w: 0
+      X98	w: 0
+      head	w: x1 + 290
+      X89	w: 1
+      Y31	w: 71
+      X90	w: 0
+      W13	w: 1
+      P26	w: 0
+      V71	w: 0
+      X72	w: 1
+      W89	w: 1
+      Y108	w: 0
+      Y62	w: 1
+      P30	w: 0
+      Y89	w: 0
+      U102	w: 0
+      Y107	w: 1
+      U70	w: 0
+      W47	w: 0
+      V29	w: 0
+      V57	w: 0
+      U49	w: 0
+      U82	w: 0
+      u112	w: x1 + 71
+      W36	w: 0
+      Y65	w: 0
+      tt	w: 143
+      Y43	w: 0
+      Y8	w: 2
+      Y42	w: 0
+      X93	w: 0
+      X61	w: 1
+      V86	w: 0
+      X101	w: 1
+      Y106	w: 1
+      U47	w: 1
+      W68	w: 0
+      W102	w: 0
+      X81	w: 0
+      V78	w: 0
+      U2	w: 1
+      V85	w: 0
+      X52	w: 0
+      P71	w: 0
+      Y74	w: 0
+      X 	w: 1
+      W16	w: 71
+      Y87	w: 0
+      u71	w: x1 + x2
+      X53	w: 0
+      P105	w: 0
+      X41	w: 1
+      V75	w: 0
+      U79	w: 0
+      U6	w: 1
+      P36	w: 0
+      P57	w: 0
+      P6	w: 211
+      Y34	w: 0
+      X24	w: 70
+      U41	w: 0
+      W53	w: 1
+      P54	w: 0
+      Y9	w: 1
+      X45	w: 0
+      Y99	w: 0
+      W29	w: 36
+      Y90	w: 0
+      P102	w: 1
+      X50	w: 0
+      V108	w: 1
+      Y24	w: 1
+      Y97	w: 0
+      V66	w: 0
+      W98	w: 1
+      U87	w: 1
+Number of strict rules: 9
+Direct POLO(bPol) ... removes: 127 88 129 101 95
+      W61	w: 0
+      V1	w: 1
+      u81	w: 2 * x1 + 2 * x2
+      Y101	w: 0
+      U59	w: 0
+      U57	w: 0
+      U16	w: 1
+      W18	w: 1
+      U21	w: 39
+      V58	w: 0
+      Y29	w: 1
+      V38	w: 0
+      V106	w: 1
+      Y41	w: 0
+      V23	w: 1
+      P59	w: 0
+      V72	w: 0
+      Y79	w: 0
+      u62	w: x1
+      X67	w: 1
+      X19	w: 0
+      u133	w: x1
+      P17	w: 0
+      Y38	w: 0
+      U64	w: 0
+      V12	w: 0
+      P20	w: 1
+      Y104	w: 0
+      u132	w: 2 * x1 + x2
+      V65	w: 0
+      Y66	w: 0
+      u91	w: x1 + x2
+      V14	w: 0
+      V42	w: 0
+      X11	w: 1
+      X38	w: 0
+      X37	w: 1
+      isPLNatKind	w: x1
+      X104	w: 0
+      V30	w: 9
+      Y61	w: 0
+      V64	w: 1
+      V92	w: 0
+      V50	w: 0
+      X96	w: 0
+      W5	w: 1
+      U56	w: 1
+      Y7	w: 1
+      X83	w: 0
+      U28	w: 0
+      u102	w: 2 * x1 + x2 + 24
+      W 	w: 1
+      W26	w: 1
+      P40	w: 0
+      X62	w: 1
+      P64	w: 1
+      Y 	w: 1
+      P13	w: 1
+      U91	w: 0
+      U97	w: 0
+      u121	w: x1 + 2 * x2 + 39
+      X44	w: 1
+      W59	w: 1
+      V63	w: 0
+      X6	w: 1
+      U26	w: 1
+      W80	w: 1
+      W46	w: 0
+      P106	w: 0
+      P107	w: 0
+      take	w: 2 * x1 + x2 + 63
+      X73	w: 0
+      U71	w: 0
+      V61	w: 1
+      and	w: x1 + x2
+      Y77	w: 0
+      U80	w: 0
+      P56	w: 1
+      P96	w: 0
+      U98	w: 1
+      u103	w: x1 + 39
+      V34	w: 0
+      P99	w: 0
+      V69	w: 0
+      X13	w: 0
+      Y14	w: 0
+      P19	w: 18
+      Y53	w: 0
+      X17	w: 27
+      W78	w: 1
+      U95	w: 0
+      fst	w: x1 + 39
+      V59	w: 0
+      Y73	w: 0
+      V22	w: 0
+      Y37	w: 0
+      P94	w: 0
+      V32	w: 1
+      W105	w: 1
+      X21	w: 1
+      Y33	w: 27
+      U103	w: 1
+      X51	w: 0
+      V90	w: 0
+      Y13	w: 1
+      V105	w: 0
+      U23	w: 0
+      X26	w: 20
+      U35	w: 0
+      W100	w: 0
+      W93	w: 1
+      W14	w: 1
+      W77	w: 0
+      Y4	w: 1
+      U93	w: 0
+      X48	w: 0
+      V56	w: 0
+      X80	w: 1
+      splitAt	w: x1 + x2 + 50
+      Y5	w: 0
+      isNaturalKind	w: x1
+      P16	w: 0
+      u52	w: 2 * x1 + 2 * x2 + 51
+      V21	w: 0
+      W74	w: 0
+      P9	w: 0
+      U94	w: 1
+      u61	w: x1 + x2 + 31
+      X108	w: 0
+      u92	w: x1
+      X79	w: 0
+      P88	w: 1
+      V7	w: 1
+      Y15	w: 1
+      U34	w: 0
+      X12	w: 1
+      P69	w: 0
+      P72	w: 1
+      P76	w: 0
+      W106	w: 0
+      U50	w: 1
+      u221	w: x1 + x2 + 2 * x3
+      V62	w: 0
+      V10	w: 1
+      V49	w: 0
+      U12	w: 1
+      U68	w: 0
+      Y88	w: 0
+      _ 	w: 2 * x1 + x2
+      V27	w: 0
+      V48	w: 0
+      U27	w: 0
+      u151	w: 2 * x1 + x2 + x3
+      X29	w: 51
+      Y98	w: 0
+      P23	w: 38
+      u202	w: x1 + x2 + 3
+      Y51	w: 0
+      isNatural	w: x1 + 1
+      V9	w: 1
+      V2	w: 14
+      X42	w: 0
+      X16	w: 0
+      U54	w: 0
+      V33	w: 0
+      W88	w: 0
+      P63	w: 0
+      U19	w: 0
+      W70	w: 1
+      U100	w: 1
+      u41	w: x1 + x2 + 2 * x3 + 39
+      X30	w: 0
+      V43	w: 1
+      u211	w: x1 + x2
+      U104	w: 0
+      V95	w: 0
+      X78	w: 0
+      U37	w: 0
+      P32	w: 0
+      P51	w: 0
+      W27	w: 0
+      Y44	w: 0
+      tail	w: x1 + 39
+      V5	w: 0
+      U17	w: 1
+      U83	w: 0
+      Y95	w: 0
+      V89	w: 0
+      0 	w: 0
+      X20	w: 1
+      X23	w: 0
+      W60	w: 0
+      V25	w: 1
+      U36	w: 1
+      P10	w: 0
+      Y39	w: 0
+      X59	w: 1
+      V81	w: 0
+      X94	w: 0
+      afterNth	w: x1 + x2 + 51
+      W42	w: 1
+      W6	w: 0
+      W85	w: 1
+      W65	w: 0
+      X75	w: 0
+      W63	w: 0
+      P95	w: 1
+      isLNat	w: x1
+      X54	w: 0
+      X100	w: 1
+      U62	w: 0
+      X107	w: 0
+      X95	w: 0
+      X106	w: 1
+      mark	w: 2 * x1 + 12
+      P70	w: 0
+      W99	w: 0
+      Y23	w: 37
+      Y54	w: 0
+      U78	w: 0
+      W19	w: 0
+      V97	w: 1
+      W51	w: 1
+      W72	w: 0
+      U32	w: 0
+      W35	w: 1
+      W4	w: 0
+      u72	w: 2 * x1
+      V39	w: 0
+      u201	w: x1 + x2 + 2 * x3 + 2 * x4
+      W41	w: 1
+      u143	w: 2 * x1 + 1
+      W3	w: 1
+      U33	w: 1
+      X58	w: 0
+      isLNatKind	w: 2 * x1 + 27
+      U14	w: 1
+      P74	w: 0
+      Y60	w: 0
+      V93	w: 0
+      u43	w: x1 + 39
+      Y10	w: 0
+      W75	w: 0
+      X43	w: 0
+      Y72	w: 1
+      P78	w: 1
+      V104	w: 1
+      u161	w: 2 * x1 + x2 + 30
+      U7	w: 0
+      P35	w: 0
+      Y58	w: 0
+      P42	w: 1
+      U46	w: 0
+      X27	w: 0
+      W44	w: 0
+      U65	w: 0
+      U15	w: 1
+      U39	w: 1
+      W73	w: 0
+      U5	w: 0
+      P45	w: 0
+      W81	w: 0
+      X22	w: 51
+      V98	w: 0
+      active	w: x1 + 39
+      U31	w: 0
+      U85	w: 0
+      W86	w: 1
+      P24	w: 1
+      W83	w: 0
+      U92	w: 0
+      P100	w: 0
+      V51	w: 0
+      X55	w: 1
+      X69	w: 0
+      cons	w: x1 + x2 + 2
+      P27	w: 0
+      P66	w: 0
+      u142	w: x1 + x2
+      X68	w: 1
+      V35	w: 0
+      W43	w: 0
+      snd	w: x1 + 190
+      P 	w: 0
+      U81	w: 1
+      U88	w: 0
+      Y105	w: 0
+      X63	w: 0
+      u42	w: 2 * x1 + x2
+      V28	w: 0
+      Y18	w: 0
+      U18	w: 1
+      U69	w: 1
+      X86	w: 1
+      V3	w: 1
+      u152	w: x1 + x2
+      U13	w: 1
+      V76	w: 0
+      P101	w: 0
+      W23	w: 1
+      X56	w: 0
+      U67	w: 0
+      Y102	w: 0
+      Y20	w: 1
+      V77	w: 0
+      Y94	w: 0
+      Y70	w: 1
+      U4	w: 1
+      U22	w: 40
+      Y52	w: 0
+      Y16	w: 0
+      U51	w: 0
+      P85	w: 1
+      U107	w: 0
+      U74	w: 0
+      P12	w: 0
+      X39	w: 1
+      X105	w: 0
+      V11	w: 0
+      Y6	w: 0
+      P104	w: 0
+      U53	w: 0
+      V 	w: 1
+      X10	w: 1
+      V20	w: 0
+      W48	w: 0
+      X64	w: 1
+      P81	w: 0
+      U90	w: 0
+      V94	w: 0
+      u31	w: x1 + x2
+      Y50	w: 0
+      P60	w: 0
+      U 	w: 1
+      U66	w: 1
+      V91	w: 0
+      Y71	w: 0
+      P75	w: 0
+      u141	w: x1 + x2 + x3
+      P67	w: 0
+      Y100	w: 0
+      W15	w: 0
+      W40	w: 0
+      W49	w: 1
+      V87	w: 0
+      W64	w: 1
+      V68	w: 0
+      W97	w: 0
+      V46	w: 1
+      V52	w: 0
+      W34	w: 0
+      Y91	w: 1
+      V26	w: 36
+      P48	w: 0
+      P77	w: 1
+      P87	w: 0
+      P79	w: 0
+      V15	w: 1
+      P18	w: 51
+      U1	w: 1
+      P47	w: 0
+      W31	w: 0
+      W52	w: 0
+      X87	w: 0
+      W24	w: 0
+      P55	w: 1
+      V17	w: 0
+      U11	w: 1
+      V18	w: 1
+      V44	w: 0
+      P108	w: 0
+      W58	w: 0
+      Y81	w: 0
+      Y2	w: 0
+      W38	w: 1
+      V83	w: 1
+      W96	w: 1
+      s 	w: x1
+      P8	w: 1
+      V31	w: 1
+      U105	w: 0
+      W25	w: 1
+      X40	w: 0
+      W84	w: 0
+      W104	w: 0
+      Y11	w: 1
+      V16	w: 1
+      P98	w: 1
+      X3	w: 1
+      W8	w: 1
+      U24	w: 1
+      Y69	w: 0
+      V96	w: 1
+      V13	w: 0
+      U106	w: 1
+      Y82	w: 0
+      u111	w: 2 * x1 + x2
+      u53	w: x1
+      Y32	w: 39
+      P53	w: 0
+      X33	w: 0
+      U25	w: 1
+      X74	w: 0
+      W32	w: 0
+      u191	w: x1 + x2 + 6
+      U77	w: 0
+      Y93	w: 0
+      isPLNat	w: 2 * x1 + 35
+      W33	w: 0
+      P37	w: 1
+      Y22	w: 1
+      U89	w: 0
+      X109	w: 1
+      P50	w: 0
+      W92	w: 0
+      U42	w: 1
+      X47	w: 1
+      X66	w: 0
+      Y36	w: 0
+      P52	w: 0
+      X60	w: 0
+      V80	w: 0
+      U108	w: 0
+      X4	w: 1
+      P4	w: 1
+      P43	w: 0
+      u181	w: 2 * x1 + x2
+      Y103	w: 0
+      u153	w: 2 * x1
+      W17	w: 0
+      Y45	w: 0
+      W30	w: 1
+      W21	w: 0
+      P22	w: 1
+      P25	w: 0
+      u122	w: x1
+      U3	w: 1
+      P3	w: 0
+      Y1	w: 1
+      X8	w: 1
+      U58	w: 1
+      Y86	w: 0
+      Y96	w: 0
+      V99	w: 1
+      P80	w: 1
+      W67	w: 1
+      X70	w: 0
+      Y75	w: 0
+      U101	w: 0
+      pair	w: x1 + x2 + 23
+      X46	w: 0
+      W71	w: 0
+      U8	w: 1
+      X99	w: 0
+      U29	w: 1
+      U43	w: 0
+      P11	w: 1
+      Y25	w: 33
+      P15	w: 1
+      Y49	w: 0
+      W87	w: 0
+      W91	w: 1
+      u131	w: x1 + 2 * x2 + 2 * x3
+      U86	w: 0
+      natsFrom	w: x1 + 39
+      V88	w: 0
+      P41	w: 0
+      U48	w: 0
+      V24	w: 1
+      X32	w: 1
+      X85	w: 1
+      U44	w: 0
+      U55	w: 0
+      Y76	w: 1
+      W10	w: 0
+      V70	w: 0
+      V36	w: 0
+      U84	w: 1
+      Y17	w: 0
+      V4	w: 1
+      P28	w: 0
+      U63	w: 1
+      W62	w: 1
+      Y27	w: 39
+      W76	w: 0
+      W95	w: 0
+      U72	w: 0
+      W90	w: 0
+      U38	w: 1
+      W101	w: 1
+      W20	w: 1
+      W55	w: 1
+      W56	w: 1
+      X57	w: 0
+      V19	w: 0
+      V101	w: 0
+      W28	w: 0
+      W57	w: 0
+      P44	w: 0
+      P1	w: 0
+      W7	w: 1
+      W11	w: 1
+      W66	w: 0
+      W37	w: 0
+      X49	w: 0
+      Y92	w: 0
+      U9	w: 3
+      V45	w: 0
+      W45	w: 1
+      P31	w: 0
+      P21	w: 0
+      X65	w: 0
+      V40	w: 0
+      U40	w: 0
+      P65	w: 0
+      U20	w: 52
+      P84	w: 0
+      P61	w: 0
+      Y63	w: 0
+      P103	w: 0
+      W54	w: 0
+      Y21	w: 1
+      P33	w: 0
+      P46	w: 0
+      U99	w: 1
+      V103	w: 0
+      P49	w: 0
+      Y85	w: 0
+      X28	w: 1
+      Y84	w: 0
+      P38	w: 1
+      W69	w: 0
+      P83	w: 0
+      W94	w: 0
+      V47	w: 0
+      W107	w: 1
+      V102	w: 0
+      X14	w: 0
+      Y64	w: 0
+      X71	w: 0
+      V67	w: 0
+      X91	w: 0
+      U10	w: 1
+      W39	w: 0
+      u51	w: x1 + x2 + x3 + 68
+      P2	w: 1
+      V79	w: 1
+      W12	w: 1
+      Y3	w: 1
+      U30	w: 1
+      U73	w: 1
+      X84	w: 0
+      P91	w: 1
+      V55	w: 0
+      Y12	w: 1
+      Y48	w: 0
+      u11	w: x1 + 2 * x2 + 2 * x3
+      Y19	w: 0
+      Y40	w: 0
+      sel	w: 2 * x1 + x2 + 63
+      Y55	w: 0
+      P90	w: 0
+      P14	w: 1
+      Y30	w: 0
+      X15	w: 1
+      Y35	w: 0
+      W82	w: 1
+      P58	w: 0
+      W2	w: 1
+      X25	w: 0
+      P97	w: 0
+      nil	w: 0
+      X36	w: 0
+      X77	w: 0
+      P89	w: 0
+      V6	w: 13
+      V74	w: 0
+      U76	w: 0
+      P82	w: 0
+      X92	w: 1
+      Y28	w: 1
+      P5	w: 0
+      Y78	w: 0
+      W79	w: 0
+      X97	w: 0
+      X102	w: 1
+      W1	w: 0
+      X5	w: 1
+      U45	w: 1
+      P92	w: 0
+      Y59	w: 0
+      Y67	w: 0
+      P73	w: 0
+      U75	w: 0
+      u101	w: x1 + x2 + 2 * x3
+      P68	w: 1
+      V8	w: 0
+      X31	w: 1
+      P86	w: 1
+      V107	w: 0
+      W108	w: 0
+      V41	w: 0
+      U60	w: 0
+      X103	w: 0
+      u21	w: 2 * x1 + x2
+      V37	w: 0
+      Y56	w: 0
+      P39	w: 0
+      Y47	w: 0
+      X7	w: 1
+      Y68	w: 1
+      P29	w: 0
+      W103	w: 1
+      W22	w: 1
+      V60	w: 1
+      V84	w: 0
+      P34	w: 0
+      X18	w: 0
+      P62	w: 0
+      X76	w: 0
+      u82	w: 2 * x1
+      X34	w: 0
+      V53	w: 1
+      X9	w: 0
+      Y26	w: 0
+      W50	w: 0
+      U52	w: 0
+      V54	w: 0
+      P7	w: 0
+      W9	w: 0
+      X35	w: 0
+      Y46	w: 0
+      U61	w: 0
+      P93	w: 0
+      V100	w: 0
+      X82	w: 0
+      X88	w: 0
+      U96	w: 1
+      V82	w: 0
+      u171	w: x1 + x2 + x3
+      Y57	w: 0
+      V73	w: 0
+      Y80	w: 1
+      Y83	w: 0
+      X98	w: 1
+      head	w: x1 + 80
+      X89	w: 1
+      Y31	w: 39
+      X90	w: 0
+      W13	w: 0
+      P26	w: 51
+      V71	w: 1
+      X72	w: 1
+      W89	w: 1
+      Y108	w: 0
+      Y62	w: 1
+      P30	w: 0
+      Y89	w: 0
+      U102	w: 0
+      Y107	w: 1
+      U70	w: 0
+      W47	w: 0
+      V29	w: 0
+      V57	w: 0
+      U49	w: 0
+      U82	w: 0
+      u112	w: x1
+      W36	w: 0
+      Y65	w: 0
+      tt	w: 14
+      Y43	w: 0
+      Y8	w: 0
+      Y42	w: 0
+      X93	w: 0
+      X61	w: 1
+      V86	w: 0
+      X101	w: 1
+      Y106	w: 1
+      U47	w: 1
+      W68	w: 0
+      W102	w: 0
+      X81	w: 0
+      V78	w: 0
+      U2	w: 1
+      V85	w: 0
+      X52	w: 1
+      P71	w: 0
+      Y74	w: 0
+      X 	w: 0
+      W16	w: 0
+      Y87	w: 0
+      u71	w: x1 + x2
+      X53	w: 0
+      P105	w: 1
+      X41	w: 1
+      V75	w: 0
+      U79	w: 1
+      U6	w: 0
+      P36	w: 0
+      P57	w: 0
+      P6	w: 42
+      Y34	w: 0
+      X24	w: 1
+      U41	w: 0
+      W53	w: 0
+      P54	w: 0
+      Y9	w: 1
+      X45	w: 0
+      Y99	w: 0
+      W29	w: 1
+      Y90	w: 0
+      P102	w: 1
+      X50	w: 0
+      V108	w: 1
+      Y24	w: 1
+      Y97	w: 0
+      V66	w: 0
+      W98	w: 0
+      U87	w: 1
+Number of strict rules: 4
+Direct POLO(bPol) ... removes: 85 119 139 115
+      W61	w: 0
+      V1	w: 1
+      u81	w: 2 * x1 + 2 * x2
+      Y101	w: 0
+      U59	w: 0
+      U57	w: 0
+      U16	w: 1
+      W18	w: 1
+      U21	w: 51
+      V58	w: 0
+      Y29	w: 1
+      V38	w: 0
+      V106	w: 1
+      Y41	w: 0
+      V23	w: 1
+      P59	w: 0
+      V72	w: 0
+      Y79	w: 0
+      u62	w: 2 * x1
+      X67	w: 1
+      X19	w: 0
+      u133	w: x1
+      P17	w: 0
+      Y38	w: 0
+      U64	w: 0
+      V12	w: 0
+      P20	w: 1
+      Y104	w: 0
+      u132	w: 2 * x1 + x2
+      V65	w: 0
+      Y66	w: 0
+      u91	w: x1 + x2
+      V14	w: 0
+      V42	w: 0
+      X11	w: 1
+      X38	w: 0
+      X37	w: 1
+      isPLNatKind	w: x1
+      X104	w: 0
+      V30	w: 1
+      Y61	w: 0
+      V64	w: 1
+      V92	w: 0
+      V50	w: 0
+      X96	w: 0
+      W5	w: 1
+      U56	w: 1
+      Y7	w: 1
+      X83	w: 0
+      U28	w: 0
+      u102	w: 2 * x1 + x2 + 34
+      W 	w: 1
+      W26	w: 1
+      P40	w: 0
+      X62	w: 1
+      P64	w: 1
+      Y 	w: 1
+      P13	w: 1
+      U91	w: 0
+      U97	w: 0
+      u121	w: x1 + 2 * x2 + 51
+      X44	w: 1
+      W59	w: 1
+      V63	w: 0
+      X6	w: 1
+      U26	w: 1
+      W80	w: 1
+      W46	w: 0
+      P106	w: 0
+      P107	w: 0
+      take	w: 2 * x1 + x2 + 59
+      X73	w: 0
+      U71	w: 0
+      V61	w: 1
+      and	w: x1 + x2
+      Y77	w: 0
+      U80	w: 0
+      P56	w: 1
+      P96	w: 0
+      U98	w: 1
+      u103	w: x1 + 52
+      V34	w: 0
+      P99	w: 0
+      V69	w: 0
+      X13	w: 0
+      Y14	w: 0
+      P19	w: 1
+      Y53	w: 0
+      X17	w: 21
+      W78	w: 1
+      U95	w: 0
+      fst	w: x1 + 382
+      V59	w: 0
+      Y73	w: 0
+      V22	w: 0
+      Y37	w: 0
+      P94	w: 0
+      V32	w: 1
+      W105	w: 1
+      X21	w: 1
+      Y33	w: 48
+      U103	w: 1
+      X51	w: 0
+      V90	w: 0
+      Y13	w: 1
+      V105	w: 0
+      U23	w: 0
+      X26	w: 26
+      U35	w: 0
+      W100	w: 0
+      W93	w: 1
+      W14	w: 1
+      W77	w: 0
+      Y4	w: 1
+      U93	w: 0
+      X48	w: 0
+      V56	w: 0
+      X80	w: 1
+      splitAt	w: x1 + x2 + 54
+      Y5	w: 0
+      isNaturalKind	w: x1
+      P16	w: 0
+      u52	w: 2 * x1 + 2 * x2 + 55
+      V21	w: 0
+      W74	w: 0
+      P9	w: 0
+      U94	w: 1
+      u61	w: x1 + x2 + 213
+      X108	w: 0
+      u92	w: x1
+      X79	w: 0
+      P88	w: 1
+      V7	w: 1
+      Y15	w: 1
+      U34	w: 0
+      X12	w: 1
+      P69	w: 0
+      P72	w: 1
+      P76	w: 0
+      W106	w: 0
+      U50	w: 1
+      u221	w: x1 + x2 + 2 * x3
+      V62	w: 0
+      V10	w: 1
+      V49	w: 0
+      U12	w: 1
+      U68	w: 0
+      Y88	w: 0
+      _ 	w: 2 * x1 + x2
+      V27	w: 0
+      V48	w: 0
+      U27	w: 0
+      u151	w: 2 * x1 + x2 + x3
+      X29	w: 55
+      Y98	w: 1
+      P23	w: 1
+      u202	w: x1 + x2 + 27
+      Y51	w: 0
+      isNatural	w: x1 + 1
+      V9	w: 1
+      V2	w: 24
+      X42	w: 0
+      X16	w: 0
+      U54	w: 0
+      V33	w: 0
+      W88	w: 0
+      P63	w: 0
+      U19	w: 0
+      W70	w: 1
+      U100	w: 1
+      u41	w: x1 + x2 + 2 * x3 + 51
+      X30	w: 0
+      V43	w: 1
+      u211	w: x1 + x2
+      U104	w: 0
+      V95	w: 0
+      X78	w: 0
+      U37	w: 0
+      P32	w: 0
+      P51	w: 0
+      W27	w: 0
+      Y44	w: 0
+      tail	w: x1 + 51
+      V5	w: 0
+      U17	w: 1
+      U83	w: 0
+      Y95	w: 0
+      V89	w: 0
+      0 	w: 0
+      X20	w: 1
+      X23	w: 0
+      W60	w: 0
+      V25	w: 1
+      U36	w: 1
+      P10	w: 0
+      Y39	w: 0
+      X59	w: 1
+      V81	w: 0
+      X94	w: 0
+      afterNth	w: x1 + x2 + 65
+      W42	w: 1
+      W6	w: 0
+      W85	w: 1
+      W65	w: 0
+      X75	w: 0
+      W63	w: 0
+      P95	w: 1
+      isLNat	w: x1
+      X54	w: 0
+      X100	w: 1
+      U62	w: 0
+      X107	w: 0
+      X95	w: 0
+      X106	w: 1
+      mark	w: 2 * x1 + 4
+      P70	w: 0
+      W99	w: 0
+      Y23	w: 33
+      Y54	w: 0
+      U78	w: 0
+      W19	w: 1
+      V97	w: 1
+      W51	w: 1
+      W72	w: 0
+      U32	w: 0
+      W35	w: 1
+      W4	w: 0
+      u72	w: 2 * x1
+      V39	w: 0
+      u201	w: x1 + x2 + 2 * x3 + 2 * x4
+      W41	w: 1
+      u143	w: 2 * x1 + 1
+      W3	w: 1
+      U33	w: 1
+      X58	w: 0
+      isLNatKind	w: 2 * x1 + 47
+      U14	w: 1
+      P74	w: 0
+      Y60	w: 0
+      V93	w: 0
+      u43	w: x1 + 51
+      Y10	w: 0
+      W75	w: 0
+      X43	w: 0
+      Y72	w: 1
+      P78	w: 1
+      V104	w: 1
+      u161	w: 2 * x1 + x2 + 46
+      U7	w: 0
+      P35	w: 0
+      Y58	w: 0
+      P42	w: 1
+      U46	w: 0
+      X27	w: 0
+      W44	w: 0
+      U65	w: 0
+      U15	w: 1
+      U39	w: 1
+      W73	w: 0
+      U5	w: 0
+      P45	w: 0
+      W81	w: 0
+      X22	w: 54
+      V98	w: 0
+      active	w: x1 + 51
+      U31	w: 0
+      U85	w: 0
+      W86	w: 1
+      P24	w: 1
+      W83	w: 0
+      U92	w: 0
+      P100	w: 0
+      V51	w: 0
+      X55	w: 1
+      X69	w: 0
+      cons	w: x1 + x2 + 18
+      P27	w: 0
+      P66	w: 0
+      u142	w: x1 + x2
+      X68	w: 1
+      V35	w: 0
+      W43	w: 0
+      snd	w: x1 + 318
+      P 	w: 0
+      U81	w: 1
+      U88	w: 0
+      Y105	w: 0
+      X63	w: 0
+      u42	w: 2 * x1 + x2
+      V28	w: 0
+      Y18	w: 0
+      U18	w: 1
+      U69	w: 1
+      X86	w: 1
+      V3	w: 1
+      u152	w: x1 + x2
+      U13	w: 1
+      V76	w: 0
+      P101	w: 0
+      W23	w: 1
+      X56	w: 0
+      U67	w: 0
+      Y102	w: 0
+      Y20	w: 1
+      V77	w: 0
+      Y94	w: 0
+      Y70	w: 1
+      U4	w: 1
+      U22	w: 51
+      Y52	w: 0
+      Y16	w: 0
+      U51	w: 0
+      P85	w: 1
+      U107	w: 0
+      U74	w: 0
+      P12	w: 0
+      X39	w: 1
+      X105	w: 0
+      V11	w: 0
+      Y6	w: 0
+      P104	w: 0
+      U53	w: 0
+      V 	w: 1
+      X10	w: 1
+      V20	w: 0
+      W48	w: 0
+      X64	w: 1
+      P81	w: 0
+      U90	w: 0
+      V94	w: 0
+      u31	w: x1 + x2
+      Y50	w: 0
+      P60	w: 0
+      U 	w: 1
+      U66	w: 1
+      V91	w: 0
+      Y71	w: 0
+      P75	w: 0
+      u141	w: x1 + x2 + x3
+      P67	w: 0
+      Y100	w: 0
+      W15	w: 0
+      W40	w: 0
+      W49	w: 1
+      V87	w: 0
+      W64	w: 1
+      V68	w: 0
+      W97	w: 0
+      V46	w: 1
+      V52	w: 0
+      W34	w: 0
+      Y91	w: 1
+      V26	w: 25
+      P48	w: 0
+      P77	w: 1
+      P87	w: 0
+      P79	w: 0
+      V15	w: 1
+      P18	w: 55
+      U1	w: 1
+      P47	w: 0
+      W31	w: 0
+      W52	w: 0
+      X87	w: 0
+      W24	w: 0
+      P55	w: 1
+      V17	w: 0
+      U11	w: 1
+      V18	w: 1
+      V44	w: 0
+      P108	w: 0
+      W58	w: 0
+      Y81	w: 0
+      Y2	w: 0
+      W38	w: 1
+      V83	w: 1
+      W96	w: 1
+      s 	w: x1
+      P8	w: 1
+      V31	w: 1
+      U105	w: 0
+      W25	w: 1
+      X40	w: 0
+      W84	w: 0
+      W104	w: 0
+      Y11	w: 1
+      V16	w: 1
+      P98	w: 1
+      X3	w: 1
+      W8	w: 3
+      U24	w: 1
+      Y69	w: 0
+      V96	w: 1
+      V13	w: 0
+      U106	w: 1
+      Y82	w: 0
+      u111	w: 2 * x1 + x2
+      u53	w: x1
+      Y32	w: 51
+      P53	w: 0
+      X33	w: 0
+      U25	w: 1
+      X74	w: 0
+      W32	w: 0
+      u191	w: x1 + x2
+      U77	w: 0
+      Y93	w: 0
+      isPLNat	w: 2 * x1 + 71
+      W33	w: 0
+      P37	w: 1
+      Y22	w: 1
+      U89	w: 0
+      X109	w: 1
+      P50	w: 0
+      W92	w: 0
+      U42	w: 1
+      X47	w: 1
+      X66	w: 0
+      Y36	w: 0
+      P52	w: 0
+      X60	w: 0
+      V80	w: 0
+      U108	w: 0
+      X4	w: 1
+      P4	w: 1
+      P43	w: 0
+      u181	w: 2 * x1 + x2
+      Y103	w: 0
+      u153	w: 2 * x1
+      W17	w: 0
+      Y45	w: 0
+      W30	w: 1
+      W21	w: 0
+      P22	w: 1
+      P25	w: 0
+      u122	w: x1
+      U3	w: 1
+      P3	w: 0
+      Y1	w: 1
+      X8	w: 1
+      U58	w: 1
+      Y86	w: 0
+      Y96	w: 0
+      V99	w: 1
+      P80	w: 1
+      W67	w: 1
+      X70	w: 0
+      Y75	w: 0
+      U101	w: 0
+      pair	w: x1 + x2 + 35
+      X46	w: 0
+      W71	w: 0
+      U8	w: 1
+      X99	w: 0
+      U29	w: 1
+      U43	w: 0
+      P11	w: 1
+      Y25	w: 51
+      P15	w: 1
+      Y49	w: 0
+      W87	w: 0
+      W91	w: 1
+      u131	w: 2 * x1 + 2 * x2 + 2 * x3
+      U86	w: 0
+      natsFrom	w: x1 + 51
+      V88	w: 0
+      P41	w: 0
+      U48	w: 0
+      V24	w: 1
+      X32	w: 1
+      X85	w: 1
+      U44	w: 0
+      U55	w: 0
+      Y76	w: 1
+      W10	w: 0
+      V70	w: 0
+      V36	w: 0
+      U84	w: 1
+      Y17	w: 0
+      V4	w: 1
+      P28	w: 0
+      U63	w: 1
+      W62	w: 1
+      Y27	w: 51
+      W76	w: 0
+      W95	w: 0
+      U72	w: 0
+      W90	w: 0
+      U38	w: 1
+      W101	w: 1
+      W20	w: 1
+      W55	w: 1
+      W56	w: 1
+      X57	w: 0
+      V19	w: 0
+      V101	w: 0
+      W28	w: 0
+      W57	w: 0
+      P44	w: 0
+      P1	w: 0
+      W7	w: 1
+      W11	w: 1
+      W66	w: 0
+      W37	w: 0
+      X49	w: 1
+      Y92	w: 0
+      U9	w: 2
+      V45	w: 0
+      W45	w: 1
+      P31	w: 0
+      P21	w: 1
+      X65	w: 0
+      V40	w: 0
+      U40	w: 0
+      P65	w: 0
+      U20	w: 55
+      P84	w: 0
+      P61	w: 0
+      Y63	w: 0
+      P103	w: 0
+      W54	w: 0
+      Y21	w: 1
+      P33	w: 0
+      P46	w: 0
+      U99	w: 1
+      V103	w: 0
+      P49	w: 0
+      Y85	w: 0
+      X28	w: 1
+      Y84	w: 0
+      P38	w: 1
+      W69	w: 0
+      P83	w: 0
+      W94	w: 0
+      V47	w: 1
+      W107	w: 1
+      V102	w: 0
+      X14	w: 0
+      Y64	w: 0
+      X71	w: 0
+      V67	w: 0
+      X91	w: 0
+      U10	w: 1
+      W39	w: 0
+      u51	w: x1 + x2 + x3 + 46
+      P2	w: 1
+      V79	w: 1
+      W12	w: 1
+      Y3	w: 1
+      U30	w: 1
+      U73	w: 1
+      X84	w: 0
+      P91	w: 1
+      V55	w: 0
+      Y12	w: 1
+      Y48	w: 0
+      u11	w: x1 + 2 * x2 + 2 * x3
+      Y19	w: 0
+      Y40	w: 0
+      sel	w: 2 * x1 + x2 + 157
+      Y55	w: 0
+      P90	w: 0
+      P14	w: 1
+      Y30	w: 0
+      X15	w: 1
+      Y35	w: 0
+      W82	w: 1
+      P58	w: 0
+      W2	w: 1
+      X25	w: 0
+      P97	w: 0
+      nil	w: 0
+      X36	w: 0
+      X77	w: 0
+      P89	w: 0
+      V6	w: 23
+      V74	w: 0
+      U76	w: 0
+      P82	w: 0
+      X92	w: 1
+      Y28	w: 1
+      P5	w: 0
+      Y78	w: 0
+      W79	w: 0
+      X97	w: 0
+      X102	w: 1
+      W1	w: 0
+      X5	w: 1
+      U45	w: 1
+      P92	w: 0
+      Y59	w: 0
+      Y67	w: 0
+      P73	w: 0
+      U75	w: 0
+      u101	w: x1 + x2 + 2 * x3
+      P68	w: 1
+      V8	w: 0
+      X31	w: 1
+      P86	w: 1
+      V107	w: 0
+      W108	w: 0
+      V41	w: 0
+      U60	w: 0
+      X103	w: 0
+      u21	w: 2 * x1 + x2 + 33
+      V37	w: 0
+      Y56	w: 0
+      P39	w: 0
+      Y47	w: 0
+      X7	w: 1
+      Y68	w: 1
+      P29	w: 0
+      W103	w: 1
+      W22	w: 1
+      V60	w: 1
+      V84	w: 0
+      P34	w: 0
+      X18	w: 0
+      P62	w: 0
+      X76	w: 0
+      u82	w: 2 * x1
+      X34	w: 0
+      V53	w: 1
+      X9	w: 0
+      Y26	w: 0
+      W50	w: 0
+      U52	w: 0
+      V54	w: 0
+      P7	w: 0
+      W9	w: 0
+      X35	w: 0
+      Y46	w: 0
+      U61	w: 0
+      P93	w: 0
+      V100	w: 0
+      X82	w: 0
+      X88	w: 0
+      U96	w: 1
+      V82	w: 0
+      u171	w: x1 + x2 + x3
+      Y57	w: 0
+      V73	w: 1
+      Y80	w: 1
+      Y83	w: 0
+      X98	w: 1
+      head	w: x1 + 140
+      X89	w: 1
+      Y31	w: 51
+      X90	w: 0
+      W13	w: 0
+      P26	w: 22
+      V71	w: 1
+      X72	w: 1
+      W89	w: 1
+      Y108	w: 0
+      Y62	w: 1
+      P30	w: 0
+      Y89	w: 0
+      U102	w: 0
+      Y107	w: 1
+      U70	w: 0
+      W47	w: 0
+      V29	w: 0
+      V57	w: 1
+      U49	w: 0
+      U82	w: 0
+      u112	w: x1
+      W36	w: 0
+      Y65	w: 0
+      tt	w: 24
+      Y43	w: 0
+      Y8	w: 0
+      Y42	w: 0
+      X93	w: 0
+      X61	w: 1
+      V86	w: 0
+      X101	w: 1
+      Y106	w: 1
+      U47	w: 1
+      W68	w: 0
+      W102	w: 0
+      X81	w: 0
+      V78	w: 0
+      U2	w: 1
+      V85	w: 0
+      X52	w: 1
+      P71	w: 0
+      Y74	w: 0
+      X 	w: 0
+      W16	w: 0
+      Y87	w: 0
+      u71	w: x1 + x2
+      X53	w: 0
+      P105	w: 1
+      X41	w: 1
+      V75	w: 0
+      U79	w: 1
+      U6	w: 0
+      P36	w: 0
+      P57	w: 0
+      P6	w: 72
+      Y34	w: 0
+      X24	w: 50
+      U41	w: 0
+      W53	w: 0
+      P54	w: 0
+      Y9	w: 1
+      X45	w: 0
+      Y99	w: 0
+      W29	w: 5
+      Y90	w: 0
+      P102	w: 1
+      X50	w: 0
+      V108	w: 1
+      Y24	w: 1
+      Y97	w: 0
+      V66	w: 0
+      W98	w: 0
+      U87	w: 1
+Number of strict rules: 0

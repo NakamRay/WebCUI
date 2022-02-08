@@ -1,0 +1,633 @@
+Input TRS:
+    1: active(from(X)) -> mark(cons(X,from(s(X))))
+    2: active(sel(0(),cons(Y,U))) -> mark(Y)
+    3: active(sel(s(V),cons(W,P))) -> mark(sel(V,P))
+    4: active(minus(X1,0())) -> mark(0())
+    5: active(minus(s(Y1),s(U1))) -> mark(minus(Y1,U1))
+    6: active(quot(0(),s(V1))) -> mark(0())
+    7: active(quot(s(W1),s(P1))) -> mark(s(quot(minus(W1,P1),s(P1))))
+    8: active(zWquot(X2,nil())) -> mark(nil())
+    9: active(zWquot(nil(),Y2)) -> mark(nil())
+    10: active(zWquot(cons(U2,V2),cons(W2,P2))) -> mark(cons(quot(U2,W2),zWquot(V2,P2)))
+    11: mark(from(X3)) -> active(from(mark(X3)))
+    12: mark(cons(Y3,U3)) -> active(cons(mark(Y3),U3))
+    13: mark(s(V3)) -> active(s(mark(V3)))
+    14: mark(sel(W3,P3)) -> active(sel(mark(W3),mark(P3)))
+    15: mark(0()) -> active(0())
+    16: mark(minus(X4,Y4)) -> active(minus(mark(X4),mark(Y4)))
+    17: mark(quot(U4,V4)) -> active(quot(mark(U4),mark(V4)))
+    18: mark(zWquot(W4,P4)) -> active(zWquot(mark(W4),mark(P4)))
+    19: mark(nil()) -> active(nil())
+    20: from(mark(X5)) -> from(X5)
+    21: from(active(Y5)) -> from(Y5)
+    22: cons(mark(U5),V5) -> cons(U5,V5)
+    23: cons(W5,mark(P5)) -> cons(W5,P5)
+    24: cons(active(X6),Y6) -> cons(X6,Y6)
+    25: cons(U6,active(V6)) -> cons(U6,V6)
+    26: s(mark(W6)) -> s(W6)
+    27: s(active(P6)) -> s(P6)
+    28: sel(mark(X7),Y7) -> sel(X7,Y7)
+    29: sel(U7,mark(V7)) -> sel(U7,V7)
+    30: sel(active(W7),P7) -> sel(W7,P7)
+    31: sel(X8,active(Y8)) -> sel(X8,Y8)
+    32: minus(mark(U8),V8) -> minus(U8,V8)
+    33: minus(W8,mark(P8)) -> minus(W8,P8)
+    34: minus(active(X9),Y9) -> minus(X9,Y9)
+    35: minus(U9,active(V9)) -> minus(U9,V9)
+    36: quot(mark(W9),P9) -> quot(W9,P9)
+    37: quot(X10,mark(Y10)) -> quot(X10,Y10)
+    38: quot(active(U10),V10) -> quot(U10,V10)
+    39: quot(W10,active(P10)) -> quot(W10,P10)
+    40: zWquot(mark(X11),Y11) -> zWquot(X11,Y11)
+    41: zWquot(U11,mark(V11)) -> zWquot(U11,V11)
+    42: zWquot(active(W11),P11) -> zWquot(W11,P11)
+    43: zWquot(X12,active(Y12)) -> zWquot(X12,Y12)
+    44: map(G12,nil()) -> nil()
+    45: app(H12,W12) -> H12[W12]()
+Number of strict rules: 45
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #active(sel(0(),cons(Y,U))) -> #mark(Y)
+   #2: #zWquot(X12,active(Y12)) -> #zWquot(X12,Y12)
+   #3: #sel(U7,mark(V7)) -> #sel(U7,V7)
+   #4: #minus(U9,active(V9)) -> #minus(U9,V9)
+   #5: #zWquot(active(W11),P11) -> #zWquot(W11,P11)
+   #6: #zWquot(U11,mark(V11)) -> #zWquot(U11,V11)
+   #7: #quot(X10,mark(Y10)) -> #quot(X10,Y10)
+   #8: #quot(active(U10),V10) -> #quot(U10,V10)
+   #9: #active(quot(0(),s(V1))) -> #mark(0())
+   #10: #zWquot(mark(X11),Y11) -> #zWquot(X11,Y11)
+   #11: #mark(s(V3)) -> #active(s(mark(V3)))
+   #12: #mark(s(V3)) -> #s(mark(V3))
+   #13: #mark(s(V3)) -> #mark(V3)
+   #14: #active(zWquot(nil(),Y2)) -> #mark(nil())
+   #15: #mark(from(X3)) -> #active(from(mark(X3)))
+   #16: #mark(from(X3)) -> #from(mark(X3))
+   #17: #mark(from(X3)) -> #mark(X3)
+   #18: #cons(active(X6),Y6) -> #cons(X6,Y6)
+   #19: #cons(W5,mark(P5)) -> #cons(W5,P5)
+   #20: #mark(cons(Y3,U3)) -> #active(cons(mark(Y3),U3))
+   #21: #mark(cons(Y3,U3)) -> #cons(mark(Y3),U3)
+   #22: #mark(cons(Y3,U3)) -> #mark(Y3)
+   #23: #sel(X8,active(Y8)) -> #sel(X8,Y8)
+   #24: #mark(sel(W3,P3)) -> #active(sel(mark(W3),mark(P3)))
+   #25: #mark(sel(W3,P3)) -> #sel(mark(W3),mark(P3))
+   #26: #mark(sel(W3,P3)) -> #mark(W3)
+   #27: #mark(sel(W3,P3)) -> #mark(P3)
+   #28: #sel(active(W7),P7) -> #sel(W7,P7)
+   #29: #cons(U6,active(V6)) -> #cons(U6,V6)
+   #30: #from(mark(X5)) -> #from(X5)
+   #31: #active(quot(s(W1),s(P1))) -> #mark(s(quot(minus(W1,P1),s(P1))))
+   #32: #active(quot(s(W1),s(P1))) -> #s(quot(minus(W1,P1),s(P1)))
+   #33: #active(quot(s(W1),s(P1))) -> #quot(minus(W1,P1),s(P1))
+   #34: #active(quot(s(W1),s(P1))) -> #minus(W1,P1)
+   #35: #quot(W10,active(P10)) -> #quot(W10,P10)
+   #36: #active(zWquot(cons(U2,V2),cons(W2,P2))) -> #mark(cons(quot(U2,W2),zWquot(V2,P2)))
+   #37: #active(zWquot(cons(U2,V2),cons(W2,P2))) -> #cons(quot(U2,W2),zWquot(V2,P2))
+   #38: #active(zWquot(cons(U2,V2),cons(W2,P2))) -> #quot(U2,W2)
+   #39: #active(zWquot(cons(U2,V2),cons(W2,P2))) -> #zWquot(V2,P2)
+   #40: #minus(W8,mark(P8)) -> #minus(W8,P8)
+   #41: #active(minus(s(Y1),s(U1))) -> #mark(minus(Y1,U1))
+   #42: #active(minus(s(Y1),s(U1))) -> #minus(Y1,U1)
+   #43: #sel(mark(X7),Y7) -> #sel(X7,Y7)
+   #44: #cons(mark(U5),V5) -> #cons(U5,V5)
+   #45: #minus(active(X9),Y9) -> #minus(X9,Y9)
+   #46: #s(active(P6)) -> #s(P6)
+   #47: #mark(quot(U4,V4)) -> #active(quot(mark(U4),mark(V4)))
+   #48: #mark(quot(U4,V4)) -> #quot(mark(U4),mark(V4))
+   #49: #mark(quot(U4,V4)) -> #mark(U4)
+   #50: #mark(quot(U4,V4)) -> #mark(V4)
+   #51: #minus(mark(U8),V8) -> #minus(U8,V8)
+   #52: #mark(nil()) -> #active(nil())
+   #53: #s(mark(W6)) -> #s(W6)
+   #54: #quot(mark(W9),P9) -> #quot(W9,P9)
+   #55: #from(active(Y5)) -> #from(Y5)
+   #56: #mark(minus(X4,Y4)) -> #active(minus(mark(X4),mark(Y4)))
+   #57: #mark(minus(X4,Y4)) -> #minus(mark(X4),mark(Y4))
+   #58: #mark(minus(X4,Y4)) -> #mark(X4)
+   #59: #mark(minus(X4,Y4)) -> #mark(Y4)
+   #60: #active(sel(s(V),cons(W,P))) -> #mark(sel(V,P))
+   #61: #active(sel(s(V),cons(W,P))) -> #sel(V,P)
+   #62: #active(from(X)) -> #mark(cons(X,from(s(X))))
+   #63: #active(from(X)) -> #cons(X,from(s(X)))
+   #64: #active(from(X)) -> #from(s(X))
+   #65: #active(from(X)) -> #s(X)
+   #66: #active(zWquot(X2,nil())) -> #mark(nil())
+   #67: #mark(0()) -> #active(0())
+   #68: #active(minus(X1,0())) -> #mark(0())
+   #69: #mark(zWquot(W4,P4)) -> #active(zWquot(mark(W4),mark(P4)))
+   #70: #mark(zWquot(W4,P4)) -> #zWquot(mark(W4),mark(P4))
+   #71: #mark(zWquot(W4,P4)) -> #mark(W4)
+   #72: #mark(zWquot(W4,P4)) -> #mark(P4)
+Number of SCCs: 8, DPs: 46
+  SCC { #30 #55 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: x1
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #30 #55
+Number of SCCs: 7, DPs: 44
+  SCC { #46 #53 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: x1
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #46 #53
+Number of SCCs: 6, DPs: 42
+  SCC { #4 #40 #45 #51 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: x1
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #45 #51
+Number of SCCs: 6, DPs: 40
+  SCC { #4 #40 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: x2
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4 #40
+Number of SCCs: 5, DPs: 38
+  SCC { #7 #8 #35 #54 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: x1
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #8 #54
+Number of SCCs: 5, DPs: 36
+  SCC { #7 #35 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: x2
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #7 #35
+Number of SCCs: 4, DPs: 34
+  SCC { #18 #19 #29 #44 }
+POLO(Sum)... succeeded.
+      #cons	w: x1
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #18 #44
+Number of SCCs: 4, DPs: 32
+  SCC { #19 #29 }
+POLO(Sum)... succeeded.
+      #cons	w: x2
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #19 #29
+Number of SCCs: 3, DPs: 30
+  SCC { #3 #23 #28 #43 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: x2
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #3 #23
+Number of SCCs: 3, DPs: 28
+  SCC { #28 #43 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: 0
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: x1
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #28 #43
+Number of SCCs: 2, DPs: 26
+  SCC { #2 #5 #6 #10 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: x1
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #5 #10
+Number of SCCs: 2, DPs: 24
+  SCC { #2 #6 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #zWquot	w: x2
+      minus	w: 0
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: 0
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: 0
+      sel	w: 0
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1 + 1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1 + 1
+      cons	w: 0
+      #active	w: 0
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #2 #6
+Number of SCCs: 1, DPs: 22
+  SCC { #1 #13 #15 #17 #22 #24 #26 #27 #31 #36 #41 #47 #49 #50 #56 #58..60 #62 #69 #71 #72 }
+POLO(Sum)... POLO(max)... succeeded.
+      #cons	w: 0
+      s 	w: x1
+      #zWquot	w: 0
+      minus	w: max(x1, x2 + 1)
+      H12[W12]	w: 0
+      zWquot	w: max(x1 + 7, x2 + 3)
+      #mark	w: x1
+      0 	w: 4
+      quot	w: max(x1 + 1, x2 + 3)
+      #sel	w: 0
+      from	w: x1 + 4
+      sel	w: max(x1 + 1, x2 + 2)
+      #s 	w: 0
+      nil	w: 8
+      mark	w: x1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1
+      cons	w: max(x1 + 3, x2)
+      #active	w: x1
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { 1..43 }
+    Removed DPs: #1 #17 #22 #26 #27 #49 #50 #59 #71 #72
+Number of SCCs: 2, DPs: 8
+  SCC { #24 #60 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... succeeded.
+      #cons	s: [2,1]	p: 0	w: max(x1, x2)
+      s 	s: [1]	p: 0	w: x1
+      #zWquot	s: [1]	p: 0	w: x1
+      minus	s: []	p: 0	w: 0
+      H12[W12]	s: []	p: 0	w: 1
+      zWquot	s: []	p: 2	w: x1 + x2 + 4
+      #mark	s: 1
+      0 	s: []	p: 0	w: 0
+      quot	s: [1]	p: 1	w: max(x1 + 3)
+      #sel	s: [1,2]	p: 0	w: x1 + x2
+      from	s: []	p: 0	w: x1 + 2
+      sel	s: [1]	p: 2	w: x1 + x2 + 3
+      #s 	s: []	p: 0	w: 0
+      nil	s: []	p: 3	w: 1
+      mark	s: 1
+      #app	s: [1,2]	p: 0	w: x1 + x2 + 1
+      map	s: []	p: 0	w: x2
+      #map	s: []	p: 0	w: x1 + 1
+      #minus	s: [1]	p: 0	w: max(x1)
+      #from	s: []	p: 0	w: 0
+      active	s: 1
+      cons	s: []	p: 0	w: max(x1 + 2, x2)
+      #active	s: 1
+      #quot	s: []	p: 0	w: max(x2)
+      app	s: []	p: 0	w: x1 + 1
+    USABLE RULES: { 1..43 }
+    Removed DPs: #60
+Number of SCCs: 1, DPs: 6
+  SCC { #13 #31 #41 #47 #56 #58 }
+POLO(Sum)... POLO(max)... succeeded.
+      #cons	w: 0
+      s 	w: x1
+      #zWquot	w: 0
+      minus	w: max(x1 + 1, x2 + 2)
+      H12[W12]	w: 0
+      zWquot	w: 0
+      #mark	w: x1 + 1
+      0 	w: 0
+      quot	w: 0
+      #sel	w: 0
+      from	w: x1 + 7
+      sel	w: max(x2 + 2)
+      #s 	w: 0
+      nil	w: 0
+      mark	w: x1
+      #app	w: 0
+      map	w: 0
+      #map	w: 0
+      #minus	w: 0
+      #from	w: 0
+      active	w: x1
+      cons	w: max(x1, x2)
+      #active	w: x1 + 1
+      #quot	w: 0
+      app	w: 0
+    USABLE RULES: { 1..43 }
+    Removed DPs: #58
+Number of SCCs: 2, DPs: 5
+  SCC { #41 #56 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... succeeded.
+      #cons	w: 0
+      s 	w: max(x1 + 5, 0)
+      #zWquot	w: 0
+      minus	w: max(x1 - 1, 0)
+      H12[W12]	w: 0
+      zWquot	w: max(x1 + 6, 0)
+      #mark	w: max(x1 - 1, 0)
+      0 	w: 0
+      quot	w: max(x1 + 5, 0)
+      #sel	w: max(x2 - 1, 0)
+      from	w: max(x1 + 6, 0)
+      sel	w: max(x1 + x2 + 1, 0)
+      #s 	w: max(x1 - 1, 0)
+      nil	w: 1
+      mark	w: max(x1, 0)
+      #app	w: max(x1 - 1, 0)
+      map	w: max(x1 - 1, 0)
+      #map	w: 0
+      #minus	w: 0
+      #from	w: max(x1 - 1, 0)
+      active	w: max(x1, 0)
+      cons	w: max(x1 + 2, x2 - 5, 0)
+      #active	w: max(x1 - 3, 0)
+      #quot	w: 0
+      app	w: max(x1 - 1, 0)
+    USABLE RULES: { 1..43 }
+    Removed DPs: #41
+Number of SCCs: 1, DPs: 3
+  SCC { #13 #31 #47 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... succeeded.
+      #cons	w: 0
+      s 	w: max(x1 + 2, 0)
+      #zWquot	w: 0
+      minus	w: max(x1 - 1, 0)
+      H12[W12]	w: 0
+      zWquot	w: max(x1 + 10, 0)
+      #mark	w: max(x1 - 1, 0)
+      0 	w: 0
+      quot	w: max(x1 + 3, 0)
+      #sel	w: max(x2 - 1, 0)
+      from	w: max(x1 + 9, 0)
+      sel	w: max(x1 + x2 + 1, 0)
+      #s 	w: max(x1 - 1, 0)
+      nil	w: 1
+      mark	w: max(x1, 0)
+      #app	w: max(x1 - 1, 0)
+      map	w: max(x1 - 1, 0)
+      #map	w: 0
+      #minus	w: 0
+      #from	w: max(x1 - 1, 0)
+      active	w: max(x1, 0)
+      cons	w: max(x1 + 9, x2 - 2, 0)
+      #active	w: max(x1 - 1, 0)
+      #quot	w: 0
+      app	w: max(x1 - 1, 0)
+    USABLE RULES: { 1..43 }
+    Removed DPs: #13
+Number of SCCs: 0, DPs: 0

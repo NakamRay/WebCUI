@@ -1,0 +1,118 @@
+Input TRS:
+    1: if(true(),X,Y) -> X
+    2: if(false(),U,V) -> V
+    3: sub(W,0()) -> W
+    4: sub(s(P),s(X1)) -> sub(P,X1)
+    5: gtr(0(),Y1) -> false()
+    6: gtr(s(U1),0()) -> true()
+    7: gtr(s(V1),s(W1)) -> gtr(V1,W1)
+    8: d(P1,0()) -> true()
+    9: d(s(X2),s(Y2)) -> if(gtr(X2,Y2),false(),d(s(X2),sub(Y2,X2)))
+    10: len(nil()) -> 0()
+    11: len(cons(U2,V2)) -> s(len(V2))
+    12: _(X1,X2) -> X1
+    13: _(X1,X2) -> X2
+Number of strict rules: 13
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #d(s(X2),s(Y2)) -> #if(gtr(X2,Y2),false(),d(s(X2),sub(Y2,X2)))
+   #2: #d(s(X2),s(Y2)) -> #gtr(X2,Y2)
+   #3: #d(s(X2),s(Y2)) -> #d(s(X2),sub(Y2,X2))
+   #4: #d(s(X2),s(Y2)) -> #sub(Y2,X2)
+   #5: #len(cons(U2,V2)) -> #len(V2)
+   #6: #gtr(s(V1),s(W1)) -> #gtr(V1,W1)
+   #7: #sub(s(P),s(X1)) -> #sub(P,X1)
+Number of SCCs: 4, DPs: 4
+  SCC { #5 }
+POLO(Sum)... succeeded.
+      d 	w: 0
+      #len	w: x1
+      s 	w: 0
+      #gtr	w: 0
+      false	w: 0
+      gtr	w: 0
+      _ 	w: 0
+      sub	w: 0
+      true	w: 0
+      #sub	w: 0
+      if	w: 0
+      0 	w: 0
+      nil	w: 0
+      #d 	w: 0
+      #_ 	w: 0
+      cons	w: x2 + 1
+      #if	w: 0
+      len	w: 0
+    USABLE RULES: { }
+    Removed DPs: #5
+Number of SCCs: 3, DPs: 3
+  SCC { #7 }
+POLO(Sum)... succeeded.
+      d 	w: 0
+      #len	w: 0
+      s 	w: x1 + 1
+      #gtr	w: 0
+      false	w: 0
+      gtr	w: 0
+      _ 	w: 0
+      sub	w: 0
+      true	w: 0
+      #sub	w: x1
+      if	w: 0
+      0 	w: 0
+      nil	w: 0
+      #d 	w: 0
+      #_ 	w: 0
+      cons	w: 1
+      #if	w: 0
+      len	w: 0
+    USABLE RULES: { }
+    Removed DPs: #7
+Number of SCCs: 2, DPs: 2
+  SCC { #6 }
+POLO(Sum)... succeeded.
+      d 	w: 0
+      #len	w: 0
+      s 	w: x1 + 1
+      #gtr	w: x2
+      false	w: 0
+      gtr	w: 0
+      _ 	w: 0
+      sub	w: 0
+      true	w: 0
+      #sub	w: 0
+      if	w: 0
+      0 	w: 0
+      nil	w: 0
+      #d 	w: 0
+      #_ 	w: 0
+      cons	w: 1
+      #if	w: 0
+      len	w: 0
+    USABLE RULES: { }
+    Removed DPs: #6
+Number of SCCs: 1, DPs: 1
+  SCC { #3 }
+POLO(Sum)... succeeded.
+      d 	w: 0
+      #len	w: 0
+      s 	w: x1 + 2
+      #gtr	w: 0
+      false	w: 0
+      gtr	w: 0
+      _ 	w: 0
+      sub	w: x1 + 1
+      true	w: 0
+      #sub	w: 0
+      if	w: 0
+      0 	w: 1
+      nil	w: 0
+      #d 	w: x2
+      #_ 	w: 0
+      cons	w: 1
+      #if	w: 0
+      len	w: 0
+    USABLE RULES: { 3 4 }
+    Removed DPs: #3
+Number of SCCs: 0, DPs: 0

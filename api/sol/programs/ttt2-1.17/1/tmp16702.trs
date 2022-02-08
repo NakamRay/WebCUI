@@ -1,0 +1,3 @@
+(VAR )
+(RULES
+  f(g) -> f(g(%X)))

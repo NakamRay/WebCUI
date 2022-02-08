@@ -1,0 +1,56 @@
+Input TRS:
+    1: app(nil(),L) -> L
+    2: app(cons(N,L),Y) -> cons(N,app(L,Y))
+    3: reverse(nil()) -> nil()
+    4: reverse(cons(N,L)) -> app(reverse(L),cons(N,nil()))
+    5: shuffle(nil()) -> nil()
+    6: shuffle(cons(N,L)) -> cons(N,shuffle(reverse(L)))
+    7: fst(p(X,Y)) -> X
+    8: pshuffle(L) -> p(L,shuffle(L))
+    9: _(X1,X2) -> X1
+    10: _(X1,X2) -> X2
+Number of strict rules: 10
+Direct POLO(bPol) ... removes: 8 5 10 7 9
+      fst	w: 2 * x1 + 1
+      reverse	w: x1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      shuffle	w: x1 + 1
+      p 	w: x1 + x2 + 1
+      pshuffle	w: 2 * x1 + 3
+      nil	w: 0
+      cons	w: x1 + x2 + 2
+      app	w: x1 + x2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 3 6
+      fst	w: 2 * x1 + 1
+      reverse	w: x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      shuffle	w: 2 * x1 + 1
+      p 	w: x1 + x2 + 1
+      pshuffle	w: 2 * x1 + 3
+      nil	w: 0
+      cons	w: x1 + x2 + 3
+      app	w: x1 + x2
+Number of strict rules: 3
+Direct POLO(bPol) ... removes: 4 1
+      fst	w: 2 * x1 + 1
+      reverse	w: 2 * x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      shuffle	w: x1 + 1
+      p 	w: x1 + x2 + 1
+      pshuffle	w: 2 * x1 + 3
+      nil	w: 1
+      cons	w: x1 + x2 + 3
+      app	w: x1 + x2 + 1
+Number of strict rules: 1
+Direct POLO(bPol) ... removes: 2
+      fst	w: 2 * x1 + 1
+      reverse	w: 2 * x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      shuffle	w: x1 + 1
+      p 	w: x1 + x2 + 1
+      pshuffle	w: 2 * x1 + 3
+      nil	w: 1
+      cons	w: x1 + x2 + 3
+      app	w: 2 * x1 + x2 + 1
+Number of strict rules: 0

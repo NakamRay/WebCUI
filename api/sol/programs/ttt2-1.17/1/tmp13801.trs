@@ -1,0 +1,8 @@
+(VAR X Y Z X4 )
+(RULES
+  new(X) -> X
+  sum(nil,X) -> X
+  sum(X,nil) -> X
+  sum(X,Y) -> sum(Y,X)
+  sum(sum(X,Y),Z) -> sum(X,sum(Y,Z))
+  new(new(X4)) -> new(new(X4)))

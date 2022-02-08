@@ -1,0 +1,46 @@
+Input TRS:
+    1: dec(0(),D) -> 0()
+    2: dec(X,0()) -> X
+    3: dec(s(X),s(D)) -> dec(X,D)
+    4: xpls(0(),X) -> X
+    5: xpls(s(X),Y) -> s(xpls(X,Y))
+    6: log2(s(0()),0()) -> 0()
+    7: log2(0(),s(Y)) -> s(log2(s(Y),0()))
+    8: log2(s(0()),s(Y)) -> s(log2(s(Y),0()))
+    9: log2(s(s(X)),Y) -> log2(X,s(Y))
+    10: _(X1,X2) -> X1
+    11: _(X1,X2) -> X2
+Number of strict rules: 11
+Direct POLO(bPol) ... removes: 4 1 10 11 6 2
+      dec	w: x1 + x2 + 1
+      s 	w: x1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      0 	w: 2
+      xpls	w: 2 * x1 + x2 + 1
+      log2	w: x1 + x2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 8 3 5
+      dec	w: x1 + x2 + 1
+      s 	w: x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      0 	w: 0
+      xpls	w: 2 * x1 + x2 + 1
+      log2	w: x1 + 2 * x2
+Number of strict rules: 2
+Direct POLO(bPol) ... failed.
+Uncurrying log2
+7: log2^1_0(s(Y)) -> s(log2^1_s(Y,0()))
+9: log2^1_s(s(X),Y) -> log2(X,s(Y))
+12: log2(0(),_1) ->= log2^1_0(_1)
+13: log2(s(_1),_2) ->= log2^1_s(_1,_2)
+Number of strict rules: 2
+Direct POLO(bPol) ... removes: 7 12 9 13
+      dec	w: x1 + x2
+      s 	w: x1 + 3
+      _ 	w: x1 + x2
+      0 	w: 1
+      log2^1_0	w: 2 * x1 + 1
+      log2^1_s	w: 2 * x1 + 2 * x2 + 1
+      xpls	w: x1 + x2
+      log2	w: 2 * x1 + 2 * x2
+Number of strict rules: 0

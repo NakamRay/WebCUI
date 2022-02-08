@@ -1,0 +1,11 @@
+(VAR X Y U V W P X1 Y1 X2 )
+(RULES
+  p(s(X)) -> X
+  fact(0) -> s(0)
+  fact(s(Y)) -> btimes(s(Y),fact(p(s(Y))))
+  btimes(0,U) -> 0
+  btimes(s(V),W) -> bplus(btimes(V,W),W)
+  bplus(P,0) -> P
+  bplus(X1,s(Y1)) -> s(bplus(X1,Y1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

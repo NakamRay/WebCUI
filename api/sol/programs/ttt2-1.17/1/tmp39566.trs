@@ -1,0 +1,7 @@
+(VAR X U V Y )
+(RULES
+  qu(X,X) -> X
+  qu(qu(U,V),qu(X,Y)) -> qu(U,Y)
+  qu(V,qu(X,Y)) -> qu(V,Y)
+  qu(qu(U,V),Y) -> qu(U,Y)
+  qu(qu(U,V),qu(X,Y)) -> qu(qu(U,X),qu(V,Y)))

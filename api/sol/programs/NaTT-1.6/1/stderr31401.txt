@@ -1,0 +1,33 @@
+Input TRS:
+    1: f(0(),1(),g(X,Y),U) -> f(g(X,Y),g(X,Y),g(X,Y),h(X))
+    2: g(0(),1()) -> 0()
+    3: g(0(),1()) -> 1()
+    4: h(g(V,W)) -> h(V)
+Number of strict rules: 4
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #f(0(),1(),g(X,Y),U) -> #f(g(X,Y),g(X,Y),g(X,Y),h(X))
+   #2: #f(0(),1(),g(X,Y),U) -> #h(X)
+   #3: #h(g(V,W)) -> #h(V)
+Number of SCCs: 2, DPs: 2
+  SCC { #3 }
+POLO(Sum)... succeeded.
+      h 	w: 0
+      1 	w: 0
+      f 	w: 0
+      0 	w: 0
+      #h 	w: x1
+      #f 	w: 0
+      #g 	w: 0
+      g 	w: x1 + 1
+    USABLE RULES: { }
+    Removed DPs: #3
+Number of SCCs: 1, DPs: 1
+  SCC { #1 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #f(0(),1(),g(0(),1()),U)	-#1->
+  #f(g(0(),1()),g(0(),1()),g(0(),1()),h(0()))	--->*
+  #f(0(),1(),g(0(),1()),h(0()))
+  Looping with: [ U := h(0()); ]

@@ -1,0 +1,13 @@
+(VAR
+  F: a -> a 
+  Y: a 
+  G: a -> a 
+)
+(FUN
+  f : (a -> a) -> b
+  g : (a -> a) -> a -> a
+)
+(RULES
+  ((g(F)) Y) -> Y,
+  (f(G)) -> (f((g(G))))
+)

@@ -1,0 +1,54 @@
+Input TRS:
+    1: perfectp(0()) -> false()
+    2: perfectp(s(X)) -> f(X,s(0()),s(X),s(X))
+    3: f(0(),U,0(),Y) -> true()
+    4: f(0(),W,s(P),V) -> false()
+    5: f(s(Y1),0(),U1,X1) -> f(Y1,X1,minus(U1,s(Y1)),X1)
+    6: f(s(W1),s(P1),X2,V1) -> if(le(W1,P1),f(s(W1),minus(P1,W1),X2,V1),f(W1,V1,X2,V1))
+    7: _(X1,X2) -> X1
+    8: _(X1,X2) -> X2
+Number of strict rules: 8
+Direct POLO(bPol) ... failed.
+Uncurrying f
+1: perfectp(0()) -> false()
+2: perfectp(s(X)) -> f(X,s(0()),s(X),s(X))
+3: f^1_0(U,0(),Y) -> true()
+4: f^1_0(W,s(P),V) -> false()
+5: f^1_s(Y1,0(),U1,X1) -> f(Y1,X1,minus(U1,s(Y1)),X1)
+6: f^1_s(W1,s(P1),X2,V1) -> if(le(W1,P1),f^1_s(W1,minus(P1,W1),X2,V1),f(W1,V1,X2,V1))
+7: _(X1,X2) -> X1
+8: _(X1,X2) -> X2
+9: f(0(),_3,_4,_5) ->= f^1_0(_3,_4,_5)
+10: f(s(_1),_4,_5,_6) ->= f^1_s(_1,_4,_5,_6)
+Number of strict rules: 8
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #perfectp(s(X)) -> #f(X,s(0()),s(X),s(X))
+   #2: #f^1_s(W1,s(P1),X2,V1) -> #f^1_s(W1,minus(P1,W1),X2,V1)
+   #3: #f^1_s(W1,s(P1),X2,V1) -> #f(W1,V1,X2,V1)
+   #4: #f(0(),_3,_4,_5) ->? #f^1_0(_3,_4,_5)
+   #5: #f(s(_1),_4,_5,_6) ->? #f^1_s(_1,_4,_5,_6)
+   #6: #f^1_s(Y1,0(),U1,X1) -> #f(Y1,X1,minus(U1,s(Y1)),X1)
+Number of SCCs: 1, DPs: 3
+  SCC { #3 #5 #6 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 2
+      minus	w: x2
+      #f^1_s	w: x1 + 1
+      #perfectp	w: 0
+      false	w: 0
+      _ 	w: 0
+      true	w: 0
+      f 	w: 0
+      0 	w: 1
+      if	w: 0
+      #f 	w: x1
+      #f^1_0	w: 0
+      #_ 	w: 0
+      perfectp	w: 0
+      f^1_0	w: 0
+      f^1_s	w: 0
+    USABLE RULES: { }
+    Removed DPs: #3 #5 #6
+Number of SCCs: 0, DPs: 0

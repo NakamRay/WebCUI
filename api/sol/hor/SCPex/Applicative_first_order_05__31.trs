@@ -1,0 +1,50 @@
+(VAR
+  X: b 
+  Y: b 
+  U: b 
+  V: b 
+  W: b 
+  P: b 
+  F1: a -> b 
+  Y1: b 
+  U1: a 
+  V1: b 
+  I1: d -> d 
+  J1: d -> d 
+  X2: d 
+  Y2: e 
+  G2: d -> c 
+  H2: d -> c 
+  W2: d 
+  P2: e 
+  F3: d -> c 
+  Y3: d 
+  U3: e 
+  H3: d -> c 
+  W3: d 
+  P3: e 
+)
+(FUN
+  bangcolon : b -> b -> b
+  bangplus : b -> b -> b
+  a : b
+  cons : d -> e -> e
+  false : c
+  filter : (d -> c) -> e -> e
+  filter2 : c -> (d -> c) -> d -> e -> e
+  g : b -> a -> b
+  map : (d -> d) -> e -> e
+  nil : e
+  true : c
+)
+(RULES
+  (((bangcolon) (((bangcolon) X) Y)) U) -> (((bangcolon) X) (((bangcolon) Y) U)),
+  (((bangcolon) (((bangplus) V) W)) P) -> (((bangplus) (((bangcolon) V) P)) (((bangcolon) W) P)),
+  (((bangcolon) V1) (((bangplus) Y1) (F1 U1))) -> (((bangcolon) (((g) V1) U1)) (((bangplus) Y1) (a))),
+  (((map) I1) (nil)) -> (nil),
+  (((map) J1) (((cons) X2) Y2)) -> (((cons) (J1 X2)) (((map) J1) Y2)),
+  (((filter) G2) (nil)) -> (nil),
+  (((filter) H2) (((cons) W2) P2)) -> (((((filter2) (H2 W2)) H2) W2) P2),
+  (((((filter2) (true)) F3) Y3) U3) -> (((cons) Y3) (((filter) F3) U3)),
+  (((((filter2) (false)) H3) W3) P3) -> (((filter) H3) P3)
+)

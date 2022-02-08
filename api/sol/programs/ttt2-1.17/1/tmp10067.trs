@@ -1,0 +1,7 @@
+(VAR P Q F )
+(RULES
+  and(P,all(Q)) -> all(and(P,Q))
+  and(all(Q),P) -> all(and(Q,P))
+  or(P,all(Q)) -> all(or(P,Q))
+  or(all(Q),P) -> all(or(Q,P))
+  all(all(F)) -> all(all(F)))

@@ -1,0 +1,58 @@
+Input TRS:
+    1: xbtimes(X,xbplus(Y,U)) -> xbplus(xbtimes(X,Y),xbtimes(X,U))
+    2: xbtimes(xbplus(W,P),V) -> xbplus(xbtimes(V,W),xbtimes(V,P))
+    3: xbtimes(xbtimes(X1,Y1),U1) -> xbtimes(X1,xbtimes(Y1,U1))
+    4: xbplus(xbplus(V1,W1),P1) -> xbplus(V1,xbplus(W1,P1))
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #xbtimes(xbplus(W,P),V) -> #xbplus(xbtimes(V,W),xbtimes(V,P))
+   #2: #xbtimes(xbplus(W,P),V) -> #xbtimes(V,W)
+   #3: #xbtimes(xbplus(W,P),V) -> #xbtimes(V,P)
+   #4: #xbtimes(xbtimes(X1,Y1),U1) -> #xbtimes(X1,xbtimes(Y1,U1))
+   #5: #xbtimes(xbtimes(X1,Y1),U1) -> #xbtimes(Y1,U1)
+   #6: #xbtimes(X,xbplus(Y,U)) -> #xbplus(xbtimes(X,Y),xbtimes(X,U))
+   #7: #xbtimes(X,xbplus(Y,U)) -> #xbtimes(X,Y)
+   #8: #xbtimes(X,xbplus(Y,U)) -> #xbtimes(X,U)
+   #9: #xbplus(xbplus(V1,W1),P1) -> #xbplus(V1,xbplus(W1,P1))
+   #10: #xbplus(xbplus(V1,W1),P1) -> #xbplus(W1,P1)
+Number of SCCs: 2, DPs: 8
+  SCC { #9 #10 }
+POLO(Sum)... succeeded.
+      xbtimes	w: 0
+      #xbtimes	w: 0
+      #xbplus	w: x1
+      _ 	w: 0
+      xbplus	w: x1 + x2 + 1
+      #_ 	w: 0
+    USABLE RULES: { }
+    Removed DPs: #9 #10
+Number of SCCs: 1, DPs: 6
+  SCC { #2..5 #7 #8 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... succeeded.
+      xbtimes	w: max(x1 + x2, 0)
+      #xbtimes	w: max(x1 + x2 - 1, 0)
+      #xbplus	w: 0
+      _ 	w: max(x1 - 1, 0)
+      xbplus	w: max(x1 + 2, x2, 0)
+      #_ 	w: max(x1 - 1, 0)
+    USABLE RULES: { 1..4 }
+    Removed DPs: #2 #7
+Number of SCCs: 1, DPs: 4
+  SCC { #3..5 #8 }
+POLO(Sum)... succeeded.
+      xbtimes	w: x1 + x2 + 1
+      #xbtimes	w: x1 + x2
+      #xbplus	w: 0
+      _ 	w: 0
+      xbplus	w: x2
+      #_ 	w: 0
+    USABLE RULES: { 1..4 }
+    Removed DPs: #5
+Number of SCCs: 1, DPs: 3
+  SCC { #3 #4 #8 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

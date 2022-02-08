@@ -1,0 +1,8 @@
+(VAR V2 W2 P2 X1 X2 )
+(RULES
+  minus(0) -> 0
+  mul(0,V2) -> 0
+  mul(W2,0) -> 0
+  pls(0,P2) -> P2
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,21 @@
+Input TRS:
+    1: app(abs(x()),S) -> S
+    2: app(abs(T),S) -> T
+    3: app(abs(app(F,G)),S) -> app(app(abs(F),S),app(abs(G),S))
+    4: app(abs(abs(H)),S) -> abs(app(abs(H),S))
+Number of strict rules: 4
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #app(abs(app(F,G)),S) -> #app(app(abs(F),S),app(abs(G),S))
+   #2: #app(abs(app(F,G)),S) -> #app(abs(F),S)
+   #3: #app(abs(app(F,G)),S) -> #app(abs(G),S)
+   #4: #app(abs(abs(H)),S) -> #app(abs(H),S)
+Number of SCCs: 1, DPs: 4
+  SCC { #1..4 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #app(abs(app(abs(H_{i0}),G)),G_{1})	-#1->
+  #app(app(abs(abs(H_{i0})),G_{1}),app(abs(G),G_{1}))	--->*
+  #app(abs(app(abs(H_{i0}),G_{1})),app(abs(G),G_{1}))
+  Looping with: [ G_{1} := app(abs(G),G_{1}); H_{i0} := H_{i0}; G := G_{1}; ]

@@ -1,0 +1,1322 @@
+Input TRS:
+    1: active(natsFrom(X())) -> mark(cons(X(),natsFrom(s(X()))))
+    2: active(fst(pair(Y(),U()))) -> mark(Y())
+    3: active(snd(pair(V(),W()))) -> mark(W())
+    4: active(splitAt(0(),P())) -> mark(pair(nil(),P()))
+    5: active(splitAt(s(X1),cons(Y1(),U1()))) -> mark(u(splitAt(X1,U1()),X1,Y1(),U1()))
+    6: active(u(pair(V1(),W1()),P1(),X2,Y2())) -> mark(pair(cons(X2,V1()),W1()))
+    7: active(head(cons(U2(),V2()))) -> mark(U2())
+    8: active(tail(cons(W2(),P2()))) -> mark(P2())
+    9: active(sel(X3(),Y3())) -> mark(head(afterNth(X3(),Y3())))
+    10: active(take(U3(),V3())) -> mark(fst(splitAt(U3(),V3())))
+    11: active(afterNth(W3(),P3())) -> mark(snd(splitAt(W3(),P3())))
+    12: mark(natsFrom(X4())) -> active(natsFrom(mark(X4())))
+    13: mark(cons(Y4(),U4())) -> active(cons(mark(Y4()),U4()))
+    14: mark(s(V4())) -> active(s(mark(V4())))
+    15: mark(fst(W4())) -> active(fst(mark(W4())))
+    16: mark(pair(P4(),X5())) -> active(pair(mark(P4()),mark(X5())))
+    17: mark(snd(Y5())) -> active(snd(mark(Y5())))
+    18: mark(splitAt(U5(),V5())) -> active(splitAt(mark(U5()),mark(V5())))
+    19: mark(0()) -> active(0())
+    20: mark(nil()) -> active(nil())
+    21: mark(u(W5(),P5(),X6(),Y6())) -> active(u(mark(W5()),P5(),X6(),Y6()))
+    22: mark(head(U6())) -> active(head(mark(U6())))
+    23: mark(tail(V6())) -> active(tail(mark(V6())))
+    24: mark(sel(W6(),P6())) -> active(sel(mark(W6()),mark(P6())))
+    25: mark(afterNth(X7(),Y7())) -> active(afterNth(mark(X7()),mark(Y7())))
+    26: mark(take(U7(),V7())) -> active(take(mark(U7()),mark(V7())))
+    27: natsFrom(mark(W7())) -> natsFrom(W7())
+    28: natsFrom(active(P7())) -> natsFrom(P7())
+    29: cons(mark(X8()),Y8()) -> cons(X8(),Y8())
+    30: cons(U8(),mark(V8())) -> cons(U8(),V8())
+    31: cons(active(W8()),P8()) -> cons(W8(),P8())
+    32: cons(X9(),active(Y9())) -> cons(X9(),Y9())
+    33: s(mark(U9())) -> s(U9())
+    34: s(active(V9())) -> s(V9())
+    35: fst(mark(W9())) -> fst(W9())
+    36: fst(active(P9())) -> fst(P9())
+    37: pair(mark(X10()),Y10()) -> pair(X10(),Y10())
+    38: pair(U10(),mark(V10())) -> pair(U10(),V10())
+    39: pair(active(W10()),P10()) -> pair(W10(),P10())
+    40: pair(X11(),active(Y11())) -> pair(X11(),Y11())
+    41: snd(mark(U11())) -> snd(U11())
+    42: snd(active(V11())) -> snd(V11())
+    43: splitAt(mark(W11()),P11()) -> splitAt(W11(),P11())
+    44: splitAt(X12(),mark(Y12())) -> splitAt(X12(),Y12())
+    45: splitAt(active(U12()),V12()) -> splitAt(U12(),V12())
+    46: splitAt(W12(),active(P12())) -> splitAt(W12(),P12())
+    47: u(mark(X13()),Y13(),U13(),V13()) -> u(X13(),Y13(),U13(),V13())
+    48: u(W13(),mark(P13()),X14(),Y14()) -> u(W13(),P13(),X14(),Y14())
+    49: u(U14(),V14(),mark(W14()),P14()) -> u(U14(),V14(),W14(),P14())
+    50: u(X15(),Y15(),U15(),mark(V15())) -> u(X15(),Y15(),U15(),V15())
+    51: u(active(W15()),P15(),X16(),Y16()) -> u(W15(),P15(),X16(),Y16())
+    52: u(U16(),active(V16()),W16(),P16()) -> u(U16(),V16(),W16(),P16())
+    53: u(X17(),Y17(),active(U17()),V17()) -> u(X17(),Y17(),U17(),V17())
+    54: u(W17(),P17(),X18(),active(Y18())) -> u(W17(),P17(),X18(),Y18())
+    55: head(mark(U18())) -> head(U18())
+    56: head(active(V18())) -> head(V18())
+    57: tail(mark(W18())) -> tail(W18())
+    58: tail(active(P18())) -> tail(P18())
+    59: sel(mark(X19()),Y19()) -> sel(X19(),Y19())
+    60: sel(U19(),mark(V19())) -> sel(U19(),V19())
+    61: sel(active(W19()),P19()) -> sel(W19(),P19())
+    62: sel(X20(),active(Y20())) -> sel(X20(),Y20())
+    63: afterNth(mark(U20()),V20()) -> afterNth(U20(),V20())
+    64: afterNth(W20(),mark(P20())) -> afterNth(W20(),P20())
+    65: afterNth(active(X21()),Y21()) -> afterNth(X21(),Y21())
+    66: afterNth(U21(),active(V21())) -> afterNth(U21(),V21())
+    67: take(mark(W21()),P21()) -> take(W21(),P21())
+    68: take(X22(),mark(Y22())) -> take(X22(),Y22())
+    69: take(active(U22()),V22()) -> take(U22(),V22())
+    70: take(W22(),active(P22())) -> take(W22(),P22())
+    71: _(X1,X2) -> X1
+    72: _(X1,X2) -> X2
+Number of strict rules: 72
+Direct POLO(bPol) ... removes: 4 8 54 3 36 32 34 28 65 5 72 10 39 7 52 62 56 31 69 70 11 9 51 40 6 61 58 71 53 42 46 2
+      V1	w: 1
+      V15	w: 1
+      P18	w: 1
+      U1	w: 1
+      U16	w: 0
+      W18	w: 1
+      U21	w: 0
+      V17	w: 0
+      U11	w: 1
+      V18	w: 1
+      X19	w: 1
+      Y2	w: 1
+      P17	w: 0
+      s 	w: x1
+      V12	w: 0
+      P8	w: 0
+      P20	w: 1
+      V14	w: 0
+      X11	w: 0
+      Y11	w: 1
+      V16	w: 1
+      X3	w: 1
+      W8	w: 1
+      V13	w: 0
+      W5	w: 0
+      Y7	w: 0
+      Y22	w: 1
+      W 	w: 1
+      Y 	w: 1
+      P13	w: 1
+      X4	w: 0
+      u 	w: x1 + x2 + x3 + x4
+      P4	w: 0
+      X6	w: 0
+      W17	w: 0
+      take	w: x1 + x2
+      W21	w: 1
+      P22	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 1
+      X13	w: 1
+      pair	w: x1 + x2
+      Y14	w: 0
+      P19	w: 0
+      X17	w: 0
+      fst	w: x1
+      U8	w: 0
+      P11	w: 0
+      P15	w: 0
+      V22	w: 0
+      X21	w: 1
+      natsFrom	w: x1
+      Y13	w: 0
+      W10	w: 1
+      Y17	w: 0
+      V4	w: 0
+      W14	w: 1
+      Y4	w: 0
+      splitAt	w: x1 + x2
+      Y5	w: 0
+      P16	w: 0
+      V21	w: 0
+      P9	w: 1
+      V7	w: 0
+      Y15	w: 0
+      W20	w: 0
+      X12	w: 0
+      V19	w: 1
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 1
+      U12	w: 0
+      U9	w: 1
+      _ 	w: x1 + x2 + 1
+      P21	w: 0
+      U20	w: 1
+      V9	w: 1
+      V2	w: 2
+      X16	w: 0
+      Y21	w: 0
+      U19	w: 0
+      X14	w: 0
+      U10	w: 0
+      tail	w: x1
+      V5	w: 0
+      U17	w: 1
+      P2	w: 1
+      0 	w: 0
+      X20	w: 0
+      W12	w: 0
+      Y3	w: 1
+      P10	w: 0
+      Y12	w: 1
+      Y19	w: 0
+      sel	w: x1 + x2
+      afterNth	w: 2 * x1 + x2
+      P14	w: 0
+      X15	w: 0
+      W6	w: 0
+      W2	w: 1
+      nil	w: 0
+      V6	w: 0
+      P5	w: 0
+      W1	w: 1
+      X5	w: 0
+      mark	w: x1
+      W19	w: 1
+      V8	w: 1
+      W4	w: 0
+      W3	w: 1
+      X7	w: 0
+      U14	w: 0
+      W22	w: 0
+      Y10	w: 0
+      X18	w: 0
+      U7	w: 0
+      X9	w: 0
+      P7	w: 1
+      W9	w: 1
+      U15	w: 0
+      U5	w: 0
+      X22	w: 0
+      active	w: 2 * x1
+      head	w: x1
+      W13	w: 0
+      cons	w: 2 * x1 + x2
+      snd	w: x1
+      P 	w: 1
+      Y18	w: 1
+      U18	w: 1
+      V3	w: 9
+      Y8	w: 0
+      U13	w: 0
+      U2	w: 1
+      X 	w: 0
+      W16	w: 0
+      Y20	w: 1
+      U4	w: 0
+      U22	w: 1
+      Y16	w: 0
+      U6	w: 0
+      P12	w: 1
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 0
+      V 	w: 1
+      X10	w: 2
+      V20	w: 0
+      U 	w: 1
+      Y9	w: 1
+      W15	w: 1
+Number of strict rules: 40
+Direct POLO(bPol) ... removes: 45
+      V1	w: 1
+      V15	w: 1
+      P18	w: 1
+      U1	w: 1
+      U16	w: 0
+      W18	w: 1
+      U21	w: 0
+      V17	w: 0
+      U11	w: 1
+      V18	w: 1
+      X19	w: 1
+      Y2	w: 1
+      P17	w: 0
+      s 	w: x1
+      V12	w: 0
+      P8	w: 0
+      P20	w: 1
+      V14	w: 0
+      X11	w: 0
+      Y11	w: 1
+      V16	w: 1
+      X3	w: 1
+      W8	w: 1
+      V13	w: 0
+      W5	w: 0
+      Y7	w: 0
+      Y22	w: 1
+      W 	w: 2
+      Y 	w: 1
+      P13	w: 1
+      X4	w: 0
+      u 	w: x1 + x2 + x3 + x4
+      P4	w: 0
+      X6	w: 0
+      W17	w: 0
+      take	w: x1 + x2
+      W21	w: 1
+      P22	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 1
+      X13	w: 1
+      pair	w: x1 + x2
+      Y14	w: 0
+      P19	w: 0
+      X17	w: 0
+      fst	w: x1
+      U8	w: 0
+      P11	w: 0
+      P15	w: 0
+      V22	w: 0
+      X21	w: 1
+      natsFrom	w: x1
+      Y13	w: 0
+      W10	w: 1
+      Y17	w: 0
+      V4	w: 0
+      W14	w: 1
+      Y4	w: 0
+      splitAt	w: x1 + x2
+      Y5	w: 0
+      P16	w: 0
+      V21	w: 0
+      P9	w: 1
+      V7	w: 0
+      Y15	w: 0
+      W20	w: 0
+      X12	w: 0
+      V19	w: 1
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 1
+      U12	w: 1
+      U9	w: 1
+      _ 	w: x1 + x2 + 1
+      P21	w: 0
+      U20	w: 1
+      V9	w: 1
+      V2	w: 1
+      X16	w: 0
+      Y21	w: 0
+      U19	w: 0
+      X14	w: 0
+      U10	w: 0
+      tail	w: x1
+      V5	w: 0
+      U17	w: 1
+      P2	w: 1
+      0 	w: 0
+      X20	w: 0
+      W12	w: 0
+      Y3	w: 2
+      P10	w: 0
+      Y12	w: 1
+      Y19	w: 0
+      sel	w: x1 + x2
+      afterNth	w: 2 * x1 + x2
+      P14	w: 0
+      X15	w: 0
+      W6	w: 0
+      W2	w: 1
+      nil	w: 0
+      V6	w: 0
+      P5	w: 0
+      W1	w: 1
+      X5	w: 0
+      mark	w: x1
+      W19	w: 1
+      V8	w: 1
+      W4	w: 0
+      W3	w: 1
+      X7	w: 0
+      U14	w: 0
+      W22	w: 0
+      Y10	w: 0
+      X18	w: 0
+      U7	w: 0
+      X9	w: 0
+      P7	w: 1
+      W9	w: 1
+      U15	w: 0
+      U5	w: 0
+      X22	w: 0
+      active	w: 2 * x1
+      head	w: x1
+      W13	w: 0
+      cons	w: 2 * x1 + x2
+      snd	w: x1
+      P 	w: 1
+      Y18	w: 1
+      U18	w: 1
+      V3	w: 9
+      Y8	w: 0
+      U13	w: 0
+      U2	w: 1
+      X 	w: 0
+      W16	w: 0
+      Y20	w: 1
+      U4	w: 0
+      U22	w: 1
+      Y16	w: 0
+      U6	w: 0
+      P12	w: 1
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 0
+      V 	w: 1
+      X10	w: 2
+      V20	w: 0
+      U 	w: 1
+      Y9	w: 1
+      W15	w: 1
+Number of strict rules: 39
+Direct POLO(bPol) ... removes: 1 66
+      V1	w: 1
+      V15	w: 1
+      P18	w: 1
+      U1	w: 1
+      U16	w: 0
+      W18	w: 1
+      U21	w: 0
+      V17	w: 0
+      U11	w: 1
+      V18	w: 1
+      X19	w: 1
+      Y2	w: 1
+      P17	w: 0
+      s 	w: x1
+      V12	w: 0
+      P8	w: 0
+      P20	w: 1
+      V14	w: 0
+      X11	w: 0
+      Y11	w: 0
+      V16	w: 0
+      X3	w: 0
+      W8	w: 1
+      V13	w: 0
+      W5	w: 0
+      Y7	w: 0
+      Y22	w: 1
+      W 	w: 1
+      Y 	w: 1
+      P13	w: 1
+      X4	w: 0
+      u 	w: x1 + 2 * x2 + x3 + x4
+      P4	w: 0
+      X6	w: 0
+      W17	w: 0
+      take	w: x1 + x2
+      W21	w: 1
+      P22	w: 0
+      U3	w: 0
+      P3	w: 1
+      Y1	w: 4
+      X8	w: 1
+      X13	w: 1
+      pair	w: x1 + x2
+      Y14	w: 0
+      P19	w: 0
+      X17	w: 0
+      fst	w: x1
+      U8	w: 0
+      P11	w: 0
+      P15	w: 0
+      V22	w: 0
+      X21	w: 1
+      natsFrom	w: 2 * x1
+      Y13	w: 0
+      W10	w: 1
+      Y17	w: 0
+      V4	w: 0
+      W14	w: 1
+      Y4	w: 0
+      splitAt	w: x1 + x2
+      Y5	w: 0
+      P16	w: 0
+      V21	w: 1
+      P9	w: 1
+      V7	w: 0
+      Y15	w: 0
+      W20	w: 0
+      X12	w: 0
+      V19	w: 1
+      P1	w: 1
+      W7	w: 0
+      W11	w: 1
+      V10	w: 1
+      U12	w: 0
+      U9	w: 1
+      _ 	w: x1 + x2 + 1
+      P21	w: 0
+      U20	w: 1
+      V9	w: 1
+      V2	w: 1
+      X16	w: 0
+      Y21	w: 0
+      U19	w: 0
+      X14	w: 0
+      U10	w: 0
+      tail	w: x1
+      V5	w: 0
+      U17	w: 1
+      P2	w: 0
+      0 	w: 0
+      X20	w: 0
+      W12	w: 0
+      Y3	w: 0
+      P10	w: 0
+      Y12	w: 1
+      Y19	w: 0
+      sel	w: x1 + x2
+      afterNth	w: x1 + 2 * x2
+      P14	w: 0
+      X15	w: 0
+      W6	w: 0
+      W2	w: 0
+      nil	w: 0
+      V6	w: 0
+      P5	w: 0
+      W1	w: 1
+      X5	w: 0
+      mark	w: x1
+      W19	w: 1
+      V8	w: 1
+      W4	w: 0
+      W3	w: 1
+      X7	w: 0
+      U14	w: 0
+      W22	w: 0
+      Y10	w: 0
+      X18	w: 0
+      U7	w: 0
+      X9	w: 0
+      P7	w: 1
+      W9	w: 1
+      U15	w: 0
+      U5	w: 0
+      X22	w: 0
+      active	w: 2 * x1
+      head	w: x1
+      W13	w: 0
+      cons	w: x1 + x2
+      snd	w: x1
+      P 	w: 1
+      Y18	w: 1
+      U18	w: 1
+      V3	w: 0
+      Y8	w: 0
+      U13	w: 0
+      U2	w: 2
+      X 	w: 1
+      W16	w: 0
+      Y20	w: 1
+      U4	w: 0
+      U22	w: 1
+      Y16	w: 0
+      U6	w: 0
+      P12	w: 1
+      V11	w: 0
+      Y6	w: 0
+      P6	w: 0
+      V 	w: 1
+      X10	w: 2
+      V20	w: 0
+      U 	w: 1
+      Y9	w: 0
+      W15	w: 2
+Number of strict rules: 37
+Direct POLO(bPol) ... removes: 24
+      V1	w: 1
+      V15	w: 0
+      P18	w: 1
+      U1	w: 1
+      U16	w: 0
+      W18	w: 0
+      U21	w: 0
+      V17	w: 0
+      U11	w: 0
+      V18	w: 1
+      X19	w: 0
+      Y2	w: 2
+      P17	w: 0
+      s 	w: 2 * x1
+      V12	w: 0
+      P8	w: 0
+      P20	w: 0
+      V14	w: 0
+      X11	w: 0
+      Y11	w: 1
+      V16	w: 1
+      X3	w: 1
+      W8	w: 1
+      V13	w: 0
+      W5	w: 1
+      Y7	w: 1
+      Y22	w: 0
+      W 	w: 1
+      Y 	w: 1
+      P13	w: 0
+      X4	w: 1
+      u 	w: x1 + x2 + x3 + x4
+      P4	w: 1
+      X6	w: 0
+      W17	w: 0
+      take	w: x1 + x2
+      W21	w: 0
+      P22	w: 0
+      U3	w: 0
+      P3	w: 0
+      Y1	w: 1
+      X8	w: 0
+      X13	w: 0
+      pair	w: x1 + 2 * x2
+      Y14	w: 0
+      P19	w: 0
+      X17	w: 0
+      fst	w: x1
+      U8	w: 0
+      P11	w: 0
+      P15	w: 0
+      V22	w: 0
+      X21	w: 1
+      natsFrom	w: x1
+      Y13	w: 0
+      W10	w: 1
+      Y17	w: 0
+      V4	w: 1
+      W14	w: 0
+      Y4	w: 1
+      splitAt	w: x1 + x2
+      Y5	w: 0
+      P16	w: 0
+      V21	w: 1
+      P9	w: 1
+      V7	w: 0
+      Y15	w: 0
+      W20	w: 0
+      X12	w: 0
+      V19	w: 0
+      P1	w: 1
+      W7	w: 0
+      W11	w: 0
+      V10	w: 0
+      U12	w: 1
+      U9	w: 0
+      _ 	w: x1 + x2 + 1
+      P21	w: 0
+      U20	w: 0
+      V9	w: 1
+      V2	w: 2
+      X16	w: 0
+      Y21	w: 0
+      U19	w: 0
+      X14	w: 0
+      U10	w: 0
+      tail	w: x1
+      V5	w: 1
+      U17	w: 1
+      P2	w: 1
+      0 	w: 0
+      X20	w: 0
+      W12	w: 0
+      Y3	w: 1
+      P10	w: 0
+      Y12	w: 0
+      Y19	w: 0
+      sel	w: 2 * x1 + x2 + 1
+      afterNth	w: x1 + x2
+      P14	w: 0
+      X15	w: 0
+      W6	w: 1
+      W2	w: 1
+      nil	w: 0
+      V6	w: 0
+      P5	w: 0
+      W1	w: 1
+      X5	w: 1
+      mark	w: 2 * x1
+      W19	w: 1
+      V8	w: 0
+      W4	w: 1
+      W3	w: 0
+      X7	w: 1
+      U14	w: 0
+      W22	w: 0
+      Y10	w: 0
+      X18	w: 0
+      U7	w: 1
+      X9	w: 0
+      P7	w: 1
+      W9	w: 0
+      U15	w: 0
+      U5	w: 1
+      X22	w: 0
+      active	w: x1
+      head	w: x1
+      W13	w: 0
+      cons	w: x1 + x2
+      snd	w: x1
+      P 	w: 1
+      Y18	w: 1
+      U18	w: 0
+      V3	w: 0
+      Y8	w: 0
+      U13	w: 0
+      U2	w: 1
+      X 	w: 0
+      W16	w: 0
+      Y20	w: 1
+      U4	w: 0
+      U22	w: 2
+      Y16	w: 0
+      U6	w: 0
+      P12	w: 1
+      V11	w: 0
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      V20	w: 0
+      U 	w: 1
+      Y9	w: 0
+      W15	w: 2
+Number of strict rules: 36
+Direct POLO(bPol) ... removes: 16 21 26 19 22 55
+      V1	w: 1
+      V15	w: 0
+      P18	w: 1
+      U1	w: 1
+      U16	w: 0
+      W18	w: 0
+      U21	w: 0
+      V17	w: 0
+      U11	w: 0
+      V18	w: 1
+      X19	w: 0
+      Y2	w: 2
+      P17	w: 0
+      s 	w: 2 * x1
+      V12	w: 0
+      P8	w: 0
+      P20	w: 0
+      V14	w: 0
+      X11	w: 0
+      Y11	w: 1
+      V16	w: 1
+      X3	w: 1
+      W8	w: 1
+      V13	w: 0
+      W5	w: 1
+      Y7	w: 1
+      Y22	w: 0
+      W 	w: 1
+      Y 	w: 1
+      P13	w: 0
+      X4	w: 1
+      u 	w: x1 + x2 + x3 + x4 + 1
+      P4	w: 1
+      X6	w: 0
+      W17	w: 0
+      take	w: x1 + x2 + 1
+      W21	w: 0
+      P22	w: 0
+      U3	w: 0
+      P3	w: 0
+      Y1	w: 1
+      X8	w: 0
+      X13	w: 0
+      pair	w: x1 + 2 * x2 + 1
+      Y14	w: 0
+      P19	w: 0
+      X17	w: 0
+      fst	w: x1
+      U8	w: 0
+      P11	w: 0
+      P15	w: 0
+      V22	w: 0
+      X21	w: 1
+      natsFrom	w: x1
+      Y13	w: 0
+      W10	w: 1
+      Y17	w: 0
+      V4	w: 1
+      W14	w: 0
+      Y4	w: 1
+      splitAt	w: x1 + x2
+      Y5	w: 0
+      P16	w: 0
+      V21	w: 1
+      P9	w: 1
+      V7	w: 0
+      Y15	w: 0
+      W20	w: 0
+      X12	w: 0
+      V19	w: 0
+      P1	w: 1
+      W7	w: 0
+      W11	w: 0
+      V10	w: 0
+      U12	w: 1
+      U9	w: 0
+      _ 	w: x1 + x2
+      P21	w: 0
+      U20	w: 0
+      V9	w: 1
+      V2	w: 1
+      X16	w: 0
+      Y21	w: 0
+      U19	w: 0
+      X14	w: 0
+      U10	w: 0
+      tail	w: x1
+      V5	w: 1
+      U17	w: 1
+      P2	w: 1
+      0 	w: 1
+      X20	w: 0
+      W12	w: 0
+      Y3	w: 1
+      P10	w: 0
+      Y12	w: 0
+      Y19	w: 0
+      sel	w: 2 * x1 + x2 + 3
+      afterNth	w: x1 + x2
+      P14	w: 0
+      X15	w: 0
+      W6	w: 1
+      W2	w: 1
+      nil	w: 0
+      V6	w: 0
+      P5	w: 0
+      W1	w: 1
+      X5	w: 1
+      mark	w: 2 * x1
+      W19	w: 1
+      V8	w: 0
+      W4	w: 1
+      W3	w: 0
+      X7	w: 1
+      U14	w: 0
+      W22	w: 0
+      Y10	w: 0
+      X18	w: 0
+      U7	w: 1
+      X9	w: 0
+      P7	w: 1
+      W9	w: 0
+      U15	w: 0
+      U5	w: 1
+      X22	w: 0
+      active	w: x1
+      head	w: x1 + 1
+      W13	w: 0
+      cons	w: x1 + x2
+      snd	w: x1
+      P 	w: 1
+      Y18	w: 1
+      U18	w: 1
+      V3	w: 0
+      Y8	w: 0
+      U13	w: 0
+      U2	w: 2
+      X 	w: 0
+      W16	w: 0
+      Y20	w: 1
+      U4	w: 0
+      U22	w: 1
+      Y16	w: 0
+      U6	w: 0
+      P12	w: 1
+      V11	w: 0
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      V20	w: 0
+      U 	w: 1
+      Y9	w: 0
+      W15	w: 1
+Number of strict rules: 30
+Direct POLO(bPol) ... removes: 63 44 64 25 49 57 67 59 38 48 35
+      V1	w: 3
+      V15	w: 0
+      P18	w: 1
+      U1	w: 1
+      U16	w: 0
+      W18	w: 1
+      U21	w: 0
+      V17	w: 0
+      U11	w: 0
+      V18	w: 1
+      X19	w: 1
+      Y2	w: 1
+      P17	w: 0
+      s 	w: x1 + 1
+      V12	w: 0
+      P8	w: 0
+      P20	w: 1
+      V14	w: 0
+      X11	w: 0
+      Y11	w: 1
+      V16	w: 1
+      X3	w: 1
+      W8	w: 1
+      V13	w: 0
+      W5	w: 1
+      Y7	w: 1
+      Y22	w: 0
+      W 	w: 5
+      Y 	w: 5
+      P13	w: 1
+      X4	w: 1
+      u 	w: x1 + x2 + x3 + x4 + 1
+      P4	w: 1
+      X6	w: 1
+      W17	w: 0
+      take	w: x1 + x2 + 1
+      W21	w: 1
+      P22	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      X13	w: 0
+      pair	w: x1 + x2 + 1
+      Y14	w: 0
+      P19	w: 0
+      X17	w: 0
+      fst	w: x1 + 1
+      U8	w: 0
+      P11	w: 0
+      P15	w: 0
+      V22	w: 0
+      X21	w: 1
+      natsFrom	w: x1 + 1
+      Y13	w: 0
+      W10	w: 1
+      Y17	w: 0
+      V4	w: 1
+      W14	w: 1
+      Y4	w: 1
+      splitAt	w: x1 + x2 + 1
+      Y5	w: 1
+      P16	w: 0
+      V21	w: 1
+      P9	w: 1
+      V7	w: 1
+      Y15	w: 0
+      W20	w: 0
+      X12	w: 0
+      V19	w: 0
+      P1	w: 1
+      W7	w: 0
+      W11	w: 0
+      V10	w: 1
+      U12	w: 1
+      U9	w: 0
+      _ 	w: 2 * x1 + x2 + 1
+      P21	w: 0
+      U20	w: 1
+      V9	w: 1
+      V2	w: 1
+      X16	w: 0
+      Y21	w: 0
+      U19	w: 0
+      X14	w: 0
+      U10	w: 0
+      tail	w: x1 + 1
+      V5	w: 1
+      U17	w: 1
+      P2	w: 3
+      0 	w: 1
+      X20	w: 0
+      W12	w: 0
+      Y3	w: 1
+      P10	w: 0
+      Y12	w: 1
+      Y19	w: 0
+      sel	w: 2 * x1 + x2
+      afterNth	w: x1 + x2 + 2
+      P14	w: 0
+      X15	w: 0
+      W6	w: 1
+      W2	w: 1
+      nil	w: 1
+      V6	w: 1
+      P5	w: 1
+      W1	w: 1
+      X5	w: 2
+      mark	w: 2 * x1
+      W19	w: 1
+      V8	w: 0
+      W4	w: 1
+      W3	w: 1
+      X7	w: 1
+      U14	w: 0
+      W22	w: 0
+      Y10	w: 0
+      X18	w: 0
+      U7	w: 1
+      X9	w: 0
+      P7	w: 1
+      W9	w: 2
+      U15	w: 0
+      U5	w: 1
+      X22	w: 0
+      active	w: x1 + 1
+      head	w: 2 * x1 + 1
+      W13	w: 0
+      cons	w: x1 + x2
+      snd	w: x1 + 1
+      P 	w: 1
+      Y18	w: 1
+      U18	w: 1
+      V3	w: 1
+      Y8	w: 0
+      U13	w: 0
+      U2	w: 3
+      X 	w: 1
+      W16	w: 0
+      Y20	w: 1
+      U4	w: 1
+      U22	w: 2
+      Y16	w: 0
+      U6	w: 0
+      P12	w: 1
+      V11	w: 1
+      Y6	w: 1
+      P6	w: 1
+      V 	w: 2
+      X10	w: 0
+      V20	w: 0
+      U 	w: 1
+      Y9	w: 1
+      W15	w: 1
+Number of strict rules: 19
+Direct POLO(bPol) ... removes: 18 50 15 68 17 60 27 33 20 30 14 12 23 47 37 41 29 43
+      V1	w: 3
+      V15	w: 1
+      P18	w: 1
+      U1	w: 1
+      U16	w: 0
+      W18	w: 1
+      U21	w: 0
+      V17	w: 0
+      U11	w: 1
+      V18	w: 1
+      X19	w: 0
+      Y2	w: 1
+      P17	w: 0
+      s 	w: x1 + 2
+      V12	w: 0
+      P8	w: 0
+      P20	w: 1
+      V14	w: 0
+      X11	w: 0
+      Y11	w: 1
+      V16	w: 1
+      X3	w: 1
+      W8	w: 1
+      V13	w: 0
+      W5	w: 0
+      Y7	w: 1
+      Y22	w: 0
+      W 	w: 0
+      Y 	w: 6
+      P13	w: 1
+      X4	w: 1
+      u 	w: x1 + x2 + x3 + x4 + 2
+      P4	w: 1
+      X6	w: 1
+      W17	w: 0
+      take	w: x1 + x2 + 1
+      W21	w: 1
+      P22	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 1
+      X13	w: 1
+      pair	w: 2 * x1 + x2 + 2
+      Y14	w: 0
+      P19	w: 0
+      X17	w: 0
+      fst	w: x1 + 2
+      U8	w: 0
+      P11	w: 0
+      P15	w: 0
+      V22	w: 0
+      X21	w: 1
+      natsFrom	w: x1 + 2
+      Y13	w: 0
+      W10	w: 1
+      Y17	w: 0
+      V4	w: 1
+      W14	w: 1
+      Y4	w: 0
+      splitAt	w: x1 + x2 + 2
+      Y5	w: 1
+      P16	w: 0
+      V21	w: 2
+      P9	w: 1
+      V7	w: 1
+      Y15	w: 0
+      W20	w: 0
+      X12	w: 0
+      V19	w: 1
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 1
+      U12	w: 1
+      U9	w: 1
+      _ 	w: 2 * x1 + x2 + 1
+      P21	w: 0
+      U20	w: 1
+      V9	w: 1
+      V2	w: 5
+      X16	w: 0
+      Y21	w: 0
+      U19	w: 0
+      X14	w: 0
+      U10	w: 0
+      tail	w: x1 + 2
+      V5	w: 1
+      U17	w: 1
+      P2	w: 2
+      0 	w: 0
+      X20	w: 0
+      W12	w: 0
+      Y3	w: 1
+      P10	w: 0
+      Y12	w: 1
+      Y19	w: 0
+      sel	w: 2 * x1 + x2
+      afterNth	w: x1 + x2 + 1
+      P14	w: 0
+      X15	w: 0
+      W6	w: 0
+      W2	w: 2
+      nil	w: 1
+      V6	w: 1
+      P5	w: 1
+      W1	w: 1
+      X5	w: 0
+      mark	w: 2 * x1 + 1
+      W19	w: 1
+      V8	w: 0
+      W4	w: 1
+      W3	w: 1
+      X7	w: 1
+      U14	w: 0
+      W22	w: 0
+      Y10	w: 0
+      X18	w: 0
+      U7	w: 1
+      X9	w: 0
+      P7	w: 1
+      W9	w: 2
+      U15	w: 0
+      U5	w: 0
+      X22	w: 0
+      active	w: x1
+      head	w: 2 * x1
+      W13	w: 0
+      cons	w: x1 + x2
+      snd	w: x1 + 2
+      P 	w: 1
+      Y18	w: 1
+      U18	w: 1
+      V3	w: 1
+      Y8	w: 0
+      U13	w: 0
+      U2	w: 0
+      X 	w: 1
+      W16	w: 0
+      Y20	w: 1
+      U4	w: 0
+      U22	w: 2
+      Y16	w: 0
+      U6	w: 0
+      P12	w: 1
+      V11	w: 2
+      Y6	w: 1
+      P6	w: 0
+      V 	w: 1
+      X10	w: 1
+      V20	w: 0
+      U 	w: 1
+      Y9	w: 1
+      W15	w: 1
+Number of strict rules: 1
+Direct POLO(bPol) ... removes: 13
+      V1	w: 1
+      V15	w: 1
+      P18	w: 1
+      U1	w: 1
+      U16	w: 0
+      W18	w: 1
+      U21	w: 0
+      V17	w: 0
+      U11	w: 1
+      V18	w: 1
+      X19	w: 0
+      Y2	w: 1
+      P17	w: 0
+      s 	w: x1 + 1
+      V12	w: 0
+      P8	w: 0
+      P20	w: 1
+      V14	w: 0
+      X11	w: 0
+      Y11	w: 1
+      V16	w: 1
+      X3	w: 1
+      W8	w: 1
+      V13	w: 0
+      W5	w: 0
+      Y7	w: 1
+      Y22	w: 0
+      W 	w: 0
+      Y 	w: 1
+      P13	w: 1
+      X4	w: 1
+      u 	w: x1 + x2 + x3 + x4
+      P4	w: 1
+      X6	w: 1
+      W17	w: 0
+      take	w: x1 + x2 + 2
+      W21	w: 1
+      P22	w: 1
+      U3	w: 1
+      P3	w: 2
+      Y1	w: 1
+      X8	w: 1
+      X13	w: 1
+      pair	w: 2 * x1 + x2 + 4
+      Y14	w: 0
+      P19	w: 0
+      X17	w: 0
+      fst	w: x1
+      U8	w: 0
+      P11	w: 0
+      P15	w: 0
+      V22	w: 0
+      X21	w: 1
+      natsFrom	w: x1
+      Y13	w: 0
+      W10	w: 1
+      Y17	w: 0
+      V4	w: 1
+      W14	w: 1
+      Y4	w: 0
+      splitAt	w: x1 + x2 + 4
+      Y5	w: 1
+      P16	w: 0
+      V21	w: 2
+      P9	w: 1
+      V7	w: 1
+      Y15	w: 0
+      W20	w: 0
+      X12	w: 0
+      V19	w: 1
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 1
+      U12	w: 1
+      U9	w: 1
+      _ 	w: 2 * x1 + x2
+      P21	w: 0
+      U20	w: 1
+      V9	w: 1
+      V2	w: 1
+      X16	w: 0
+      Y21	w: 0
+      U19	w: 0
+      X14	w: 0
+      U10	w: 0
+      tail	w: x1
+      V5	w: 1
+      U17	w: 1
+      P2	w: 1
+      0 	w: 0
+      X20	w: 0
+      W12	w: 0
+      Y3	w: 1
+      P10	w: 0
+      Y12	w: 1
+      Y19	w: 0
+      sel	w: 2 * x1 + x2
+      afterNth	w: x1 + x2 + 2
+      P14	w: 0
+      X15	w: 0
+      W6	w: 0
+      W2	w: 2
+      nil	w: 1
+      V6	w: 1
+      P5	w: 1
+      W1	w: 1
+      X5	w: 0
+      mark	w: 2 * x1 + 2
+      W19	w: 1
+      V8	w: 0
+      W4	w: 2
+      W3	w: 1
+      X7	w: 1
+      U14	w: 0
+      W22	w: 0
+      Y10	w: 0
+      X18	w: 0
+      U7	w: 1
+      X9	w: 0
+      P7	w: 1
+      W9	w: 1
+      U15	w: 0
+      U5	w: 0
+      X22	w: 0
+      active	w: x1
+      head	w: 2 * x1
+      W13	w: 0
+      cons	w: x1 + x2 + 1
+      snd	w: x1
+      P 	w: 1
+      Y18	w: 1
+      U18	w: 1
+      V3	w: 1
+      Y8	w: 0
+      U13	w: 0
+      U2	w: 0
+      X 	w: 1
+      W16	w: 0
+      Y20	w: 1
+      U4	w: 0
+      U22	w: 2
+      Y16	w: 0
+      U6	w: 0
+      P12	w: 1
+      V11	w: 1
+      Y6	w: 1
+      P6	w: 0
+      V 	w: 1
+      X10	w: 1
+      V20	w: 0
+      U 	w: 1
+      Y9	w: 1
+      W15	w: 1
+Number of strict rules: 0

@@ -1,0 +1,1 @@
+File "Ex4_7_37_Bor03_iGM.xml", line 1, character 1: syntax error.

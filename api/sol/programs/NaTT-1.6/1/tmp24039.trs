@@ -1,0 +1,13 @@
+(VAR D X Y X1 X2 )
+(RULES
+  dec(0,D) -> 0
+  dec(X,0) -> X
+  dec(s(X),s(D)) -> dec(X,D)
+  pls(0,X) -> X
+  pls(s(X),Y) -> s(pls(X,Y))
+  log2(s(0),0) -> 0
+  log2(0,s(Y)) -> s(log2(s(Y),0))
+  log2(s(0),s(Y)) -> s(log2(s(Y),0))
+  log2(s(s(X)),Y) -> log2(X,s(Y))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

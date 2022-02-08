@@ -1,0 +1,9 @@
+(VAR X Y Z T )
+(RULES
+  union(X,0) -> X
+  union(0,Y) -> Y
+  union(union(X,Y),Z) -> union(X,union(Y,Z))
+  union(X,Y) -> union(Y,X)
+  pi1(pair(X,Y)) -> X
+  pi2(pair(X,Y)) -> Y
+  pair(pi1(T),pi2(T)) -> T)

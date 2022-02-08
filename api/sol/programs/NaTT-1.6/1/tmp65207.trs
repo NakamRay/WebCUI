@@ -1,0 +1,9 @@
+(VAR X Y U V W P X1 Y1 V1 W1 U1 X2 )
+(RULES
+  not(not(X)) -> X
+  not(or(Y,U)) -> and(not(Y),not(U))
+  not(and(V,W)) -> or(not(V),not(W))
+  and(P,or(X1,Y1)) -> or(and(P,X1),and(P,Y1))
+  and(or(V1,W1),U1) -> or(and(U1,V1),and(U1,W1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

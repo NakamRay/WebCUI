@@ -1,0 +1,9 @@
+(VAR Y X U P V W U1 X1 Y1 V1 W1 X2 )
+(RULES
+  h(Y,e(X)) -> h(c(Y),d(Y,X))
+  d(U,g(0,0)) -> e(0)
+  d(P,g(V,W)) -> g(e(V),d(P,W))
+  d(c(U1),g(g(X1,Y1),0)) -> g(d(c(U1),g(X1,Y1)),d(U1,g(X1,Y1)))
+  g(e(V1),e(W1)) -> e(g(V1,W1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

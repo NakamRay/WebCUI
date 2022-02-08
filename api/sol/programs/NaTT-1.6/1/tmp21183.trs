@@ -1,0 +1,6 @@
+(VAR Z X Y X1 X2 )
+(RULES
+  if(s(Z),X,Y) -> X
+  if(0,X,Y) -> Y
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

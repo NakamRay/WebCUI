@@ -1,0 +1,4 @@
+(VAR X Y )
+(RULES
+  app2(xpls(x,y),X,0) -> X
+  app2(xpls,X,s(Y)) -> s(app2(xpls,X,Y)))

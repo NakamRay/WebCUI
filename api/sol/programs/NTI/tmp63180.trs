@@ -1,0 +1,5 @@
+(VAR X Y U V W P X1 )
+(RULES
+  f(X,c(X),c(Y)) -> f(Y,Y,f(Y,X,Y))
+  f(s(U),V,W) -> f(U,s(c(V)),c(W))
+  f(c(P),P,X1) -> c(X1))

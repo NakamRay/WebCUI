@@ -1,0 +1,3450 @@
+Input TRS:
+    1: active(u101(tt(),X,Y)) -> mark(u102(isNatural(X),Y))
+    2: active(u102(tt(),U)) -> mark(u103(isLNat(U)))
+    3: active(u103(tt())) -> mark(tt())
+    4: active(u11(tt(),V,W)) -> mark(snd(splitAt(V,W)))
+    5: active(u111(tt(),P)) -> mark(u112(isLNat(P)))
+    6: active(u112(tt())) -> mark(tt())
+    7: active(u121(tt(),X1)) -> mark(u122(isNatural(X1)))
+    8: active(u122(tt())) -> mark(tt())
+    9: active(u131(tt(),Y1,U1)) -> mark(u132(isNatural(Y1),U1))
+    10: active(u132(tt(),V1)) -> mark(u133(isLNat(V1)))
+    11: active(u133(tt())) -> mark(tt())
+    12: active(u141(tt(),W1,P1)) -> mark(u142(isLNat(W1),P1))
+    13: active(u142(tt(),X2)) -> mark(u143(isLNat(X2)))
+    14: active(u143(tt())) -> mark(tt())
+    15: active(u151(tt(),Y2,U2)) -> mark(u152(isNatural(Y2),U2))
+    16: active(u152(tt(),V2)) -> mark(u153(isLNat(V2)))
+    17: active(u153(tt())) -> mark(tt())
+    18: active(u161(tt(),W2)) -> mark(cons(W2,natsFrom(s(W2))))
+    19: active(u171(tt(),P2,X3)) -> mark(head(afterNth(P2,X3)))
+    20: active(u181(tt(),Y3)) -> mark(Y3)
+    21: active(u191(tt(),U3)) -> mark(pair(nil(),U3))
+    22: active(u201(tt(),V3,W3,P3)) -> mark(u202(splitAt(V3,P3),W3))
+    23: active(u202(pair(X4,Y4),U4)) -> mark(pair(cons(U4,X4),Y4))
+    24: active(u21(tt(),V4)) -> mark(V4)
+    25: active(u211(tt(),W4)) -> mark(W4)
+    26: active(u221(tt(),P4,X5)) -> mark(fst(splitAt(P4,X5)))
+    27: active(u31(tt(),Y5)) -> mark(Y5)
+    28: active(u41(tt(),U5,V5)) -> mark(u42(isNatural(U5),V5))
+    29: active(u42(tt(),W5)) -> mark(u43(isLNat(W5)))
+    30: active(u43(tt())) -> mark(tt())
+    31: active(u51(tt(),P5,X6)) -> mark(u52(isNatural(P5),X6))
+    32: active(u52(tt(),Y6)) -> mark(u53(isLNat(Y6)))
+    33: active(u53(tt())) -> mark(tt())
+    34: active(u61(tt(),U6)) -> mark(u62(isPLNat(U6)))
+    35: active(u62(tt())) -> mark(tt())
+    36: active(u71(tt(),V6)) -> mark(u72(isNatural(V6)))
+    37: active(u72(tt())) -> mark(tt())
+    38: active(u81(tt(),W6)) -> mark(u82(isPLNat(W6)))
+    39: active(u82(tt())) -> mark(tt())
+    40: active(u91(tt(),P6)) -> mark(u92(isLNat(P6)))
+    41: active(u92(tt())) -> mark(tt())
+    42: active(afterNth(X7,Y7)) -> mark(u11(and(and(isNatural(X7),isNaturalKind(X7)),and(isLNat(Y7),isLNatKind(Y7))),X7,Y7))
+    43: active(and(tt(),U7)) -> mark(U7)
+    44: active(fst(pair(V7,W7))) -> mark(u21(and(and(isLNat(V7),isLNatKind(V7)),and(isLNat(W7),isLNatKind(W7))),V7))
+    45: active(head(cons(P7,X8))) -> mark(u31(and(and(isNatural(P7),isNaturalKind(P7)),and(isLNat(X8),isLNatKind(X8))),P7))
+    46: active(isLNat(nil())) -> mark(tt())
+    47: active(isLNat(afterNth(Y8,U8))) -> mark(u41(and(isNaturalKind(Y8),isLNatKind(U8)),Y8,U8))
+    48: active(isLNat(cons(V8,W8))) -> mark(u51(and(isNaturalKind(V8),isLNatKind(W8)),V8,W8))
+    49: active(isLNat(fst(P8))) -> mark(u61(isPLNatKind(P8),P8))
+    50: active(isLNat(natsFrom(X9))) -> mark(u71(isNaturalKind(X9),X9))
+    51: active(isLNat(snd(Y9))) -> mark(u81(isPLNatKind(Y9),Y9))
+    52: active(isLNat(tail(U9))) -> mark(u91(isLNatKind(U9),U9))
+    53: active(isLNat(take(V9,W9))) -> mark(u101(and(isNaturalKind(V9),isLNatKind(W9)),V9,W9))
+    54: active(isLNatKind(nil())) -> mark(tt())
+    55: active(isLNatKind(afterNth(P9,X10))) -> mark(and(isNaturalKind(P9),isLNatKind(X10)))
+    56: active(isLNatKind(cons(Y10,U10))) -> mark(and(isNaturalKind(Y10),isLNatKind(U10)))
+    57: active(isLNatKind(fst(V10))) -> mark(isPLNatKind(V10))
+    58: active(isLNatKind(natsFrom(W10))) -> mark(isNaturalKind(W10))
+    59: active(isLNatKind(snd(P10))) -> mark(isPLNatKind(P10))
+    60: active(isLNatKind(tail(X11))) -> mark(isLNatKind(X11))
+    61: active(isLNatKind(take(Y11,U11))) -> mark(and(isNaturalKind(Y11),isLNatKind(U11)))
+    62: active(isNatural(0())) -> mark(tt())
+    63: active(isNatural(head(V11))) -> mark(u111(isLNatKind(V11),V11))
+    64: active(isNatural(s(W11))) -> mark(u121(isNaturalKind(W11),W11))
+    65: active(isNatural(sel(P11,X12))) -> mark(u131(and(isNaturalKind(P11),isLNatKind(X12)),P11,X12))
+    66: active(isNaturalKind(0())) -> mark(tt())
+    67: active(isNaturalKind(head(Y12))) -> mark(isLNatKind(Y12))
+    68: active(isNaturalKind(s(U12))) -> mark(isNaturalKind(U12))
+    69: active(isNaturalKind(sel(V12,W12))) -> mark(and(isNaturalKind(V12),isLNatKind(W12)))
+    70: active(isPLNat(pair(P12,X13))) -> mark(u141(and(isLNatKind(P12),isLNatKind(X13)),P12,X13))
+    71: active(isPLNat(splitAt(Y13,U13))) -> mark(u151(and(isNaturalKind(Y13),isLNatKind(U13)),Y13,U13))
+    72: active(isPLNatKind(pair(V13,W13))) -> mark(and(isLNatKind(V13),isLNatKind(W13)))
+    73: active(isPLNatKind(splitAt(P13,X14))) -> mark(and(isNaturalKind(P13),isLNatKind(X14)))
+    74: active(natsFrom(Y14)) -> mark(u161(and(isNatural(Y14),isNaturalKind(Y14)),Y14))
+    75: active(sel(U14,V14)) -> mark(u171(and(and(isNatural(U14),isNaturalKind(U14)),and(isLNat(V14),isLNatKind(V14))),U14,V14))
+    76: active(snd(pair(W14,P14))) -> mark(u181(and(and(isLNat(W14),isLNatKind(W14)),and(isLNat(P14),isLNatKind(P14))),P14))
+    77: active(splitAt(0(),X15)) -> mark(u191(and(isLNat(X15),isLNatKind(X15)),X15))
+    78: active(splitAt(s(Y15),cons(U15,V15))) -> mark(u201(and(and(isNatural(Y15),isNaturalKind(Y15)),and(and(isNatural(U15),isNaturalKind(U15)),and(isLNat(V15),isLNatKind(V15)))),Y15,U15,V15))
+    79: active(tail(cons(W15,P15))) -> mark(u211(and(and(isNatural(W15),isNaturalKind(W15)),and(isLNat(P15),isLNatKind(P15))),P15))
+    80: active(take(X16,Y16)) -> mark(u221(and(and(isNatural(X16),isNaturalKind(X16)),and(isLNat(Y16),isLNatKind(Y16))),X16,Y16))
+    81: mark(u101(U16,V16,W16)) -> active(u101(mark(U16),V16,W16))
+    82: mark(tt()) -> active(tt())
+    83: mark(u102(P16,X17)) -> active(u102(mark(P16),X17))
+    84: mark(isNatural(Y17)) -> active(isNatural(Y17))
+    85: mark(u103(U17)) -> active(u103(mark(U17)))
+    86: mark(isLNat(V17)) -> active(isLNat(V17))
+    87: mark(u11(W17,P17,X18)) -> active(u11(mark(W17),P17,X18))
+    88: mark(snd(Y18)) -> active(snd(mark(Y18)))
+    89: mark(splitAt(U18,V18)) -> active(splitAt(mark(U18),mark(V18)))
+    90: mark(u111(W18,P18)) -> active(u111(mark(W18),P18))
+    91: mark(u112(X19)) -> active(u112(mark(X19)))
+    92: mark(u121(Y19,U19)) -> active(u121(mark(Y19),U19))
+    93: mark(u122(V19)) -> active(u122(mark(V19)))
+    94: mark(u131(W19,P19,X20)) -> active(u131(mark(W19),P19,X20))
+    95: mark(u132(Y20,U20)) -> active(u132(mark(Y20),U20))
+    96: mark(u133(V20)) -> active(u133(mark(V20)))
+    97: mark(u141(W20,P20,X21)) -> active(u141(mark(W20),P20,X21))
+    98: mark(u142(Y21,U21)) -> active(u142(mark(Y21),U21))
+    99: mark(u143(V21)) -> active(u143(mark(V21)))
+    100: mark(u151(W21,P21,X22)) -> active(u151(mark(W21),P21,X22))
+    101: mark(u152(Y22,U22)) -> active(u152(mark(Y22),U22))
+    102: mark(u153(V22)) -> active(u153(mark(V22)))
+    103: mark(u161(W22,P22)) -> active(u161(mark(W22),P22))
+    104: mark(cons(X23,Y23)) -> active(cons(mark(X23),Y23))
+    105: mark(natsFrom(U23)) -> active(natsFrom(mark(U23)))
+    106: mark(s(V23)) -> active(s(mark(V23)))
+    107: mark(u171(W23,P23,X24)) -> active(u171(mark(W23),P23,X24))
+    108: mark(head(Y24)) -> active(head(mark(Y24)))
+    109: mark(afterNth(U24,V24)) -> active(afterNth(mark(U24),mark(V24)))
+    110: mark(u181(W24,P24)) -> active(u181(mark(W24),P24))
+    111: mark(u191(X25,Y25)) -> active(u191(mark(X25),Y25))
+    112: mark(pair(U25,V25)) -> active(pair(mark(U25),mark(V25)))
+    113: mark(nil()) -> active(nil())
+    114: mark(u201(W25,P25,X26,Y26)) -> active(u201(mark(W25),P25,X26,Y26))
+    115: mark(u202(U26,V26)) -> active(u202(mark(U26),V26))
+    116: mark(u21(W26,P26)) -> active(u21(mark(W26),P26))
+    117: mark(u211(X27,Y27)) -> active(u211(mark(X27),Y27))
+    118: mark(u221(U27,V27,W27)) -> active(u221(mark(U27),V27,W27))
+    119: mark(fst(P27)) -> active(fst(mark(P27)))
+    120: mark(u31(X28,Y28)) -> active(u31(mark(X28),Y28))
+    121: mark(u41(U28,V28,W28)) -> active(u41(mark(U28),V28,W28))
+    122: mark(u42(P28,X29)) -> active(u42(mark(P28),X29))
+    123: mark(u43(Y29)) -> active(u43(mark(Y29)))
+    124: mark(u51(U29,V29,W29)) -> active(u51(mark(U29),V29,W29))
+    125: mark(u52(P29,X30)) -> active(u52(mark(P29),X30))
+    126: mark(u53(Y30)) -> active(u53(mark(Y30)))
+    127: mark(u61(U30,V30)) -> active(u61(mark(U30),V30))
+    128: mark(u62(W30)) -> active(u62(mark(W30)))
+    129: mark(isPLNat(P30)) -> active(isPLNat(P30))
+    130: mark(u71(X31,Y31)) -> active(u71(mark(X31),Y31))
+    131: mark(u72(U31)) -> active(u72(mark(U31)))
+    132: mark(u81(V31,W31)) -> active(u81(mark(V31),W31))
+    133: mark(u82(P31)) -> active(u82(mark(P31)))
+    134: mark(u91(X32,Y32)) -> active(u91(mark(X32),Y32))
+    135: mark(u92(U32)) -> active(u92(mark(U32)))
+    136: mark(and(V32,W32)) -> active(and(mark(V32),W32))
+    137: mark(isNaturalKind(P32)) -> active(isNaturalKind(P32))
+    138: mark(isLNatKind(X33)) -> active(isLNatKind(X33))
+    139: mark(isPLNatKind(Y33)) -> active(isPLNatKind(Y33))
+    140: mark(tail(U33)) -> active(tail(mark(U33)))
+    141: mark(take(V33,W33)) -> active(take(mark(V33),mark(W33)))
+    142: mark(0()) -> active(0())
+    143: mark(sel(P33,X34)) -> active(sel(mark(P33),mark(X34)))
+    144: u101(mark(Y34),U34,V34) -> u101(Y34,U34,V34)
+    145: u101(W34,mark(P34),X35) -> u101(W34,P34,X35)
+    146: u101(Y35,U35,mark(V35)) -> u101(Y35,U35,V35)
+    147: u101(active(W35),P35,X36) -> u101(W35,P35,X36)
+    148: u101(Y36,active(U36),V36) -> u101(Y36,U36,V36)
+    149: u101(W36,P36,active(X37)) -> u101(W36,P36,X37)
+    150: u102(mark(Y37),U37) -> u102(Y37,U37)
+    151: u102(V37,mark(W37)) -> u102(V37,W37)
+    152: u102(active(P37),X38) -> u102(P37,X38)
+    153: u102(Y38,active(U38)) -> u102(Y38,U38)
+    154: isNatural(mark(V38)) -> isNatural(V38)
+    155: isNatural(active(W38)) -> isNatural(W38)
+    156: u103(mark(P38)) -> u103(P38)
+    157: u103(active(X39)) -> u103(X39)
+    158: isLNat(mark(Y39)) -> isLNat(Y39)
+    159: isLNat(active(U39)) -> isLNat(U39)
+    160: u11(mark(V39),W39,P39) -> u11(V39,W39,P39)
+    161: u11(X40,mark(Y40),U40) -> u11(X40,Y40,U40)
+    162: u11(V40,W40,mark(P40)) -> u11(V40,W40,P40)
+    163: u11(active(X41),Y41,U41) -> u11(X41,Y41,U41)
+    164: u11(V41,active(W41),P41) -> u11(V41,W41,P41)
+    165: u11(X42,Y42,active(U42)) -> u11(X42,Y42,U42)
+    166: snd(mark(V42)) -> snd(V42)
+    167: snd(active(W42)) -> snd(W42)
+    168: splitAt(mark(P42),X43) -> splitAt(P42,X43)
+    169: splitAt(Y43,mark(U43)) -> splitAt(Y43,U43)
+    170: splitAt(active(V43),W43) -> splitAt(V43,W43)
+    171: splitAt(P43,active(X44)) -> splitAt(P43,X44)
+    172: u111(mark(Y44),U44) -> u111(Y44,U44)
+    173: u111(V44,mark(W44)) -> u111(V44,W44)
+    174: u111(active(P44),X45) -> u111(P44,X45)
+    175: u111(Y45,active(U45)) -> u111(Y45,U45)
+    176: u112(mark(V45)) -> u112(V45)
+    177: u112(active(W45)) -> u112(W45)
+    178: u121(mark(P45),X46) -> u121(P45,X46)
+    179: u121(Y46,mark(U46)) -> u121(Y46,U46)
+    180: u121(active(V46),W46) -> u121(V46,W46)
+    181: u121(P46,active(X47)) -> u121(P46,X47)
+    182: u122(mark(Y47)) -> u122(Y47)
+    183: u122(active(U47)) -> u122(U47)
+    184: u131(mark(V47),W47,P47) -> u131(V47,W47,P47)
+    185: u131(X48,mark(Y48),U48) -> u131(X48,Y48,U48)
+    186: u131(V48,W48,mark(P48)) -> u131(V48,W48,P48)
+    187: u131(active(X49),Y49,U49) -> u131(X49,Y49,U49)
+    188: u131(V49,active(W49),P49) -> u131(V49,W49,P49)
+    189: u131(X50,Y50,active(U50)) -> u131(X50,Y50,U50)
+    190: u132(mark(V50),W50) -> u132(V50,W50)
+    191: u132(P50,mark(X51)) -> u132(P50,X51)
+    192: u132(active(Y51),U51) -> u132(Y51,U51)
+    193: u132(V51,active(W51)) -> u132(V51,W51)
+    194: u133(mark(P51)) -> u133(P51)
+    195: u133(active(X52)) -> u133(X52)
+    196: u141(mark(Y52),U52,V52) -> u141(Y52,U52,V52)
+    197: u141(W52,mark(P52),X53) -> u141(W52,P52,X53)
+    198: u141(Y53,U53,mark(V53)) -> u141(Y53,U53,V53)
+    199: u141(active(W53),P53,X54) -> u141(W53,P53,X54)
+    200: u141(Y54,active(U54),V54) -> u141(Y54,U54,V54)
+    201: u141(W54,P54,active(X55)) -> u141(W54,P54,X55)
+    202: u142(mark(Y55),U55) -> u142(Y55,U55)
+    203: u142(V55,mark(W55)) -> u142(V55,W55)
+    204: u142(active(P55),X56) -> u142(P55,X56)
+    205: u142(Y56,active(U56)) -> u142(Y56,U56)
+    206: u143(mark(V56)) -> u143(V56)
+    207: u143(active(W56)) -> u143(W56)
+    208: u151(mark(P56),X57,Y57) -> u151(P56,X57,Y57)
+    209: u151(U57,mark(V57),W57) -> u151(U57,V57,W57)
+    210: u151(P57,X58,mark(Y58)) -> u151(P57,X58,Y58)
+    211: u151(active(U58),V58,W58) -> u151(U58,V58,W58)
+    212: u151(P58,active(X59),Y59) -> u151(P58,X59,Y59)
+    213: u151(U59,V59,active(W59)) -> u151(U59,V59,W59)
+    214: u152(mark(P59),X60) -> u152(P59,X60)
+    215: u152(Y60,mark(U60)) -> u152(Y60,U60)
+    216: u152(active(V60),W60) -> u152(V60,W60)
+    217: u152(P60,active(X61)) -> u152(P60,X61)
+    218: u153(mark(Y61)) -> u153(Y61)
+    219: u153(active(U61)) -> u153(U61)
+    220: u161(mark(V61),W61) -> u161(V61,W61)
+    221: u161(P61,mark(X62)) -> u161(P61,X62)
+    222: u161(active(Y62),U62) -> u161(Y62,U62)
+    223: u161(V62,active(W62)) -> u161(V62,W62)
+    224: cons(mark(P62),X63) -> cons(P62,X63)
+    225: cons(Y63,mark(U63)) -> cons(Y63,U63)
+    226: cons(active(V63),W63) -> cons(V63,W63)
+    227: cons(P63,active(X64)) -> cons(P63,X64)
+    228: natsFrom(mark(Y64)) -> natsFrom(Y64)
+    229: natsFrom(active(U64)) -> natsFrom(U64)
+    230: s(mark(V64)) -> s(V64)
+    231: s(active(W64)) -> s(W64)
+    232: u171(mark(P64),X65,Y65) -> u171(P64,X65,Y65)
+    233: u171(U65,mark(V65),W65) -> u171(U65,V65,W65)
+    234: u171(P65,X66,mark(Y66)) -> u171(P65,X66,Y66)
+    235: u171(active(U66),V66,W66) -> u171(U66,V66,W66)
+    236: u171(P66,active(X67),Y67) -> u171(P66,X67,Y67)
+    237: u171(U67,V67,active(W67)) -> u171(U67,V67,W67)
+    238: head(mark(P67)) -> head(P67)
+    239: head(active(X68)) -> head(X68)
+    240: afterNth(mark(Y68),U68) -> afterNth(Y68,U68)
+    241: afterNth(V68,mark(W68)) -> afterNth(V68,W68)
+    242: afterNth(active(P68),X69) -> afterNth(P68,X69)
+    243: afterNth(Y69,active(U69)) -> afterNth(Y69,U69)
+    244: u181(mark(V69),W69) -> u181(V69,W69)
+    245: u181(P69,mark(X70)) -> u181(P69,X70)
+    246: u181(active(Y70),U70) -> u181(Y70,U70)
+    247: u181(V70,active(W70)) -> u181(V70,W70)
+    248: u191(mark(P70),X71) -> u191(P70,X71)
+    249: u191(Y71,mark(U71)) -> u191(Y71,U71)
+    250: u191(active(V71),W71) -> u191(V71,W71)
+    251: u191(P71,active(X72)) -> u191(P71,X72)
+    252: pair(mark(Y72),U72) -> pair(Y72,U72)
+    253: pair(V72,mark(W72)) -> pair(V72,W72)
+    254: pair(active(P72),X73) -> pair(P72,X73)
+    255: pair(Y73,active(U73)) -> pair(Y73,U73)
+    256: u201(mark(V73),W73,P73,X74) -> u201(V73,W73,P73,X74)
+    257: u201(Y74,mark(U74),V74,W74) -> u201(Y74,U74,V74,W74)
+    258: u201(P74,X75,mark(Y75),U75) -> u201(P74,X75,Y75,U75)
+    259: u201(V75,W75,P75,mark(X76)) -> u201(V75,W75,P75,X76)
+    260: u201(active(Y76),U76,V76,W76) -> u201(Y76,U76,V76,W76)
+    261: u201(P76,active(X77),Y77,U77) -> u201(P76,X77,Y77,U77)
+    262: u201(V77,W77,active(P77),X78) -> u201(V77,W77,P77,X78)
+    263: u201(Y78,U78,V78,active(W78)) -> u201(Y78,U78,V78,W78)
+    264: u202(mark(P78),X79) -> u202(P78,X79)
+    265: u202(Y79,mark(U79)) -> u202(Y79,U79)
+    266: u202(active(V79),W79) -> u202(V79,W79)
+    267: u202(P79,active(X80)) -> u202(P79,X80)
+    268: u21(mark(Y80),U80) -> u21(Y80,U80)
+    269: u21(V80,mark(W80)) -> u21(V80,W80)
+    270: u21(active(P80),X81) -> u21(P80,X81)
+    271: u21(Y81,active(U81)) -> u21(Y81,U81)
+    272: u211(mark(V81),W81) -> u211(V81,W81)
+    273: u211(P81,mark(X82)) -> u211(P81,X82)
+    274: u211(active(Y82),U82) -> u211(Y82,U82)
+    275: u211(V82,active(W82)) -> u211(V82,W82)
+    276: u221(mark(P82),X83,Y83) -> u221(P82,X83,Y83)
+    277: u221(U83,mark(V83),W83) -> u221(U83,V83,W83)
+    278: u221(P83,X84,mark(Y84)) -> u221(P83,X84,Y84)
+    279: u221(active(U84),V84,W84) -> u221(U84,V84,W84)
+    280: u221(P84,active(X85),Y85) -> u221(P84,X85,Y85)
+    281: u221(U85,V85,active(W85)) -> u221(U85,V85,W85)
+    282: fst(mark(P85)) -> fst(P85)
+    283: fst(active(X86)) -> fst(X86)
+    284: u31(mark(Y86),U86) -> u31(Y86,U86)
+    285: u31(V86,mark(W86)) -> u31(V86,W86)
+    286: u31(active(P86),X87) -> u31(P86,X87)
+    287: u31(Y87,active(U87)) -> u31(Y87,U87)
+    288: u41(mark(V87),W87,P87) -> u41(V87,W87,P87)
+    289: u41(X88,mark(Y88),U88) -> u41(X88,Y88,U88)
+    290: u41(V88,W88,mark(P88)) -> u41(V88,W88,P88)
+    291: u41(active(X89),Y89,U89) -> u41(X89,Y89,U89)
+    292: u41(V89,active(W89),P89) -> u41(V89,W89,P89)
+    293: u41(X90,Y90,active(U90)) -> u41(X90,Y90,U90)
+    294: u42(mark(V90),W90) -> u42(V90,W90)
+    295: u42(P90,mark(X91)) -> u42(P90,X91)
+    296: u42(active(Y91),U91) -> u42(Y91,U91)
+    297: u42(V91,active(W91)) -> u42(V91,W91)
+    298: u43(mark(P91)) -> u43(P91)
+    299: u43(active(X92)) -> u43(X92)
+    300: u51(mark(Y92),U92,V92) -> u51(Y92,U92,V92)
+    301: u51(W92,mark(P92),X93) -> u51(W92,P92,X93)
+    302: u51(Y93,U93,mark(V93)) -> u51(Y93,U93,V93)
+    303: u51(active(W93),P93,X94) -> u51(W93,P93,X94)
+    304: u51(Y94,active(U94),V94) -> u51(Y94,U94,V94)
+    305: u51(W94,P94,active(X95)) -> u51(W94,P94,X95)
+    306: u52(mark(Y95),U95) -> u52(Y95,U95)
+    307: u52(V95,mark(W95)) -> u52(V95,W95)
+    308: u52(active(P95),X96) -> u52(P95,X96)
+    309: u52(Y96,active(U96)) -> u52(Y96,U96)
+    310: u53(mark(V96)) -> u53(V96)
+    311: u53(active(W96)) -> u53(W96)
+    312: u61(mark(P96),X97) -> u61(P96,X97)
+    313: u61(Y97,mark(U97)) -> u61(Y97,U97)
+    314: u61(active(V97),W97) -> u61(V97,W97)
+    315: u61(P97,active(X98)) -> u61(P97,X98)
+    316: u62(mark(Y98)) -> u62(Y98)
+    317: u62(active(U98)) -> u62(U98)
+    318: isPLNat(mark(V98)) -> isPLNat(V98)
+    319: isPLNat(active(W98)) -> isPLNat(W98)
+    320: u71(mark(P98),X99) -> u71(P98,X99)
+    321: u71(Y99,mark(U99)) -> u71(Y99,U99)
+    322: u71(active(V99),W99) -> u71(V99,W99)
+    323: u71(P99,active(X100)) -> u71(P99,X100)
+    324: u72(mark(Y100)) -> u72(Y100)
+    325: u72(active(U100)) -> u72(U100)
+    326: u81(mark(V100),W100) -> u81(V100,W100)
+    327: u81(P100,mark(X101)) -> u81(P100,X101)
+    328: u81(active(Y101),U101) -> u81(Y101,U101)
+    329: u81(V101,active(W101)) -> u81(V101,W101)
+    330: u82(mark(P101)) -> u82(P101)
+    331: u82(active(X102)) -> u82(X102)
+    332: u91(mark(Y102),U102) -> u91(Y102,U102)
+    333: u91(V102,mark(W102)) -> u91(V102,W102)
+    334: u91(active(P102),X103) -> u91(P102,X103)
+    335: u91(Y103,active(U103)) -> u91(Y103,U103)
+    336: u92(mark(V103)) -> u92(V103)
+    337: u92(active(W103)) -> u92(W103)
+    338: and(mark(P103),X104) -> and(P103,X104)
+    339: and(Y104,mark(U104)) -> and(Y104,U104)
+    340: and(active(V104),W104) -> and(V104,W104)
+    341: and(P104,active(X105)) -> and(P104,X105)
+    342: isNaturalKind(mark(Y105)) -> isNaturalKind(Y105)
+    343: isNaturalKind(active(U105)) -> isNaturalKind(U105)
+    344: isLNatKind(mark(V105)) -> isLNatKind(V105)
+    345: isLNatKind(active(W105)) -> isLNatKind(W105)
+    346: isPLNatKind(mark(P105)) -> isPLNatKind(P105)
+    347: isPLNatKind(active(X106)) -> isPLNatKind(X106)
+    348: tail(mark(Y106)) -> tail(Y106)
+    349: tail(active(U106)) -> tail(U106)
+    350: take(mark(V106),W106) -> take(V106,W106)
+    351: take(P106,mark(X107)) -> take(P106,X107)
+    352: take(active(Y107),U107) -> take(Y107,U107)
+    353: take(V107,active(W107)) -> take(V107,W107)
+    354: sel(mark(P107),X108) -> sel(P107,X108)
+    355: sel(Y108,mark(U108)) -> sel(Y108,U108)
+    356: sel(active(V108),W108) -> sel(V108,W108)
+    357: sel(P108,active(X109)) -> sel(P108,X109)
+    358: _(X1,X2) -> X1
+    359: _(X1,X2) -> X2
+Number of strict rules: 359
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #active(u102(tt(),U)) -> #mark(u103(isLNat(U)))
+   #2: #active(u102(tt(),U)) -> #u103(isLNat(U))
+   #3: #active(u102(tt(),U)) -> #isLNat(U)
+   #4: #mark(isLNat(V17)) -> #active(isLNat(V17))
+   #5: #active(and(tt(),U7)) -> #mark(U7)
+   #6: #active(u42(tt(),W5)) -> #mark(u43(isLNat(W5)))
+   #7: #active(u42(tt(),W5)) -> #u43(isLNat(W5))
+   #8: #active(u42(tt(),W5)) -> #isLNat(W5)
+   #9: #head(mark(P67)) -> #head(P67)
+   #10: #u92(mark(V103)) -> #u92(V103)
+   #11: #u201(Y78,U78,V78,active(W78)) -> #u201(Y78,U78,V78,W78)
+   #12: #active(u62(tt())) -> #mark(tt())
+   #13: #and(active(V104),W104) -> #and(V104,W104)
+   #14: #mark(u102(P16,X17)) -> #active(u102(mark(P16),X17))
+   #15: #mark(u102(P16,X17)) -> #u102(mark(P16),X17)
+   #16: #mark(u102(P16,X17)) -> #mark(P16)
+   #17: #active(isNaturalKind(0())) -> #mark(tt())
+   #18: #u112(active(W45)) -> #u112(W45)
+   #19: #active(isLNat(nil())) -> #mark(tt())
+   #20: #natsFrom(active(U64)) -> #natsFrom(U64)
+   #21: #u72(mark(Y100)) -> #u72(Y100)
+   #22: #u31(Y87,active(U87)) -> #u31(Y87,U87)
+   #23: #pair(V72,mark(W72)) -> #pair(V72,W72)
+   #24: #active(afterNth(X7,Y7)) -> #mark(u11(and(and(isNatural(X7),isNaturalKind(X7)),and(isLNat(Y7),isLNatKind(Y7))),X7,Y7))
+   #25: #active(afterNth(X7,Y7)) -> #u11(and(and(isNatural(X7),isNaturalKind(X7)),and(isLNat(Y7),isLNatKind(Y7))),X7,Y7)
+   #26: #active(afterNth(X7,Y7)) -> #and(and(isNatural(X7),isNaturalKind(X7)),and(isLNat(Y7),isLNatKind(Y7)))
+   #27: #active(afterNth(X7,Y7)) -> #and(isNatural(X7),isNaturalKind(X7))
+   #28: #active(afterNth(X7,Y7)) -> #isNatural(X7)
+   #29: #active(afterNth(X7,Y7)) -> #isNaturalKind(X7)
+   #30: #active(afterNth(X7,Y7)) -> #and(isLNat(Y7),isLNatKind(Y7))
+   #31: #active(afterNth(X7,Y7)) -> #isLNat(Y7)
+   #32: #active(afterNth(X7,Y7)) -> #isLNatKind(Y7)
+   #33: #u41(V88,W88,mark(P88)) -> #u41(V88,W88,P88)
+   #34: #mark(u202(U26,V26)) -> #active(u202(mark(U26),V26))
+   #35: #mark(u202(U26,V26)) -> #u202(mark(U26),V26)
+   #36: #mark(u202(U26,V26)) -> #mark(U26)
+   #37: #u171(mark(P64),X65,Y65) -> #u171(P64,X65,Y65)
+   #38: #u141(Y53,U53,mark(V53)) -> #u141(Y53,U53,V53)
+   #39: #u101(W36,P36,active(X37)) -> #u101(W36,P36,X37)
+   #40: #mark(u132(Y20,U20)) -> #active(u132(mark(Y20),U20))
+   #41: #mark(u132(Y20,U20)) -> #u132(mark(Y20),U20)
+   #42: #mark(u132(Y20,U20)) -> #mark(Y20)
+   #43: #fst(active(X86)) -> #fst(X86)
+   #44: #active(u92(tt())) -> #mark(tt())
+   #45: #u81(P100,mark(X101)) -> #u81(P100,X101)
+   #46: #u191(mark(P70),X71) -> #u191(P70,X71)
+   #47: #u202(Y79,mark(U79)) -> #u202(Y79,U79)
+   #48: #pair(mark(Y72),U72) -> #pair(Y72,U72)
+   #49: #active(u72(tt())) -> #mark(tt())
+   #50: #mark(u201(W25,P25,X26,Y26)) -> #active(u201(mark(W25),P25,X26,Y26))
+   #51: #mark(u201(W25,P25,X26,Y26)) -> #u201(mark(W25),P25,X26,Y26)
+   #52: #mark(u201(W25,P25,X26,Y26)) -> #mark(W25)
+   #53: #mark(u143(V21)) -> #active(u143(mark(V21)))
+   #54: #mark(u143(V21)) -> #u143(mark(V21))
+   #55: #mark(u143(V21)) -> #mark(V21)
+   #56: #s(mark(V64)) -> #s(V64)
+   #57: #u11(active(X41),Y41,U41) -> #u11(X41,Y41,U41)
+   #58: #mark(u141(W20,P20,X21)) -> #active(u141(mark(W20),P20,X21))
+   #59: #mark(u141(W20,P20,X21)) -> #u141(mark(W20),P20,X21)
+   #60: #mark(u141(W20,P20,X21)) -> #mark(W20)
+   #61: #fst(mark(P85)) -> #fst(P85)
+   #62: #mark(u112(X19)) -> #active(u112(mark(X19)))
+   #63: #mark(u112(X19)) -> #u112(mark(X19))
+   #64: #mark(u112(X19)) -> #mark(X19)
+   #65: #active(isPLNatKind(splitAt(P13,X14))) -> #mark(and(isNaturalKind(P13),isLNatKind(X14)))
+   #66: #active(isPLNatKind(splitAt(P13,X14))) -> #and(isNaturalKind(P13),isLNatKind(X14))
+   #67: #active(isPLNatKind(splitAt(P13,X14))) -> #isNaturalKind(P13)
+   #68: #active(isPLNatKind(splitAt(P13,X14))) -> #isLNatKind(X14)
+   #69: #active(isLNat(afterNth(Y8,U8))) -> #mark(u41(and(isNaturalKind(Y8),isLNatKind(U8)),Y8,U8))
+   #70: #active(isLNat(afterNth(Y8,U8))) -> #u41(and(isNaturalKind(Y8),isLNatKind(U8)),Y8,U8)
+   #71: #active(isLNat(afterNth(Y8,U8))) -> #and(isNaturalKind(Y8),isLNatKind(U8))
+   #72: #active(isLNat(afterNth(Y8,U8))) -> #isNaturalKind(Y8)
+   #73: #active(isLNat(afterNth(Y8,U8))) -> #isLNatKind(U8)
+   #74: #u53(active(W96)) -> #u53(W96)
+   #75: #u153(mark(Y61)) -> #u153(Y61)
+   #76: #u132(P50,mark(X51)) -> #u132(P50,X51)
+   #77: #afterNth(mark(Y68),U68) -> #afterNth(Y68,U68)
+   #78: #active(isLNat(take(V9,W9))) -> #mark(u101(and(isNaturalKind(V9),isLNatKind(W9)),V9,W9))
+   #79: #active(isLNat(take(V9,W9))) -> #u101(and(isNaturalKind(V9),isLNatKind(W9)),V9,W9)
+   #80: #active(isLNat(take(V9,W9))) -> #and(isNaturalKind(V9),isLNatKind(W9))
+   #81: #active(isLNat(take(V9,W9))) -> #isNaturalKind(V9)
+   #82: #active(isLNat(take(V9,W9))) -> #isLNatKind(W9)
+   #83: #u201(active(Y76),U76,V76,W76) -> #u201(Y76,U76,V76,W76)
+   #84: #u41(X90,Y90,active(U90)) -> #u41(X90,Y90,U90)
+   #85: #u111(V44,mark(W44)) -> #u111(V44,W44)
+   #86: #u171(P65,X66,mark(Y66)) -> #u171(P65,X66,Y66)
+   #87: #active(isPLNat(splitAt(Y13,U13))) -> #mark(u151(and(isNaturalKind(Y13),isLNatKind(U13)),Y13,U13))
+   #88: #active(isPLNat(splitAt(Y13,U13))) -> #u151(and(isNaturalKind(Y13),isLNatKind(U13)),Y13,U13)
+   #89: #active(isPLNat(splitAt(Y13,U13))) -> #and(isNaturalKind(Y13),isLNatKind(U13))
+   #90: #active(isPLNat(splitAt(Y13,U13))) -> #isNaturalKind(Y13)
+   #91: #active(isPLNat(splitAt(Y13,U13))) -> #isLNatKind(U13)
+   #92: #u101(active(W35),P35,X36) -> #u101(W35,P35,X36)
+   #93: #mark(isPLNatKind(Y33)) -> #active(isPLNatKind(Y33))
+   #94: #active(isLNat(cons(V8,W8))) -> #mark(u51(and(isNaturalKind(V8),isLNatKind(W8)),V8,W8))
+   #95: #active(isLNat(cons(V8,W8))) -> #u51(and(isNaturalKind(V8),isLNatKind(W8)),V8,W8)
+   #96: #active(isLNat(cons(V8,W8))) -> #and(isNaturalKind(V8),isLNatKind(W8))
+   #97: #active(isLNat(cons(V8,W8))) -> #isNaturalKind(V8)
+   #98: #active(isLNat(cons(V8,W8))) -> #isLNatKind(W8)
+   #99: #u202(P79,active(X80)) -> #u202(P79,X80)
+   #100: #mark(u43(Y29)) -> #active(u43(mark(Y29)))
+   #101: #mark(u43(Y29)) -> #u43(mark(Y29))
+   #102: #mark(u43(Y29)) -> #mark(Y29)
+   #103: #active(sel(U14,V14)) -> #mark(u171(and(and(isNatural(U14),isNaturalKind(U14)),and(isLNat(V14),isLNatKind(V14))),U14,V14))
+   #104: #active(sel(U14,V14)) -> #u171(and(and(isNatural(U14),isNaturalKind(U14)),and(isLNat(V14),isLNatKind(V14))),U14,V14)
+   #105: #active(sel(U14,V14)) -> #and(and(isNatural(U14),isNaturalKind(U14)),and(isLNat(V14),isLNatKind(V14)))
+   #106: #active(sel(U14,V14)) -> #and(isNatural(U14),isNaturalKind(U14))
+   #107: #active(sel(U14,V14)) -> #isNatural(U14)
+   #108: #active(sel(U14,V14)) -> #isNaturalKind(U14)
+   #109: #active(sel(U14,V14)) -> #and(isLNat(V14),isLNatKind(V14))
+   #110: #active(sel(U14,V14)) -> #isLNat(V14)
+   #111: #active(sel(U14,V14)) -> #isLNatKind(V14)
+   #112: #pair(Y73,active(U73)) -> #pair(Y73,U73)
+   #113: #u121(mark(P45),X46) -> #u121(P45,X46)
+   #114: #mark(pair(U25,V25)) -> #active(pair(mark(U25),mark(V25)))
+   #115: #mark(pair(U25,V25)) -> #pair(mark(U25),mark(V25))
+   #116: #mark(pair(U25,V25)) -> #mark(U25)
+   #117: #mark(pair(U25,V25)) -> #mark(V25)
+   #118: #active(natsFrom(Y14)) -> #mark(u161(and(isNatural(Y14),isNaturalKind(Y14)),Y14))
+   #119: #active(natsFrom(Y14)) -> #u161(and(isNatural(Y14),isNaturalKind(Y14)),Y14)
+   #120: #active(natsFrom(Y14)) -> #and(isNatural(Y14),isNaturalKind(Y14))
+   #121: #active(natsFrom(Y14)) -> #isNatural(Y14)
+   #122: #active(natsFrom(Y14)) -> #isNaturalKind(Y14)
+   #123: #splitAt(active(V43),W43) -> #splitAt(V43,W43)
+   #124: #active(isLNatKind(natsFrom(W10))) -> #mark(isNaturalKind(W10))
+   #125: #active(isLNatKind(natsFrom(W10))) -> #isNaturalKind(W10)
+   #126: #u221(P83,X84,mark(Y84)) -> #u221(P83,X84,Y84)
+   #127: #u201(mark(V73),W73,P73,X74) -> #u201(V73,W73,P73,X74)
+   #128: #mark(isLNatKind(X33)) -> #active(isLNatKind(X33))
+   #129: #mark(nil()) -> #active(nil())
+   #130: #isLNat(mark(Y39)) -> #isLNat(Y39)
+   #131: #active(isLNatKind(take(Y11,U11))) -> #mark(and(isNaturalKind(Y11),isLNatKind(U11)))
+   #132: #active(isLNatKind(take(Y11,U11))) -> #and(isNaturalKind(Y11),isLNatKind(U11))
+   #133: #active(isLNatKind(take(Y11,U11))) -> #isNaturalKind(Y11)
+   #134: #active(isLNatKind(take(Y11,U11))) -> #isLNatKind(U11)
+   #135: #active(u81(tt(),W6)) -> #mark(u82(isPLNat(W6)))
+   #136: #active(u81(tt(),W6)) -> #u82(isPLNat(W6))
+   #137: #active(u81(tt(),W6)) -> #isPLNat(W6)
+   #138: #tail(mark(Y106)) -> #tail(Y106)
+   #139: #isNaturalKind(mark(Y105)) -> #isNaturalKind(Y105)
+   #140: #u102(V37,mark(W37)) -> #u102(V37,W37)
+   #141: #isNatural(mark(V38)) -> #isNatural(V38)
+   #142: #u51(mark(Y92),U92,V92) -> #u51(Y92,U92,V92)
+   #143: #mark(u21(W26,P26)) -> #active(u21(mark(W26),P26))
+   #144: #mark(u21(W26,P26)) -> #u21(mark(W26),P26)
+   #145: #mark(u21(W26,P26)) -> #mark(W26)
+   #146: #u52(active(P95),X96) -> #u52(P95,X96)
+   #147: #isNatural(active(W38)) -> #isNatural(W38)
+   #148: #active(u112(tt())) -> #mark(tt())
+   #149: #u61(active(V97),W97) -> #u61(V97,W97)
+   #150: #u161(V62,active(W62)) -> #u161(V62,W62)
+   #151: #u141(mark(Y52),U52,V52) -> #u141(Y52,U52,V52)
+   #152: #u71(Y99,mark(U99)) -> #u71(Y99,U99)
+   #153: #u11(X42,Y42,active(U42)) -> #u11(X42,Y42,U42)
+   #154: #active(isLNatKind(snd(P10))) -> #mark(isPLNatKind(P10))
+   #155: #active(isLNatKind(snd(P10))) -> #isPLNatKind(P10)
+   #156: #isLNatKind(active(W105)) -> #isLNatKind(W105)
+   #157: #and(Y104,mark(U104)) -> #and(Y104,U104)
+   #158: #u132(V51,active(W51)) -> #u132(V51,W51)
+   #159: #mark(u181(W24,P24)) -> #active(u181(mark(W24),P24))
+   #160: #mark(u181(W24,P24)) -> #u181(mark(W24),P24)
+   #161: #mark(u181(W24,P24)) -> #mark(W24)
+   #162: #mark(u81(V31,W31)) -> #active(u81(mark(V31),W31))
+   #163: #mark(u81(V31,W31)) -> #u81(mark(V31),W31)
+   #164: #mark(u81(V31,W31)) -> #mark(V31)
+   #165: #active(isLNatKind(afterNth(P9,X10))) -> #mark(and(isNaturalKind(P9),isLNatKind(X10)))
+   #166: #active(isLNatKind(afterNth(P9,X10))) -> #and(isNaturalKind(P9),isLNatKind(X10))
+   #167: #active(isLNatKind(afterNth(P9,X10))) -> #isNaturalKind(P9)
+   #168: #active(isLNatKind(afterNth(P9,X10))) -> #isLNatKind(X10)
+   #169: #active(isNaturalKind(head(Y12))) -> #mark(isLNatKind(Y12))
+   #170: #active(isNaturalKind(head(Y12))) -> #isLNatKind(Y12)
+   #171: #u151(P57,X58,mark(Y58)) -> #u151(P57,X58,Y58)
+   #172: #active(u91(tt(),P6)) -> #mark(u92(isLNat(P6)))
+   #173: #active(u91(tt(),P6)) -> #u92(isLNat(P6))
+   #174: #active(u91(tt(),P6)) -> #isLNat(P6)
+   #175: #u21(mark(Y80),U80) -> #u21(Y80,U80)
+   #176: #u82(active(X102)) -> #u82(X102)
+   #177: #u71(active(V99),W99) -> #u71(V99,W99)
+   #178: #mark(u111(W18,P18)) -> #active(u111(mark(W18),P18))
+   #179: #mark(u111(W18,P18)) -> #u111(mark(W18),P18)
+   #180: #mark(u111(W18,P18)) -> #mark(W18)
+   #181: #u51(Y94,active(U94),V94) -> #u51(Y94,U94,V94)
+   #182: #u62(mark(Y98)) -> #u62(Y98)
+   #183: #u191(Y71,mark(U71)) -> #u191(Y71,U71)
+   #184: #u101(Y35,U35,mark(V35)) -> #u101(Y35,U35,V35)
+   #185: #isPLNatKind(active(X106)) -> #isPLNatKind(X106)
+   #186: #u61(mark(P96),X97) -> #u61(P96,X97)
+   #187: #mark(u171(W23,P23,X24)) -> #active(u171(mark(W23),P23,X24))
+   #188: #mark(u171(W23,P23,X24)) -> #u171(mark(W23),P23,X24)
+   #189: #mark(u171(W23,P23,X24)) -> #mark(W23)
+   #190: #active(isLNat(snd(Y9))) -> #mark(u81(isPLNatKind(Y9),Y9))
+   #191: #active(isLNat(snd(Y9))) -> #u81(isPLNatKind(Y9),Y9)
+   #192: #active(isLNat(snd(Y9))) -> #isPLNatKind(Y9)
+   #193: #isLNatKind(mark(V105)) -> #isLNatKind(V105)
+   #194: #u161(mark(V61),W61) -> #u161(V61,W61)
+   #195: #active(u142(tt(),X2)) -> #mark(u143(isLNat(X2)))
+   #196: #active(u142(tt(),X2)) -> #u143(isLNat(X2))
+   #197: #active(u142(tt(),X2)) -> #isLNat(X2)
+   #198: #active(u131(tt(),Y1,U1)) -> #mark(u132(isNatural(Y1),U1))
+   #199: #active(u131(tt(),Y1,U1)) -> #u132(isNatural(Y1),U1)
+   #200: #active(u131(tt(),Y1,U1)) -> #isNatural(Y1)
+   #201: #u142(mark(Y55),U55) -> #u142(Y55,U55)
+   #202: #active(u133(tt())) -> #mark(tt())
+   #203: #u152(mark(P59),X60) -> #u152(P59,X60)
+   #204: #mark(u142(Y21,U21)) -> #active(u142(mark(Y21),U21))
+   #205: #mark(u142(Y21,U21)) -> #u142(mark(Y21),U21)
+   #206: #mark(u142(Y21,U21)) -> #mark(Y21)
+   #207: #u43(active(X92)) -> #u43(X92)
+   #208: #u201(Y74,mark(U74),V74,W74) -> #u201(Y74,U74,V74,W74)
+   #209: #u103(mark(P38)) -> #u103(P38)
+   #210: #active(isLNatKind(fst(V10))) -> #mark(isPLNatKind(V10))
+   #211: #active(isLNatKind(fst(V10))) -> #isPLNatKind(V10)
+   #212: #u181(P69,mark(X70)) -> #u181(P69,X70)
+   #213: #u141(W52,mark(P52),X53) -> #u141(W52,P52,X53)
+   #214: #active(snd(pair(W14,P14))) -> #mark(u181(and(and(isLNat(W14),isLNatKind(W14)),and(isLNat(P14),isLNatKind(P14))),P14))
+   #215: #active(snd(pair(W14,P14))) -> #u181(and(and(isLNat(W14),isLNatKind(W14)),and(isLNat(P14),isLNatKind(P14))),P14)
+   #216: #active(snd(pair(W14,P14))) -> #and(and(isLNat(W14),isLNatKind(W14)),and(isLNat(P14),isLNatKind(P14)))
+   #217: #active(snd(pair(W14,P14))) -> #and(isLNat(W14),isLNatKind(W14))
+   #218: #active(snd(pair(W14,P14))) -> #isLNat(W14)
+   #219: #active(snd(pair(W14,P14))) -> #isLNatKind(W14)
+   #220: #active(snd(pair(W14,P14))) -> #and(isLNat(P14),isLNatKind(P14))
+   #221: #active(snd(pair(W14,P14))) -> #isLNat(P14)
+   #222: #active(snd(pair(W14,P14))) -> #isLNatKind(P14)
+   #223: #snd(active(W42)) -> #snd(W42)
+   #224: #u132(mark(V50),W50) -> #u132(V50,W50)
+   #225: #mark(afterNth(U24,V24)) -> #active(afterNth(mark(U24),mark(V24)))
+   #226: #mark(afterNth(U24,V24)) -> #afterNth(mark(U24),mark(V24))
+   #227: #mark(afterNth(U24,V24)) -> #mark(U24)
+   #228: #mark(afterNth(U24,V24)) -> #mark(V24)
+   #229: #mark(u131(W19,P19,X20)) -> #active(u131(mark(W19),P19,X20))
+   #230: #mark(u131(W19,P19,X20)) -> #u131(mark(W19),P19,X20)
+   #231: #mark(u131(W19,P19,X20)) -> #mark(W19)
+   #232: #take(P106,mark(X107)) -> #take(P106,X107)
+   #233: #active(u21(tt(),V4)) -> #mark(V4)
+   #234: #u92(active(W103)) -> #u92(W103)
+   #235: #mark(u91(X32,Y32)) -> #active(u91(mark(X32),Y32))
+   #236: #mark(u91(X32,Y32)) -> #u91(mark(X32),Y32)
+   #237: #mark(u91(X32,Y32)) -> #mark(X32)
+   #238: #active(isPLNat(pair(P12,X13))) -> #mark(u141(and(isLNatKind(P12),isLNatKind(X13)),P12,X13))
+   #239: #active(isPLNat(pair(P12,X13))) -> #u141(and(isLNatKind(P12),isLNatKind(X13)),P12,X13)
+   #240: #active(isPLNat(pair(P12,X13))) -> #and(isLNatKind(P12),isLNatKind(X13))
+   #241: #active(isPLNat(pair(P12,X13))) -> #isLNatKind(P12)
+   #242: #active(isPLNat(pair(P12,X13))) -> #isLNatKind(X13)
+   #243: #u211(P81,mark(X82)) -> #u211(P81,X82)
+   #244: #u31(V86,mark(W86)) -> #u31(V86,W86)
+   #245: #active(u202(pair(X4,Y4),U4)) -> #mark(pair(cons(U4,X4),Y4))
+   #246: #active(u202(pair(X4,Y4),U4)) -> #pair(cons(U4,X4),Y4)
+   #247: #active(u202(pair(X4,Y4),U4)) -> #cons(U4,X4)
+   #248: #sel(active(V108),W108) -> #sel(V108,W108)
+   #249: #u171(P66,active(X67),Y67) -> #u171(P66,X67,Y67)
+   #250: #mark(u62(W30)) -> #active(u62(mark(W30)))
+   #251: #mark(u62(W30)) -> #u62(mark(W30))
+   #252: #mark(u62(W30)) -> #mark(W30)
+   #253: #mark(u101(U16,V16,W16)) -> #active(u101(mark(U16),V16,W16))
+   #254: #mark(u101(U16,V16,W16)) -> #u101(mark(U16),V16,W16)
+   #255: #mark(u101(U16,V16,W16)) -> #mark(U16)
+   #256: #u51(active(W93),P93,X94) -> #u51(W93,P93,X94)
+   #257: #mark(u221(U27,V27,W27)) -> #active(u221(mark(U27),V27,W27))
+   #258: #mark(u221(U27,V27,W27)) -> #u221(mark(U27),V27,W27)
+   #259: #mark(u221(U27,V27,W27)) -> #mark(U27)
+   #260: #active(splitAt(s(Y15),cons(U15,V15))) -> #mark(u201(and(and(isNatural(Y15),isNaturalKind(Y15)),and(and(isNatural(U15),isNaturalKind(U15)),and(isLNat(V15),isLNatKind(V15)))),Y15,U15,V15))
+   #261: #active(splitAt(s(Y15),cons(U15,V15))) -> #u201(and(and(isNatural(Y15),isNaturalKind(Y15)),and(and(isNatural(U15),isNaturalKind(U15)),and(isLNat(V15),isLNatKind(V15)))),Y15,U15,V15)
+   #262: #active(splitAt(s(Y15),cons(U15,V15))) -> #and(and(isNatural(Y15),isNaturalKind(Y15)),and(and(isNatural(U15),isNaturalKind(U15)),and(isLNat(V15),isLNatKind(V15))))
+   #263: #active(splitAt(s(Y15),cons(U15,V15))) -> #and(isNatural(Y15),isNaturalKind(Y15))
+   #264: #active(splitAt(s(Y15),cons(U15,V15))) -> #isNatural(Y15)
+   #265: #active(splitAt(s(Y15),cons(U15,V15))) -> #isNaturalKind(Y15)
+   #266: #active(splitAt(s(Y15),cons(U15,V15))) -> #and(and(isNatural(U15),isNaturalKind(U15)),and(isLNat(V15),isLNatKind(V15)))
+   #267: #active(splitAt(s(Y15),cons(U15,V15))) -> #and(isNatural(U15),isNaturalKind(U15))
+   #268: #active(splitAt(s(Y15),cons(U15,V15))) -> #isNatural(U15)
+   #269: #active(splitAt(s(Y15),cons(U15,V15))) -> #isNaturalKind(U15)
+   #270: #active(splitAt(s(Y15),cons(U15,V15))) -> #and(isLNat(V15),isLNatKind(V15))
+   #271: #active(splitAt(s(Y15),cons(U15,V15))) -> #isLNat(V15)
+   #272: #active(splitAt(s(Y15),cons(U15,V15))) -> #isLNatKind(V15)
+   #273: #active(head(cons(P7,X8))) -> #mark(u31(and(and(isNatural(P7),isNaturalKind(P7)),and(isLNat(X8),isLNatKind(X8))),P7))
+   #274: #active(head(cons(P7,X8))) -> #u31(and(and(isNatural(P7),isNaturalKind(P7)),and(isLNat(X8),isLNatKind(X8))),P7)
+   #275: #active(head(cons(P7,X8))) -> #and(and(isNatural(P7),isNaturalKind(P7)),and(isLNat(X8),isLNatKind(X8)))
+   #276: #active(head(cons(P7,X8))) -> #and(isNatural(P7),isNaturalKind(P7))
+   #277: #active(head(cons(P7,X8))) -> #isNatural(P7)
+   #278: #active(head(cons(P7,X8))) -> #isNaturalKind(P7)
+   #279: #active(head(cons(P7,X8))) -> #and(isLNat(X8),isLNatKind(X8))
+   #280: #active(head(cons(P7,X8))) -> #isLNat(X8)
+   #281: #active(head(cons(P7,X8))) -> #isLNatKind(X8)
+   #282: #u41(mark(V87),W87,P87) -> #u41(V87,W87,P87)
+   #283: #mark(u133(V20)) -> #active(u133(mark(V20)))
+   #284: #mark(u133(V20)) -> #u133(mark(V20))
+   #285: #mark(u133(V20)) -> #mark(V20)
+   #286: #u142(V55,mark(W55)) -> #u142(V55,W55)
+   #287: #isPLNatKind(mark(P105)) -> #isPLNatKind(P105)
+   #288: #u141(W54,P54,active(X55)) -> #u141(W54,P54,X55)
+   #289: #active(isNaturalKind(sel(V12,W12))) -> #mark(and(isNaturalKind(V12),isLNatKind(W12)))
+   #290: #active(isNaturalKind(sel(V12,W12))) -> #and(isNaturalKind(V12),isLNatKind(W12))
+   #291: #active(isNaturalKind(sel(V12,W12))) -> #isNaturalKind(V12)
+   #292: #active(isNaturalKind(sel(V12,W12))) -> #isLNatKind(W12)
+   #293: #u151(U57,mark(V57),W57) -> #u151(U57,V57,W57)
+   #294: #mark(u152(Y22,U22)) -> #active(u152(mark(Y22),U22))
+   #295: #mark(u152(Y22,U22)) -> #u152(mark(Y22),U22)
+   #296: #mark(u152(Y22,U22)) -> #mark(Y22)
+   #297: #active(u141(tt(),W1,P1)) -> #mark(u142(isLNat(W1),P1))
+   #298: #active(u141(tt(),W1,P1)) -> #u142(isLNat(W1),P1)
+   #299: #active(u141(tt(),W1,P1)) -> #isLNat(W1)
+   #300: #active(u51(tt(),P5,X6)) -> #mark(u52(isNatural(P5),X6))
+   #301: #active(u51(tt(),P5,X6)) -> #u52(isNatural(P5),X6)
+   #302: #active(u51(tt(),P5,X6)) -> #isNatural(P5)
+   #303: #and(P104,active(X105)) -> #and(P104,X105)
+   #304: #u11(V41,active(W41),P41) -> #u11(V41,W41,P41)
+   #305: #u21(active(P80),X81) -> #u21(P80,X81)
+   #306: #u152(P60,active(X61)) -> #u152(P60,X61)
+   #307: #active(tail(cons(W15,P15))) -> #mark(u211(and(and(isNatural(W15),isNaturalKind(W15)),and(isLNat(P15),isLNatKind(P15))),P15))
+   #308: #active(tail(cons(W15,P15))) -> #u211(and(and(isNatural(W15),isNaturalKind(W15)),and(isLNat(P15),isLNatKind(P15))),P15)
+   #309: #active(tail(cons(W15,P15))) -> #and(and(isNatural(W15),isNaturalKind(W15)),and(isLNat(P15),isLNatKind(P15)))
+   #310: #active(tail(cons(W15,P15))) -> #and(isNatural(W15),isNaturalKind(W15))
+   #311: #active(tail(cons(W15,P15))) -> #isNatural(W15)
+   #312: #active(tail(cons(W15,P15))) -> #isNaturalKind(W15)
+   #313: #active(tail(cons(W15,P15))) -> #and(isLNat(P15),isLNatKind(P15))
+   #314: #active(tail(cons(W15,P15))) -> #isLNat(P15)
+   #315: #active(tail(cons(W15,P15))) -> #isLNatKind(P15)
+   #316: #active(isLNatKind(cons(Y10,U10))) -> #mark(and(isNaturalKind(Y10),isLNatKind(U10)))
+   #317: #active(isLNatKind(cons(Y10,U10))) -> #and(isNaturalKind(Y10),isLNatKind(U10))
+   #318: #active(isLNatKind(cons(Y10,U10))) -> #isNaturalKind(Y10)
+   #319: #active(isLNatKind(cons(Y10,U10))) -> #isLNatKind(U10)
+   #320: #u41(active(X89),Y89,U89) -> #u41(X89,Y89,U89)
+   #321: #mark(splitAt(U18,V18)) -> #active(splitAt(mark(U18),mark(V18)))
+   #322: #mark(splitAt(U18,V18)) -> #splitAt(mark(U18),mark(V18))
+   #323: #mark(splitAt(U18,V18)) -> #mark(U18)
+   #324: #mark(splitAt(U18,V18)) -> #mark(V18)
+   #325: #mark(u82(P31)) -> #active(u82(mark(P31)))
+   #326: #mark(u82(P31)) -> #u82(mark(P31))
+   #327: #mark(u82(P31)) -> #mark(P31)
+   #328: #mark(tt()) -> #active(tt())
+   #329: #u221(U83,mark(V83),W83) -> #u221(U83,V83,W83)
+   #330: #u202(active(V79),W79) -> #u202(V79,W79)
+   #331: #mark(u191(X25,Y25)) -> #active(u191(mark(X25),Y25))
+   #332: #mark(u191(X25,Y25)) -> #u191(mark(X25),Y25)
+   #333: #mark(u191(X25,Y25)) -> #mark(X25)
+   #334: #active(u143(tt())) -> #mark(tt())
+   #335: #u143(mark(V56)) -> #u143(V56)
+   #336: #mark(s(V23)) -> #active(s(mark(V23)))
+   #337: #mark(s(V23)) -> #s(mark(V23))
+   #338: #mark(s(V23)) -> #mark(V23)
+   #339: #u31(mark(Y86),U86) -> #u31(Y86,U86)
+   #340: #u131(X48,mark(Y48),U48) -> #u131(X48,Y48,U48)
+   #341: #active(isNatural(0())) -> #mark(tt())
+   #342: #active(u43(tt())) -> #mark(tt())
+   #343: #u191(active(V71),W71) -> #u191(V71,W71)
+   #344: #u91(V102,mark(W102)) -> #u91(V102,W102)
+   #345: #u141(Y54,active(U54),V54) -> #u141(Y54,U54,V54)
+   #346: #active(isLNat(tail(U9))) -> #mark(u91(isLNatKind(U9),U9))
+   #347: #active(isLNat(tail(U9))) -> #u91(isLNatKind(U9),U9)
+   #348: #active(isLNat(tail(U9))) -> #isLNatKind(U9)
+   #349: #active(isLNat(fst(P8))) -> #mark(u61(isPLNatKind(P8),P8))
+   #350: #active(isLNat(fst(P8))) -> #u61(isPLNatKind(P8),P8)
+   #351: #active(isLNat(fst(P8))) -> #isPLNatKind(P8)
+   #352: #active(u211(tt(),W4)) -> #mark(W4)
+   #353: #u53(mark(V96)) -> #u53(V96)
+   #354: #mark(u71(X31,Y31)) -> #active(u71(mark(X31),Y31))
+   #355: #mark(u71(X31,Y31)) -> #u71(mark(X31),Y31)
+   #356: #mark(u71(X31,Y31)) -> #mark(X31)
+   #357: #snd(mark(V42)) -> #snd(V42)
+   #358: #mark(head(Y24)) -> #active(head(mark(Y24)))
+   #359: #mark(head(Y24)) -> #head(mark(Y24))
+   #360: #mark(head(Y24)) -> #mark(Y24)
+   #361: #mark(isPLNat(P30)) -> #active(isPLNat(P30))
+   #362: #take(active(Y107),U107) -> #take(Y107,U107)
+   #363: #u42(mark(V90),W90) -> #u42(V90,W90)
+   #364: #u61(P97,active(X98)) -> #u61(P97,X98)
+   #365: #active(u181(tt(),Y3)) -> #mark(Y3)
+   #366: #take(mark(V106),W106) -> #take(V106,W106)
+   #367: #u81(V101,active(W101)) -> #u81(V101,W101)
+   #368: #u121(Y46,mark(U46)) -> #u121(Y46,U46)
+   #369: #mark(u53(Y30)) -> #active(u53(mark(Y30)))
+   #370: #mark(u53(Y30)) -> #u53(mark(Y30))
+   #371: #mark(u53(Y30)) -> #mark(Y30)
+   #372: #u111(active(P44),X45) -> #u111(P44,X45)
+   #373: #mark(snd(Y18)) -> #active(snd(mark(Y18)))
+   #374: #mark(snd(Y18)) -> #snd(mark(Y18))
+   #375: #mark(snd(Y18)) -> #mark(Y18)
+   #376: #active(u121(tt(),X1)) -> #mark(u122(isNatural(X1)))
+   #377: #active(u121(tt(),X1)) -> #u122(isNatural(X1))
+   #378: #active(u121(tt(),X1)) -> #isNatural(X1)
+   #379: #u143(active(W56)) -> #u143(W56)
+   #380: #active(u82(tt())) -> #mark(tt())
+   #381: #u102(Y38,active(U38)) -> #u102(Y38,U38)
+   #382: #pair(active(P72),X73) -> #pair(P72,X73)
+   #383: #mark(and(V32,W32)) -> #active(and(mark(V32),W32))
+   #384: #mark(and(V32,W32)) -> #and(mark(V32),W32)
+   #385: #mark(and(V32,W32)) -> #mark(V32)
+   #386: #cons(mark(P62),X63) -> #cons(P62,X63)
+   #387: #active(u132(tt(),V1)) -> #mark(u133(isLNat(V1)))
+   #388: #active(u132(tt(),V1)) -> #u133(isLNat(V1))
+   #389: #active(u132(tt(),V1)) -> #isLNat(V1)
+   #390: #u52(Y96,active(U96)) -> #u52(Y96,U96)
+   #391: #mark(u121(Y19,U19)) -> #active(u121(mark(Y19),U19))
+   #392: #mark(u121(Y19,U19)) -> #u121(mark(Y19),U19)
+   #393: #mark(u121(Y19,U19)) -> #mark(Y19)
+   #394: #u171(U65,mark(V65),W65) -> #u171(U65,V65,W65)
+   #395: #u221(mark(P82),X83,Y83) -> #u221(P82,X83,Y83)
+   #396: #and(mark(P103),X104) -> #and(P103,X104)
+   #397: #u111(Y45,active(U45)) -> #u111(Y45,U45)
+   #398: #mark(fst(P27)) -> #active(fst(mark(P27)))
+   #399: #mark(fst(P27)) -> #fst(mark(P27))
+   #400: #mark(fst(P27)) -> #mark(P27)
+   #401: #mark(u122(V19)) -> #active(u122(mark(V19)))
+   #402: #mark(u122(V19)) -> #u122(mark(V19))
+   #403: #mark(u122(V19)) -> #mark(V19)
+   #404: #u41(V89,active(W89),P89) -> #u41(V89,W89,P89)
+   #405: #active(isNatural(s(W11))) -> #mark(u121(isNaturalKind(W11),W11))
+   #406: #active(isNatural(s(W11))) -> #u121(isNaturalKind(W11),W11)
+   #407: #active(isNatural(s(W11))) -> #isNaturalKind(W11)
+   #408: #active(u53(tt())) -> #mark(tt())
+   #409: #u201(P76,active(X77),Y77,U77) -> #u201(P76,X77,Y77,U77)
+   #410: #active(isPLNatKind(pair(V13,W13))) -> #mark(and(isLNatKind(V13),isLNatKind(W13)))
+   #411: #active(isPLNatKind(pair(V13,W13))) -> #and(isLNatKind(V13),isLNatKind(W13))
+   #412: #active(isPLNatKind(pair(V13,W13))) -> #isLNatKind(V13)
+   #413: #active(isPLNatKind(pair(V13,W13))) -> #isLNatKind(W13)
+   #414: #u11(V40,W40,mark(P40)) -> #u11(V40,W40,P40)
+   #415: #u131(mark(V47),W47,P47) -> #u131(V47,W47,P47)
+   #416: #mark(u31(X28,Y28)) -> #active(u31(mark(X28),Y28))
+   #417: #mark(u31(X28,Y28)) -> #u31(mark(X28),Y28)
+   #418: #mark(u31(X28,Y28)) -> #mark(X28)
+   #419: #active(u111(tt(),P)) -> #mark(u112(isLNat(P)))
+   #420: #active(u111(tt(),P)) -> #u112(isLNat(P))
+   #421: #active(u111(tt(),P)) -> #isLNat(P)
+   #422: #active(fst(pair(V7,W7))) -> #mark(u21(and(and(isLNat(V7),isLNatKind(V7)),and(isLNat(W7),isLNatKind(W7))),V7))
+   #423: #active(fst(pair(V7,W7))) -> #u21(and(and(isLNat(V7),isLNatKind(V7)),and(isLNat(W7),isLNatKind(W7))),V7)
+   #424: #active(fst(pair(V7,W7))) -> #and(and(isLNat(V7),isLNatKind(V7)),and(isLNat(W7),isLNatKind(W7)))
+   #425: #active(fst(pair(V7,W7))) -> #and(isLNat(V7),isLNatKind(V7))
+   #426: #active(fst(pair(V7,W7))) -> #isLNat(V7)
+   #427: #active(fst(pair(V7,W7))) -> #isLNatKind(V7)
+   #428: #active(fst(pair(V7,W7))) -> #and(isLNat(W7),isLNatKind(W7))
+   #429: #active(fst(pair(V7,W7))) -> #isLNat(W7)
+   #430: #active(fst(pair(V7,W7))) -> #isLNatKind(W7)
+   #431: #u72(active(U100)) -> #u72(U100)
+   #432: #u221(P84,active(X85),Y85) -> #u221(P84,X85,Y85)
+   #433: #active(isNatural(sel(P11,X12))) -> #mark(u131(and(isNaturalKind(P11),isLNatKind(X12)),P11,X12))
+   #434: #active(isNatural(sel(P11,X12))) -> #u131(and(isNaturalKind(P11),isLNatKind(X12)),P11,X12)
+   #435: #active(isNatural(sel(P11,X12))) -> #and(isNaturalKind(P11),isLNatKind(X12))
+   #436: #active(isNatural(sel(P11,X12))) -> #isNaturalKind(P11)
+   #437: #active(isNatural(sel(P11,X12))) -> #isLNatKind(X12)
+   #438: #u101(Y36,active(U36),V36) -> #u101(Y36,U36,V36)
+   #439: #active(u41(tt(),U5,V5)) -> #mark(u42(isNatural(U5),V5))
+   #440: #active(u41(tt(),U5,V5)) -> #u42(isNatural(U5),V5)
+   #441: #active(u41(tt(),U5,V5)) -> #isNatural(U5)
+   #442: #sel(Y108,mark(U108)) -> #sel(Y108,U108)
+   #443: #u43(mark(P91)) -> #u43(P91)
+   #444: #u31(active(P86),X87) -> #u31(P86,X87)
+   #445: #u161(active(Y62),U62) -> #u161(Y62,U62)
+   #446: #u152(Y60,mark(U60)) -> #u152(Y60,U60)
+   #447: #active(u201(tt(),V3,W3,P3)) -> #mark(u202(splitAt(V3,P3),W3))
+   #448: #active(u201(tt(),V3,W3,P3)) -> #u202(splitAt(V3,P3),W3)
+   #449: #active(u201(tt(),V3,W3,P3)) -> #splitAt(V3,P3)
+   #450: #u62(active(U98)) -> #u62(U98)
+   #451: #mark(u61(U30,V30)) -> #active(u61(mark(U30),V30))
+   #452: #mark(u61(U30,V30)) -> #u61(mark(U30),V30)
+   #453: #mark(u61(U30,V30)) -> #mark(U30)
+   #454: #u221(U85,V85,active(W85)) -> #u221(U85,V85,W85)
+   #455: #splitAt(Y43,mark(U43)) -> #splitAt(Y43,U43)
+   #456: #u82(mark(P101)) -> #u82(P101)
+   #457: #u191(P71,active(X72)) -> #u191(P71,X72)
+   #458: #afterNth(V68,mark(W68)) -> #afterNth(V68,W68)
+   #459: #u211(active(Y82),U82) -> #u211(Y82,U82)
+   #460: #active(u61(tt(),U6)) -> #mark(u62(isPLNat(U6)))
+   #461: #active(u61(tt(),U6)) -> #u62(isPLNat(U6))
+   #462: #active(u61(tt(),U6)) -> #isPLNat(U6)
+   #463: #splitAt(P43,active(X44)) -> #splitAt(P43,X44)
+   #464: #u122(active(U47)) -> #u122(U47)
+   #465: #mark(isNatural(Y17)) -> #active(isNatural(Y17))
+   #466: #mark(u11(W17,P17,X18)) -> #active(u11(mark(W17),P17,X18))
+   #467: #mark(u11(W17,P17,X18)) -> #u11(mark(W17),P17,X18)
+   #468: #mark(u11(W17,P17,X18)) -> #mark(W17)
+   #469: #isPLNat(active(W98)) -> #isPLNat(W98)
+   #470: #u151(P58,active(X59),Y59) -> #u151(P58,X59,Y59)
+   #471: #u91(active(P102),X103) -> #u91(P102,X103)
+   #472: #u41(X88,mark(Y88),U88) -> #u41(X88,Y88,U88)
+   #473: #u133(mark(P51)) -> #u133(P51)
+   #474: #u103(active(X39)) -> #u103(X39)
+   #475: #afterNth(Y69,active(U69)) -> #afterNth(Y69,U69)
+   #476: #active(u31(tt(),Y5)) -> #mark(Y5)
+   #477: #u201(V77,W77,active(P77),X78) -> #u201(V77,W77,P77,X78)
+   #478: #mark(isNaturalKind(P32)) -> #active(isNaturalKind(P32))
+   #479: #u101(mark(Y34),U34,V34) -> #u101(Y34,U34,V34)
+   #480: #mark(0()) -> #active(0())
+   #481: #u11(X40,mark(Y40),U40) -> #u11(X40,Y40,U40)
+   #482: #u181(mark(V69),W69) -> #u181(V69,W69)
+   #483: #u131(active(X49),Y49,U49) -> #u131(X49,Y49,U49)
+   #484: #take(V107,active(W107)) -> #take(V107,W107)
+   #485: #u102(mark(Y37),U37) -> #u102(Y37,U37)
+   #486: #active(isLNatKind(tail(X11))) -> #mark(isLNatKind(X11))
+   #487: #active(isLNatKind(tail(X11))) -> #isLNatKind(X11)
+   #488: #u81(active(Y101),U101) -> #u81(Y101,U101)
+   #489: #u151(mark(P56),X57,Y57) -> #u151(P56,X57,Y57)
+   #490: #mark(u211(X27,Y27)) -> #active(u211(mark(X27),Y27))
+   #491: #mark(u211(X27,Y27)) -> #u211(mark(X27),Y27)
+   #492: #mark(u211(X27,Y27)) -> #mark(X27)
+   #493: #u42(P90,mark(X91)) -> #u42(P90,X91)
+   #494: #u21(V80,mark(W80)) -> #u21(V80,W80)
+   #495: #u202(mark(P78),X79) -> #u202(P78,X79)
+   #496: #u141(active(W53),P53,X54) -> #u141(W53,P53,X54)
+   #497: #u61(Y97,mark(U97)) -> #u61(Y97,U97)
+   #498: #cons(active(V63),W63) -> #cons(V63,W63)
+   #499: #tail(active(U106)) -> #tail(U106)
+   #500: #natsFrom(mark(Y64)) -> #natsFrom(Y64)
+   #501: #u111(mark(Y44),U44) -> #u111(Y44,U44)
+   #502: #active(u153(tt())) -> #mark(tt())
+   #503: #cons(P63,active(X64)) -> #cons(P63,X64)
+   #504: #active(u52(tt(),Y6)) -> #mark(u53(isLNat(Y6)))
+   #505: #active(u52(tt(),Y6)) -> #u53(isLNat(Y6))
+   #506: #active(u52(tt(),Y6)) -> #isLNat(Y6)
+   #507: #active(u171(tt(),P2,X3)) -> #mark(head(afterNth(P2,X3)))
+   #508: #active(u171(tt(),P2,X3)) -> #head(afterNth(P2,X3))
+   #509: #active(u171(tt(),P2,X3)) -> #afterNth(P2,X3)
+   #510: #u81(mark(V100),W100) -> #u81(V100,W100)
+   #511: #mark(sel(P33,X34)) -> #active(sel(mark(P33),mark(X34)))
+   #512: #mark(sel(P33,X34)) -> #sel(mark(P33),mark(X34))
+   #513: #mark(sel(P33,X34)) -> #mark(P33)
+   #514: #mark(sel(P33,X34)) -> #mark(X34)
+   #515: #u71(mark(P98),X99) -> #u71(P98,X99)
+   #516: #mark(u52(P29,X30)) -> #active(u52(mark(P29),X30))
+   #517: #mark(u52(P29,X30)) -> #u52(mark(P29),X30)
+   #518: #mark(u52(P29,X30)) -> #mark(P29)
+   #519: #u21(Y81,active(U81)) -> #u21(Y81,U81)
+   #520: #u201(V75,W75,P75,mark(X76)) -> #u201(V75,W75,P75,X76)
+   #521: #u151(active(U58),V58,W58) -> #u151(U58,V58,W58)
+   #522: #u132(active(Y51),U51) -> #u132(Y51,U51)
+   #523: #u42(V91,active(W91)) -> #u42(V91,W91)
+   #524: #sel(P108,active(X109)) -> #sel(P108,X109)
+   #525: #u131(V48,W48,mark(P48)) -> #u131(V48,W48,P48)
+   #526: #u112(mark(V45)) -> #u112(V45)
+   #527: #u52(V95,mark(W95)) -> #u52(V95,W95)
+   #528: #u221(active(U84),V84,W84) -> #u221(U84,V84,W84)
+   #529: #active(isNatural(head(V11))) -> #mark(u111(isLNatKind(V11),V11))
+   #530: #active(isNatural(head(V11))) -> #u111(isLNatKind(V11),V11)
+   #531: #active(isNatural(head(V11))) -> #isLNatKind(V11)
+   #532: #mark(u92(U32)) -> #active(u92(mark(U32)))
+   #533: #mark(u92(U32)) -> #u92(mark(U32))
+   #534: #mark(u92(U32)) -> #mark(U32)
+   #535: #u181(V70,active(W70)) -> #u181(V70,W70)
+   #536: #cons(Y63,mark(U63)) -> #cons(Y63,U63)
+   #537: #u42(active(Y91),U91) -> #u42(Y91,U91)
+   #538: #mark(natsFrom(U23)) -> #active(natsFrom(mark(U23)))
+   #539: #mark(natsFrom(U23)) -> #natsFrom(mark(U23))
+   #540: #mark(natsFrom(U23)) -> #mark(U23)
+   #541: #active(u221(tt(),P4,X5)) -> #mark(fst(splitAt(P4,X5)))
+   #542: #active(u221(tt(),P4,X5)) -> #fst(splitAt(P4,X5))
+   #543: #active(u221(tt(),P4,X5)) -> #splitAt(P4,X5)
+   #544: #mark(u151(W21,P21,X22)) -> #active(u151(mark(W21),P21,X22))
+   #545: #mark(u151(W21,P21,X22)) -> #u151(mark(W21),P21,X22)
+   #546: #mark(u151(W21,P21,X22)) -> #mark(W21)
+   #547: #mark(u103(U17)) -> #active(u103(mark(U17)))
+   #548: #mark(u103(U17)) -> #u103(mark(U17))
+   #549: #mark(u103(U17)) -> #mark(U17)
+   #550: #u52(mark(Y95),U95) -> #u52(Y95,U95)
+   #551: #u171(U67,V67,active(W67)) -> #u171(U67,V67,W67)
+   #552: #u121(P46,active(X47)) -> #u121(P46,X47)
+   #553: #mark(u42(P28,X29)) -> #active(u42(mark(P28),X29))
+   #554: #mark(u42(P28,X29)) -> #u42(mark(P28),X29)
+   #555: #mark(u42(P28,X29)) -> #mark(P28)
+   #556: #u71(P99,active(X100)) -> #u71(P99,X100)
+   #557: #u151(U59,V59,active(W59)) -> #u151(U59,V59,W59)
+   #558: #active(isNaturalKind(s(U12))) -> #mark(isNaturalKind(U12))
+   #559: #active(isNaturalKind(s(U12))) -> #isNaturalKind(U12)
+   #560: #s(active(W64)) -> #s(W64)
+   #561: #mark(u72(U31)) -> #active(u72(mark(U31)))
+   #562: #mark(u72(U31)) -> #u72(mark(U31))
+   #563: #mark(u72(U31)) -> #mark(U31)
+   #564: #active(u71(tt(),V6)) -> #mark(u72(isNatural(V6)))
+   #565: #active(u71(tt(),V6)) -> #u72(isNatural(V6))
+   #566: #active(u71(tt(),V6)) -> #isNatural(V6)
+   #567: #active(u191(tt(),U3)) -> #mark(pair(nil(),U3))
+   #568: #active(u191(tt(),U3)) -> #pair(nil(),U3)
+   #569: #active(u152(tt(),V2)) -> #mark(u153(isLNat(V2)))
+   #570: #active(u152(tt(),V2)) -> #u153(isLNat(V2))
+   #571: #active(u152(tt(),V2)) -> #isLNat(V2)
+   #572: #active(u103(tt())) -> #mark(tt())
+   #573: #isLNat(active(U39)) -> #isLNat(U39)
+   #574: #isNaturalKind(active(U105)) -> #isNaturalKind(U105)
+   #575: #u91(mark(Y102),U102) -> #u91(Y102,U102)
+   #576: #afterNth(active(P68),X69) -> #afterNth(P68,X69)
+   #577: #active(splitAt(0(),X15)) -> #mark(u191(and(isLNat(X15),isLNatKind(X15)),X15))
+   #578: #active(splitAt(0(),X15)) -> #u191(and(isLNat(X15),isLNatKind(X15)),X15)
+   #579: #active(splitAt(0(),X15)) -> #and(isLNat(X15),isLNatKind(X15))
+   #580: #active(splitAt(0(),X15)) -> #isLNat(X15)
+   #581: #active(splitAt(0(),X15)) -> #isLNatKind(X15)
+   #582: #active(u101(tt(),X,Y)) -> #mark(u102(isNatural(X),Y))
+   #583: #active(u101(tt(),X,Y)) -> #u102(isNatural(X),Y)
+   #584: #active(u101(tt(),X,Y)) -> #isNatural(X)
+   #585: #mark(tail(U33)) -> #active(tail(mark(U33)))
+   #586: #mark(tail(U33)) -> #tail(mark(U33))
+   #587: #mark(tail(U33)) -> #mark(U33)
+   #588: #mark(u51(U29,V29,W29)) -> #active(u51(mark(U29),V29,W29))
+   #589: #mark(u51(U29,V29,W29)) -> #u51(mark(U29),V29,W29)
+   #590: #mark(u51(U29,V29,W29)) -> #mark(U29)
+   #591: #u51(W94,P94,active(X95)) -> #u51(W94,P94,X95)
+   #592: #active(isLNatKind(nil())) -> #mark(tt())
+   #593: #u133(active(X52)) -> #u133(X52)
+   #594: #u91(Y103,active(U103)) -> #u91(Y103,U103)
+   #595: #u181(active(Y70),U70) -> #u181(Y70,U70)
+   #596: #u171(active(U66),V66,W66) -> #u171(U66,V66,W66)
+   #597: #u142(active(P55),X56) -> #u142(P55,X56)
+   #598: #u11(mark(V39),W39,P39) -> #u11(V39,W39,P39)
+   #599: #active(u122(tt())) -> #mark(tt())
+   #600: #u142(Y56,active(U56)) -> #u142(Y56,U56)
+   #601: #u102(active(P37),X38) -> #u102(P37,X38)
+   #602: #splitAt(mark(P42),X43) -> #splitAt(P42,X43)
+   #603: #u152(active(V60),W60) -> #u152(V60,W60)
+   #604: #mark(take(V33,W33)) -> #active(take(mark(V33),mark(W33)))
+   #605: #mark(take(V33,W33)) -> #take(mark(V33),mark(W33))
+   #606: #mark(take(V33,W33)) -> #mark(V33)
+   #607: #mark(take(V33,W33)) -> #mark(W33)
+   #608: #mark(u41(U28,V28,W28)) -> #active(u41(mark(U28),V28,W28))
+   #609: #mark(u41(U28,V28,W28)) -> #u41(mark(U28),V28,W28)
+   #610: #mark(u41(U28,V28,W28)) -> #mark(U28)
+   #611: #u211(V82,active(W82)) -> #u211(V82,W82)
+   #612: #u121(active(V46),W46) -> #u121(V46,W46)
+   #613: #u161(P61,mark(X62)) -> #u161(P61,X62)
+   #614: #active(u151(tt(),Y2,U2)) -> #mark(u152(isNatural(Y2),U2))
+   #615: #active(u151(tt(),Y2,U2)) -> #u152(isNatural(Y2),U2)
+   #616: #active(u151(tt(),Y2,U2)) -> #isNatural(Y2)
+   #617: #u101(W34,mark(P34),X35) -> #u101(W34,P34,X35)
+   #618: #u211(mark(V81),W81) -> #u211(V81,W81)
+   #619: #mark(u153(V22)) -> #active(u153(mark(V22)))
+   #620: #mark(u153(V22)) -> #u153(mark(V22))
+   #621: #mark(u153(V22)) -> #mark(V22)
+   #622: #u131(X50,Y50,active(U50)) -> #u131(X50,Y50,U50)
+   #623: #mark(u161(W22,P22)) -> #active(u161(mark(W22),P22))
+   #624: #mark(u161(W22,P22)) -> #u161(mark(W22),P22)
+   #625: #mark(u161(W22,P22)) -> #mark(W22)
+   #626: #u201(P74,X75,mark(Y75),U75) -> #u201(P74,X75,Y75,U75)
+   #627: #u153(active(U61)) -> #u153(U61)
+   #628: #active(u11(tt(),V,W)) -> #mark(snd(splitAt(V,W)))
+   #629: #active(u11(tt(),V,W)) -> #snd(splitAt(V,W))
+   #630: #active(u11(tt(),V,W)) -> #splitAt(V,W)
+   #631: #u131(V49,active(W49),P49) -> #u131(V49,W49,P49)
+   #632: #sel(mark(P107),X108) -> #sel(P107,X108)
+   #633: #u51(Y93,U93,mark(V93)) -> #u51(Y93,U93,V93)
+   #634: #mark(cons(X23,Y23)) -> #active(cons(mark(X23),Y23))
+   #635: #mark(cons(X23,Y23)) -> #cons(mark(X23),Y23)
+   #636: #mark(cons(X23,Y23)) -> #mark(X23)
+   #637: #u51(W92,mark(P92),X93) -> #u51(W92,P92,X93)
+   #638: #active(take(X16,Y16)) -> #mark(u221(and(and(isNatural(X16),isNaturalKind(X16)),and(isLNat(Y16),isLNatKind(Y16))),X16,Y16))
+   #639: #active(take(X16,Y16)) -> #u221(and(and(isNatural(X16),isNaturalKind(X16)),and(isLNat(Y16),isLNatKind(Y16))),X16,Y16)
+   #640: #active(take(X16,Y16)) -> #and(and(isNatural(X16),isNaturalKind(X16)),and(isLNat(Y16),isLNatKind(Y16)))
+   #641: #active(take(X16,Y16)) -> #and(isNatural(X16),isNaturalKind(X16))
+   #642: #active(take(X16,Y16)) -> #isNatural(X16)
+   #643: #active(take(X16,Y16)) -> #isNaturalKind(X16)
+   #644: #active(take(X16,Y16)) -> #and(isLNat(Y16),isLNatKind(Y16))
+   #645: #active(take(X16,Y16)) -> #isLNat(Y16)
+   #646: #active(take(X16,Y16)) -> #isLNatKind(Y16)
+   #647: #active(isLNat(natsFrom(X9))) -> #mark(u71(isNaturalKind(X9),X9))
+   #648: #active(isLNat(natsFrom(X9))) -> #u71(isNaturalKind(X9),X9)
+   #649: #active(isLNat(natsFrom(X9))) -> #isNaturalKind(X9)
+   #650: #active(u161(tt(),W2)) -> #mark(cons(W2,natsFrom(s(W2))))
+   #651: #active(u161(tt(),W2)) -> #cons(W2,natsFrom(s(W2)))
+   #652: #active(u161(tt(),W2)) -> #natsFrom(s(W2))
+   #653: #active(u161(tt(),W2)) -> #s(W2)
+   #654: #isPLNat(mark(V98)) -> #isPLNat(V98)
+   #655: #u122(mark(Y47)) -> #u122(Y47)
+   #656: #head(active(X68)) -> #head(X68)
+Number of SCCs: 61, DPs: 382
+  SCC { #335 #379 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: x1
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #335 #379
+Number of SCCs: 60, DPs: 380
+  SCC { #18 #526 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: x1
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #18 #526
+Number of SCCs: 59, DPs: 378
+  SCC { #207 #443 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: x1
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #207 #443
+Number of SCCs: 58, DPs: 376
+  SCC { #185 #287 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: x1
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #185 #287
+Number of SCCs: 57, DPs: 374
+  SCC { #182 #450 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: x1
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #182 #450
+Number of SCCs: 56, DPs: 372
+  SCC { #473 #593 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: x1
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #473 #593
+Number of SCCs: 55, DPs: 370
+  SCC { #176 #456 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: x1
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #176 #456
+Number of SCCs: 54, DPs: 368
+  SCC { #9 #656 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: x1
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #9 #656
+Number of SCCs: 53, DPs: 366
+  SCC { #74 #353 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: x1
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #74 #353
+Number of SCCs: 52, DPs: 364
+  SCC { #223 #357 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: x1
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #223 #357
+Number of SCCs: 51, DPs: 362
+  SCC { #464 #655 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: x1
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #464 #655
+Number of SCCs: 50, DPs: 360
+  SCC { #10 #234 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: x1
+    USABLE RULES: { }
+    Removed DPs: #10 #234
+Number of SCCs: 49, DPs: 358
+  SCC { #20 #500 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: x1
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #20 #500
+Number of SCCs: 48, DPs: 356
+  SCC { #209 #474 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: x1
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #209 #474
+Number of SCCs: 47, DPs: 354
+  SCC { #21 #431 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: x1
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #21 #431
+Number of SCCs: 46, DPs: 352
+  SCC { #138 #499 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: x1
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #138 #499
+Number of SCCs: 45, DPs: 350
+  SCC { #130 #573 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: x1
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #130 #573
+Number of SCCs: 44, DPs: 348
+  SCC { #156 #193 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: x1
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #take	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      u191	w: 0
+      isPLNat	w: 0
+      #u141	w: 0
+      #u161	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u181	w: 0
+      u153	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      and	w: 0
+      u103	w: 0
+      pair	w: 0
+      fst	w: 0
+      u131	w: 0
+      natsFrom	w: 0
+      #u102	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      isNaturalKind	w: 0
+      u52	w: 0
+      #u151	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      #u143	w: 0
+      u221	w: 0
+      _ 	w: 0
+      #isPLNatKind	w: 0
+      #u91	w: 0
+      u151	w: 0
+      u202	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      #u72	w: 0
+      u211	w: 0
+      #u112	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      #u171	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #u211	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #isNaturalKind	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      #u122	w: 0
+      u72	w: 0
+      u21	w: 0
+      u201	w: 0
+      u143	w: 0
+      #u41	w: 0
+      isLNatKind	w: 0
+      u43	w: 0
+      #u221	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #u202	w: 0
+      #u142	w: 0
+      #u133	w: 0
+      u171	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #u42	w: 0
+      #snd	w: 0
+      cons	w: 0
+      u142	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u53	w: 0
+      #u131	w: 0
+      u152	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      #u181	w: 0
+      #u153	w: 0
+      #u43	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #and	w: 0
+      u141	w: 0
+      #u121	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #156 #193
+Number of SCCs: 43, DPs: 346
+  SCC { #141 #147 }
+POLO(Sum)... succeeded.
+      #isLNatKind	w: 0
+      u81	w: 0
+      #u101	w: 0
+      #u191	w: 0
+      u62	w: 0
+      #u152	w: 0
+      #u103	w: 0
+      #u82	w: 0
+      #u201	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0

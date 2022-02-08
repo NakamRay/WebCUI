@@ -1,0 +1,8 @@
+(VAR Y X XS F )
+(RULES
+  altmap(pls(z,Y),cons(X,XS)) -> cons(pls(X,Y),altmap(mlt(z,Y),XS))
+  altmap(mlt(z,Y),cons(X,XS)) -> cons(mlt(X,Y),altmap(pls(z,Y),XS))
+  altmap(F,nil) -> nil
+  pls(X,Y) -> pls(X,Y)
+  mlt(X,Y) -> mul(X,Y)
+  pls(2,2) -> mlt(2,2))

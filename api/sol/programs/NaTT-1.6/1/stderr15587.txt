@@ -1,0 +1,52 @@
+Input TRS:
+    1: map(F,nil()) -> nil()
+    2: map(F,cons(H,T)) -> cons(at(F,H),map(F,T))
+    3: pow(F,0(),Y) -> l(x(),Y)
+    4: pow(F,s(Z),Y) -> op(F,pow(F,s(Z),x()),Y)
+    5: op(F,G,Y) -> at(F,at(G,Y))
+    6: l(at(F,z()),Y) -> F[Y]()
+    7: l(op(F,G,z()),Y) -> op(F,G,Y)
+    8: at(F,Z) -> F[Z]()
+Number of strict rules: 8
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #map(F,cons(H,T)) -> #at(F,H)
+   #2: #map(F,cons(H,T)) -> #map(F,T)
+   #3: #l(op(F,G,z()),Y) -> #op(F,G,Y)
+   #4: #op(F,G,Y) -> #at(F,at(G,Y))
+   #5: #op(F,G,Y) -> #at(G,Y)
+   #6: #pow(F,0(),Y) -> #l(x(),Y)
+   #7: #pow(F,s(Z),Y) -> #op(F,pow(F,s(Z),x()),Y)
+   #8: #pow(F,s(Z),Y) -> #pow(F,s(Z),x())
+Number of SCCs: 2, DPs: 2
+  SCC { #2 }
+POLO(Sum)... succeeded.
+      s 	w: 0
+      z 	w: 0
+      pow	w: 0
+      l 	w: 0
+      #at	w: 0
+      #pow	w: 0
+      x 	w: 0
+      at	w: 0
+      0 	w: 0
+      F[Y]	w: 0
+      nil	w: 0
+      map	w: 0
+      #map	w: x2
+      #l 	w: 0
+      cons	w: x2 + 1
+      op	w: 0
+      #op	w: 0
+      F[Z]	w: 0
+    USABLE RULES: { }
+    Removed DPs: #2
+Number of SCCs: 1, DPs: 1
+  SCC { #8 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #pow(F_{1},s(Z_{1}),Y)	-#8->
+  #pow(F_{1},s(Z_{1}),x())	--->*
+  #pow(F_{1},s(Z_{1}),x())
+  Looping with: [ F_{1} := F_{1}; Z_{1} := Z_{1}; Y := x(); ]

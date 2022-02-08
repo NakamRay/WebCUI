@@ -1,0 +1,4 @@
+(VAR T3 U V U4 V4 )
+(RULES
+  letval(T3,letval(U,V)) -> letval(letval(T3,U),V)
+  letval(T3,letval(U4,V4)) -> letval(U4,letval(T3,V4)))

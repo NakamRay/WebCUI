@@ -1,0 +1,3 @@
+(VAR F )
+(RULES
+  forall(forall(F)) -> forall(forall(F)))

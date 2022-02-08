@@ -1,0 +1,1 @@
+File "tmp64344.trs", line 20, character 16: bad arity for mult.

@@ -1,0 +1,17 @@
+(VAR X Y U V W P X1 Y1 U1 V1 W1 P1 X2 Y2 W2 V2 U2 P2 Y3 U3 X3 W3 P3 X4 V3 )
+(RULES
+  minus(X,0) -> X
+  minus(s(Y),s(U)) -> minus(Y,U)
+  minus(minus(V,W),P) -> minus(V,plus(W,P))
+  quot(0,s(X1)) -> 0
+  quot(s(Y1),s(U1)) -> s(quot(minus(Y1,U1),s(U1)))
+  plus(0,V1) -> V1
+  plus(s(W1),P1) -> s(plus(W1,P1))
+  app(nil,X2) -> X2
+  app(Y2,nil) -> Y2
+  app(cons(W2,V2),U2) -> cons(W2,app(V2,U2))
+  sum(cons(P2,nil)) -> cons(P2,nil)
+  sum(cons(Y3,cons(U3,X3))) -> sum(cons(plus(Y3,U3),X3))
+  sum(app(W3,cons(P3,cons(X4,V3)))) -> sum(app(W3,sum(cons(P3,cons(X4,V3)))))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

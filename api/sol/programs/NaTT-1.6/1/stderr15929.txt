@@ -1,0 +1,254 @@
+Input TRS:
+    1: axxu11(tt(),X,Y,U) -> axxu12(axxsplitAt(mark(X),mark(U)),Y)
+    2: axxu12(pair(V,W),P) -> pair(cons(mark(P),V),mark(W))
+    3: axxafterNth(X1,Y1) -> axxsnd(axxsplitAt(mark(X1),mark(Y1)))
+    4: axxand(tt(),U1) -> mark(U1)
+    5: axxfst(pair(V1,W1)) -> mark(V1)
+    6: axxhead(cons(P1,X2)) -> mark(P1)
+    7: axxnatsFrom(Y2) -> cons(mark(Y2),natsFrom(s(Y2)))
+    8: axxsel(U2,V2) -> axxhead(axxafterNth(mark(U2),mark(V2)))
+    9: axxsnd(pair(W2,P2)) -> mark(P2)
+    10: axxsplitAt(0(),X3) -> pair(nil(),mark(X3))
+    11: axxsplitAt(s(Y3),cons(U3,V3)) -> axxu11(tt(),Y3,U3,V3)
+    12: axxtail(cons(W3,P3)) -> mark(P3)
+    13: axxtake(X4,Y4) -> axxfst(axxsplitAt(mark(X4),mark(Y4)))
+    14: mark(u11(U4,V4,W4,P4)) -> axxu11(mark(U4),V4,W4,P4)
+    15: mark(u12(X5,Y5)) -> axxu12(mark(X5),Y5)
+    16: mark(splitAt(U5,V5)) -> axxsplitAt(mark(U5),mark(V5))
+    17: mark(afterNth(W5,P5)) -> axxafterNth(mark(W5),mark(P5))
+    18: mark(snd(X6)) -> axxsnd(mark(X6))
+    19: mark(and(Y6,U6)) -> axxand(mark(Y6),U6)
+    20: mark(fst(V6)) -> axxfst(mark(V6))
+    21: mark(head(W6)) -> axxhead(mark(W6))
+    22: mark(natsFrom(P6)) -> axxnatsFrom(mark(P6))
+    23: mark(sel(X7,Y7)) -> axxsel(mark(X7),mark(Y7))
+    24: mark(tail(U7)) -> axxtail(mark(U7))
+    25: mark(take(V7,W7)) -> axxtake(mark(V7),mark(W7))
+    26: mark(tt()) -> tt()
+    27: mark(pair(P7,X8)) -> pair(mark(P7),mark(X8))
+    28: mark(cons(Y8,U8)) -> cons(mark(Y8),U8)
+    29: mark(s(V8)) -> s(mark(V8))
+    30: mark(0()) -> 0()
+    31: mark(nil()) -> nil()
+    32: axxu11(W8,P8,X9,Y9) -> u11(W8,P8,X9,Y9)
+    33: axxu12(U9,V9) -> u12(U9,V9)
+    34: axxsplitAt(W9,P9) -> splitAt(W9,P9)
+    35: axxafterNth(X10,Y10) -> afterNth(X10,Y10)
+    36: axxsnd(U10) -> snd(U10)
+    37: axxand(V10,W10) -> and(V10,W10)
+    38: axxfst(P10) -> fst(P10)
+    39: axxhead(X11) -> head(X11)
+    40: axxnatsFrom(Y11) -> natsFrom(Y11)
+    41: axxsel(U11,V11) -> sel(U11,V11)
+    42: axxtail(W11) -> tail(W11)
+    43: axxtake(P11,X12) -> take(P11,X12)
+Number of strict rules: 43
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #axxu12(pair(V,W),P) -> #mark(P)
+   #2: #axxu12(pair(V,W),P) -> #mark(W)
+   #3: #mark(s(V8)) -> #mark(V8)
+   #4: #axxhead(cons(P1,X2)) -> #mark(P1)
+   #5: #axxtake(X4,Y4) -> #axxfst(axxsplitAt(mark(X4),mark(Y4)))
+   #6: #axxtake(X4,Y4) -> #axxsplitAt(mark(X4),mark(Y4))
+   #7: #axxtake(X4,Y4) -> #mark(X4)
+   #8: #axxtake(X4,Y4) -> #mark(Y4)
+   #9: #axxsnd(pair(W2,P2)) -> #mark(P2)
+   #10: #axxsplitAt(s(Y3),cons(U3,V3)) -> #axxu11(tt(),Y3,U3,V3)
+   #11: #mark(tail(U7)) -> #axxtail(mark(U7))
+   #12: #mark(tail(U7)) -> #mark(U7)
+   #13: #mark(sel(X7,Y7)) -> #axxsel(mark(X7),mark(Y7))
+   #14: #mark(sel(X7,Y7)) -> #mark(X7)
+   #15: #mark(sel(X7,Y7)) -> #mark(Y7)
+   #16: #axxtail(cons(W3,P3)) -> #mark(P3)
+   #17: #mark(u11(U4,V4,W4,P4)) -> #axxu11(mark(U4),V4,W4,P4)
+   #18: #mark(u11(U4,V4,W4,P4)) -> #mark(U4)
+   #19: #mark(take(V7,W7)) -> #axxtake(mark(V7),mark(W7))
+   #20: #mark(take(V7,W7)) -> #mark(V7)
+   #21: #mark(take(V7,W7)) -> #mark(W7)
+   #22: #mark(fst(V6)) -> #axxfst(mark(V6))
+   #23: #mark(fst(V6)) -> #mark(V6)
+   #24: #axxnatsFrom(Y2) -> #mark(Y2)
+   #25: #axxsplitAt(0(),X3) -> #mark(X3)
+   #26: #axxfst(pair(V1,W1)) -> #mark(V1)
+   #27: #mark(cons(Y8,U8)) -> #mark(Y8)
+   #28: #mark(natsFrom(P6)) -> #axxnatsFrom(mark(P6))
+   #29: #mark(natsFrom(P6)) -> #mark(P6)
+   #30: #mark(pair(P7,X8)) -> #mark(P7)
+   #31: #mark(pair(P7,X8)) -> #mark(X8)
+   #32: #mark(afterNth(W5,P5)) -> #axxafterNth(mark(W5),mark(P5))
+   #33: #mark(afterNth(W5,P5)) -> #mark(W5)
+   #34: #mark(afterNth(W5,P5)) -> #mark(P5)
+   #35: #mark(and(Y6,U6)) -> #axxand(mark(Y6),U6)
+   #36: #mark(and(Y6,U6)) -> #mark(Y6)
+   #37: #mark(head(W6)) -> #axxhead(mark(W6))
+   #38: #mark(head(W6)) -> #mark(W6)
+   #39: #mark(splitAt(U5,V5)) -> #axxsplitAt(mark(U5),mark(V5))
+   #40: #mark(splitAt(U5,V5)) -> #mark(U5)
+   #41: #mark(splitAt(U5,V5)) -> #mark(V5)
+   #42: #axxafterNth(X1,Y1) -> #axxsnd(axxsplitAt(mark(X1),mark(Y1)))
+   #43: #axxafterNth(X1,Y1) -> #axxsplitAt(mark(X1),mark(Y1))
+   #44: #axxafterNth(X1,Y1) -> #mark(X1)
+   #45: #axxafterNth(X1,Y1) -> #mark(Y1)
+   #46: #axxu11(tt(),X,Y,U) -> #axxu12(axxsplitAt(mark(X),mark(U)),Y)
+   #47: #axxu11(tt(),X,Y,U) -> #axxsplitAt(mark(X),mark(U))
+   #48: #axxu11(tt(),X,Y,U) -> #mark(X)
+   #49: #axxu11(tt(),X,Y,U) -> #mark(U)
+   #50: #axxsel(U2,V2) -> #axxhead(axxafterNth(mark(U2),mark(V2)))
+   #51: #axxsel(U2,V2) -> #axxafterNth(mark(U2),mark(V2))
+   #52: #axxsel(U2,V2) -> #mark(U2)
+   #53: #axxsel(U2,V2) -> #mark(V2)
+   #54: #mark(u12(X5,Y5)) -> #axxu12(mark(X5),Y5)
+   #55: #mark(u12(X5,Y5)) -> #mark(X5)
+   #56: #axxand(tt(),U1) -> #mark(U1)
+   #57: #mark(snd(X6)) -> #axxsnd(mark(X6))
+   #58: #mark(snd(X6)) -> #mark(X6)
+Number of SCCs: 1, DPs: 58
+  SCC { #1..58 }
+POLO(Sum)... POLO(max)... succeeded.
+      s 	w: x1
+      #axxu12	w: max(x1 + 1, x2 + 9)
+      axxsnd	w: x1 + 1
+      axxu11	w: max(x1 + 8, x2 + 7, x3 + 11, x4 + 9)
+      take	w: max(x1 + 9, x2 + 10)
+      and	w: max(x1 + 3, x2 + 2)
+      axxsplitAt	w: max(x1 + 7, x2 + 9)
+      pair	w: max(x1 + 8, x2 + 9)
+      fst	w: x1 + 1
+      axxand	w: max(x1 + 3, x2 + 2)
+      natsFrom	w: x1 + 2
+      splitAt	w: max(x1 + 7, x2 + 9)
+      #axxu11	w: max(x1 + 12, x2 + 11, x3 + 14, x4 + 12)
+      #axxsplitAt	w: max(x1 + 11, x2 + 12)
+      axxnatsFrom	w: x1 + 2
+      tail	w: x1 + 2
+      #axxafterNth	w: max(x1 + 13, x2 + 13)
+      #mark	w: x1 + 8
+      #axxtail	w: x1 + 9
+      0 	w: 1
+      #axxnatsFrom	w: x1 + 9
+      u11	w: max(x1 + 8, x2 + 7, x3 + 11, x4 + 9)
+      sel	w: max(x1 + 15, x2 + 14)
+      afterNth	w: max(x1 + 11, x2 + 10)
+      nil	w: 1
+      #axxsnd	w: x1 + 1
+      axxafterNth	w: max(x1 + 11, x2 + 10)
+      mark	w: x1
+      u12	w: max(x1, x2 + 11)
+      axxsel	w: max(x1 + 15, x2 + 14)
+      axxfst	w: x1 + 1
+      #axxand	w: max(x2 + 9)
+      #axxsel	w: max(x1 + 21, x2 + 21)
+      head	w: x1 + 4
+      cons	w: max(x1 + 2, x2)
+      snd	w: x1 + 1
+      axxu12	w: max(x1, x2 + 11)
+      axxtail	w: x1 + 2
+      tt	w: 2
+      axxtake	w: max(x1 + 9, x2 + 10)
+      #axxfst	w: x1 + 1
+      #axxtake	w: max(x1 + 13, x2 + 13)
+      #axxhead	w: x1 + 9
+      axxhead	w: x1 + 4
+    USABLE RULES: { 1..43 }
+    Removed DPs: #1 #2 #4..9 #11..46 #48..54 #56..58
+Number of SCCs: 2, DPs: 4
+  SCC { #3 #55 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #axxu12	w: 1
+      axxsnd	w: 2
+      axxu11	w: x1 + 1
+      take	w: x2 + 3
+      and	w: x1 + x2 + 3
+      axxsplitAt	w: x2 + 4
+      pair	w: 4
+      fst	w: 1
+      axxand	w: 2
+      natsFrom	w: 4
+      splitAt	w: 4
+      #axxu11	w: 1
+      #axxsplitAt	w: 1
+      axxnatsFrom	w: 3
+      tail	w: x1 + 3
+      #axxafterNth	w: 1
+      #mark	w: x1 + 1
+      #axxtail	w: 1
+      0 	w: 3
+      #axxnatsFrom	w: 1
+      u11	w: x3 + x4 + 2
+      sel	w: x1 + x2 + 1
+      afterNth	w: 1
+      nil	w: 3
+      #axxsnd	w: 1
+      axxafterNth	w: 2
+      mark	w: 2
+      u12	w: x1 + 4
+      axxsel	w: 0
+      axxfst	w: x1 + 1
+      #axxand	w: 1
+      #axxsel	w: 1
+      head	w: 1
+      cons	w: 3
+      snd	w: 3
+      axxu12	w: 3
+      axxtail	w: 2
+      tt	w: 3
+      axxtake	w: 2
+      #axxfst	w: 1
+      #axxtake	w: 1
+      #axxhead	w: 1
+      axxhead	w: 1
+    USABLE RULES: { 10 }
+    Removed DPs: #3 #55
+Number of SCCs: 1, DPs: 2
+  SCC { #10 #47 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... succeeded.
+      s 	s: [1]	p: 1	w: x1
+      #axxu12	s: [1]	p: 0	w: x1
+      axxsnd	s: []	p: 9	w: x1 + 1
+      axxu11	s: [1,4]	p: 6	w: max(x1, x3 + 13, x4 + 9)
+      take	s: [2]	p: 8	w: x2 + 10
+      and	s: [2]	p: 8	w: x2
+      axxsplitAt	s: []	p: 7	w: max(x2 + 9)
+      pair	s: []	p: 4	w: max(x1 + 2, x2 + 1)
+      fst	s: []	p: 0	w: x1
+      axxand	s: [2]	p: 8	w: x2
+      natsFrom	s: []	p: 9	w: x1 + 6
+      splitAt	s: []	p: 7	w: max(x2 + 9)
+      #axxu11	s: [2]	p: 2	w: max(x1 + 1, x2 + 3, x3 + 9, x4 + 4)
+      #axxsplitAt	s: [1]	p: 2	w: max(x1 + 3, x2 + 4)
+      axxnatsFrom	s: []	p: 9	w: x1 + 6
+      tail	s: []	p: 9	w: x1 + 1
+      #axxafterNth	s: [1,2]	p: 0	w: x1 + x2
+      #mark	s: []	p: 0	w: 0
+      #axxtail	s: []	p: 0	w: 0
+      0 	s: []	p: 10	w: 0
+      #axxnatsFrom	s: []	p: 0	w: 1
+      u11	s: [1,4]	p: 6	w: max(x1, x3 + 13, x4 + 9)
+      sel	s: []	p: 10	w: x1 + x2 + 13
+      afterNth	s: []	p: 9	w: x1 + x2 + 11
+      nil	s: []	p: 11	w: 0
+      #axxsnd	s: []	p: 0	w: 0
+      axxafterNth	s: []	p: 9	w: x1 + x2 + 11
+      mark	s: 1
+      u12	s: []	p: 5	w: max(x1, x2 + 8)
+      axxsel	s: []	p: 10	w: x1 + x2 + 13
+      axxfst	s: []	p: 0	w: x1
+      #axxand	s: []	p: 0	w: 1
+      #axxsel	s: [2]	p: 0	w: x2
+      head	s: []	p: 10	w: x1 + 1
+      cons	s: []	p: 3	w: max(x1 + 5, x2)
+      snd	s: []	p: 9	w: x1 + 1
+      axxu12	s: []	p: 5	w: max(x1, x2 + 8)
+      axxtail	s: []	p: 9	w: x1 + 1
+      tt	s: []	p: 0	w: 1
+      axxtake	s: [2]	p: 8	w: x2 + 10
+      #axxfst	s: []	p: 0	w: 0
+      #axxtake	s: []	p: 0	w: x1 + 1
+      #axxhead	s: []	p: 0	w: 0
+      axxhead	s: []	p: 10	w: x1 + 1
+    USABLE RULES: { 1..43 }
+    Removed DPs: #10
+Number of SCCs: 0, DPs: 0

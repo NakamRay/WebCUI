@@ -1,0 +1,8 @@
+Input TRS:
+    1: plus(0(),X) -> X
+    2: plus(X,0()) -> X
+Number of strict rules: 2
+Direct POLO(bPol) ... removes: 1 2
+      0 	w: 1
+      plus	w: 2 * x1 + 2 * x2
+Number of strict rules: 0

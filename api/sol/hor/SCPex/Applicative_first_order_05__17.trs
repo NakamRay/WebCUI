@@ -1,0 +1,60 @@
+(VAR
+  X: a 
+  Y: a 
+  U: a 
+  V: a 
+  W: a 
+  P: a 
+  X1: a 
+  Y1: a 
+  U1: a 
+  V1: a 
+  W1: a 
+  P1: a 
+  X2: a 
+  Y2: a 
+  G2: c -> c 
+  H2: c -> c 
+  W2: c 
+  P2: d 
+  F3: c -> b 
+  Z3: c -> b 
+  U3: c 
+  V3: d 
+  I3: c -> b 
+  P3: c 
+  X4: d 
+  Z4: c -> b 
+  U4: c 
+  V4: d 
+)
+(FUN
+  bangdot : a -> a -> a
+  1 : a
+  cons : c -> d -> d
+  false : b
+  filter : (c -> b) -> d -> d
+  filter2 : b -> (c -> b) -> c -> d -> d
+  i : a -> a
+  map : (c -> c) -> d -> d
+  nil : d
+  true : b
+)
+(RULES
+  (bangdot((1),X)) -> X,
+  (bangdot(Y,(1))) -> Y,
+  (bangdot((i(U)),U)) -> (1),
+  (bangdot(V,(i(V)))) -> (1),
+  (bangdot((i(W)),(bangdot(W,P)))) -> P,
+  (bangdot(X1,(bangdot((i(X1)),Y1)))) -> Y1,
+  (bangdot((bangdot(U1,V1)),W1)) -> (bangdot(U1,(bangdot(V1,W1)))),
+  (i((1))) -> (1),
+  (i((i(P1)))) -> P1,
+  (i((bangdot(X2,Y2)))) -> (bangdot((i(Y2)),(i(X2)))),
+  (map(G2,(nil))) -> (nil),
+  (map(H2,(cons(W2,P2)))) -> (cons((H2 W2),(map(H2,P2)))),
+  (filter(F3,(nil))) -> (nil),
+  (filter(Z3,(cons(U3,V3)))) -> (filter2((Z3 U3),Z3,U3,V3)),
+  (filter2((true),I3,P3,X4)) -> (cons(P3,(filter(I3,X4)))),
+  (filter2((false),Z4,U4,V4)) -> (filter(Z4,V4))
+)

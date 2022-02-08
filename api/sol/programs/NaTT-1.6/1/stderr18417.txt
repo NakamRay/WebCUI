@@ -1,0 +1,14 @@
+Input TRS:
+    1: f(s(X)) -> f(g(X,X))
+    2: g(0(),1()) -> s(0())
+    3: 0() -> 1()
+Number of strict rules: 3
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #f(s(X)) -> #f(g(X,X))
+   #2: #f(s(X)) -> #g(X,X)
+Number of SCCs: 1, DPs: 1
+  SCC { #1 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

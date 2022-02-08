@@ -1,0 +1,24 @@
+Input TRS:
+    1: f(0(),1(),X) -> f(s(X),X,X)
+    2: f(Y,U,s(V)) -> s(f(0(),1(),V))
+    3: _(X1,X2) -> X1
+    4: _(X1,X2) -> X2
+Number of strict rules: 4
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #f(Y,U,s(V)) -> #f(0(),1(),V)
+   #2: #f(0(),1(),X) -> #f(s(X),X,X)
+Number of SCCs: 1, DPs: 2
+  SCC { #1 #2 }
+POLO(Sum)... succeeded.
+      1 	w: 1
+      s 	w: x1 + 2
+      _ 	w: 0
+      f 	w: 0
+      0 	w: 1
+      #f 	w: x3
+      #_ 	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 0, DPs: 0

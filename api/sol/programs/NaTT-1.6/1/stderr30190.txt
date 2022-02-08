@@ -1,0 +1,64 @@
+Input TRS:
+    1: f(g(X,Y),X,U) -> f(U,U,U)
+    2: g(V,W) -> V
+    3: g(P,X1) -> X1
+    4: map(Z1,nil()) -> nil()
+    5: map(G1,cons(V1,W1)) -> cons(G1[V1](),map(G1,W1))
+    6: filter(J1,nil()) -> nil()
+    7: filter(F2,cons(Y2,U2)) -> filter2(F2[Y2](),F2,Y2,U2)
+    8: filter2(true(),H2,W2,P2) -> cons(W2,filter(H2,P2))
+    9: filter2(false(),F3,Y3,U3) -> filter(F3,U3)
+Number of strict rules: 9
+Direct POLO(bPol) ... failed.
+Uncurrying filter2
+1: f(g(X,Y),X,U) -> f(U,U,U)
+2: g(V,W) -> V
+3: g(P,X1) -> X1
+4: map(Z1,nil()) -> nil()
+5: map(G1,cons(V1,W1)) -> cons(G1[V1](),map(G1,W1))
+6: filter(J1,nil()) -> nil()
+7: filter(F2,cons(Y2,U2)) -> filter2^1_F2[Y2](F2,Y2,U2)
+8: filter2^1_true(H2,W2,P2) -> cons(W2,filter(H2,P2))
+9: filter2^1_false(F3,Y3,U3) -> filter(F3,U3)
+10: filter2(false(),_3,_4,_5) ->= filter2^1_false(_3,_4,_5)
+11: filter2(true(),_3,_4,_5) ->= filter2^1_true(_3,_4,_5)
+12: filter2(F2[Y2](),_3,_4,_5) ->= filter2^1_F2[Y2](_3,_4,_5)
+Number of strict rules: 9
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #filter2^1_false(F3,Y3,U3) -> #filter(F3,U3)
+   #2: #filter2(true(),_3,_4,_5) ->? #filter2^1_true(_3,_4,_5)
+   #3: #filter2(false(),_3,_4,_5) ->? #filter2^1_false(_3,_4,_5)
+   #4: #map(G1,cons(V1,W1)) -> #map(G1,W1)
+   #5: #f(g(X,Y),X,U) -> #f(U,U,U)
+   #6: #filter2^1_true(H2,W2,P2) -> #filter(H2,P2)
+Number of SCCs: 2, DPs: 2
+  SCC { #4 }
+POLO(Sum)... succeeded.
+      G1[V1]	w: 0
+      #filter2	w: 0
+      filter2^1_F2[Y2]	w: 0
+      #filter	w: 0
+      F2[Y2]	w: 0
+      false	w: 0
+      filter2^1_false	w: 0
+      #filter2^1_true	w: 0
+      true	w: 0
+      f 	w: 0
+      filter2	w: 0
+      nil	w: 0
+      #f 	w: 0
+      #g 	w: 0
+      map	w: 0
+      #map	w: x2
+      cons	w: x2 + 1
+      filter	w: 0
+      #filter2^1_false	w: 0
+      filter2^1_true	w: 0
+      g 	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4
+Number of SCCs: 1, DPs: 1
+  SCC { #5 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

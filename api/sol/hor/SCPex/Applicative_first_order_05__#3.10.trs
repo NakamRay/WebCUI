@@ -1,0 +1,106 @@
+(VAR
+  X: b 
+  Y: b 
+  U: b 
+  V: b 
+  W: b 
+  P: b 
+  X1: b 
+  Y1: b 
+  U1: c 
+  V1: b 
+  W1: c 
+  P1: c 
+  X2: b 
+  Y2: b 
+  U2: b 
+  V2: c 
+  W2: b 
+  P2: b 
+  X3: c 
+  Y3: b 
+  U3: b 
+  V3: c 
+  W3: b 
+  P3: b 
+  X4: b 
+  Y4: c 
+  U4: b 
+  V4: b 
+  W4: c 
+  P4: b 
+  X5: b 
+  Y5: c 
+  U5: b 
+  V5: c 
+  W5: c 
+  P5: b 
+  X6: c 
+  Y6: c 
+  U6: b 
+  V6: c 
+  W6: c 
+  J6: b -> b 
+  F7: b -> b 
+  Y7: b 
+  U7: c 
+  H7: b -> a 
+  I7: b -> a 
+  P7: b 
+  X8: c 
+  Z8: b -> a 
+  U8: b 
+  V8: c 
+  I8: b -> a 
+  P8: b 
+  X9: c 
+)
+(FUN
+  0 : b
+  add : b -> c -> c
+  app : c -> c -> c
+  eq : b -> b -> a
+  false : a
+  filter : (b -> a) -> c -> c
+  filter2 : a -> (b -> a) -> b -> c -> c
+  ifbang6220min : a -> c -> b
+  ifbang6220minsort : a -> c -> c -> c
+  ifbang6220rm : a -> b -> c -> c
+  le : b -> b -> a
+  map : (b -> b) -> c -> c
+  min : c -> b
+  minsort : c -> c -> c
+  nil : c
+  rm : b -> c -> c
+  s : b -> b
+  true : a
+)
+(RULES
+  (eq((0),(0))) -> (true),
+  (eq((0),(s(X)))) -> (false),
+  (eq((s(Y)),(0))) -> (false),
+  (eq((s(U)),(s(V)))) -> (eq(U,V)),
+  (le((0),W)) -> (true),
+  (le((s(P)),(0))) -> (false),
+  (le((s(X1)),(s(Y1)))) -> (le(X1,Y1)),
+  (app((nil),U1)) -> U1,
+  (app((add(V1,W1)),P1)) -> (add(V1,(app(W1,P1)))),
+  (min((add(X2,(nil))))) -> X2,
+  (min((add(U2,(add(Y2,V2)))))) -> (ifbang6220min((le(U2,Y2)),(add(U2,(add(Y2,V2)))))),
+  (ifbang6220min((true),(add(P2,(add(W2,X3)))))) -> (min((add(P2,X3)))),
+  (ifbang6220min((false),(add(U3,(add(Y3,V3)))))) -> (min((add(Y3,V3)))),
+  (rm(W3,(nil))) -> (nil),
+  (rm(X4,(add(P3,Y4)))) -> (ifbang6220rm((eq(X4,P3)),X4,(add(P3,Y4)))),
+  (ifbang6220rm((true),V4,(add(U4,W4)))) -> (rm(V4,W4)),
+  (ifbang6220rm((false),X5,(add(P4,Y5)))) -> (add(P4,(rm(X5,Y5)))),
+  (minsort((nil),(nil))) -> (nil),
+  (minsort((add(U5,V5)),W5)) -> (ifbang6220minsort((eq(U5,(min((add(U5,V5)))))),(add(U5,V5)),W5)),
+  (ifbang6220minsort((true),(add(P5,X6)),Y6)) -> (add(P5,(minsort((app((rm(P5,X6)),Y6)),(nil))))),
+  (ifbang6220minsort((false),(add(U6,V6)),W6)) -> (minsort(V6,(add(U6,W6)))),
+  (map(J6,(nil))) -> (nil),
+  (map(F7,(add(Y7,U7)))) -> (add((F7 Y7),(map(F7,U7)))),
+  (filter(H7,(nil))) -> (nil),
+  (filter(I7,(add(P7,X8)))) -> (filter2((I7 P7),I7,P7,X8)),
+  (filter2((true),Z8,U8,V8)) -> (add(U8,(filter(Z8,V8)))),
+  (filter2((false),I8,P8,X9)) -> (filter(I8,X9))
+)

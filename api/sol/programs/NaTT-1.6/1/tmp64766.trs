@@ -1,0 +1,9 @@
+(VAR X Y U V W P X1 Y1 U1 X2 )
+(RULES
+  times(X,plus(Y,s(U))) -> plus(times(X,plus(Y,times(s(U),0))),times(X,s(U)))
+  times(V,0) -> 0
+  times(W,s(P)) -> plus(times(W,P),W)
+  plus(X1,0) -> X1
+  plus(Y1,s(U1)) -> s(plus(Y1,U1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

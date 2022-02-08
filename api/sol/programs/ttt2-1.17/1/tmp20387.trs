@@ -1,0 +1,5 @@
+(VAR A B F )
+(RULES
+  and(A,all(B)) -> all(and(A,B))
+  and(all(B),A) -> all(and(B,A))
+  all(all(F)) -> all(all(F)))

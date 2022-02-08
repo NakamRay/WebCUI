@@ -1,0 +1,7 @@
+(VAR Y X1 X2 )
+(RULES
+  not(true) -> false
+  not(false) -> true
+  0(1(Y)) -> 1(0(Y))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

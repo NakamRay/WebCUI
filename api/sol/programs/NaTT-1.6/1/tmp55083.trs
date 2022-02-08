@@ -1,0 +1,5 @@
+(VAR Z X1 X2 )
+(RULES
+  f(Z) -> Z
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,7 @@
+(VAR X Y U V W P X1 Y1 X2 )
+(RULES
+  merge(nil,nil,X) -> X
+  merge(nil,cons(Y,U),V) -> merge(U,nil,cons(Y,V))
+  merge(cons(W,P),X1,Y1) -> merge(X1,P,cons(W,Y1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

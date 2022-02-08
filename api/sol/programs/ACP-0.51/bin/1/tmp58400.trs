@@ -1,0 +1,8 @@
+(VAR X Y Z )
+(RULES
+  xpls(X,0) -> X
+  xpls(X,s(Y)) -> s(xpls(X,Y))
+  xpls(0,Y) -> Y
+  xpls(s(X),Y) -> s(xpls(X,Y))
+  xpls(xpls(X,Y),Z) -> xpls(X,xpls(Y,Z))
+  xpls(X,Y) -> xpls(Y,X))

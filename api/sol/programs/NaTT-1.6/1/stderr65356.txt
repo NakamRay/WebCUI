@@ -1,0 +1,32 @@
+Input TRS:
+    1: bdot(1(),X) -> X
+    2: bdot(Y,1()) -> Y
+    3: bdot(i(U),U) -> 1()
+    4: bdot(V,i(V)) -> 1()
+    5: bdot(i(W),bdot(W,P)) -> P
+    6: bdot(X1,bdot(i(X1),Y1)) -> Y1
+    7: bdot(bdot(U1,V1),W1) -> bdot(U1,bdot(V1,W1))
+    8: i(1()) -> 1()
+    9: i(i(P1)) -> P1
+    10: i(bdot(X2,Y2)) -> bdot(i(Y2),i(X2))
+    11: _(X1,X2) -> X1
+    12: _(X1,X2) -> X2
+Number of strict rules: 12
+Direct POLO(bPol) ... removes: 4 1 3 5 12 11 6 2
+      1 	w: 1
+      bdot	w: x1 + x2 + 2
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      i 	w: x1
+Number of strict rules: 4
+Direct POLO(bPol) ... removes: 8 10 9
+      1 	w: 1
+      bdot	w: x1 + x2 + 2
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      i 	w: 2 * x1 + 1
+Number of strict rules: 1
+Direct POLO(bPol) ... removes: 7
+      1 	w: 1
+      bdot	w: 2 * x1 + x2 + 2
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      i 	w: 2 * x1 + 1
+Number of strict rules: 0

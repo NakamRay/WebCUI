@@ -1,0 +1,71 @@
+Input TRS:
+    1: f(g(X),s(0()),Y) -> f(g(s(0())),Y,g(X))
+    2: g(s(U)) -> s(g(U))
+    3: g(0()) -> 0()
+    4: map(H,nil()) -> nil()
+    5: map(I,cons(P,X1)) -> cons(I[P](),map(I,X1))
+    6: filter(Z1,nil()) -> nil()
+    7: filter(G1,cons(V1,W1)) -> filter2(G1[V1](),G1,V1,W1)
+    8: filter2(true(),J1,X2,Y2) -> cons(X2,filter(J1,Y2))
+    9: filter2(false(),G2,V2,W2) -> filter(G2,W2)
+Number of strict rules: 9
+Direct POLO(bPol) ... removes: 4 8 7 9 6
+      G1[V1]	w: 1
+      s 	w: x1 + 3
+      I[P]	w: 2
+      false	w: 1
+      true	w: 3
+      f 	w: x1 + x2 + x3
+      filter2	w: 2 * x1 + x2 + x3 + 2 * x4
+      0 	w: 1
+      nil	w: 1
+      map	w: 2 * x1 + 2 * x2 + 1
+      cons	w: x1 + x2 + 2
+      filter	w: x1 + 2 * x2 + 1
+      g 	w: x1
+Number of strict rules: 4
+Direct POLO(bPol) ... removes: 5
+      G1[V1]	w: 1
+      s 	w: x1 + 3
+      I[P]	w: 1
+      false	w: 1
+      true	w: 3
+      f 	w: x1 + x2 + x3
+      filter2	w: 2 * x1 + x2 + x3 + 2 * x4
+      0 	w: 1
+      nil	w: 1
+      map	w: 2 * x1 + 2 * x2 + 1
+      cons	w: x1 + x2 + 2
+      filter	w: x1 + 2 * x2 + 1
+      g 	w: x1
+Number of strict rules: 3
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #g(s(U)) -> #g(U)
+   #2: #f(g(X),s(0()),Y) -> #f(g(s(0())),Y,g(X))
+   #3: #f(g(X),s(0()),Y) -> #g(s(0()))
+Number of SCCs: 2, DPs: 2
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      G1[V1]	w: 0
+      s 	w: x1 + 1
+      I[P]	w: 0
+      false	w: 0
+      true	w: 0
+      f 	w: 0
+      filter2	w: 0
+      0 	w: 0
+      nil	w: 0
+      #f 	w: 0
+      #g 	w: x1
+      map	w: 0
+      cons	w: 0
+      filter	w: 0
+      g 	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 1, DPs: 1
+  SCC { #2 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

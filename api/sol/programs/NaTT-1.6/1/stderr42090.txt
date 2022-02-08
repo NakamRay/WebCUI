@@ -1,0 +1,13 @@
+Input TRS:
+    1: pi1(pi(Z1,Z2)) -> Z1
+    2: pi2(pi(Z1,Z2)) -> Z2
+    3: pi(pi1(Z),pi2(Z)) -> Z
+    4: _(X1,X2) -> X1
+    5: _(X1,X2) -> X2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 4 1 3 5 2
+      pi1	w: 2 * x1 + 1
+      pi2	w: 2 * x1 + 1
+      pi	w: 2 * x1 + 2 * x2 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+Number of strict rules: 0

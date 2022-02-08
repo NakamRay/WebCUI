@@ -1,0 +1,4 @@
+#!/bin/bash
+trap "" SIGRTMIN
+LD_LIBRARY_PATH=../lib:$LD_LIBRARY_PATH PATH=.:$PATH ../jre/bin/java -d64 -Xmx2G -Xms2G -ea -cp ../jre/lib -jar ../aprove.jar -p plain -m wst -w 4 -t 20 $1 2> /dev/null
+

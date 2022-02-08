@@ -1,0 +1,46 @@
+Input TRS:
+    1: not(not(X)) -> X
+    2: not(or(Y,U)) -> and(not(Y),not(U))
+    3: not(and(V,W)) -> or(not(V),not(W))
+    4: and(P,or(X1,Y1)) -> or(and(P,X1),and(P,Y1))
+    5: and(or(V1,W1),U1) -> or(and(U1,V1),and(U1,W1))
+    6: _(X1,X2) -> X1
+    7: _(X1,X2) -> X2
+Number of strict rules: 7
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #not(or(Y,U)) -> #and(not(Y),not(U))
+   #2: #not(or(Y,U)) -> #not(Y)
+   #3: #not(or(Y,U)) -> #not(U)
+   #4: #and(or(V1,W1),U1) -> #and(U1,V1)
+   #5: #and(or(V1,W1),U1) -> #and(U1,W1)
+   #6: #not(and(V,W)) -> #not(V)
+   #7: #not(and(V,W)) -> #not(W)
+   #8: #and(P,or(X1,Y1)) -> #and(P,X1)
+   #9: #and(P,or(X1,Y1)) -> #and(P,Y1)
+Number of SCCs: 2, DPs: 8
+  SCC { #2 #3 #6 #7 }
+POLO(Sum)... succeeded.
+      and	w: x1 + x2 + 1
+      _ 	w: 0
+      #not	w: x1
+      or	w: x1 + x2 + 1
+      #_ 	w: 0
+      #and	w: 0
+      not	w: 0
+    USABLE RULES: { }
+    Removed DPs: #2 #3 #6 #7
+Number of SCCs: 1, DPs: 4
+  SCC { #4 #5 #8 #9 }
+POLO(Sum)... succeeded.
+      and	w: 1
+      _ 	w: 0
+      #not	w: 0
+      or	w: x1 + x2 + 1
+      #_ 	w: 0
+      #and	w: x1 + x2
+      not	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4 #5 #8 #9
+Number of SCCs: 0, DPs: 0

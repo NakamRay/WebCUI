@@ -1,0 +1,4073 @@
+Input TRS:
+    1: active(u101(tt(),N,XS)) -> mark(fst(splitAt(N,XS)))
+    2: active(u11(tt(),N,XS)) -> mark(snd(splitAt(N,XS)))
+    3: active(u21(tt(),X)) -> mark(X)
+    4: active(u31(tt(),N)) -> mark(N)
+    5: active(u41(tt(),N)) -> mark(cons(N,natsFrom(s(N))))
+    6: active(u51(tt(),N,XS)) -> mark(head(afterNth(N,XS)))
+    7: active(u61(tt(),Y)) -> mark(Y)
+    8: active(u71(tt(),XS)) -> mark(pair(nil(),XS))
+    9: active(u81(tt(),N,X,XS)) -> mark(u82(splitAt(N,XS),X))
+    10: active(u82(pair(YS,ZS),X)) -> mark(pair(cons(X,YS),ZS))
+    11: active(u91(tt(),XS)) -> mark(XS)
+    12: active(afterNth(N,XS)) -> mark(u11(and(isNatural(N),isLNat(XS)),N,XS))
+    13: active(and(tt(),X)) -> mark(X)
+    14: active(fst(pair(X,Y))) -> mark(u21(and(isLNat(X),isLNat(Y)),X))
+    15: active(head(cons(N,XS))) -> mark(u31(and(isNatural(N),isLNat(XS)),N))
+    16: active(isLNat(nil())) -> mark(tt())
+    17: active(isLNat(afterNth(V1,V2))) -> mark(and(isNatural(V1),isLNat(V2)))
+    18: active(isLNat(cons(V1,V2))) -> mark(and(isNatural(V1),isLNat(V2)))
+    19: active(isLNat(fst(V1))) -> mark(isPLNat(V1))
+    20: active(isLNat(natsFrom(V1))) -> mark(isNatural(V1))
+    21: active(isLNat(snd(V1))) -> mark(isPLNat(V1))
+    22: active(isLNat(tail(V1))) -> mark(isLNat(V1))
+    23: active(isLNat(take(V1,V2))) -> mark(and(isNatural(V1),isLNat(V2)))
+    24: active(isNatural(0())) -> mark(tt())
+    25: active(isNatural(head(V1))) -> mark(isLNat(V1))
+    26: active(isNatural(s(V1))) -> mark(isNatural(V1))
+    27: active(isNatural(sel(V1,V2))) -> mark(and(isNatural(V1),isLNat(V2)))
+    28: active(isPLNat(pair(V1,V2))) -> mark(and(isLNat(V1),isLNat(V2)))
+    29: active(isPLNat(splitAt(V1,V2))) -> mark(and(isNatural(V1),isLNat(V2)))
+    30: active(natsFrom(N)) -> mark(u41(isNatural(N),N))
+    31: active(sel(N,XS)) -> mark(u51(and(isNatural(N),isLNat(XS)),N,XS))
+    32: active(snd(pair(X,Y))) -> mark(u61(and(isLNat(X),isLNat(Y)),Y))
+    33: active(splitAt(0(),XS)) -> mark(u71(isLNat(XS),XS))
+    34: active(splitAt(s(N),cons(X,XS))) -> mark(u81(and(isNatural(N),and(isNatural(X),isLNat(XS))),N,X,XS))
+    35: active(tail(cons(N,XS))) -> mark(u91(and(isNatural(N),isLNat(XS)),XS))
+    36: active(take(N,XS)) -> mark(u101(and(isNatural(N),isLNat(XS)),N,XS))
+    37: mark(u101(X1,X2,X3)) -> active(u101(mark(X1),X2,X3))
+    38: mark(tt()) -> active(tt())
+    39: mark(fst(X)) -> active(fst(mark(X)))
+    40: mark(splitAt(X1,X2)) -> active(splitAt(mark(X1),mark(X2)))
+    41: mark(u11(X1,X2,X3)) -> active(u11(mark(X1),X2,X3))
+    42: mark(snd(X)) -> active(snd(mark(X)))
+    43: mark(u21(X1,X2)) -> active(u21(mark(X1),X2))
+    44: mark(u31(X1,X2)) -> active(u31(mark(X1),X2))
+    45: mark(u41(X1,X2)) -> active(u41(mark(X1),X2))
+    46: mark(cons(X1,X2)) -> active(cons(mark(X1),X2))
+    47: mark(natsFrom(X)) -> active(natsFrom(mark(X)))
+    48: mark(s(X)) -> active(s(mark(X)))
+    49: mark(u51(X1,X2,X3)) -> active(u51(mark(X1),X2,X3))
+    50: mark(head(X)) -> active(head(mark(X)))
+    51: mark(afterNth(X1,X2)) -> active(afterNth(mark(X1),mark(X2)))
+    52: mark(u61(X1,X2)) -> active(u61(mark(X1),X2))
+    53: mark(u71(X1,X2)) -> active(u71(mark(X1),X2))
+    54: mark(pair(X1,X2)) -> active(pair(mark(X1),mark(X2)))
+    55: mark(nil()) -> active(nil())
+    56: mark(u81(X1,X2,X3,X4)) -> active(u81(mark(X1),X2,X3,X4))
+    57: mark(u82(X1,X2)) -> active(u82(mark(X1),X2))
+    58: mark(u91(X1,X2)) -> active(u91(mark(X1),X2))
+    59: mark(and(X1,X2)) -> active(and(mark(X1),X2))
+    60: mark(isNatural(X)) -> active(isNatural(X))
+    61: mark(isLNat(X)) -> active(isLNat(X))
+    62: mark(isPLNat(X)) -> active(isPLNat(X))
+    63: mark(tail(X)) -> active(tail(mark(X)))
+    64: mark(take(X1,X2)) -> active(take(mark(X1),mark(X2)))
+    65: mark(0()) -> active(0())
+    66: mark(sel(X1,X2)) -> active(sel(mark(X1),mark(X2)))
+    67: u101(mark(X1),X2,X3) -> u101(X1,X2,X3)
+    68: u101(X1,mark(X2),X3) -> u101(X1,X2,X3)
+    69: u101(X1,X2,mark(X3)) -> u101(X1,X2,X3)
+    70: u101(active(X1),X2,X3) -> u101(X1,X2,X3)
+    71: u101(X1,active(X2),X3) -> u101(X1,X2,X3)
+    72: u101(X1,X2,active(X3)) -> u101(X1,X2,X3)
+    73: fst(mark(X)) -> fst(X)
+    74: fst(active(X)) -> fst(X)
+    75: splitAt(mark(X1),X2) -> splitAt(X1,X2)
+    76: splitAt(X1,mark(X2)) -> splitAt(X1,X2)
+    77: splitAt(active(X1),X2) -> splitAt(X1,X2)
+    78: splitAt(X1,active(X2)) -> splitAt(X1,X2)
+    79: u11(mark(X1),X2,X3) -> u11(X1,X2,X3)
+    80: u11(X1,mark(X2),X3) -> u11(X1,X2,X3)
+    81: u11(X1,X2,mark(X3)) -> u11(X1,X2,X3)
+    82: u11(active(X1),X2,X3) -> u11(X1,X2,X3)
+    83: u11(X1,active(X2),X3) -> u11(X1,X2,X3)
+    84: u11(X1,X2,active(X3)) -> u11(X1,X2,X3)
+    85: snd(mark(X)) -> snd(X)
+    86: snd(active(X)) -> snd(X)
+    87: u21(mark(X1),X2) -> u21(X1,X2)
+    88: u21(X1,mark(X2)) -> u21(X1,X2)
+    89: u21(active(X1),X2) -> u21(X1,X2)
+    90: u21(X1,active(X2)) -> u21(X1,X2)
+    91: u31(mark(X1),X2) -> u31(X1,X2)
+    92: u31(X1,mark(X2)) -> u31(X1,X2)
+    93: u31(active(X1),X2) -> u31(X1,X2)
+    94: u31(X1,active(X2)) -> u31(X1,X2)
+    95: u41(mark(X1),X2) -> u41(X1,X2)
+    96: u41(X1,mark(X2)) -> u41(X1,X2)
+    97: u41(active(X1),X2) -> u41(X1,X2)
+    98: u41(X1,active(X2)) -> u41(X1,X2)
+    99: cons(mark(X1),X2) -> cons(X1,X2)
+    100: cons(X1,mark(X2)) -> cons(X1,X2)
+    101: cons(active(X1),X2) -> cons(X1,X2)
+    102: cons(X1,active(X2)) -> cons(X1,X2)
+    103: natsFrom(mark(X)) -> natsFrom(X)
+    104: natsFrom(active(X)) -> natsFrom(X)
+    105: s(mark(X)) -> s(X)
+    106: s(active(X)) -> s(X)
+    107: u51(mark(X1),X2,X3) -> u51(X1,X2,X3)
+    108: u51(X1,mark(X2),X3) -> u51(X1,X2,X3)
+    109: u51(X1,X2,mark(X3)) -> u51(X1,X2,X3)
+    110: u51(active(X1),X2,X3) -> u51(X1,X2,X3)
+    111: u51(X1,active(X2),X3) -> u51(X1,X2,X3)
+    112: u51(X1,X2,active(X3)) -> u51(X1,X2,X3)
+    113: head(mark(X)) -> head(X)
+    114: head(active(X)) -> head(X)
+    115: afterNth(mark(X1),X2) -> afterNth(X1,X2)
+    116: afterNth(X1,mark(X2)) -> afterNth(X1,X2)
+    117: afterNth(active(X1),X2) -> afterNth(X1,X2)
+    118: afterNth(X1,active(X2)) -> afterNth(X1,X2)
+    119: u61(mark(X1),X2) -> u61(X1,X2)
+    120: u61(X1,mark(X2)) -> u61(X1,X2)
+    121: u61(active(X1),X2) -> u61(X1,X2)
+    122: u61(X1,active(X2)) -> u61(X1,X2)
+    123: u71(mark(X1),X2) -> u71(X1,X2)
+    124: u71(X1,mark(X2)) -> u71(X1,X2)
+    125: u71(active(X1),X2) -> u71(X1,X2)
+    126: u71(X1,active(X2)) -> u71(X1,X2)
+    127: pair(mark(X1),X2) -> pair(X1,X2)
+    128: pair(X1,mark(X2)) -> pair(X1,X2)
+    129: pair(active(X1),X2) -> pair(X1,X2)
+    130: pair(X1,active(X2)) -> pair(X1,X2)
+    131: u81(mark(X1),X2,X3,X4) -> u81(X1,X2,X3,X4)
+    132: u81(X1,mark(X2),X3,X4) -> u81(X1,X2,X3,X4)
+    133: u81(X1,X2,mark(X3),X4) -> u81(X1,X2,X3,X4)
+    134: u81(X1,X2,X3,mark(X4)) -> u81(X1,X2,X3,X4)
+    135: u81(active(X1),X2,X3,X4) -> u81(X1,X2,X3,X4)
+    136: u81(X1,active(X2),X3,X4) -> u81(X1,X2,X3,X4)
+    137: u81(X1,X2,active(X3),X4) -> u81(X1,X2,X3,X4)
+    138: u81(X1,X2,X3,active(X4)) -> u81(X1,X2,X3,X4)
+    139: u82(mark(X1),X2) -> u82(X1,X2)
+    140: u82(X1,mark(X2)) -> u82(X1,X2)
+    141: u82(active(X1),X2) -> u82(X1,X2)
+    142: u82(X1,active(X2)) -> u82(X1,X2)
+    143: u91(mark(X1),X2) -> u91(X1,X2)
+    144: u91(X1,mark(X2)) -> u91(X1,X2)
+    145: u91(active(X1),X2) -> u91(X1,X2)
+    146: u91(X1,active(X2)) -> u91(X1,X2)
+    147: and(mark(X1),X2) -> and(X1,X2)
+    148: and(X1,mark(X2)) -> and(X1,X2)
+    149: and(active(X1),X2) -> and(X1,X2)
+    150: and(X1,active(X2)) -> and(X1,X2)
+    151: isNatural(mark(X)) -> isNatural(X)
+    152: isNatural(active(X)) -> isNatural(X)
+    153: isLNat(mark(X)) -> isLNat(X)
+    154: isLNat(active(X)) -> isLNat(X)
+    155: isPLNat(mark(X)) -> isPLNat(X)
+    156: isPLNat(active(X)) -> isPLNat(X)
+    157: tail(mark(X)) -> tail(X)
+    158: tail(active(X)) -> tail(X)
+    159: take(mark(X1),X2) -> take(X1,X2)
+    160: take(X1,mark(X2)) -> take(X1,X2)
+    161: take(active(X1),X2) -> take(X1,X2)
+    162: take(X1,active(X2)) -> take(X1,X2)
+    163: sel(mark(X1),X2) -> sel(X1,X2)
+    164: sel(X1,mark(X2)) -> sel(X1,X2)
+    165: sel(active(X1),X2) -> sel(X1,X2)
+    166: sel(X1,active(X2)) -> sel(X1,X2)
+    167: _(X1,X2) -> X1
+    168: _(X1,X2) -> X2
+Number of strict rules: 168
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #active(u11(tt(),N,XS)) -> #mark(snd(splitAt(N,XS)))
+   #2: #active(u11(tt(),N,XS)) -> #snd(splitAt(N,XS))
+   #3: #active(u11(tt(),N,XS)) -> #splitAt(N,XS)
+   #4: #snd(active(X)) -> #snd(X)
+   #5: #mark(u21(X1,X2)) -> #active(u21(mark(X1),X2))
+   #6: #mark(u21(X1,X2)) -> #u21(mark(X1),X2)
+   #7: #mark(u21(X1,X2)) -> #mark(X1)
+   #8: #active(isPLNat(splitAt(V1,V2))) -> #mark(and(isNatural(V1),isLNat(V2)))
+   #9: #active(isPLNat(splitAt(V1,V2))) -> #and(isNatural(V1),isLNat(V2))
+   #10: #active(isPLNat(splitAt(V1,V2))) -> #isNatural(V1)
+   #11: #active(isPLNat(splitAt(V1,V2))) -> #isLNat(V2)
+   #12: #active(tail(cons(N,XS))) -> #mark(u91(and(isNatural(N),isLNat(XS)),XS))
+   #13: #active(tail(cons(N,XS))) -> #u91(and(isNatural(N),isLNat(XS)),XS)
+   #14: #active(tail(cons(N,XS))) -> #and(isNatural(N),isLNat(XS))
+   #15: #active(tail(cons(N,XS))) -> #isNatural(N)
+   #16: #active(tail(cons(N,XS))) -> #isLNat(XS)
+   #17: #u11(X1,active(X2),X3) -> #u11(X1,X2,X3)
+   #18: #mark(sel(X1,X2)) -> #active(sel(mark(X1),mark(X2)))
+   #19: #mark(sel(X1,X2)) -> #sel(mark(X1),mark(X2))
+   #20: #mark(sel(X1,X2)) -> #mark(X1)
+   #21: #mark(sel(X1,X2)) -> #mark(X2)
+   #22: #mark(cons(X1,X2)) -> #active(cons(mark(X1),X2))
+   #23: #mark(cons(X1,X2)) -> #cons(mark(X1),X2)
+   #24: #mark(cons(X1,X2)) -> #mark(X1)
+   #25: #mark(snd(X)) -> #active(snd(mark(X)))
+   #26: #mark(snd(X)) -> #snd(mark(X))
+   #27: #mark(snd(X)) -> #mark(X)
+   #28: #afterNth(mark(X1),X2) -> #afterNth(X1,X2)
+   #29: #and(active(X1),X2) -> #and(X1,X2)
+   #30: #u41(mark(X1),X2) -> #u41(X1,X2)
+   #31: #mark(u11(X1,X2,X3)) -> #active(u11(mark(X1),X2,X3))
+   #32: #mark(u11(X1,X2,X3)) -> #u11(mark(X1),X2,X3)
+   #33: #mark(u11(X1,X2,X3)) -> #mark(X1)
+   #34: #mark(u101(X1,X2,X3)) -> #active(u101(mark(X1),X2,X3))
+   #35: #mark(u101(X1,X2,X3)) -> #u101(mark(X1),X2,X3)
+   #36: #mark(u101(X1,X2,X3)) -> #mark(X1)
+   #37: #head(active(X)) -> #head(X)
+   #38: #cons(mark(X1),X2) -> #cons(X1,X2)
+   #39: #sel(mark(X1),X2) -> #sel(X1,X2)
+   #40: #u41(active(X1),X2) -> #u41(X1,X2)
+   #41: #u31(mark(X1),X2) -> #u31(X1,X2)
+   #42: #fst(mark(X)) -> #fst(X)
+   #43: #mark(natsFrom(X)) -> #active(natsFrom(mark(X)))
+   #44: #mark(natsFrom(X)) -> #natsFrom(mark(X))
+   #45: #mark(natsFrom(X)) -> #mark(X)
+   #46: #mark(u71(X1,X2)) -> #active(u71(mark(X1),X2))
+   #47: #mark(u71(X1,X2)) -> #u71(mark(X1),X2)
+   #48: #mark(u71(X1,X2)) -> #mark(X1)
+   #49: #u101(X1,active(X2),X3) -> #u101(X1,X2,X3)
+   #50: #and(mark(X1),X2) -> #and(X1,X2)
+   #51: #u82(mark(X1),X2) -> #u82(X1,X2)
+   #52: #mark(s(X)) -> #active(s(mark(X)))
+   #53: #mark(s(X)) -> #s(mark(X))
+   #54: #mark(s(X)) -> #mark(X)
+   #55: #u71(mark(X1),X2) -> #u71(X1,X2)
+   #56: #splitAt(mark(X1),X2) -> #splitAt(X1,X2)
+   #57: #u51(X1,X2,active(X3)) -> #u51(X1,X2,X3)
+   #58: #fst(active(X)) -> #fst(X)
+   #59: #mark(u91(X1,X2)) -> #active(u91(mark(X1),X2))
+   #60: #mark(u91(X1,X2)) -> #u91(mark(X1),X2)
+   #61: #mark(u91(X1,X2)) -> #mark(X1)
+   #62: #u81(X1,X2,X3,active(X4)) -> #u81(X1,X2,X3,X4)
+   #63: #head(mark(X)) -> #head(X)
+   #64: #tail(active(X)) -> #tail(X)
+   #65: #mark(isLNat(X)) -> #active(isLNat(X))
+   #66: #mark(tt()) -> #active(tt())
+   #67: #isNatural(mark(X)) -> #isNatural(X)
+   #68: #isLNat(active(X)) -> #isLNat(X)
+   #69: #afterNth(X1,mark(X2)) -> #afterNth(X1,X2)
+   #70: #isPLNat(mark(X)) -> #isPLNat(X)
+   #71: #active(u51(tt(),N,XS)) -> #mark(head(afterNth(N,XS)))
+   #72: #active(u51(tt(),N,XS)) -> #head(afterNth(N,XS))
+   #73: #active(u51(tt(),N,XS)) -> #afterNth(N,XS)
+   #74: #sel(active(X1),X2) -> #sel(X1,X2)
+   #75: #mark(and(X1,X2)) -> #active(and(mark(X1),X2))
+   #76: #mark(and(X1,X2)) -> #and(mark(X1),X2)
+   #77: #mark(and(X1,X2)) -> #mark(X1)
+   #78: #u51(active(X1),X2,X3) -> #u51(X1,X2,X3)
+   #79: #u81(X1,mark(X2),X3,X4) -> #u81(X1,X2,X3,X4)
+   #80: #mark(nil()) -> #active(nil())
+   #81: #u101(mark(X1),X2,X3) -> #u101(X1,X2,X3)
+   #82: #mark(splitAt(X1,X2)) -> #active(splitAt(mark(X1),mark(X2)))
+   #83: #mark(splitAt(X1,X2)) -> #splitAt(mark(X1),mark(X2))
+   #84: #mark(splitAt(X1,X2)) -> #mark(X1)
+   #85: #mark(splitAt(X1,X2)) -> #mark(X2)
+   #86: #u21(X1,active(X2)) -> #u21(X1,X2)
+   #87: #u91(X1,active(X2)) -> #u91(X1,X2)
+   #88: #u51(mark(X1),X2,X3) -> #u51(X1,X2,X3)
+   #89: #mark(afterNth(X1,X2)) -> #active(afterNth(mark(X1),mark(X2)))
+   #90: #mark(afterNth(X1,X2)) -> #afterNth(mark(X1),mark(X2))
+   #91: #mark(afterNth(X1,X2)) -> #mark(X1)
+   #92: #mark(afterNth(X1,X2)) -> #mark(X2)
+   #93: #active(and(tt(),X)) -> #mark(X)
+   #94: #active(u81(tt(),N,X,XS)) -> #mark(u82(splitAt(N,XS),X))
+   #95: #active(u81(tt(),N,X,XS)) -> #u82(splitAt(N,XS),X)
+   #96: #active(u81(tt(),N,X,XS)) -> #splitAt(N,XS)
+   #97: #active(u91(tt(),XS)) -> #mark(XS)
+   #98: #u41(X1,active(X2)) -> #u41(X1,X2)
+   #99: #isPLNat(active(X)) -> #isPLNat(X)
+   #100: #mark(u82(X1,X2)) -> #active(u82(mark(X1),X2))
+   #101: #mark(u82(X1,X2)) -> #u82(mark(X1),X2)
+   #102: #mark(u82(X1,X2)) -> #mark(X1)
+   #103: #splitAt(X1,mark(X2)) -> #splitAt(X1,X2)
+   #104: #u51(X1,X2,mark(X3)) -> #u51(X1,X2,X3)
+   #105: #u31(X1,active(X2)) -> #u31(X1,X2)
+   #106: #active(isNatural(0())) -> #mark(tt())
+   #107: #u81(X1,X2,X3,mark(X4)) -> #u81(X1,X2,X3,X4)
+   #108: #u101(active(X1),X2,X3) -> #u101(X1,X2,X3)
+   #109: #active(isLNat(take(V1,V2))) -> #mark(and(isNatural(V1),isLNat(V2)))
+   #110: #active(isLNat(take(V1,V2))) -> #and(isNatural(V1),isLNat(V2))
+   #111: #active(isLNat(take(V1,V2))) -> #isNatural(V1)
+   #112: #active(isLNat(take(V1,V2))) -> #isLNat(V2)
+   #113: #pair(X1,mark(X2)) -> #pair(X1,X2)
+   #114: #u11(X1,X2,mark(X3)) -> #u11(X1,X2,X3)
+   #115: #afterNth(X1,active(X2)) -> #afterNth(X1,X2)
+   #116: #splitAt(X1,active(X2)) -> #splitAt(X1,X2)
+   #117: #mark(u41(X1,X2)) -> #active(u41(mark(X1),X2))
+   #118: #mark(u41(X1,X2)) -> #u41(mark(X1),X2)
+   #119: #mark(u41(X1,X2)) -> #mark(X1)
+   #120: #u41(X1,mark(X2)) -> #u41(X1,X2)
+   #121: #u101(X1,X2,mark(X3)) -> #u101(X1,X2,X3)
+   #122: #cons(active(X1),X2) -> #cons(X1,X2)
+   #123: #active(afterNth(N,XS)) -> #mark(u11(and(isNatural(N),isLNat(XS)),N,XS))
+   #124: #active(afterNth(N,XS)) -> #u11(and(isNatural(N),isLNat(XS)),N,XS)
+   #125: #active(afterNth(N,XS)) -> #and(isNatural(N),isLNat(XS))
+   #126: #active(afterNth(N,XS)) -> #isNatural(N)
+   #127: #active(afterNth(N,XS)) -> #isLNat(XS)
+   #128: #active(sel(N,XS)) -> #mark(u51(and(isNatural(N),isLNat(XS)),N,XS))
+   #129: #active(sel(N,XS)) -> #u51(and(isNatural(N),isLNat(XS)),N,XS)
+   #130: #active(sel(N,XS)) -> #and(isNatural(N),isLNat(XS))
+   #131: #active(sel(N,XS)) -> #isNatural(N)
+   #132: #active(sel(N,XS)) -> #isLNat(XS)
+   #133: #sel(X1,mark(X2)) -> #sel(X1,X2)
+   #134: #u11(mark(X1),X2,X3) -> #u11(X1,X2,X3)
+   #135: #mark(u81(X1,X2,X3,X4)) -> #active(u81(mark(X1),X2,X3,X4))
+   #136: #mark(u81(X1,X2,X3,X4)) -> #u81(mark(X1),X2,X3,X4)
+   #137: #mark(u81(X1,X2,X3,X4)) -> #mark(X1)
+   #138: #u21(active(X1),X2) -> #u21(X1,X2)
+   #139: #u81(X1,X2,mark(X3),X4) -> #u81(X1,X2,X3,X4)
+   #140: #u11(active(X1),X2,X3) -> #u11(X1,X2,X3)
+   #141: #u51(X1,active(X2),X3) -> #u51(X1,X2,X3)
+   #142: #active(fst(pair(X,Y))) -> #mark(u21(and(isLNat(X),isLNat(Y)),X))
+   #143: #active(fst(pair(X,Y))) -> #u21(and(isLNat(X),isLNat(Y)),X)
+   #144: #active(fst(pair(X,Y))) -> #and(isLNat(X),isLNat(Y))
+   #145: #active(fst(pair(X,Y))) -> #isLNat(X)
+   #146: #active(fst(pair(X,Y))) -> #isLNat(Y)
+   #147: #s(active(X)) -> #s(X)
+   #148: #mark(isPLNat(X)) -> #active(isPLNat(X))
+   #149: #active(natsFrom(N)) -> #mark(u41(isNatural(N),N))
+   #150: #active(natsFrom(N)) -> #u41(isNatural(N),N)
+   #151: #active(natsFrom(N)) -> #isNatural(N)
+   #152: #mark(u61(X1,X2)) -> #active(u61(mark(X1),X2))
+   #153: #mark(u61(X1,X2)) -> #u61(mark(X1),X2)
+   #154: #mark(u61(X1,X2)) -> #mark(X1)
+   #155: #mark(u51(X1,X2,X3)) -> #active(u51(mark(X1),X2,X3))
+   #156: #mark(u51(X1,X2,X3)) -> #u51(mark(X1),X2,X3)
+   #157: #mark(u51(X1,X2,X3)) -> #mark(X1)
+   #158: #active(isNatural(head(V1))) -> #mark(isLNat(V1))
+   #159: #active(isNatural(head(V1))) -> #isLNat(V1)
+   #160: #pair(X1,active(X2)) -> #pair(X1,X2)
+   #161: #sel(X1,active(X2)) -> #sel(X1,X2)
+   #162: #u51(X1,mark(X2),X3) -> #u51(X1,X2,X3)
+   #163: #pair(active(X1),X2) -> #pair(X1,X2)
+   #164: #active(isLNat(natsFrom(V1))) -> #mark(isNatural(V1))
+   #165: #active(isLNat(natsFrom(V1))) -> #isNatural(V1)
+   #166: #u71(X1,active(X2)) -> #u71(X1,X2)
+   #167: #u21(X1,mark(X2)) -> #u21(X1,X2)
+   #168: #active(u61(tt(),Y)) -> #mark(Y)
+   #169: #mark(fst(X)) -> #active(fst(mark(X)))
+   #170: #mark(fst(X)) -> #fst(mark(X))
+   #171: #mark(fst(X)) -> #mark(X)
+   #172: #isLNat(mark(X)) -> #isLNat(X)
+   #173: #u81(X1,active(X2),X3,X4) -> #u81(X1,X2,X3,X4)
+   #174: #active(u82(pair(YS,ZS),X)) -> #mark(pair(cons(X,YS),ZS))
+   #175: #active(u82(pair(YS,ZS),X)) -> #pair(cons(X,YS),ZS)
+   #176: #active(u82(pair(YS,ZS),X)) -> #cons(X,YS)
+   #177: #u31(X1,mark(X2)) -> #u31(X1,X2)
+   #178: #u61(mark(X1),X2) -> #u61(X1,X2)
+   #179: #u31(active(X1),X2) -> #u31(X1,X2)
+   #180: #mark(take(X1,X2)) -> #active(take(mark(X1),mark(X2)))
+   #181: #mark(take(X1,X2)) -> #take(mark(X1),mark(X2))
+   #182: #mark(take(X1,X2)) -> #mark(X1)
+   #183: #mark(take(X1,X2)) -> #mark(X2)
+   #184: #active(splitAt(0(),XS)) -> #mark(u71(isLNat(XS),XS))
+   #185: #active(splitAt(0(),XS)) -> #u71(isLNat(XS),XS)
+   #186: #active(splitAt(0(),XS)) -> #isLNat(XS)
+   #187: #u101(X1,X2,active(X3)) -> #u101(X1,X2,X3)
+   #188: #take(X1,active(X2)) -> #take(X1,X2)
+   #189: #u61(X1,mark(X2)) -> #u61(X1,X2)
+   #190: #active(u41(tt(),N)) -> #mark(cons(N,natsFrom(s(N))))
+   #191: #active(u41(tt(),N)) -> #cons(N,natsFrom(s(N)))
+   #192: #active(u41(tt(),N)) -> #natsFrom(s(N))
+   #193: #active(u41(tt(),N)) -> #s(N)
+   #194: #mark(u31(X1,X2)) -> #active(u31(mark(X1),X2))
+   #195: #mark(u31(X1,X2)) -> #u31(mark(X1),X2)
+   #196: #mark(u31(X1,X2)) -> #mark(X1)
+   #197: #mark(0()) -> #active(0())
+   #198: #and(X1,mark(X2)) -> #and(X1,X2)
+   #199: #active(isPLNat(pair(V1,V2))) -> #mark(and(isLNat(V1),isLNat(V2)))
+   #200: #active(isPLNat(pair(V1,V2))) -> #and(isLNat(V1),isLNat(V2))
+   #201: #active(isPLNat(pair(V1,V2))) -> #isLNat(V1)
+   #202: #active(isPLNat(pair(V1,V2))) -> #isLNat(V2)
+   #203: #active(isLNat(tail(V1))) -> #mark(isLNat(V1))
+   #204: #active(isLNat(tail(V1))) -> #isLNat(V1)
+   #205: #pair(mark(X1),X2) -> #pair(X1,X2)
+   #206: #active(splitAt(s(N),cons(X,XS))) -> #mark(u81(and(isNatural(N),and(isNatural(X),isLNat(XS))),N,X,XS))
+   #207: #active(splitAt(s(N),cons(X,XS))) -> #u81(and(isNatural(N),and(isNatural(X),isLNat(XS))),N,X,XS)
+   #208: #active(splitAt(s(N),cons(X,XS))) -> #and(isNatural(N),and(isNatural(X),isLNat(XS)))
+   #209: #active(splitAt(s(N),cons(X,XS))) -> #isNatural(N)
+   #210: #active(splitAt(s(N),cons(X,XS))) -> #and(isNatural(X),isLNat(XS))
+   #211: #active(splitAt(s(N),cons(X,XS))) -> #isNatural(X)
+   #212: #active(splitAt(s(N),cons(X,XS))) -> #isLNat(XS)
+   #213: #u11(X1,X2,active(X3)) -> #u11(X1,X2,X3)
+   #214: #u21(mark(X1),X2) -> #u21(X1,X2)
+   #215: #tail(mark(X)) -> #tail(X)
+   #216: #active(isNatural(sel(V1,V2))) -> #mark(and(isNatural(V1),isLNat(V2)))
+   #217: #active(isNatural(sel(V1,V2))) -> #and(isNatural(V1),isLNat(V2))
+   #218: #active(isNatural(sel(V1,V2))) -> #isNatural(V1)
+   #219: #active(isNatural(sel(V1,V2))) -> #isLNat(V2)
+   #220: #u81(X1,X2,active(X3),X4) -> #u81(X1,X2,X3,X4)
+   #221: #u91(X1,mark(X2)) -> #u91(X1,X2)
+   #222: #u82(X1,active(X2)) -> #u82(X1,X2)
+   #223: #take(active(X1),X2) -> #take(X1,X2)
+   #224: #and(X1,active(X2)) -> #and(X1,X2)
+   #225: #mark(isNatural(X)) -> #active(isNatural(X))
+   #226: #afterNth(active(X1),X2) -> #afterNth(X1,X2)
+   #227: #active(isLNat(afterNth(V1,V2))) -> #mark(and(isNatural(V1),isLNat(V2)))
+   #228: #active(isLNat(afterNth(V1,V2))) -> #and(isNatural(V1),isLNat(V2))
+   #229: #active(isLNat(afterNth(V1,V2))) -> #isNatural(V1)
+   #230: #active(isLNat(afterNth(V1,V2))) -> #isLNat(V2)
+   #231: #active(snd(pair(X,Y))) -> #mark(u61(and(isLNat(X),isLNat(Y)),Y))
+   #232: #active(snd(pair(X,Y))) -> #u61(and(isLNat(X),isLNat(Y)),Y)
+   #233: #active(snd(pair(X,Y))) -> #and(isLNat(X),isLNat(Y))
+   #234: #active(snd(pair(X,Y))) -> #isLNat(X)
+   #235: #active(snd(pair(X,Y))) -> #isLNat(Y)
+   #236: #active(isLNat(fst(V1))) -> #mark(isPLNat(V1))
+   #237: #active(isLNat(fst(V1))) -> #isPLNat(V1)
+   #238: #u91(mark(X1),X2) -> #u91(X1,X2)
+   #239: #u71(active(X1),X2) -> #u71(X1,X2)
+   #240: #mark(tail(X)) -> #active(tail(mark(X)))
+   #241: #mark(tail(X)) -> #tail(mark(X))
+   #242: #mark(tail(X)) -> #mark(X)
+   #243: #u81(active(X1),X2,X3,X4) -> #u81(X1,X2,X3,X4)
+   #244: #s(mark(X)) -> #s(X)
+   #245: #active(isNatural(s(V1))) -> #mark(isNatural(V1))
+   #246: #active(isNatural(s(V1))) -> #isNatural(V1)
+   #247: #cons(X1,mark(X2)) -> #cons(X1,X2)
+   #248: #snd(mark(X)) -> #snd(X)
+   #249: #u61(X1,active(X2)) -> #u61(X1,X2)
+   #250: #u101(X1,mark(X2),X3) -> #u101(X1,X2,X3)
+   #251: #u81(mark(X1),X2,X3,X4) -> #u81(X1,X2,X3,X4)
+   #252: #active(take(N,XS)) -> #mark(u101(and(isNatural(N),isLNat(XS)),N,XS))
+   #253: #active(take(N,XS)) -> #u101(and(isNatural(N),isLNat(XS)),N,XS)
+   #254: #active(take(N,XS)) -> #and(isNatural(N),isLNat(XS))
+   #255: #active(take(N,XS)) -> #isNatural(N)
+   #256: #active(take(N,XS)) -> #isLNat(XS)
+   #257: #active(isLNat(snd(V1))) -> #mark(isPLNat(V1))
+   #258: #active(isLNat(snd(V1))) -> #isPLNat(V1)
+   #259: #active(isLNat(nil())) -> #mark(tt())
+   #260: #active(u21(tt(),X)) -> #mark(X)
+   #261: #take(mark(X1),X2) -> #take(X1,X2)
+   #262: #splitAt(active(X1),X2) -> #splitAt(X1,X2)
+   #263: #active(u101(tt(),N,XS)) -> #mark(fst(splitAt(N,XS)))
+   #264: #active(u101(tt(),N,XS)) -> #fst(splitAt(N,XS))
+   #265: #active(u101(tt(),N,XS)) -> #splitAt(N,XS)
+   #266: #u82(X1,mark(X2)) -> #u82(X1,X2)
+   #267: #u71(X1,mark(X2)) -> #u71(X1,X2)
+   #268: #mark(pair(X1,X2)) -> #active(pair(mark(X1),mark(X2)))
+   #269: #mark(pair(X1,X2)) -> #pair(mark(X1),mark(X2))
+   #270: #mark(pair(X1,X2)) -> #mark(X1)
+   #271: #mark(pair(X1,X2)) -> #mark(X2)
+   #272: #take(X1,mark(X2)) -> #take(X1,X2)
+   #273: #active(u71(tt(),XS)) -> #mark(pair(nil(),XS))
+   #274: #active(u71(tt(),XS)) -> #pair(nil(),XS)
+   #275: #isNatural(active(X)) -> #isNatural(X)
+   #276: #u82(active(X1),X2) -> #u82(X1,X2)
+   #277: #u61(active(X1),X2) -> #u61(X1,X2)
+   #278: #active(head(cons(N,XS))) -> #mark(u31(and(isNatural(N),isLNat(XS)),N))
+   #279: #active(head(cons(N,XS))) -> #u31(and(isNatural(N),isLNat(XS)),N)
+   #280: #active(head(cons(N,XS))) -> #and(isNatural(N),isLNat(XS))
+   #281: #active(head(cons(N,XS))) -> #isNatural(N)
+   #282: #active(head(cons(N,XS))) -> #isLNat(XS)
+   #283: #u91(active(X1),X2) -> #u91(X1,X2)
+   #284: #cons(X1,active(X2)) -> #cons(X1,X2)
+   #285: #natsFrom(mark(X)) -> #natsFrom(X)
+   #286: #active(u31(tt(),N)) -> #mark(N)
+   #287: #natsFrom(active(X)) -> #natsFrom(X)
+   #288: #u11(X1,mark(X2),X3) -> #u11(X1,X2,X3)
+   #289: #mark(head(X)) -> #active(head(mark(X)))
+   #290: #mark(head(X)) -> #head(mark(X))
+   #291: #mark(head(X)) -> #mark(X)
+   #292: #active(isLNat(cons(V1,V2))) -> #mark(and(isNatural(V1),isLNat(V2)))
+   #293: #active(isLNat(cons(V1,V2))) -> #and(isNatural(V1),isLNat(V2))
+   #294: #active(isLNat(cons(V1,V2))) -> #isNatural(V1)
+   #295: #active(isLNat(cons(V1,V2))) -> #isLNat(V2)
+Number of SCCs: 28, DPs: 187
+  SCC { #4 #248 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: x1
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4 #248
+Number of SCCs: 27, DPs: 185
+  SCC { #285 #287 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: x1
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #285 #287
+Number of SCCs: 26, DPs: 183
+  SCC { #70 #99 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: x1
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #70 #99
+Number of SCCs: 25, DPs: 181
+  SCC { #147 #244 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: x1
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #147 #244
+Number of SCCs: 24, DPs: 179
+  SCC { #42 #58 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: x1
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #42 #58
+Number of SCCs: 23, DPs: 177
+  SCC { #64 #215 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: x1
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #64 #215
+Number of SCCs: 22, DPs: 175
+  SCC { #68 #172 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: x1
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #68 #172
+Number of SCCs: 21, DPs: 173
+  SCC { #37 #63 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: x1
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #37 #63
+Number of SCCs: 20, DPs: 171
+  SCC { #67 #275 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: x1
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #67 #275
+Number of SCCs: 19, DPs: 169
+  SCC { #39 #74 #133 #161 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: x2
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #133 #161
+Number of SCCs: 19, DPs: 167
+  SCC { #39 #74 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: x1
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #39 #74
+Number of SCCs: 18, DPs: 165
+  SCC { #55 #166 #239 #267 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: x1
+    USABLE RULES: { }
+    Removed DPs: #55 #239
+Number of SCCs: 18, DPs: 163
+  SCC { #166 #267 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: x2
+    USABLE RULES: { }
+    Removed DPs: #166 #267
+Number of SCCs: 17, DPs: 161
+  SCC { #38 #122 #247 #284 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: x2
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #247 #284
+Number of SCCs: 17, DPs: 159
+  SCC { #38 #122 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: x1
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #38 #122
+Number of SCCs: 16, DPs: 157
+  SCC { #51 #222 #266 #276 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: x2
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #222 #266
+Number of SCCs: 16, DPs: 155
+  SCC { #51 #276 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: x1
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #51 #276
+Number of SCCs: 15, DPs: 153
+  SCC { #56 #103 #116 #262 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: x1
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #56 #262
+Number of SCCs: 15, DPs: 151
+  SCC { #103 #116 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: x2
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #103 #116
+Number of SCCs: 14, DPs: 149
+  SCC { #29 #50 #198 #224 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: x2
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #198 #224
+Number of SCCs: 14, DPs: 147
+  SCC { #29 #50 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: x1
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #29 #50
+Number of SCCs: 13, DPs: 145
+  SCC { #178 #189 #249 #277 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: x2
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #189 #249
+Number of SCCs: 13, DPs: 143
+  SCC { #178 #277 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: x1
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #178 #277
+Number of SCCs: 12, DPs: 141
+  SCC { #28 #69 #115 #226 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: x1
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #28 #226
+Number of SCCs: 12, DPs: 139
+  SCC { #69 #115 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: x2
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #69 #115
+Number of SCCs: 11, DPs: 137
+  SCC { #86 #138 #167 #214 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: x1
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #138 #214
+Number of SCCs: 11, DPs: 135
+  SCC { #86 #167 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: x2
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #86 #167
+Number of SCCs: 10, DPs: 133
+  SCC { #188 #223 #261 #272 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: x2
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #188 #272
+Number of SCCs: 10, DPs: 131
+  SCC { #223 #261 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: x1
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #223 #261
+Number of SCCs: 9, DPs: 129
+  SCC { #87 #221 #238 #283 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: x2
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #87 #221
+Number of SCCs: 9, DPs: 127
+  SCC { #238 #283 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: x1
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #238 #283
+Number of SCCs: 8, DPs: 125
+  SCC { #113 #160 #163 #205 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: x2
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #113 #160
+Number of SCCs: 8, DPs: 123
+  SCC { #163 #205 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: x1
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #163 #205
+Number of SCCs: 7, DPs: 121
+  SCC { #41 #105 #177 #179 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: x1
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #41 #179
+Number of SCCs: 7, DPs: 119
+  SCC { #105 #177 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: x2
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #105 #177
+Number of SCCs: 6, DPs: 117
+  SCC { #30 #40 #98 #120 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: x2
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #98 #120
+Number of SCCs: 6, DPs: 115
+  SCC { #30 #40 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: x1
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #30 #40
+Number of SCCs: 5, DPs: 113
+  SCC { #17 #114 #134 #140 #213 #288 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: x1 + x2
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #17 #134 #140 #288
+Number of SCCs: 5, DPs: 109
+  SCC { #114 #213 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: x3
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #114 #213
+Number of SCCs: 4, DPs: 107
+  SCC { #57 #78 #88 #104 #141 #162 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: x1 + x2
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #78 #88 #141 #162
+Number of SCCs: 4, DPs: 103
+  SCC { #57 #104 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: x3
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #57 #104
+Number of SCCs: 3, DPs: 101
+  SCC { #49 #81 #108 #121 #187 #250 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: x2 + x3
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #49 #121 #187 #250
+Number of SCCs: 3, DPs: 97
+  SCC { #81 #108 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: x1
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #81 #108
+Number of SCCs: 2, DPs: 95
+  SCC { #62 #79 #107 #139 #173 #220 #243 #251 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: x1 + x3 + x4
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #62 #107 #139 #220 #243 #251
+Number of SCCs: 2, DPs: 89
+  SCC { #79 #173 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: 0
+      u91	w: 0
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: 0
+      #u21	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 0
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: 0
+      #u81	w: x2
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: 0
+      u51	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      #isLNat	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      #isPLNat	w: 0
+      nil	w: 0
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 0
+      #afterNth	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 0
+      #natsFrom	w: 0
+      #active	w: 0
+      #u31	w: 0
+      snd	w: 0
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: 0
+      u31	w: 0
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { }
+    Removed DPs: #79 #173
+Number of SCCs: 1, DPs: 87
+  SCC { #1 #5 #7 #8 #12 #18 #20 #21 #24 #25 #27 #31 #33 #34 #36 #43 #45 #46 #48 #54 #59 #61 #65 #71 #75 #77 #82 #84 #85 #89 #91..94 #97 #100 #102 #109 #117 #119 #123 #128 #135 #137 #142 #148 #149 #152 #154 #155 #157 #158 #164 #168 #169 #171 #174 #180 #182..184 #190 #194 #196 #199 #203 #206 #216 #225 #227 #231 #236 #240 #242 #245 #252 #257 #260 #263 #270 #271 #273 #278 #286 #289 #291 #292 }
+POLO(Sum)... POLO(max)... succeeded.
+      u81	w: max(x1 + 1, x2 + 3, x3 + 2, x4)
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: x1
+      u91	w: max(x1 + 1, x2 + 2)
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: max(x1 + 6, x2)
+      #u21	w: 0
+      and	w: max(x1, x2)
+      pair	w: max(x1, x2)
+      fst	w: x1
+      natsFrom	w: x1 + 4
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: max(x1 + 3, x2)
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: max(x1 + 1, x2 + 2)
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: max(x1 + 3, x2 + 4)
+      u51	w: max(x1 + 12, x2 + 13, x3 + 14)
+      tail	w: x1 + 3
+      #mark	w: x1
+      0 	w: 1
+      #sel	w: 0
+      u11	w: max(x1 + 2, x2 + 7, x3 + 3)
+      #isLNat	w: 0
+      sel	w: max(x1 + 15, x2 + 16)
+      #s 	w: 0
+      afterNth	w: max(x1 + 8, x2 + 9)
+      #isPLNat	w: 0
+      nil	w: 1
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1
+      u101	w: max(x1 + 4, x2 + 5, x3)
+      #afterNth	w: 0
+      u21	w: max(x1, x2)
+      #u41	w: 0
+      u82	w: max(x1, x2 + 2)
+      #_ 	w: 0
+      active	w: x1
+      head	w: x1 + 2
+      #snd	w: 0
+      cons	w: max(x1 + 2, x2)
+      #natsFrom	w: 0
+      #active	w: x1
+      #u31	w: 0
+      snd	w: x1 + 3
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: max(x1 + 1, x2)
+      u31	w: max(x1 + 3, x2 + 1)
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { 1..166 }
+    Removed DPs: #12 #20 #21 #24 #27 #33 #36 #45 #48 #61 #71 #84 #91 #92 #97 #119 #123 #128 #137 #154 #157 #168 #182 #196 #231 #242 #278 #286 #291
+Number of SCCs: 1, DPs: 43
+  SCC { #5 #7 #8 #34 #46 #54 #65 #75 #77 #82 #85 #93 #94 #100 #102 #109 #135 #142 #148 #158 #164 #169 #171 #174 #180 #183 #184 #199 #203 #206 #216 #225 #227 #236 #245 #252 #257 #260 #263 #270 #271 #273 #292 }
+POLO(Sum)... POLO(max)... succeeded.
+      u81	w: max(x1 + 1, x2 + 2, x3 + 3, x4)
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: x1
+      u91	w: max(x1 + 1, x2 + 2)
+      #take	w: 0
+      isPLNat	w: 0
+      #u51	w: 0
+      take	w: max(x1 + 6, x2 + 4)
+      #u21	w: 0
+      and	w: max(x1, x2)
+      pair	w: max(x1, x2)
+      fst	w: x1
+      natsFrom	w: x1 + 4
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: max(x1 + 2, x2)
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: max(x1 + 1, x2 + 2)
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 0
+      u41	w: max(x1 + 3, x2 + 4)
+      u51	w: max(x1 + 12, x2 + 13, x3 + 14)
+      tail	w: x1 + 3
+      #mark	w: x1
+      0 	w: 2
+      #sel	w: 0
+      u11	w: max(x1 + 2, x2 + 5, x3 + 3)
+      #isLNat	w: 0
+      sel	w: max(x1 + 15, x2 + 16)
+      #s 	w: 0
+      afterNth	w: max(x1 + 8, x2 + 9)
+      #isPLNat	w: 0
+      nil	w: 4
+      isLNat	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1
+      u101	w: max(x1 + 5, x2 + 6, x3 + 3)
+      #afterNth	w: 0
+      u21	w: max(x1, x2)
+      #u41	w: 0
+      u82	w: max(x1, x2 + 3)
+      #_ 	w: 0
+      active	w: x1
+      head	w: x1 + 2
+      #snd	w: 0
+      cons	w: max(x1 + 3, x2)
+      #natsFrom	w: 0
+      #active	w: x1
+      #u31	w: 0
+      snd	w: x1 + 3
+      tt	w: 0
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: max(x1 + 4, x2)
+      u31	w: max(x1 + 3, x2 + 1)
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { 1..166 }
+    Removed DPs: #183 #263
+Number of SCCs: 1, DPs: 38
+  SCC { #5 #7 #8 #46 #54 #65 #75 #77 #82 #85 #93 #94 #100 #102 #109 #135 #142 #148 #158 #164 #169 #171 #174 #184 #199 #203 #206 #216 #225 #227 #236 #245 #257 #260 #270 #271 #273 #292 }
+POLO(Sum)... POLO(max)... succeeded.
+      u81	w: max(x3 + 7, x4 + 6)
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: x1
+      u91	w: max(x2 + 1)
+      #take	w: 0
+      isPLNat	w: 1
+      #u51	w: 0
+      take	w: max(x1 + 11, x2 + 9)
+      #u21	w: 0
+      and	w: max(x1, x2)
+      pair	w: max(x1 + 2, x2 + 1)
+      fst	w: x1 + 3
+      natsFrom	w: x1 + 3
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: max(x2 + 6)
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: max(x2 + 1)
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: 1
+      u41	w: max(x1 + 1, x2 + 3)
+      u51	w: max(x2 + 9, x3 + 10)
+      tail	w: x1 + 1
+      #mark	w: x1
+      0 	w: 0
+      #sel	w: 0
+      u11	w: max(x2 + 8, x3 + 7)
+      #isLNat	w: 0
+      sel	w: max(x1 + 10, x2 + 11)
+      #s 	w: 0
+      afterNth	w: max(x1 + 8, x2 + 9)
+      #isPLNat	w: 0
+      nil	w: 1
+      isLNat	w: 1
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1
+      u101	w: max(x1 + 10, x2 + 11, x3 + 9)
+      #afterNth	w: 0
+      u21	w: max(x1 + 2, x2 + 1)
+      #u41	w: 0
+      u82	w: max(x1, x2 + 5)
+      #_ 	w: 0
+      active	w: x1
+      head	w: x1
+      #snd	w: 0
+      cons	w: max(x1 + 2, x2)
+      #natsFrom	w: 0
+      #active	w: x1
+      #u31	w: 0
+      snd	w: x1 + 1
+      tt	w: 1
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: max(x2 + 4)
+      u31	w: max(x1 + 1, x2)
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { 1..166 }
+    Removed DPs: #7 #85 #142 #171 #184 #260 #270 #271 #273
+Number of SCCs: 1, DPs: 24
+  SCC { #8 #54 #65 #75 #77 #82 #93 #94 #102 #109 #135 #148 #158 #164 #199 #203 #206 #216 #225 #227 #236 #245 #257 #292 }
+POLO(Sum)... POLO(max)... succeeded.
+      u81	w: max(x1 + 2, x2 + 8, x3 + 7, x4 + 6)
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: x1
+      u91	w: max(x2 + 1)
+      #take	w: 0
+      isPLNat	w: x1 + 4
+      #u51	w: 0
+      take	w: max(x1 + 15, x2 + 14)
+      #u21	w: 0
+      and	w: max(x1 + 1, x2)
+      pair	w: max(x1 + 2, x2 + 1)
+      fst	w: x1 + 3
+      natsFrom	w: x1 + 3
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: max(x1 + 8, x2 + 6)
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: max(x2)
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: x1 + 1
+      u41	w: max(x1 + 1, x2 + 3)
+      u51	w: max(x2 + 15, x3 + 16)
+      tail	w: x1 + 1
+      #mark	w: x1
+      0 	w: 6
+      #sel	w: 0
+      u11	w: max(x2 + 10, x3 + 11)
+      #isLNat	w: 0
+      sel	w: max(x1 + 17, x2 + 16)
+      #s 	w: 0
+      afterNth	w: max(x1 + 10, x2 + 11)
+      #isPLNat	w: 0
+      nil	w: 4
+      isLNat	w: x1 + 3
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1
+      u101	w: max(x1 + 11, x2 + 12, x3 + 11)
+      #afterNth	w: 0
+      u21	w: max(x2)
+      #u41	w: 0
+      u82	w: max(x1, x2 + 5)
+      #_ 	w: 0
+      active	w: x1
+      head	w: x1 + 4
+      #snd	w: 0
+      cons	w: max(x1 + 3, x2)
+      #natsFrom	w: 0
+      #active	w: x1
+      #u31	w: 0
+      snd	w: x1 + 2
+      tt	w: 7
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: max(x2 + 6)
+      u31	w: max(x1 + 1, x2 + 2)
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { 1..166 }
+    Removed DPs: #8 #77 #109 #158 #164 #199 #203 #216 #227 #236 #257
+Number of SCCs: 2, DPs: 12
+  SCC { #225 #245 }
+POLO(Sum)... succeeded.
+      u81	w: x2 + x3 + x4 + 3
+      #u101	w: 0
+      #u82	w: 0
+      #cons	w: 0
+      s 	w: x1 + 2
+      u91	w: x2 + 5
+      #take	w: 0
+      isPLNat	w: x1 + 15
+      #u51	w: 0
+      take	w: 1
+      #u21	w: 0
+      and	w: 29
+      pair	w: 12
+      fst	w: 5
+      natsFrom	w: 1
+      #head	w: 0
+      #u61	w: 0
+      splitAt	w: 1
+      #fst	w: 0
+      #u11	w: 0
+      u61	w: x2 + 17
+      #u81	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      isNatural	w: x1 + 1
+      u41	w: x2 + 3
+      u51	w: x2 + x3 + 3
+      tail	w: 1
+      #mark	w: x1 + 5
+      0 	w: 1
+      #sel	w: 0
+      u11	w: x2 + x3 + 3
+      #isLNat	w: 0
+      sel	w: 1
+      #s 	w: 0
+      afterNth	w: 1
+      #isPLNat	w: 0
+      nil	w: 1
+      isLNat	w: x1 + 8
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u101	w: 3
+      #afterNth	w: 0
+      u21	w: 7
+      #u41	w: 0
+      u82	w: 6
+      #_ 	w: 0
+      active	w: x1 + 2
+      head	w: 5
+      #snd	w: 0
+      cons	w: x1 + x2 + 5
+      #natsFrom	w: 0
+      #active	w: x1 + 4
+      #u31	w: 0
+      snd	w: 5
+      tt	w: 11
+      #isNatural	w: 0
+      #pair	w: 0
+      u71	w: x2 + 11
+      u31	w: x2 + 7
+      #and	w: 0
+      #u71	w: 0
+    USABLE RULES: { 67..166 }
+    Removed DPs: #225 #245
+Number of SCCs: 1, DPs: 10
+  SCC { #54 #65 #75 #82 #93 #94 #102 #135 #206 #292 }
+POLO(Sum)... POLO(max)... QLPOS... succeeded.
+      u81	s: []	p: 1
+      #u101	s: [3]	p: 0
+      #u82	s: [1,2]	p: 0
+      #cons	s: [1,2]	p: 0
+      s 	s: [1]	p: 1
+      u91	s: [2]	p: 3
+      #take	s: []	p: 0
+      isPLNat	s: []	p: 6
+      #u51	s: [1]	p: 0
+      take	s: [2,1]	p: 8
+      #u21	s: [1,2]	p: 0
+      and	s: 2
+      pair	s: [1]	p: 0
+      fst	s: []	p: 8
+      natsFrom	s: []	p: 10
+      #head	s: []	p: 0
+      #u61	s: [1,2]	p: 0
+      splitAt	s: []	p: 1
+      #fst	s: []	p: 0
+      #u11	s: [2]	p: 0
+      u61	s: 1
+      #u81	s: [1,2,4,3]	p: 0
+      _ 	s: []	p: 0
+      #u91	s: []	p: 0
+      isNatural	s: []	p: 3
+      u41	s: [1]	p: 7
+      u51	s: [1,2,3]	p: 12
+      tail	s: []	p: 6
+      #mark	s: [1]	p: 2
+      0 	s: []	p: 4
+      #sel	s: [2,1]	p: 0
+      u11	s: [1]	p: 10
+      #isLNat	s: []	p: 0
+      sel	s: []	p: 8
+      #s 	s: []	p: 0
+      afterNth	s: [2,1]	p: 11
+      #isPLNat	s: []	p: 0
+      nil	s: []	p: 0
+      isLNat	s: []	p: 5
+      #tail	s: []	p: 0
+      #splitAt	s: [1,2]	p: 0
+      mark	s: [1]	p: 3
+      u101	s: [2,3]	p: 7
+      #afterNth	s: []	p: 0
+      u21	s: []	p: 7
+      #u41	s: [1,2]	p: 0
+      u82	s: 1
+      #_ 	s: [1,2]	p: 0
+      active	s: [1]	p: 7
+      head	s: [1]	p: 7
+      #snd	s: []	p: 0
+      cons	s: []	p: 6
+      #natsFrom	s: []	p: 0
+      #active	s: [1]	p: 2
+      #u31	s: [1,2]	p: 0
+      snd	s: [1]	p: 10
+      tt	s: []	p: 9
+      #isNatural	s: []	p: 0
+      #pair	s: []	p: 0
+      u71	s: []	p: 1
+      u31	s: [2]	p: 7
+      #and	s: [2,1]	p: 0
+      #u71	s: [1,2]	p: 0
+    USABLE RULES: { 75..84 87..90 95..98 105..112 115..118 131..150 153 154 159..162 }
+    Removed DPs: #54
+Number of SCCs: 1, DPs: 9
+  SCC { #65 #75 #82 #93 #94 #102 #135 #206 #292 }
+POLO(Sum)... POLO(max)... QLPOS... succeeded.
+      u81	s: []	p: 2
+      #u101	s: [3]	p: 0
+      #u82	s: [1,2]	p: 0
+      #cons	s: [1,2]	p: 0
+      s 	s: [1]	p: 2
+      u91	s: [2]	p: 3
+      #take	s: []	p: 0
+      isPLNat	s: []	p: 7
+      #u51	s: [1]	p: 0
+      take	s: [2,1]	p: 8
+      #u21	s: [1,2]	p: 0
+      and	s: [2]	p: 3
+      pair	s: [1]	p: 0
+      fst	s: []	p: 8
+      natsFrom	s: []	p: 10
+      #head	s: []	p: 0
+      #u61	s: [1,2]	p: 0
+      splitAt	s: []	p: 2
+      #fst	s: []	p: 0
+      #u11	s: [2]	p: 0
+      u61	s: []	p: 0
+      #u81	s: [1,2,4,3]	p: 0
+      _ 	s: []	p: 0
+      #u91	s: []	p: 0
+      isNatural	s: []	p: 3
+      u41	s: [1,2]	p: 11
+      u51	s: [1,2,3]	p: 12
+      tail	s: [1]	p: 6
+      #mark	s: [1]	p: 6
+      0 	s: []	p: 4
+      #sel	s: [2,1]	p: 0
+      u11	s: [1]	p: 10
+      #isLNat	s: []	p: 0
+      sel	s: []	p: 8
+      #s 	s: []	p: 0
+      afterNth	s: [2,1]	p: 11
+      #isPLNat	s: []	p: 0
+      nil	s: []	p: 0
+      isLNat	s: [1]	p: 5
+      #tail	s: []	p: 0
+      #splitAt	s: [1,2]	p: 0
+      mark	s: [1]	p: 3
+      u101	s: [2,3]	p: 6
+      #afterNth	s: []	p: 0
+      u21	s: []	p: 7
+      #u41	s: [1,2]	p: 0
+      u82	s: 1
+      #_ 	s: [1,2]	p: 0
+      active	s: [1]	p: 7
+      head	s: []	p: 7
+      #snd	s: []	p: 0
+      cons	s: [1,2]	p: 6
+      #natsFrom	s: []	p: 0
+      #active	s: [1]	p: 6
+      #u31	s: [1,2]	p: 0
+      snd	s: [1]	p: 10
+      tt	s: []	p: 9
+      #isNatural	s: []	p: 0
+      #pair	s: []	p: 0
+      u71	s: []	p: 2
+      u31	s: [2]	p: 5
+      #and	s: [2,1]	p: 0
+      #u71	s: [1,2]	p: 0
+    USABLE RULES: { 75..84 87..90 105..112 115..122 131..150 153 154 159..162 }
+    Removed DPs: #93
+Number of SCCs: 1, DPs: 5
+  SCC { #82 #94 #102 #135 #206 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... succeeded.
+      u81	s: [2,4,3]	p: 10	w: max(x2 + 7, x3 + 7, x4 + 17)
+      #u101	s: [3]	p: 0	w: max(x2 + 1, x3)
+      #u82	s: []	p: 0	w: max(x2 + 1)
+      #cons	s: [1]	p: 0	w: max(x1 + 1)
+      s 	s: [1]	p: 2	w: x1
+      u91	s: []	p: 7	w: max(x2 + 8)
+      #take	s: [1]	p: 0	w: x1 + 1
+      isPLNat	s: []	p: 6	w: x1 + 11
+      #u51	s: [3,2]	p: 0	w: max(x1 + 1, x2, x3 + 1)
+      take	s: []	p: 7	w: x1 + x2 + 30
+      #u21	s: [2]	p: 0	w: max(x2)
+      and	s: 2
+      pair	s: []	p: 1	w: max(x1, x2)
+      fst	s: [1]	p: 3	w: x1 + 11
+      natsFrom	s: []	p: 8	w: x1 + 7
+      #head	s: []	p: 0	w: 0
+      #u61	s: [1]	p: 0	w: max(x1)
+      splitAt	s: [1,2]	p: 10	w: max(x1 + 7, x2 + 17)
+      #fst	s: []	p: 0	w: 0
+      #u11	s: [2,3,1]	p: 0	w: max(x1 + 1, x2, x3)
+      u61	s: []	p: 8	w: max(x2 + 1)
+      #u81	s: []	p: 0	w: max(x1 + 1, x2 + 1, x3)
+      _ 	s: [2]	p: 0	w: x2 + 1
+      #u91	s: [2]	p: 0	w: max(x2 + 1)
+      isNatural	s: 1
+      u41	s: []	p: 3	w: max(x1 + 1, x2 + 7)
+      u51	s: []	p: 4	w: max(x2 + 25, x3 + 33)
+      tail	s: [1]	p: 6	w: x1 + 9
+      #mark	s: [1]	p: 8	w: x1
+      0 	s: []	p: 10	w: 8
+      #sel	s: []	p: 0	w: 1
+      u11	s: []	p: 11	w: max(x1 + 15, x2 + 13, x3 + 23)
+      #isLNat	s: []	p: 0	w: 1
+      sel	s: []	p: 7	w: x1 + x2 + 34
+      #s 	s: []	p: 0	w: 0
+      afterNth	s: []	p: 8	w: max(x1 + 16, x2 + 24)
+      #isPLNat	s: []	p: 0	w: 0
+      nil	s: []	p: 5	w: 8
+      isLNat	s: []	p: 6	w: x1 + 6
+      #tail	s: []	p: 0	w: 0
+      #splitAt	s: [1]	p: 0	w: max(x1)
+      mark	s: 1
+      u101	s: [2]	p: 10	w: max(x1 + 19, x2 + 18, x3 + 29)
+      #afterNth	s: [2]	p: 0	w: max(x2)
+      u21	s: [1]	p: 4	w: max(x1, x2 + 10)
+      #u41	s: [1]	p: 0	w: max(x1 + 1)
+      u82	s: [1]	p: 9	w: max(x1, x2 + 7)
+      #_ 	s: [2,1]	p: 0	w: x1 + x2 + 1
+      active	s: 1
+      head	s: []	p: 8	w: x1 + 8
+      #snd	s: []	p: 0	w: 0
+      cons	s: []	p: 2	w: max(x1 + 7, x2)
+      #natsFrom	s: []	p: 0	w: 1
+      #active	s: [1]	p: 8	w: x1
+      #u31	s: []	p: 0	w: 0
+      snd	s: []	p: 8	w: x1 + 5
+      tt	s: []	p: 7	w: 8
+      #isNatural	s: []	p: 0	w: 0
+      #pair	s: []	p: 0	w: max(x1)
+      u71	s: []	p: 10	w: max(x1, x2)
+      u31	s: []	p: 1	w: max(x2 + 8)
+      #and	s: []	p: 0	w: max(x2)
+      #u71	s: [2]	p: 0	w: max(x2 + 1)
+    USABLE RULES: { 1..166 }
+    Removed DPs: #94 #102 #206
+Number of SCCs: 0, DPs: 0

@@ -1,0 +1,16 @@
+Input TRS:
+    1: neq(0(),0()) -> false()
+    2: neq(0(),s(X)) -> true()
+    3: neq(s(Y),0()) -> true()
+    4: neq(s(U),s(V)) -> neq(U,V)
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... removes: 4 1 3 5 6 2
+      neq	w: 2 * x1 + 2 * x2
+      s 	w: 2 * x1 + 1
+      false	w: 3
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      true	w: 3
+      0 	w: 1
+Number of strict rules: 0

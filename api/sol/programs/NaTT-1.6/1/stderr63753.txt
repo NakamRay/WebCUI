@@ -1,0 +1,8 @@
+Input TRS:
+    1: altmap(pls(z(),Y),cons(X,XS)) -> cons(pls(X,Y),altmap(mlt(z(),Y),XS))
+    2: altmap(mlt(z(),Y),cons(X,XS)) -> cons(mlt(X,Y),altmap(pls(z(),Y),XS))
+    3: altmap(F,nil()) -> nil()
+    4: pls(X,Y) -> pls(X,Y)
+    5: mlt(X,Y) -> mul(X,Y)
+    6: pls(2(),2()) -> mlt(2(),2())
+Trivially nonterminating rule 4.

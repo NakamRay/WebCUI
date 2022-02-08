@@ -1,0 +1,633 @@
+Input TRS:
+    1: axxu101(tt(),X(),Y()) -> axxu102(axxisNatural(X()),Y())
+    2: axxu102(tt(),U()) -> axxu103(axxisLNat(U()))
+    3: axxu103(tt()) -> tt()
+    4: axxu11(tt(),V(),W()) -> axxsnd(axxsplitAt(mark(V()),mark(W())))
+    5: axxu111(tt(),P()) -> axxu112(axxisLNat(P()))
+    6: axxu112(tt()) -> tt()
+    7: axxu121(tt(),X1) -> axxu122(axxisNatural(X1))
+    8: axxu122(tt()) -> tt()
+    9: axxu131(tt(),Y1(),U1()) -> axxu132(axxisNatural(Y1()),U1())
+    10: axxu132(tt(),V1()) -> axxu133(axxisLNat(V1()))
+    11: axxu133(tt()) -> tt()
+    12: axxu141(tt(),W1(),P1()) -> axxu142(axxisLNat(W1()),P1())
+    13: axxu142(tt(),X2) -> axxu143(axxisLNat(X2))
+    14: axxu143(tt()) -> tt()
+    15: axxu151(tt(),Y2(),U2()) -> axxu152(axxisNatural(Y2()),U2())
+    16: axxu152(tt(),V2()) -> axxu153(axxisLNat(V2()))
+    17: axxu153(tt()) -> tt()
+    18: axxu161(tt(),W2()) -> cons(mark(W2()),natsFrom(s(W2())))
+    19: axxu171(tt(),P2(),X3()) -> axxhead(axxafterNth(mark(P2()),mark(X3())))
+    20: axxu181(tt(),Y3()) -> mark(Y3())
+    21: axxu191(tt(),U3()) -> pair(nil(),mark(U3()))
+    22: axxu201(tt(),V3(),W3(),P3()) -> axxu202(axxsplitAt(mark(V3()),mark(P3())),W3())
+    23: axxu202(pair(X4(),Y4()),U4()) -> pair(cons(mark(U4()),X4()),mark(Y4()))
+    24: axxu21(tt(),V4()) -> mark(V4())
+    25: axxu211(tt(),W4()) -> mark(W4())
+    26: axxu221(tt(),P4(),X5()) -> axxfst(axxsplitAt(mark(P4()),mark(X5())))
+    27: axxu31(tt(),Y5()) -> mark(Y5())
+    28: axxu41(tt(),U5(),V5()) -> axxu42(axxisNatural(U5()),V5())
+    29: axxu42(tt(),W5()) -> axxu43(axxisLNat(W5()))
+    30: axxu43(tt()) -> tt()
+    31: axxu51(tt(),P5(),X6()) -> axxu52(axxisNatural(P5()),X6())
+    32: axxu52(tt(),Y6()) -> axxu53(axxisLNat(Y6()))
+    33: axxu53(tt()) -> tt()
+    34: axxu61(tt(),U6()) -> axxu62(axxisPLNat(U6()))
+    35: axxu62(tt()) -> tt()
+    36: axxu71(tt(),V6()) -> axxu72(axxisNatural(V6()))
+    37: axxu72(tt()) -> tt()
+    38: axxu81(tt(),W6()) -> axxu82(axxisPLNat(W6()))
+    39: axxu82(tt()) -> tt()
+    40: axxu91(tt(),P6()) -> axxu92(axxisLNat(P6()))
+    41: axxu92(tt()) -> tt()
+    42: axxafterNth(X7(),Y7()) -> axxu11(axxand(axxand(axxisNatural(X7()),isNaturalKind(X7())),and(isLNat(Y7()),isLNatKind(Y7()))),X7(),Y7())
+    43: axxand(tt(),U7()) -> mark(U7())
+    44: axxfst(pair(V7(),W7())) -> axxu21(axxand(axxand(axxisLNat(V7()),isLNatKind(V7())),and(isLNat(W7()),isLNatKind(W7()))),V7())
+    45: axxhead(cons(P7(),X8())) -> axxu31(axxand(axxand(axxisNatural(P7()),isNaturalKind(P7())),and(isLNat(X8()),isLNatKind(X8()))),P7())
+    46: axxisLNat(nil()) -> tt()
+    47: axxisLNat(afterNth(Y8(),U8())) -> axxu41(axxand(axxisNaturalKind(Y8()),isLNatKind(U8())),Y8(),U8())
+    48: axxisLNat(cons(V8(),W8())) -> axxu51(axxand(axxisNaturalKind(V8()),isLNatKind(W8())),V8(),W8())
+    49: axxisLNat(fst(P8())) -> axxu61(axxisPLNatKind(P8()),P8())
+    50: axxisLNat(natsFrom(X9())) -> axxu71(axxisNaturalKind(X9()),X9())
+    51: axxisLNat(snd(Y9())) -> axxu81(axxisPLNatKind(Y9()),Y9())
+    52: axxisLNat(tail(U9())) -> axxu91(axxisLNatKind(U9()),U9())
+    53: axxisLNat(take(V9(),W9())) -> axxu101(axxand(axxisNaturalKind(V9()),isLNatKind(W9())),V9(),W9())
+    54: axxisLNatKind(nil()) -> tt()
+    55: axxisLNatKind(afterNth(P9(),X10())) -> axxand(axxisNaturalKind(P9()),isLNatKind(X10()))
+    56: axxisLNatKind(cons(Y10(),U10())) -> axxand(axxisNaturalKind(Y10()),isLNatKind(U10()))
+    57: axxisLNatKind(fst(V10())) -> axxisPLNatKind(V10())
+    58: axxisLNatKind(natsFrom(W10())) -> axxisNaturalKind(W10())
+    59: axxisLNatKind(snd(P10())) -> axxisPLNatKind(P10())
+    60: axxisLNatKind(tail(X11())) -> axxisLNatKind(X11())
+    61: axxisLNatKind(take(Y11(),U11())) -> axxand(axxisNaturalKind(Y11()),isLNatKind(U11()))
+    62: axxisNatural(0()) -> tt()
+    63: axxisNatural(head(V11())) -> axxu111(axxisLNatKind(V11()),V11())
+    64: axxisNatural(s(W11())) -> axxu121(axxisNaturalKind(W11()),W11())
+    65: axxisNatural(sel(P11(),X12())) -> axxu131(axxand(axxisNaturalKind(P11()),isLNatKind(X12())),P11(),X12())
+    66: axxisNaturalKind(0()) -> tt()
+    67: axxisNaturalKind(head(Y12())) -> axxisLNatKind(Y12())
+    68: axxisNaturalKind(s(U12())) -> axxisNaturalKind(U12())
+    69: axxisNaturalKind(sel(V12(),W12())) -> axxand(axxisNaturalKind(V12()),isLNatKind(W12()))
+    70: axxisPLNat(pair(P12(),X13())) -> axxu141(axxand(axxisLNatKind(P12()),isLNatKind(X13())),P12(),X13())
+    71: axxisPLNat(splitAt(Y13(),U13())) -> axxu151(axxand(axxisNaturalKind(Y13()),isLNatKind(U13())),Y13(),U13())
+    72: axxisPLNatKind(pair(V13(),W13())) -> axxand(axxisLNatKind(V13()),isLNatKind(W13()))
+    73: axxisPLNatKind(splitAt(P13(),X14())) -> axxand(axxisNaturalKind(P13()),isLNatKind(X14()))
+    74: axxnatsFrom(Y14()) -> axxu161(axxand(axxisNatural(Y14()),isNaturalKind(Y14())),Y14())
+    75: axxsel(U14(),V14()) -> axxu171(axxand(axxand(axxisNatural(U14()),isNaturalKind(U14())),and(isLNat(V14()),isLNatKind(V14()))),U14(),V14())
+    76: axxsnd(pair(W14(),P14())) -> axxu181(axxand(axxand(axxisLNat(W14()),isLNatKind(W14())),and(isLNat(P14()),isLNatKind(P14()))),P14())
+    77: axxsplitAt(0(),X15()) -> axxu191(axxand(axxisLNat(X15()),isLNatKind(X15())),X15())
+    78: axxsplitAt(s(Y15()),cons(U15(),V15())) -> axxu201(axxand(axxand(axxisNatural(Y15()),isNaturalKind(Y15())),and(and(isNatural(U15()),isNaturalKind(U15())),and(isLNat(V15()),isLNatKind(V15())))),Y15(),U15(),V15())
+    79: axxtail(cons(W15(),P15())) -> axxu211(axxand(axxand(axxisNatural(W15()),isNaturalKind(W15())),and(isLNat(P15()),isLNatKind(P15()))),P15())
+    80: axxtake(X16(),Y16()) -> axxu221(axxand(axxand(axxisNatural(X16()),isNaturalKind(X16())),and(isLNat(Y16()),isLNatKind(Y16()))),X16(),Y16())
+    81: mark(u101(U16(),V16(),W16())) -> axxu101(mark(U16()),V16(),W16())
+    82: mark(u102(P16(),X17())) -> axxu102(mark(P16()),X17())
+    83: mark(isNatural(Y17())) -> axxisNatural(Y17())
+    84: mark(u103(U17())) -> axxu103(mark(U17()))
+    85: mark(isLNat(V17())) -> axxisLNat(V17())
+    86: mark(u11(W17(),P17(),X18())) -> axxu11(mark(W17()),P17(),X18())
+    87: mark(snd(Y18())) -> axxsnd(mark(Y18()))
+    88: mark(splitAt(U18(),V18())) -> axxsplitAt(mark(U18()),mark(V18()))
+    89: mark(u111(W18(),P18())) -> axxu111(mark(W18()),P18())
+    90: mark(u112(X19())) -> axxu112(mark(X19()))
+    91: mark(u121(Y19(),U19())) -> axxu121(mark(Y19()),U19())
+    92: mark(u122(V19())) -> axxu122(mark(V19()))
+    93: mark(u131(W19(),P19(),X20())) -> axxu131(mark(W19()),P19(),X20())
+    94: mark(u132(Y20(),U20())) -> axxu132(mark(Y20()),U20())
+    95: mark(u133(V20())) -> axxu133(mark(V20()))
+    96: mark(u141(W20(),P20(),X21())) -> axxu141(mark(W20()),P20(),X21())
+    97: mark(u142(Y21(),U21())) -> axxu142(mark(Y21()),U21())
+    98: mark(u143(V21())) -> axxu143(mark(V21()))
+    99: mark(u151(W21(),P21(),X22())) -> axxu151(mark(W21()),P21(),X22())
+    100: mark(u152(Y22(),U22())) -> axxu152(mark(Y22()),U22())
+    101: mark(u153(V22())) -> axxu153(mark(V22()))
+    102: mark(u161(W22(),P22())) -> axxu161(mark(W22()),P22())
+    103: mark(natsFrom(X23())) -> axxnatsFrom(mark(X23()))
+    104: mark(u171(Y23(),U23(),V23())) -> axxu171(mark(Y23()),U23(),V23())
+    105: mark(head(W23())) -> axxhead(mark(W23()))
+    106: mark(afterNth(P23(),X24())) -> axxafterNth(mark(P23()),mark(X24()))
+    107: mark(u181(Y24(),U24())) -> axxu181(mark(Y24()),U24())
+    108: mark(u191(V24(),W24())) -> axxu191(mark(V24()),W24())
+    109: mark(u201(P24(),X25(),Y25(),U25())) -> axxu201(mark(P24()),X25(),Y25(),U25())
+    110: mark(u202(V25(),W25())) -> axxu202(mark(V25()),W25())
+    111: mark(u21(P25(),X26())) -> axxu21(mark(P25()),X26())
+    112: mark(u211(Y26(),U26())) -> axxu211(mark(Y26()),U26())
+    113: mark(u221(V26(),W26(),P26())) -> axxu221(mark(V26()),W26(),P26())
+    114: mark(fst(X27())) -> axxfst(mark(X27()))
+    115: mark(u31(Y27(),U27())) -> axxu31(mark(Y27()),U27())
+    116: mark(u41(V27(),W27(),P27())) -> axxu41(mark(V27()),W27(),P27())
+    117: mark(u42(X28(),Y28())) -> axxu42(mark(X28()),Y28())
+    118: mark(u43(U28())) -> axxu43(mark(U28()))
+    119: mark(u51(V28(),W28(),P28())) -> axxu51(mark(V28()),W28(),P28())
+    120: mark(u52(X29(),Y29())) -> axxu52(mark(X29()),Y29())
+    121: mark(u53(U29())) -> axxu53(mark(U29()))
+    122: mark(u61(V29(),W29())) -> axxu61(mark(V29()),W29())
+    123: mark(u62(P29())) -> axxu62(mark(P29()))
+    124: mark(isPLNat(X30())) -> axxisPLNat(X30())
+    125: mark(u71(Y30(),U30())) -> axxu71(mark(Y30()),U30())
+    126: mark(u72(V30())) -> axxu72(mark(V30()))
+    127: mark(u81(W30(),P30())) -> axxu81(mark(W30()),P30())
+    128: mark(u82(X31())) -> axxu82(mark(X31()))
+    129: mark(u91(Y31(),U31())) -> axxu91(mark(Y31()),U31())
+    130: mark(u92(V31())) -> axxu92(mark(V31()))
+    131: mark(and(W31(),P31())) -> axxand(mark(W31()),P31())
+    132: mark(isNaturalKind(X32())) -> axxisNaturalKind(X32())
+    133: mark(isLNatKind(Y32())) -> axxisLNatKind(Y32())
+    134: mark(isPLNatKind(U32())) -> axxisPLNatKind(U32())
+    135: mark(tail(V32())) -> axxtail(mark(V32()))
+    136: mark(take(W32(),P32())) -> axxtake(mark(W32()),mark(P32()))
+    137: mark(sel(X33(),Y33())) -> axxsel(mark(X33()),mark(Y33()))
+    138: mark(tt()) -> tt()
+    139: mark(cons(U33(),V33())) -> cons(mark(U33()),V33())
+    140: mark(s(W33())) -> s(mark(W33()))
+    141: mark(pair(P33(),X34())) -> pair(mark(P33()),mark(X34()))
+    142: mark(nil()) -> nil()
+    143: mark(0()) -> 0()
+    144: axxu101(Y34(),U34(),V34()) -> u101(Y34(),U34(),V34())
+    145: axxu102(W34(),P34()) -> u102(W34(),P34())
+    146: axxisNatural(X35()) -> isNatural(X35())
+    147: axxu103(Y35()) -> u103(Y35())
+    148: axxisLNat(U35()) -> isLNat(U35())
+    149: axxu11(V35(),W35(),P35()) -> u11(V35(),W35(),P35())
+    150: axxsnd(X36()) -> snd(X36())
+    151: axxsplitAt(Y36(),U36()) -> splitAt(Y36(),U36())
+    152: axxu111(V36(),W36()) -> u111(V36(),W36())
+    153: axxu112(P36()) -> u112(P36())
+    154: axxu121(X37(),Y37()) -> u121(X37(),Y37())
+    155: axxu122(U37()) -> u122(U37())
+    156: axxu131(V37(),W37(),P37()) -> u131(V37(),W37(),P37())
+    157: axxu132(X38(),Y38()) -> u132(X38(),Y38())
+    158: axxu133(U38()) -> u133(U38())
+    159: axxu141(V38(),W38(),P38()) -> u141(V38(),W38(),P38())
+    160: axxu142(X39(),Y39()) -> u142(X39(),Y39())
+    161: axxu143(U39()) -> u143(U39())
+    162: axxu151(V39(),W39(),P39()) -> u151(V39(),W39(),P39())
+    163: axxu152(X40(),Y40()) -> u152(X40(),Y40())
+    164: axxu153(U40()) -> u153(U40())
+    165: axxu161(V40(),W40()) -> u161(V40(),W40())
+    166: axxnatsFrom(P40()) -> natsFrom(P40())
+    167: axxu171(X41(),Y41(),U41()) -> u171(X41(),Y41(),U41())
+    168: axxhead(V41()) -> head(V41())
+    169: axxafterNth(W41(),P41()) -> afterNth(W41(),P41())
+    170: axxu181(X42(),Y42()) -> u181(X42(),Y42())
+    171: axxu191(U42(),V42()) -> u191(U42(),V42())
+    172: axxu201(W42(),P42(),X43(),Y43()) -> u201(W42(),P42(),X43(),Y43())
+    173: axxu202(U43(),V43()) -> u202(U43(),V43())
+    174: axxu21(W43(),P43()) -> u21(W43(),P43())
+    175: axxu211(X44(),Y44()) -> u211(X44(),Y44())
+    176: axxu221(U44(),V44(),W44()) -> u221(U44(),V44(),W44())
+    177: axxfst(P44()) -> fst(P44())
+    178: axxu31(X45(),Y45()) -> u31(X45(),Y45())
+    179: axxu41(U45(),V45(),W45()) -> u41(U45(),V45(),W45())
+    180: axxu42(P45(),X46()) -> u42(P45(),X46())
+    181: axxu43(Y46()) -> u43(Y46())
+    182: axxu51(U46(),V46(),W46()) -> u51(U46(),V46(),W46())
+    183: axxu52(P46(),X47()) -> u52(P46(),X47())
+    184: axxu53(Y47()) -> u53(Y47())
+    185: axxu61(U47(),V47()) -> u61(U47(),V47())
+    186: axxu62(W47()) -> u62(W47())
+    187: axxisPLNat(P47()) -> isPLNat(P47())
+    188: axxu71(X48(),Y48()) -> u71(X48(),Y48())
+    189: axxu72(U48()) -> u72(U48())
+    190: axxu81(V48(),W48()) -> u81(V48(),W48())
+    191: axxu82(P48()) -> u82(P48())
+    192: axxu91(X49(),Y49()) -> u91(X49(),Y49())
+    193: axxu92(U49()) -> u92(U49())
+    194: axxand(V49(),W49()) -> and(V49(),W49())
+    195: axxisNaturalKind(P49()) -> isNaturalKind(P49())
+    196: axxisLNatKind(X50()) -> isLNatKind(X50())
+    197: axxisPLNatKind(Y50()) -> isPLNatKind(Y50())
+    198: axxtail(U50()) -> tail(U50())
+    199: axxtake(V50(),W50()) -> take(V50(),W50())
+    200: axxsel(P50(),X51()) -> sel(P50(),X51())
+    201: _(X1,X2) -> X1
+    202: _(X1,X2) -> X2
+Number of strict rules: 202
+Direct POLO(bPol) ... removes: 182 18 50 80 104 188 4 103 189 102 145 15 180 121 141 168 152 8 160 195 54 124 140 1 77 159 3 16 21 36 131 68 122 181 85 100 26 105 135 63 176 186 192 125 143 19 32 17 172 199 117 60 150 187 161 142 144 137 27 157 194 87 84 183 171 34 169 127 22 28 148 65 44 5 120 184 162 72 33 64 93 119 175 92 10 136 153 39 7 88 174 126 179 20 129 108 166 130 25 49 52 200 30 62 185 106 14 111 82 133 89 56 79 164 31 12 101 69 201 96 45 78 118 81 128 23 70 134 24 94 109 190 167 76 197 57 156 98 11 202 9 13 51 107 146 90 40 67 55 132 110 193 59 165 196 6 155 116 154 151 38 61 158 113 138 58 170 74 112 178 75 123 48 139 147 71 173 53 191 47 73 91 97 163 99 114 37 41 95 149 198 115 42 46 177 66 83 35 29 43 86 2
+      V1	w: 1
+      V15	w: 1
+      u81	w: 2 * x1 + 2 * x2 + 4
+      P18	w: 2
+      U1	w: 1
+      P47	w: 1
+      U16	w: 1
+      W18	w: 1
+      U21	w: 1
+      Y29	w: 1
+      V38	w: 1
+      W31	w: 1
+      W24	w: 1
+      Y41	w: 1
+      V23	w: 1
+      V17	w: 1
+      u62	w: 2 * x1 + 3
+      U11	w: 1
+      V18	w: 1
+      X19	w: 1
+      axxu211	w: 2 * x1 + 2 * x2 + 1
+      V44	w: 1
+      axxu62	w: 2 * x1 + 4
+      Y2	w: 1
+      P17	w: 1
+      u133	w: 2 * x1 + 3
+      axxu142	w: 2 * x1 + 2 * x2 + 2
+      Y38	w: 1
+      W38	w: 1
+      s 	w: 2 * x1 + 3
+      V12	w: 1
+      P8	w: 1
+      P20	w: 1
+      axxisLNat	w: 2 * x1 + 2
+      V31	w: 1
+      u132	w: 2 * x1 + 2 * x2 + 1
+      W25	w: 2
+      X40	w: 1
+      axxu121	w: 2 * x1 + 2 * x2 + 1
+      axxisPLNatKind	w: 2 * x1
+      V14	w: 0
+      u91	w: x1 + x2
+      V42	w: 1
+      X11	w: 1
+      X38	w: 1
+      Y11	w: 1
+      V16	w: 1
+      X3	w: 1
+      W8	w: 1
+      U24	w: 54
+      V13	w: 1
+      X37	w: 1
+      u111	w: 2 * x1 + 2 * x2
+      u53	w: 2 * x1
+      Y32	w: 1
+      isPLNatKind	w: x1
+      V30	w: 1
+      X33	w: 1
+      U25	w: 1
+      axxu131	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      W32	w: 1
+      V50	w: 1
+      u191	w: 2 * x1 + 2 * x2 + 46
+      W5	w: 1
+      Y7	w: 1
+      isPLNat	w: x1 + 20
+      W33	w: 1
+      P37	w: 1
+      axxsnd	w: 2 * x1 + 4
+      Y22	w: 1
+      U28	w: 1
+      W 	w: 1
+      u102	w: 2 * x1 + 2 * x2
+      W26	w: 1
+      P40	w: 1
+      P50	w: 1
+      Y 	w: 1
+      axxu191	w: 2 * x1 + 2 * x2 + 47
+      P13	w: 1
+      U42	w: 1
+      X47	w: 1
+      axxu11	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxu143	w: x1 + 2
+      u121	w: 2 * x1 + 2 * x2
+      Y36	w: 2
+      X44	w: 1
+      X4	w: 1
+      P4	w: 1
+      P43	w: 1
+      axxu133	w: 2 * x1 + 4
+      X6	w: 1
+      u181	w: 2 * x1 + 2 * x2
+      U26	w: 2
+      axxu132	w: 2 * x1 + 2 * x2 + 2
+      u153	w: 2 * x1
+      W46	w: 1
+      W17	w: 1
+      Y45	w: 1
+      take	w: 2 * x1 + 2 * x2 + 11
+      W30	w: 1
+      W21	w: 1
+      P22	w: 1
+      P25	w: 1
+      U3	w: 1
+      P3	w: 1
+      and	w: 2 * x1 + 2 * x2
+      u122	w: 2 * x1 + 1
+      Y1	w: 1
+      X8	w: 1
+      axxsplitAt	w: 2 * x1 + 2 * x2 + 12
+      u103	w: 2 * x1 + 3
+      V34	w: 1
+      X13	w: 1
+      pair	w: 2 * x1 + x2 + 88
+      Y14	w: 1
+      P19	w: 1
+      X46	w: 1
+      axxu91	w: x1 + x2 + 1
+      X17	w: 41
+      U8	w: 1
+      fst	w: 2 * x1 + 3
+      U29	w: 23
+      U43	w: 1
+      P11	w: 66
+      Y25	w: 1
+      axxand	w: 2 * x1 + 2 * x2 + 1
+      P15	w: 0
+      V22	w: 2
+      Y37	w: 1
+      Y49	w: 1
+      u131	w: 2 * x1 + 2 * x2 + 2 * x3
+      V32	w: 1
+      X21	w: 1
+      Y33	w: 1
+      natsFrom	w: 2 * x1 + 14
+      P41	w: 1
+      U48	w: 1
+      X51	w: 1
+      V24	w: 1
+      X32	w: 1
+      Y13	w: 1
+      U44	w: 1
+      W10	w: 1
+      V36	w: 1
+      Y17	w: 1
+      axxu103	w: 2 * x1 + 4
+      V4	w: 1
+      U23	w: 108
+      X26	w: 1
+      U35	w: 1
+      P28	w: 1
+      W14	w: 1
+      Y4	w: 1
+      X48	w: 1
+      Y5	w: 1
+      isNaturalKind	w: 2 * x1
+      splitAt	w: 2 * x1 + 2 * x2 + 11
+      P16	w: 1
+      Y27	w: 1
+      V21	w: 2
+      u52	w: 2 * x1 + 2 * x2
+      axxu201	w: x1 + x2 + x3 + x4 + 5
+      P9	w: 1
+      axxu102	w: 2 * x1 + 2 * x2 + 1
+      u61	w: 2 * x1 + x2
+      u92	w: 2 * x1 + 3
+      U38	w: 1
+      V7	w: 1
+      Y15	w: 1
+      W20	w: 1
+      axxu31	w: 2 * x1 + 2 * x2 + 1
+      U34	w: 1
+      X12	w: 1
+      V19	w: 1
+      W28	w: 1
+      axxu72	w: 2 * x1 + 4
+      P44	w: 1
+      U50	w: 1
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      u221	w: 2 * x1 + 2 * x2 + 2 * x3
+      V10	w: 1
+      W37	w: 1
+      X49	w: 1
+      V49	w: 1
+      U12	w: 1
+      U9	w: 1
+      V45	w: 1
+      W45	w: 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      P31	w: 2
+      V27	w: 1
+      V48	w: 1
+      P21	w: 1
+      U27	w: 2
+      u151	w: 2 * x1 + 2 * x2 + 2 * x3
+      X29	w: 1
+      V40	w: 1
+      P23	w: 1
+      U40	w: 1
+      U20	w: 1
+      u202	w: 2 * x1 + 2 * x2
+      V9	w: 1
+      isNatural	w: 2 * x1
+      V2	w: 1
+      X42	w: 1
+      X16	w: 1
+      Y21	w: 1
+      P33	w: 1
+      P46	w: 1
+      V33	w: 1
+      P49	w: 1
+      X28	w: 1
+      U19	w: 2
+      axxnatsFrom	w: 2 * x1 + 25
+      u41	w: 2 * x1 + 2 * x2 + 2 * x3
+      X30	w: 1
+      P38	w: 1
+      axxisNatural	w: 2 * x1 + 1
+      V43	w: 1
+      u211	w: 2 * x1 + 2 * x2
+      axxu151	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      V47	w: 1
+      axxu181	w: 2 * x1 + 2 * x2 + 105
+      X14	w: 1
+      U37	w: 1
+      P32	w: 40
+      U10	w: 1
+      W27	w: 1
+      W39	w: 1
+      Y44	w: 1
+      tail	w: 2 * x1 + 8
+      u51	w: 2 * x1 + 2 * x2 + 2 * x3
+      V5	w: 1
+      U17	w: 1
+      P2	w: 1
+      0 	w: 33
+      X20	w: 1
+      axxu82	w: 2 * x1 + 4
+      X23	w: 1
+      W12	w: 1
+      axxu141	w: x1 + x2 + x3 + 4
+      Y3	w: 1
+      axxisPLNat	w: 2 * x1 + 39
+      axxu81	w: 2 * x1 + 2 * x2 + 5
+      V25	w: 1
+      U30	w: 2
+      U36	w: 1
+      axxu152	w: 2 * x1 + 2 * x2 + 1
+      P10	w: 1
+      Y12	w: 1
+      Y48	w: 1
+      u11	w: 2 * x1 + 2 * x2 + 2 * x3
+      Y19	w: 1
+      Y40	w: 1
+      sel	w: x1 + 2 * x2 + 276
+      Y39	w: 1
+      afterNth	w: 2 * x1 + 2 * x2 + 87
+      P14	w: 0
+      Y30	w: 1
+      W42	w: 1
+      X15	w: 1
+      Y35	w: 1
+      W6	w: 1
+      W2	w: 1
+      X25	w: 1
+      nil	w: 22
+      X36	w: 1
+      isLNat	w: x1 + 1
+      axxu41	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      V6	w: 1
+      Y28	w: 1
+      P5	w: 1
+      W1	w: 1
+      axxafterNth	w: 2 * x1 + 2 * x2 + 88
+      X5	w: 1
+      U45	w: 1
+      mark	w: 2 * x1 + 1
+      Y23	w: 1
+      axxu71	w: x1 + x2 + 1
+      u101	w: x1 + x2 + x3 + 2
+      W19	w: 1
+      V8	w: 1
+      axxsel	w: 2 * x1 + 2 * x2 + 276
+      X31	w: 1
+      U32	w: 1
+      W35	w: 1
+      W4	w: 1
+      u72	w: 2 * x1 + 3
+      V39	w: 1
+      V41	w: 1
+      u201	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4
+      u21	w: x1 + 2 * x2
+      W41	w: 1
+      W3	w: 1
+      axxu52	w: x1 + x2 + 3
+      u143	w: 2 * x1
+      axxu122	w: x1 + 3
+      U33	w: 1
+      V37	w: 1
+      P39	w: 1
+      Y47	w: 1
+      X7	w: 1
+      P29	w: 1
+      isLNatKind	w: 2 * x1 + 1
+      U14	w: 1
+      W22	w: 1
+      P34	w: 1
+      axxu111	w: 2 * x1 + 2 * x2 + 1
+      axxfst	w: 2 * x1 + 4
+      axxu61	w: 2 * x1 + x2 + 1
+      u43	w: x1 + 2
+      Y10	w: 1
+      X18	w: 1
+      axxu171	w: 2 * x1 + 2 * x2 + 2 * x3 + 213
+      u82	w: 2 * x1 + 3
+      X34	w: 1
+      X43	w: 1
+      U7	w: 1
+      X9	w: 1
+      u161	w: 2 * x1 + 2 * x2 + 1
+      Y26	w: 1
+      P35	w: 1
+      P42	w: 1
+      U46	w: 1
+      X27	w: 1
+      W44	w: 1
+      W50	w: 1
+      P7	w: 1
+      axxisNaturalKind	w: 2 * x1 + 1
+      W9	w: 1
+      U15	w: 1
+      X35	w: 1
+      Y46	w: 4
+      U39	w: 1
+      U5	w: 1
+      P45	w: 3
+      X22	w: 1
+      axxu51	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      u171	w: x1 + 2 * x2 + 2 * x3
+      U31	w: 2
+      P24	w: 1
+      axxu221	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      head	w: 2 * x1 + 53
+      Y31	w: 1
+      W13	w: 1
+      P26	w: 1
+      cons	w: 2 * x1 + 2 * x2 + 37
+      axxu92	w: 2 * x1 + 4
+      P27	w: 1
+      u142	w: 2 * x1 + 2 * x2 + 1
+      P30	w: 1
+      V35	w: 1
+      W43	w: 1
+      P 	w: 1
+      snd	w: 2 * x1 + 3
+      W47	w: 1
+      V29	w: 1
+      U49	w: 1
+      axxtail	w: 2 * x1 + 14
+      u112	w: 2 * x1 + 3
+      u42	w: x1 + x2 + 3
+      V28	w: 1
+      W36	w: 1
+      tt	w: 44
+      Y18	w: 1
+      U18	w: 1
+      Y43	w: 1
+      V3	w: 1
+      Y8	w: 1
+      Y42	w: 1
+      axxu42	w: 2 * x1 + 2 * x2
+      U47	w: 1
+      axxu153	w: x1 + 2
+      U13	w: 1
+      u152	w: 2 * x1 + 2 * x2
+      axxu161	w: 2 * x1 + 2 * x2 + 2
+      axxisLNatKind	w: 2 * x1 + 2
+      U2	w: 1
+      axxu202	w: 2 * x1 + 2 * x2 + 1
+      W23	w: 1
+      X 	w: 1
+      W16	w: 1
+      Y20	w: 1
+      u71	w: x1 + x2
+      U4	w: 1
+      axxtake	w: x1 + x2 + 65
+      U22	w: 2
+      Y16	w: 0
+      axxu53	w: x1 + 2
+      axxu101	w: 2 * x1 + 2 * x2 + 2 * x3
+      X41	w: 1
+      U6	w: 1
+      P12	w: 1
+      P36	w: 1
+      X39	w: 1
+      V11	w: 1
+      Y6	w: 1
+      P6	w: 1
+      Y34	w: 1
+      V 	w: 1
+      X10	w: 1
+      V20	w: 1
+      W48	w: 1
+      axxu112	w: 2 * x1 + 4
+      X24	w: 1
+      u31	w: 2 * x1 + 2 * x2
+      U41	w: 1
+      Y50	w: 1
+      U 	w: 1
+      Y9	w: 1
+      X45	w: 1
+      W29	w: 3
+      u141	w: 2 * x1 + 2 * x2 + 2 * x3
+      axxu21	w: x1 + x2 + 2
+      W15	w: 2
+      W40	w: 1
+      W49	w: 1
+      X50	w: 1
+      Y24	w: 1
+      V46	w: 1
+      axxu43	w: 2 * x1
+      W34	w: 1
+      axxhead	w: 2 * x1 + 103
+      V26	w: 1
+      P48	w: 1
+Number of strict rules: 0

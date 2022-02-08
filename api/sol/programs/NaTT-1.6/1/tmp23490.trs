@@ -1,0 +1,11 @@
+(VAR U X Y X1 X2 )
+(RULES
+  append(nil,U) -> U
+  append(cons(X,Y),U) -> cons(X,append(Y,U))
+  reverse(nil) -> nil
+  shuffle(nil) -> nil
+  shuffle(cons(X,Y)) -> cons(X,shuffle(reverse(Y)))
+  mirror(nil) -> nil
+  mirror(cons(X,Y)) -> append(cons(X,mirror(Y)),cons(X,nil))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

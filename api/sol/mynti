@@ -1,0 +1,7 @@
+sys=./programs/NTI
+fn=`basename $1`
+
+cp $1 $sys
+cd $sys
+./nti $fn 20000
+rm -f $sys/$fn

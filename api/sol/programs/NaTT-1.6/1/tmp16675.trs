@@ -1,0 +1,6 @@
+(VAR X Y X1 X2 )
+(RULES
+  f(g(X)) -> g(g(f(X)))
+  f(g(Y)) -> g(g(g(Y)))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

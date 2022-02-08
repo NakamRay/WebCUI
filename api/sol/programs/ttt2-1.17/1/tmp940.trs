@@ -1,0 +1,7 @@
+(VAR Z Z' Y )
+(RULES
+  neg(neg(Z)) -> Z
+  neg(and(Z,Z')) -> or(neg(Z),neg(Z'))
+  neg(or(Z,Z')) -> and(neg(Z),neg(Z'))
+  neg(forall(Y)) -> exists(neg(Y))
+  neg(exists(Y)) -> forall(neg(Y)))

@@ -1,0 +1,5 @@
+Input TRS:
+    1: new(X) -> X
+    2: new(sum(X1,Y1)) -> sum(new(X1),new(Y1))
+    3: new(new(X4)) -> new(new(X4))
+Trivially nonterminating rule 3.

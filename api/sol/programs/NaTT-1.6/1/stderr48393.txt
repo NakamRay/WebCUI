@@ -1,0 +1,31 @@
+Input TRS:
+    1: qu(X,X) -> X
+    2: qu(qu(U,V),qu(X,Y)) -> qu(U,Y)
+    3: qu(V,qu(X,Y)) -> qu(V,Y)
+    4: qu(qu(U,V),Y) -> qu(U,Y)
+    5: qu(qu(U,V),qu(X,Y)) -> qu(qu(U,X),qu(V,Y))
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 4 1 3 2
+      qu	w: 2 * x1 + 2 * x2 + 1
+Number of strict rules: 1
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #qu(qu(U,V),qu(X,Y)) -> #qu(qu(U,X),qu(V,Y))
+   #2: #qu(qu(U,V),qu(X,Y)) -> #qu(U,X)
+   #3: #qu(qu(U,V),qu(X,Y)) -> #qu(V,Y)
+Number of SCCs: 1, DPs: 3
+  SCC { #1..3 }
+POLO(Sum)... succeeded.
+      qu	w: x1 + x2 + 1
+      #qu	w: x1 + x2
+    USABLE RULES: { 5 }
+    Removed DPs: #2 #3
+Number of SCCs: 1, DPs: 1
+  SCC { #1 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #qu(qu(qu(U_{i34},V_{i34}),qu(U_{i5},X_{i5})),qu(qu(X_{i34},Y_{i34}),qu(V_{i5},Y_{i5})))	-#1->
+  #qu(qu(qu(U_{i34},V_{i34}),qu(X_{i34},Y_{i34})),qu(qu(U_{i5},X_{i5}),qu(V_{i5},Y_{i5})))	--->*
+  #qu(qu(qu(U_{i34},X_{i34}),qu(V_{i34},Y_{i34})),qu(qu(U_{i5},X_{i5}),qu(V_{i5},Y_{i5})))
+  Looping with: [ V_{i34} := X_{i34}; Y_{i34} := X_{i5}; X_{i5} := Y_{i34}; U_{i5} := V_{i34}; U_{i34} := U_{i34}; X_{i34} := U_{i5}; V_{i5} := V_{i5}; Y_{i5} := Y_{i5}; ]

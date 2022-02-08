@@ -1,0 +1,11 @@
+(VAR X Y U V W P X1 Y1 U1 X2 )
+(RULES
+  f(0) -> true
+  f(1) -> false
+  f(s(X)) -> f(X)
+  if(true,s(Y),s(U)) -> s(Y)
+  if(false,s(V),s(W)) -> s(W)
+  g(P,c(X1)) -> c(g(P,X1))
+  g(Y1,c(U1)) -> g(Y1,if(f(Y1),c(g(s(Y1),U1)),c(U1)))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

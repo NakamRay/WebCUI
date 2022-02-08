@@ -1,0 +1,262 @@
+Input TRS:
+    1: minus(X,0()) -> X
+    2: minus(s(Y),s(U)) -> minus(Y,U)
+    3: quot(0(),s(V)) -> 0()
+    4: quot(s(W),s(P)) -> s(quot(minus(W,P),s(P)))
+    5: le(0(),X1) -> true()
+    6: le(s(Y1),0()) -> false()
+    7: le(s(U1),s(V1)) -> le(U1,V1)
+    8: app(nil(),W1) -> W1
+    9: app(add(P1,X2),Y2) -> add(P1,app(X2,Y2))
+    10: low(U2,nil()) -> nil()
+    11: low(W2,add(V2,P2)) -> ifb6220low(le(V2,W2),W2,add(V2,P2))
+    12: ifb6220low(true(),Y3,add(X3,U3)) -> add(X3,low(Y3,U3))
+    13: ifb6220low(false(),W3,add(V3,P3)) -> low(W3,P3)
+    14: high(X4,nil()) -> nil()
+    15: high(U4,add(Y4,V4)) -> ifb6220high(le(Y4,U4),U4,add(Y4,V4))
+    16: ifb6220high(true(),P4,add(W4,X5)) -> high(P4,X5)
+    17: ifb6220high(false(),U5,add(Y5,V5)) -> add(Y5,high(U5,V5))
+    18: quicksort(nil()) -> nil()
+    19: quicksort(add(W5,P5)) -> app(quicksort(low(W5,P5)),add(W5,quicksort(high(W5,P5))))
+    20: _(X1,X2) -> X1
+    21: _(X1,X2) -> X2
+Number of strict rules: 21
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #minus(s(Y),s(U)) -> #minus(Y,U)
+   #2: #ifb6220low(false(),W3,add(V3,P3)) -> #low(W3,P3)
+   #3: #app(add(P1,X2),Y2) -> #app(X2,Y2)
+   #4: #low(W2,add(V2,P2)) -> #ifb6220low(le(V2,W2),W2,add(V2,P2))
+   #5: #low(W2,add(V2,P2)) -> #le(V2,W2)
+   #6: #ifb6220low(true(),Y3,add(X3,U3)) -> #low(Y3,U3)
+   #7: #le(s(U1),s(V1)) -> #le(U1,V1)
+   #8: #ifb6220high(false(),U5,add(Y5,V5)) -> #high(U5,V5)
+   #9: #quicksort(add(W5,P5)) -> #app(quicksort(low(W5,P5)),add(W5,quicksort(high(W5,P5))))
+   #10: #quicksort(add(W5,P5)) -> #quicksort(low(W5,P5))
+   #11: #quicksort(add(W5,P5)) -> #low(W5,P5)
+   #12: #quicksort(add(W5,P5)) -> #quicksort(high(W5,P5))
+   #13: #quicksort(add(W5,P5)) -> #high(W5,P5)
+   #14: #ifb6220high(true(),P4,add(W4,X5)) -> #high(P4,X5)
+   #15: #high(U4,add(Y4,V4)) -> #ifb6220high(le(Y4,U4),U4,add(Y4,V4))
+   #16: #high(U4,add(Y4,V4)) -> #le(Y4,U4)
+   #17: #quot(s(W),s(P)) -> #quot(minus(W,P),s(P))
+   #18: #quot(s(W),s(P)) -> #minus(W,P)
+Number of SCCs: 7, DPs: 12
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #le	w: 0
+      minus	w: 0
+      #ifb6220high	w: 0
+      #quicksort	w: 0
+      #high	w: 0
+      false	w: 0
+      #ifb6220low	w: 0
+      ifb6220low	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 0
+      0 	w: 0
+      quot	w: 0
+      high	w: 0
+      nil	w: 0
+      #app	w: 0
+      #minus	w: x1 + x2
+      #_ 	w: 0
+      low	w: 0
+      ifb6220high	w: 0
+      add	w: 0
+      #quot	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 6, DPs: 11
+  SCC { #3 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: 1
+      #le	w: 0
+      minus	w: 0
+      #ifb6220high	w: 0
+      #quicksort	w: 0
+      #high	w: 0
+      false	w: 0
+      #ifb6220low	w: 0
+      ifb6220low	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 0
+      0 	w: 0
+      quot	w: 0
+      high	w: 0
+      nil	w: 0
+      #app	w: x1
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: 0
+      ifb6220high	w: 0
+      add	w: x2 + 1
+      #quot	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #3
+Number of SCCs: 5, DPs: 10
+  SCC { #7 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #le	w: x2
+      minus	w: 0
+      #ifb6220high	w: 0
+      #quicksort	w: 0
+      #high	w: 0
+      false	w: 0
+      #ifb6220low	w: 0
+      ifb6220low	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 0
+      0 	w: 0
+      quot	w: 0
+      high	w: 0
+      nil	w: 0
+      #app	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: 0
+      ifb6220high	w: 0
+      add	w: 1
+      #quot	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #7
+Number of SCCs: 4, DPs: 9
+  SCC { #17 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 2
+      #le	w: 0
+      minus	w: x1 + 1
+      #ifb6220high	w: 0
+      #quicksort	w: 0
+      #high	w: 0
+      false	w: 0
+      #ifb6220low	w: 0
+      ifb6220low	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 0
+      0 	w: 1
+      quot	w: 0
+      high	w: 0
+      nil	w: 0
+      #app	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: 0
+      ifb6220high	w: 0
+      add	w: 1
+      #quot	w: x1
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { 1 2 }
+    Removed DPs: #17
+Number of SCCs: 3, DPs: 8
+  SCC { #10 #12 }
+POLO(Sum)... succeeded.
+      le	w: x1 + x2 + 1
+      s 	w: x1 + 1
+      #le	w: 0
+      minus	w: x1 + 1
+      #ifb6220high	w: 0
+      #quicksort	w: x1
+      #high	w: 0
+      false	w: 4
+      #ifb6220low	w: 0
+      ifb6220low	w: x3 + 1
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 3
+      0 	w: 1
+      quot	w: 0
+      high	w: x2 + 1
+      nil	w: 1
+      #app	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: x2 + 1
+      ifb6220high	w: x3 + 1
+      add	w: x2 + 2
+      #quot	w: x1
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { 1 2 10..17 }
+    Removed DPs: #10 #12
+Number of SCCs: 2, DPs: 6
+  SCC { #8 #14 #15 }
+POLO(Sum)... succeeded.
+      le	w: 1
+      s 	w: x1 + 1
+      #le	w: 0
+      minus	w: x1 + 1
+      #ifb6220high	w: x1 + x2 + x3
+      #quicksort	w: x1
+      #high	w: x1 + x2 + 2
+      false	w: 1
+      #ifb6220low	w: 0
+      ifb6220low	w: x3 + 1
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 1
+      0 	w: 0
+      quot	w: 0
+      high	w: x2 + 1
+      nil	w: 1
+      #app	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: x2 + 1
+      ifb6220high	w: x3 + 1
+      add	w: x2 + 2
+      #quot	w: x1
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { 1 2 5..7 10..17 }
+    Removed DPs: #8 #14 #15
+Number of SCCs: 1, DPs: 3
+  SCC { #2 #4 #6 }
+POLO(Sum)... succeeded.
+      le	w: 1
+      s 	w: x1 + 1
+      #le	w: 0
+      minus	w: x1 + 1
+      #ifb6220high	w: x1
+      #quicksort	w: x1
+      #high	w: 2
+      false	w: 1
+      #ifb6220low	w: x1 + x2 + x3
+      ifb6220low	w: x3 + 1
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 1
+      0 	w: 0
+      quot	w: 0
+      high	w: x2 + 1
+      nil	w: 1
+      #app	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: x2 + 1
+      ifb6220high	w: x3 + 1
+      add	w: x2 + 2
+      #quot	w: x1
+      #low	w: x1 + x2 + 2
+      app	w: 0
+    USABLE RULES: { 1 2 5..7 10..17 }
+    Removed DPs: #2 #4 #6
+Number of SCCs: 0, DPs: 0

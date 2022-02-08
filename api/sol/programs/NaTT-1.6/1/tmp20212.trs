@@ -1,0 +1,12 @@
+(VAR X Y U V W P X1 Y1 U1 V1 W1 X2 )
+(RULES
+  minus(X,0) -> X
+  minus(s(Y),s(U)) -> minus(Y,U)
+  double(0) -> 0
+  double(s(V)) -> s(s(double(V)))
+  plus(0,W) -> W
+  plus(s(P),X1) -> s(plus(P,X1))
+  plus(s(Y1),U1) -> plus(Y1,s(U1))
+  plus(s(V1),W1) -> s(plus(minus(V1,W1),double(W1)))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

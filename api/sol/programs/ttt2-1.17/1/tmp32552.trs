@@ -1,0 +1,6 @@
+(VAR X X1 X2 )
+(RULES
+  f(X,b) -> g(X,X)
+  g(X,a) -> f(X,X)
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

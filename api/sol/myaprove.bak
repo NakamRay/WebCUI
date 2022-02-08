@@ -1,0 +1,8 @@
+sys=/home/hamana/AProVE17/bin
+fn=`basename $1`
+
+cp $1 $sys/tmp
+cd $sys
+#./starexec_run_standard $fn
+./aprove-sol ./tmp/$fn
+rm -f $sys/tmp/$fn

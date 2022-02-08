@@ -1,0 +1,129 @@
+Input TRS:
+    1: axxnatsFrom(x()) -> cons(mark(x()),natsFrom(s(x())))
+    2: axxfst(pair(y(),u())) -> mark(y())
+    3: axxsnd(pair(v(),w())) -> mark(w())
+    4: axxsplitAt(0(),p()) -> pair(nil(),mark(p()))
+    5: axxsplitAt(s(x1()),cons(y1(),u1())) -> axxu(axxsplitAt(mark(x1()),mark(u1())),x1(),y1(),u1())
+    6: axxu(pair(v1(),w1()),p1(),x2(),y2()) -> pair(cons(mark(x2()),v1()),mark(w1()))
+    7: axxhead(cons(u2(),v2())) -> mark(u2())
+    8: axxtail(cons(w2(),p2())) -> mark(p2())
+    9: axxsel(x3(),y3()) -> axxhead(axxafterNth(mark(x3()),mark(y3())))
+    10: axxtake(u3(),v3()) -> axxfst(axxsplitAt(mark(u3()),mark(v3())))
+    11: axxafterNth(w3(),p3()) -> axxsnd(axxsplitAt(mark(w3()),mark(p3())))
+    12: mark(natsFrom(x4())) -> axxnatsFrom(mark(x4()))
+    13: mark(fst(y4())) -> axxfst(mark(y4()))
+    14: mark(snd(u4())) -> axxsnd(mark(u4()))
+    15: mark(splitAt(v4(),w4())) -> axxsplitAt(mark(v4()),mark(w4()))
+    16: mark(uni(p4(),x5(),y5(),u5())) -> axxu(mark(p4()),x5(),y5(),u5())
+    17: mark(head(v5())) -> axxhead(mark(v5()))
+    18: mark(tail(w5())) -> axxtail(mark(w5()))
+    19: mark(sel(p5(),x6())) -> axxsel(mark(p5()),mark(x6()))
+    20: mark(afterNth(y6(),u6())) -> axxafterNth(mark(y6()),mark(u6()))
+    21: mark(take(v6(),w6())) -> axxtake(mark(v6()),mark(w6()))
+    22: mark(cons(p6(),x7())) -> cons(mark(p6()),x7())
+    23: mark(s(y7())) -> s(mark(y7()))
+    24: mark(pair(u7(),v7())) -> pair(mark(u7()),mark(v7()))
+    25: mark(0()) -> 0()
+    26: mark(nil()) -> nil()
+    27: axxnatsFrom(w7()) -> natsFrom(w7())
+    28: axxfst(p7()) -> fst(p7())
+    29: axxsnd(x8()) -> snd(x8())
+    30: axxsplitAt(y8(),u8()) -> splitAt(y8(),u8())
+    31: axxu(v8(),w8(),p8(),x9()) -> uni(v8(),w8(),p8(),x9())
+    32: axxhead(y9()) -> head(y9())
+    33: axxtail(u9()) -> tail(u9())
+    34: axxsel(v9(),w9()) -> sel(v9(),w9())
+    35: axxafterNth(p9(),x10()) -> afterNth(p9(),x10())
+    36: axxtake(y10(),u10()) -> take(y10(),u10())
+Number of strict rules: 36
+Direct POLO(bPol) ... removes: 18 4 15 8 1 3 16 21 36 26 19 32 17 27 34 22 28 5 33 10 7 20 25 30 14 31 12 23 24 11 9 13 6 35 29 2
+      u3	w: 1
+      x6	w: 1
+      u1	w: 1
+      p6	w: 1
+      u7	w: 1
+      w8	w: 1
+      w9	w: 1
+      v6	w: 1
+      s 	w: 2 * x1 + 8
+      v 	w: 1
+      w1	w: 1
+      y3	w: 1
+      u9	w: 1
+      p3	w: 1
+      axxsnd	w: 2 * x1 + 4
+      v4	w: 1
+      x10	w: 1
+      v2	w: 1
+      u 	w: 1
+      w6	w: 1
+      y 	w: 2
+      take	w: 2 * x1 + 2 * x2 + 20
+      v8	w: 1
+      v3	w: 1
+      y10	w: 1
+      axxsplitAt	w: 2 * x1 + 2 * x2 + 4
+      pair	w: x1 + 2 * x2 + 2
+      fst	w: x1 + 2
+      w 	w: 1
+      natsFrom	w: 2 * x1
+      u6	w: 1
+      x7	w: 1
+      x8	w: 1
+      x3	w: 1
+      y7	w: 1
+      splitAt	w: 2 * x1 + 2 * x2 + 3
+      u4	w: 1
+      y6	w: 1
+      x2	w: 1
+      x1	w: 1
+      x4	w: 29
+      p5	w: 1
+      p9	w: 1
+      x 	w: 2
+      w3	w: 1
+      axxnatsFrom	w: x1 + 56
+      w5	w: 1
+      p 	w: 1
+      tail	w: 2 * x1 + 2
+      0 	w: 2
+      w4	w: 1
+      sel	w: 2 * x1 + 2 * x2 + 66
+      w7	w: 1
+      afterNth	w: 2 * x1 + 2 * x2 + 24
+      nil	w: 2
+      y1	w: 1
+      axxafterNth	w: 2 * x1 + 2 * x2 + 26
+      u8	w: 1
+      mark	w: 2 * x1
+      v5	w: 1
+      axxsel	w: 2 * x1 + 2 * x2 + 70
+      w2	w: 1
+      p4	w: 1
+      uni	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4
+      p2	w: 1
+      axxfst	w: 2 * x1
+      y4	w: 1
+      u2	w: 1
+      p8	w: 1
+      x5	w: 1
+      head	w: 2 * x1 + 3
+      cons	w: 2 * x1 + 2 * x2
+      u5	w: 1
+      x9	w: 1
+      snd	w: 2 * x1 + 3
+      axxtail	w: 2 * x1 + 3
+      v9	w: 1
+      y5	w: 1
+      v7	w: 1
+      y8	w: 1
+      v1	w: 1
+      axxtake	w: 2 * x1 + 2 * x2 + 22
+      y9	w: 1
+      p7	w: 3
+      axxu	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4 + 1
+      y2	w: 1
+      p1	w: 1
+      u10	w: 1
+      axxhead	w: 2 * x1 + 4
+Number of strict rules: 0

@@ -1,0 +1,24 @@
+Input TRS:
+    1: quot(0(),s(X),s(Y)) -> 0()
+    2: quot(s(U),s(V),W) -> quot(U,V,W)
+    3: quot(P,0(),s(X1)) -> s(quot(P,s(X1),s(X1)))
+    4: _(X1,X2) -> X1
+    5: _(X1,X2) -> X2
+Number of strict rules: 5
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #quot(s(U),s(V),W) -> #quot(U,V,W)
+   #2: #quot(P,0(),s(X1)) -> #quot(P,s(X1),s(X1))
+Number of SCCs: 1, DPs: 2
+  SCC { #1 #2 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      _ 	w: 0
+      0 	w: 1
+      quot	w: 0
+      #_ 	w: 0
+      #quot	w: x1
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 0, DPs: 0

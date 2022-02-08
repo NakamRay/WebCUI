@@ -1,0 +1,12 @@
+(VAR X Y U V W P X1 Y1 U1 V1 W1 P1 X2 )
+(RULES
+  lt(s(X),s(Y)) -> lt(X,Y)
+  lt(0,s(U)) -> true
+  lt(V,0) -> false
+  eq(W,W) -> true
+  eq(s(P),0) -> false
+  eq(0,s(X1)) -> false
+  member(Y1,null) -> false
+  member(U1,fork(V1,W1,P1)) -> if(lt(U1,W1),member(U1,V1),if(eq(U1,W1),true,member(U1,P1)))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,10 @@
+(VAR F H T Y Z G )
+(RULES
+  map(F,nil) -> nil
+  map(F,cons(H,T)) -> cons(at(F,H),map(F,T))
+  pow(F,0,Y) -> l(x,Y)
+  pow(F,s(Z),Y) -> op(F,pow(F,s(Z),x),Y)
+  op(F,G,Y) -> at(F,at(G,Y))
+  l(at(F,z),Y) -> F[Y]
+  l(op(F,G,z),Y) -> op(F,G,Y)
+  at(F,Z) -> F[Z])

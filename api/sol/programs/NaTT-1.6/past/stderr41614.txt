@@ -1,0 +1,2 @@
+Input TRS:
+Number of strict rules: 0

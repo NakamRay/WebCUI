@@ -1,0 +1,8 @@
+(VAR X Y Z X1 X2 )
+(RULES
+  dom(s(X),s(Y),s(Z)) -> s(dom(X,Y,Z))
+  dom(o,s(Y),s(Z)) -> s(dom(o,Y,Z))
+  dom(X,Y,o) -> X
+  dom(o,o,Z) -> o
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

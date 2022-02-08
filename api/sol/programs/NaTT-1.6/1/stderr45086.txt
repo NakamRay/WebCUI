@@ -1,0 +1,13 @@
+Input TRS:
+    1: merge(nil(),nil(),X) -> X
+    2: merge(nil(),cons(Y,U),V) -> merge(U,nil(),cons(Y,V))
+    3: merge(cons(W,P),X1,Y1) -> merge(X1,P,cons(W,Y1))
+    4: _(X1,X2) -> X1
+    5: _(X1,X2) -> X2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 4 1 3 5 2
+      merge	w: 2 * x1 + 2 * x2 + x3
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      nil	w: 1
+      cons	w: x1 + x2 + 1
+Number of strict rules: 0

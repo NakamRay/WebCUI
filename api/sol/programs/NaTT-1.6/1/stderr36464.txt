@@ -1,0 +1,11 @@
+Input TRS:
+    1: axxnatsFrom(x()) -> cons(mark(x()),natsFrom(s(x())))
+Number of strict rules: 1
+Direct POLO(bPol) ... removes: 1
+      s 	w: 2 * x1
+      natsFrom	w: 2 * x1
+      x 	w: 1
+      axxnatsFrom	w: 2 * x1 + 11
+      mark	w: 2 * x1
+      cons	w: 2 * x1 + 2 * x2
+Number of strict rules: 0

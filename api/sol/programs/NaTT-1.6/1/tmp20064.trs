@@ -1,0 +1,7 @@
+(VAR X Y U V W P X1 X2 )
+(RULES
+  quot(0,s(X),s(Y)) -> 0
+  quot(s(U),s(V),W) -> quot(U,V,W)
+  quot(P,0,s(X1)) -> s(quot(P,s(X1),s(X1)))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

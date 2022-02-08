@@ -1,0 +1,10 @@
+(VAR v X V W x K M )
+(RULES
+  get(put(v,X)) -> X
+  get(get(X)) -> get(X)
+  put(V,put(W,X)) -> put(W,X)
+  put(V,get(X)) -> put(V,sub(X,V))
+  sub(return(x),K) -> return(K)
+  sub(M,K) -> M
+  sub(get(M),K) -> get(sub(M,K))
+  sub(put(V,M),K) -> put(V,sub(M,K)))

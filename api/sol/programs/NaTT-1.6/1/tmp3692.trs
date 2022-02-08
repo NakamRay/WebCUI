@@ -1,0 +1,5 @@
+(VAR X X1 X2 )
+(RULES
+  sum(nIL,X) -> X
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

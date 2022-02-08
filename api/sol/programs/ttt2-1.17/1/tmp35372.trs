@@ -1,0 +1,8 @@
+(VAR X Y U W P V X1 Y1 U1 V1 W1 P1 X2 )
+(RULES
+  xbtimes(X,xbplus(Y,U)) -> xbplus(xbtimes(X,Y),xbtimes(X,U))
+  xbtimes(xbplus(W,P),V) -> xbplus(xbtimes(V,W),xbtimes(V,P))
+  xbtimes(xbtimes(X1,Y1),U1) -> xbtimes(X1,xbtimes(Y1,U1))
+  xbplus(xbplus(V1,W1),P1) -> xbplus(V1,xbplus(W1,P1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

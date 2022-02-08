@@ -1,0 +1,7 @@
+(VAR Z1 Z2 Z X1 X2 )
+(RULES
+  pi1(pi(Z1,Z2)) -> Z1
+  pi2(pi(Z1,Z2)) -> Z2
+  pi(pi1(Z),pi2(Z)) -> Z
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

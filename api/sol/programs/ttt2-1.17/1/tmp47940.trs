@@ -1,0 +1,9 @@
+(VAR X Y Z T )
+(RULES
+  union(X,0) -> X
+  union(0,Y) -> Y
+  union(union(X,Y),Z) -> union(X,union(Y,Z))
+  union(X,Y) -> union(Y,X)
+  if(true,X,Y) -> X
+  if(false,X,Y) -> Y
+  eq(T,T) -> true)

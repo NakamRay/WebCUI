@@ -1,0 +1,76 @@
+Input TRS:
+    1: plus(X,plus(Y,Z)) -> plus(plus(X,Y),Z)
+    2: plus(plus(X,Y),Z) -> plus(X,plus(Y,Z))
+    3: plus(X,Y) -> plus(Y,X)
+    4: plus(s(X),Y) -> plus(X,s(Y))
+    5: plus(X,s(Y)) -> plus(s(X),Y)
+    6: times(X,s(Y)) -> plus(X,times(X,Y))
+    7: times(s(X),Y) -> plus(times(X,Y),Y)
+    8: times(X,Y) -> times(Y,X)
+    9: sq(X) -> times(X,X)
+    10: sq(s(X)) -> plus(times(X,X),s(plus(X,X)))
+    11: map(G1,nil()) -> nil()
+    12: map(H1,cons(W1,P1)) -> cons(H1[W1](),map(H1,P1))
+Number of strict rules: 12
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #plus(plus(X,Y),Z) -> #plus(X,plus(Y,Z))
+   #2: #plus(plus(X,Y),Z) -> #plus(Y,Z)
+   #3: #times(X,s(Y)) -> #plus(X,times(X,Y))
+   #4: #times(X,s(Y)) -> #times(X,Y)
+   #5: #sq(X) -> #times(X,X)
+   #6: #map(H1,cons(W1,P1)) -> #map(H1,P1)
+   #7: #times(s(X),Y) -> #plus(times(X,Y),Y)
+   #8: #times(s(X),Y) -> #times(X,Y)
+   #9: #sq(s(X)) -> #plus(times(X,X),s(plus(X,X)))
+   #10: #sq(s(X)) -> #times(X,X)
+   #11: #sq(s(X)) -> #plus(X,X)
+   #12: #plus(X,s(Y)) -> #plus(s(X),Y)
+   #13: #plus(X,Y) -> #plus(Y,X)
+   #14: #plus(X,plus(Y,Z)) -> #plus(plus(X,Y),Z)
+   #15: #plus(X,plus(Y,Z)) -> #plus(X,Y)
+   #16: #times(X,Y) -> #times(Y,X)
+   #17: #plus(s(X),Y) -> #plus(X,s(Y))
+Number of SCCs: 3, DPs: 11
+  SCC { #6 }
+POLO(Sum)... succeeded.
+      s 	w: 0
+      #sq	w: 0
+      #plus	w: 0
+      #times	w: 0
+      times	w: 0
+      nil	w: 0
+      map	w: 0
+      #map	w: x2
+      plus	w: 0
+      cons	w: x2 + 1
+      H1[W1]	w: 0
+      sq	w: 0
+    USABLE RULES: { }
+    Removed DPs: #6
+Number of SCCs: 2, DPs: 10
+  SCC { #4 #8 #16 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #sq	w: 0
+      #plus	w: 0
+      #times	w: x1 + x2
+      times	w: 0
+      nil	w: 0
+      map	w: 0
+      #map	w: 0
+      plus	w: 0
+      cons	w: 1
+      H1[W1]	w: 0
+      sq	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4 #8
+Number of SCCs: 2, DPs: 8
+  SCC { #16 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #times(Y_{1},X_{1})	-#16->
+  #times(X_{1},Y_{1})	--->*
+  #times(X_{1},Y_{1})
+  Looping with: [ Y_{1} := X_{1}; X_{1} := Y_{1}; ]

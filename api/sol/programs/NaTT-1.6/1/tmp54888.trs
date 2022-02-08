@@ -1,0 +1,7 @@
+(VAR X1 X2 X )
+(RULES
+  p1(pair(X1,X2)) -> X1
+  p2(pair(X1,X2)) -> X2
+  pair(p1(X),p2(X)) -> X
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

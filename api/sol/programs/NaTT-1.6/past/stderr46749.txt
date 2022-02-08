@@ -1,0 +1,1 @@
+File "tmp46726.trs", line 74, character 34: bad arity for i10.

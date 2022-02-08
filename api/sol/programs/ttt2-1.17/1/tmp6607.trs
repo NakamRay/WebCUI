@@ -1,0 +1,4 @@
+(VAR X Y U )
+(RULES
+  f(X,Y,s(U)) -> g(h(X,Y),f(%X,X,U))
+  h(X,X) -> f(X,s(X),s(s(X))))

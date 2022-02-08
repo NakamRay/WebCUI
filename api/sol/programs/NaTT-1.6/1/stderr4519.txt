@@ -1,0 +1,14 @@
+Input TRS:
+    1: g(U) -> true()
+    2: not(true()) -> false()
+    3: not(false()) -> true()
+    4: _(X1,X2) -> X1
+    5: _(X1,X2) -> X2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 4 1 3 5 2
+      false	w: 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      true	w: 1
+      g 	w: x1 + 2
+      not	w: 2 * x1
+Number of strict rules: 0

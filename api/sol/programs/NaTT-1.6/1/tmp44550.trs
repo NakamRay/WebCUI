@@ -1,0 +1,8 @@
+(VAR X Y U V W P X1 X2 )
+(RULES
+  app(nil,X) -> X
+  app(cons(Y,U),V) -> cons(Y,app(U,V))
+  reverse(nil) -> nil
+  reverse(cons(W,P)) -> app(reverse(P),cons(W,nil))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,159 @@
+Input TRS:
+    1: if(true(),X,Y) -> X
+    2: if(false(),U,V) -> V
+    3: lt(s(W),s(P)) -> lt(W,P)
+    4: lt(0(),s(X1)) -> true()
+    5: lt(Y1,0()) -> false()
+    6: eq(U1,U1) -> true()
+    7: eq(s(V1),0()) -> false()
+    8: eq(0(),s(W1)) -> false()
+    9: merge(P1,nil()) -> P1
+    10: merge(nil(),X2) -> X2
+    11: merge(cons(Y2,U2),cons(V2,W2)) -> if(lt(Y2,V2),cons(Y2,merge(U2,cons(V2,W2))),if(eq(Y2,V2),cons(Y2,merge(U2,W2)),cons(V2,merge(cons(Y2,U2),W2))))
+    12: mult(0(),V3) -> 0()
+    13: mult(s(W3),P3) -> plus(P3,mult(W3,P3))
+    14: plus(0(),X4) -> 0()
+    15: plus(s(Y4),U4) -> s(plus(Y4,U4))
+    16: _(X1,X2) -> X1
+    17: _(X1,X2) -> X2
+Number of strict rules: 17
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #mult(s(W3),P3) -> #plus(P3,mult(W3,P3))
+   #2: #mult(s(W3),P3) -> #mult(W3,P3)
+   #3: #merge(cons(Y2,U2),cons(V2,W2)) -> #if(lt(Y2,V2),cons(Y2,merge(U2,cons(V2,W2))),if(eq(Y2,V2),cons(Y2,merge(U2,W2)),cons(V2,merge(cons(Y2,U2),W2))))
+   #4: #merge(cons(Y2,U2),cons(V2,W2)) -> #lt(Y2,V2)
+   #5: #merge(cons(Y2,U2),cons(V2,W2)) -> #merge(U2,cons(V2,W2))
+   #6: #merge(cons(Y2,U2),cons(V2,W2)) -> #if(eq(Y2,V2),cons(Y2,merge(U2,W2)),cons(V2,merge(cons(Y2,U2),W2)))
+   #7: #merge(cons(Y2,U2),cons(V2,W2)) -> #eq(Y2,V2)
+   #8: #merge(cons(Y2,U2),cons(V2,W2)) -> #merge(U2,W2)
+   #9: #merge(cons(Y2,U2),cons(V2,W2)) -> #merge(cons(Y2,U2),W2)
+   #10: #lt(s(W),s(P)) -> #lt(W,P)
+   #11: #plus(s(Y4),U4) -> #plus(Y4,U4)
+Number of SCCs: 4, DPs: 6
+  SCC { #2 }
+POLO(Sum)... succeeded.
+      merge	w: 0
+      s 	w: x1 + 1
+      #lt	w: 0
+      #plus	w: 0
+      eq	w: 0
+      false	w: 0
+      #merge	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      mult	w: 0
+      if	w: 0
+      0 	w: 0
+      nil	w: 0
+      #_ 	w: 0
+      plus	w: 0
+      cons	w: 0
+      #if	w: 0
+      lt	w: 0
+      #mult	w: x1
+    USABLE RULES: { }
+    Removed DPs: #2
+Number of SCCs: 3, DPs: 5
+  SCC { #11 }
+POLO(Sum)... succeeded.
+      merge	w: 0
+      s 	w: x1 + 1
+      #lt	w: 0
+      #plus	w: x1
+      eq	w: 0
+      false	w: 0
+      #merge	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      mult	w: 0
+      if	w: 0
+      0 	w: 0
+      nil	w: 0
+      #_ 	w: 0
+      plus	w: 0
+      cons	w: 0
+      #if	w: 0
+      lt	w: 0
+      #mult	w: 0
+    USABLE RULES: { }
+    Removed DPs: #11
+Number of SCCs: 2, DPs: 4
+  SCC { #10 }
+POLO(Sum)... succeeded.
+      merge	w: 0
+      s 	w: x1 + 1
+      #lt	w: x2
+      #plus	w: 0
+      eq	w: 0
+      false	w: 0
+      #merge	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      mult	w: 0
+      if	w: 0
+      0 	w: 0
+      nil	w: 0
+      #_ 	w: 0
+      plus	w: 0
+      cons	w: 0
+      #if	w: 0
+      lt	w: 0
+      #mult	w: 0
+    USABLE RULES: { }
+    Removed DPs: #10
+Number of SCCs: 1, DPs: 3
+  SCC { #5 #8 #9 }
+POLO(Sum)... succeeded.
+      merge	w: 0
+      s 	w: 1
+      #lt	w: 0
+      #plus	w: 0
+      eq	w: 0
+      false	w: 0
+      #merge	w: x2
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      mult	w: 0
+      if	w: 0
+      0 	w: 0
+      nil	w: 0
+      #_ 	w: 0
+      plus	w: 0
+      cons	w: x2 + 1
+      #if	w: 0
+      lt	w: 0
+      #mult	w: 0
+    USABLE RULES: { }
+    Removed DPs: #8 #9
+Number of SCCs: 1, DPs: 1
+  SCC { #5 }
+POLO(Sum)... succeeded.
+      merge	w: 0
+      s 	w: 1
+      #lt	w: 0
+      #plus	w: 0
+      eq	w: 0
+      false	w: 0
+      #merge	w: x1
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      mult	w: 0
+      if	w: 0
+      0 	w: 0
+      nil	w: 0
+      #_ 	w: 0
+      plus	w: 0
+      cons	w: x2 + 1
+      #if	w: 0
+      lt	w: 0
+      #mult	w: 0
+    USABLE RULES: { }
+    Removed DPs: #5
+Number of SCCs: 0, DPs: 0

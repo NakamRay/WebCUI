@@ -1,0 +1,7 @@
+(VAR V W P X1 Y1 X2 )
+(RULES
+  piA(pair(V,W)) -> V
+  piB(pair(P,X1)) -> X1
+  pair(piA(Y1),piB(Y1)) -> Y1
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

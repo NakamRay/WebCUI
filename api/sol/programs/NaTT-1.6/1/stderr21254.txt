@@ -1,0 +1,41 @@
+Input TRS:
+    1: plus(0(),X1) -> X1
+    2: plus(s(Y1),U1) -> s(plus(Y1,U1))
+    3: times(0(),V1) -> 0()
+    4: times(s(W1),P1) -> plus(times(W1,P1),P1)
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #plus(s(Y1),U1) -> #plus(Y1,U1)
+   #2: #times(s(W1),P1) -> #plus(times(W1,P1),P1)
+   #3: #times(s(W1),P1) -> #times(W1,P1)
+Number of SCCs: 2, DPs: 2
+  SCC { #3 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #plus	w: 0
+      _ 	w: 0
+      #times	w: x1
+      0 	w: 0
+      times	w: 0
+      #_ 	w: 0
+      plus	w: 0
+    USABLE RULES: { }
+    Removed DPs: #3
+Number of SCCs: 1, DPs: 1
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #plus	w: x1
+      _ 	w: 0
+      #times	w: 0
+      0 	w: 0
+      times	w: 0
+      #_ 	w: 0
+      plus	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 0, DPs: 0

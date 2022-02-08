@@ -1,0 +1,29 @@
+Input TRS:
+    1: app(nil(),X) -> X
+    2: app(cons(Y,U),V) -> cons(Y,app(U,V))
+    3: reverse(nil()) -> nil()
+    4: reverse(cons(W,P)) -> app(reverse(P),cons(W,nil()))
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... removes: 3 5 6
+      reverse	w: x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      nil	w: 0
+      cons	w: 2 * x1 + x2 + 1
+      app	w: x1 + x2
+Number of strict rules: 3
+Direct POLO(bPol) ... removes: 4 1
+      reverse	w: 2 * x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      nil	w: 1
+      cons	w: 2 * x1 + x2 + 2
+      app	w: x1 + x2
+Number of strict rules: 1
+Direct POLO(bPol) ... removes: 2
+      reverse	w: 2 * x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      nil	w: 1
+      cons	w: 2 * x1 + x2 + 2
+      app	w: 2 * x1 + 2 * x2 + 1
+Number of strict rules: 0

@@ -1,0 +1,9 @@
+(VAR X Y X1 X2 )
+(RULES
+  half(0) -> 0
+  half(s(0)) -> 0
+  half(s(s(X))) -> s(half(X))
+  bits(0) -> 0
+  bits(s(Y)) -> s(bits(half(s(Y))))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

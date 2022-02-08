@@ -1,0 +1,101 @@
+(VAR
+  X: a 
+  Y: a 
+  U: a 
+  V: a 
+  W: c 
+  P: c 
+  X1: b 
+  Y1: b 
+  U1: b 
+  V1: a 
+  W1: a 
+  P1: b 
+  X2: a 
+  Y2: a 
+  U2: b 
+  V2: b 
+  W2: a 
+  P2: a 
+  X3: a 
+  Y3: a 
+  U3: b 
+  V3: b 
+  W3: a 
+  P3: a 
+  X4: a 
+  Y4: a 
+  U4: b 
+  V4: b 
+  W4: a 
+  P4: a 
+  X5: a 
+  Y5: a 
+  U5: b 
+  V5: b 
+  W5: a 
+  P5: a 
+  X6: a 
+  Y6: a 
+  U6: b 
+  V6: b 
+  W6: a 
+  P6: a 
+  X7: a 
+  Y7: a 
+  G7: d -> d 
+  H7: d -> d 
+  W7: d 
+  P7: e 
+  F8: d -> c 
+  Z8: d -> c 
+  U8: d 
+  V8: e 
+  I8: d -> c 
+  P8: d 
+  X9: e 
+  Z9: d -> c 
+  U9: d 
+  V9: e 
+)
+(FUN
+  0 : a
+  cons : d -> e -> e
+  edge : a -> a -> b -> b
+  empty : b
+  eq : a -> a -> c
+  false : c
+  filter : (d -> c) -> e -> e
+  filter2 : c -> (d -> c) -> d -> e -> e
+  ifbang6220reachbang62201 : c -> a -> a -> b -> b -> c
+  ifbang6220reachbang62202 : c -> a -> a -> b -> b -> c
+  map : (d -> d) -> e -> e
+  nil : e
+  or : c -> c -> c
+  reach : a -> a -> b -> b -> c
+  s : a -> a
+  true : c
+  union : b -> b -> b
+)
+(RULES
+  (eq((0),(0))) -> (true),
+  (eq((0),(s(X)))) -> (false),
+  (eq((s(Y)),(0))) -> (false),
+  (eq((s(U)),(s(V)))) -> (eq(U,V)),
+  (or((true),W)) -> (true),
+  (or((false),P)) -> P,
+  (union((empty),X1)) -> X1,
+  (union((edge(V1,W1,U1)),Y1)) -> (edge(V1,W1,(union(U1,Y1)))),
+  (reach(X2,Y2,(empty),P1)) -> (false),
+  (reach(X3,Y3,(edge(W2,P2,V2)),U2)) -> (ifbang6220reachbang62201((eq(X3,W2)),X3,Y3,(edge(W2,P2,V2)),U2)),
+  (ifbang6220reachbang62201((true),X4,Y4,(edge(W3,P3,V3)),U3)) -> (ifbang6220reachbang62202((eq(Y4,P3)),X4,Y4,(edge(W3,P3,V3)),U3)),
+  (ifbang6220reachbang62201((false),X5,Y5,(edge(W4,P4,V4)),U4)) -> (reach(X5,Y5,V4,(edge(W4,P4,U4)))),
+  (ifbang6220reachbang62202((true),X6,Y6,(edge(W5,P5,V5)),U5)) -> (true),
+  (ifbang6220reachbang62202((false),X7,Y7,(edge(W6,P6,V6)),U6)) -> (or((reach(X7,Y7,V6,U6)),(reach(P6,Y7,(union(V6,U6)),(empty))))),
+  (map(G7,(nil))) -> (nil),
+  (map(H7,(cons(W7,P7)))) -> (cons((H7 W7),(map(H7,P7)))),
+  (filter(F8,(nil))) -> (nil),
+  (filter(Z8,(cons(U8,V8)))) -> (filter2((Z8 U8),Z8,U8,V8)),
+  (filter2((true),I8,P8,X9)) -> (cons(P8,(filter(I8,X9)))),
+  (filter2((false),Z9,U9,V9)) -> (filter(Z9,V9))
+)

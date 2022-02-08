@@ -1,0 +1,7 @@
+(VAR X Y X0 X2 X' )
+(RULES
+  app(abs(X),Y) -> sub(X,Y)
+  sub(X0,Y) -> X0
+  sub(y,Y) -> Y
+  sub(abs(X2),Y) -> abs(sub(X2,Y))
+  sub(app(X,X'),Y) -> app(sub(X,Y),sub(X',Y)))

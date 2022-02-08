@@ -1,0 +1,17 @@
+Input TRS:
+    1: sub(sub(X2,Y),X0) -> sub(sub(X2,X0),sub(Y,X0))
+Number of strict rules: 1
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #sub(sub(X2,Y),X0) -> #sub(sub(X2,X0),sub(Y,X0))
+   #2: #sub(sub(X2,Y),X0) -> #sub(X2,X0)
+   #3: #sub(sub(X2,Y),X0) -> #sub(Y,X0)
+Number of SCCs: 1, DPs: 3
+  SCC { #1..3 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #sub(sub(sub(X2_{i4},Y_{i0}),Y),Y_{i1})	-#1->
+  #sub(sub(sub(X2_{i4},Y_{i0}),Y_{i1}),sub(Y,Y_{i1}))	--->*
+  #sub(sub(sub(X2_{i4},sub(sub(Y_{i1},sub(Y_{i0},Y_{i1})),sub(sub(Y_{i0},Y_{i1}),sub(Y_{i1},sub(Y_{i0},Y_{i1}))))),sub(sub(sub(Y_{i0},Y_{i1}),sub(Y_{i1},sub(Y_{i0},Y_{i1}))),sub(sub(Y_{i1},sub(Y_{i0},Y_{i1})),sub(sub(Y_{i0},Y_{i1}),sub(Y_{i1},sub(Y_{i0},Y_{i1})))))),sub(Y,Y_{i1}))
+  Looping with: [ Y_{i1} := sub(Y,Y_{i1}); Y_{i0} := sub(sub(Y_{i1},sub(Y_{i0},Y_{i1})),sub(sub(Y_{i0},Y_{i1}),sub(Y_{i1},sub(Y_{i0},Y_{i1})))); X2_{i4} := X2_{i4}; Y := sub(sub(sub(Y_{i0},Y_{i1}),sub(Y_{i1},sub(Y_{i0},Y_{i1}))),sub(sub(Y_{i1},sub(Y_{i0},Y_{i1})),sub(sub(Y_{i0},Y_{i1}),sub(Y_{i1},sub(Y_{i0},Y_{i1}))))); ]

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+java -ea -jar ./aprove.jar -m wst -p plain $1 $@
+

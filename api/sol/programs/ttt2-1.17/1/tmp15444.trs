@@ -1,0 +1,8 @@
+(VAR X Y Z B C )
+(RULES
+  sum(nil,X) -> X
+  sum(sum(X,Y),Z) -> sum(X,sum(Y,Z))
+  sum(X,Y) -> sum(Y,X)
+  new(X) -> X
+  new(out(a,B,X)) -> nil
+  new(out(B,C,X)) -> out(B,C,new(X)))

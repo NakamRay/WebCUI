@@ -1,0 +1,6 @@
+(VAR X Y X1 X2 )
+(RULES
+  if(true,X,Y) -> X
+  if(false,X,Y) -> Y
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

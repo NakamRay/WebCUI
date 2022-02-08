@@ -1,0 +1,7 @@
+Input TRS:
+    1: sum(nil(),X) -> X
+    2: sum(sum(X,Y),Z) -> sum(X,sum(Y,Z))
+    3: sum(X,Y) -> sum(Y,X)
+    4: new(tau(X)) -> tau(new(X))
+    5: new(new(X)) -> new(new(X))
+Trivially nonterminating rule 5.

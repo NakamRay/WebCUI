@@ -1,0 +1,8 @@
+(VAR W P X1 Y1 U1 V1 X2 )
+(RULES
+  minus(W,0) -> W
+  minus(s(P),s(X1)) -> minus(P,X1)
+  div(0,s(Y1)) -> 0
+  div(s(U1),s(V1)) -> s(div(minus(U1,V1),s(V1)))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

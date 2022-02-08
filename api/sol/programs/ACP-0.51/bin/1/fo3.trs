@@ -1,0 +1,17 @@
+(VAR
+  x : Nat
+  y : Nat
+  z : Nat
+)
+(FUN
+  + : Nat -> Nat -> Nat
+  0 : Nat
+  s : Nat -> Nat
+  * : Nat -> Nat -> Nat
+)
+(RULES
+  +(x,0)  -> x,
+  +(+(x,y),z) -> +(x,+(y,z)),
+  +(x,y) -> +(y,x),
+)
+(COMMENT from the collection of \cite{AT2012})

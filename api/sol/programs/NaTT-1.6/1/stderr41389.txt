@@ -1,0 +1,13 @@
+Input TRS:
+    1: pia(pair(V,W)) -> V
+    2: pib(pair(P,X1)) -> X1
+    3: pair(pia(Y1),pib(Y1)) -> Y1
+    4: _(X1,X2) -> X1
+    5: _(X1,X2) -> X2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 4 1 3 5 2
+      pair	w: 2 * x1 + 2 * x2 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      pib	w: 2 * x1 + 1
+      pia	w: 2 * x1 + 1
+Number of strict rules: 0

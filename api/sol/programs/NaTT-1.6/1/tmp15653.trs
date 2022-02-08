@@ -1,0 +1,7 @@
+(VAR X Y V U U1 V1 W1 X1 X2 )
+(RULES
+  append(nil,X) -> X
+  append(cons(Y,V),U) -> cons(Y,append(V,U))
+  append(append(U1,V1),W1) -> append(U1,append(V1,W1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

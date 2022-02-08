@@ -1,0 +1,29 @@
+Input TRS:
+    1: f(g(X),s(0()),Y) -> f(Y,Y,g(X))
+    2: g(s(U)) -> s(g(U))
+    3: g(0()) -> 0()
+    4: _(X1,X2) -> X1
+    5: _(X1,X2) -> X2
+Number of strict rules: 5
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #g(s(U)) -> #g(U)
+   #2: #f(g(X),s(0()),Y) -> #f(Y,Y,g(X))
+Number of SCCs: 2, DPs: 2
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      _ 	w: 0
+      f 	w: 0
+      0 	w: 0
+      #f 	w: 0
+      #g 	w: x1
+      #_ 	w: 0
+      g 	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 1, DPs: 1
+  SCC { #2 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

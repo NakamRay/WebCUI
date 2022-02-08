@@ -1,0 +1,33 @@
+Input TRS:
+    1: letval(T3,letval(U,V)) -> letval(letval(T3,U),V)
+    2: letval(T3,letval(U4,V4)) -> letval(U4,letval(T3,V4))
+Number of strict rules: 2
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #letval(T3,letval(U4,V4)) -> #letval(U4,letval(T3,V4))
+   #2: #letval(T3,letval(U4,V4)) -> #letval(T3,V4)
+   #3: #letval(T3,letval(U,V)) -> #letval(letval(T3,U),V)
+   #4: #letval(T3,letval(U,V)) -> #letval(T3,U)
+Number of SCCs: 1, DPs: 4
+  SCC { #1..4 }
+POLO(Sum)... succeeded.
+      letval	w: x1 + x2 + 1
+      #letval	w: x1 + x2
+    USABLE RULES: { 1 2 }
+    Removed DPs: #2 #4
+Number of SCCs: 1, DPs: 2
+  SCC { #1 #3 }
+POLO(Sum)... succeeded.
+      letval	w: x2 + 1
+      #letval	w: x2
+    USABLE RULES: { 1 2 }
+    Removed DPs: #3
+Number of SCCs: 1, DPs: 1
+  SCC { #1 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #letval(T3_{i6},letval(T3_{1},letval(U4_{1},V4_{i6})))	-#1->
+  #letval(T3_{1},letval(T3_{i6},letval(U4_{1},V4_{i6})))	--->*
+  #letval(T3_{1},letval(U4_{1},letval(T3_{i6},V4_{i6})))
+  Looping with: [ V4_{i6} := V4_{i6}; U4_{1} := T3_{i6}; T3_{1} := U4_{1}; T3_{i6} := T3_{1}; ]

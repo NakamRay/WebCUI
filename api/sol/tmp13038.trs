@@ -1,0 +1,5 @@
+(VAR L X M P )
+(RULES
+  app(L,abs(unit(X))) -> L
+  app(app(L,abs(M)),abs(P)) -> app(L,abs(app(M,abs(P))))
+  abs(app(unit(X),abs(P))) -> abs(P))

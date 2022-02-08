@@ -1,0 +1,298 @@
+Input TRS:
+    1: minus(X,0()) -> X
+    2: minus(s(Y),s(U)) -> minus(Y,U)
+    3: quot(0(),s(V)) -> 0()
+    4: quot(s(W),s(P)) -> s(quot(minus(W,P),s(P)))
+    5: le(0(),X1) -> true()
+    6: le(s(Y1),0()) -> false()
+    7: le(s(U1),s(V1)) -> le(U1,V1)
+    8: app(nil(),W1) -> W1
+    9: app(add(P1,X2),Y2) -> add(P1,app(X2,Y2))
+    10: low(U2,nil()) -> nil()
+    11: low(W2,add(V2,P2)) -> ifd(le(V2,W2),add(V2,low(W2,P2)),low(W2,P2))
+    12: high(X4,nil()) -> nil()
+    13: high(U4,add(Y4,V4)) -> ifD(le(Y4,U4),high(U4,V4),add(Y4,high(U4,V4)))
+    14: ifxb6220high(true(),P4,add(W4,X5)) -> high(P4,X5)
+    15: ifxb6220high(false(),U5,add(Y5,V5)) -> add(Y5,high(U5,V5))
+    16: quicksort(nil()) -> nil()
+    17: quicksort(add(W5,P5)) -> app(quicksort(low(W5,P5)),add(W5,quicksort(high(W5,P5))))
+    18: ifxb6220low(true(),Y3,add(X3,U3)) -> add(X3,low(Y3,U3))
+    19: ifxb6220low(false(),W3,add(V3,P3)) -> low(W3,P3)
+    20: ifd(true(),T,E) -> T
+    21: ifd(false(),T,E) -> E
+    22: ifD(true(),T,E) -> T
+    23: ifD(false(),T,E) -> E
+    24: _(X1,X2) -> X1
+    25: _(X1,X2) -> X2
+Number of strict rules: 25
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #minus(s(Y),s(U)) -> #minus(Y,U)
+   #2: #high(U4,add(Y4,V4)) -> #ifD(le(Y4,U4),high(U4,V4),add(Y4,high(U4,V4)))
+   #3: #high(U4,add(Y4,V4)) -> #le(Y4,U4)
+   #4: #high(U4,add(Y4,V4)) -> #high(U4,V4)
+   #5: #high(U4,add(Y4,V4)) -> #high(U4,V4)
+   #6: #app(add(P1,X2),Y2) -> #app(X2,Y2)
+   #7: #low(W2,add(V2,P2)) -> #ifd(le(V2,W2),add(V2,low(W2,P2)),low(W2,P2))
+   #8: #low(W2,add(V2,P2)) -> #le(V2,W2)
+   #9: #low(W2,add(V2,P2)) -> #low(W2,P2)
+   #10: #low(W2,add(V2,P2)) -> #low(W2,P2)
+   #11: #ifxb6220high(true(),P4,add(W4,X5)) -> #high(P4,X5)
+   #12: #le(s(U1),s(V1)) -> #le(U1,V1)
+   #13: #quicksort(add(W5,P5)) -> #app(quicksort(low(W5,P5)),add(W5,quicksort(high(W5,P5))))
+   #14: #quicksort(add(W5,P5)) -> #quicksort(low(W5,P5))
+   #15: #quicksort(add(W5,P5)) -> #low(W5,P5)
+   #16: #quicksort(add(W5,P5)) -> #quicksort(high(W5,P5))
+   #17: #quicksort(add(W5,P5)) -> #high(W5,P5)
+   #18: #ifxb6220low(false(),W3,add(V3,P3)) -> #low(W3,P3)
+   #19: #ifxb6220high(false(),U5,add(Y5,V5)) -> #high(U5,V5)
+   #20: #quot(s(W),s(P)) -> #quot(minus(W,P),s(P))
+   #21: #quot(s(W),s(P)) -> #minus(W,P)
+   #22: #ifxb6220low(true(),Y3,add(X3,U3)) -> #low(Y3,U3)
+Number of SCCs: 7, DPs: 10
+  SCC { #6 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: 0
+      #ifd	w: 0
+      #le	w: 0
+      ifxb6220high	w: 0
+      minus	w: 0
+      #quicksort	w: 0
+      ifd	w: 0
+      #high	w: 0
+      false	w: 0
+      #ifxb6220high	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 0
+      0 	w: 0
+      quot	w: 0
+      high	w: 0
+      nil	w: 0
+      #app	w: x1
+      #ifxb6220low	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: 0
+      #ifD	w: 0
+      add	w: x2 + 1
+      #quot	w: 0
+      ifD	w: 0
+      ifxb6220low	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #6
+Number of SCCs: 6, DPs: 9
+  SCC { #12 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #ifd	w: 0
+      #le	w: x2
+      ifxb6220high	w: 0
+      minus	w: 0
+      #quicksort	w: 0
+      ifd	w: 0
+      #high	w: 0
+      false	w: 0
+      #ifxb6220high	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 0
+      0 	w: 0
+      quot	w: 0
+      high	w: 0
+      nil	w: 0
+      #app	w: 0
+      #ifxb6220low	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: 0
+      #ifD	w: 0
+      add	w: 1
+      #quot	w: 0
+      ifD	w: 0
+      ifxb6220low	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #12
+Number of SCCs: 5, DPs: 8
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #ifd	w: 0
+      #le	w: 0
+      ifxb6220high	w: 0
+      minus	w: 0
+      #quicksort	w: 0
+      ifd	w: 0
+      #high	w: 0
+      false	w: 0
+      #ifxb6220high	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 0
+      0 	w: 0
+      quot	w: 0
+      high	w: 0
+      nil	w: 0
+      #app	w: 0
+      #ifxb6220low	w: 0
+      #minus	w: x2
+      #_ 	w: 0
+      low	w: 0
+      #ifD	w: 0
+      add	w: 1
+      #quot	w: 0
+      ifD	w: 0
+      ifxb6220low	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 4, DPs: 7
+  SCC { #20 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 2
+      #ifd	w: 0
+      #le	w: 0
+      ifxb6220high	w: 0
+      minus	w: x1 + 1
+      #quicksort	w: 0
+      ifd	w: 0
+      #high	w: 0
+      false	w: 0
+      #ifxb6220high	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 0
+      0 	w: 1
+      quot	w: 0
+      high	w: 0
+      nil	w: 0
+      #app	w: 0
+      #ifxb6220low	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: 0
+      #ifD	w: 0
+      add	w: 1
+      #quot	w: x1
+      ifD	w: 0
+      ifxb6220low	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { 1 2 }
+    Removed DPs: #20
+Number of SCCs: 3, DPs: 6
+  SCC { #14 #16 }
+POLO(Sum)... POLO(max)... succeeded.
+      le	w: max(x2 + 1)
+      s 	w: 0
+      #ifd	w: 0
+      #le	w: 0
+      ifxb6220high	w: 0
+      minus	w: 0
+      #quicksort	w: x1
+      ifd	w: max(x2, x3 + 3)
+      #high	w: 0
+      false	w: 2
+      #ifxb6220high	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 2
+      0 	w: 0
+      quot	w: 0
+      high	w: max(x2 + 1)
+      nil	w: 1
+      #app	w: 0
+      #ifxb6220low	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: max(x2 + 1)
+      #ifD	w: 0
+      add	w: max(x1 + 2, x2 + 3)
+      #quot	w: 0
+      ifD	w: max(x2 + 3, x3)
+      ifxb6220low	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { 10..13 20..23 }
+    Removed DPs: #14 #16
+Number of SCCs: 2, DPs: 4
+  SCC { #4 #5 }
+POLO(Sum)... succeeded.
+      le	w: x1 + x2 + 1
+      s 	w: x1 + 1
+      #ifd	w: 0
+      #le	w: 0
+      ifxb6220high	w: 0
+      minus	w: x1 + 1
+      #quicksort	w: 0
+      ifd	w: x1 + 1
+      #high	w: x2
+      false	w: 4
+      #ifxb6220high	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 3
+      0 	w: 1
+      quot	w: 0
+      high	w: x1 + x2 + 1
+      nil	w: 2
+      #app	w: 0
+      #ifxb6220low	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: 1
+      #ifD	w: 0
+      add	w: x2 + 1
+      #quot	w: x1
+      ifD	w: x1 + x2 + x3
+      ifxb6220low	w: 0
+      #low	w: 0
+      app	w: 0
+    USABLE RULES: { 1 2 }
+    Removed DPs: #4 #5
+Number of SCCs: 1, DPs: 2
+  SCC { #9 #10 }
+POLO(Sum)... succeeded.
+      le	w: x1 + x2 + 1
+      s 	w: x1 + 1
+      #ifd	w: 0
+      #le	w: 0
+      ifxb6220high	w: 0
+      minus	w: x1 + 1
+      #quicksort	w: 0
+      ifd	w: x1 + 1
+      #high	w: 0
+      false	w: 4
+      #ifxb6220high	w: 0
+      _ 	w: 0
+      quicksort	w: 0
+      true	w: 3
+      0 	w: 1
+      quot	w: 0
+      high	w: x1 + x2 + 1
+      nil	w: 2
+      #app	w: 0
+      #ifxb6220low	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      low	w: 1
+      #ifD	w: 0
+      add	w: x2 + 1
+      #quot	w: x1
+      ifD	w: x1 + x2 + x3
+      ifxb6220low	w: 0
+      #low	w: x2
+      app	w: 0
+    USABLE RULES: { 1 2 }
+    Removed DPs: #9 #10
+Number of SCCs: 0, DPs: 0

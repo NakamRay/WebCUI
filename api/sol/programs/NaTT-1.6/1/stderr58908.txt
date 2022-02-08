@@ -1,0 +1,17 @@
+Input TRS:
+    1: f(X,X) -> a()
+    2: s(X) -> f(X,s(X))
+Number of strict rules: 2
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #s(X) -> #f(X,s(X))
+   #2: #s(X) -> #s(X)
+Number of SCCs: 1, DPs: 1
+  SCC { #2 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #s(X_{1})	-#2->
+  #s(X_{1})	--->*
+  #s(X_{1})
+  Looping with: [ X_{1} := X_{1}; ]

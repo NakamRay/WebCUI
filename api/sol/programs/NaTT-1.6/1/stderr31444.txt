@@ -1,0 +1,83 @@
+Input TRS:
+    1: le(0(),Y) -> true()
+    2: le(s(X),0()) -> false()
+    3: le(s(X),s(Y)) -> le(X,Y)
+    4: minus(X,0()) -> X
+    5: minus(s(X),s(Y)) -> minus(X,Y)
+    6: gcd(0(),Y) -> 0()
+    7: gcd(s(X),0()) -> 0()
+    8: gcd(s(X),s(Y)) -> ifz(le(Y,X),gcd(minus(X,Y),s(Y)),gcd(minus(Y,X),s(X)))
+    9: ifz(true(),T,E) -> T
+    10: ifz(false(),T,E) -> E
+    11: _(X1,X2) -> X1
+    12: _(X1,X2) -> X2
+Number of strict rules: 12
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #minus(s(X),s(Y)) -> #minus(X,Y)
+   #2: #le(s(X),s(Y)) -> #le(X,Y)
+   #3: #gcd(s(X),s(Y)) -> #ifz(le(Y,X),gcd(minus(X,Y),s(Y)),gcd(minus(Y,X),s(X)))
+   #4: #gcd(s(X),s(Y)) -> #le(Y,X)
+   #5: #gcd(s(X),s(Y)) -> #gcd(minus(X,Y),s(Y))
+   #6: #gcd(s(X),s(Y)) -> #minus(X,Y)
+   #7: #gcd(s(X),s(Y)) -> #gcd(minus(Y,X),s(X))
+   #8: #gcd(s(X),s(Y)) -> #minus(Y,X)
+Number of SCCs: 3, DPs: 4
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #le	w: 0
+      minus	w: 0
+      gcd	w: 0
+      false	w: 0
+      #ifz	w: 0
+      _ 	w: 0
+      true	w: 0
+      0 	w: 0
+      #minus	w: x1
+      #_ 	w: 0
+      ifz	w: 0
+      #gcd	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 2, DPs: 3
+  SCC { #2 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #le	w: x1
+      minus	w: 0
+      gcd	w: 0
+      false	w: 0
+      #ifz	w: 0
+      _ 	w: 0
+      true	w: 0
+      0 	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      ifz	w: 0
+      #gcd	w: 0
+    USABLE RULES: { }
+    Removed DPs: #2
+Number of SCCs: 1, DPs: 2
+  SCC { #5 #7 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 2
+      #le	w: 0
+      minus	w: x1 + 1
+      gcd	w: 0
+      false	w: 0
+      #ifz	w: 0
+      _ 	w: 0
+      true	w: 0
+      0 	w: 1
+      #minus	w: 0
+      #_ 	w: 0
+      ifz	w: 0
+      #gcd	w: x1 + x2
+    USABLE RULES: { 4 5 }
+    Removed DPs: #5 #7
+Number of SCCs: 0, DPs: 0

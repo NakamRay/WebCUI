@@ -1,0 +1,8 @@
+(VAR X Y U W P V X1 Y1 U1 V1 W1 P1 X2 )
+(RULES
+  bangtimes(X,bangplus(Y,U)) -> bangplus(bangtimes(X,Y),bangtimes(X,U))
+  bangtimes(bangplus(W,P),V) -> bangplus(bangtimes(V,W),bangtimes(V,P))
+  bangtimes(bangtimes(X1,Y1),U1) -> bangtimes(X1,bangtimes(Y1,U1))
+  bangplus(bangplus(V1,W1),P1) -> bangplus(V1,bangplus(W1,P1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

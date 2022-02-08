@@ -1,0 +1,14 @@
+Input TRS:
+    1: g(Y) -> h(Y,Y)
+    2: h(0(),U) -> U
+    3: h(s(V),0()) -> g(V)
+    4: _(X1,X2) -> X1
+    5: _(X1,X2) -> X2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 4 1 3 5 2
+      h 	w: x1 + x2
+      s 	w: 2 * x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      0 	w: 1
+      g 	w: 2 * x1 + 1
+Number of strict rules: 0

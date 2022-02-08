@@ -1,0 +1,7 @@
+Input TRS:
+    1: _(X1,X2) -> X1
+    2: _(X1,X2) -> X2
+Number of strict rules: 2
+Direct POLO(bPol) ... removes: 1 2
+      _ 	w: 2 * x1 + 2 * x2 + 1
+Number of strict rules: 0

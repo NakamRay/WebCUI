@@ -1,0 +1,8 @@
+(VAR X Y U V X1 X2 )
+(RULES
+  neq(0,0) -> false
+  neq(0,s(X)) -> true
+  neq(s(Y),0) -> true
+  neq(s(U),s(V)) -> neq(U,V)
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

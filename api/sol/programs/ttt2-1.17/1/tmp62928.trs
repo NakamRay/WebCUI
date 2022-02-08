@@ -1,0 +1,5 @@
+(VAR X X1 Y1 X4 )
+(RULES
+  new(X) -> X
+  new(sum(X1,Y1)) -> sum(new(X1),new(Y1))
+  new(new(X4)) -> new(new(X4)))

@@ -1,0 +1,14 @@
+(VAR X Y U V W P X1 Y1 U1 V1 W1 P1 X2 Y2 )
+(RULES
+  bdot(1,X) -> X
+  bdot(Y,1) -> Y
+  bdot(i(U),U) -> 1
+  bdot(V,i(V)) -> 1
+  bdot(i(W),bdot(W,P)) -> P
+  bdot(X1,bdot(i(X1),Y1)) -> Y1
+  bdot(bdot(U1,V1),W1) -> bdot(U1,bdot(V1,W1))
+  i(1) -> 1
+  i(i(P1)) -> P1
+  i(bdot(X2,Y2)) -> bdot(i(Y2),i(X2))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

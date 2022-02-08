@@ -1,0 +1,5 @@
+(VAR X Y Z )
+(RULES
+  sum(nil,X) -> X
+  sum(X,Y) -> sum(Y,X)
+  sum(sum(X,Y),Z) -> sum(X,sum(Y,Z)))

@@ -1,0 +1,49 @@
+(VAR
+  X: a 
+  Y: a 
+  U: a 
+  V: a 
+  W: a 
+  J: c -> c 
+  F1: c -> c 
+  Y1: c 
+  U1: d 
+  H1: c -> b 
+  I1: c -> b 
+  P1: c 
+  X2: d 
+  Z2: c -> b 
+  U2: c 
+  V2: d 
+  I2: c -> b 
+  P2: c 
+  X3: d 
+)
+(FUN
+  0 : a
+  cons : c -> d -> d
+  f : a -> a
+  false : b
+  filter : (c -> b) -> d -> d
+  filter2 : b -> (c -> b) -> c -> d -> d
+  g : a -> a
+  map : (c -> c) -> d -> d
+  minus : a -> a -> a
+  nil : d
+  s : a -> a
+  true : b
+)
+(RULES
+  (minus(X,(0))) -> X,
+  (minus((s(Y)),(s(U)))) -> (minus(Y,U)),
+  (f((0))) -> (s((0))),
+  (f((s(V)))) -> (minus((s(V)),(g((f(V)))))),
+  (g((0))) -> (0),
+  (g((s(W)))) -> (minus((s(W)),(f((g(W)))))),
+  (map(J,(nil))) -> (nil),
+  (map(F1,(cons(Y1,U1)))) -> (cons((F1 Y1),(map(F1,U1)))),
+  (filter(H1,(nil))) -> (nil),
+  (filter(I1,(cons(P1,X2)))) -> (filter2((I1 P1),I1,P1,X2)),
+  (filter2((true),Z2,U2,V2)) -> (cons(U2,(filter(Z2,V2)))),
+  (filter2((false),I2,P2,X3)) -> (filter(I2,X3))
+)

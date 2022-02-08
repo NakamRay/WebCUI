@@ -1,0 +1,7 @@
+(VAR X Y U V )
+(RULES
+  a -> f(g(%X))
+  f(X) -> a
+  g(Y) -> h(Y,Y)
+  h(0,U) -> U
+  h(s(V),0) -> g(V))

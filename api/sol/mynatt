@@ -1,0 +1,6 @@
+sys=./programs/NaTT-1.6
+
+$sys/NaTT.exe $1 2> stderr$$.txt
+cat stderr$$.txt
+rm stderr$$.txt
+

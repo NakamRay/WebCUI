@@ -1,0 +1,58 @@
+Input TRS:
+    1: bangtimes(X,bangplus(Y,U)) -> bangplus(bangtimes(X,Y),bangtimes(X,U))
+    2: bangtimes(bangplus(W,P),V) -> bangplus(bangtimes(V,W),bangtimes(V,P))
+    3: bangtimes(bangtimes(X1,Y1),U1) -> bangtimes(X1,bangtimes(Y1,U1))
+    4: bangplus(bangplus(V1,W1),P1) -> bangplus(V1,bangplus(W1,P1))
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #bangtimes(bangplus(W,P),V) -> #bangplus(bangtimes(V,W),bangtimes(V,P))
+   #2: #bangtimes(bangplus(W,P),V) -> #bangtimes(V,W)
+   #3: #bangtimes(bangplus(W,P),V) -> #bangtimes(V,P)
+   #4: #bangtimes(bangtimes(X1,Y1),U1) -> #bangtimes(X1,bangtimes(Y1,U1))
+   #5: #bangtimes(bangtimes(X1,Y1),U1) -> #bangtimes(Y1,U1)
+   #6: #bangtimes(X,bangplus(Y,U)) -> #bangplus(bangtimes(X,Y),bangtimes(X,U))
+   #7: #bangtimes(X,bangplus(Y,U)) -> #bangtimes(X,Y)
+   #8: #bangtimes(X,bangplus(Y,U)) -> #bangtimes(X,U)
+   #9: #bangplus(bangplus(V1,W1),P1) -> #bangplus(V1,bangplus(W1,P1))
+   #10: #bangplus(bangplus(V1,W1),P1) -> #bangplus(W1,P1)
+Number of SCCs: 2, DPs: 8
+  SCC { #9 #10 }
+POLO(Sum)... succeeded.
+      bangtimes	w: 0
+      _ 	w: 0
+      bangplus	w: x1 + x2 + 1
+      #_ 	w: 0
+      #bangplus	w: x1
+      #bangtimes	w: 0
+    USABLE RULES: { }
+    Removed DPs: #9 #10
+Number of SCCs: 1, DPs: 6
+  SCC { #2..5 #7 #8 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... succeeded.
+      bangtimes	w: max(x1 + x2, 0)
+      _ 	w: max(x2 - 1, 0)
+      bangplus	w: max(x1 + 2, x2, 0)
+      #_ 	w: 0
+      #bangplus	w: 0
+      #bangtimes	w: max(x1 + x2 - 1, 0)
+    USABLE RULES: { 1..4 }
+    Removed DPs: #2 #7
+Number of SCCs: 1, DPs: 4
+  SCC { #3..5 #8 }
+POLO(Sum)... succeeded.
+      bangtimes	w: x1 + x2 + 1
+      _ 	w: 0
+      bangplus	w: x2
+      #_ 	w: 0
+      #bangplus	w: 0
+      #bangtimes	w: x1 + x2
+    USABLE RULES: { 1..4 }
+    Removed DPs: #5
+Number of SCCs: 1, DPs: 3
+  SCC { #3 #4 #8 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

@@ -1,0 +1,4 @@
+sys=./programs/ttt2-1.17
+
+$sys/ttt2 $1 $@
+

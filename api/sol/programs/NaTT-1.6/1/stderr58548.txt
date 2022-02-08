@@ -1,0 +1,40 @@
+Input TRS:
+    1: h(Y,e(X)) -> h(c(Y),d(Y,X))
+    2: d(U,g(0(),0())) -> e(0())
+    3: d(P,g(V,W)) -> g(e(V),d(P,W))
+    4: d(c(U1),g(g(X1,Y1),0())) -> g(d(c(U1),g(X1,Y1)),d(U1,g(X1,Y1)))
+    5: g(e(V1),e(W1)) -> e(g(V1,W1))
+    6: _(X1,X2) -> X1
+    7: _(X1,X2) -> X2
+Number of strict rules: 7
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #g(e(V1),e(W1)) -> #g(V1,W1)
+   #2: #d(P,g(V,W)) -> #g(e(V),d(P,W))
+   #3: #d(P,g(V,W)) -> #d(P,W)
+   #4: #h(Y,e(X)) -> #h(c(Y),d(Y,X))
+   #5: #h(Y,e(X)) -> #d(Y,X)
+   #6: #d(c(U1),g(g(X1,Y1),0())) -> #g(d(c(U1),g(X1,Y1)),d(U1,g(X1,Y1)))
+   #7: #d(c(U1),g(g(X1,Y1),0())) -> #d(c(U1),g(X1,Y1))
+   #8: #d(c(U1),g(g(X1,Y1),0())) -> #d(U1,g(X1,Y1))
+Number of SCCs: 3, DPs: 5
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      h 	w: 0
+      d 	w: 0
+      c 	w: 0
+      _ 	w: 0
+      0 	w: 0
+      #h 	w: 0
+      #d 	w: 0
+      #g 	w: x2
+      #_ 	w: 0
+      e 	w: x1 + 1
+      g 	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 2, DPs: 4
+  SCC { #4 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

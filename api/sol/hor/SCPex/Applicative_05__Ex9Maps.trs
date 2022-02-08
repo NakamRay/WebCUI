@@ -1,0 +1,25 @@
+(VAR
+  F: d -> d 
+  Y: d 
+  U: e 
+  V: a 
+  I: d -> a -> d 
+  P: d 
+  X1: e 
+  Y1: c 
+  G1: b -> d -> c -> d 
+  V1: d 
+  W1: e 
+)
+(FUN
+  cons : d -> e -> e
+  g : b
+  mapbang62201 : (d -> d) -> e -> e
+  mapbang62202 : (d -> a -> d) -> a -> e -> e
+  mapbang62203 : (b -> d -> c -> d) -> b -> c -> e -> e
+)
+(RULES
+  (mapbang62201(F,(cons(Y,U)))) -> (cons((F Y),(mapbang62201(F,U)))),
+  (mapbang62202(I,V,(cons(P,X1)))) -> (cons(((I P) V),(mapbang62202(I,V,X1)))),
+  (mapbang62203(G1,(g),Y1,(cons(V1,W1)))) -> (cons((((G1 (g)) V1) Y1),(mapbang62203(G1,(g),Y1,W1))))
+)

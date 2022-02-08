@@ -1,0 +1,3271 @@
+Input TRS:
+    1: a__u101(tt(),V1,V2) -> a__u102(a__isNaturalKind(V1),V1,V2)
+    2: a__u102(tt(),V1,V2) -> a__u103(a__isLNatKind(V2),V1,V2)
+    3: a__u103(tt(),V1,V2) -> a__u104(a__isLNatKind(V2),V1,V2)
+    4: a__u104(tt(),V1,V2) -> a__u105(a__isNatural(V1),V2)
+    5: a__u105(tt(),V2) -> a__u106(a__isLNat(V2))
+    6: a__u106(tt()) -> tt()
+    7: a__u11(tt(),N,XS) -> a__u12(a__isNaturalKind(N),N,XS)
+    8: a__u111(tt(),V2) -> a__u112(a__isLNatKind(V2))
+    9: a__u112(tt()) -> tt()
+    10: a__u12(tt(),N,XS) -> a__u13(a__isLNat(XS),N,XS)
+    11: a__u121(tt(),V2) -> a__u122(a__isLNatKind(V2))
+    12: a__u122(tt()) -> tt()
+    13: a__u13(tt(),N,XS) -> a__u14(a__isLNatKind(XS),N,XS)
+    14: a__u131(tt()) -> tt()
+    15: a__u14(tt(),N,XS) -> a__snd(a__splitAt(mark(N),mark(XS)))
+    16: a__u141(tt()) -> tt()
+    17: a__u151(tt()) -> tt()
+    18: a__u161(tt()) -> tt()
+    19: a__u171(tt(),V2) -> a__u172(a__isLNatKind(V2))
+    20: a__u172(tt()) -> tt()
+    21: a__u181(tt(),V1) -> a__u182(a__isLNatKind(V1),V1)
+    22: a__u182(tt(),V1) -> a__u183(a__isLNat(V1))
+    23: a__u183(tt()) -> tt()
+    24: a__u191(tt(),V1) -> a__u192(a__isNaturalKind(V1),V1)
+    25: a__u192(tt(),V1) -> a__u193(a__isNatural(V1))
+    26: a__u193(tt()) -> tt()
+    27: a__u201(tt(),V1,V2) -> a__u202(a__isNaturalKind(V1),V1,V2)
+    28: a__u202(tt(),V1,V2) -> a__u203(a__isLNatKind(V2),V1,V2)
+    29: a__u203(tt(),V1,V2) -> a__u204(a__isLNatKind(V2),V1,V2)
+    30: a__u204(tt(),V1,V2) -> a__u205(a__isNatural(V1),V2)
+    31: a__u205(tt(),V2) -> a__u206(a__isLNat(V2))
+    32: a__u206(tt()) -> tt()
+    33: a__u21(tt(),X,Y) -> a__u22(a__isLNatKind(X),X,Y)
+    34: a__u211(tt()) -> tt()
+    35: a__u22(tt(),X,Y) -> a__u23(a__isLNat(Y),X,Y)
+    36: a__u221(tt()) -> tt()
+    37: a__u23(tt(),X,Y) -> a__u24(a__isLNatKind(Y),X)
+    38: a__u231(tt(),V2) -> a__u232(a__isLNatKind(V2))
+    39: a__u232(tt()) -> tt()
+    40: a__u24(tt(),X) -> mark(X)
+    41: a__u241(tt(),V1,V2) -> a__u242(a__isLNatKind(V1),V1,V2)
+    42: a__u242(tt(),V1,V2) -> a__u243(a__isLNatKind(V2),V1,V2)
+    43: a__u243(tt(),V1,V2) -> a__u244(a__isLNatKind(V2),V1,V2)
+    44: a__u244(tt(),V1,V2) -> a__u245(a__isLNat(V1),V2)
+    45: a__u245(tt(),V2) -> a__u246(a__isLNat(V2))
+    46: a__u246(tt()) -> tt()
+    47: a__u251(tt(),V1,V2) -> a__u252(a__isNaturalKind(V1),V1,V2)
+    48: a__u252(tt(),V1,V2) -> a__u253(a__isLNatKind(V2),V1,V2)
+    49: a__u253(tt(),V1,V2) -> a__u254(a__isLNatKind(V2),V1,V2)
+    50: a__u254(tt(),V1,V2) -> a__u255(a__isNatural(V1),V2)
+    51: a__u255(tt(),V2) -> a__u256(a__isLNat(V2))
+    52: a__u256(tt()) -> tt()
+    53: a__u261(tt(),V2) -> a__u262(a__isLNatKind(V2))
+    54: a__u262(tt()) -> tt()
+    55: a__u271(tt(),V2) -> a__u272(a__isLNatKind(V2))
+    56: a__u272(tt()) -> tt()
+    57: a__u281(tt(),N) -> a__u282(a__isNaturalKind(N),N)
+    58: a__u282(tt(),N) -> cons(mark(N),natsFrom(s(N)))
+    59: a__u291(tt(),N,XS) -> a__u292(a__isNaturalKind(N),N,XS)
+    60: a__u292(tt(),N,XS) -> a__u293(a__isLNat(XS),N,XS)
+    61: a__u293(tt(),N,XS) -> a__u294(a__isLNatKind(XS),N,XS)
+    62: a__u294(tt(),N,XS) -> a__head(a__afterNth(mark(N),mark(XS)))
+    63: a__u301(tt(),X,Y) -> a__u302(a__isLNatKind(X),Y)
+    64: a__u302(tt(),Y) -> a__u303(a__isLNat(Y),Y)
+    65: a__u303(tt(),Y) -> a__u304(a__isLNatKind(Y),Y)
+    66: a__u304(tt(),Y) -> mark(Y)
+    67: a__u31(tt(),N,XS) -> a__u32(a__isNaturalKind(N),N,XS)
+    68: a__u311(tt(),XS) -> a__u312(a__isLNatKind(XS),XS)
+    69: a__u312(tt(),XS) -> pair(nil(),mark(XS))
+    70: a__u32(tt(),N,XS) -> a__u33(a__isLNat(XS),N,XS)
+    71: a__u321(tt(),N,X,XS) -> a__u322(a__isNaturalKind(N),N,X,XS)
+    72: a__u322(tt(),N,X,XS) -> a__u323(a__isNatural(X),N,X,XS)
+    73: a__u323(tt(),N,X,XS) -> a__u324(a__isNaturalKind(X),N,X,XS)
+    74: a__u324(tt(),N,X,XS) -> a__u325(a__isLNat(XS),N,X,XS)
+    75: a__u325(tt(),N,X,XS) -> a__u326(a__isLNatKind(XS),N,X,XS)
+    76: a__u326(tt(),N,X,XS) -> a__u327(a__splitAt(mark(N),mark(XS)),X)
+    77: a__u327(pair(YS,ZS),X) -> pair(cons(mark(X),YS),mark(ZS))
+    78: a__u33(tt(),N,XS) -> a__u34(a__isLNatKind(XS),N)
+    79: a__u331(tt(),N,XS) -> a__u332(a__isNaturalKind(N),XS)
+    80: a__u332(tt(),XS) -> a__u333(a__isLNat(XS),XS)
+    81: a__u333(tt(),XS) -> a__u334(a__isLNatKind(XS),XS)
+    82: a__u334(tt(),XS) -> mark(XS)
+    83: a__u34(tt(),N) -> mark(N)
+    84: a__u341(tt(),N,XS) -> a__u342(a__isNaturalKind(N),N,XS)
+    85: a__u342(tt(),N,XS) -> a__u343(a__isLNat(XS),N,XS)
+    86: a__u343(tt(),N,XS) -> a__u344(a__isLNatKind(XS),N,XS)
+    87: a__u344(tt(),N,XS) -> a__fst(a__splitAt(mark(N),mark(XS)))
+    88: a__u41(tt(),V1,V2) -> a__u42(a__isNaturalKind(V1),V1,V2)
+    89: a__u42(tt(),V1,V2) -> a__u43(a__isLNatKind(V2),V1,V2)
+    90: a__u43(tt(),V1,V2) -> a__u44(a__isLNatKind(V2),V1,V2)
+    91: a__u44(tt(),V1,V2) -> a__u45(a__isNatural(V1),V2)
+    92: a__u45(tt(),V2) -> a__u46(a__isLNat(V2))
+    93: a__u46(tt()) -> tt()
+    94: a__u51(tt(),V1,V2) -> a__u52(a__isNaturalKind(V1),V1,V2)
+    95: a__u52(tt(),V1,V2) -> a__u53(a__isLNatKind(V2),V1,V2)
+    96: a__u53(tt(),V1,V2) -> a__u54(a__isLNatKind(V2),V1,V2)
+    97: a__u54(tt(),V1,V2) -> a__u55(a__isNatural(V1),V2)
+    98: a__u55(tt(),V2) -> a__u56(a__isLNat(V2))
+    99: a__u56(tt()) -> tt()
+    100: a__u61(tt(),V1) -> a__u62(a__isPLNatKind(V1),V1)
+    101: a__u62(tt(),V1) -> a__u63(a__isPLNat(V1))
+    102: a__u63(tt()) -> tt()
+    103: a__u71(tt(),V1) -> a__u72(a__isNaturalKind(V1),V1)
+    104: a__u72(tt(),V1) -> a__u73(a__isNatural(V1))
+    105: a__u73(tt()) -> tt()
+    106: a__u81(tt(),V1) -> a__u82(a__isPLNatKind(V1),V1)
+    107: a__u82(tt(),V1) -> a__u83(a__isPLNat(V1))
+    108: a__u83(tt()) -> tt()
+    109: a__u91(tt(),V1) -> a__u92(a__isLNatKind(V1),V1)
+    110: a__u92(tt(),V1) -> a__u93(a__isLNat(V1))
+    111: a__u93(tt()) -> tt()
+    112: a__afterNth(N,XS) -> a__u11(a__isNatural(N),N,XS)
+    113: a__fst(pair(X,Y)) -> a__u21(a__isLNat(X),X,Y)
+    114: a__head(cons(N,XS)) -> a__u31(a__isNatural(N),N,XS)
+    115: a__isLNat(nil()) -> tt()
+    116: a__isLNat(afterNth(V1,V2)) -> a__u41(a__isNaturalKind(V1),V1,V2)
+    117: a__isLNat(cons(V1,V2)) -> a__u51(a__isNaturalKind(V1),V1,V2)
+    118: a__isLNat(fst(V1)) -> a__u61(a__isPLNatKind(V1),V1)
+    119: a__isLNat(natsFrom(V1)) -> a__u71(a__isNaturalKind(V1),V1)
+    120: a__isLNat(snd(V1)) -> a__u81(a__isPLNatKind(V1),V1)
+    121: a__isLNat(tail(V1)) -> a__u91(a__isLNatKind(V1),V1)
+    122: a__isLNat(take(V1,V2)) -> a__u101(a__isNaturalKind(V1),V1,V2)
+    123: a__isLNatKind(nil()) -> tt()
+    124: a__isLNatKind(afterNth(V1,V2)) -> a__u111(a__isNaturalKind(V1),V2)
+    125: a__isLNatKind(cons(V1,V2)) -> a__u121(a__isNaturalKind(V1),V2)
+    126: a__isLNatKind(fst(V1)) -> a__u131(a__isPLNatKind(V1))
+    127: a__isLNatKind(natsFrom(V1)) -> a__u141(a__isNaturalKind(V1))
+    128: a__isLNatKind(snd(V1)) -> a__u151(a__isPLNatKind(V1))
+    129: a__isLNatKind(tail(V1)) -> a__u161(a__isLNatKind(V1))
+    130: a__isLNatKind(take(V1,V2)) -> a__u171(a__isNaturalKind(V1),V2)
+    131: a__isNatural(0()) -> tt()
+    132: a__isNatural(head(V1)) -> a__u181(a__isLNatKind(V1),V1)
+    133: a__isNatural(s(V1)) -> a__u191(a__isNaturalKind(V1),V1)
+    134: a__isNatural(sel(V1,V2)) -> a__u201(a__isNaturalKind(V1),V1,V2)
+    135: a__isNaturalKind(0()) -> tt()
+    136: a__isNaturalKind(head(V1)) -> a__u211(a__isLNatKind(V1))
+    137: a__isNaturalKind(s(V1)) -> a__u221(a__isNaturalKind(V1))
+    138: a__isNaturalKind(sel(V1,V2)) -> a__u231(a__isNaturalKind(V1),V2)
+    139: a__isPLNat(pair(V1,V2)) -> a__u241(a__isLNatKind(V1),V1,V2)
+    140: a__isPLNat(splitAt(V1,V2)) -> a__u251(a__isNaturalKind(V1),V1,V2)
+    141: a__isPLNatKind(pair(V1,V2)) -> a__u261(a__isLNatKind(V1),V2)
+    142: a__isPLNatKind(splitAt(V1,V2)) -> a__u271(a__isNaturalKind(V1),V2)
+    143: a__natsFrom(N) -> a__u281(a__isNatural(N),N)
+    144: a__sel(N,XS) -> a__u291(a__isNatural(N),N,XS)
+    145: a__snd(pair(X,Y)) -> a__u301(a__isLNat(X),X,Y)
+    146: a__splitAt(0(),XS) -> a__u311(a__isLNat(XS),XS)
+    147: a__splitAt(s(N),cons(X,XS)) -> a__u321(a__isNatural(N),N,X,XS)
+    148: a__tail(cons(N,XS)) -> a__u331(a__isNatural(N),N,XS)
+    149: a__take(N,XS) -> a__u341(a__isNatural(N),N,XS)
+    150: mark(u101(X1,X2,X3)) -> a__u101(mark(X1),X2,X3)
+    151: mark(u102(X1,X2,X3)) -> a__u102(mark(X1),X2,X3)
+    152: mark(isNaturalKind(X)) -> a__isNaturalKind(X)
+    153: mark(u103(X1,X2,X3)) -> a__u103(mark(X1),X2,X3)
+    154: mark(isLNatKind(X)) -> a__isLNatKind(X)
+    155: mark(u104(X1,X2,X3)) -> a__u104(mark(X1),X2,X3)
+    156: mark(u105(X1,X2)) -> a__u105(mark(X1),X2)
+    157: mark(isNatural(X)) -> a__isNatural(X)
+    158: mark(u106(X)) -> a__u106(mark(X))
+    159: mark(isLNat(X)) -> a__isLNat(X)
+    160: mark(u11(X1,X2,X3)) -> a__u11(mark(X1),X2,X3)
+    161: mark(u12(X1,X2,X3)) -> a__u12(mark(X1),X2,X3)
+    162: mark(u111(X1,X2)) -> a__u111(mark(X1),X2)
+    163: mark(u112(X)) -> a__u112(mark(X))
+    164: mark(u13(X1,X2,X3)) -> a__u13(mark(X1),X2,X3)
+    165: mark(u121(X1,X2)) -> a__u121(mark(X1),X2)
+    166: mark(u122(X)) -> a__u122(mark(X))
+    167: mark(u14(X1,X2,X3)) -> a__u14(mark(X1),X2,X3)
+    168: mark(u131(X)) -> a__u131(mark(X))
+    169: mark(snd(X)) -> a__snd(mark(X))
+    170: mark(splitAt(X1,X2)) -> a__splitAt(mark(X1),mark(X2))
+    171: mark(u141(X)) -> a__u141(mark(X))
+    172: mark(u151(X)) -> a__u151(mark(X))
+    173: mark(u161(X)) -> a__u161(mark(X))
+    174: mark(u171(X1,X2)) -> a__u171(mark(X1),X2)
+    175: mark(u172(X)) -> a__u172(mark(X))
+    176: mark(u181(X1,X2)) -> a__u181(mark(X1),X2)
+    177: mark(u182(X1,X2)) -> a__u182(mark(X1),X2)
+    178: mark(u183(X)) -> a__u183(mark(X))
+    179: mark(u191(X1,X2)) -> a__u191(mark(X1),X2)
+    180: mark(u192(X1,X2)) -> a__u192(mark(X1),X2)
+    181: mark(u193(X)) -> a__u193(mark(X))
+    182: mark(u201(X1,X2,X3)) -> a__u201(mark(X1),X2,X3)
+    183: mark(u202(X1,X2,X3)) -> a__u202(mark(X1),X2,X3)
+    184: mark(u203(X1,X2,X3)) -> a__u203(mark(X1),X2,X3)
+    185: mark(u204(X1,X2,X3)) -> a__u204(mark(X1),X2,X3)
+    186: mark(u205(X1,X2)) -> a__u205(mark(X1),X2)
+    187: mark(u206(X)) -> a__u206(mark(X))
+    188: mark(u21(X1,X2,X3)) -> a__u21(mark(X1),X2,X3)
+    189: mark(u22(X1,X2,X3)) -> a__u22(mark(X1),X2,X3)
+    190: mark(u211(X)) -> a__u211(mark(X))
+    191: mark(u23(X1,X2,X3)) -> a__u23(mark(X1),X2,X3)
+    192: mark(u221(X)) -> a__u221(mark(X))
+    193: mark(u24(X1,X2)) -> a__u24(mark(X1),X2)
+    194: mark(u231(X1,X2)) -> a__u231(mark(X1),X2)
+    195: mark(u232(X)) -> a__u232(mark(X))
+    196: mark(u241(X1,X2,X3)) -> a__u241(mark(X1),X2,X3)
+    197: mark(u242(X1,X2,X3)) -> a__u242(mark(X1),X2,X3)
+    198: mark(u243(X1,X2,X3)) -> a__u243(mark(X1),X2,X3)
+    199: mark(u244(X1,X2,X3)) -> a__u244(mark(X1),X2,X3)
+    200: mark(u245(X1,X2)) -> a__u245(mark(X1),X2)
+    201: mark(u246(X)) -> a__u246(mark(X))
+    202: mark(u251(X1,X2,X3)) -> a__u251(mark(X1),X2,X3)
+    203: mark(u252(X1,X2,X3)) -> a__u252(mark(X1),X2,X3)
+    204: mark(u253(X1,X2,X3)) -> a__u253(mark(X1),X2,X3)
+    205: mark(u254(X1,X2,X3)) -> a__u254(mark(X1),X2,X3)
+    206: mark(u255(X1,X2)) -> a__u255(mark(X1),X2)
+    207: mark(u256(X)) -> a__u256(mark(X))
+    208: mark(u261(X1,X2)) -> a__u261(mark(X1),X2)
+    209: mark(u262(X)) -> a__u262(mark(X))
+    210: mark(u271(X1,X2)) -> a__u271(mark(X1),X2)
+    211: mark(u272(X)) -> a__u272(mark(X))
+    212: mark(u281(X1,X2)) -> a__u281(mark(X1),X2)
+    213: mark(u282(X1,X2)) -> a__u282(mark(X1),X2)
+    214: mark(natsFrom(X)) -> a__natsFrom(mark(X))
+    215: mark(u291(X1,X2,X3)) -> a__u291(mark(X1),X2,X3)
+    216: mark(u292(X1,X2,X3)) -> a__u292(mark(X1),X2,X3)
+    217: mark(u293(X1,X2,X3)) -> a__u293(mark(X1),X2,X3)
+    218: mark(u294(X1,X2,X3)) -> a__u294(mark(X1),X2,X3)
+    219: mark(head(X)) -> a__head(mark(X))
+    220: mark(afterNth(X1,X2)) -> a__afterNth(mark(X1),mark(X2))
+    221: mark(u301(X1,X2,X3)) -> a__u301(mark(X1),X2,X3)
+    222: mark(u302(X1,X2)) -> a__u302(mark(X1),X2)
+    223: mark(u303(X1,X2)) -> a__u303(mark(X1),X2)
+    224: mark(u304(X1,X2)) -> a__u304(mark(X1),X2)
+    225: mark(u31(X1,X2,X3)) -> a__u31(mark(X1),X2,X3)
+    226: mark(u32(X1,X2,X3)) -> a__u32(mark(X1),X2,X3)
+    227: mark(u311(X1,X2)) -> a__u311(mark(X1),X2)
+    228: mark(u312(X1,X2)) -> a__u312(mark(X1),X2)
+    229: mark(u33(X1,X2,X3)) -> a__u33(mark(X1),X2,X3)
+    230: mark(u321(X1,X2,X3,X4)) -> a__u321(mark(X1),X2,X3,X4)
+    231: mark(u322(X1,X2,X3,X4)) -> a__u322(mark(X1),X2,X3,X4)
+    232: mark(u323(X1,X2,X3,X4)) -> a__u323(mark(X1),X2,X3,X4)
+    233: mark(u324(X1,X2,X3,X4)) -> a__u324(mark(X1),X2,X3,X4)
+    234: mark(u325(X1,X2,X3,X4)) -> a__u325(mark(X1),X2,X3,X4)
+    235: mark(u326(X1,X2,X3,X4)) -> a__u326(mark(X1),X2,X3,X4)
+    236: mark(u327(X1,X2)) -> a__u327(mark(X1),X2)
+    237: mark(u34(X1,X2)) -> a__u34(mark(X1),X2)
+    238: mark(u331(X1,X2,X3)) -> a__u331(mark(X1),X2,X3)
+    239: mark(u332(X1,X2)) -> a__u332(mark(X1),X2)
+    240: mark(u333(X1,X2)) -> a__u333(mark(X1),X2)
+    241: mark(u334(X1,X2)) -> a__u334(mark(X1),X2)
+    242: mark(u341(X1,X2,X3)) -> a__u341(mark(X1),X2,X3)
+    243: mark(u342(X1,X2,X3)) -> a__u342(mark(X1),X2,X3)
+    244: mark(u343(X1,X2,X3)) -> a__u343(mark(X1),X2,X3)
+    245: mark(u344(X1,X2,X3)) -> a__u344(mark(X1),X2,X3)
+    246: mark(fst(X)) -> a__fst(mark(X))
+    247: mark(u41(X1,X2,X3)) -> a__u41(mark(X1),X2,X3)
+    248: mark(u42(X1,X2,X3)) -> a__u42(mark(X1),X2,X3)
+    249: mark(u43(X1,X2,X3)) -> a__u43(mark(X1),X2,X3)
+    250: mark(u44(X1,X2,X3)) -> a__u44(mark(X1),X2,X3)
+    251: mark(u45(X1,X2)) -> a__u45(mark(X1),X2)
+    252: mark(u46(X)) -> a__u46(mark(X))
+    253: mark(u51(X1,X2,X3)) -> a__u51(mark(X1),X2,X3)
+    254: mark(u52(X1,X2,X3)) -> a__u52(mark(X1),X2,X3)
+    255: mark(u53(X1,X2,X3)) -> a__u53(mark(X1),X2,X3)
+    256: mark(u54(X1,X2,X3)) -> a__u54(mark(X1),X2,X3)
+    257: mark(u55(X1,X2)) -> a__u55(mark(X1),X2)
+    258: mark(u56(X)) -> a__u56(mark(X))
+    259: mark(u61(X1,X2)) -> a__u61(mark(X1),X2)
+    260: mark(u62(X1,X2)) -> a__u62(mark(X1),X2)
+    261: mark(isPLNatKind(X)) -> a__isPLNatKind(X)
+    262: mark(u63(X)) -> a__u63(mark(X))
+    263: mark(isPLNat(X)) -> a__isPLNat(X)
+    264: mark(u71(X1,X2)) -> a__u71(mark(X1),X2)
+    265: mark(u72(X1,X2)) -> a__u72(mark(X1),X2)
+    266: mark(u73(X)) -> a__u73(mark(X))
+    267: mark(u81(X1,X2)) -> a__u81(mark(X1),X2)
+    268: mark(u82(X1,X2)) -> a__u82(mark(X1),X2)
+    269: mark(u83(X)) -> a__u83(mark(X))
+    270: mark(u91(X1,X2)) -> a__u91(mark(X1),X2)
+    271: mark(u92(X1,X2)) -> a__u92(mark(X1),X2)
+    272: mark(u93(X)) -> a__u93(mark(X))
+    273: mark(tail(X)) -> a__tail(mark(X))
+    274: mark(take(X1,X2)) -> a__take(mark(X1),mark(X2))
+    275: mark(sel(X1,X2)) -> a__sel(mark(X1),mark(X2))
+    276: mark(tt()) -> tt()
+    277: mark(cons(X1,X2)) -> cons(mark(X1),X2)
+    278: mark(s(X)) -> s(mark(X))
+    279: mark(pair(X1,X2)) -> pair(mark(X1),mark(X2))
+    280: mark(nil()) -> nil()
+    281: mark(0()) -> 0()
+    282: a__u101(X1,X2,X3) -> u101(X1,X2,X3)
+    283: a__u102(X1,X2,X3) -> u102(X1,X2,X3)
+    284: a__isNaturalKind(X) -> isNaturalKind(X)
+    285: a__u103(X1,X2,X3) -> u103(X1,X2,X3)
+    286: a__isLNatKind(X) -> isLNatKind(X)
+    287: a__u104(X1,X2,X3) -> u104(X1,X2,X3)
+    288: a__u105(X1,X2) -> u105(X1,X2)
+    289: a__isNatural(X) -> isNatural(X)
+    290: a__u106(X) -> u106(X)
+    291: a__isLNat(X) -> isLNat(X)
+    292: a__u11(X1,X2,X3) -> u11(X1,X2,X3)
+    293: a__u12(X1,X2,X3) -> u12(X1,X2,X3)
+    294: a__u111(X1,X2) -> u111(X1,X2)
+    295: a__u112(X) -> u112(X)
+    296: a__u13(X1,X2,X3) -> u13(X1,X2,X3)
+    297: a__u121(X1,X2) -> u121(X1,X2)
+    298: a__u122(X) -> u122(X)
+    299: a__u14(X1,X2,X3) -> u14(X1,X2,X3)
+    300: a__u131(X) -> u131(X)
+    301: a__snd(X) -> snd(X)
+    302: a__splitAt(X1,X2) -> splitAt(X1,X2)
+    303: a__u141(X) -> u141(X)
+    304: a__u151(X) -> u151(X)
+    305: a__u161(X) -> u161(X)
+    306: a__u171(X1,X2) -> u171(X1,X2)
+    307: a__u172(X) -> u172(X)
+    308: a__u181(X1,X2) -> u181(X1,X2)
+    309: a__u182(X1,X2) -> u182(X1,X2)
+    310: a__u183(X) -> u183(X)
+    311: a__u191(X1,X2) -> u191(X1,X2)
+    312: a__u192(X1,X2) -> u192(X1,X2)
+    313: a__u193(X) -> u193(X)
+    314: a__u201(X1,X2,X3) -> u201(X1,X2,X3)
+    315: a__u202(X1,X2,X3) -> u202(X1,X2,X3)
+    316: a__u203(X1,X2,X3) -> u203(X1,X2,X3)
+    317: a__u204(X1,X2,X3) -> u204(X1,X2,X3)
+    318: a__u205(X1,X2) -> u205(X1,X2)
+    319: a__u206(X) -> u206(X)
+    320: a__u21(X1,X2,X3) -> u21(X1,X2,X3)
+    321: a__u22(X1,X2,X3) -> u22(X1,X2,X3)
+    322: a__u211(X) -> u211(X)
+    323: a__u23(X1,X2,X3) -> u23(X1,X2,X3)
+    324: a__u221(X) -> u221(X)
+    325: a__u24(X1,X2) -> u24(X1,X2)
+    326: a__u231(X1,X2) -> u231(X1,X2)
+    327: a__u232(X) -> u232(X)
+    328: a__u241(X1,X2,X3) -> u241(X1,X2,X3)
+    329: a__u242(X1,X2,X3) -> u242(X1,X2,X3)
+    330: a__u243(X1,X2,X3) -> u243(X1,X2,X3)
+    331: a__u244(X1,X2,X3) -> u244(X1,X2,X3)
+    332: a__u245(X1,X2) -> u245(X1,X2)
+    333: a__u246(X) -> u246(X)
+    334: a__u251(X1,X2,X3) -> u251(X1,X2,X3)
+    335: a__u252(X1,X2,X3) -> u252(X1,X2,X3)
+    336: a__u253(X1,X2,X3) -> u253(X1,X2,X3)
+    337: a__u254(X1,X2,X3) -> u254(X1,X2,X3)
+    338: a__u255(X1,X2) -> u255(X1,X2)
+    339: a__u256(X) -> u256(X)
+    340: a__u261(X1,X2) -> u261(X1,X2)
+    341: a__u262(X) -> u262(X)
+    342: a__u271(X1,X2) -> u271(X1,X2)
+    343: a__u272(X) -> u272(X)
+    344: a__u281(X1,X2) -> u281(X1,X2)
+    345: a__u282(X1,X2) -> u282(X1,X2)
+    346: a__natsFrom(X) -> natsFrom(X)
+    347: a__u291(X1,X2,X3) -> u291(X1,X2,X3)
+    348: a__u292(X1,X2,X3) -> u292(X1,X2,X3)
+    349: a__u293(X1,X2,X3) -> u293(X1,X2,X3)
+    350: a__u294(X1,X2,X3) -> u294(X1,X2,X3)
+    351: a__head(X) -> head(X)
+    352: a__afterNth(X1,X2) -> afterNth(X1,X2)
+    353: a__u301(X1,X2,X3) -> u301(X1,X2,X3)
+    354: a__u302(X1,X2) -> u302(X1,X2)
+    355: a__u303(X1,X2) -> u303(X1,X2)
+    356: a__u304(X1,X2) -> u304(X1,X2)
+    357: a__u31(X1,X2,X3) -> u31(X1,X2,X3)
+    358: a__u32(X1,X2,X3) -> u32(X1,X2,X3)
+    359: a__u311(X1,X2) -> u311(X1,X2)
+    360: a__u312(X1,X2) -> u312(X1,X2)
+    361: a__u33(X1,X2,X3) -> u33(X1,X2,X3)
+    362: a__u321(X1,X2,X3,X4) -> u321(X1,X2,X3,X4)
+    363: a__u322(X1,X2,X3,X4) -> u322(X1,X2,X3,X4)
+    364: a__u323(X1,X2,X3,X4) -> u323(X1,X2,X3,X4)
+    365: a__u324(X1,X2,X3,X4) -> u324(X1,X2,X3,X4)
+    366: a__u325(X1,X2,X3,X4) -> u325(X1,X2,X3,X4)
+    367: a__u326(X1,X2,X3,X4) -> u326(X1,X2,X3,X4)
+    368: a__u327(X1,X2) -> u327(X1,X2)
+    369: a__u34(X1,X2) -> u34(X1,X2)
+    370: a__u331(X1,X2,X3) -> u331(X1,X2,X3)
+    371: a__u332(X1,X2) -> u332(X1,X2)
+    372: a__u333(X1,X2) -> u333(X1,X2)
+    373: a__u334(X1,X2) -> u334(X1,X2)
+    374: a__u341(X1,X2,X3) -> u341(X1,X2,X3)
+    375: a__u342(X1,X2,X3) -> u342(X1,X2,X3)
+    376: a__u343(X1,X2,X3) -> u343(X1,X2,X3)
+    377: a__u344(X1,X2,X3) -> u344(X1,X2,X3)
+    378: a__fst(X) -> fst(X)
+    379: a__u41(X1,X2,X3) -> u41(X1,X2,X3)
+    380: a__u42(X1,X2,X3) -> u42(X1,X2,X3)
+    381: a__u43(X1,X2,X3) -> u43(X1,X2,X3)
+    382: a__u44(X1,X2,X3) -> u44(X1,X2,X3)
+    383: a__u45(X1,X2) -> u45(X1,X2)
+    384: a__u46(X) -> u46(X)
+    385: a__u51(X1,X2,X3) -> u51(X1,X2,X3)
+    386: a__u52(X1,X2,X3) -> u52(X1,X2,X3)
+    387: a__u53(X1,X2,X3) -> u53(X1,X2,X3)
+    388: a__u54(X1,X2,X3) -> u54(X1,X2,X3)
+    389: a__u55(X1,X2) -> u55(X1,X2)
+    390: a__u56(X) -> u56(X)
+    391: a__u61(X1,X2) -> u61(X1,X2)
+    392: a__u62(X1,X2) -> u62(X1,X2)
+    393: a__isPLNatKind(X) -> isPLNatKind(X)
+    394: a__u63(X) -> u63(X)
+    395: a__isPLNat(X) -> isPLNat(X)
+    396: a__u71(X1,X2) -> u71(X1,X2)
+    397: a__u72(X1,X2) -> u72(X1,X2)
+    398: a__u73(X) -> u73(X)
+    399: a__u81(X1,X2) -> u81(X1,X2)
+    400: a__u82(X1,X2) -> u82(X1,X2)
+    401: a__u83(X) -> u83(X)
+    402: a__u91(X1,X2) -> u91(X1,X2)
+    403: a__u92(X1,X2) -> u92(X1,X2)
+    404: a__u93(X) -> u93(X)
+    405: a__tail(X) -> tail(X)
+    406: a__take(X1,X2) -> take(X1,X2)
+    407: a__sel(X1,X2) -> sel(X1,X2)
+    408: _(X1,X2) -> X1
+    409: _(X1,X2) -> X2
+Number of strict rules: 409
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #a__u102(tt(),V1,V2) -> #a__u103(a__isLNatKind(V2),V1,V2)
+   #2: #a__u102(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #3: #a__u343(tt(),N,XS) -> #a__u344(a__isLNatKind(XS),N,XS)
+   #4: #a__u343(tt(),N,XS) -> #a__isLNatKind(XS)
+   #5: #a__u243(tt(),V1,V2) -> #a__u244(a__isLNatKind(V2),V1,V2)
+   #6: #a__u243(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #7: #a__u203(tt(),V1,V2) -> #a__u204(a__isLNatKind(V2),V1,V2)
+   #8: #a__u203(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #9: #mark(u331(X1,X2,X3)) -> #a__u331(mark(X1),X2,X3)
+   #10: #mark(u331(X1,X2,X3)) -> #mark(X1)
+   #11: #mark(isPLNat(X)) -> #a__isPLNat(X)
+   #12: #a__u22(tt(),X,Y) -> #a__u23(a__isLNat(Y),X,Y)
+   #13: #a__u22(tt(),X,Y) -> #a__isLNat(Y)
+   #14: #a__u34(tt(),N) -> #mark(N)
+   #15: #a__u304(tt(),Y) -> #mark(Y)
+   #16: #mark(u182(X1,X2)) -> #a__u182(mark(X1),X2)
+   #17: #mark(u182(X1,X2)) -> #mark(X1)
+   #18: #mark(u33(X1,X2,X3)) -> #a__u33(mark(X1),X2,X3)
+   #19: #mark(u33(X1,X2,X3)) -> #mark(X1)
+   #20: #mark(u51(X1,X2,X3)) -> #a__u51(mark(X1),X2,X3)
+   #21: #mark(u51(X1,X2,X3)) -> #mark(X1)
+   #22: #a__u242(tt(),V1,V2) -> #a__u243(a__isLNatKind(V2),V1,V2)
+   #23: #a__u242(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #24: #mark(u323(X1,X2,X3,X4)) -> #a__u323(mark(X1),X2,X3,X4)
+   #25: #mark(u323(X1,X2,X3,X4)) -> #mark(X1)
+   #26: #mark(u243(X1,X2,X3)) -> #a__u243(mark(X1),X2,X3)
+   #27: #mark(u243(X1,X2,X3)) -> #mark(X1)
+   #28: #a__take(N,XS) -> #a__u341(a__isNatural(N),N,XS)
+   #29: #a__take(N,XS) -> #a__isNatural(N)
+   #30: #a__u52(tt(),V1,V2) -> #a__u53(a__isLNatKind(V2),V1,V2)
+   #31: #a__u52(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #32: #a__u241(tt(),V1,V2) -> #a__u242(a__isLNatKind(V1),V1,V2)
+   #33: #a__u241(tt(),V1,V2) -> #a__isLNatKind(V1)
+   #34: #mark(u42(X1,X2,X3)) -> #a__u42(mark(X1),X2,X3)
+   #35: #mark(u42(X1,X2,X3)) -> #mark(X1)
+   #36: #mark(u72(X1,X2)) -> #a__u72(mark(X1),X2)
+   #37: #mark(u72(X1,X2)) -> #mark(X1)
+   #38: #mark(u46(X)) -> #a__u46(mark(X))
+   #39: #mark(u46(X)) -> #mark(X)
+   #40: #a__u23(tt(),X,Y) -> #a__u24(a__isLNatKind(Y),X)
+   #41: #a__u23(tt(),X,Y) -> #a__isLNatKind(Y)
+   #42: #a__head(cons(N,XS)) -> #a__u31(a__isNatural(N),N,XS)
+   #43: #a__head(cons(N,XS)) -> #a__isNatural(N)
+   #44: #mark(u321(X1,X2,X3,X4)) -> #a__u321(mark(X1),X2,X3,X4)
+   #45: #mark(u321(X1,X2,X3,X4)) -> #mark(X1)
+   #46: #mark(u112(X)) -> #a__u112(mark(X))
+   #47: #mark(u112(X)) -> #mark(X)
+   #48: #a__u54(tt(),V1,V2) -> #a__u55(a__isNatural(V1),V2)
+   #49: #a__u54(tt(),V1,V2) -> #a__isNatural(V1)
+   #50: #a__u44(tt(),V1,V2) -> #a__u45(a__isNatural(V1),V2)
+   #51: #a__u44(tt(),V1,V2) -> #a__isNatural(V1)
+   #52: #a__u323(tt(),N,X,XS) -> #a__u324(a__isNaturalKind(X),N,X,XS)
+   #53: #a__u323(tt(),N,X,XS) -> #a__isNaturalKind(X)
+   #54: #a__u251(tt(),V1,V2) -> #a__u252(a__isNaturalKind(V1),V1,V2)
+   #55: #a__u251(tt(),V1,V2) -> #a__isNaturalKind(V1)
+   #56: #mark(u294(X1,X2,X3)) -> #a__u294(mark(X1),X2,X3)
+   #57: #mark(u294(X1,X2,X3)) -> #mark(X1)
+   #58: #mark(u23(X1,X2,X3)) -> #a__u23(mark(X1),X2,X3)
+   #59: #mark(u23(X1,X2,X3)) -> #mark(X1)
+   #60: #mark(u333(X1,X2)) -> #a__u333(mark(X1),X2)
+   #61: #mark(u333(X1,X2)) -> #mark(X1)
+   #62: #a__u261(tt(),V2) -> #a__u262(a__isLNatKind(V2))
+   #63: #a__u261(tt(),V2) -> #a__isLNatKind(V2)
+   #64: #mark(u62(X1,X2)) -> #a__u62(mark(X1),X2)
+   #65: #mark(u62(X1,X2)) -> #mark(X1)
+   #66: #mark(u161(X)) -> #a__u161(mark(X))
+   #67: #mark(u161(X)) -> #mark(X)
+   #68: #mark(u325(X1,X2,X3,X4)) -> #a__u325(mark(X1),X2,X3,X4)
+   #69: #mark(u325(X1,X2,X3,X4)) -> #mark(X1)
+   #70: #a__u321(tt(),N,X,XS) -> #a__u322(a__isNaturalKind(N),N,X,XS)
+   #71: #a__u321(tt(),N,X,XS) -> #a__isNaturalKind(N)
+   #72: #a__splitAt(s(N),cons(X,XS)) -> #a__u321(a__isNatural(N),N,X,XS)
+   #73: #a__splitAt(s(N),cons(X,XS)) -> #a__isNatural(N)
+   #74: #a__isPLNat(pair(V1,V2)) -> #a__u241(a__isLNatKind(V1),V1,V2)
+   #75: #a__isPLNat(pair(V1,V2)) -> #a__isLNatKind(V1)
+   #76: #a__u252(tt(),V1,V2) -> #a__u253(a__isLNatKind(V2),V1,V2)
+   #77: #a__u252(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #78: #mark(u81(X1,X2)) -> #a__u81(mark(X1),X2)
+   #79: #mark(u81(X1,X2)) -> #mark(X1)
+   #80: #a__u325(tt(),N,X,XS) -> #a__u326(a__isLNatKind(XS),N,X,XS)
+   #81: #a__u325(tt(),N,X,XS) -> #a__isLNatKind(XS)
+   #82: #mark(u53(X1,X2,X3)) -> #a__u53(mark(X1),X2,X3)
+   #83: #mark(u53(X1,X2,X3)) -> #mark(X1)
+   #84: #mark(u183(X)) -> #a__u183(mark(X))
+   #85: #mark(u183(X)) -> #mark(X)
+   #86: #a__afterNth(N,XS) -> #a__u11(a__isNatural(N),N,XS)
+   #87: #a__afterNth(N,XS) -> #a__isNatural(N)
+   #88: #a__u324(tt(),N,X,XS) -> #a__u325(a__isLNat(XS),N,X,XS)
+   #89: #a__u324(tt(),N,X,XS) -> #a__isLNat(XS)
+   #90: #mark(splitAt(X1,X2)) -> #a__splitAt(mark(X1),mark(X2))
+   #91: #mark(splitAt(X1,X2)) -> #mark(X1)
+   #92: #mark(splitAt(X1,X2)) -> #mark(X2)
+   #93: #a__u282(tt(),N) -> #mark(N)
+   #94: #mark(s(X)) -> #mark(X)
+   #95: #mark(u54(X1,X2,X3)) -> #a__u54(mark(X1),X2,X3)
+   #96: #mark(u54(X1,X2,X3)) -> #mark(X1)
+   #97: #a__isNaturalKind(sel(V1,V2)) -> #a__u231(a__isNaturalKind(V1),V2)
+   #98: #a__isNaturalKind(sel(V1,V2)) -> #a__isNaturalKind(V1)
+   #99: #a__fst(pair(X,Y)) -> #a__u21(a__isLNat(X),X,Y)
+   #100: #a__fst(pair(X,Y)) -> #a__isLNat(X)
+   #101: #mark(u106(X)) -> #a__u106(mark(X))
+   #102: #mark(u106(X)) -> #mark(X)
+   #103: #a__u293(tt(),N,XS) -> #a__u294(a__isLNatKind(XS),N,XS)
+   #104: #a__u293(tt(),N,XS) -> #a__isLNatKind(XS)
+   #105: #a__u231(tt(),V2) -> #a__u232(a__isLNatKind(V2))
+   #106: #a__u231(tt(),V2) -> #a__isLNatKind(V2)
+   #107: #mark(u102(X1,X2,X3)) -> #a__u102(mark(X1),X2,X3)
+   #108: #mark(u102(X1,X2,X3)) -> #mark(X1)
+   #109: #mark(isLNatKind(X)) -> #a__isLNatKind(X)
+   #110: #a__isLNat(afterNth(V1,V2)) -> #a__u41(a__isNaturalKind(V1),V1,V2)
+   #111: #a__isLNat(afterNth(V1,V2)) -> #a__isNaturalKind(V1)
+   #112: #mark(u104(X1,X2,X3)) -> #a__u104(mark(X1),X2,X3)
+   #113: #mark(u104(X1,X2,X3)) -> #mark(X1)
+   #114: #mark(u303(X1,X2)) -> #a__u303(mark(X1),X2)
+   #115: #mark(u303(X1,X2)) -> #mark(X1)
+   #116: #mark(u241(X1,X2,X3)) -> #a__u241(mark(X1),X2,X3)
+   #117: #mark(u241(X1,X2,X3)) -> #mark(X1)
+   #118: #mark(u121(X1,X2)) -> #a__u121(mark(X1),X2)
+   #119: #mark(u121(X1,X2)) -> #mark(X1)
+   #120: #a__u291(tt(),N,XS) -> #a__u292(a__isNaturalKind(N),N,XS)
+   #121: #a__u291(tt(),N,XS) -> #a__isNaturalKind(N)
+   #122: #mark(u24(X1,X2)) -> #a__u24(mark(X1),X2)
+   #123: #mark(u24(X1,X2)) -> #mark(X1)
+   #124: #a__u92(tt(),V1) -> #a__u93(a__isLNat(V1))
+   #125: #a__u92(tt(),V1) -> #a__isLNat(V1)
+   #126: #a__isNatural(head(V1)) -> #a__u181(a__isLNatKind(V1),V1)
+   #127: #a__isNatural(head(V1)) -> #a__isLNatKind(V1)
+   #128: #a__u271(tt(),V2) -> #a__u272(a__isLNatKind(V2))
+   #129: #a__u271(tt(),V2) -> #a__isLNatKind(V2)
+   #130: #a__u31(tt(),N,XS) -> #a__u32(a__isNaturalKind(N),N,XS)
+   #131: #a__u31(tt(),N,XS) -> #a__isNaturalKind(N)
+   #132: #mark(u271(X1,X2)) -> #a__u271(mark(X1),X2)
+   #133: #mark(u271(X1,X2)) -> #mark(X1)
+   #134: #a__u24(tt(),X) -> #mark(X)
+   #135: #mark(u82(X1,X2)) -> #a__u82(mark(X1),X2)
+   #136: #mark(u82(X1,X2)) -> #mark(X1)
+   #137: #a__u43(tt(),V1,V2) -> #a__u44(a__isLNatKind(V2),V1,V2)
+   #138: #a__u43(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #139: #mark(u43(X1,X2,X3)) -> #a__u43(mark(X1),X2,X3)
+   #140: #mark(u43(X1,X2,X3)) -> #mark(X1)
+   #141: #a__splitAt(0(),XS) -> #a__u311(a__isLNat(XS),XS)
+   #142: #a__splitAt(0(),XS) -> #a__isLNat(XS)
+   #143: #a__u82(tt(),V1) -> #a__u83(a__isPLNat(V1))
+   #144: #a__u82(tt(),V1) -> #a__isPLNat(V1)
+   #145: #a__u255(tt(),V2) -> #a__u256(a__isLNat(V2))
+   #146: #a__u255(tt(),V2) -> #a__isLNat(V2)
+   #147: #mark(afterNth(X1,X2)) -> #a__afterNth(mark(X1),mark(X2))
+   #148: #mark(afterNth(X1,X2)) -> #mark(X1)
+   #149: #mark(afterNth(X1,X2)) -> #mark(X2)
+   #150: #a__u13(tt(),N,XS) -> #a__u14(a__isLNatKind(XS),N,XS)
+   #151: #a__u13(tt(),N,XS) -> #a__isLNatKind(XS)
+   #152: #mark(u251(X1,X2,X3)) -> #a__u251(mark(X1),X2,X3)
+   #153: #mark(u251(X1,X2,X3)) -> #mark(X1)
+   #154: #a__u121(tt(),V2) -> #a__u122(a__isLNatKind(V2))
+   #155: #a__u121(tt(),V2) -> #a__isLNatKind(V2)
+   #156: #mark(natsFrom(X)) -> #a__natsFrom(mark(X))
+   #157: #mark(natsFrom(X)) -> #mark(X)
+   #158: #a__u55(tt(),V2) -> #a__u56(a__isLNat(V2))
+   #159: #a__u55(tt(),V2) -> #a__isLNat(V2)
+   #160: #mark(u55(X1,X2)) -> #a__u55(mark(X1),X2)
+   #161: #mark(u55(X1,X2)) -> #mark(X1)
+   #162: #mark(u105(X1,X2)) -> #a__u105(mark(X1),X2)
+   #163: #mark(u105(X1,X2)) -> #mark(X1)
+   #164: #a__u281(tt(),N) -> #a__u282(a__isNaturalKind(N),N)
+   #165: #a__u281(tt(),N) -> #a__isNaturalKind(N)
+   #166: #mark(u344(X1,X2,X3)) -> #a__u344(mark(X1),X2,X3)
+   #167: #mark(u344(X1,X2,X3)) -> #mark(X1)
+   #168: #mark(u242(X1,X2,X3)) -> #a__u242(mark(X1),X2,X3)
+   #169: #mark(u242(X1,X2,X3)) -> #mark(X1)
+   #170: #a__u326(tt(),N,X,XS) -> #a__u327(a__splitAt(mark(N),mark(XS)),X)
+   #171: #a__u326(tt(),N,X,XS) -> #a__splitAt(mark(N),mark(XS))
+   #172: #a__u326(tt(),N,X,XS) -> #mark(N)
+   #173: #a__u326(tt(),N,X,XS) -> #mark(XS)
+   #174: #mark(u14(X1,X2,X3)) -> #a__u14(mark(X1),X2,X3)
+   #175: #mark(u14(X1,X2,X3)) -> #mark(X1)
+   #176: #mark(u211(X)) -> #a__u211(mark(X))
+   #177: #mark(u211(X)) -> #mark(X)
+   #178: #a__u91(tt(),V1) -> #a__u92(a__isLNatKind(V1),V1)
+   #179: #a__u91(tt(),V1) -> #a__isLNatKind(V1)
+   #180: #a__u51(tt(),V1,V2) -> #a__u52(a__isNaturalKind(V1),V1,V2)
+   #181: #a__u51(tt(),V1,V2) -> #a__isNaturalKind(V1)
+   #182: #a__u191(tt(),V1) -> #a__u192(a__isNaturalKind(V1),V1)
+   #183: #a__u191(tt(),V1) -> #a__isNaturalKind(V1)
+   #184: #a__isNatural(sel(V1,V2)) -> #a__u201(a__isNaturalKind(V1),V1,V2)
+   #185: #a__isNatural(sel(V1,V2)) -> #a__isNaturalKind(V1)
+   #186: #a__u32(tt(),N,XS) -> #a__u33(a__isLNat(XS),N,XS)
+   #187: #a__u32(tt(),N,XS) -> #a__isLNat(XS)
+   #188: #mark(tail(X)) -> #a__tail(mark(X))
+   #189: #mark(tail(X)) -> #mark(X)
+   #190: #mark(u327(X1,X2)) -> #a__u327(mark(X1),X2)
+   #191: #mark(u327(X1,X2)) -> #mark(X1)
+   #192: #a__isLNatKind(snd(V1)) -> #a__u151(a__isPLNatKind(V1))
+   #193: #a__isLNatKind(snd(V1)) -> #a__isPLNatKind(V1)
+   #194: #a__u333(tt(),XS) -> #a__u334(a__isLNatKind(XS),XS)
+   #195: #a__u333(tt(),XS) -> #a__isLNatKind(XS)
+   #196: #a__isLNat(fst(V1)) -> #a__u61(a__isPLNatKind(V1),V1)
+   #197: #a__isLNat(fst(V1)) -> #a__isPLNatKind(V1)
+   #198: #a__u33(tt(),N,XS) -> #a__u34(a__isLNatKind(XS),N)
+   #199: #a__u33(tt(),N,XS) -> #a__isLNatKind(XS)
+   #200: #a__u245(tt(),V2) -> #a__u246(a__isLNat(V2))
+   #201: #a__u245(tt(),V2) -> #a__isLNat(V2)
+   #202: #a__u53(tt(),V1,V2) -> #a__u54(a__isLNatKind(V2),V1,V2)
+   #203: #a__u53(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #204: #mark(u252(X1,X2,X3)) -> #a__u252(mark(X1),X2,X3)
+   #205: #mark(u252(X1,X2,X3)) -> #mark(X1)
+   #206: #mark(u246(X)) -> #a__u246(mark(X))
+   #207: #mark(u246(X)) -> #mark(X)
+   #208: #a__u312(tt(),XS) -> #mark(XS)
+   #209: #mark(u262(X)) -> #a__u262(mark(X))
+   #210: #mark(u262(X)) -> #mark(X)
+   #211: #a__u62(tt(),V1) -> #a__u63(a__isPLNat(V1))
+   #212: #a__u62(tt(),V1) -> #a__isPLNat(V1)
+   #213: #a__u205(tt(),V2) -> #a__u206(a__isLNat(V2))
+   #214: #a__u205(tt(),V2) -> #a__isLNat(V2)
+   #215: #mark(u13(X1,X2,X3)) -> #a__u13(mark(X1),X2,X3)
+   #216: #mark(u13(X1,X2,X3)) -> #mark(X1)
+   #217: #mark(u91(X1,X2)) -> #a__u91(mark(X1),X2)
+   #218: #mark(u91(X1,X2)) -> #mark(X1)
+   #219: #mark(u293(X1,X2,X3)) -> #a__u293(mark(X1),X2,X3)
+   #220: #mark(u293(X1,X2,X3)) -> #mark(X1)
+   #221: #a__u331(tt(),N,XS) -> #a__u332(a__isNaturalKind(N),XS)
+   #222: #a__u331(tt(),N,XS) -> #a__isNaturalKind(N)
+   #223: #a__u42(tt(),V1,V2) -> #a__u43(a__isLNatKind(V2),V1,V2)
+   #224: #a__u42(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #225: #a__isNatural(s(V1)) -> #a__u191(a__isNaturalKind(V1),V1)
+   #226: #a__isNatural(s(V1)) -> #a__isNaturalKind(V1)
+   #227: #a__u334(tt(),XS) -> #mark(XS)
+   #228: #mark(cons(X1,X2)) -> #mark(X1)
+   #229: #mark(u73(X)) -> #a__u73(mark(X))
+   #230: #mark(u73(X)) -> #mark(X)
+   #231: #mark(u255(X1,X2)) -> #a__u255(mark(X1),X2)
+   #232: #mark(u255(X1,X2)) -> #mark(X1)
+   #233: #a__u81(tt(),V1) -> #a__u82(a__isPLNatKind(V1),V1)
+   #234: #a__u81(tt(),V1) -> #a__isPLNatKind(V1)
+   #235: #mark(u204(X1,X2,X3)) -> #a__u204(mark(X1),X2,X3)
+   #236: #mark(u204(X1,X2,X3)) -> #mark(X1)
+   #237: #a__u294(tt(),N,XS) -> #a__head(a__afterNth(mark(N),mark(XS)))
+   #238: #a__u294(tt(),N,XS) -> #a__afterNth(mark(N),mark(XS))
+   #239: #a__u294(tt(),N,XS) -> #mark(N)
+   #240: #a__u294(tt(),N,XS) -> #mark(XS)
+   #241: #a__u204(tt(),V1,V2) -> #a__u205(a__isNatural(V1),V2)
+   #242: #a__u204(tt(),V1,V2) -> #a__isNatural(V1)
+   #243: #mark(u44(X1,X2,X3)) -> #a__u44(mark(X1),X2,X3)
+   #244: #mark(u44(X1,X2,X3)) -> #mark(X1)
+   #245: #mark(u245(X1,X2)) -> #a__u245(mark(X1),X2)
+   #246: #mark(u245(X1,X2)) -> #mark(X1)
+   #247: #a__u253(tt(),V1,V2) -> #a__u254(a__isLNatKind(V2),V1,V2)
+   #248: #a__u253(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #249: #a__u192(tt(),V1) -> #a__u193(a__isNatural(V1))
+   #250: #a__u192(tt(),V1) -> #a__isNatural(V1)
+   #251: #a__isLNatKind(take(V1,V2)) -> #a__u171(a__isNaturalKind(V1),V2)
+   #252: #a__isLNatKind(take(V1,V2)) -> #a__isNaturalKind(V1)
+   #253: #mark(u122(X)) -> #a__u122(mark(X))
+   #254: #mark(u122(X)) -> #mark(X)
+   #255: #a__isLNatKind(tail(V1)) -> #a__u161(a__isLNatKind(V1))
+   #256: #a__isLNatKind(tail(V1)) -> #a__isLNatKind(V1)
+   #257: #mark(u191(X1,X2)) -> #a__u191(mark(X1),X2)
+   #258: #mark(u191(X1,X2)) -> #mark(X1)
+   #259: #a__isLNatKind(fst(V1)) -> #a__u131(a__isPLNatKind(V1))
+   #260: #a__isLNatKind(fst(V1)) -> #a__isPLNatKind(V1)
+   #261: #mark(u171(X1,X2)) -> #a__u171(mark(X1),X2)
+   #262: #mark(u171(X1,X2)) -> #mark(X1)
+   #263: #a__u41(tt(),V1,V2) -> #a__u42(a__isNaturalKind(V1),V1,V2)
+   #264: #a__u41(tt(),V1,V2) -> #a__isNaturalKind(V1)
+   #265: #a__u11(tt(),N,XS) -> #a__u12(a__isNaturalKind(N),N,XS)
+   #266: #a__u11(tt(),N,XS) -> #a__isNaturalKind(N)
+   #267: #mark(u256(X)) -> #a__u256(mark(X))
+   #268: #mark(u256(X)) -> #mark(X)
+   #269: #mark(u103(X1,X2,X3)) -> #a__u103(mark(X1),X2,X3)
+   #270: #mark(u103(X1,X2,X3)) -> #mark(X1)
+   #271: #mark(u52(X1,X2,X3)) -> #a__u52(mark(X1),X2,X3)
+   #272: #mark(u52(X1,X2,X3)) -> #mark(X1)
+   #273: #a__isNaturalKind(head(V1)) -> #a__u211(a__isLNatKind(V1))
+   #274: #a__isNaturalKind(head(V1)) -> #a__isLNatKind(V1)
+   #275: #mark(u304(X1,X2)) -> #a__u304(mark(X1),X2)
+   #276: #mark(u304(X1,X2)) -> #mark(X1)
+   #277: #a__u12(tt(),N,XS) -> #a__u13(a__isLNat(XS),N,XS)
+   #278: #a__u12(tt(),N,XS) -> #a__isLNat(XS)
+   #279: #a__u45(tt(),V2) -> #a__u46(a__isLNat(V2))
+   #280: #a__u45(tt(),V2) -> #a__isLNat(V2)
+   #281: #mark(u324(X1,X2,X3,X4)) -> #a__u324(mark(X1),X2,X3,X4)
+   #282: #mark(u324(X1,X2,X3,X4)) -> #mark(X1)
+   #283: #mark(u172(X)) -> #a__u172(mark(X))
+   #284: #mark(u172(X)) -> #mark(X)
+   #285: #a__isLNat(natsFrom(V1)) -> #a__u71(a__isNaturalKind(V1),V1)
+   #286: #a__isLNat(natsFrom(V1)) -> #a__isNaturalKind(V1)
+   #287: #a__u302(tt(),Y) -> #a__u303(a__isLNat(Y),Y)
+   #288: #a__u302(tt(),Y) -> #a__isLNat(Y)
+   #289: #a__u21(tt(),X,Y) -> #a__u22(a__isLNatKind(X),X,Y)
+   #290: #a__u21(tt(),X,Y) -> #a__isLNatKind(X)
+   #291: #mark(isPLNatKind(X)) -> #a__isPLNatKind(X)
+   #292: #a__u322(tt(),N,X,XS) -> #a__u323(a__isNatural(X),N,X,XS)
+   #293: #a__u322(tt(),N,X,XS) -> #a__isNatural(X)
+   #294: #mark(u111(X1,X2)) -> #a__u111(mark(X1),X2)
+   #295: #mark(u111(X1,X2)) -> #mark(X1)
+   #296: #mark(u203(X1,X2,X3)) -> #a__u203(mark(X1),X2,X3)
+   #297: #mark(u203(X1,X2,X3)) -> #mark(X1)
+   #298: #a__isLNat(snd(V1)) -> #a__u81(a__isPLNatKind(V1),V1)
+   #299: #a__isLNat(snd(V1)) -> #a__isPLNatKind(V1)
+   #300: #a__u105(tt(),V2) -> #a__u106(a__isLNat(V2))
+   #301: #a__u105(tt(),V2) -> #a__isLNat(V2)
+   #302: #a__u244(tt(),V1,V2) -> #a__u245(a__isLNat(V1),V2)
+   #303: #a__u244(tt(),V1,V2) -> #a__isLNat(V1)
+   #304: #a__u303(tt(),Y) -> #a__u304(a__isLNatKind(Y),Y)
+   #305: #a__u303(tt(),Y) -> #a__isLNatKind(Y)
+   #306: #a__tail(cons(N,XS)) -> #a__u331(a__isNatural(N),N,XS)
+   #307: #a__tail(cons(N,XS)) -> #a__isNatural(N)
+   #308: #a__u202(tt(),V1,V2) -> #a__u203(a__isLNatKind(V2),V1,V2)
+   #309: #a__u202(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #310: #mark(u302(X1,X2)) -> #a__u302(mark(X1),X2)
+   #311: #mark(u302(X1,X2)) -> #mark(X1)
+   #312: #mark(u291(X1,X2,X3)) -> #a__u291(mark(X1),X2,X3)
+   #313: #mark(u291(X1,X2,X3)) -> #mark(X1)
+   #314: #a__u182(tt(),V1) -> #a__u183(a__isLNat(V1))
+   #315: #a__u182(tt(),V1) -> #a__isLNat(V1)
+   #316: #a__isLNatKind(natsFrom(V1)) -> #a__u141(a__isNaturalKind(V1))
+   #317: #a__isLNatKind(natsFrom(V1)) -> #a__isNaturalKind(V1)
+   #318: #mark(snd(X)) -> #a__snd(mark(X))
+   #319: #mark(snd(X)) -> #mark(X)
+   #320: #mark(u45(X1,X2)) -> #a__u45(mark(X1),X2)
+   #321: #mark(u45(X1,X2)) -> #mark(X1)
+   #322: #mark(u334(X1,X2)) -> #a__u334(mark(X1),X2)
+   #323: #mark(u334(X1,X2)) -> #mark(X1)
+   #324: #mark(take(X1,X2)) -> #a__take(mark(X1),mark(X2))
+   #325: #mark(take(X1,X2)) -> #mark(X1)
+   #326: #mark(take(X1,X2)) -> #mark(X2)
+   #327: #mark(u141(X)) -> #a__u141(mark(X))
+   #328: #mark(u141(X)) -> #mark(X)
+   #329: #mark(u202(X1,X2,X3)) -> #a__u202(mark(X1),X2,X3)
+   #330: #mark(u202(X1,X2,X3)) -> #mark(X1)
+   #331: #a__u341(tt(),N,XS) -> #a__u342(a__isNaturalKind(N),N,XS)
+   #332: #a__u341(tt(),N,XS) -> #a__isNaturalKind(N)
+   #333: #a__u344(tt(),N,XS) -> #a__fst(a__splitAt(mark(N),mark(XS)))
+   #334: #a__u344(tt(),N,XS) -> #a__splitAt(mark(N),mark(XS))
+   #335: #a__u344(tt(),N,XS) -> #mark(N)
+   #336: #a__u344(tt(),N,XS) -> #mark(XS)
+   #337: #mark(u281(X1,X2)) -> #a__u281(mark(X1),X2)
+   #338: #mark(u281(X1,X2)) -> #mark(X1)
+   #339: #mark(u231(X1,X2)) -> #a__u231(mark(X1),X2)
+   #340: #mark(u231(X1,X2)) -> #mark(X1)
+   #341: #mark(isNatural(X)) -> #a__isNatural(X)
+   #342: #mark(u342(X1,X2,X3)) -> #a__u342(mark(X1),X2,X3)
+   #343: #mark(u342(X1,X2,X3)) -> #mark(X1)
+   #344: #a__u201(tt(),V1,V2) -> #a__u202(a__isNaturalKind(V1),V1,V2)
+   #345: #a__u201(tt(),V1,V2) -> #a__isNaturalKind(V1)
+   #346: #mark(u63(X)) -> #a__u63(mark(X))
+   #347: #mark(u63(X)) -> #mark(X)
+   #348: #a__isNaturalKind(s(V1)) -> #a__u221(a__isNaturalKind(V1))
+   #349: #a__isNaturalKind(s(V1)) -> #a__isNaturalKind(V1)
+   #350: #a__sel(N,XS) -> #a__u291(a__isNatural(N),N,XS)
+   #351: #a__sel(N,XS) -> #a__isNatural(N)
+   #352: #a__isPLNatKind(splitAt(V1,V2)) -> #a__u271(a__isNaturalKind(V1),V2)
+   #353: #a__isPLNatKind(splitAt(V1,V2)) -> #a__isNaturalKind(V1)
+   #354: #mark(u12(X1,X2,X3)) -> #a__u12(mark(X1),X2,X3)
+   #355: #mark(u12(X1,X2,X3)) -> #mark(X1)
+   #356: #mark(u343(X1,X2,X3)) -> #a__u343(mark(X1),X2,X3)
+   #357: #mark(u343(X1,X2,X3)) -> #mark(X1)
+   #358: #mark(u206(X)) -> #a__u206(mark(X))
+   #359: #mark(u206(X)) -> #mark(X)
+   #360: #mark(u101(X1,X2,X3)) -> #a__u101(mark(X1),X2,X3)
+   #361: #mark(u101(X1,X2,X3)) -> #mark(X1)
+   #362: #a__u292(tt(),N,XS) -> #a__u293(a__isLNat(XS),N,XS)
+   #363: #a__u292(tt(),N,XS) -> #a__isLNat(XS)
+   #364: #mark(u261(X1,X2)) -> #a__u261(mark(X1),X2)
+   #365: #mark(u261(X1,X2)) -> #mark(X1)
+   #366: #a__isLNat(cons(V1,V2)) -> #a__u51(a__isNaturalKind(V1),V1,V2)
+   #367: #a__isLNat(cons(V1,V2)) -> #a__isNaturalKind(V1)
+   #368: #mark(u83(X)) -> #a__u83(mark(X))
+   #369: #mark(u83(X)) -> #mark(X)
+   #370: #mark(u71(X1,X2)) -> #a__u71(mark(X1),X2)
+   #371: #mark(u71(X1,X2)) -> #mark(X1)
+   #372: #mark(u244(X1,X2,X3)) -> #a__u244(mark(X1),X2,X3)
+   #373: #mark(u244(X1,X2,X3)) -> #mark(X1)
+   #374: #mark(u32(X1,X2,X3)) -> #a__u32(mark(X1),X2,X3)
+   #375: #mark(u32(X1,X2,X3)) -> #mark(X1)
+   #376: #mark(u312(X1,X2)) -> #a__u312(mark(X1),X2)
+   #377: #mark(u312(X1,X2)) -> #mark(X1)
+   #378: #mark(u151(X)) -> #a__u151(mark(X))
+   #379: #mark(u151(X)) -> #mark(X)
+   #380: #mark(u311(X1,X2)) -> #a__u311(mark(X1),X2)
+   #381: #mark(u311(X1,X2)) -> #mark(X1)
+   #382: #a__u171(tt(),V2) -> #a__u172(a__isLNatKind(V2))
+   #383: #a__u171(tt(),V2) -> #a__isLNatKind(V2)
+   #384: #a__natsFrom(N) -> #a__u281(a__isNatural(N),N)
+   #385: #a__natsFrom(N) -> #a__isNatural(N)
+   #386: #a__isLNatKind(cons(V1,V2)) -> #a__u121(a__isNaturalKind(V1),V2)
+   #387: #a__isLNatKind(cons(V1,V2)) -> #a__isNaturalKind(V1)
+   #388: #mark(u92(X1,X2)) -> #a__u92(mark(X1),X2)
+   #389: #mark(u92(X1,X2)) -> #mark(X1)
+   #390: #mark(u61(X1,X2)) -> #a__u61(mark(X1),X2)
+   #391: #mark(u61(X1,X2)) -> #mark(X1)
+   #392: #mark(u272(X)) -> #a__u272(mark(X))
+   #393: #mark(u272(X)) -> #mark(X)
+   #394: #mark(u221(X)) -> #a__u221(mark(X))
+   #395: #mark(u221(X)) -> #mark(X)
+   #396: #mark(u205(X1,X2)) -> #a__u205(mark(X1),X2)
+   #397: #mark(u205(X1,X2)) -> #mark(X1)
+   #398: #mark(u181(X1,X2)) -> #a__u181(mark(X1),X2)
+   #399: #mark(u181(X1,X2)) -> #mark(X1)
+   #400: #mark(pair(X1,X2)) -> #mark(X1)
+   #401: #mark(pair(X1,X2)) -> #mark(X2)
+   #402: #a__u301(tt(),X,Y) -> #a__u302(a__isLNatKind(X),Y)
+   #403: #a__u301(tt(),X,Y) -> #a__isLNatKind(X)
+   #404: #mark(u41(X1,X2,X3)) -> #a__u41(mark(X1),X2,X3)
+   #405: #mark(u41(X1,X2,X3)) -> #mark(X1)
+   #406: #mark(u31(X1,X2,X3)) -> #a__u31(mark(X1),X2,X3)
+   #407: #mark(u31(X1,X2,X3)) -> #mark(X1)
+   #408: #a__u61(tt(),V1) -> #a__u62(a__isPLNatKind(V1),V1)
+   #409: #a__u61(tt(),V1) -> #a__isPLNatKind(V1)
+   #410: #a__u342(tt(),N,XS) -> #a__u343(a__isLNat(XS),N,XS)
+   #411: #a__u342(tt(),N,XS) -> #a__isLNat(XS)
+   #412: #mark(u34(X1,X2)) -> #a__u34(mark(X1),X2)
+   #413: #mark(u34(X1,X2)) -> #mark(X1)
+   #414: #mark(u193(X)) -> #a__u193(mark(X))
+   #415: #mark(u193(X)) -> #mark(X)
+   #416: #a__isLNat(take(V1,V2)) -> #a__u101(a__isNaturalKind(V1),V1,V2)
+   #417: #a__isLNat(take(V1,V2)) -> #a__isNaturalKind(V1)
+   #418: #mark(u282(X1,X2)) -> #a__u282(mark(X1),X2)
+   #419: #mark(u282(X1,X2)) -> #mark(X1)
+   #420: #a__u311(tt(),XS) -> #a__u312(a__isLNatKind(XS),XS)
+   #421: #a__u311(tt(),XS) -> #a__isLNatKind(XS)
+   #422: #mark(u322(X1,X2,X3,X4)) -> #a__u322(mark(X1),X2,X3,X4)
+   #423: #mark(u322(X1,X2,X3,X4)) -> #mark(X1)
+   #424: #a__u181(tt(),V1) -> #a__u182(a__isLNatKind(V1),V1)
+   #425: #a__u181(tt(),V1) -> #a__isLNatKind(V1)
+   #426: #a__u103(tt(),V1,V2) -> #a__u104(a__isLNatKind(V2),V1,V2)
+   #427: #a__u103(tt(),V1,V2) -> #a__isLNatKind(V2)
+   #428: #mark(isLNat(X)) -> #a__isLNat(X)
+   #429: #mark(u341(X1,X2,X3)) -> #a__u341(mark(X1),X2,X3)
+   #430: #mark(u341(X1,X2,X3)) -> #mark(X1)
+   #431: #a__u327(pair(YS,ZS),X) -> #mark(X)
+   #432: #a__u327(pair(YS,ZS),X) -> #mark(ZS)
+   #433: #a__u101(tt(),V1,V2) -> #a__u102(a__isNaturalKind(V1),V1,V2)
+   #434: #a__u101(tt(),V1,V2) -> #a__isNaturalKind(V1)
+   #435: #a__isPLNat(splitAt(V1,V2)) -> #a__u251(a__isNaturalKind(V1),V1,V2)
+   #436: #a__isPLNat(splitAt(V1,V2)) -> #a__isNaturalKind(V1)
+   #437: #a__isLNatKind(afterNth(V1,V2)) -> #a__u111(a__isNaturalKind(V1),V2)
+   #438: #a__isLNatKind(afterNth(V1,V2)) -> #a__isNaturalKind(V1)
+   #439: #mark(u232(X)) -> #a__u232(mark(X))
+   #440: #mark(u232(X)) -> #mark(X)
+   #441: #mark(fst(X)) -> #a__fst(mark(X))
+   #442: #mark(fst(X)) -> #mark(X)
+   #443: #mark(u326(X1,X2,X3,X4)) -> #a__u326(mark(X1),X2,X3,X4)
+   #444: #mark(u326(X1,X2,X3,X4)) -> #mark(X1)
+   #445: #mark(u253(X1,X2,X3)) -> #a__u253(mark(X1),X2,X3)
+   #446: #mark(u253(X1,X2,X3)) -> #mark(X1)
+   #447: #mark(u11(X1,X2,X3)) -> #a__u11(mark(X1),X2,X3)
+   #448: #mark(u11(X1,X2,X3)) -> #mark(X1)
+   #449: #a__u111(tt(),V2) -> #a__u112(a__isLNatKind(V2))
+   #450: #a__u111(tt(),V2) -> #a__isLNatKind(V2)
+   #451: #mark(u254(X1,X2,X3)) -> #a__u254(mark(X1),X2,X3)
+   #452: #mark(u254(X1,X2,X3)) -> #mark(X1)
+   #453: #mark(isNaturalKind(X)) -> #a__isNaturalKind(X)
+   #454: #mark(u131(X)) -> #a__u131(mark(X))
+   #455: #mark(u131(X)) -> #mark(X)
+   #456: #mark(u292(X1,X2,X3)) -> #a__u292(mark(X1),X2,X3)
+   #457: #mark(u292(X1,X2,X3)) -> #mark(X1)
+   #458: #a__isPLNatKind(pair(V1,V2)) -> #a__u261(a__isLNatKind(V1),V2)
+   #459: #a__isPLNatKind(pair(V1,V2)) -> #a__isLNatKind(V1)
+   #460: #a__isLNat(tail(V1)) -> #a__u91(a__isLNatKind(V1),V1)
+   #461: #a__isLNat(tail(V1)) -> #a__isLNatKind(V1)
+   #462: #mark(sel(X1,X2)) -> #a__sel(mark(X1),mark(X2))
+   #463: #mark(sel(X1,X2)) -> #mark(X1)
+   #464: #mark(sel(X1,X2)) -> #mark(X2)
+   #465: #mark(u192(X1,X2)) -> #a__u192(mark(X1),X2)
+   #466: #mark(u192(X1,X2)) -> #mark(X1)
+   #467: #mark(u301(X1,X2,X3)) -> #a__u301(mark(X1),X2,X3)
+   #468: #mark(u301(X1,X2,X3)) -> #mark(X1)
+   #469: #a__u14(tt(),N,XS) -> #a__snd(a__splitAt(mark(N),mark(XS)))
+   #470: #a__u14(tt(),N,XS) -> #a__splitAt(mark(N),mark(XS))
+   #471: #a__u14(tt(),N,XS) -> #mark(N)
+   #472: #a__u14(tt(),N,XS) -> #mark(XS)
+   #473: #a__snd(pair(X,Y)) -> #a__u301(a__isLNat(X),X,Y)
+   #474: #a__snd(pair(X,Y)) -> #a__isLNat(X)
+   #475: #mark(u93(X)) -> #a__u93(mark(X))
+   #476: #mark(u93(X)) -> #mark(X)
+   #477: #mark(u22(X1,X2,X3)) -> #a__u22(mark(X1),X2,X3)
+   #478: #mark(u22(X1,X2,X3)) -> #mark(X1)
+   #479: #a__u71(tt(),V1) -> #a__u72(a__isNaturalKind(V1),V1)
+   #480: #a__u71(tt(),V1) -> #a__isNaturalKind(V1)
+   #481: #mark(u56(X)) -> #a__u56(mark(X))
+   #482: #mark(u56(X)) -> #mark(X)
+   #483: #mark(head(X)) -> #a__head(mark(X))
+   #484: #mark(head(X)) -> #mark(X)
+   #485: #a__u104(tt(),V1,V2) -> #a__u105(a__isNatural(V1),V2)
+   #486: #a__u104(tt(),V1,V2) -> #a__isNatural(V1)
+   #487: #mark(u21(X1,X2,X3)) -> #a__u21(mark(X1),X2,X3)
+   #488: #mark(u21(X1,X2,X3)) -> #mark(X1)
+   #489: #a__u72(tt(),V1) -> #a__u73(a__isNatural(V1))
+   #490: #a__u72(tt(),V1) -> #a__isNatural(V1)
+   #491: #a__u332(tt(),XS) -> #a__u333(a__isLNat(XS),XS)
+   #492: #a__u332(tt(),XS) -> #a__isLNat(XS)
+   #493: #a__u254(tt(),V1,V2) -> #a__u255(a__isNatural(V1),V2)
+   #494: #a__u254(tt(),V1,V2) -> #a__isNatural(V1)
+   #495: #mark(u201(X1,X2,X3)) -> #a__u201(mark(X1),X2,X3)
+   #496: #mark(u201(X1,X2,X3)) -> #mark(X1)
+   #497: #mark(u332(X1,X2)) -> #a__u332(mark(X1),X2)
+   #498: #mark(u332(X1,X2)) -> #mark(X1)
+Number of SCCs: 3, DPs: 322
+  SCC { #63 #97 #98 #106 #129 #155 #193 #251 #252 #256 #260 #274 #317 #349 #352 #353 #383 #386 #387 #437 #438 #450 #458 #459 }
+POLO(Sum)... succeeded.
+      #a__u242	w: 0
+      #a__u193	w: 0
+      a__u172	w: 3
+      u81	w: 0
+      #a__u45	w: 0
+      a__u241	w: 0
+      #a__isNaturalKind	w: x1
+      a__u92	w: 0
+      u327	w: 0
+      a__u242	w: 0
+      u83	w: 0
+      #a__u44	w: 0
+      a__u131	w: 0
+      a__u31	w: 0
+      #a__u102	w: 0
+      u172	w: 0
+      #a__u52	w: 0
+      a__u271	w: x1 + x2
+      u244	w: 0
+      u292	w: 0
+      #a__u254	w: 0
+      u13	w: 0
+      u62	w: 0
+      #a__u301	w: 0
+      a__u91	w: 0
+      a__u41	w: 0
+      a__u51	w: 0
+      u341	w: 0
+      #a__u141	w: 0
+      u253	w: 0
+      #a__u63	w: 0
+      a__u341	w: 0
+      #a__u204	w: 0
+      u344	w: 0
+      #a__u342	w: 0
+      #a__u121	w: x1 + x2
+      s 	w: x1 + 1
+      u241	w: 0
+      u322	w: 0
+      a__u45	w: 0
+      u304	w: 0
+      a__u82	w: 0
+      u91	w: 0
+      #a__u22	w: 0
+      #a__u41	w: 0
+      u246	w: 0
+      #a__u206	w: 0
+      #a__u326	w: 0
+      #a__head	w: 0
+      a__u63	w: 0
+      #a__u32	w: 0
+      a__u322	w: 0
+      u261	w: 0
+      #a__natsFrom	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      #a__u105	w: 0
+      #a__u51	w: 0
+      u104	w: 0
+      u23	w: 0
+      #a__u312	w: 0
+      #a__u221	w: 0
+      a__u193	w: 0
+      a__u333	w: 0
+      #a__u292	w: 0
+      #a__u302	w: 0
+      u191	w: 0
+      #a__u82	w: 0
+      a__u106	w: 0
+      a__u292	w: 0
+      isPLNat	w: 0
+      #a__u23	w: 0
+      #a__snd	w: 0
+      a__u303	w: 0
+      u102	w: 0
+      #a__u293	w: 0
+      a__afterNth	w: 0
+      u121	w: 0
+      #a__u304	w: 0
+      a__u324	w: 0
+      a__u332	w: 0
+      #a__u327	w: 0
+      a__u206	w: 0
+      a__u42	w: 0
+      u181	w: 0
+      u243	w: 0
+      a__u43	w: 0
+      a__u46	w: 0
+      take	w: x1 + x2 + 2
+      u105	w: 0
+      u293	w: 0
+      #a__u81	w: 0
+      u122	w: 0
+      #a__u245	w: 0
+      u302	w: 0
+      #a__u255	w: 0
+      a__u255	w: 0
+      u103	w: 0
+      a__u21	w: 0
+      a__u23	w: 0
+      u205	w: 0
+      a__u161	w: x1
+      u54	w: 0
+      a__u325	w: 0
+      pair	w: x1 + x2 + 2
+      fst	w: x1 + 1
+      #a__u72	w: 0
+      a__u111	w: x1
+      a__u73	w: 0
+      u24	w: 0
+      a__u12	w: 0
+      u131	w: x1 + 1
+      u252	w: 0
+      u282	w: 0
+      natsFrom	w: x1 + 1
+      a__u272	w: x1
+      #a__u21	w: 0
+      #a__u256	w: 0
+      a__u192	w: 0
+      u303	w: 0
+      u182	w: 0
+      a__snd	w: 0
+      a__u301	w: 0
+      #a__u331	w: 0
+      #a__u282	w: 0
+      #a__u31	w: 0
+      a__u54	w: 0
+      u294	w: 0
+      u251	w: 0
+      u33	w: 0
+      u332	w: 0
+      u323	w: 0
+      a__u342	w: 0
+      splitAt	w: x1 + x2 + 2
+      isNaturalKind	w: 0
+      u192	w: 0
+      #a__u343	w: 0
+      u52	w: 0
+      #a__u24	w: 0
+      u291	w: 0
+      u61	w: 0
+      a__u53	w: 0
+      #a__u321	w: 0
+      u92	w: 0
+      a__u52	w: 0
+      #a__u252	w: 0
+      #a__u334	w: 0
+      a__u302	w: 0
+      #a__u103	w: 0
+      #a__take	w: 0
+      a__u56	w: 0
+      u221	w: 0
+      u56	w: 0
+      #a__u322	w: 0
+      #a__u56	w: 0
+      a__u334	w: 0
+      _ 	w: 0
+      a__u32	w: 0
+      #a__isLNatKind	w: x1
+      a__u262	w: x1
+      u324	w: 0
+      a__u183	w: 0
+      u151	w: 0
+      a__u102	w: 0
+      #a__u332	w: 0
+      #a__u203	w: 0
+      u202	w: 0
+      a__u251	w: 0
+      isNatural	w: 0
+      a__u83	w: 0
+      #a__u262	w: 0
+      u106	w: 0
+      #a__u33	w: 0
+      a__u252	w: 0
+      a__u312	w: 0
+      a__u311	w: 0
+      #a__u281	w: 0
+      a__u121	w: x1
+      a__u261	w: x1 + x2
+      #a__u101	w: 0
+      a__u321	w: 0
+      a__u231	w: x1
+      #a__u61	w: 0
+      #a__u122	w: 0
+      u41	w: 0
+      a__u253	w: 0
+      a__u71	w: 0
+      a__u291	w: 0
+      u211	w: 0
+      a__u343	w: 0
+      a__u61	w: 0
+      u45	w: 0
+      a__u105	w: 0
+      a__u44	w: 0
+      a__u81	w: 0
+      u63	w: 0
+      a__u331	w: 0
+      a__u24	w: 0
+      a__u151	w: x1
+      u342	w: 0
+      a__u203	w: 0
+      a__fst	w: 0
+      tail	w: x1 + 1
+      a__natsFrom	w: 0
+      u51	w: 0
+      #a__u104	w: 0
+      #a__u83	w: 0
+      #mark	w: 0
+      #a__u244	w: 0
+      0 	w: 2
+      u271	w: 0
+      #a__u12	w: 0
+      a__u191	w: 0
+      #a__u205	w: 0
+      a__isLNat	w: 0
+      a__u323	w: 0
+      a__u293	w: 0
+      a__u326	w: 0
+      u333	w: 0
+      a__u256	w: 0
+      u11	w: 0
+      sel	w: x1 + x2 + 2
+      u312	w: 0
+      a__u103	w: 0
+      u32	w: 0
+      u73	w: 0
+      afterNth	w: x1 + x2 + 2
+      a__u122	w: x1 + 3
+      #a__u344	w: 0
+      u46	w: 0
+      #a__u71	w: 0
+      #a__u11	w: 0
+      #a__u294	w: 0
+      nil	w: 1
+      u14	w: 0
+      u325	w: 0
+      #a__u131	w: 0
+      a__splitAt	w: 0
+      isLNat	w: 0
+      #a__u232	w: 0
+      #a__u171	w: x1 + x2
+      a__u281	w: 0
+      #a__sel	w: 0
+      #a__u201	w: 0
+      mark	w: 0
+      u12	w: 0
+      #a__isLNat	w: 0
+      u203	w: 0
+      a__u104	w: 0
+      a__u244	w: 0
+      u101	w: 0
+      u301	w: 0
+      #a__u261	w: x2 + 1
+      #a__u55	w: 0
+      a__u34	w: 0
+      #a__u251	w: 0
+      #a__u271	w: x1 + x2
+      #a__u253	w: 0
+      a__u141	w: x1
+      a__u202	w: 0
+      #a__u325	w: 0
+      #a__u14	w: 0
+      u72	w: 0
+      a__u181	w: 0
+      a__u243	w: 0
+      a__u282	w: 0
+      a__sel	w: 0
+      u201	w: 0
+      u21	w: 0
+      u262	w: 0
+      a__u245	w: 0
+      u331	w: 0
+      #a__u241	w: 0
+      a__u182	w: 0
+      u93	w: 0
+      a__u22	w: 0
+      u206	w: 0
+      #a__u324	w: 0
+      a__u93	w: 0
+      #a__u323	w: 0
+      a__u55	w: 0
+      isLNatKind	w: 0
+      #a__u43	w: 0
+      u255	w: 0
+      u272	w: 0
+      #a__u46	w: 0
+      #a__u93	w: 0
+      a__u171	w: x1
+      a__u205	w: 0
+      a__u232	w: 3
+      u43	w: 0
+      #a__u111	w: x1 + x2
+      a__u211	w: 3
+      u183	w: 0
+      a__u13	w: 0
+      a__isPLNat	w: 0
+      a__u201	w: 0
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 0
+      #a__u231	w: x1 + x2
+      a__isLNatKind	w: x1 + 1
+      a__u33	w: 0
+      u204	w: 0
+      #a__u53	w: 0
+      #a__u172	w: 0
+      #a__u333	w: 0
+      a__u204	w: 0
+      a__u221	w: x1
+      u321	w: 0
+      #a__u272	w: 0
+      #a__u112	w: 0
+      #a__u211	w: 0
+      a__u72	w: 0
+      u171	w: 0
+      a__u112	w: 0
+      u334	w: 0
+      #a__isPLNat	w: 0
+      head	w: x1 + 2
+      #a__afterNth	w: 0
+      #a__splitAt	w: 0
+      #a__isPLNatKind	w: x1
+      u34	w: 0
+      #a__u341	w: 0
+      #a__u192	w: 0
+      a__u11	w: 0
+      #a__u73	w: 0
+      cons	w: x1 + x2 + 2
+      u245	w: 0
+      u311	w: 0
+      snd	w: x1 + 1
+      a__take	w: 0
+      u22	w: 0
+      u281	w: 0
+      #a__u246	w: 0
+      a__u304	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 3
+      a__isNatural	w: 0
+      u55	w: 0
+      #a__u183	w: 0
+      #a__u303	w: 0
+      a__isNaturalKind	w: x1 + 1
+      #a__isNatural	w: 0
+      u232	w: 0
+      u343	w: 0
+      #a__u202	w: 0
+      #a__u182	w: 0
+      #a__fst	w: 0
+      #a__u151	w: 0
+      u242	w: 0
+      u71	w: 0
+      a__u294	w: 0
+      a__u327	w: 0
+      #a__u42	w: 0
+      #a__u191	w: 0
+      u231	w: 0
+      #a__u181	w: 0
+      a__u344	w: 0
+      #a__u54	w: 0
+      #a__u243	w: 0
+      a__tail	w: 0
+      a__u62	w: 0
+      a__isPLNatKind	w: x1 + 1
+      a__u101	w: 0
+      u193	w: 0
+      u31	w: 0
+      #a__tail	w: 0
+      #a__u161	w: 0
+      a__u254	w: 0
+      u141	w: 0
+      u44	w: 0
+      #a__u34	w: 0
+      #a__u62	w: 0
+      #a__u92	w: 0
+      #a__u13	w: 0
+      a__head	w: 0
+      a__u246	w: 0
+      a__u14	w: 0
+      #a__u91	w: 0
+      #a__u106	w: 0
+      u256	w: 0
+      #a__u311	w: 0
+      u326	w: 0
+      #a__u291	w: 0
+      u254	w: 0
+    USABLE RULES: { 16 19 20 34 36 38 39 135..138 284 303 306 307 322 324 326 327 }
+    Removed DPs: #63 #97 #98 #106 #129 #155 #193 #251 #252 #256 #260 #274 #317 #349 #352 #353 #383 #386 #387 #437 #438 #450 #458 #459
+Number of SCCs: 2, DPs: 298
+  SCC { #1 #5 #7 #22 #30 #32 #48..51 #54 #74 #76 #110 #125 #126 #137 #144 #146 #159 #178 #180 #182 #184 #196 #201 #202 #212 #214 #223 #225 #233 #241 #242 #247 #250 #263 #280 #285 #298 #301..303 #308 #315 #344 #366 #408 #416 #424 #426 #433 #435 #460 #479 #485 #486 #490 #493 #494 }
+POLO(Sum)... succeeded.
+      #a__u242	w: x2 + x3 + 16
+      #a__u193	w: 0
+      a__u172	w: x1 + 2
+      u81	w: 0
+      #a__u45	w: x2 + 13
+      a__u241	w: 16
+      #a__isNaturalKind	w: 0
+      a__u92	w: x1 + 2
+      u327	w: 0
+      a__u242	w: x3 + 17
+      u83	w: 0
+      #a__u44	w: x2 + x3 + 14
+      a__u131	w: 6
+      a__u31	w: 0
+      #a__u102	w: x1 + x2 + x3 + 3
+      u172	w: 0
+      #a__u52	w: x2 + x3 + 12
+      a__u271	w: x2 + 7
+      u244	w: 20
+      u292	w: 0
+      #a__u254	w: x2 + x3 + 14
+      u13	w: 0
+      u62	w: 0
+      #a__u301	w: 0
+      a__u91	w: 9
+      a__u41	w: x1
+      a__u51	w: x1
+      u341	w: 0
+      #a__u141	w: 0
+      u253	w: 12
+      #a__u63	w: 0
+      a__u341	w: 0
+      #a__u204	w: x2 + x3 + 14
+      u344	w: 0
+      #a__u342	w: 0
+      #a__u121	w: x1
+      s 	w: x1 + 6
+      u241	w: x1 + x2 + 17
+      u322	w: 0
+      a__u45	w: x1 + 7
+      u304	w: 0
+      a__u82	w: x1
+      u91	w: 0
+      #a__u22	w: 0
+      #a__u41	w: x2 + x3 + 17
+      u246	w: 0
+      #a__u206	w: 0
+      #a__u326	w: 0
+      #a__head	w: 0
+      a__u63	w: 2
+      #a__u32	w: 0
+      a__u322	w: 0
+      u261	w: 0
+      #a__natsFrom	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      #a__u105	w: x1 + x2 + 6
+      #a__u51	w: x1 + x2 + x3 + 5
+      u104	w: 0
+      u23	w: 0
+      #a__u312	w: 0
+      #a__u221	w: 0
+      a__u193	w: 7
+      a__u333	w: 0
+      #a__u292	w: 0
+      #a__u302	w: 0
+      u191	w: 0
+      #a__u82	w: x2 + 5
+      a__u106	w: x1 + 2
+      a__u292	w: 0
+      isPLNat	w: 0
+      #a__u23	w: 0
+      #a__snd	w: 0
+      a__u303	w: 0
+      u102	w: 0
+      #a__u293	w: 0
+      a__afterNth	w: 0
+      u121	w: 7
+      #a__u304	w: 0
+      a__u324	w: 0
+      a__u332	w: 0
+      #a__u327	w: 0
+      a__u206	w: 7
+      a__u42	w: 0
+      u181	w: 0
+      u243	w: 19
+      a__u43	w: 0
+      a__u46	w: x1 + 1
+      take	w: x1 + x2
+      u105	w: 10
+      u293	w: 0
+      #a__u81	w: x2 + 6
+      u122	w: 0
+      #a__u245	w: x2 + 13
+      u302	w: 0
+      #a__u255	w: x2 + 13
+      a__u255	w: x1 + 19
+      u103	w: 1
+      a__u21	w: 0
+      a__u23	w: 0
+      u205	w: 0
+      a__u161	w: x1 + 2
+      u54	w: 0
+      a__u325	w: 0
+      pair	w: x1 + x2 + 14
+      fst	w: x1 + 1
+      #a__u72	w: x2 + 8
+      a__u111	w: 14
+      a__u73	w: 7
+      u24	w: 0
+      a__u12	w: 0
+      u131	w: 7
+      u252	w: 11
+      u282	w: 0
+      natsFrom	w: x1
+      a__u272	w: 7
+      #a__u21	w: 0
+      #a__u256	w: 0
+      a__u192	w: 7
+      u303	w: 0
+      u182	w: 0
+      a__snd	w: 0
+      a__u301	w: 0
+      #a__u331	w: 0
+      #a__u282	w: 0
+      #a__u31	w: 0
+      a__u54	w: 7
+      u294	w: 0
+      u251	w: x2 + 17
+      u33	w: 0
+      u332	w: 0
+      u323	w: 0
+      a__u342	w: 0
+      splitAt	w: x1 + x2 + 14
+      isNaturalKind	w: 0
+      u192	w: 0
+      #a__u343	w: 0
+      u52	w: 0
+      #a__u24	w: 0
+      u291	w: 0
+      u61	w: 0
+      a__u53	w: 7
+      #a__u321	w: 0
+      u92	w: 0
+      a__u52	w: x1
+      #a__u252	w: x2 + x3 + 16
+      #a__u334	w: 0
+      a__u302	w: 0
+      #a__u103	w: x2 + x3 + 9
+      #a__take	w: 0
+      a__u56	w: 7
+      u221	w: 0
+      u56	w: 0
+      #a__u322	w: 0
+      #a__u56	w: 0
+      a__u334	w: 0
+      _ 	w: 0
+      a__u32	w: 0
+      #a__isLNatKind	w: 0
+      a__u262	w: 7
+      u324	w: 0
+      a__u183	w: 7
+      u151	w: 0
+      a__u102	w: x1 + x3
+      #a__u332	w: 0
+      #a__u203	w: x2 + x3 + 15
+      u202	w: 0
+      a__u251	w: 16
+      isNatural	w: 0
+      a__u83	w: 7
+      #a__u262	w: 0
+      u106	w: 0
+      #a__u33	w: 0
+      a__u252	w: x1 + x2 + 10
+      a__u312	w: 0
+      a__u311	w: 0
+      #a__u281	w: 0
+      a__u121	w: 6
+      a__u261	w: x2 + 7
+      #a__u101	w: x2 + x3 + 11
+      a__u321	w: 0
+      a__u231	w: x1
+      #a__u61	w: x2 + 10
+      #a__u122	w: 0
+      u41	w: 0
+      a__u253	w: x1 + 11
+      a__u71	w: 1
+      a__u291	w: 0
+      u211	w: 0
+      a__u343	w: 0
+      a__u61	w: x1
+      u45	w: x2 + 8
+      a__u105	w: 9
+      a__u44	w: x1
+      a__u81	w: x2 + 5
+      u63	w: x1
+      a__u331	w: 0
+      a__u24	w: 0
+      a__u151	w: 6
+      u342	w: 0
+      a__u203	w: 7
+      a__fst	w: 0
+      tail	w: x1 + 1
+      a__natsFrom	w: 0
+      u51	w: 0
+      #a__u104	w: x2 + x3 + 8
+      #a__u83	w: 0
+      #mark	w: 0
+      #a__u244	w: x2 + x3 + 14
+      0 	w: 6
+      u271	w: 0
+      #a__u12	w: 0
+      a__u191	w: 7
+      #a__u205	w: x2 + 13
+      a__isLNat	w: x1 + 14
+      a__u323	w: 0
+      a__u293	w: 0
+      a__u326	w: 0
+      u333	w: 0
+      a__u256	w: 7
+      u11	w: 0
+      sel	w: x1 + x2 + 11
+      u312	w: 0
+      a__u103	w: x1
+      u32	w: 0
+      u73	w: 0
+      afterNth	w: x1 + x2 + 6
+      a__u122	w: x1
+      #a__u344	w: 0
+      u46	w: 0
+      #a__u71	w: x2 + 9
+      #a__u11	w: 0
+      #a__u294	w: 0
+      nil	w: 0
+      u14	w: 0
+      u325	w: 0
+      #a__u131	w: 0
+      a__splitAt	w: 0
+      isLNat	w: 0
+      #a__u232	w: 0
+      #a__u171	w: x1
+      a__u281	w: 0
+      #a__sel	w: 0
+      #a__u201	w: x2 + x3 + 17
+      mark	w: 0
+      u12	w: 0
+      #a__isLNat	w: x1 + 12
+      u203	w: 0
+      a__u104	w: x1 + x2 + x3 + 1
+      a__u244	w: x2 + x3 + 19
+      u101	w: x1 + x2 + x3 + 1
+      u301	w: 0
+      #a__u261	w: 1
+      #a__u55	w: x2 + 12
+      a__u34	w: 0
+      #a__u251	w: x2 + x3 + 17
+      #a__u271	w: x1
+      #a__u253	w: x2 + x3 + 15
+      a__u141	w: 7
+      a__u202	w: 7
+      #a__u325	w: 0
+      #a__u14	w: 0
+      u72	w: 0
+      a__u181	w: x2 + 7
+      a__u243	w: x3 + 18
+      a__u282	w: 0
+      a__sel	w: 0
+      u201	w: 0
+      u21	w: 0
+      u262	w: 0
+      a__u245	w: 0
+      u331	w: 0
+      #a__u241	w: x2 + x3 + 17
+      a__u182	w: 7
+      u93	w: 0
+      a__u22	w: 0
+      u206	w: 0
+      #a__u324	w: 0
+      a__u93	w: 7
+      #a__u323	w: 0
+      a__u55	w: 7
+      isLNatKind	w: 8
+      #a__u43	w: x2 + x3 + 15
+      u255	w: x2 + 20
+      u272	w: 0
+      #a__u46	w: 0
+      #a__u93	w: 0
+      a__u171	w: 8
+      a__u205	w: 7
+      a__u232	w: 7
+      u43	w: 0
+      #a__u111	w: x1
+      a__u211	w: 7
+      u183	w: 0
+      a__u13	w: 0
+      a__isPLNat	w: x1 + 1
+      a__u201	w: 7
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 3
+      #a__u231	w: x1
+      a__isLNatKind	w: x1 + 7
+      a__u33	w: 0
+      u204	w: 0
+      #a__u53	w: x2 + x3 + 12
+      #a__u172	w: 0
+      #a__u333	w: 0
+      a__u204	w: 7
+      a__u221	w: x1
+      u321	w: 0
+      #a__u272	w: 0
+      #a__u112	w: 0
+      #a__u211	w: 0
+      a__u72	w: x1
+      u171	w: 0
+      a__u112	w: 6
+      u334	w: 0
+      #a__isPLNat	w: x1 + 4
+      head	w: x1 + 8
+      #a__afterNth	w: 0
+      #a__splitAt	w: 0
+      #a__isPLNatKind	w: 0
+      u34	w: 0
+      #a__u341	w: 0
+      #a__u192	w: x1 + x2
+      a__u11	w: 0
+      #a__u73	w: 0
+      cons	w: x1 + x2
+      u245	w: 1
+      u311	w: 0
+      snd	w: x1
+      a__take	w: 0
+      u22	w: 0
+      u281	w: 0
+      #a__u246	w: 0
+      a__u304	w: 0
+      u112	w: x1 + 7
+      u42	w: 0
+      tt	w: 7
+      a__isNatural	w: x1 + 1
+      u55	w: 0
+      #a__u183	w: 0
+      #a__u303	w: 0
+      a__isNaturalKind	w: 7
+      #a__isNatural	w: x1 + 7
+      u232	w: 0
+      u343	w: 0
+      #a__u202	w: x1 + x2 + x3 + 9
+      #a__u182	w: x2 + 13
+      #a__fst	w: 0
+      #a__u151	w: 0
+      u242	w: 18
+      u71	w: 0
+      a__u294	w: 0
+      a__u327	w: 0
+      #a__u42	w: x1 + x2 + x3 + 9
+      #a__u191	w: x2 + 13
+      u231	w: 0
+      #a__u181	w: x2 + 14
+      a__u344	w: 0
+      #a__u54	w: x2 + x3 + 12
+      #a__u243	w: x2 + x3 + 15
+      a__tail	w: 0
+      a__u62	w: 2
+      a__isPLNatKind	w: x1 + 1
+      a__u101	w: 0
+      u193	w: 0
+      u31	w: 0
+      #a__tail	w: 0
+      #a__u161	w: 0
+      a__u254	w: x2 + 19
+      u141	w: x1 + 8
+      u44	w: 0
+      #a__u34	w: 0
+      #a__u62	w: x2 + 9
+      #a__u92	w: x2 + 12
+      #a__u13	w: 0
+      a__head	w: 0
+      a__u246	w: 7
+      a__u14	w: 0
+      #a__u91	w: x2 + 12
+      #a__u106	w: 0
+      u256	w: 0
+      #a__u311	w: 0
+      u326	w: 0
+      #a__u291	w: 0
+      u254	w: 0
+    USABLE RULES: { 21..32 34 36 38 39 46 52..56 94..99 104..108 110 111 115 117 120 131..138 141 142 284 289 291 308..319 322 324 326 327 333 339..343 379..382 385..393 396..404 }
+    Removed DPs: #1 #5 #7 #22 #32 #49..51 #54 #74 #76 #110 #126 #137 #144 #146 #182 #184 #196 #201 #212 #214 #223 #233 #241 #242 #247 #263 #280 #285 #298 #301..303 #308 #315 #344 #408 #416 #424 #426 #433 #435 #460 #479 #485 #486 #490 #493 #494
+Number of SCCs: 2, DPs: 244
+  SCC { #30 #48 #159 #180 #202 #366 }
+POLO(Sum)... succeeded.
+      #a__u242	w: 16
+      #a__u193	w: 0
+      a__u172	w: x1 + 2
+      u81	w: 0
+      #a__u45	w: 13
+      a__u241	w: 16
+      #a__isNaturalKind	w: 0
+      a__u92	w: x1 + 2
+      u327	w: 0
+      a__u242	w: x3 + 17
+      u83	w: 0
+      #a__u44	w: 14
+      a__u131	w: 6
+      a__u31	w: 0
+      #a__u102	w: x1 + 3
+      u172	w: 0
+      #a__u52	w: x3 + 15
+      a__u271	w: x2 + 7
+      u244	w: 20
+      u292	w: 0
+      #a__u254	w: 14
+      u13	w: 0
+      u62	w: 0
+      #a__u301	w: 0
+      a__u91	w: 9
+      a__u41	w: x1
+      a__u51	w: x1
+      u341	w: 0
+      #a__u141	w: 0
+      u253	w: 12
+      #a__u63	w: 0
+      a__u341	w: 0
+      #a__u204	w: 14
+      u344	w: 0
+      #a__u342	w: 0
+      #a__u121	w: x1
+      s 	w: x1 + 6
+      u241	w: x1 + x2 + 17
+      u322	w: 0
+      a__u45	w: x1 + 7
+      u304	w: 0
+      a__u82	w: x1
+      u91	w: 0
+      #a__u22	w: 0
+      #a__u41	w: 17
+      u246	w: 0
+      #a__u206	w: 0
+      #a__u326	w: 0
+      #a__head	w: 0
+      a__u63	w: 2
+      #a__u32	w: 0
+      a__u322	w: 0
+      u261	w: 0
+      #a__natsFrom	w: 0
+      u111	w: 0
+      u53	w: 0
+      isPLNatKind	w: 0
+      #a__u105	w: x1 + 6
+      #a__u51	w: x2 + x3 + 16
+      u104	w: 0
+      u23	w: 0
+      #a__u312	w: 0
+      #a__u221	w: 0
+      a__u193	w: 7
+      a__u333	w: 0
+      #a__u292	w: 0
+      #a__u302	w: 0
+      u191	w: 0
+      #a__u82	w: 5
+      a__u106	w: x1 + 2
+      a__u292	w: 0
+      isPLNat	w: 0
+      #a__u23	w: 0
+      #a__snd	w: 0
+      a__u303	w: 0
+      u102	w: 0
+      #a__u293	w: 0
+      a__afterNth	w: 0
+      u121	w: 7
+      #a__u304	w: 0
+      a__u324	w: 0
+      a__u332	w: 0
+      #a__u327	w: 0
+      a__u206	w: 7
+      a__u42	w: 0
+      u181	w: 0
+      u243	w: 19
+      a__u43	w: 0
+      a__u46	w: x1 + 7
+      take	w: x1 + x2
+      u105	w: 10
+      u293	w: 0
+      #a__u81	w: 6
+      u122	w: 0
+      #a__u245	w: 13
+      u302	w: 0
+      #a__u255	w: 13
+      a__u255	w: x1 + 19
+      u103	w: 1
+      a__u21	w: 0
+      a__u23	w: 0
+      u205	w: 0
+      a__u161	w: x1 + 2
+      u54	w: 0
+      a__u325	w: 0
+      pair	w: x1 + x2 + 14
+      fst	w: x1 + 1
+      #a__u72	w: 8
+      a__u111	w: 14
+      a__u73	w: 7
+      u24	w: 0
+      a__u12	w: 0
+      u131	w: 7
+      u252	w: 11
+      u282	w: 0
+      natsFrom	w: x1
+      a__u272	w: 7
+      #a__u21	w: 0
+      #a__u256	w: 0
+      a__u192	w: 7
+      u303	w: 0
+      u182	w: 0
+      a__snd	w: 0
+      a__u301	w: 0
+      #a__u331	w: 0
+      #a__u282	w: 0
+      #a__u31	w: 0
+      a__u54	w: 7
+      u294	w: 0
+      u251	w: x2 + 17
+      u33	w: 0
+      u332	w: 0
+      u323	w: 0
+      a__u342	w: 0
+      splitAt	w: x1 + x2 + 14
+      isNaturalKind	w: 0
+      u192	w: 0
+      #a__u343	w: 0
+      u52	w: 0
+      #a__u24	w: 0
+      u291	w: 0
+      u61	w: 0
+      a__u53	w: 7
+      #a__u321	w: 0
+      u92	w: 0
+      a__u52	w: x1
+      #a__u252	w: 16
+      #a__u334	w: 0
+      a__u302	w: 0
+      #a__u103	w: 9
+      #a__take	w: 0
+      a__u56	w: 7
+      u221	w: 0
+      u56	w: 0
+      #a__u322	w: 0
+      #a__u56	w: 0
+      a__u334	w: 0
+      _ 	w: 0
+      a__u32	w: 0
+      #a__isLNatKind	w: 0
+      a__u262	w: 7
+      u324	w: 0
+      a__u183	w: 7
+      u151	w: 0
+      a__u102	w: x1 + x3
+      #a__u332	w: 0
+      #a__u203	w: 15
+      u202	w: 0
+      a__u251	w: 16
+      isNatural	w: 0
+      a__u83	w: 7
+      #a__u262	w: 0
+      u106	w: 0
+      #a__u33	w: 0
+      a__u252	w: x1 + x2 + 10
+      a__u312	w: 0
+      a__u311	w: 0
+      #a__u281	w: 0
+      a__u121	w: 6
+      a__u261	w: x2 + 7
+      #a__u101	w: 11
+      a__u321	w: 0
+      a__u231	w: x1
+      #a__u61	w: 10
+      #a__u122	w: 0
+      u41	w: 0
+      a__u253	w: x1 + 11
+      a__u71	w: 1
+      a__u291	w: 0
+      u211	w: 0
+      a__u343	w: 0
+      a__u61	w: x1
+      u45	w: x2 + 8
+      a__u105	w: 9
+      a__u44	w: x1
+      a__u81	w: x2 + 5
+      u63	w: x1
+      a__u331	w: 0
+      a__u24	w: 0
+      a__u151	w: 6
+      u342	w: 0
+      a__u203	w: 7
+      a__fst	w: 0
+      tail	w: x1 + 1
+      a__natsFrom	w: 0
+      u51	w: 0
+      #a__u104	w: 8
+      #a__u83	w: 0
+      #mark	w: 0
+      #a__u244	w: 14
+      0 	w: 6
+      u271	w: 0
+      #a__u12	w: 0
+      a__u191	w: 7
+      #a__u205	w: 13
+      a__isLNat	w: x1 + 8
+      a__u323	w: 0
+      a__u293	w: 0
+      a__u326	w: 0
+      u333	w: 0
+      a__u256	w: 7
+      u11	w: 0
+      sel	w: x1 + x2 + 11
+      u312	w: 0
+      a__u103	w: x1
+      u32	w: 0
+      u73	w: 0
+      afterNth	w: x1 + x2 + 6
+      a__u122	w: x1
+      #a__u344	w: 0
+      u46	w: 0
+      #a__u71	w: 9
+      #a__u11	w: 0
+      #a__u294	w: 0
+      nil	w: 0
+      u14	w: 0
+      u325	w: 0
+      #a__u131	w: 0
+      a__splitAt	w: 0
+      isLNat	w: 0
+      #a__u232	w: 0
+      #a__u171	w: x1
+      a__u281	w: 0
+      #a__sel	w: 0
+      #a__u201	w: 17
+      mark	w: 0
+      u12	w: 0
+      #a__isLNat	w: x1 + 11
+      u203	w: 0
+      a__u104	w: x1 + x2 + x3 + 1
+      a__u244	w: x2 + x3 + 19
+      u101	w: x1 + x2 + x3 + 1
+      u301	w: 0
+      #a__u261	w: 1
+      #a__u55	w: x2 + 12
+      a__u34	w: 0
+      #a__u251	w: 17
+      #a__u271	w: x1
+      #a__u253	w: 15
+      a__u141	w: 7
+      a__u202	w: 7
+      #a__u325	w: 0
+      #a__u14	w: 0
+      u72	w: 0
+      a__u181	w: x2 + 7
+      a__u243	w: x3 + 18
+      a__u282	w: 0
+      a__sel	w: 0
+      u201	w: 0
+      u21	w: 0
+      u262	w: 0
+      a__u245	w: 0
+      u331	w: 0
+      #a__u241	w: 17
+      a__u182	w: 7
+      u93	w: 0
+      a__u22	w: 0
+      u206	w: 0
+      #a__u324	w: 0
+      a__u93	w: 7
+      #a__u323	w: 0
+      a__u55	w: 7
+      isLNatKind	w: 8
+      #a__u43	w: 15
+      u255	w: x2 + 20
+      u272	w: 0
+      #a__u46	w: 0
+      #a__u93	w: 0
+      a__u171	w: 8
+      a__u205	w: 7
+      a__u232	w: 7
+      u43	w: 0
+      #a__u111	w: x1
+      a__u211	w: 7
+      u183	w: 0
+      a__u13	w: 0
+      a__isPLNat	w: x1 + 1
+      a__u201	w: 7
+      u82	w: 0
+      #_ 	w: 0
+      u161	w: 3
+      #a__u231	w: x1
+      a__isLNatKind	w: x1 + 7
+      a__u33	w: 0
+      u204	w: 0
+      #a__u53	w: x3 + 14
+      #a__u172	w: 0
+      #a__u333	w: 0
+      a__u204	w: 7
+      a__u221	w: x1
+      u321	w: 0
+      #a__u272	w: 0
+      #a__u112	w: 0
+      #a__u211	w: 0
+      a__u72	w: x1
+      u171	w: 0
+      a__u112	w: 6
+      u334	w: 0
+      #a__isPLNat	w: 4
+      head	w: x1 + 8
+      #a__afterNth	w: 0
+      #a__splitAt	w: 0
+      #a__isPLNatKind	w: 0
+      u34	w: 0
+      #a__u341	w: 0
+      #a__u192	w: x1
+      a__u11	w: 0
+      #a__u73	w: 0
+      cons	w: x1 + x2 + 6
+      u245	w: 1
+      u311	w: 0
+      snd	w: x1
+      a__take	w: 0
+      u22	w: 0
+      u281	w: 0
+      #a__u246	w: 0
+      a__u304	w: 0
+      u112	w: x1 + 7
+      u42	w: 0
+      tt	w: 7
+      a__isNatural	w: x1 + 1
+      u55	w: 0
+      #a__u183	w: 0
+      #a__u303	w: 0
+      a__isNaturalKind	w: 7
+      #a__isNatural	w: 7
+      u232	w: 0
+      u343	w: 0
+      #a__u202	w: x1 + 9
+      #a__u182	w: 13
+      #a__fst	w: 0
+      #a__u151	w: 0
+      u242	w: 18
+      u71	w: 0
+      a__u294	w: 0
+      a__u327	w: 0
+      #a__u42	w: x1 + 9
+      #a__u191	w: 13
+      u231	w: 0
+      #a__u181	w: 14
+      a__u344	w: 0
+      #a__u54	w: x3 + 13
+      #a__u243	w: 15
+      a__tail	w: 0
+      a__u62	w: 2
+      a__isPLNatKind	w: x1 + 1
+      a__u101	w: 0
+      u193	w: 0
+      u31	w: 0
+      #a__tail	w: 0
+      #a__u161	w: 0
+      a__u254	w: x2 + 19
+      u141	w: x1 + 8
+      u44	w: 0
+      #a__u34	w: 0
+      #a__u62	w: 9
+      #a__u92	w: 12
+      #a__u13	w: 0
+      a__head	w: 0
+      a__u246	w: 7
+      a__u14	w: 0
+      #a__u91	w: 12
+      #a__u106	w: 0
+      u256	w: 0
+      #a__u311	w: 0
+      u326	w: 0
+      #a__u291	w: 0
+      u254	w: 0
+    USABLE RULES: { 21..32 34 36 38 39 46 52..56 94..99 104..108 110 111 115 117 120 131..138 141 142 284 289 291 308..319 322 324 326 327 333 339..343 379..382 385..393 396..404 }
+    Removed DPs: #30 #48 #159 #180 #202 #366
+Number of SCCs: 1, DPs: 238
+  SCC { #3 #9 #10 #12 #14 #15 #17..19 #21 #24 #25 #27 #28 #35 #37 #39 #40 #42 #44 #45 #47 #52 #56..61 #65 #67..70 #72 #79 #80 #83 #85 #86 #88 #90..94 #96 #99 #102 #103 #108 #113..115 #117 #119 #120 #122 #123 #130 #133 #134 #136 #140 #141 #147..150 #153 #156 #157 #161 #163 #164 #166 #167 #169..175 #177 #186 #188..191 #194 #198 #205 #207 #208 #210 #215 #216 #218..221 #227 #228 #230 #232 #236..240 #244 #246 #254 #258 #262 #265 #268 #270 #272 #275..277 #281 #282 #284 #287 #289 #292 #295 #297 #304 #306 #310..313 #318 #319 #321..326 #328 #330 #331 #333..338 #340 #342 #343 #347 #350 #354..357 #359 #361 #362 #365 #369 #371 #373..377 #379..381 #384 #389 #391 #393 #395 #397 #399..402 #405..407 #410 #412 #413 #415 #418..420 #422 #423 #429..432 #440..444 #446..448 #452 #455..457 #462..464 #466..473 #476..478 #482..484 #487 #488 #491 #496..498 }
+POLO(Sum)... POLO(max)... succeeded.
+      #a__u242	w: 0
+      #a__u193	w: 0
+      a__u172	w: x1
+      u81	w: max(x1 + 1, x2 + 13)
+      #a__u45	w: 0
+      a__u241	w: max(x1 + 79, x2 + 88, x3 + 90)
+      #a__isNaturalKind	w: 0
+      a__u92	w: max(x1 + 49, x2 + 49)
+      u327	w: max(x1, x2 + 187)
+      a__u242	w: max(x1 + 80, x2 + 87, x3 + 80)
+      u83	w: x1 + 13
+      #a__u44	w: 0
+      a__u131	w: x1
+      a__u31	w: max(x1 + 65, x2 + 64, x3 + 53)
+      #a__u102	w: 0
+      u172	w: x1
+      #a__u52	w: 0
+      a__u271	w: max(x1)
+      u244	w: max(x1 + 73, x2 + 87, x3 + 74)
+      u292	w: max(x1 + 400, x2 + 431, x3 + 429)
+      #a__u254	w: 0
+      u13	w: max(x1 + 237, x2 + 284, x3 + 285)
+      u62	w: max(x1 + 2, x2 + 14)
+      #a__u301	w: max(x2 + 133, x3 + 139)
+      a__u91	w: max(x1 + 1, x2 + 59)
+      a__u41	w: max(x1 + 354, x2 + 359, x3 + 368)
+      a__u51	w: max(x1 + 5, x2 + 47, x3 + 48)
+      u341	w: max(x1 + 317, x2 + 316, x3 + 316)
+      #a__u141	w: 0
+      u253	w: max(x1 + 50, x2 + 62, x3 + 49)
+      #a__u63	w: 0
+      a__u341	w: max(x1 + 317, x2 + 316, x3 + 316)
+      #a__u204	w: 0
+      u344	w: max(x1 + 284, x2 + 284, x3 + 284)
+      #a__u342	w: max(x2 + 353, x3 + 391)
+      #a__u121	w: 0
+      s 	w: x1
+      u241	w: max(x1 + 79, x2 + 88, x3 + 90)
+      u322	w: max(x1 + 227, x2 + 261, x3 + 288, x4 + 237)
+      a__u45	w: max(x1 + 50, x2 + 49)
+      u304	w: max(x1 + 1, x2 + 10)
+      a__u82	w: max(x1 + 2, x2 + 13)
+      u91	w: max(x1 + 1, x2 + 59)
+      #a__u22	w: max(x1 + 138, x2 + 102)
+      #a__u41	w: 0
+      u246	w: x1 + 1
+      #a__u206	w: 0
+      #a__u326	w: max(x2 + 263, x3 + 265, x4 + 276)
+      #a__head	w: x1 + 131
+      a__u63	w: x1 + 14
+      #a__u32	w: max(x2 + 94, x3 + 129)
+      a__u322	w: max(x1 + 227, x2 + 261, x3 + 288, x4 + 237)
+      u261	w: max(x1)
+      #a__natsFrom	w: x1 + 186
+      u111	w: max(x1)
+      u53	w: max(x1 + 37, x2 + 36, x3 + 48)
+      isPLNatKind	w: 10
+      #a__u105	w: 0
+      #a__u51	w: 0
+      u104	w: max(x1 + 41, x2 + 50, x3 + 49)
+      u23	w: max(x1 + 1, x2 + 14, x3 + 12)
+      #a__u312	w: max(x2 + 169)
+      #a__u221	w: 0
+      a__u193	w: x1
+      a__u333	w: max(x1 + 4, x2 + 3)
+      #a__u292	w: max(x2 + 518, x3 + 469)
+      #a__u302	w: max(x2 + 132)
+      u191	w: max(x1 + 1, x2 + 24)
+      #a__u82	w: 0
+      a__u106	w: x1 + 1
+      a__u292	w: max(x1 + 400, x2 + 431, x3 + 429)
+      isPLNat	w: x1
+      #a__u23	w: max(x2 + 101)
+      #a__snd	w: x1 + 52
+      a__u303	w: max(x1 + 12, x2 + 11)
+      u102	w: max(x1 + 60, x2 + 60, x3 + 61)
+      #a__u293	w: max(x2 + 463, x3 + 468)
+      a__afterNth	w: max(x1 + 315, x2 + 330)
+      u121	w: max(x1)
+      #a__u304	w: max(x1 + 82, x2 + 90)
+      a__u324	w: max(x1 + 227, x2 + 261, x3 + 262, x4 + 237)
+      a__u332	w: max(x1 + 53, x2 + 52)
+      #a__u327	w: max(x1 + 1, x2 + 89)
+      a__u206	w: x1 + 1
+      a__u42	w: max(x1 + 356, x2 + 358, x3 + 368)
+      u181	w: max(x1 + 5, x2 + 49)
+      u243	w: max(x1 + 72, x2 + 87, x3 + 80)
+      a__u43	w: max(x1 + 357, x2 + 357, x3 + 368)
+      a__u46	w: x1 + 1
+      take	w: max(x1 + 342, x2 + 342)
+      u105	w: max(x1 + 1, x2 + 49)
+      u293	w: max(x1 + 381, x2 + 379, x3 + 405)
+      #a__u81	w: 0
+      u122	w: x1
+      #a__u245	w: 0
+      u302	w: max(x1 + 61, x2 + 60)
+      #a__u255	w: 0
+      a__u255	w: max(x1 + 38, x2 + 49)
+      u103	w: max(x1 + 50, x2 + 50, x3 + 50)
+      a__u21	w: max(x1 + 63, x2 + 62, x3 + 62)
+      a__u23	w: max(x1 + 1, x2 + 14, x3 + 12)
+      u205	w: max(x1 + 49, x2 + 49)
+      a__u161	w: x1
+      u54	w: max(x1 + 26, x2 + 25, x3 + 48)
+      a__u325	w: max(x1 + 189, x2 + 261, x3 + 262, x4 + 237)
+      pair	w: max(x1 + 88, x2 + 90)
+      fst	w: x1 + 23
+      #a__u72	w: 0
+      a__u111	w: max(x1)
+      a__u73	w: x1 + 1
+      u24	w: max(x1 + 2, x2 + 2)
+      a__u12	w: max(x1 + 281, x2 + 287, x3 + 285)
+      u131	w: x1
+      u252	w: max(x1 + 237, x2 + 237, x3 + 237)
+      u282	w: max(x1 + 89, x2 + 99)
+      natsFrom	w: x1 + 99
+      a__u272	w: x1
+      #a__u21	w: max(x2 + 149)
+      #a__u256	w: 0
+      a__u192	w: max(x1 + 2, x2 + 24)
+      u303	w: max(x1 + 12, x2 + 11)
+      u182	w: max(x1 + 6, x2 + 49)
+      a__snd	w: x1 + 10
+      a__u301	w: max(x1 + 50, x2 + 71, x3 + 60)
+      #a__u331	w: max(x2 + 130, x3 + 130)
+      #a__u282	w: max(x2 + 89)
+      #a__u31	w: max(x2 + 130, x3 + 130)
+      a__u54	w: max(x1 + 26, x2 + 25, x3 + 48)
+      u294	w: max(x1 + 382, x2 + 379, x3 + 405)
+      u251	w: max(x1 + 238, x2 + 237, x3 + 237)
+      u33	w: max(x1 + 4, x2 + 13, x3 + 12)
+      u332	w: max(x1 + 53, x2 + 52)
+      u323	w: max(x1 + 264, x2 + 261, x3 + 262, x4 + 237)
+      a__u342	w: max(x1 + 304, x2 + 316, x3 + 315)
+      splitAt	w: max(x1 + 261, x2 + 237)
+      isNaturalKind	w: 10
+      u192	w: max(x1 + 2, x2 + 24)
+      #a__u343	w: max(x1 + 342, x2 + 352, x3 + 373)
+      u52	w: max(x1 + 36, x2 + 36, x3 + 48)
+      #a__u24	w: max(x2 + 89)
+      u291	w: max(x1 + 432, x2 + 432, x3 + 432)
+      u61	w: max(x1 + 1, x2 + 14)
+      a__u53	w: max(x1 + 37, x2 + 36, x3 + 48)
+      #a__u321	w: max(x2 + 263, x3 + 375, x4 + 276)
+      u92	w: max(x1 + 49, x2 + 49)
+      a__u52	w: max(x1 + 36, x2 + 36, x3 + 48)
+      #a__u252	w: 0
+      #a__u334	w: max(x2 + 89)
+      a__u302	w: max(x1 + 61, x2 + 60)
+      #a__u103	w: 0
+      #a__take	w: max(x1 + 429, x2 + 429)
+      a__u56	w: x1
+      u221	w: x1
+      u56	w: x1
+      #a__u322	w: max(x2 + 263, x3 + 375, x4 + 276)
+      #a__u56	w: 0
+      a__u334	w: max(x1 + 3, x2 + 2)
+      _ 	w: 0
+      a__u32	w: max(x1 + 54, x2 + 53, x3 + 52)
+      #a__isLNatKind	w: 0
+      a__u262	w: x1
+      u324	w: max(x1 + 227, x2 + 261, x3 + 262, x4 + 237)
+      a__u183	w: x1 + 1
+      u151	w: x1
+      a__u102	w: max(x1 + 60, x2 + 60, x3 + 61)
+      #a__u332	w: max(x2 + 129)
+      #a__u203	w: 0
+      u202	w: max(x1 + 460, x2 + 74, x3 + 75)
+      a__u251	w: max(x1 + 238, x2 + 237, x3 + 237)
+      isNatural	w: x1 + 24
+      a__u83	w: x1 + 13
+      #a__u262	w: 0
+      u106	w: x1 + 1
+      #a__u33	w: max(x1 + 80, x2 + 93, x3 + 90)
+      a__u252	w: max(x1 + 237, x2 + 237, x3 + 237)
+      a__u312	w: max(x1 + 80, x2 + 90)
+      a__u311	w: max(x1 + 140, x2 + 138)
+      #a__u281	w: max(x1 + 80, x2 + 90)
+      a__u121	w: max(x1)
+      a__u261	w: max(x1)
+      #a__u101	w: 0
+      a__u321	w: max(x1 + 237, x2 + 261, x3 + 288, x4 + 237)
+      a__u231	w: max(x1)
+      #a__u61	w: 0
+      #a__u122	w: 0
+      u41	w: max(x1 + 354, x2 + 359, x3 + 368)
+      a__u253	w: max(x1 + 50, x2 + 62, x3 + 49)
+      a__u71	w: max(x1 + 26, x2 + 25)
+      a__u291	w: max(x1 + 432, x2 + 432, x3 + 432)
+      u211	w: x1
+      a__u343	w: max(x1 + 267, x2 + 284, x3 + 294)
+      a__u61	w: max(x1 + 1, x2 + 14)
+      u45	w: max(x1 + 50, x2 + 49)
+      a__u105	w: max(x1 + 1, x2 + 49)
+      a__u44	w: max(x1 + 358, x2 + 74, x3 + 49)
+      a__u81	w: max(x1 + 1, x2 + 13)
+      u63	w: x1 + 14
+      a__u331	w: max(x1 + 54, x2 + 63, x3 + 63)
+      a__u24	w: max(x1 + 2, x2 + 2)
+      a__u151	w: x1
+      u342	w: max(x1 + 304, x2 + 316, x3 + 315)
+      a__u203	w: max(x1 + 75, x2 + 74, x3 + 73)
+      a__fst	w: x1 + 23
+      tail	w: x1 + 78
+      a__natsFrom	w: x1 + 99
+      u51	w: max(x1 + 5, x2 + 47, x3 + 48)
+      #a__u104	w: 0
+      #a__u83	w: 0
+      #mark	w: x1 + 88
+      #a__u244	w: 0
+      0 	w: 13
+      u271	w: max(x1)
+      #a__u12	w: max(x2 + 374, x3 + 370)
+      a__u191	w: max(x1 + 1, x2 + 24)
+      #a__u205	w: 0
+      a__isLNat	w: x1 + 48
+      a__u323	w: max(x1 + 264, x2 + 261, x3 + 262, x4 + 237)
+      a__u293	w: max(x1 + 381, x2 + 379, x3 + 405)
+      a__u326	w: max(x1 + 176, x2 + 261, x3 + 187, x4 + 237)
+      u333	w: max(x1 + 4, x2 + 3)
+      a__u256	w: x1 + 1
+      u11	w: max(x1 + 291, x2 + 291, x3 + 290)
+      sel	w: max(x1 + 456, x2 + 457)
+      u312	w: max(x1 + 80, x2 + 90)
+      a__u103	w: max(x1 + 50, x2 + 50, x3 + 50)
+      u32	w: max(x1 + 54, x2 + 53, x3 + 52)
+      u73	w: x1 + 1
+      afterNth	w: max(x1 + 315, x2 + 330)
+      a__u122	w: x1
+      #a__u344	w: max(x2 + 328, x3 + 351)
+      u46	w: x1 + 1
+      #a__u71	w: 0
+      #a__u11	w: max(x2 + 375, x3 + 377)
+      #a__u294	w: max(x2 + 447, x3 + 462)
+      nil	w: 2
+      u14	w: max(x1 + 275, x2 + 275, x3 + 275)
+      u325	w: max(x1 + 189, x2 + 261, x3 + 262, x4 + 237)
+      #a__u131	w: 0
+      a__splitAt	w: max(x1 + 261, x2 + 237)
+      isLNat	w: x1 + 48
+      #a__u232	w: 0
+      #a__u171	w: 0
+      a__u281	w: max(x1 + 3, x2 + 99)
+      #a__sel	w: max(x1 + 520, x2 + 520)
+      #a__u201	w: 0
+      mark	w: x1
+      u12	w: max(x1 + 281, x2 + 287, x3 + 285)
+      #a__isLNat	w: 0
+      u203	w: max(x1 + 75, x2 + 74, x3 + 73)
+      a__u104	w: max(x1 + 41, x2 + 50, x3 + 49)
+      a__u244	w: max(x1 + 73, x2 + 87, x3 + 74)
+      u101	w: max(x1 + 64, x2 + 65, x3 + 63)
+      u301	w: max(x1 + 50, x2 + 71, x3 + 60)
+      #a__u261	w: 0
+      #a__u55	w: 0
+      a__u34	w: max(x1 + 2, x2 + 2)
+      #a__u251	w: 0
+      #a__u271	w: 0
+      #a__u253	w: 0
+      a__u141	w: x1
+      a__u202	w: max(x1 + 460, x2 + 74, x3 + 75)
+      #a__u325	w: max(x2 + 263, x3 + 275, x4 + 276)
+      #a__u14	w: max(x2 + 314, x3 + 323)
+      u72	w: max(x1 + 25, x2 + 25)
+      a__u181	w: max(x1 + 5, x2 + 49)
+      a__u243	w: max(x1 + 72, x2 + 87, x3 + 80)
+      a__u282	w: max(x1 + 89, x2 + 99)
+      a__sel	w: max(x1 + 456, x2 + 457)
+      u201	w: max(x1 + 470, x2 + 74, x3 + 469)
+      u21	w: max(x1 + 63, x2 + 62, x3 + 62)
+      u262	w: x1
+      a__u245	w: max(x1 + 36, x2 + 49)
+      u331	w: max(x1 + 54, x2 + 63, x3 + 63)
+      #a__u241	w: 0
+      a__u182	w: max(x1 + 6, x2 + 49)
+      u93	w: x1 + 1
+      a__u22	w: max(x1 + 51, x2 + 51, x3 + 49)
+      u206	w: x1 + 1
+      #a__u324	w: max(x1 + 314, x2 + 263, x3 + 323, x4 + 276)
+      a__u93	w: x1 + 1
+      #a__u323	w: max(x1 + 351, x2 + 263, x3 + 323, x4 + 276)
+      a__u55	w: max(x1 + 1, x2 + 48)
+      isLNatKind	w: 10
+      #a__u43	w: 0
+      u255	w: max(x1 + 38, x2 + 49)
+      u272	w: x1
+      #a__u46	w: 0
+      #a__u93	w: 0
+      a__u171	w: max(x1)
+      a__u205	w: max(x1 + 49, x2 + 49)
+      a__u232	w: x1
+      u43	w: max(x1 + 357, x2 + 357, x3 + 368)
+      #a__u111	w: 0
+      a__u211	w: x1
+      u183	w: x1 + 1
+      a__u13	w: max(x1 + 237, x2 + 284, x3 + 285)
+      a__isPLNat	w: x1
+      a__u201	w: max(x1 + 470, x2 + 74, x3 + 469)
+      u82	w: max(x1 + 2, x2 + 13)
+      #_ 	w: 0
+      u161	w: x1
+      #a__u231	w: 0
+      a__isLNatKind	w: 10
+      a__u33	w: max(x1 + 4, x2 + 13, x3 + 12)
+      u204	w: max(x1 + 73, x2 + 73, x3 + 73)
+      #a__u53	w: 0
+      #a__u172	w: 0
+      #a__u333	w: max(x1 + 80, x2 + 90)
+      a__u204	w: max(x1 + 73, x2 + 73, x3 + 73)
+      a__u221	w: x1
+      u321	w: max(x1 + 237, x2 + 261, x3 + 288, x4 + 237)
+      #a__u272	w: 0
+      #a__u112	w: 0
+      #a__u211	w: 0
+      a__u72	w: max(x1 + 25, x2 + 25)
+      u171	w: max(x1)
+      a__u112	w: x1
+      u334	w: max(x1 + 3, x2 + 2)
+      #a__isPLNat	w: 0
+      head	w: x1 + 64
+      #a__afterNth	w: max(x1 + 376, x2 + 404)
+      #a__splitAt	w: max(x1 + 263, x2 + 276)
+      #a__isPLNatKind	w: 0
+      u34	w: max(x1 + 2, x2 + 2)
+      #a__u341	w: max(x1 + 404, x2 + 392, x3 + 403)
+      #a__u192	w: 0
+      a__u11	w: max(x1 + 291, x2 + 291, x3 + 290)
+      #a__u73	w: 0
+      cons	w: max(x1 + 99, x2)
+      u245	w: max(x1 + 36, x2 + 49)
+      u311	w: max(x1 + 140, x2 + 138)
+      snd	w: x1 + 10
+      a__take	w: max(x1 + 342, x2 + 342)
+      u22	w: max(x1 + 51, x2 + 51, x3 + 49)
+      u281	w: max(x1 + 3, x2 + 99)
+      #a__u246	w: 0
+      a__u304	w: max(x1 + 1, x2 + 10)
+      u112	w: x1
+      u42	w: max(x1 + 356, x2 + 358, x3 + 368)
+      tt	w: 10
+      a__isNatural	w: x1 + 24
+      u55	w: max(x1 + 1, x2 + 48)
+      #a__u183	w: 0
+      #a__u303	w: max(x1 + 83, x2 + 91)
+      a__isNaturalKind	w: 10
+      #a__isNatural	w: 0
+      u232	w: x1
+      u343	w: max(x1 + 267, x2 + 284, x3 + 294)
+      #a__u202	w: 0
+      #a__u182	w: 0
+      #a__fst	w: x1 + 62
+      #a__u151	w: 0
+      u242	w: max(x1 + 80, x2 + 87, x3 + 80)
+      u71	w: max(x1 + 26, x2 + 25)
+      a__u294	w: max(x1 + 382, x2 + 379, x3 + 405)
+      a__u327	w: max(x1, x2 + 187)
+      #a__u42	w: 0
+      #a__u191	w: 0
+      u231	w: max(x1)
+      #a__u181	w: 0
+      a__u344	w: max(x1 + 284, x2 + 284, x3 + 284)
+      #a__u54	w: 0
+      #a__u243	w: 0
+      a__tail	w: x1 + 78
+      a__u62	w: max(x1 + 2, x2 + 14)
+      a__isPLNatKind	w: 10
+      a__u101	w: max(x1 + 64, x2 + 65, x3 + 63)
+      u193	w: x1
+      u31	w: max(x1 + 65, x2 + 64, x3 + 53)
+      #a__tail	w: x1 + 131
+      #a__u161	w: 0
+      a__u254	w: max(x1 + 51, x2 + 62, x3 + 49)
+      u141	w: x1
+      u44	w: max(x1 + 358, x2 + 74, x3 + 49)
+      #a__u34	w: max(x2 + 89)
+      #a__u62	w: 0
+      #a__u92	w: 0
+      #a__u13	w: max(x1 + 306, x2 + 371, x3 + 324)
+      a__head	w: x1 + 64
+      a__u246	w: x1 + 1
+      a__u14	w: max(x1 + 275, x2 + 275, x3 + 275)
+      #a__u91	w: 0
+      #a__u106	w: 0
+      u256	w: x1 + 1
+      #a__u311	w: max(x1 + 227, x2 + 170)
+      u326	w: max(x1 + 176, x2 + 261, x3 + 187, x4 + 237)
+      #a__u291	w: max(x2 + 519, x3 + 470)
+      u254	w: max(x1 + 51, x2 + 62, x3 + 49)
+    USABLE RULES: { 1..407 }
+    Removed DPs: #3 #9 #10 #12 #14 #15 #17..19 #21 #24 #25 #27 #28 #35 #37 #39 #40 #42 #44 #45 #56..61 #65 #68 #69 #79 #83 #85 #86 #90..93 #96 #99 #102 #103 #108 #113..115 #117 #120 #122 #123 #130 #134 #136 #140 #141 #147..150 #153 #156 #157 #161 #163 #164 #166 #167 #169 #170 #172..175 #186 #188..190 #194 #198 #205 #207 #208 #215 #216 #218..221 #227 #228 #230 #232 #236..240 #244 #246 #258 #265 #268 #270 #272 #275..277 #281 #282 #287 #289 #297 #304 #306 #310..313 #318 #319 #321..326 #330 #331 #333..338 #342 #343 #347 #350 #354..357 #359 #361 #362 #369 #371 #373..377 #380 #381 #384 #389 #391 #397 #399..402 #405..407 #410 #412 #413 #418..420 #422 #423 #429..432 #441..444 #446..448 #452 #456 #457 #462..464 #466..473 #476..478 #483 #484 #487 #488 #491 #496..498
+Number of SCCs: 2, DPs: 29
+  SCC { #52 #70 #72 #80 #88 #171 #292 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... succeeded.
+      #a__u242	s: [3,1]	p: 0	w: max(x1 + 1, x3)
+      #a__u193	s: []	p: 0	w: 1
+      a__u172	s: 1
+      u81	s: []	p: 2	w: max(x1, x2 + 5)
+      #a__u45	s: []	p: 0	w: max(x1 + 1)
+      a__u241	s: []	p: 19	w: max(x2 + 2, x3 + 4)
+      #a__isNaturalKind	s: []	p: 0	w: 0
+      a__u92	s: [2,1]	p: 8	w: max(x1 + 3, x2 + 6)
+      u327	s: []	p: 13	w: max(x1, x2 + 10)
+      a__u242	s: 2
+      u83	s: [1]	p: 0	w: x1 + 1
+      #a__u44	s: []	p: 0	w: max(x2 + 1)
+      a__u131	s: []	p: 21	w: x1
+      a__u31	s: 2
+      #a__u102	s: []	p: 0	w: max(x3 + 1)
+      u172	s: 1
+      #a__u52	s: [1,2]	p: 0	w: max(x1 + 1, x2)
+      a__u271	s: []	p: 22	w: max(x1 + 10, x2 + 11)
+      u244	s: 2
+      u292	s: []	p: 19	w: max(x2 + 44, x3 + 44)
+      #a__u254	s: []	p: 0	w: max(x3)
+      u13	s: []	p: 4	w: max(x1, x2 + 22, x3 + 22)
+      u62	s: []	p: 0	w: max(x1 + 2)
+      #a__u301	s: [2,3,1]	p: 0	w: x1 + x2 + x3
+      a__u91	s: []	p: 9	w: max(x2 + 7)
+      a__u41	s: []	p: 20	w: max(x2)
+      a__u51	s: []	p: 24	w: max(x1 + 9, x2 + 9)
+      u341	s: []	p: 18	w: max(x2 + 27, x3 + 27)
+      #a__u141	s: []	p: 0	w: 1
+      u253	s: 3
+      #a__u63	s: []	p: 0	w: 0
+      a__u341	s: []	p: 18	w: max(x2 + 27, x3 + 27)
+      #a__u204	s: [1]	p: 0	w: max(x1 + 1, x3 + 1)
+      u344	s: [2]	p: 21	w: max(x2 + 26, x3 + 26)
+      #a__u342	s: [1,2]	p: 0	w: x1 + x2 + x3 + 1
+      #a__u121	s: []	p: 0	w: 0
+      s 	s: [1]	p: 19	w: x1
+      u241	s: []	p: 19	w: max(x2 + 2, x3 + 4)
+      u322	s: [2]	p: 16	w: max(x2 + 10, x3 + 19, x4 + 10)
+      a__u45	s: []	p: 19	w: max(x1)
+      u304	s: []	p: 18	w: max(x1, x2 + 3)
+      a__u82	s: []	p: 1	w: max(x2 + 4)
+      u91	s: []	p: 9	w: max(x2 + 7)
+      #a__u22	s: [3,1,2]	p: 0	w: x1 + x2 + x3
+      #a__u41	s: [3]	p: 0	w: max(x3)
+      u246	s: []	p: 7	w: 6
+      #a__u206	s: []	p: 0	w: 0
+      #a__u326	s: [2]	p: 17	w: max(x1 + 11, x2 + 26, x4 + 15)
+      #a__head	s: []	p: 0	w: 0
+      a__u63	s: []	p: 6	w: 7
+      #a__u32	s: [1]	p: 0	w: x1
+      a__u322	s: [2]	p: 16	w: max(x2 + 10, x3 + 19, x4 + 10)
+      u261	s: []	p: 22	w: max(x1 + 2, x2 + 13)
+      #a__natsFrom	s: []	p: 0	w: 0
+      u111	s: []	p: 21	w: max(x2 + 5)
+      u53	s: []	p: 22	w: max(x2 + 2)
+      isPLNatKind	s: []	p: 22	w: x1 + 12
+      #a__u105	s: [2,1]	p: 0	w: max(x1 + 1, x2)
+      #a__u51	s: [1]	p: 0	w: max(x1 + 1, x2, x3)
+      u104	s: []	p: 9	w: max(x1, x3 + 28)
+      u23	s: 2
+      #a__u312	s: [2]	p: 0	w: x1 + x2
+      #a__u221	s: []	p: 0	w: 0
+      a__u193	s: 1
+      a__u333	s: []	p: 18	w: max(x1, x2 + 7)
+      #a__u292	s: []	p: 0	w: x3
+      #a__u302	s: [1,2]	p: 0	w: x1 + x2
+      u191	s: 2
+      #a__u82	s: [1]	p: 0	w: max(x1)
+      a__u106	s: []	p: 8	w: 6
+      a__u292	s: []	p: 19	w: max(x2 + 44, x3 + 44)
+      isPLNat	s: []	p: 24	w: x1 + 2
+      #a__u23	s: [2]	p: 0	w: x2 + 1
+      #a__snd	s: []	p: 0	w: 1
+      a__u303	s: []	p: 18	w: max(x2 + 3)
+      u102	s: []	p: 18	w: max(x2, x3 + 28)
+      #a__u293	s: [2,1,3]	p: 0	w: x1 + x2 + x3 + 1
+      a__afterNth	s: []	p: 18	w: max(x1 + 23, x2 + 34)
+      u121	s: []	p: 7	w: max(x1 + 12)
+      #a__u304	s: [2]	p: 0	w: x1 + x2 + 1
+      a__u324	s: []	p: 14	w: max(x1 + 4, x2 + 10, x3 + 10, x4 + 10)
+      a__u332	s: []	p: 7	w: max(x2 + 8)
+      #a__u327	s: [2]	p: 0	w: x2
+      a__u206	s: []	p: 7	w: 6
+      a__u42	s: []	p: 20	w: max(x2)
+      u181	s: []	p: 3	w: max(x1 + 6, x2 + 5)
+      u243	s: 2
+      a__u43	s: []	p: 20	w: max(x2)
+      a__u46	s: []	p: 19	w: 6
+      take	s: []	p: 18	w: x1 + x2 + 28
+      u105	s: []	p: 9	w: max(x2 + 6)
+      u293	s: [1,3,2]	p: 18	w: max(x1 + 2, x2 + 33, x3 + 44)
+      #a__u81	s: []	p: 0	w: max(x1)
+      u122	s: []	p: 7	w: 6
+      #a__u245	s: [2,1]	p: 0	w: max(x1 + 1, x2 + 1)
+      u302	s: []	p: 19	w: max(x2 + 3)
+      #a__u255	s: [2,1]	p: 0	w: max(x1, x2)
+      a__u255	s: 2
+      u103	s: []	p: 18	w: max(x2, x3 + 28)
+      a__u21	s: []	p: 7	w: max(x1 + 3, x2 + 16, x3)
+      a__u23	s: 2
+      u205	s: []	p: 19	w: max(x1)
+      a__u161	s: 1
+      u54	s: []	p: 22	w: max(x2 + 2)
+      a__u325	s: []	p: 14	w: max(x2 + 10, x3 + 10, x4 + 10)
+      pair	s: []	p: 8	w: max(x1, x2 + 3)
+      fst	s: [1]	p: 20	w: x1 + 16
+      #a__u72	s: [2]	p: 0	w: max(x2 + 1)
+      a__u111	s: []	p: 21	w: max(x2 + 5)
+      a__u73	s: 1
+      u24	s: 2
+      a__u12	s: [2]	p: 4	w: max(x2 + 23, x3 + 23)
+      u131	s: []	p: 21	w: x1
+      u252	s: 3
+      u282	s: []	p: 26	w: max(x1 + 4, x2 + 10)
+      natsFrom	s: []	p: 27	w: x1 + 10
+      a__u272	s: []	p: 19	w: 6
+      #a__u21	s: [1,2]	p: 0	w: x1 + x2 + x3 + 1
+      #a__u256	s: []	p: 0	w: 0
+      a__u192	s: 2
+      u303	s: []	p: 18	w: max(x2 + 3)
+      u182	s: []	p: 3	w: max(x1 + 1, x2 + 5)
+      a__snd	s: []	p: 2	w: x1 + 12
+      a__u301	s: []	p: 19	w: max(x3 + 11)
+      #a__u331	s: [1,2]	p: 0	w: x1 + x2 + 1
+      #a__u282	s: []	p: 0	w: 0
+      #a__u31	s: []	p: 0	w: x1 + 1
+      a__u54	s: []	p: 22	w: max(x2 + 2)
+      u294	s: []	p: 17	w: max(x2 + 33, x3 + 44)
+      u251	s: []	p: 24	w: max(x3 + 12)
+      u33	s: 2
+      u332	s: []	p: 7	w: max(x2 + 8)
+      u323	s: [1,4]	p: 15	w: max(x1, x2 + 10, x3 + 19, x4 + 10)
+      a__u342	s: [1]	p: 0	w: max(x1, x2 + 27, x3 + 27)
+      splitAt	s: []	p: 18	w: max(x1 + 10, x2 + 10)
+      isNaturalKind	s: 1
+      u192	s: 2
+      #a__u343	s: [2]	p: 0	w: x2
+      u52	s: []	p: 23	w: max(x2 + 2)
+      #a__u24	s: [1]	p: 0	w: x1 + 1
+      u291	s: []	p: 20	w: max(x2 + 44, x3 + 44)
+      u61	s: []	p: 19	w: max(x1 + 4, x2 + 15)
+      a__u53	s: []	p: 22	w: max(x2 + 2)
+      #a__u321	s: [2,4,3,1]	p: 17	w: max(x1 + 25, x2 + 26, x3 + 23, x4 + 15)
+      u92	s: [2,1]	p: 8	w: max(x1 + 3, x2 + 6)
+      a__u52	s: []	p: 23	w: max(x2 + 2)
+      #a__u252	s: []	p: 0	w: max(x3)
+      #a__u334	s: [1,2]	p: 0	w: x1 + x2
+      a__u302	s: []	p: 19	w: max(x2 + 3)
+      #a__u103	s: [2,3]	p: 0	w: max(x2, x3)
+      #a__take	s: [1]	p: 0	w: x1 + 1
+      a__u56	s: []	p: 7	w: 6
+      u221	s: 1
+      u56	s: []	p: 7	w: 6
+      #a__u322	s: [2,4,3]	p: 17	w: max(x1 + 26, x2 + 26, x3 + 22, x4 + 15)
+      #a__u56	s: []	p: 0	w: 0
+      a__u334	s: []	p: 18	w: max(x1, x2 + 6)
+      _ 	s: [1,2]	p: 0	w: x1 + x2 + 1
+      a__u32	s: 2
+      #a__isLNatKind	s: []	p: 0	w: 0
+      a__u262	s: []	p: 19	w: 6
+      u324	s: []	p: 14	w: max(x1 + 4, x2 + 10, x3 + 10, x4 + 10)
+      a__u183	s: []	p: 3	w: x1 + 1
+      u151	s: []	p: 19	w: x1
+      a__u102	s: []	p: 18	w: max(x2, x3 + 28)
+      #a__u332	s: [2]	p: 0	w: x2
+      #a__u203	s: [2]	p: 0	w: max(x2 + 1)
+      u202	s: []	p: 22	w: max(x2 + 4, x3 + 1)
+      a__u251	s: []	p: 24	w: max(x3 + 12)
+      isNatural	s: 1
+      a__u83	s: [1]	p: 0	w: x1 + 1
+      #a__u262	s: []	p: 0	w: 1
+      u106	s: []	p: 8	w: 6
+      #a__u33	s: []	p: 0	w: 0
+      a__u252	s: 3
+      a__u312	s: []	p: 8	w: max(x1, x2 + 3)
+      a__u311	s: []	p: 19	w: max(x1, x2 + 3)
+      #a__u281	s: [1,2]	p: 0	w: x1 + x2 + 1
+      a__u121	s: []	p: 7	w: max(x1 + 12)
+      a__u261	s: []	p: 22	w: max(x1 + 2, x2 + 13)
+      #a__u101	s: []	p: 0	w: max(x3 + 1)
+      a__u321	s: [3,4]	p: 17	w: max(x2 + 10, x3 + 19, x4 + 10)
+      a__u231	s: []	p: 19	w: x1
+      #a__u61	s: [2]	p: 0	w: max(x2)
+      #a__u122	s: []	p: 0	w: 1
+      u41	s: []	p: 20	w: max(x2)
+      a__u253	s: 3
+      a__u71	s: [2]	p: 1	w: max(x2)
+      a__u291	s: []	p: 20	w: max(x2 + 44, x3 + 44)
+      u211	s: [1]	p: 7	w: x1
+      a__u343	s: []	p: 0	w: max(x1 + 20, x2 + 27, x3 + 27)
+      a__u61	s: []	p: 19	w: max(x1 + 4, x2 + 15)
+      u45	s: []	p: 19	w: max(x1)
+      a__u105	s: []	p: 9	w: max(x2 + 6)
+      a__u44	s: []	p: 20	w: max(x2)
+      a__u81	s: []	p: 2	w: max(x1, x2 + 5)
+      u63	s: []	p: 6	w: 7
+      a__u331	s: []	p: 7	w: max(x3 + 8)
+      a__u24	s: 2
+      a__u151	s: []	p: 19	w: x1
+      u342	s: [1]	p: 0	w: max(x1, x2 + 27, x3 + 27)
+      a__u203	s: []	p: 22	w: max(x2)
+      a__fst	s: [1]	p: 20	w: x1 + 16
+      tail	s: [1]	p: 21	w: x1 + 9
+      a__natsFrom	s: []	p: 27	w: x1 + 10
+      u51	s: []	p: 24	w: max(x1 + 9, x2 + 9)
+      #a__u104	s: [1]	p: 0	w: max(x1)
+      #a__u83	s: []	p: 0	w: 0
+      #mark	s: []	p: 0	w: 0
+      #a__u244	s: [3,2,1]	p: 0	w: max(x1, x2, x3)
+      0 	s: []	p: 7	w: 6
+      u271	s: []	p: 22	w: max(x1 + 10, x2 + 11)
+      #a__u12	s: [3]	p: 0	w: x3
+      a__u191	s: 2
+      #a__u205	s: []	p: 0	w: 0
+      a__isLNat	s: 1
+      a__u323	s: [1,4]	p: 15	w: max(x1, x2 + 10, x3 + 19, x4 + 10)
+      a__u293	s: [1,3,2]	p: 18	w: max(x1 + 2, x2 + 33, x3 + 44)
+      a__u326	s: []	p: 13	w: max(x1, x2 + 10, x3 + 10, x4 + 10)
+      u333	s: []	p: 18	w: max(x1, x2 + 7)
+      a__u256	s: 1
+      u11	s: [1]	p: 5	w: max(x1 + 23, x2 + 23, x3 + 34)
+      sel	s: []	p: 21	w: x1 + x2 + 44
+      u312	s: []	p: 8	w: max(x1, x2 + 3)
+      a__u103	s: []	p: 18	w: max(x2, x3 + 28)
+      u32	s: 2
+      u73	s: 1
+      afterNth	s: []	p: 18	w: max(x1 + 23, x2 + 34)
+      a__u122	s: []	p: 7	w: 6
+      #a__u344	s: [1,3]	p: 0	w: x1 + x3
+      u46	s: []	p: 19	w: 6
+      #a__u71	s: [2]	p: 0	w: max(x2)
+      #a__u11	s: [1,2]	p: 0	w: x1 + x2 + x3
+      #a__u294	s: []	p: 0	w: x1 + 1
+      nil	s: []	p: 8	w: 6
+      u14	s: []	p: 3	w: max(x2 + 22, x3 + 22)
+      u325	s: []	p: 14	w: max(x2 + 10, x3 + 10, x4 + 10)
+      #a__u131	s: []	p: 0	w: 1
+      a__splitAt	s: []	p: 18	w: max(x1 + 10, x2 + 10)
+      isLNat	s: 1
+      #a__u232	s: []	p: 0	w: 1
+      #a__u171	s: [1]	p: 0	w: x1
+      a__u281	s: []	p: 27	w: max(x2 + 10)
+      #a__sel	s: []	p: 0	w: 0
+      #a__u201	s: [3,1]	p: 0	w: max(x1 + 1, x3 + 1)
+      mark	s: 1
+      u12	s: [2]	p: 4	w: max(x2 + 23, x3 + 23)
+      #a__isLNat	s: []	p: 0	w: 1
+      u203	s: []	p: 22	w: max(x2)
+      a__u104	s: []	p: 9	w: max(x1, x3 + 28)
+      a__u244	s: 2
+      u101	s: []	p: 18	w: max(x2, x3 + 28)
+      u301	s: []	p: 19	w: max(x3 + 11)
+      #a__u261	s: []	p: 0	w: max(x1)
+      #a__u55	s: [2,1]	p: 0	w: max(x1, x2 + 1)
+      a__u34	s: 2
+      #a__u251	s: [1]	p: 0	w: max(x1)
+      #a__u271	s: []	p: 0	w: 0
+      #a__u253	s: []	p: 0	w: max(x1 + 1, x2, x3)
+      a__u141	s: []	p: 21	w: x1 + 13
+      a__u202	s: []	p: 22	w: max(x2 + 4, x3 + 1)
+      #a__u325	s: [2]	p: 17	w: max(x1 + 7, x2 + 26, x4 + 15)
+      #a__u14	s: [2,3,1]	p: 0	w: x1 + x2 + x3
+      u72	s: [2]	p: 1	w: max(x2)
+      a__u181	s: []	p: 3	w: max(x1 + 6, x2 + 5)
+      a__u243	s: 2
+      a__u282	s: []	p: 26	w: max(x1 + 4, x2 + 10)
+      a__sel	s: []	p: 21	w: x1 + x2 + 44
+      u201	s: []	p: 2	w: max(x2 + 5, x3 + 6)
+      u21	s: []	p: 7	w: max(x1 + 3, x2 + 16, x3)
+      u262	s: []	p: 19	w: 6
+      a__u245	s: 1
+      u331	s: []	p: 7	w: max(x3 + 8)
+      #a__u241	s: []	p: 0	w: max(x2)
+      a__u182	s: []	p: 3	w: max(x1 + 1, x2 + 5)
+      u93	s: []	p: 8	w: 6
+      a__u22	s: []	p: 1	w: max(x2 + 15, x3)
+      u206	s: []	p: 7	w: 6
+      #a__u324	s: [2,4]	p: 17	w: max(x2 + 26, x4 + 15)
+      a__u93	s: []	p: 8	w: 6
+      #a__u323	s: [2,4,1]	p: 17	w: max(x1 + 22, x2 + 26, x4 + 15)
+      a__u55	s: []	p: 23	w: max(x1 + 1)
+      isLNatKind	s: []	p: 21	w: x1 + 3
+      #a__u43	s: [3]	p: 0	w: max(x3 + 1)
+      u255	s: 2
+      u272	s: []	p: 19	w: 6
+      #a__u46	s: []	p: 0	w: 0
+      #a__u93	s: []	p: 0	w: 1
+      a__u171	s: []	p: 18	w: x1 + x2
+      a__u205	s: []	p: 19	w: max(x1)
+      a__u232	s: []	p: 19	w: 6
+      u43	s: []	p: 20	w: max(x2)
+      #a__u111	s: [2]	p: 0	w: max(x1 + 1, x2)
+      a__u211	s: [1]	p: 7	w: x1
+      u183	s: []	p: 3	w: x1 + 1
+      a__u13	s: []	p: 4	w: max(x1, x2 + 22, x3 + 22)
+      a__isPLNat	s: []	p: 24	w: x1 + 2
+      a__u201	s: []	p: 2	w: max(x2 + 5, x3 + 6)
+      u82	s: []	p: 1	w: max(x2 + 4)
+      #_ 	s: []	p: 0	w: 0
+      u161	s: 1
+      #a__u231	s: [2]	p: 0	w: x2 + 1
+      a__isLNatKind	s: []	p: 21	w: x1 + 3
+      a__u33	s: 2
+      u204	s: []	p: 22	w: max(x2)
+      #a__u53	s: [1,2,3]	p: 0	w: max(x1, x2, x3)
+      #a__u172	s: []	p: 0	w: 1
+      #a__u333	s: [2,1]	p: 0	w: x1 + x2
+      a__u204	s: []	p: 22	w: max(x2)
+      a__u221	s: 1
+      u321	s: [3,4]	p: 17	w: max(x2 + 10, x3 + 19, x4 + 10)
+      #a__u272	s: []	p: 0	w: 0
+      #a__u112	s: []	p: 0	w: 1
+      #a__u211	s: []	p: 0	w: 0
+      a__u72	s: [2]	p: 1	w: max(x2)
+      u171	s: []	p: 18	w: x1 + x2
+      a__u112	s: []	p: 8	w: x1 + 2
+      u334	s: []	p: 18	w: max(x1, x2 + 6)
+      #a__isPLNat	s: []	p: 0	w: 0
+      head	s: []	p: 3	w: x1 + 10
+      #a__afterNth	s: [2]	p: 0	w: x2 + 1
+      #a__splitAt	s: [1]	p: 17	w: max(x1 + 26, x2 + 15)
+      #a__isPLNatKind	s: []	p: 0	w: 1
+      u34	s: 2
+      #a__u341	s: [1]	p: 0	w: x1 + x3
+      #a__u192	s: [1]	p: 0	w: max(x1)
+      a__u11	s: [1]	p: 5	w: max(x1 + 23, x2 + 23, x3 + 34)
+      #a__u73	s: []	p: 0	w: 0
+      cons	s: []	p: 25	w: max(x1 + 9, x2)
+      u245	s: 1
+      u311	s: []	p: 19	w: max(x1, x2 + 3)
+      snd	s: []	p: 2	w: x1 + 12
+      a__take	s: []	p: 18	w: x1 + x2 + 28
+      u22	s: []	p: 1	w: max(x2 + 15, x3)
+      u281	s: []	p: 27	w: max(x2 + 10)
+      #a__u246	s: []	p: 0	w: 0
+      a__u304	s: []	p: 18	w: max(x1, x2 + 3)
+      u112	s: []	p: 8	w: x1 + 2
+      u42	s: []	p: 20	w: max(x2)
+      tt	s: []	p: 7	w: 6
+      a__isNatural	s: 1
+      u55	s: []	p: 23	w: max(x1 + 1)
+      #a__u183	s: []	p: 0	w: 1
+      #a__u303	s: [2]	p: 0	w: x2 + 1
+      a__isNaturalKind	s: 1
+      #a__isNatural	s: []	p: 0	w: 1
+      u232	s: []	p: 19	w: 6
+      u343	s: []	p: 0	w: max(x1 + 20, x2 + 27, x3 + 27)
+      #a__u202	s: [1,2]	p: 0	w: max(x1, x2)
+      #a__u182	s: [2]	p: 0	w: max(x2 + 1)
+      #a__fst	s: []	p: 0	w: 0
+      #a__u151	s: []	p: 0	w: 0
+      u242	s: 2
+      u71	s: [2]	p: 1	w: max(x2)
+      a__u294	s: []	p: 17	w: max(x2 + 33, x3 + 44)
+      a__u327	s: []	p: 13	w: max(x1, x2 + 10)
+      #a__u42	s: [1,2,3]	p: 0	w: max(x1 + 1, x2 + 1, x3 + 1)
+      #a__u191	s: []	p: 0	w: max(x2 + 1)
+      u231	s: []	p: 19	w: x1
+      #a__u181	s: [2,1]	p: 0	w: max(x1 + 1, x2 + 1)
+      a__u344	s: [2]	p: 21	w: max(x2 + 26, x3 + 26)
+      #a__u54	s: []	p: 0	w: 0
+      #a__u243	s: [2]	p: 0	w: max(x2 + 1)
+      a__tail	s: [1]	p: 21	w: x1 + 9
+      a__u62	s: []	p: 0	w: max(x1 + 2)
+      a__isPLNatKind	s: []	p: 22	w: x1 + 12
+      a__u101	s: []	p: 18	w: max(x2, x3 + 28)
+      u193	s: 1
+      u31	s: 2
+      #a__tail	s: []	p: 0	w: 0
+      #a__u161	s: []	p: 0	w: 0
+      a__u254	s: 3
+      u141	s: []	p: 21	w: x1 + 13
+      u44	s: []	p: 20	w: max(x2)
+      #a__u34	s: []	p: 0	w: 1
+      #a__u62	s: []	p: 0	w: 0
+      #a__u92	s: []	p: 0	w: max(x2 + 1)
+      #a__u13	s: [3,2,1]	p: 0	w: x1 + x2 + x3 + 1
+      a__head	s: []	p: 3	w: x1 + 10
+      a__u246	s: []	p: 7	w: 6
+      a__u14	s: []	p: 3	w: max(x2 + 22, x3 + 22)
+      #a__u91	s: []	p: 0	w: 0
+      #a__u106	s: []	p: 0	w: 1
+      u256	s: 1
+      #a__u311	s: []	p: 0	w: x2 + 1
+      u326	s: []	p: 13	w: max(x1, x2 + 10, x3 + 10, x4 + 10)
+      #a__u291	s: []	p: 0	w: x2
+      u254	s: 3
+    USABLE RULES: { 1..407 }
+    Removed DPs: #52 #70 #72 #88
+Number of SCCs: 1, DPs: 22
+  SCC { #47 #67 #94 #119 #133 #177 #191 #210 #254 #262 #284 #295 #328 #340 #365 #379 #393 #395 #415 #440 #455 #482 }
+POLO(Sum)... succeeded.
+      #a__u242	w: 16
+      #a__u193	w: 0
+      a__u172	w: x1 + 1
+      u81	w: x1 + 6
+      #a__u45	w: 13
+      a__u241	w: x2 + 22
+      #a__isNaturalKind	w: 0
+      a__u92	w: x2 + 5
+      u327	w: x1 + x2 + 39
+      a__u242	w: x3 + 23
+      u83	w: 6
+      #a__u44	w: 14
+      a__u131	w: x1 + 1
+      a__u31	w: 0
+      #a__u102	w: 3
+      u172	w: x1 + 1
+      #a__u52	w: 15
+      a__u271	w: x1 + x2 + 2
+      u244	w: 7
+      u292	w: x1 + x3 + 5
+      #a__u254	w: 14
+      u13	w: 1
+      u62	w: x2 + 4
+      #a__u301	w: 3
+      a__u91	w: x2 + 5
+      a__u41	w: 5
+      a__u51	w: x1 + x2 + 2
+      u341	w: 1
+      #a__u141	w: 0
+      u253	w: 1
+      #a__u63	w: 0
+      a__u341	w: x1 + 1
+      #a__u204	w: 14
+      u344	w: x2 + 1
+      #a__u342	w: 3
+      #a__u121	w: 0
+      s 	w: x1 + 1
+      u241	w: x1 + x3 + 23
+      u322	w: 1
+      a__u45	w: 5
+      u304	w: 6
+      a__u82	w: x2 + 5
+      u91	w: 1
+      #a__u22	w: 3
+      #a__u41	w: 17
+      u246	w: x1 + 2
+      #a__u206	w: 0
+      #a__u326	w: 0
+      #a__head	w: 3
+      a__u63	w: 4
+      #a__u32	w: 3
+      a__u322	w: x1 + 7
+      u261	w: x1 + 1
+      #a__natsFrom	w: 3
+      u111	w: x1 + 1
+      u53	w: 1
+      isPLNatKind	w: 0
+      #a__u105	w: 6
+      #a__u51	w: 16
+      u104	w: 1
+      u23	w: x1 + 6
+      #a__u312	w: 3
+      #a__u221	w: 0
+      a__u193	w: 5
+      a__u333	w: x1
+      #a__u292	w: 3
+      #a__u302	w: 3
+      u191	w: 1
+      #a__u82	w: 5
+      a__u106	w: 13
+      a__u292	w: 4
+      isPLNat	w: 6
+      #a__u23	w: 3
+      #a__snd	w: 3
+      a__u303	w: x1
+      u102	w: x3 + 4
+      #a__u293	w: 3
+      a__afterNth	w: x1
+      u121	w: x1 + 1
+      #a__u304	w: 3
+      a__u324	w: x1 + x4 + 25
+      a__u332	w: x1 + x2 + 1
+      #a__u327	w: 3
+      a__u206	w: 13
+      a__u42	w: x1 + x2 + x3 + 1
+      u181	w: 4
+      u243	w: x3 + 2
+      a__u43	w: 5
+      a__u46	w: 6
+      take	w: x1 + x2 + 6
+      u105	w: x1 + 5
+      u293	w: x2 + 1
+      #a__u81	w: 6
+      u122	w: x1 + 1
+      #a__u245	w: 13
+      u302	w: x1 + 7
+      #a__u255	w: 13
+      a__u255	w: 13
+      u103	w: x3 + 2
+      a__u21	w: x1 + x2 + x3 + 8
+      a__u23	w: x3 + 5
+      u205	w: x1 + x2 + 5
+      a__u161	w: x1 + 1
+      u54	w: x3 + 1
+      a__u325	w: x1 + x4 + 32
+      pair	w: x1 + x2 + 16
+      fst	w: x1 + 15
+      #a__u72	w: 8
+      a__u111	w: x1 + x2 + 2
+      a__u73	w: 13
+      u24	w: x1 + x2 + 6
+      a__u12	w: x3 + 9
+      u131	w: x1 + 1
+      u252	w: 13
+      u282	w: 2
+      natsFrom	w: x1 + 9
+      a__u272	w: x1 + 1
+      #a__u21	w: 3
+      #a__u256	w: 0
+      a__u192	w: 1
+      u303	w: x2 + 1
+      u182	w: 1
+      a__snd	w: x1 + 1
+      a__u301	w: 5
+      #a__u331	w: 3
+      #a__u282	w: 3
+      #a__u31	w: 3
+      a__u54	w: x1
+      u294	w: 1
+      u251	w: 1
+      u33	w: x1 + x2 + 8
+      u332	w: 1
+      u323	w: 1
+      a__u342	w: x1 + 8
+      splitAt	w: x1 + x2 + 9
+      isNaturalKind	w: 1
+      u192	w: 1
+      #a__u343	w: 3
+      u52	w: 10
+      #a__u24	w: 3
+      u291	w: x1 + x2 + x3 + 6
+      u61	w: 6
+      a__u53	w: x1 + x2 + x3 + 9
+      #a__u321	w: 0
+      u92	w: x1 + 6
+      a__u52	w: x1 + x3 + 9
+      #a__u252	w: 16
+      #a__u334	w: 3
+      a__u302	w: x2 + 6
+      #a__u103	w: 9
+      #a__take	w: 3
+      a__u56	w: 15
+      u221	w: x1 + 1
+      u56	w: x1 + 16
+      #a__u322	w: 0
+      #a__u56	w: 0
+      a__u334	w: x1
+      _ 	w: 0
+      a__u32	w: x1
+      #a__isLNatKind	w: 0
+      a__u262	w: x1 + 1
+      u324	w: x3 + 26
+      a__u183	w: x1 + 7
+      u151	w: x1 + 1
+      a__u102	w: 3
+      #a__u332	w: 3
+      #a__u203	w: 15
+      u202	w: 3
+      a__u251	w: x3 + 14
+      isNatural	w: x1 + 4
+      a__u83	w: x1
+      #a__u262	w: 0
+      u106	w: 13
+      #a__u33	w: 3
+      a__u252	w: 13
+      a__u312	w: 1
+      a__u311	w: 0
+      #a__u281	w: 3
+      a__u121	w: x1 + x2 + 2
+      a__u261	w: x1 + x2 + 2
+      #a__u101	w: 11
+      a__u321	w: x1
+      a__u231	w: x1 + x2 + 2
+      #a__u61	w: 10
+      #a__u122	w: 0
+      u41	w: x1 + x3 + 6
+      a__u253	w: 13
+      a__u71	w: 17
+      a__u291	w: x2 + 5
+      u211	w: x1 + 1
+      a__u343	w: x1 + x2 + x3 + 15
+      a__u61	w: x2 + 5
+      u45	w: x2 + 6
+      a__u105	w: 4
+      a__u44	w: x1 + 1
+      a__u81	w: x2 + 5
+      u63	w: 5
+      a__u331	w: 2
+      a__u24	w: 5
+      a__u151	w: x1 + 1
+      u342	w: x2 + x3 + 9
+      a__u203	w: x2 + x3 + 15
+      a__fst	w: 14
+      tail	w: x1 + 1
+      a__natsFrom	w: 5
+      u51	w: 2
+      #a__u104	w: 8
+      #a__u83	w: 0
+      #mark	w: x1 + 3
+      #a__u244	w: 14
+      0 	w: 6
+      u271	w: x1 + 1
+      #a__u12	w: 3
+      a__u191	w: 3
+      #a__u205	w: 13
+      a__isLNat	w: x1 + 7
+      a__u323	w: x1 + 18
+      a__u293	w: x1
+      a__u326	w: x1 + 32
+      u333	w: 0
+      a__u256	w: 13
+      u11	w: 1
+      sel	w: x1 + x2 + 2
+      u312	w: 1
+      a__u103	w: x1 + x2 + 1
+      u32	w: x2 + 1
+      u73	w: 1
+      afterNth	w: x1 + x2 + 1
+      a__u122	w: x1 + 1
+      #a__u344	w: 3
+      u46	w: 7
+      #a__u71	w: 9
+      #a__u11	w: 3
+      #a__u294	w: 3
+      nil	w: 5
+      u14	w: 1
+      u325	w: x2 + x3 + 33
+      #a__u131	w: 0
+      a__splitAt	w: x1 + x2
+      isLNat	w: 7
+      #a__u232	w: 0
+      #a__u171	w: 0
+      a__u281	w: x2 + 6
+      #a__sel	w: 3
+      #a__u201	w: 17
+      mark	w: 4
+      u12	w: 9
+      #a__isLNat	w: 11
+      u203	w: 16
+      a__u104	w: x1 + x2 + 1
+      a__u244	w: x1 + x3 + 6
+      u101	w: 2
+      u301	w: x1 + x2 + x3 + 6
+      #a__u261	w: 1
+      #a__u55	w: 12
+      a__u34	w: 5
+      #a__u251	w: 17
+      #a__u271	w: 0
+      #a__u253	w: 15
+      a__u141	w: x1 + 1
+      a__u202	w: 4
+      #a__u325	w: 0
+      #a__u14	w: 3
+      u72	w: 1
+      a__u181	w: 4
+      a__u243	w: x1 + 1
+      a__u282	w: x1 + 1
+      a__sel	w: x1 + 1
+      u201	w: 1
+      u21	w: 8
+      u262	w: x1 + 1
+      a__u245	w: 1
+      u331	w: x1 + x3 + 3
+      #a__u241	w: 17
+      a__u182	w: x1
+      u93	w: x1 + 7
+      a__u22	w: x3 + 5
+      u206	w: 1
+      #a__u324	w: 0
+      a__u93	w: 6
+      #a__u323	w: 0
+      a__u55	w: 14
+      isLNatKind	w: 14
+      #a__u43	w: 15
+      u255	w: 13
+      u272	w: x1 + 1
+      #a__u46	w: 0
+      #a__u93	w: 0
+      a__u171	w: x1 + x2 + 2
+      a__u205	w: 4
+      a__u232	w: x1 + 1
+      u43	w: x2 + x3 + 6
+      #a__u111	w: 0
+      a__u211	w: x1 + 1
+      u183	w: 1
+      a__u13	w: 9
+      a__isPLNat	w: x1 + 5
+      a__u201	w: x1 + x2 + 1
+      u82	w: x1 + 6
+      #_ 	w: 0
+      u161	w: x1 + 1
+      #a__u231	w: 0
+      a__isLNatKind	w: x1 + 14
+      a__u33	w: x1 + x3 + 7
+      u204	w: 1
+      #a__u53	w: 14
+      #a__u172	w: 0
+      #a__u333	w: 3
+      a__u204	w: x1 + x2 + 1
+      a__u221	w: x1 + 1
+      u321	w: x3 + x4 + 1
+      #a__u272	w: 0
+      #a__u112	w: 0
+      #a__u211	w: 0
+      a__u72	w: x1 + x2 + 1
+      u171	w: x1 + 1
+      a__u112	w: x1 + 1
+      u334	w: x2 + 1
+      #a__isPLNat	w: 4
+      head	w: x1 + 16
+      #a__afterNth	w: 3
+      #a__splitAt	w: 0
+      #a__isPLNatKind	w: 0
+      u34	w: x2 + 6
+      #a__u341	w: 3
+      #a__u192	w: 0
+      a__u11	w: 1
+      #a__u73	w: 0
+      cons	w: x1 + x2 + 1
+      u245	w: 2
+      u311	w: x1 + 1
+      snd	w: x1 + 1
+      a__take	w: 5
+      u22	w: 6
+      u281	w: 7
+      #a__u246	w: 0
+      a__u304	w: x1 + 5
+      u112	w: x1 + 1
+      u42	w: 1
+      tt	w: 13
+      a__isNatural	w: 3
+      u55	w: x2 + 15
+      #a__u183	w: 0
+      #a__u303	w: 3
+      a__isNaturalKind	w: x1 + 7
+      #a__isNatural	w: 7
+      u232	w: x1 + 1
+      u343	w: 1
+      #a__u202	w: 9
+      #a__u182	w: 13
+      #a__fst	w: 3
+      #a__u151	w: 0
+      u242	w: 24
+      u71	w: 1
+      a__u294	w: x2 + 14
+      a__u327	w: x1 + 38
+      #a__u42	w: 9
+      #a__u191	w: 13
+      u231	w: x1 + 1
+      #a__u181	w: 14
+      a__u344	w: x1
+      #a__u54	w: 13
+      #a__u243	w: 15
+      a__tail	w: x1
+      a__u62	w: 3
+      a__isPLNatKind	w: x1
+      a__u101	w: x2 + x3 + 2
+      u193	w: x1 + 6
+      u31	w: x1 + 1
+      #a__tail	w: 3
+      #a__u161	w: 0
+      a__u254	w: 13
+      u141	w: x1 + 1
+      u44	w: x2 + x3 + 2
+      #a__u34	w: 3
+      #a__u62	w: 9
+      #a__u92	w: 12
+      #a__u13	w: 3
+      a__head	w: 15
+      a__u246	w: 1
+      a__u14	w: 9
+      #a__u91	w: 12
+      #a__u106	w: 0
+      u256	w: 13
+      #a__u311	w: 1
+      u326	w: x3 + x4 + 33
+      #a__u291	w: 3
+      u254	w: 13
+    USABLE RULES: { 6 8 9 11 12 14 16..20 32 34 36 38 39 47..56 104 105 123..130 135..138 141 142 284 286 290 294 295 297 298 300 303..307 319 322 324 326 327 334..343 393 396..398 }
+    Removed DPs: #47 #67 #94 #119 #133 #177 #191 #210 #254 #262 #284 #295 #328 #340 #365 #379 #393 #395 #415 #440 #455 #482
+Number of SCCs: 0, DPs: 0

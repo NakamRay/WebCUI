@@ -1,0 +1,8 @@
+sys=./programs/AProVE17/bin
+fn=`basename $1`
+
+cp $1 $sys
+cd $sys
+#./starexec_run_standard $fn
+./aprove-sol ./$fn
+rm -f $sys/$fn

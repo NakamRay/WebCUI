@@ -1,0 +1,107 @@
+Input TRS:
+    1: p(s(X)) -> X
+    2: fact(0()) -> s(0())
+    3: fact(s(Y)) -> xbtimes(s(Y),fact(p(s(Y))))
+    4: xbtimes(0(),U) -> 0()
+    5: xbtimes(s(V),W) -> xbplus(xbtimes(V,W),W)
+    6: xbplus(P,0()) -> P
+    7: xbplus(X1,s(Y1)) -> s(xbplus(X1,Y1))
+    8: _(X1,X2) -> X1
+    9: _(X1,X2) -> X2
+Number of strict rules: 9
+Direct POLO(bPol) ... failed.
+Uncurrying xbtimes p
+1: p^1_s(X) -> X
+2: fact(0()) -> s(0())
+3: fact(s(Y)) -> xbtimes^1_s(Y,fact(p^1_s(Y)))
+4: xbtimes^1_0(U) -> 0()
+5: xbtimes^1_s(V,W) -> xbplus(xbtimes(V,W),W)
+6: xbplus(P,0()) -> P
+7: xbplus(X1,s(Y1)) -> s(xbplus(X1,Y1))
+8: _(X1,X2) -> X1
+9: _(X1,X2) -> X2
+10: p(s(_1)) ->= p^1_s(_1)
+11: xbtimes(0(),_1) ->= xbtimes^1_0(_1)
+12: xbtimes(s(_1),_2) ->= xbtimes^1_s(_1,_2)
+Number of strict rules: 9
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #xbtimes(0(),_1) ->? #xbtimes^1_0(_1)
+   #2: #xbtimes(s(_1),_2) ->? #xbtimes^1_s(_1,_2)
+   #3: #xbplus(X1,s(Y1)) -> #xbplus(X1,Y1)
+   #4: #p(s(_1)) ->? #p^1_s(_1)
+   #5: #xbtimes^1_s(V,W) -> #xbplus(xbtimes(V,W),W)
+   #6: #xbtimes^1_s(V,W) -> #xbtimes(V,W)
+   #7: #fact(s(Y)) -> #xbtimes^1_s(Y,fact(p^1_s(Y)))
+   #8: #fact(s(Y)) -> #fact(p^1_s(Y))
+   #9: #fact(s(Y)) -> #p^1_s(Y)
+Number of SCCs: 3, DPs: 4
+  SCC { #8 }
+POLO(Sum)... succeeded.
+      xbtimes	w: 0
+      s 	w: x1 + 2
+      #xbtimes^1_s	w: 0
+      #p^1_s	w: 0
+      #xbtimes	w: 0
+      #xbplus	w: 0
+      p^1_s	w: x1 + 1
+      #fact	w: x1
+      #p 	w: 0
+      _ 	w: 0
+      p 	w: 0
+      #xbtimes^1_0	w: 0
+      0 	w: 0
+      xbtimes^1_0	w: 0
+      xbplus	w: 0
+      fact	w: 0
+      #_ 	w: 0
+      xbtimes^1_s	w: 0
+    USABLE RULES: { 1 }
+    Removed DPs: #8
+Number of SCCs: 2, DPs: 3
+  SCC { #3 }
+POLO(Sum)... succeeded.
+      xbtimes	w: 0
+      s 	w: x1 + 1
+      #xbtimes^1_s	w: 0
+      #p^1_s	w: 0
+      #xbtimes	w: 0
+      #xbplus	w: x2
+      p^1_s	w: x1 + 1
+      #fact	w: x1
+      #p 	w: 0
+      _ 	w: 0
+      p 	w: 0
+      #xbtimes^1_0	w: 0
+      0 	w: 0
+      xbtimes^1_0	w: 0
+      xbplus	w: 0
+      fact	w: 0
+      #_ 	w: 0
+      xbtimes^1_s	w: 0
+    USABLE RULES: { 1 }
+    Removed DPs: #3
+Number of SCCs: 1, DPs: 2
+  SCC { #2 #6 }
+POLO(Sum)... succeeded.
+      xbtimes	w: 0
+      s 	w: x1 + 2
+      #xbtimes^1_s	w: x1 + 1
+      #p^1_s	w: 0
+      #xbtimes	w: x1
+      #xbplus	w: 0
+      p^1_s	w: x1 + 1
+      #fact	w: x1
+      #p 	w: 0
+      _ 	w: 0
+      p 	w: 0
+      #xbtimes^1_0	w: 0
+      0 	w: 0
+      xbtimes^1_0	w: 0
+      xbplus	w: 0
+      fact	w: 0
+      #_ 	w: 0
+      xbtimes^1_s	w: 0
+    USABLE RULES: { 1 }
+    Removed DPs: #2 #6
+Number of SCCs: 0, DPs: 0

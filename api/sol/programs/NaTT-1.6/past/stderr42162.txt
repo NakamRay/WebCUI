@@ -1,0 +1,34 @@
+Input TRS:
+    1: f(s(X)) -> f(X)
+    2: g(cons(0(),Y)) -> g(Y)
+    3: g(cons(s(U),V)) -> s(U)
+    4: h(cons(W,P)) -> h(g(cons(W,P)))
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... removes: 1 3 5 6 2
+      h 	w: x1
+      s 	w: 2 * x1 + 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      f 	w: 2 * x1
+      0 	w: 1
+      cons	w: 2 * x1 + x2 + 1
+      g 	w: x1
+Number of strict rules: 1
+Direct POLO(bPol) ... failed.
+Uncurrying h
+4: h^1_cons(W,P) -> h^1_g(cons(W,P))
+7: h(cons(_1,_2)) ->= h^1_cons(_1,_2)
+8: h(g(_1)) ->= h^1_g(_1)
+Number of strict rules: 1
+Direct POLO(bPol) ... removes: 4 8 7
+      h 	w: x1 + 3
+      s 	w: x1
+      h^1_g	w: x1
+      _ 	w: x1 + x2
+      f 	w: x1
+      0 	w: 0
+      cons	w: 2 * x1 + x2 + 1
+      g 	w: 2 * x1 + 1
+      h^1_cons	w: 2 * x1 + x2 + 3
+Number of strict rules: 0

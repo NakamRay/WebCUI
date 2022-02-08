@@ -1,0 +1,27 @@
+Input TRS:
+    1: app(abs(X),Y) -> sub(X,Y)
+    2: sub(X0,Y) -> X0
+    3: sub(y(),Y) -> Y
+    4: sub(abs(X2),Y) -> abs(sub(X2,Y))
+    5: sub(app(X,X'),Y) -> app(sub(X,Y),sub(X',Y))
+    6: sub(sub(X2,X),X0) -> sub(sub(X2,X0),sub(X,X0))
+Number of strict rules: 6
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #sub(sub(X2,X),X0) -> #sub(sub(X2,X0),sub(X,X0))
+   #2: #sub(sub(X2,X),X0) -> #sub(X2,X0)
+   #3: #sub(sub(X2,X),X0) -> #sub(X,X0)
+   #4: #sub(app(X,X'),Y) -> #app(sub(X,Y),sub(X',Y))
+   #5: #sub(app(X,X'),Y) -> #sub(X,Y)
+   #6: #sub(app(X,X'),Y) -> #sub(X',Y)
+   #7: #app(abs(X),Y) -> #sub(X,Y)
+   #8: #sub(abs(X2),Y) -> #sub(X2,Y)
+Number of SCCs: 1, DPs: 8
+  SCC { #1..8 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #sub(sub(X2_{1},X),X_{1})	-#1->
+  #sub(sub(X2_{1},X_{1}),sub(X,X_{1}))	--->*
+  #sub(sub(X2_{1},X_{1}),sub(X,X_{1}))
+  Looping with: [ X2_{1} := X2_{1}; X := X_{1}; X_{1} := sub(X,X_{1}); ]

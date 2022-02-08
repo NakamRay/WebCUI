@@ -1,0 +1,12 @@
+(VAR X Y Z )
+(RULES
+  pls(X,pls(Y,Z)) -> pls(pls(X,Y),Z)
+  pls(pls(X,Y),Z) -> pls(X,pls(Y,Z))
+  pls(X,Y) -> pls(Y,X)
+  pls(s(X),Y) -> pls(X,s(Y))
+  pls(X,s(Y)) -> pls(s(X),Y)
+  mul(X,s(Y)) -> pls(X,mul(X,Y))
+  mul(s(X),Y) -> pls(mul(X,Y),Y)
+  mul(X,Y) -> mul(Y,X)
+  sq(X) -> mul(X,X)
+  sq(s(X)) -> pls(mul(X,X),s(pls(X,X))))

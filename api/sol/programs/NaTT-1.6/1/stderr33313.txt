@@ -1,0 +1,1 @@
+File "Ex6_15_AEL02_GM.xml", line 1, character 1: syntax error.

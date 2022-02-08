@@ -1,0 +1,3928 @@
+Copyright 2008 Etienne Payet <etienne.payet@univ-reunion.fr>
+
+This file is part of NTI.
+
+NTI is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, version 3 of the License or
+any later version.
+
+NTI is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with NTI. If not, see <http://www.gnu.org/licenses/>.
+
+
+
+
+***********************************************************
+Non-termination analysis of directory Comp07/TRS/
+- time limit =  120 second(s)
+- forward+backward unfoldings, forward unfoldings only,
+  backward unfoldings only, all in parallel
+- useless rule elimination ON
+- unfolding at variable positions ON
+***********************************************************
+
+[SEE BOTTOM LINES FOR OVERALL RESULTS]
+
+
+*** Comp07/TRS/Cime/append-wrong.trs
+forward+backward process killed -- 494 rule(s) generated
+backward process killed -- 1512 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+ifappend(_1,_2,false) -> append(tl(_1),_2) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = tl(_1)
+tl(cons(_3,_4)) -> cons(_3,_4) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/cons(_3,_4)} is a mgu of r0|p0 and l'0
+
+==> ifappend(cons(_1,_2),_3,false) -> append(cons(_1,_2),_3) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = epsilon is a position in r1
+we have r1|p1 = append(cons(_1,_2),_3)
+append(_4,_5) -> ifappend(_4,_5,is_empty(_4)) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_3/_5, _4/cons(_1,_2)} is a mgu of r1|p1 and l'1
+
+==> ifappend(cons(_1,_2),_3,false) -> ifappend(cons(_1,_2),_3,is_empty(cons(_1,_2))) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 2 is a position in r2
+we have r2|p2 = is_empty(cons(_1,_2))
+is_empty(cons(_4,_5)) -> false is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/_4, _2/_5} is a mgu of r2|p2 and l'2
+
+==> ifappend(cons(_1,_2),_3,false) -> ifappend(cons(_1,_2),_3,false) is in EU_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = ifappend(cons(_1,_2),_3,false) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = ifappend(cons(_1,_2),_3,false) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=3, depth k=3
+560 rule(s) generated
+*** proof time: 0.48 second(s)
+
+*** Comp07/TRS/higher-order/AotoYam/001.trs
+
+NO
+
+let R be the TRS under consideration
+
+app(app(iterate,_1),_2) -> app(app(cons,_2),app(app(iterate,_1),app(_1,_2))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/_1, _2/app(_1,_2)}
+we have r|p = app(app(iterate,_1),app(_1,_2)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = app(app(iterate,_1),_2) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/higher-order/AotoYam/003.trs
+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+app(app(app(until,_1),_2),_3) -> app(app(app(if,app(_1,_3)),_3),app(app(app(until,_1),_2),app(_2,_3))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/_1, _2/_2, _3/app(_2,_3)}
+we have r|p = app(app(app(until,_1),_2),app(_2,_3)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = app(app(app(until,_1),_2),_3) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/higher-order/AProVE_HO/nonTermF.trs
+forward+backward process killed -- 6 rule(s) generated
+backward process killed -- 6 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+ap(ap(ap(foldr,_1),_2),ap(ap(cons,_3),_4)) -> ap(ap(_1,_3),ap(ap(ap(foldr,_1),_2),_4)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 1 is a position in r0
+we have r0|p0 = ap(ap(ap(foldr,_1),_2),_4)
+ap(ap(ap(foldr,_5),_6),nil) -> _6 is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/_5, _2/_6, _4/nil} is a mgu of r0|p0 and l'0
+
+==> ap(ap(ap(foldr,_1),_2),ap(ap(cons,_3),nil)) -> ap(ap(_1,_3),_2) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = ap(_1,_3)
+ap(ap(f,_4),_4) -> ap(ap(_4,ap(f,_4)),ap(ap(cons,_4),nil)) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/ap(f,_4), _3/_4} is a mgu of r1|p1 and l'1
+
+==> ap(ap(ap(foldr,ap(f,_1)),_2),ap(ap(cons,_1),nil)) -> ap(ap(ap(_1,ap(f,_1)),ap(ap(cons,_1),nil)),_2) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/foldr, _2/ap(ap(cons,foldr),nil)}
+let theta' = {}
+we have r|p = ap(ap(ap(_1,ap(f,_1)),ap(ap(cons,_1),nil)),_2) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = ap(ap(ap(foldr,ap(f,foldr)),ap(ap(cons,foldr),nil)),ap(ap(cons,foldr),nil)) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=2, depth k=4
+6 rule(s) generated
+*** proof time: 0.05 second(s)
+
+*** Comp07/TRS/higher-order/AProVE_HO/termMonTypes.trs
+forward+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+ap(ap(ap(g,_1),_2),ap(s,_3)) -> ap(ap(ap(g,_1),_2),ap(ap(_1,_2),0)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1.0 is a position in l0
+we have l0|p0 = s
+ap(f,_4) -> _4 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_4/s} is a mgu of l0|p0 and r'0
+
+==> ap(ap(ap(g,_1),_2),ap(ap(f,s),_3)) -> ap(ap(ap(g,_1),_2),ap(ap(_1,_2),0)) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/f, _2/s, _3/0}
+let theta' = {}
+we have r|p = ap(ap(ap(g,_1),_2),ap(ap(_1,_2),0)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = ap(ap(ap(g,f),s),ap(ap(f,s),0)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=1, depth k=3
+4 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/higher-order/AProVE_HO/TypeEx3.trs
+
+NO
+
+let R be the TRS under consideration
+
+app(app(_1,0),_2) -> app(app(hd,app(app(map,_1),app(app(cons,0),nil))),_2) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.1.1
+let theta = {_1/cons, _2/nil}
+let theta' = {}
+we have r|p = app(app(cons,0),nil) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = app(app(cons,0),nil) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/higher-order/AProVE_HO/TypeEx5.trs
+
+NO
+
+let R be the TRS under consideration
+
+ap(f,_1) -> ap(f,app(g,_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/app(g,_1)}
+we have r|p = ap(f,app(g,_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = ap(f,_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/higher-order/Bird/Ex2_8_1ConstSubstFix.trs
+forward process killed -- 4 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+app(app(app(subst,_1),_2),_3) -> app(app(_1,_3),app(_2,_3)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = epsilon is a position in l0
+we have l0|p0 = app(app(app(subst,_1),_2),_3)
+app(app(fix,_4),_5) -> app(app(_4,app(fix,_4)),_5) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_2/app(fix,app(subst,_1)), _3/_5, _4/app(subst,_1)} is a mgu of l0|p0 and r'0
+
+==> app(app(fix,app(subst,_1)),_2) -> app(app(_1,_2),app(app(fix,app(subst,_1)),_2)) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {}
+we have r|p = app(app(fix,app(subst,_1)),_2) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = app(app(fix,app(subst,_1)),_2) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=1, depth k=3
+3 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/higher-order/Bird/Hamming.trs
+forward+backward process killed -- 26 rule(s) generated
+backward process killed -- 31 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+hamming -> app(app(cons,app(s,0)),app(app(merge,list1),app(app(merge,list2),list3))) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 1.0.1 is a position in r0
+we have r0|p0 = list1
+list1 -> app(app(map,app(mult,app(s,app(s,0)))),hamming) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {} is a mgu of r0|p0 and l'0
+
+==> hamming -> app(app(cons,app(s,0)),app(app(merge,app(app(map,app(mult,app(s,app(s,0)))),hamming)),app(app(merge,list2),list3))) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1.0.1.1
+let theta = {}
+let theta' = {}
+we have r|p = hamming and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = hamming is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=1, depth k=4
+71 rule(s) generated
+*** proof time: 0.30 second(s)
+
+*** Comp07/TRS/HM/n002.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> f(_1) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = f(_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/HM/n003.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> f(a) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/a}
+let theta' = {}
+we have r|p = f(a) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(a) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/HM/n004.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(a) -> f(a) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = f(a) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(a) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/HM/n005.trs
+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> f(f(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = f(_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/HM/n006.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> f(g(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/g(_1)}
+we have r|p = f(g(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/HM/n007.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1,_2) -> f(_1,_1) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_2/_1}
+let theta' = {}
+we have r|p = f(_1,_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1,_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/HM/n008.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(a) -> f(a) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = f(a) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(a) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.12a.trs
+forward+backward process killed -- 129 rule(s) generated
+forward process killed -- 97 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+h(_1,_2) -> f(_1,_2,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = epsilon is a position in l0
+we have l0|p0 = h(_1,_2)
+f(0,1,_3) -> h(_3,_3) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/_3, _2/_3} is a mgu of l0|p0 and r'0
+
+==> f(0,1,_1) -> f(_1,_1,_1) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 0 is a position in l1
+we have l1|p1 = 0
+g(_2,_3) -> _2 is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_2/0} is a mgu of l1|p1 and r'1
+
+==> f(g(0,_1),1,_2) -> f(_2,_2,_2) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 1 is a position in l2
+we have l2|p2 = 1
+g(_3,_4) -> _4 is in R
+let r'2 be the right-hand side of this rule
+theta2 = {_4/1} is a mgu of l2|p2 and r'2
+
+==> f(g(0,_1),g(_2,1),_3) -> f(_3,_3,_3) is in EU_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/1, _2/0, _3/g(0,1)}
+let theta' = {}
+we have r|p = f(_3,_3,_3) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(0,1),g(0,1),g(0,1)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=3, depth k=2
+92 rule(s) generated
+*** proof time: 0.05 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.13.trs
+forward process killed -- 693 rule(s) generated
+forward+backward process killed -- 454 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(0,1,_1) -> f(_1,_1,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = 0
+g(_2,_2,_3) -> _3 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_3/0} is a mgu of l0|p0 and r'0
+
+==> f(g(_1,_1,0),1,_2) -> f(_2,_2,_2) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 0.0 is a position in l1
+we have l1|p1 = _1
+1 -> 2 is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/2} is a mgu of l1|p1 and r'1
+
+==> f(g(1,2,0),1,_1) -> f(_1,_1,_1) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 0.1 is a position in l2
+we have l2|p2 = 2
+0 -> 2 is in R
+let r'2 be the right-hand side of this rule
+theta2 = {} is a mgu of l2|p2 and r'2
+
+==> f(g(1,0,0),1,_1) -> f(_1,_1,_1) is in EU_R^3
+let l3 be the left-hand side of this rule
+p3 = 1 is a position in l3
+we have l3|p3 = 1
+g(_2,_3,_3) -> _2 is in R
+let r'3 be the right-hand side of this rule
+theta3 = {_2/1} is a mgu of l3|p3 and r'3
+
+==> f(g(1,0,0),g(1,_1,_1),_2) -> f(_2,_2,_2) is in EU_R^4
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/0, _2/g(1,0,0)}
+let theta' = {}
+we have r|p = f(_2,_2,_2) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(1,0,0),g(1,0,0),g(1,0,0)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=4, depth k=2
+397 rule(s) generated
+*** proof time: 0.25 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.14.trs
+forward process killed -- 14 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(g(_1),s(0)) -> f(g(_1),g(_1)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1.0 is a position in l0
+we have l0|p0 = 0
+g(0) -> 0 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {} is a mgu of l0|p0 and r'0
+
+==> f(g(_1),s(g(0))) -> f(g(_1),g(_1)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = s(g(0))
+g(s(_2)) -> s(g(_2)) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_2/0} is a mgu of l1|p1 and r'1
+
+==> f(g(_1),g(s(0))) -> f(g(_1),g(_1)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/s(0)}
+let theta' = {}
+we have r|p = f(g(_1),g(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(s(0)),g(s(0))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=3
+7 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.15.trs
+forward process killed -- 8 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(0,1,g(_1,_2),_3) -> f(g(_1,_2),g(_1,_2),g(_1,_2),h(_1)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = 0
+g(0,1) -> 0 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {} is a mgu of l0|p0 and r'0
+
+==> f(g(0,1),1,g(_1,_2),_3) -> f(g(_1,_2),g(_1,_2),g(_1,_2),h(_1)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = 1
+g(0,1) -> 1 is in R
+let r'1 be the right-hand side of this rule
+theta1 = {} is a mgu of l1|p1 and r'1
+
+==> f(g(0,1),g(0,1),g(_1,_2),_3) -> f(g(_1,_2),g(_1,_2),g(_1,_2),h(_1)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/0, _2/1, _3/h(0)}
+let theta' = {}
+we have r|p = f(g(_1,_2),g(_1,_2),g(_1,_2),h(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(0,1),g(0,1),g(0,1),h(0)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=2
+6 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.16.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(s(0),g(_1)) -> f(_1,g(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/s(0)}
+let theta' = {}
+we have r|p = f(_1,g(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(s(0),g(s(0))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.17.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(g(_1),s(0),_2) -> f(g(s(0)),_2,g(_1)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1.0 is a position in l0
+we have l0|p0 = 0
+g(0) -> 0 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {} is a mgu of l0|p0 and r'0
+
+==> f(g(_1),s(g(0)),_2) -> f(g(s(0)),_2,g(_1)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = s(g(0))
+g(s(_3)) -> s(g(_3)) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_3/0} is a mgu of l1|p1 and r'1
+
+==> f(g(_1),g(s(0)),_2) -> f(g(s(0)),_2,g(_1)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/s(0), _2/g(s(0))}
+let theta' = {}
+we have r|p = f(g(s(0)),_2,g(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(s(0)),g(s(0)),g(s(0))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=3
+15 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.18.trs
+forward+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+a(b(a(b(_1)))) -> a(b(a(a(b(_1))))) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0.0.0 is a position in l0
+we have l0|p0 = b(_1)
+a(b(a(b(_2)))) -> b(a(b(a(a(b(_2)))))) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/a(b(a(a(b(_2)))))} is a mgu of l0|p0 and r'0
+
+==> a(b(a(a(b(a(b(_1))))))) -> a(b(a(a(b(a(b(a(a(b(_1)))))))))) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/a(a(b(_1)))}
+we have r|p = a(b(a(a(b(a(b(a(a(b(_1)))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(b(a(a(b(a(b(_1))))))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=1, depth k=6
+2 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.19.trs
+forward+backward process killed -- 592 rule(s) generated
+backward process killed -- 557 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1,c(_1),c(_2)) -> f(_2,_2,f(_2,_1,_2)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = _2
+g(_3,_4) -> _3 is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/g(_3,_4)} is a mgu of r0|p0 and l'0
+
+==> f(_1,c(_1),c(g(_2,_3))) -> f(_2,g(_2,_3),f(g(_2,_3),_1,g(_2,_3))) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 1 is a position in r1
+we have r1|p1 = g(_2,_3)
+g(_4,_5) -> _5 is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_2/_4, _3/_5} is a mgu of r1|p1 and l'1
+
+==> f(_1,c(_1),c(g(_2,_3))) -> f(_2,_3,f(g(_2,_3),_1,g(_2,_3))) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 2.0 is a position in r2
+we have r2|p2 = g(_2,_3)
+g(_4,_5) -> _5 is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/_4, _3/_5} is a mgu of r2|p2 and l'2
+
+==> f(_1,c(_1),c(g(_2,_3))) -> f(_2,_3,f(_3,_1,g(_2,_3))) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 2 is a position in r3
+we have r3|p3 = f(_3,_1,g(_2,_3))
+f(c(_4),_4,_5) -> c(_5) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/_4, _3/c(_4), _5/g(_2,c(_4))} is a mgu of r3|p3 and l'3
+
+==> f(_1,c(_1),c(g(_2,c(_1)))) -> f(_2,c(_1),c(g(_2,c(_1)))) is in EU_R^4
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/_2}
+let theta' = {}
+we have r|p = f(_2,c(_1),c(g(_2,c(_1)))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_2,c(_2),c(g(_2,c(_2)))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=4, depth k=3
+241 rule(s) generated
+*** proof time: 0.87 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.2.trs
+forward process killed -- 12 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(g(_1),s(0),_2) -> f(_2,_2,g(_1)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1.0 is a position in l0
+we have l0|p0 = 0
+g(0) -> 0 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {} is a mgu of l0|p0 and r'0
+
+==> f(g(_1),s(g(0)),_2) -> f(_2,_2,g(_1)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = s(g(0))
+g(s(_3)) -> s(g(_3)) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_3/0} is a mgu of l1|p1 and r'1
+
+==> f(g(_1),g(s(0)),_2) -> f(_2,_2,g(_1)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/s(0), _2/g(s(0))}
+let theta' = {}
+we have r|p = f(_2,_2,g(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(s(0)),g(s(0)),g(s(0))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=3
+13 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.3.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(g(_1,_2),_1,_3) -> f(_3,_3,_3) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1 is a position in l0
+we have l0|p0 = _1
+g(_4,_5) -> _4 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/_4} is a mgu of l0|p0 and r'0
+
+==> f(g(_1,_2),g(_1,_3),_4) -> f(_4,_4,_4) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_3/_2, _4/g(_1,_2)}
+let theta' = {}
+we have r|p = f(_4,_4,_4) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(_1,_2),g(_1,_2),g(_1,_2)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=1, depth k=2
+2 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.4.trs
+forward+backward process killed -- 2 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(g(_1),_1,_2) -> f(_2,_2,g(_2)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1 is a position in l0
+we have l0|p0 = _1
+g(g(_3)) -> g(_3) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/g(_3)} is a mgu of l0|p0 and r'0
+
+==> f(g(g(_1)),g(g(_1)),_2) -> f(_2,_2,g(_2)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 2 is a position in l1
+we have l1|p1 = _2
+g(g(_3)) -> g(_3) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_2/g(_3)} is a mgu of l1|p1 and r'1
+
+==> f(g(g(_1)),g(g(_1)),g(g(_2))) -> f(g(_2),g(_2),g(g(_2))) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_2/g(_1)}
+let theta' = {}
+we have r|p = f(g(_2),g(_2),g(g(_2))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(g(_1)),g(g(_1)),g(g(g(_1)))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=3
+6 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/AG01/#4.7.trs
+forward process killed -- 5 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(s(_1)) -> f(g(_1,_1)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = s(_1)
+g(0,1) -> s(0) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/0} is a mgu of l0|p0 and r'0
+
+==> f(g(0,1)) -> f(g(0,0)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 0.1 is a position in l1
+we have l1|p1 = 1
+0 -> 1 is in R
+let r'1 be the right-hand side of this rule
+theta1 = {} is a mgu of l1|p1 and r'1
+
+==> f(g(0,0)) -> f(g(0,0)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = f(g(0,0)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(0,0)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=2
+4 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/cariboo/ex1.trs
+
+NO
+
+let R be the TRS under consideration
+
+g(_1) -> f(g(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = g(_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = g(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/cariboo/ex2.trs
+
+NO
+
+let R be the TRS under consideration
+
+inf(_1) -> cons(_1,inf(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = inf(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = inf(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/cariboo/ex3.trs
+
+NO
+
+let R be the TRS under consideration
+
+g(_1) -> f(g(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = g(_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = g(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/cariboo/ex4.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(h(_1)) -> f(i(_1)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = i(_1)
+i(_2) -> h(_2) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/_2} is a mgu of r0|p0 and l'0
+
+==> f(h(_1)) -> f(h(_1)) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = f(h(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(h(_1)) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=1, depth k=2
+2 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/cariboo/ex5.trs
+forward+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> g(f(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = f(_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/cariboo/ex6.trs
+backward process killed -- 58 rule(s) generated
+forward+backward process killed -- 70 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1,_1) -> f(i(_1),g(g(_1))) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 1 is a position in r0
+we have r0|p0 = g(g(_1))
+g(_2) -> i(_2) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/g(_1)} is a mgu of r0|p0 and l'0
+
+==> f(_1,_1) -> f(i(_1),i(g(_1))) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 1.0 is a position in r1
+we have r1|p1 = g(_1)
+g(_2) -> i(_2) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/_2} is a mgu of r1|p1 and l'1
+
+==> f(_1,_1) -> f(i(_1),i(i(_1))) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = epsilon is a position in r2
+we have r2|p2 = f(i(_1),i(i(_1)))
+f(_2,i(_2)) -> f(_2,_2) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/i(_1)} is a mgu of r2|p2 and l'2
+
+==> f(_1,_1) -> f(i(_1),i(_1)) is in EU_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/i(_1)}
+we have r|p = f(i(_1),i(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1,_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=3, depth k=3
+22 rule(s) generated
+*** proof time: 0.04 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex14_AEGL02.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex15_Luc98.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex1_2_AEL03.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex1_2_Luc02c.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex1_GL02a.trs
+
+NO
+
+let R be the TRS under consideration
+
+inf(_1) -> cons(_1,inf(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = inf(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = inf(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex1_GM03.trs
+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+diff(_1,_2) -> if(leq(_1,_2),0,s(diff(p(_1),_2))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 2.0
+let theta = {}
+let theta' = {_1/p(_1), _2/_2}
+we have r|p = diff(p(_1),_2) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = diff(_1,_2) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex1_GM99.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(a,b,_1) -> f(_1,_1,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = a
+c -> a is in R
+let r'0 be the right-hand side of this rule
+theta0 = {} is a mgu of l0|p0 and r'0
+
+==> f(c,b,_1) -> f(_1,_1,_1) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = b
+c -> b is in R
+let r'1 be the right-hand side of this rule
+theta1 = {} is a mgu of l1|p1 and r'1
+
+==> f(c,c,_1) -> f(_1,_1,_1) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/c}
+let theta' = {}
+we have r|p = f(_1,_1,_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(c,c,c) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=1
+6 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex1_Luc02b.trs
+forward+backward process killed -- 1 rule(s) generated
+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex1_Zan97.trs
+
+NO
+
+let R be the TRS under consideration
+
+g(_1) -> h(_1) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = h(_1)
+h(d) -> g(c) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/d} is a mgu of r0|p0 and l'0
+
+==> g(d) -> g(c) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = c
+c -> d is in R
+let l'1 be the left-hand side of this rule
+theta1 = {} is a mgu of r1|p1 and l'1
+
+==> g(d) -> g(d) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = g(d) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = g(d) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=2, depth k=1
+9 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex24_GM04.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1,g(_1),_2) -> f(_2,_2,_2) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = _2
+g(b) -> c is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/g(b)} is a mgu of r0|p0 and l'0
+
+==> f(_1,g(_1),g(b)) -> f(c,g(b),g(b)) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 1.0 is a position in r1
+we have r1|p1 = b
+b -> c is in R
+let l'1 be the left-hand side of this rule
+theta1 = {} is a mgu of r1|p1 and l'1
+
+==> f(_1,g(_1),g(b)) -> f(c,g(c),g(b)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/c}
+let theta' = {}
+we have r|p = f(c,g(c),g(b)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(c,g(c),g(b)) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=2, depth k=2
+14 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex26_Luc03b.trs
+
+NO
+
+let R be the TRS under consideration
+
+terms(_1) -> cons(recip(sqr(_1)),terms(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = terms(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = terms(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex2_Luc03b.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex3_12_Luc96a.trs
+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex3_2_Luc97.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex3_3_25_Bor03.trs
+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex4_4_Luc96b.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(g(_1),_2) -> f(_1,f(g(_1),_2)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {}
+we have r|p = f(g(_1),_2) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(_1),_2) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex4_7_15_Bor03.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(0) -> f(s(0)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = 0
+p(s(0)) -> 0 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {} is a mgu of l0|p0 and r'0
+
+==> f(p(s(0))) -> f(s(0)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = epsilon is a position in l1
+we have l1|p1 = f(p(s(0)))
+f(s(0)) -> f(p(s(0))) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {} is a mgu of l1|p1 and r'1
+
+==> f(s(0)) -> f(s(0)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = f(s(0)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(s(0)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=3
+4 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex4_7_37_Bor03.trs
+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex4_7_56_Bor03.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex4_7_77_Bor03.trs
+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+zeros -> cons(0,zeros) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {}
+we have r|p = zeros and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = zeros is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex4_Zan97.trs
+forward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> cons(_1,f(g(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/g(_1)}
+we have r|p = f(g(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex5_7_Luc97.trs
+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.03 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex5_Zan97.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> if(_1,c,f(true)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 2
+let theta = {_1/true}
+let theta' = {}
+we have r|p = f(true) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(true) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex6_15_AEL02.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex6_9_Luc02c.trs
+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex6_GM04.trs
+
+NO
+
+let R be the TRS under consideration
+
+c -> f(g(c)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {}
+let theta' = {}
+we have r|p = c and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = c is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex6_Luc98.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex7_BLR02.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.11 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex8_BLR02.trs
+
+NO
+
+let R be the TRS under consideration
+
+fib1(_1,_2) -> cons(_1,fib1(_2,add(_1,_2))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/_2, _2/add(_1,_2)}
+we have r|p = fib1(_2,add(_1,_2)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = fib1(_1,_2) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.21 second(s)
+
+*** Comp07/TRS/nontermin/CSR/Ex9_BLR02.trs
+
+NO
+
+let R be the TRS under consideration
+
+nats(_1) -> cons(_1,nats(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = nats(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = nats(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/CSR/ExAppendixB_AEL03.trs
+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/CSR/ExConc_Zan97.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> g(h(f(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {}
+let theta' = {}
+we have r|p = f(_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/ExIntrod_GM01.trs
+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+zeros -> cons(0,zeros) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {}
+we have r|p = zeros and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = zeros is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/ExIntrod_GM04.trs
+
+NO
+
+let R be the TRS under consideration
+
+zeros -> cons(0,zeros) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {}
+we have r|p = zeros and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = zeros is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/CSR/ExIntrod_GM99.trs
+
+NO
+
+let R be the TRS under consideration
+
+from(_1) -> cons(_1,from(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = from(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = from(_1) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/CSR/ExIntrod_Zan97.trs
+
+NO
+
+let R be the TRS under consideration
+
+fact(_1) -> if(zero(_1),s(0),prod(_1,fact(p(_1)))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 2.1
+let theta = {}
+let theta' = {_1/p(_1)}
+we have r|p = fact(p(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = fact(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/HM/n001.trs
+backward process killed -- 3 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+h(f(f(_1))) -> h(f(g(f(_1)))) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = f(g(f(_1)))
+f(g(f(_2))) -> f(f(_2)) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/_2} is a mgu of r0|p0 and l'0
+
+==> h(f(f(_1))) -> h(f(f(_1))) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = h(f(f(_1))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = h(f(f(_1))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=1, depth k=4
+3 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/Rubio-inn/gkg.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1,g(_1)) -> f(1,g(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/1}
+let theta' = {}
+we have r|p = f(1,g(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(1,g(1)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/Rubio-inn/muladd.trs
+forward+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+*(_1,+(_2,1)) -> *(_1,+(_2,*(1,0))) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1.1 is a position in l0
+we have l0|p0 = 1
+*(_3,0) -> _3 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_3/1} is a mgu of l0|p0 and r'0
+
+==> *(_1,+(_2,*(1,0))) -> *(_1,+(_2,*(1,0))) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = *(_1,+(_2,*(1,0))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = *(_1,+(_2,*(1,0))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=1, depth k=4
+13 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/Rubio-inn/test10.trs
+
+NO
+
+let R be the TRS under consideration
+
+h(_1,_2) -> f(_1,s(_1),_2) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = f(_1,s(_1),_2)
+f(_3,_4,g(_3,_4)) -> h(0,g(_3,_4)) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/_3, _2/g(_3,s(_3)), _4/s(_3)} is a mgu of r0|p0 and l'0
+
+==> h(_1,g(_1,s(_1))) -> h(0,g(_1,s(_1))) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/0}
+let theta' = {}
+we have r|p = h(0,g(_1,s(_1))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = h(0,g(0,s(0))) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=1, depth k=2
+4 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/nontermin/Rubio-inn/test75.trs
+backward process killed -- 19 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(0,1,_1) -> f(g(_1,_1),_1,_1) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = g(_1,_1)
+g(_2,_3) -> _2 is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/_3, _2/_3} is a mgu of r0|p0 and l'0
+
+==> f(0,1,_1) -> f(_1,_1,_1) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = _1
+g(_2,_3) -> _2 is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/g(_2,_3)} is a mgu of r1|p1 and l'1
+
+==> f(0,1,g(_1,_2)) -> f(_1,g(_1,_2),g(_1,_2)) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 1 is a position in r2
+we have r2|p2 = g(_1,_2)
+g(_3,_4) -> _4 is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/_3, _2/_4} is a mgu of r2|p2 and l'2
+
+==> f(0,1,g(_1,_2)) -> f(_1,_2,g(_1,_2)) is in EU_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/0, _2/1}
+let theta' = {}
+we have r|p = f(_1,_2,g(_1,_2)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(0,1,g(0,1)) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=3, depth k=2
+10 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/Rubio-inn/test76.trs
+backward process killed -- 1218 rule(s) generated
+forward+backward process killed -- 852 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(0,s(0),_1) -> f(_1,+(_1,_1),_1) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = _1
+g(_2,_3) -> _2 is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/g(_2,_3)} is a mgu of r0|p0 and l'0
+
+==> f(0,s(0),g(_1,_2)) -> f(_1,+(g(_1,_2),g(_1,_2)),g(_1,_2)) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 1.0 is a position in r1
+we have r1|p1 = g(_1,_2)
+g(_3,_4) -> _4 is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/_3, _2/_4} is a mgu of r1|p1 and l'1
+
+==> f(0,s(0),g(_1,_2)) -> f(_1,+(_2,g(_1,_2)),g(_1,_2)) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 1.1 is a position in r2
+we have r2|p2 = g(_1,_2)
+g(_3,_4) -> _3 is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/_3, _2/_4} is a mgu of r2|p2 and l'2
+
+==> f(0,s(0),g(_1,_2)) -> f(_1,+(_2,_1),g(_1,_2)) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 1 is a position in r3
+we have r3|p3 = +(_2,_1)
++(_3,0) -> _3 is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/0, _2/_3} is a mgu of r3|p3 and l'3
+
+==> f(0,s(0),g(0,_1)) -> f(0,_1,g(0,_1)) is in EU_R^4
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/s(0)}
+let theta' = {}
+we have r|p = f(0,_1,g(0,_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(0,s(0),g(0,s(0))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=4, depth k=3
+874 rule(s) generated
+*** proof time: 0.70 second(s)
+
+*** Comp07/TRS/nontermin/Rubio-inn/test77.trs
+backward process killed -- 10199 rule(s) generated
+forward+backward process killed -- 9760 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(0,s(0),_1) -> f(_1,double(_1),_1) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = _1
+g(_2,_3) -> _2 is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/g(_2,_3)} is a mgu of r0|p0 and l'0
+
+==> f(0,s(0),g(_1,_2)) -> f(_1,double(g(_1,_2)),g(_1,_2)) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 1 is a position in r1
+we have r1|p1 = double(g(_1,_2))
+double(_3) -> +(_3,_3) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_3/g(_1,_2)} is a mgu of r1|p1 and l'1
+
+==> f(0,s(0),g(_1,_2)) -> f(_1,+(g(_1,_2),g(_1,_2)),g(_1,_2)) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 1.0 is a position in r2
+we have r2|p2 = g(_1,_2)
+g(_3,_4) -> _4 is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/_3, _2/_4} is a mgu of r2|p2 and l'2
+
+==> f(0,s(0),g(_1,_2)) -> f(_1,+(_2,g(_1,_2)),g(_1,_2)) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 1.1 is a position in r3
+we have r3|p3 = g(_1,_2)
+g(_3,_4) -> _3 is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/_3, _2/_4} is a mgu of r3|p3 and l'3
+
+==> f(0,s(0),g(_1,_2)) -> f(_1,+(_2,_1),g(_1,_2)) is in EU_R^4
+let r4 be the right-hand side of this rule
+p4 = 1 is a position in r4
+we have r4|p4 = +(_2,_1)
++(_3,0) -> _3 is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/0, _2/_3} is a mgu of r4|p4 and l'4
+
+==> f(0,s(0),g(0,_1)) -> f(0,_1,g(0,_1)) is in EU_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/s(0)}
+let theta' = {}
+we have r|p = f(0,_1,g(0,_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(0,s(0),g(0,s(0))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=3
+8150 rule(s) generated
+*** proof time: 10.88 second(s)
+
+*** Comp07/TRS/nontermin/Rubio-inn/test9.trs
+forward process killed -- 43 rule(s) generated
+forward+backward process killed -- 53 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(0,1,_1) -> h(_1,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1 is a position in l0
+we have l0|p0 = 1
+g(_2,_3) -> _2 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_2/1} is a mgu of l0|p0 and r'0
+
+==> f(0,g(1,_1),_2) -> h(_2,_2) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = epsilon is a position in l1
+we have l1|p1 = f(0,g(1,_1),_2)
+h(0,_3) -> f(0,_3,_3) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_2/g(1,_1), _3/g(1,_1)} is a mgu of l1|p1 and r'1
+
+==> h(0,g(1,_1)) -> h(g(1,_1),g(1,_1)) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 0 is a position in l2
+we have l2|p2 = 0
+g(_2,_3) -> _3 is in R
+let r'2 be the right-hand side of this rule
+theta2 = {_3/0} is a mgu of l2|p2 and r'2
+
+==> h(g(_1,0),g(1,_2)) -> h(g(1,_2),g(1,_2)) is in EU_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/1, _2/0}
+let theta' = {}
+we have r|p = h(g(1,_2),g(1,_2)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = h(g(1,0),g(1,0)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=3, depth k=2
+90 rule(s) generated
+*** proof time: 0.04 second(s)
+
+*** Comp07/TRS/nontermin/Rubio-inn/toyama.trs
+forward process killed -- 11 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(0,1,_1) -> f(_1,_1,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = 0
+g(_2,_3) -> _2 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_2/0} is a mgu of l0|p0 and r'0
+
+==> f(g(0,_1),1,_2) -> f(_2,_2,_2) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = 1
+g(_3,_4) -> _4 is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_4/1} is a mgu of l1|p1 and r'1
+
+==> f(g(0,_1),g(_2,1),_3) -> f(_3,_3,_3) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/1, _2/0, _3/g(0,1)}
+let theta' = {}
+we have r|p = f(_3,_3,_3) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(g(0,1),g(0,1),g(0,1)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=2
+10 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/nontermin/TRCSR/ExSec11_1_Luc02a.trs
+
+NO
+
+let R be the TRS under consideration
+
+terms(_1) -> cons(recip(sqr(_1)),terms(s(_1))) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {_1/s(_1)}
+we have r|p = terms(s(_1)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = terms(_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/secret05/cime4.trs
+forward process killed -- 101 rule(s) generated
+forward+backward process killed -- 175 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(k(a),k(b),_1) -> f(_1,_1,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = k(a)
+u(d,c(_2),_3) -> k(_2) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_2/a} is a mgu of l0|p0 and r'0
+
+==> f(u(d,c(a),_1),k(b),_2) -> f(_2,_2,_2) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 0.1 is a position in l1
+we have l1|p1 = c(a)
+h(d) -> c(a) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {} is a mgu of l1|p1 and r'1
+
+==> f(u(d,h(d),_1),k(b),_2) -> f(_2,_2,_2) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 1 is a position in l2
+we have l2|p2 = k(b)
+u(d,c(_3),_4) -> k(_3) is in R
+let r'2 be the right-hand side of this rule
+theta2 = {_3/b} is a mgu of l2|p2 and r'2
+
+==> f(u(d,h(d),_1),u(d,c(b),_2),_3) -> f(_3,_3,_3) is in EU_R^3
+let l3 be the left-hand side of this rule
+p3 = 1.1 is a position in l3
+we have l3|p3 = c(b)
+h(d) -> c(b) is in R
+let r'3 be the right-hand side of this rule
+theta3 = {} is a mgu of l3|p3 and r'3
+
+==> f(u(d,h(d),_1),u(d,h(d),_2),_3) -> f(_3,_3,_3) is in EU_R^4
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_2/_1, _3/u(d,h(d),_1)}
+let theta' = {}
+we have r|p = f(_3,_3,_3) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(u(d,h(d),_1),u(d,h(d),_1),u(d,h(d),_1)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=4, depth k=3
+105 rule(s) generated
+*** proof time: 0.11 second(s)
+
+*** Comp07/TRS/secret05/ttt1.trs
+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(s(a),s(b),_1) -> f(_1,_1,_1) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = _1
+cons(_2,_3) -> _2 is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/cons(_2,_3)} is a mgu of r0|p0 and l'0
+
+==> f(s(a),s(b),cons(_1,_2)) -> f(_1,cons(_1,_2),cons(_1,_2)) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 1 is a position in r1
+we have r1|p1 = cons(_1,_2)
+cons(_3,_4) -> _4 is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/_3, _2/_4} is a mgu of r1|p1 and l'1
+
+==> f(s(a),s(b),cons(_1,_2)) -> f(_1,_2,cons(_1,_2)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/s(a), _2/s(b)}
+let theta' = {}
+we have r|p = f(_1,_2,cons(_1,_2)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(s(a),s(b),cons(s(a),s(b))) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=2, depth k=2
+11 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/secret05/ttt2.trs
+
+NO
+
+let R be the TRS under consideration
+
++(1,_1) -> +(+(0,1),_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = 1
++(0,_2) -> _2 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_2/1} is a mgu of l0|p0 and r'0
+
+==> +(+(0,1),_1) -> +(+(0,1),_1) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = +(+(0,1),_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = +(+(0,1),_1) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=1, depth k=2
+3 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/SK90/2.05.trs
+forward+backward process killed -- 2 rule(s) generated
+forward process killed -- 9 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
++(_1,+(_2,_3)) -> +(+(_1,_2),_3) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1 is a position in l0
+we have l0|p0 = +(_2,_3)
+*(_4,+(_5,_6)) -> +(*(_4,_5),*(_4,_6)) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_2/*(_4,_5), _3/*(_4,_6)} is a mgu of l0|p0 and r'0
+
+==> +(_1,*(_2,+(_3,_4))) -> +(+(_1,*(_2,_3)),*(_2,_4)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = epsilon is a position in l1
+we have l1|p1 = +(_1,*(_2,+(_3,_4)))
++(+(_5,*(_6,_7)),*(_6,_8)) -> +(_5,*(_6,+(_7,_8))) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/_5, _2/_6, _3/_7, _4/_8} is a mgu of l1|p1 and r'1
+
+==> +(+(_1,*(_2,_3)),*(_2,_4)) -> +(+(_1,*(_2,_3)),*(_2,_4)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = +(+(_1,*(_2,_3)),*(_2,_4)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = +(+(_1,*(_2,_3)),*(_2,_4)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=3
+20 rule(s) generated
+*** proof time: 0.03 second(s)
+
+*** Comp07/TRS/SK90/4.06.trs
+
+NO
+
+let R be the TRS under consideration
+
+*(_1,+(_2,f(_3))) -> *(g(_1,_3),+(_2,_2)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = epsilon is a position in l0
+we have l0|p0 = *(_1,+(_2,f(_3)))
+*(_4,+(_5,f(_6))) -> *(g(_4,_6),+(_5,_5)) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/g(_4,_6), _2/f(_3), _5/f(_3)} is a mgu of l0|p0 and r'0
+
+==> *(_1,+(f(_2),f(_3))) -> *(g(g(_1,_3),_2),+(f(_2),f(_2))) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/g(g(_1,_3),_2), _2/_2, _3/_2}
+we have r|p = *(g(g(_1,_3),_2),+(f(_2),f(_2))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = *(_1,+(f(_2),f(_3))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=1, depth k=3
+15 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/SK90/4.34.trs
+
+NO
+
+let R be the TRS under consideration
+
+a(b(_1)) -> a(a(_1)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = b(_1)
+a(b(_2)) -> b(b(a(a(_2)))) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/b(a(a(_2)))} is a mgu of l0|p0 and r'0
+
+==> a(a(b(_1))) -> a(a(b(a(a(_1))))) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/a(a(_1))}
+we have r|p = a(a(b(a(a(_1))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(b(_1))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=1, depth k=4
+2 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/SK90/4.40.trs
+forward+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(f(f(a,_1),_2),_3) -> f(f(_1,_3),f(_2,_3)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 1 is a position in l0
+we have l0|p0 = _3
+f(f(b,_4),_5) -> _4 is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_3/_4} is a mgu of l0|p0 and r'0
+
+==> f(f(f(a,_1),_2),f(f(b,_3),_4)) -> f(f(_1,_3),f(_2,_3)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 0 is a position in l1
+we have l1|p1 = f(f(a,_1),_2)
+f(f(f(a,_5),_6),_7) -> f(f(_5,_7),f(_6,_7)) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/_7, _2/f(_6,_7), _5/a} is a mgu of l1|p1 and r'1
+
+==> f(f(f(f(a,a),_1),_2),f(f(b,_3),_4)) -> f(f(_2,_3),f(f(_1,_2),_3)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/b, _2/f(f(a,a),b), _3/f(f(a,a),b), _4/f(f(a,a),b)}
+let theta' = {}
+we have r|p = f(f(_2,_3),f(f(_1,_2),_3)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(f(f(f(a,a),b),f(f(a,a),b)),f(f(b,f(f(a,a),b)),f(f(a,a),b))) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=3
+7 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/SK90/4.49.trs
+
+NO
+
+let R be the TRS under consideration
+
+f(_1,_2,f(_3,_4,_5)) -> f(f(_1,_2,_3),_4,f(_1,_2,_5)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/f(_1,_2,_3), _2/_4, _3/_1, _4/_2, _5/_5}
+we have r|p = f(f(_1,_2,_3),_4,f(_1,_2,_5)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(_1,_2,f(_3,_4,_5)) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/SK90/4.54.trs
+
+NO
+
+let R be the TRS under consideration
+
+g(f(_1,_2)) -> g(g(_1)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = g(_1)
+g(f(_3,_4)) -> f(f(g(g(_3)),g(g(_4))),f(g(g(_3)),g(g(_4)))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/f(_3,_4)} is a mgu of r0|p0 and l'0
+
+==> g(f(f(_1,_2),_3)) -> g(f(f(g(g(_1)),g(g(_2))),f(g(g(_1)),g(g(_2))))) is in EU_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/g(g(_1)), _2/g(g(_2)), _3/f(g(g(_1)),g(g(_2)))}
+we have r|p = g(f(f(g(g(_1)),g(g(_2))),f(g(g(_1)),g(g(_2))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = g(f(f(_1,_2),_3)) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=1, depth k=4
+3 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/Thiemann/nonterm.trs
+backward process killed -- 16422 rule(s) generated
+forward+backward process killed -- 6253 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(id(s(s(s(s(s(s(s(s(_1))))))))),_2,_2) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = id(s(s(s(s(s(s(s(s(_1)))))))))
+id(s(_3)) -> s(id(_3)) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_3/s(s(s(s(s(s(s(_1)))))))} is a mgu of r0|p0 and l'0
+
+==> f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(s(id(s(s(s(s(s(s(s(_1))))))))),_2,_2) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0 is a position in r1
+we have r1|p1 = id(s(s(s(s(s(s(s(_1))))))))
+id(s(_3)) -> s(id(_3)) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_3/s(s(s(s(s(s(_1))))))} is a mgu of r1|p1 and l'1
+
+==> f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(s(s(id(s(s(s(s(s(s(_1))))))))),_2,_2) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = id(s(s(s(s(s(s(_1)))))))
+id(s(_3)) -> s(id(_3)) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_3/s(s(s(s(s(_1)))))} is a mgu of r2|p2 and l'2
+
+==> f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(s(s(s(id(s(s(s(s(s(_1))))))))),_2,_2) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0 is a position in r3
+we have r3|p3 = id(s(s(s(s(s(_1))))))
+id(s(_3)) -> s(id(_3)) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_3/s(s(s(s(_1))))} is a mgu of r3|p3 and l'3
+
+==> f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(s(s(s(s(id(s(s(s(s(_1))))))))),_2,_2) is in EU_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0 is a position in r4
+we have r4|p4 = id(s(s(s(s(_1)))))
+id(s(_3)) -> s(id(_3)) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_3/s(s(s(_1)))} is a mgu of r4|p4 and l'4
+
+==> f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(s(s(s(s(s(id(s(s(s(_1))))))))),_2,_2) is in EU_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0.0 is a position in r5
+we have r5|p5 = id(s(s(s(_1))))
+id(s(_3)) -> s(id(_3)) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_3/s(s(_1))} is a mgu of r5|p5 and l'5
+
+==> f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(s(s(s(s(s(s(id(s(s(_1))))))))),_2,_2) is in EU_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0.0.0.0.0.0 is a position in r6
+we have r6|p6 = id(s(s(_1)))
+id(s(_3)) -> s(id(_3)) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_3/s(_1)} is a mgu of r6|p6 and l'6
+
+==> f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(s(s(s(s(s(s(s(id(s(_1))))))))),_2,_2) is in EU_R^7
+let r7 be the right-hand side of this rule
+p7 = 0.0.0.0.0.0.0.0 is a position in r7
+we have r7|p7 = id(s(_1))
+id(s(_3)) -> s(id(_3)) is in R
+let l'7 be the left-hand side of this rule
+theta7 = {_1/_3} is a mgu of r7|p7 and l'7
+
+==> f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) -> f(s(s(s(s(s(s(s(s(id(_1))))))))),_2,_2) is in EU_R^8
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/id(_1), _2/_2}
+we have r|p = f(s(s(s(s(s(s(s(s(id(_1))))))))),_2,_2) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(s(s(s(s(s(s(s(s(_1)))))))),_2,_2) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=8, depth k=10
+17061 rule(s) generated
+*** proof time: 43.23 second(s)
+
+*** Comp07/TRS/TRCSR/Ex14_Luc06_FR.trs
+forward process killed -- 85 rule(s) generated
+forward+backward process killed -- 37 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+h(_1) -> g(_1,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = epsilon is a position in l0
+we have l0|p0 = h(_1)
+f(_2,_2) -> h(a) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/a} is a mgu of l0|p0 and r'0
+
+==> f(_1,_1) -> g(a,a) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = _1
+a -> b is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/b} is a mgu of l1|p1 and r'1
+
+==> f(b,a) -> g(a,a) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 1 is a position in l2
+we have l2|p2 = a
+activate(_1) -> _1 is in R
+let r'2 be the right-hand side of this rule
+theta2 = {_1/a} is a mgu of l2|p2 and r'2
+
+==> f(b,activate(a)) -> g(a,a) is in EU_R^3
+let l3 be the left-hand side of this rule
+p3 = epsilon is a position in l3
+we have l3|p3 = f(b,activate(a))
+g(a,_1) -> f(b,activate(_1)) is in R
+let r'3 be the right-hand side of this rule
+theta3 = {_1/a} is a mgu of l3|p3 and r'3
+
+==> g(a,a) -> g(a,a) is in EU_R^4
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = g(a,a) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = g(a,a) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=4, depth k=2
+131 rule(s) generated
+*** proof time: 0.04 second(s)
+
+*** Comp07/TRS/TRCSR/Ex14_Luc06_Z.trs
+forward process killed -- 85 rule(s) generated
+forward+backward process killed -- 37 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+h(_1) -> g(_1,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = epsilon is a position in l0
+we have l0|p0 = h(_1)
+f(_2,_2) -> h(a) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/a} is a mgu of l0|p0 and r'0
+
+==> f(_1,_1) -> g(a,a) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = _1
+a -> b is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/b} is a mgu of l1|p1 and r'1
+
+==> f(b,a) -> g(a,a) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 1 is a position in l2
+we have l2|p2 = a
+activate(_1) -> _1 is in R
+let r'2 be the right-hand side of this rule
+theta2 = {_1/a} is a mgu of l2|p2 and r'2
+
+==> f(b,activate(a)) -> g(a,a) is in EU_R^3
+let l3 be the left-hand side of this rule
+p3 = epsilon is a position in l3
+we have l3|p3 = f(b,activate(a))
+g(a,_1) -> f(b,activate(_1)) is in R
+let r'3 be the right-hand side of this rule
+theta3 = {_1/a} is a mgu of l3|p3 and r'3
+
+==> g(a,a) -> g(a,a) is in EU_R^4
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = g(a,a) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = g(a,a) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=4, depth k=2
+131 rule(s) generated
+*** proof time: 0.04 second(s)
+
+*** Comp07/TRS/TRCSR/Ex16_Luc06_L.trs
+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> f(a) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/a}
+let theta' = {}
+we have r|p = f(a) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(a) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/Ex1_GM99_iGM.trs
+TIME OUT
+backward process killed -- 73152 rule(s) generated
+forward+backward process killed -- 50943 rule(s) generated
+forward process killed -- 84908 rule(s) generated
+*** proof time: 120.10 second(s)
+
+*** Comp07/TRS/TRCSR/Ex1_Luc02b_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+sel(s(_1),cons(_2)) -> sel(_1,_3) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {_3/sel(s(_1),cons(_2))}
+let theta' = {}
+we have r|p = _3 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = sel(s(_1),cons(_2)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/Ex24_Luc06_GM.trs
+
+NO
+
+let R be the TRS under consideration
+
+a__f(b,_1,c) -> a__f(_1,a__c,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = b
+a__c -> b is in R
+let r'0 be the right-hand side of this rule
+theta0 = {} is a mgu of l0|p0 and r'0
+
+==> a__f(a__c,_1,c) -> a__f(_1,a__c,_1) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 2 is a position in l1
+we have l1|p1 = c
+a__c -> c is in R
+let r'1 be the right-hand side of this rule
+theta1 = {} is a mgu of l1|p1 and r'1
+
+==> a__f(a__c,_1,a__c) -> a__f(_1,a__c,_1) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/a__c}
+let theta' = {}
+we have r|p = a__f(_1,a__c,_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a__f(a__c,a__c,a__c) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=1
+8 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/TRCSR/Ex24_Luc06_L.trs
+forward+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> f(c) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/c}
+let theta' = {}
+we have r|p = f(c) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(c) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/Ex3_12_Luc96a_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+sel(s(_1),cons(_2)) -> sel(_1,_3) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {_3/sel(s(_1),cons(_2))}
+let theta' = {}
+we have r|p = _3 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = sel(s(_1),cons(_2)) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/Ex3_2_Luc97_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+sel(0,cons) -> _1 is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/sel(0,cons)}
+let theta' = {}
+we have r|p = _1 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = sel(0,cons) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/Ex49_GM04_L.trs
+forward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+minus -> minus is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = minus and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = minus is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/Ex4_7_37_Bor03_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+sel(s(_1),cons(_2)) -> sel(_1,_3) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {_3/sel(s(_1),cons(_2))}
+let theta' = {}
+we have r|p = _3 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = sel(s(_1),cons(_2)) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/Ex4_DLMMU04_FR.trs
+forward process killed -- 6435 rule(s) generated
+forward+backward process killed -- 2594 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+isNatIList(n__cons(_1,_2)) -> and(isNat(activate(_1)),isNatIList(activate(_2))) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = n__cons(_1,_2)
+cons(_3,_4) -> n__cons(_3,_4) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/_3, _2/_4} is a mgu of l0|p0 and r'0
+
+==> isNatIList(cons(_1,_2)) -> and(isNat(activate(_1)),isNatIList(activate(_2))) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 0 is a position in l1
+we have l1|p1 = cons(_1,_2)
+zeros -> cons(0,n__zeros) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/0, _2/n__zeros} is a mgu of l1|p1 and r'1
+
+==> isNatIList(zeros) -> and(isNat(activate(0)),isNatIList(activate(n__zeros))) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 0 is a position in l2
+we have l2|p2 = zeros
+activate(n__zeros) -> zeros is in R
+let r'2 be the right-hand side of this rule
+theta2 = {} is a mgu of l2|p2 and r'2
+
+==> isNatIList(activate(n__zeros)) -> and(isNat(activate(0)),isNatIList(activate(n__zeros))) is in EU_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1
+let theta = {}
+let theta' = {}
+we have r|p = isNatIList(activate(n__zeros)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = isNatIList(activate(n__zeros)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=3, depth k=3
+17376 rule(s) generated
+*** proof time: 6.09 second(s)
+
+*** Comp07/TRS/TRCSR/Ex4_DLMMU04_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+isNat -> isNat is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = isNat and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = isNat is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+2 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/TRCSR/Ex5_DLMMU04_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+tail(cons(_1)) -> _2 is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_2/tail(cons(_1))}
+let theta' = {}
+we have r|p = _2 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = tail(cons(_1)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/Ex6_GM04_FR.trs
+backward process killed -- 5 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+c -> f(n__g(n__c)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = f(n__g(n__c))
+f(n__g(_1)) -> g(activate(_1)) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/n__c} is a mgu of r0|p0 and l'0
+
+==> c -> activate(n__c) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = epsilon is a position in r1
+we have r1|p1 = activate(n__c)
+activate(n__c) -> c is in R
+let l'1 be the left-hand side of this rule
+theta1 = {} is a mgu of r1|p1 and l'1
+
+==> c -> c is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = c and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = c is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=2, depth k=2
+6 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/TRCSR/Ex6_GM04_Z.trs
+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+c -> f(n__g(n__c)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = f(n__g(n__c))
+f(n__g(_1)) -> g(activate(_1)) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/n__c} is a mgu of r0|p0 and l'0
+
+==> c -> activate(n__c) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = epsilon is a position in r1
+we have r1|p1 = activate(n__c)
+activate(n__c) -> c is in R
+let l'1 be the left-hand side of this rule
+theta1 = {} is a mgu of r1|p1 and l'1
+
+==> c -> c is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = c and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = c is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=2, depth k=2
+9 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/TRCSR/Ex9_Luc04_FR.trs
+forward+backward process killed -- 65 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(a,n__b,_1) -> f(_1,_1,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = a
+c -> a is in R
+let r'0 be the right-hand side of this rule
+theta0 = {} is a mgu of l0|p0 and r'0
+
+==> f(c,n__b,_1) -> f(_1,_1,_1) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = n__b
+b -> n__b is in R
+let r'1 be the right-hand side of this rule
+theta1 = {} is a mgu of l1|p1 and r'1
+
+==> f(c,b,_1) -> f(_1,_1,_1) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 1 is a position in l2
+we have l2|p2 = b
+c -> b is in R
+let r'2 be the right-hand side of this rule
+theta2 = {} is a mgu of l2|p2 and r'2
+
+==> f(c,c,_1) -> f(_1,_1,_1) is in EU_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/c}
+let theta' = {}
+we have r|p = f(_1,_1,_1) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(c,c,c) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=3, depth k=1
+16 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/TRCSR/Ex9_Luc06_FR.trs
+backward process killed -- 159 rule(s) generated
+forward+backward process killed -- 269 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(n__a,_1,_1) -> f(activate(_1),b,n__b) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = activate(_1)
+activate(n__b) -> b is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/n__b} is a mgu of r0|p0 and l'0
+
+==> f(n__a,n__b,n__b) -> f(b,b,n__b) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = b
+b -> a is in R
+let l'1 be the left-hand side of this rule
+theta1 = {} is a mgu of r1|p1 and l'1
+
+==> f(n__a,n__b,n__b) -> f(a,b,n__b) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 0 is a position in r2
+we have r2|p2 = a
+a -> n__a is in R
+let l'2 be the left-hand side of this rule
+theta2 = {} is a mgu of r2|p2 and l'2
+
+==> f(n__a,n__b,n__b) -> f(n__a,b,n__b) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 1 is a position in r3
+we have r3|p3 = b
+b -> n__b is in R
+let l'3 be the left-hand side of this rule
+theta3 = {} is a mgu of r3|p3 and l'3
+
+==> f(n__a,n__b,n__b) -> f(n__a,n__b,n__b) is in EU_R^4
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = f(n__a,n__b,n__b) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(n__a,n__b,n__b) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=4, depth k=2
+110 rule(s) generated
+*** proof time: 0.05 second(s)
+
+*** Comp07/TRS/TRCSR/Ex9_Luc06_L.trs
+forward+backward process killed -- 0 rule(s) generated
+forward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1) -> f(b) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/b}
+let theta' = {}
+we have r|p = f(b) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(b) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/ExAppendixB_AEL03_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+2ndspos(s(_1),cons(_2)) -> 2ndspos(s(_1),cons2(_3)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1.0
+let theta = {_3/2ndspos(s(_1),cons(_2))}
+let theta' = {}
+we have r|p = _3 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = 2ndspos(s(_1),cons(_2)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/TRCSR/ExIntrod_GM01_L.trs
+forward+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+tail(cons(_1)) -> _2 is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_2/tail(cons(_1))}
+let theta' = {}
+we have r|p = _2 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = tail(cons(_1)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/LengthOfFiniteLists_nosorts-noand_Z.trs
+forward process killed -- 151 rule(s) generated
+backward process killed -- 167 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+U11(tt,_1) -> U12(tt,activate(_1)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 1 is a position in r0
+we have r0|p0 = activate(_1)
+activate(n__zeros) -> zeros is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/n__zeros} is a mgu of r0|p0 and l'0
+
+==> U11(tt,n__zeros) -> U12(tt,zeros) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = n__zeros
+activate(_1) -> _1 is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/n__zeros} is a mgu of l1|p1 and r'1
+
+==> U11(tt,activate(n__zeros)) -> U12(tt,zeros) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = epsilon is a position in l2
+we have l2|p2 = U11(tt,activate(n__zeros))
+length(cons(_1,_2)) -> U11(tt,activate(_2)) is in R
+let r'2 be the right-hand side of this rule
+theta2 = {_2/n__zeros} is a mgu of l2|p2 and r'2
+
+==> length(cons(_1,n__zeros)) -> U12(tt,zeros) is in EU_R^3
+let l3 be the left-hand side of this rule
+p3 = 0 is a position in l3
+we have l3|p3 = cons(_1,n__zeros)
+zeros -> cons(0,n__zeros) is in R
+let r'3 be the right-hand side of this rule
+theta3 = {_1/0} is a mgu of l3|p3 and r'3
+
+==> length(zeros) -> U12(tt,zeros) is in EU_R^4
+let l4 be the left-hand side of this rule
+p4 = 0 is a position in l4
+we have l4|p4 = zeros
+activate(_1) -> _1 is in R
+let r'4 be the right-hand side of this rule
+theta4 = {_1/zeros} is a mgu of l4|p4 and r'4
+
+==> length(activate(zeros)) -> U12(tt,zeros) is in EU_R^5
+let r5 be the right-hand side of this rule
+p5 = epsilon is a position in r5
+we have r5|p5 = U12(tt,zeros)
+U12(tt,_1) -> s(length(activate(_1))) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_1/zeros} is a mgu of r5|p5 and l'5
+
+==> length(activate(zeros)) -> s(length(activate(zeros))) is in EU_R^6
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = length(activate(zeros)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = length(activate(zeros)) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=6, depth k=2
+126 rule(s) generated
+*** proof time: 0.07 second(s)
+
+*** Comp07/TRS/TRCSR/LengthOfFiniteLists_nosorts_FR.trs
+backward process killed -- 21 rule(s) generated
+forward+backward process killed -- 36 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+length(cons(_1,_2)) -> length(activate(_2)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = activate(_2)
+activate(n__zeros) -> zeros is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/n__zeros} is a mgu of r0|p0 and l'0
+
+==> length(cons(_1,n__zeros)) -> length(zeros) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = zeros
+zeros -> cons(0,n__zeros) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {} is a mgu of r1|p1 and l'1
+
+==> length(cons(_1,n__zeros)) -> length(cons(0,n__zeros)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/0}
+let theta' = {}
+we have r|p = length(cons(0,n__zeros)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = length(cons(0,n__zeros)) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=2, depth k=3
+25 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/TRS/TRCSR/LengthOfFiniteLists_nosorts_L.trs
+forward+backward process killed -- 1 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+and(tt) -> _1 is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/and(tt)}
+let theta' = {}
+we have r|p = _1 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = and(tt) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/LISTUTILITIES_nokinds_L.trs
+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+U101(tt) -> fst(splitAt(_1,_2)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {_1/U101(tt)}
+let theta' = {}
+we have r|p = _1 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = U101(tt) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.27 second(s)
+
+*** Comp07/TRS/TRCSR/MYNAT_complete_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+U41(tt) -> _1 is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/U41(tt)}
+let theta' = {}
+we have r|p = _1 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = U41(tt) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.05 second(s)
+
+*** Comp07/TRS/TRCSR/MYNAT_nosorts-noand_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+U12(tt) -> s(plus(_1,_2)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {_1/U12(tt)}
+let theta' = {}
+we have r|p = _1 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = U12(tt) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/TRCSR/OvConsOS_complete-noand_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+U114(tt) -> s(length(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {_1/U114(tt)}
+let theta' = {}
+we have r|p = _1 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = U114(tt) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.04 second(s)
+
+*** Comp07/TRS/TRCSR/OvConsOS_complete_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+U71(tt) -> s(length(_1)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {_1/U71(tt)}
+let theta' = {}
+we have r|p = _1 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = U71(tt) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.06 second(s)
+
+*** Comp07/TRS/TRCSR/OvConsOS_nosorts-noand_FR.trs
+forward process killed -- 38320 rule(s) generated
+backward process killed -- 49117 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+U11(tt,_1) -> U12(tt,activate(_1)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 1 is a position in r0
+we have r0|p0 = activate(_1)
+activate(n__zeros) -> zeros is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/n__zeros} is a mgu of r0|p0 and l'0
+
+==> U11(tt,n__zeros) -> U12(tt,zeros) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 1 is a position in l1
+we have l1|p1 = n__zeros
+activate(_1) -> _1 is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/n__zeros} is a mgu of l1|p1 and r'1
+
+==> U11(tt,activate(n__zeros)) -> U12(tt,zeros) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = epsilon is a position in l2
+we have l2|p2 = U11(tt,activate(n__zeros))
+length(cons(_1,_2)) -> U11(tt,activate(_2)) is in R
+let r'2 be the right-hand side of this rule
+theta2 = {_2/n__zeros} is a mgu of l2|p2 and r'2
+
+==> length(cons(_1,n__zeros)) -> U12(tt,zeros) is in EU_R^3
+let l3 be the left-hand side of this rule
+p3 = 0 is a position in l3
+we have l3|p3 = cons(_1,n__zeros)
+zeros -> cons(0,n__zeros) is in R
+let r'3 be the right-hand side of this rule
+theta3 = {_1/0} is a mgu of l3|p3 and r'3
+
+==> length(zeros) -> U12(tt,zeros) is in EU_R^4
+let l4 be the left-hand side of this rule
+p4 = 0 is a position in l4
+we have l4|p4 = zeros
+activate(_1) -> _1 is in R
+let r'4 be the right-hand side of this rule
+theta4 = {_1/zeros} is a mgu of l4|p4 and r'4
+
+==> length(activate(zeros)) -> U12(tt,zeros) is in EU_R^5
+let r5 be the right-hand side of this rule
+p5 = epsilon is a position in r5
+we have r5|p5 = U12(tt,zeros)
+U12(tt,_1) -> s(length(activate(_1))) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_1/zeros} is a mgu of r5|p5 and l'5
+
+==> length(activate(zeros)) -> s(length(activate(zeros))) is in EU_R^6
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = length(activate(zeros)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = length(activate(zeros)) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=6, depth k=2
+30288 rule(s) generated
+*** proof time: 71.42 second(s)
+
+*** Comp07/TRS/TRCSR/OvConsOS_nosorts_GM.trs
+forward+backward process killed -- 363 rule(s) generated
+forward process killed -- 643 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+a__length(cons(_1,_2)) -> a__length(mark(_2)) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = 0 is a position in l0
+we have l0|p0 = cons(_1,_2)
+a__zeros -> cons(0,zeros) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/0, _2/zeros} is a mgu of l0|p0 and r'0
+
+==> a__length(a__zeros) -> a__length(mark(zeros)) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 0 is a position in l1
+we have l1|p1 = a__zeros
+mark(zeros) -> a__zeros is in R
+let r'1 be the right-hand side of this rule
+theta1 = {} is a mgu of l1|p1 and r'1
+
+==> a__length(mark(zeros)) -> a__length(mark(zeros)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = a__length(mark(zeros)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a__length(mark(zeros)) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=2, depth k=3
+338 rule(s) generated
+*** proof time: 0.42 second(s)
+
+*** Comp07/TRS/TRCSR/OvConsOS_nosorts_noand_GM.trs
+forward process killed -- 36013 rule(s) generated
+backward process killed -- 49571 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+a__U11(tt,_1) -> a__U12(tt,_1) is in elim_R(R)
+let l0 be the left-hand side of this rule
+p0 = epsilon is a position in l0
+we have l0|p0 = a__U11(tt,_1)
+a__length(cons(_2,_3)) -> a__U11(tt,_3) is in R
+let r'0 be the right-hand side of this rule
+theta0 = {_1/_3} is a mgu of l0|p0 and r'0
+
+==> a__length(cons(_1,_2)) -> a__U12(tt,_2) is in EU_R^1
+let l1 be the left-hand side of this rule
+p1 = 0 is a position in l1
+we have l1|p1 = cons(_1,_2)
+a__zeros -> cons(0,zeros) is in R
+let r'1 be the right-hand side of this rule
+theta1 = {_1/0, _2/zeros} is a mgu of l1|p1 and r'1
+
+==> a__length(a__zeros) -> a__U12(tt,zeros) is in EU_R^2
+let l2 be the left-hand side of this rule
+p2 = 0 is a position in l2
+we have l2|p2 = a__zeros
+mark(zeros) -> a__zeros is in R
+let r'2 be the right-hand side of this rule
+theta2 = {} is a mgu of l2|p2 and r'2
+
+==> a__length(mark(zeros)) -> a__U12(tt,zeros) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = epsilon is a position in r3
+we have r3|p3 = a__U12(tt,zeros)
+a__U12(tt,_1) -> s(a__length(mark(_1))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/zeros} is a mgu of r3|p3 and l'3
+
+==> a__length(mark(zeros)) -> s(a__length(mark(zeros))) is in EU_R^4
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = a__length(mark(zeros)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a__length(mark(zeros)) is non-terminating w.r.t. R
+
+Termination disproved by the forward+backward process
+proof stopped at iteration i=4, depth k=2
+34211 rule(s) generated
+*** proof time: 75.60 second(s)
+
+*** Comp07/TRS/TRCSR/OvConsOS_nosorts_Z.trs
+backward process killed -- 48 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+length(cons(_1,_2)) -> length(activate(_2)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = activate(_2)
+activate(n__zeros) -> zeros is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/n__zeros} is a mgu of r0|p0 and l'0
+
+==> length(cons(_1,n__zeros)) -> length(zeros) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = zeros
+zeros -> cons(0,n__zeros) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {} is a mgu of r1|p1 and l'1
+
+==> length(cons(_1,n__zeros)) -> length(cons(0,n__zeros)) is in EU_R^2
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {_1/0}
+let theta' = {}
+we have r|p = length(cons(0,n__zeros)) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = length(cons(0,n__zeros)) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=2, depth k=3
+64 rule(s) generated
+*** proof time: 0.03 second(s)
+
+*** Comp07/TRS/TRCSR/PALINDROME_nokinds-noand_L.trs
+forward+backward process killed -- 0 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+isList -> U21(isList) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = isList and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = isList is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.03 second(s)
+
+*** Comp07/TRS/TRCSR/PEANO_nosorts-noand_L.trs
+
+NO
+
+let R be the TRS under consideration
+
+U12(tt) -> s(plus(_1,_2)) is in elim_R(R)
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {_1/U12(tt)}
+let theta' = {}
+we have r|p = _1 and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = U12(tt) is non-terminating w.r.t. R
+
+Termination disproved by the backward process
+proof stopped at iteration i=0, depth k=0
+1 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/TRS/Waldmann/jwno1.trs
+forward+backward process killed -- 19 rule(s) generated
+backward process killed -- 207 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(h(_1),_2) -> f(_2,f(_1,h(f(a,a)))) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = f(_2,f(_1,h(f(a,a))))
+f(h(_3),_4) -> h(f(_4,f(_3,h(f(a,a))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/h(_3), _4/f(_1,h(f(a,a)))} is a mgu of r0|p0 and l'0
+
+==> f(h(_1),h(_2)) -> f(f(_1,h(f(a,a))),f(_2,h(f(a,a)))) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = f(_1,h(f(a,a)))
+f(h(_3),_4) -> h(f(_4,f(_3,h(f(a,a))))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/h(_3), _4/h(f(a,a))} is a mgu of r1|p1 and l'1
+
+==> f(h(h(_1)),h(_2)) -> f(h(f(h(f(a,a)),f(_1,h(f(a,a))))),f(_2,h(f(a,a)))) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0 is a position in r2
+we have r2|p2 = f(h(f(a,a)),f(_1,h(f(a,a))))
+f(h(_3),_4) -> h(f(_4,f(_3,h(f(a,a))))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_3/f(a,a), _4/f(_1,h(f(a,a)))} is a mgu of r2|p2 and l'2
+
+==> f(h(h(_1)),h(_2)) -> f(h(h(f(f(_1,h(f(a,a))),f(f(a,a),h(f(a,a)))))),f(_2,h(f(a,a)))) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 1 is a position in r3
+we have r3|p3 = f(_2,h(f(a,a)))
+f(h(_3),_4) -> h(f(_4,f(_3,h(f(a,a))))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/h(_3), _4/h(f(a,a))} is a mgu of r3|p3 and l'3
+
+==> f(h(h(_1)),h(h(_2))) -> f(h(h(f(f(_1,h(f(a,a))),f(f(a,a),h(f(a,a)))))),h(f(h(f(a,a)),f(_2,h(f(a,a)))))) is in EU_R^4
+let r4 be the right-hand side of this rule
+p4 = 1.0 is a position in r4
+we have r4|p4 = f(h(f(a,a)),f(_2,h(f(a,a))))
+f(h(_3),_4) -> h(f(_4,f(_3,h(f(a,a))))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_3/f(a,a), _4/f(_2,h(f(a,a)))} is a mgu of r4|p4 and l'4
+
+==> f(h(h(_1)),h(h(_2))) -> f(h(h(f(f(_1,h(f(a,a))),f(f(a,a),h(f(a,a)))))),h(h(f(f(_2,h(f(a,a))),f(f(a,a),h(f(a,a))))))) is in EU_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/f(f(_1,h(f(a,a))),f(f(a,a),h(f(a,a)))), _2/f(f(_2,h(f(a,a))),f(f(a,a),h(f(a,a))))}
+we have r|p = f(h(h(f(f(_1,h(f(a,a))),f(f(a,a),h(f(a,a)))))),h(h(f(f(_2,h(f(a,a))),f(f(a,a),h(f(a,a))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(h(h(_1)),h(h(_2))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=7
+44 rule(s) generated
+*** proof time: 0.19 second(s)
+
+*** Comp07/TRS/Waldmann/jwno4.trs
+forward+backward process killed -- 29 rule(s) generated
+backward process killed -- 139 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(h(_1),_2) -> f(_2,f(_1,h(a))) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = f(_2,f(_1,h(a)))
+f(h(_3),_4) -> h(f(_4,f(_3,h(a)))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/h(_3), _4/f(_1,h(a))} is a mgu of r0|p0 and l'0
+
+==> f(h(_1),h(_2)) -> f(f(_1,h(a)),f(_2,h(a))) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = f(_1,h(a))
+f(h(_3),_4) -> h(f(_4,f(_3,h(a)))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/h(_3), _4/h(a)} is a mgu of r1|p1 and l'1
+
+==> f(h(h(_1)),h(_2)) -> f(h(f(h(a),f(_1,h(a)))),f(_2,h(a))) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0 is a position in r2
+we have r2|p2 = f(h(a),f(_1,h(a)))
+f(h(_3),_4) -> h(f(_4,f(_3,h(a)))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_3/a, _4/f(_1,h(a))} is a mgu of r2|p2 and l'2
+
+==> f(h(h(_1)),h(_2)) -> f(h(h(f(f(_1,h(a)),f(a,h(a))))),f(_2,h(a))) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 1 is a position in r3
+we have r3|p3 = f(_2,h(a))
+f(h(_3),_4) -> h(f(_4,f(_3,h(a)))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/h(_3), _4/h(a)} is a mgu of r3|p3 and l'3
+
+==> f(h(h(_1)),h(h(_2))) -> f(h(h(f(f(_1,h(a)),f(a,h(a))))),h(f(h(a),f(_2,h(a))))) is in EU_R^4
+let r4 be the right-hand side of this rule
+p4 = 1.0 is a position in r4
+we have r4|p4 = f(h(a),f(_2,h(a)))
+f(h(_3),_4) -> h(f(_4,f(_3,h(a)))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_3/a, _4/f(_2,h(a))} is a mgu of r4|p4 and l'4
+
+==> f(h(h(_1)),h(h(_2))) -> f(h(h(f(f(_1,h(a)),f(a,h(a))))),h(h(f(f(_2,h(a)),f(a,h(a)))))) is in EU_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/f(f(_1,h(a)),f(a,h(a))), _2/f(f(_2,h(a)),f(a,h(a)))}
+we have r|p = f(h(h(f(f(_1,h(a)),f(a,h(a))))),h(h(f(f(_2,h(a)),f(a,h(a)))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(h(h(_1)),h(h(_2))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=6
+44 rule(s) generated
+*** proof time: 0.15 second(s)
+
+*** Comp07/TRS/Waldmann/jwno6.trs
+backward process killed -- 130 rule(s) generated
+forward+backward process killed -- 35 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1,h(_2)) -> f(f(h(a),_2),_1) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = f(f(h(a),_2),_1)
+f(_3,h(_4)) -> h(f(f(h(a),_4),_3)) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/h(_4), _3/f(h(a),_2)} is a mgu of r0|p0 and l'0
+
+==> f(h(_1),h(_2)) -> f(f(h(a),_1),f(h(a),_2)) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = f(h(a),_1)
+f(_3,h(_4)) -> h(f(f(h(a),_4),_3)) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/h(_4), _3/h(a)} is a mgu of r1|p1 and l'1
+
+==> f(h(h(_1)),h(_2)) -> f(h(f(f(h(a),_1),h(a))),f(h(a),_2)) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0 is a position in r2
+we have r2|p2 = f(f(h(a),_1),h(a))
+f(_3,h(_4)) -> h(f(f(h(a),_4),_3)) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_3/f(h(a),_1), _4/a} is a mgu of r2|p2 and l'2
+
+==> f(h(h(_1)),h(_2)) -> f(h(h(f(f(h(a),a),f(h(a),_1)))),f(h(a),_2)) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 1 is a position in r3
+we have r3|p3 = f(h(a),_2)
+f(_3,h(_4)) -> h(f(f(h(a),_4),_3)) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/h(_4), _3/h(a)} is a mgu of r3|p3 and l'3
+
+==> f(h(h(_1)),h(h(_2))) -> f(h(h(f(f(h(a),a),f(h(a),_1)))),h(f(f(h(a),_2),h(a)))) is in EU_R^4
+let r4 be the right-hand side of this rule
+p4 = 1.0 is a position in r4
+we have r4|p4 = f(f(h(a),_2),h(a))
+f(_3,h(_4)) -> h(f(f(h(a),_4),_3)) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_3/f(h(a),_2), _4/a} is a mgu of r4|p4 and l'4
+
+==> f(h(h(_1)),h(h(_2))) -> f(h(h(f(f(h(a),a),f(h(a),_1)))),h(h(f(f(h(a),a),f(h(a),_2))))) is in EU_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/f(f(h(a),a),f(h(a),_1)), _2/f(f(h(a),a),f(h(a),_2))}
+we have r|p = f(h(h(f(f(h(a),a),f(h(a),_1)))),h(h(f(f(h(a),a),f(h(a),_2))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(h(h(_1)),h(h(_2))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=6
+40 rule(s) generated
+*** proof time: 0.14 second(s)
+
+*** Comp07/TRS/Waldmann/jwno9.trs
+forward+backward process killed -- 21 rule(s) generated
+backward process killed -- 47 rule(s) generated
+
+NO
+
+let R be the TRS under consideration
+
+f(_1,f(a,_2)) -> f(a,f(f(f(a,a),_2),_1)) is in elim_R(R)
+let r0 be the right-hand side of this rule
+p0 = 1.0 is a position in r0
+we have r0|p0 = f(f(a,a),_2)
+f(_3,f(a,_4)) -> f(a,f(f(f(a,a),_4),_3)) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/f(a,_4), _3/f(a,a)} is a mgu of r0|p0 and l'0
+
+==> f(_1,f(a,f(a,_2))) -> f(a,f(f(a,f(f(f(a,a),_2),f(a,a))),_1)) is in EU_R^1
+let r1 be the right-hand side of this rule
+p1 = 1.0.1 is a position in r1
+we have r1|p1 = f(f(f(a,a),_2),f(a,a))
+f(_3,f(a,_4)) -> f(a,f(f(f(a,a),_4),_3)) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_3/f(f(a,a),_2), _4/a} is a mgu of r1|p1 and l'1
+
+==> f(_1,f(a,f(a,_2))) -> f(a,f(f(a,f(a,f(f(f(a,a),a),f(f(a,a),_2)))),_1)) is in EU_R^2
+let r2 be the right-hand side of this rule
+p2 = 1.1 is a position in r2
+we have r2|p2 = _1
+f(_3,f(a,_4)) -> f(a,f(f(f(a,a),_4),_3)) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/f(_3,f(a,_4))} is a mgu of r2|p2 and l'2
+
+==> f(f(_1,f(a,_2)),f(a,f(a,_3))) -> f(a,f(f(a,f(a,f(f(f(a,a),a),f(f(a,a),_3)))),f(a,f(f(f(a,a),_2),_1)))) is in EU_R^3
+let r3 be the right-hand side of this rule
+p3 = 1.1.1 is a position in r3
+we have r3|p3 = f(f(f(a,a),_2),_1)
+f(_4,f(a,_5)) -> f(a,f(f(f(a,a),_5),_4)) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/f(a,_5), _4/f(f(a,a),_2)} is a mgu of r3|p3 and l'3
+
+==> f(f(f(a,_1),f(a,_2)),f(a,f(a,_3))) -> f(a,f(f(a,f(a,f(f(f(a,a),a),f(f(a,a),_3)))),f(a,f(a,f(f(f(a,a),_1),f(f(a,a),_2)))))) is in EU_R^4
+let r4 be the right-hand side of this rule
+p4 = 1 is a position in r4
+we have r4|p4 = f(f(a,f(a,f(f(f(a,a),a),f(f(a,a),_3)))),f(a,f(a,f(f(f(a,a),_1),f(f(a,a),_2)))))
+f(_4,f(a,_5)) -> f(a,f(f(f(a,a),_5),_4)) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_4/f(a,f(a,f(f(f(a,a),a),f(f(a,a),_3)))), _5/f(a,f(f(f(a,a),_1),f(f(a,a),_2)))} is a mgu of r4|p4 and l'4
+
+==> f(f(f(a,_1),f(a,_2)),f(a,f(a,_3))) -> f(a,f(a,f(f(f(a,a),f(a,f(f(f(a,a),_1),f(f(a,a),_2)))),f(a,f(a,f(f(f(a,a),a),f(f(a,a),_3))))))) is in EU_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 1.1
+let theta = {}
+let theta' = {_1/a, _2/f(f(f(a,a),_1),f(f(a,a),_2)), _3/f(f(f(a,a),a),f(f(a,a),_3))}
+we have r|p = f(f(f(a,a),f(a,f(f(f(a,a),_1),f(f(a,a),_2)))),f(a,f(a,f(f(f(a,a),a),f(f(a,a),_3))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = f(f(f(a,_1),f(a,_2)),f(a,f(a,_3))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=7
+20 rule(s) generated
+*** proof time: 0.19 second(s)
+
+
+
+***********************************************************
+-- total time: 333.70 second(s)
+-- 129 files analysed
+-- 128 successful proofs
+-- 161869 rules generated
+-- iterations (successful proofs): average=1, min=0, max=8
+-- non-termination of the following file(s) could not be proved:
+Comp07/TRS/TRCSR/Ex1_GM99_iGM.trs
+***********************************************************

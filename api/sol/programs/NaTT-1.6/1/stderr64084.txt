@@ -1,0 +1,61 @@
+Input TRS:
+    1: lt(s(X),s(Y)) -> lt(X,Y)
+    2: lt(0(),s(U)) -> true()
+    3: lt(V,0()) -> false()
+    4: eq(W,W) -> true()
+    5: eq(s(P),0()) -> false()
+    6: eq(0(),s(X1)) -> false()
+    7: member(Y1,null()) -> false()
+    8: member(U1,fork(V1,W1,P1)) -> if(lt(U1,W1),member(U1,V1),if(eq(U1,W1),true(),member(U1,P1)))
+    9: _(X1,X2) -> X1
+    10: _(X1,X2) -> X2
+Number of strict rules: 10
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #lt(s(X),s(Y)) -> #lt(X,Y)
+   #2: #member(U1,fork(V1,W1,P1)) -> #lt(U1,W1)
+   #3: #member(U1,fork(V1,W1,P1)) -> #member(U1,V1)
+   #4: #member(U1,fork(V1,W1,P1)) -> #eq(U1,W1)
+   #5: #member(U1,fork(V1,W1,P1)) -> #member(U1,P1)
+Number of SCCs: 2, DPs: 3
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #lt	w: x2
+      member	w: 0
+      eq	w: 0
+      false	w: 0
+      fork	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      0 	w: 0
+      if	w: 0
+      null	w: 0
+      #_ 	w: 0
+      #member	w: 0
+      lt	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 1, DPs: 2
+  SCC { #3 #5 }
+POLO(Sum)... succeeded.
+      s 	w: 1
+      #lt	w: 0
+      member	w: 0
+      eq	w: 0
+      false	w: 0
+      fork	w: x1 + x3 + 1
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      0 	w: 0
+      if	w: 0
+      null	w: 0
+      #_ 	w: 0
+      #member	w: x2
+      lt	w: 0
+    USABLE RULES: { }
+    Removed DPs: #3 #5
+Number of SCCs: 0, DPs: 0

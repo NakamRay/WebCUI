@@ -1,0 +1,993 @@
+Input TRS:
+    1: active(from(X())) -> mark(cons(X(),from(s(X()))))
+    2: active(sel(0(),cons(Y(),U()))) -> mark(Y())
+    3: active(sel(s(V()),cons(W(),P()))) -> mark(sel(V(),P()))
+    4: active(minus(X1,0())) -> mark(0())
+    5: active(minus(s(Y1()),s(U1()))) -> mark(minus(Y1(),U1()))
+    6: active(quot(0(),s(V1()))) -> mark(0())
+    7: active(quot(s(W1()),s(P1()))) -> mark(s(quot(minus(W1(),P1()),s(P1()))))
+    8: active(zWquot(X2,nil())) -> mark(nil())
+    9: active(zWquot(nil(),Y2())) -> mark(nil())
+    10: active(zWquot(cons(U2(),V2()),cons(W2(),P2()))) -> mark(cons(quot(U2(),W2()),zWquot(V2(),P2())))
+    11: mark(from(X3())) -> active(from(mark(X3())))
+    12: mark(cons(Y3(),U3())) -> active(cons(mark(Y3()),U3()))
+    13: mark(s(V3())) -> active(s(mark(V3())))
+    14: mark(sel(W3(),P3())) -> active(sel(mark(W3()),mark(P3())))
+    15: mark(0()) -> active(0())
+    16: mark(minus(X4(),Y4())) -> active(minus(mark(X4()),mark(Y4())))
+    17: mark(quot(U4(),V4())) -> active(quot(mark(U4()),mark(V4())))
+    18: mark(zWquot(W4(),P4())) -> active(zWquot(mark(W4()),mark(P4())))
+    19: mark(nil()) -> active(nil())
+    20: from(mark(X5())) -> from(X5())
+    21: from(active(Y5())) -> from(Y5())
+    22: cons(mark(U5()),V5()) -> cons(U5(),V5())
+    23: cons(W5(),mark(P5())) -> cons(W5(),P5())
+    24: cons(active(X6()),Y6()) -> cons(X6(),Y6())
+    25: cons(U6(),active(V6())) -> cons(U6(),V6())
+    26: s(mark(W6())) -> s(W6())
+    27: s(active(P6())) -> s(P6())
+    28: sel(mark(X7()),Y7()) -> sel(X7(),Y7())
+    29: sel(U7(),mark(V7())) -> sel(U7(),V7())
+    30: sel(active(W7()),P7()) -> sel(W7(),P7())
+    31: sel(X8(),active(Y8())) -> sel(X8(),Y8())
+    32: minus(mark(U8()),V8()) -> minus(U8(),V8())
+    33: minus(W8(),mark(P8())) -> minus(W8(),P8())
+    34: minus(active(X9()),Y9()) -> minus(X9(),Y9())
+    35: minus(U9(),active(V9())) -> minus(U9(),V9())
+    36: quot(mark(W9()),P9()) -> quot(W9(),P9())
+    37: quot(X10(),mark(Y10())) -> quot(X10(),Y10())
+    38: quot(active(U10()),V10()) -> quot(U10(),V10())
+    39: quot(W10(),active(P10())) -> quot(W10(),P10())
+    40: zWquot(mark(X11()),Y11()) -> zWquot(X11(),Y11())
+    41: zWquot(U11(),mark(V11())) -> zWquot(U11(),V11())
+    42: zWquot(active(W11()),P11()) -> zWquot(W11(),P11())
+    43: zWquot(X12(),active(Y12())) -> zWquot(X12(),Y12())
+    44: _(X1,X2) -> X1
+    45: _(X1,X2) -> X2
+Number of strict rules: 45
+Direct POLO(bPol) ... removes: 4 8 3 44 10 45 9 6 2
+      V1	w: 2
+      U1	w: 1
+      U11	w: 0
+      Y2	w: 1
+      s 	w: x1
+      P8	w: 1
+      X11	w: 1
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: 2 * x1 + 2 * x2
+      W 	w: 1
+      Y 	w: 1
+      X4	w: 1
+      P4	w: 1
+      X6	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 1
+      zWquot	w: x1 + 2 * x2 + 2
+      Y4	w: 1
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 1
+      X12	w: 0
+      P1	w: 0
+      W7	w: 1
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      V9	w: 1
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 1
+      0 	w: 1
+      quot	w: x1 + x2 + 1
+      Y3	w: 1
+      P10	w: 1
+      Y12	w: 1
+      from	w: x1 + 1
+      sel	w: x1 + x2 + 2
+      W6	w: 1
+      W2	w: 2
+      nil	w: 2
+      V6	w: 1
+      P5	w: 1
+      W1	w: 0
+      X5	w: 1
+      mark	w: x1
+      V8	w: 0
+      W4	w: 1
+      W3	w: 1
+      X7	w: 1
+      Y10	w: 1
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 1
+      U5	w: 1
+      active	w: x1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 3
+      Y8	w: 1
+      U2	w: 1
+      X 	w: 0
+      U4	w: 1
+      U6	w: 0
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 1
+      Y9	w: 0
+Number of strict rules: 36
+Direct POLO(bPol) ... removes: 1 34
+      V1	w: 1
+      U1	w: 0
+      U11	w: 0
+      Y2	w: 1
+      s 	w: x1
+      P8	w: 1
+      X11	w: 1
+      Y11	w: 0
+      X3	w: 0
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: x1 + x2
+      W 	w: 3
+      Y 	w: 1
+      X4	w: 0
+      P4	w: 0
+      X6	w: 0
+      U3	w: 0
+      P3	w: 0
+      Y1	w: 0
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 0
+      zWquot	w: x1 + x2
+      Y4	w: 0
+      Y5	w: 0
+      P9	w: 0
+      V7	w: 1
+      X12	w: 0
+      P1	w: 1
+      W7	w: 0
+      W11	w: 0
+      V10	w: 0
+      U9	w: 0
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      V9	w: 0
+      V2	w: 1
+      U10	w: 0
+      V5	w: 0
+      P2	w: 1
+      0 	w: 0
+      quot	w: x1 + x2
+      Y3	w: 0
+      P10	w: 0
+      Y12	w: 0
+      from	w: 2 * x1
+      sel	w: x1 + x2
+      W6	w: 1
+      W2	w: 2
+      nil	w: 0
+      V6	w: 0
+      P5	w: 1
+      W1	w: 0
+      X5	w: 1
+      mark	w: x1
+      V8	w: 0
+      W4	w: 0
+      W3	w: 0
+      X7	w: 1
+      Y10	w: 1
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 1
+      U5	w: 1
+      active	w: 2 * x1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 0
+      Y8	w: 0
+      U2	w: 1
+      X 	w: 1
+      U4	w: 0
+      U6	w: 0
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 0
+      V 	w: 1
+      X10	w: 0
+      U 	w: 1
+      Y9	w: 0
+Number of strict rules: 34
+Direct POLO(bPol) ... removes: 39 30
+      V1	w: 1
+      U1	w: 0
+      U11	w: 0
+      Y2	w: 1
+      s 	w: x1
+      P8	w: 1
+      X11	w: 1
+      Y11	w: 0
+      X3	w: 0
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: x1 + x2
+      W 	w: 3
+      Y 	w: 1
+      X4	w: 0
+      P4	w: 0
+      X6	w: 0
+      U3	w: 0
+      P3	w: 0
+      Y1	w: 0
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 0
+      zWquot	w: x1 + x2
+      Y4	w: 0
+      Y5	w: 0
+      P9	w: 0
+      V7	w: 1
+      X12	w: 0
+      P1	w: 1
+      W7	w: 1
+      W11	w: 0
+      V10	w: 0
+      U9	w: 0
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      V9	w: 0
+      V2	w: 1
+      U10	w: 0
+      V5	w: 0
+      P2	w: 1
+      0 	w: 0
+      quot	w: x1 + x2
+      Y3	w: 0
+      P10	w: 1
+      Y12	w: 0
+      from	w: 2 * x1
+      sel	w: x1 + x2
+      W6	w: 1
+      W2	w: 2
+      nil	w: 0
+      V6	w: 0
+      P5	w: 1
+      W1	w: 0
+      X5	w: 1
+      mark	w: x1
+      V8	w: 0
+      W4	w: 0
+      W3	w: 0
+      X7	w: 1
+      Y10	w: 1
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 1
+      U5	w: 1
+      active	w: 2 * x1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 0
+      Y8	w: 0
+      U2	w: 1
+      X 	w: 1
+      U4	w: 0
+      U6	w: 0
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 0
+      V 	w: 1
+      X10	w: 0
+      U 	w: 1
+      Y9	w: 0
+Number of strict rules: 32
+Direct POLO(bPol) ... removes: 5
+      V1	w: 1
+      U1	w: 0
+      U11	w: 0
+      Y2	w: 0
+      s 	w: x1 + 1
+      P8	w: 1
+      X11	w: 1
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: x1 + x2
+      W 	w: 3
+      Y 	w: 0
+      X4	w: 1
+      P4	w: 0
+      X6	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 0
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 0
+      zWquot	w: x1 + x2
+      Y4	w: 1
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 1
+      X12	w: 0
+      P1	w: 0
+      W7	w: 0
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      V9	w: 0
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 0
+      0 	w: 0
+      quot	w: x1 + x2 + 1
+      Y3	w: 1
+      P10	w: 0
+      Y12	w: 1
+      from	w: 2 * x1
+      sel	w: x1 + x2
+      W6	w: 1
+      W2	w: 0
+      nil	w: 0
+      V6	w: 1
+      P5	w: 1
+      W1	w: 1
+      X5	w: 0
+      mark	w: x1
+      V8	w: 0
+      W4	w: 1
+      W3	w: 1
+      X7	w: 1
+      Y10	w: 0
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 1
+      U5	w: 1
+      active	w: x1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 1
+      Y8	w: 1
+      U2	w: 1
+      X 	w: 0
+      U4	w: 0
+      U6	w: 0
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 1
+      Y9	w: 0
+Number of strict rules: 31
+Direct POLO(bPol) ... removes: 7
+      V1	w: 1
+      U1	w: 0
+      U11	w: 0
+      Y2	w: 1
+      s 	w: x1 + 3
+      P8	w: 1
+      X11	w: 1
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: x1 + x2 + 1
+      W 	w: 1
+      Y 	w: 0
+      X4	w: 1
+      P4	w: 1
+      X6	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 0
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 1
+      zWquot	w: x1 + x2 + 1
+      Y4	w: 1
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 1
+      X12	w: 0
+      P1	w: 0
+      W7	w: 0
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      V9	w: 1
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 1
+      0 	w: 0
+      quot	w: 2 * x1 + 2 * x2
+      Y3	w: 1
+      P10	w: 1
+      Y12	w: 1
+      from	w: x1 + 1
+      sel	w: x1 + x2
+      W6	w: 1
+      W2	w: 1
+      nil	w: 0
+      V6	w: 1
+      P5	w: 1
+      W1	w: 1
+      X5	w: 1
+      mark	w: x1
+      V8	w: 0
+      W4	w: 1
+      W3	w: 1
+      X7	w: 1
+      Y10	w: 0
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 1
+      U5	w: 1
+      active	w: x1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 1
+      Y8	w: 1
+      U2	w: 1
+      X 	w: 0
+      U4	w: 1
+      U6	w: 0
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 1
+      Y9	w: 0
+Number of strict rules: 30
+Direct POLO(bPol) ... removes: 16 36 26 32 17 22 28 33 20 14 12 23 11 13 41 29
+      V1	w: 1
+      U1	w: 1
+      U11	w: 0
+      Y2	w: 2
+      s 	w: x1 + 3
+      P8	w: 1
+      X11	w: 0
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: x1 + x2 + 1
+      W 	w: 1
+      Y 	w: 1
+      X4	w: 1
+      P4	w: 1
+      X6	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 1
+      zWquot	w: x1 + x2
+      Y4	w: 1
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 1
+      X12	w: 0
+      P1	w: 0
+      W7	w: 1
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      V9	w: 1
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 1
+      0 	w: 0
+      quot	w: 2 * x1 + x2 + 1
+      Y3	w: 1
+      P10	w: 1
+      Y12	w: 1
+      from	w: x1 + 1
+      sel	w: x1 + x2 + 1
+      W6	w: 1
+      W2	w: 1
+      nil	w: 0
+      V6	w: 1
+      P5	w: 2
+      W1	w: 1
+      X5	w: 1
+      mark	w: 2 * x1
+      V8	w: 0
+      W4	w: 1
+      W3	w: 1
+      X7	w: 1
+      Y10	w: 0
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 1
+      U5	w: 1
+      active	w: x1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 1
+      Y8	w: 1
+      U2	w: 1
+      X 	w: 0
+      U4	w: 1
+      U6	w: 0
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 1
+      Y9	w: 0
+Number of strict rules: 14
+Direct POLO(bPol) ... removes: 37
+      V1	w: 1
+      U1	w: 1
+      U11	w: 0
+      Y2	w: 1
+      s 	w: 2 * x1
+      P8	w: 1
+      X11	w: 0
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: x1 + 2 * x2
+      W 	w: 1
+      Y 	w: 0
+      X4	w: 0
+      P4	w: 0
+      X6	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      U8	w: 0
+      P11	w: 0
+      W10	w: 0
+      V4	w: 0
+      zWquot	w: x1 + x2
+      Y4	w: 0
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 0
+      X12	w: 0
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: x1 + x2 + 1
+      V9	w: 1
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 1
+      0 	w: 0
+      quot	w: x1 + x2
+      Y3	w: 1
+      P10	w: 1
+      Y12	w: 1
+      from	w: x1 + 2
+      sel	w: x1 + 2 * x2 + 3
+      W6	w: 0
+      W2	w: 1
+      nil	w: 0
+      V6	w: 1
+      P5	w: 0
+      W1	w: 1
+      X5	w: 0
+      mark	w: 2 * x1
+      V8	w: 0
+      W4	w: 0
+      W3	w: 1
+      X7	w: 0
+      Y10	w: 1
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 0
+      U5	w: 1
+      active	w: x1
+      cons	w: x1 + 2 * x2
+      P 	w: 1
+      V3	w: 0
+      Y8	w: 1
+      U2	w: 1
+      X 	w: 1
+      U4	w: 0
+      U6	w: 0
+      V11	w: 0
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 1
+      Y9	w: 0
+Number of strict rules: 13
+Direct POLO(bPol) ... removes: 15
+      V1	w: 1
+      U1	w: 1
+      U11	w: 0
+      Y2	w: 1
+      s 	w: 2 * x1
+      P8	w: 1
+      X11	w: 0
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: 2 * x1 + 2 * x2
+      W 	w: 1
+      Y 	w: 0
+      X4	w: 0
+      P4	w: 0
+      X6	w: 1
+      U3	w: 1
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 0
+      zWquot	w: x1 + x2
+      Y4	w: 0
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 0
+      X12	w: 0
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: x1 + x2 + 1
+      V9	w: 1
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 1
+      0 	w: 1
+      quot	w: x1 + x2
+      Y3	w: 1
+      P10	w: 1
+      Y12	w: 1
+      from	w: x1 + 2
+      sel	w: x1 + x2 + 3
+      W6	w: 0
+      W2	w: 1
+      nil	w: 0
+      V6	w: 1
+      P5	w: 0
+      W1	w: 1
+      X5	w: 0
+      mark	w: 2 * x1
+      V8	w: 0
+      W4	w: 0
+      W3	w: 1
+      X7	w: 0
+      Y10	w: 1
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 0
+      U5	w: 1
+      active	w: x1
+      cons	w: x1 + 2 * x2
+      P 	w: 1
+      V3	w: 0
+      Y8	w: 1
+      U2	w: 1
+      X 	w: 1
+      U4	w: 0
+      U6	w: 0
+      V11	w: 0
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 2
+      Y9	w: 0
+Number of strict rules: 12
+Direct POLO(bPol) ... removes: 40
+      V1	w: 1
+      U1	w: 1
+      U11	w: 0
+      Y2	w: 1
+      s 	w: 2 * x1
+      P8	w: 1
+      X11	w: 1
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: 2 * x1 + 2 * x2
+      W 	w: 2
+      Y 	w: 0
+      X4	w: 0
+      P4	w: 0
+      X6	w: 1
+      U3	w: 2
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 0
+      zWquot	w: x1 + x2
+      Y4	w: 0
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 0
+      X12	w: 0
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: x1 + x2 + 1
+      V9	w: 1
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 1
+      0 	w: 1
+      quot	w: x1 + x2
+      Y3	w: 1
+      P10	w: 1
+      Y12	w: 1
+      from	w: x1 + 2
+      sel	w: x1 + x2 + 3
+      W6	w: 0
+      W2	w: 2
+      nil	w: 0
+      V6	w: 1
+      P5	w: 0
+      W1	w: 1
+      X5	w: 0
+      mark	w: 2 * x1
+      V8	w: 0
+      W4	w: 0
+      W3	w: 1
+      X7	w: 0
+      Y10	w: 1
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 0
+      U5	w: 1
+      active	w: x1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 0
+      Y8	w: 1
+      U2	w: 2
+      X 	w: 1
+      U4	w: 0
+      U6	w: 0
+      V11	w: 0
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 4
+      Y9	w: 0
+Number of strict rules: 11
+Direct POLO(bPol) ... removes: 18 19
+      V1	w: 1
+      U1	w: 1
+      U11	w: 0
+      Y2	w: 1
+      s 	w: 2 * x1
+      P8	w: 1
+      X11	w: 1
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: 2 * x1 + 2 * x2
+      W 	w: 2
+      Y 	w: 1
+      X4	w: 0
+      P4	w: 0
+      X6	w: 1
+      U3	w: 2
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 1
+      zWquot	w: x1 + x2 + 1
+      Y4	w: 1
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 0
+      X12	w: 0
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: x1 + x2 + 1
+      V9	w: 1
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 1
+      0 	w: 1
+      quot	w: x1 + x2
+      Y3	w: 1
+      P10	w: 1
+      Y12	w: 1
+      from	w: x1 + 1
+      sel	w: x1 + x2 + 3
+      W6	w: 1
+      W2	w: 2
+      nil	w: 1
+      V6	w: 1
+      P5	w: 0
+      W1	w: 1
+      X5	w: 1
+      mark	w: 2 * x1
+      V8	w: 0
+      W4	w: 0
+      W3	w: 1
+      X7	w: 1
+      Y10	w: 1
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 0
+      U5	w: 1
+      active	w: x1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 1
+      Y8	w: 1
+      U2	w: 2
+      X 	w: 1
+      U4	w: 0
+      U6	w: 0
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 3
+      Y9	w: 0
+Number of strict rules: 9
+Direct POLO(bPol) ... removes: 21 27 25 31 24 38 42 35 43
+      V1	w: 1
+      U1	w: 1
+      U11	w: 0
+      Y2	w: 1
+      s 	w: 2 * x1 + 1
+      P8	w: 1
+      X11	w: 1
+      Y11	w: 0
+      X3	w: 1
+      W8	w: 0
+      W5	w: 0
+      Y7	w: 0
+      minus	w: 2 * x1 + 2 * x2 + 1
+      W 	w: 1
+      Y 	w: 1
+      X4	w: 0
+      P4	w: 0
+      X6	w: 1
+      U3	w: 2
+      P3	w: 1
+      Y1	w: 1
+      X8	w: 0
+      U8	w: 1
+      P11	w: 0
+      W10	w: 0
+      V4	w: 1
+      zWquot	w: x1 + x2 + 1
+      Y4	w: 1
+      Y5	w: 1
+      P9	w: 0
+      V7	w: 0
+      X12	w: 0
+      P1	w: 1
+      W7	w: 1
+      W11	w: 1
+      V10	w: 0
+      U9	w: 0
+      _ 	w: x1 + x2 + 1
+      V9	w: 1
+      V2	w: 1
+      U10	w: 1
+      V5	w: 0
+      P2	w: 1
+      0 	w: 1
+      quot	w: x1 + x2 + 1
+      Y3	w: 1
+      P10	w: 1
+      Y12	w: 1
+      from	w: x1 + 1
+      sel	w: x1 + x2 + 3
+      W6	w: 1
+      W2	w: 2
+      nil	w: 1
+      V6	w: 1
+      P5	w: 0
+      W1	w: 1
+      X5	w: 1
+      mark	w: 2 * x1
+      V8	w: 0
+      W4	w: 0
+      W3	w: 1
+      X7	w: 1
+      Y10	w: 1
+      U7	w: 0
+      X9	w: 1
+      P7	w: 0
+      W9	w: 0
+      U5	w: 1
+      active	w: x1 + 1
+      cons	w: x1 + x2
+      P 	w: 1
+      V3	w: 1
+      Y8	w: 1
+      U2	w: 2
+      X 	w: 1
+      U4	w: 0
+      U6	w: 0
+      V11	w: 1
+      Y6	w: 0
+      P6	w: 1
+      V 	w: 1
+      X10	w: 0
+      U 	w: 3
+      Y9	w: 0
+Number of strict rules: 0

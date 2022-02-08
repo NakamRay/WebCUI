@@ -1,0 +1,1761 @@
+Copyright 2008 Etienne Payet <etienne.payet@univ-reunion.fr>
+
+This file is part of NTI.
+
+NTI is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, version 3 of the License or
+any later version.
+
+NTI is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with NTI. If not, see <http://www.gnu.org/licenses/>.
+
+
+
+
+***********************************************************
+Non-termination analysis of directory Comp07/SRS/
+- time limit =  120 second(s)
+- forward unfoldings only
+- useless rule elimination OFF
+- unfolding at variable positions OFF
+***********************************************************
+
+[SEE BOTTOM LINES FOR OVERALL RESULTS]
+
+
+*** Comp07/SRS/Bouchare/08.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(b(a(_1))) -> b(b(b(_1))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0 is a position in r0
+we have r0|p0 = b(_1)
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/a(b(_2))} is a mgu of r0|p0 and l'0
+
+==> a(b(a(a(b(_1))))) -> b(b(a(b(a(_1))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0 is a position in r1
+we have r1|p1 = b(a(_1))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/b(_2)} is a mgu of r1|p1 and l'1
+
+==> a(b(a(a(b(b(_1)))))) -> b(b(a(a(b(a(_1)))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = a(b(a(_1)))
+a(b(a(_2))) -> b(b(b(_2))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/_2} is a mgu of r2|p2 and l'2
+
+==> a(b(a(a(b(b(_1)))))) -> b(b(a(b(b(b(_1)))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0 is a position in r3
+we have r3|p3 = b(a(b(b(b(_1)))))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/b(b(_1))} is a mgu of r3|p3 and l'3
+
+==> a(b(a(a(b(b(_1)))))) -> b(a(b(a(b(b(_1)))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = epsilon is a position in r4
+we have r4|p4 = b(a(b(a(b(b(_1))))))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_2/a(b(b(_1)))} is a mgu of r4|p4 and l'4
+
+==> a(b(a(a(b(b(_1)))))) -> a(b(a(a(b(b(_1)))))) is in U_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = a(b(a(a(b(b(_1)))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(b(a(a(b(b(_1)))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=0
+108 rule(s) generated
+*** proof time: 0.03 second(s)
+
+*** Comp07/SRS/Bouchare/09.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(a(_1))) -> b(b(b(_1))) is in R
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = b(b(b(_1)))
+b(b(_2)) -> a(b(a(_2))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_2/b(_1)} is a mgu of r0|p0 and l'0
+
+==> a(a(a(_1))) -> a(b(a(b(_1)))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0 is a position in r1
+we have r1|p1 = b(_1)
+b(b(_2)) -> a(b(a(_2))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/b(_2)} is a mgu of r1|p1 and l'1
+
+==> a(a(a(b(_1)))) -> a(b(a(a(b(a(_1)))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0 is a position in r2
+we have r2|p2 = a(_1)
+a(a(a(_2))) -> b(b(b(_2))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/a(a(_2))} is a mgu of r2|p2 and l'2
+
+==> a(a(a(b(a(a(_1)))))) -> a(b(a(a(b(b(b(b(_1)))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0 is a position in r3
+we have r3|p3 = b(b(b(b(_1))))
+b(b(_2)) -> a(b(a(_2))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/b(b(_1))} is a mgu of r3|p3 and l'3
+
+==> a(a(a(b(a(a(_1)))))) -> a(b(a(a(a(b(a(b(b(_1))))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0.0.0 is a position in r4
+we have r4|p4 = b(b(_1))
+b(b(_2)) -> a(b(a(_2))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/_2} is a mgu of r4|p4 and l'4
+
+==> a(a(a(b(a(a(_1)))))) -> a(b(a(a(a(b(a(a(b(a(_1)))))))))) is in U_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {}
+let theta' = {_1/b(a(_1))}
+we have r|p = a(a(a(b(a(a(b(a(_1)))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(a(b(a(a(_1)))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=0
+360 rule(s) generated
+*** proof time: 0.07 second(s)
+
+*** Comp07/SRS/Gebhardt/03.srs
+TIME OUT
+forward process killed -- 53817 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Gebhardt/05.srs
+TIME OUT
+forward process killed -- 46858 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Gebhardt/08.srs
+TIME OUT
+forward process killed -- 57335 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Gebhardt/12.srs
+TIME OUT
+forward process killed -- 56231 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Gebhardt/15.srs
+TIME OUT
+forward process killed -- 59195 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/HofWald/1.srs
+
+NO
+
+let R be the TRS under consideration
+
+b(c(_1)) -> a(b(b(_1))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0 is a position in r0
+we have r0|p0 = b(_1)
+b(a(_2)) -> a(c(b(_2))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/a(_2)} is a mgu of r0|p0 and l'0
+
+==> b(c(a(_1))) -> a(b(a(c(b(_1))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = b(a(c(b(_1))))
+b(a(_2)) -> a(c(b(_2))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_2/c(b(_1))} is a mgu of r1|p1 and l'1
+
+==> b(c(a(_1))) -> a(a(c(b(c(b(_1)))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = b(c(b(_1)))
+b(c(_2)) -> a(b(b(_2))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/b(_1)} is a mgu of r2|p2 and l'2
+
+==> b(c(a(_1))) -> a(a(c(a(b(b(b(_1))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0.0.0 is a position in r3
+we have r3|p3 = b(_1)
+b(a(_2)) -> a(c(b(_2))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/a(_2)} is a mgu of r3|p3 and l'3
+
+==> b(c(a(a(_1)))) -> a(a(c(a(b(b(a(c(b(_1))))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0 is a position in r4
+we have r4|p4 = b(a(c(b(_1))))
+b(a(_2)) -> a(c(b(_2))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_2/c(b(_1))} is a mgu of r4|p4 and l'4
+
+==> b(c(a(a(_1)))) -> a(a(c(a(b(a(c(b(c(b(_1)))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0.0.0.0.0 is a position in r5
+we have r5|p5 = b(_1)
+b(c(_2)) -> a(b(b(_2))) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_1/c(_2)} is a mgu of r5|p5 and l'5
+
+==> b(c(a(a(c(_1))))) -> a(a(c(a(b(a(c(b(c(a(b(b(_1)))))))))))) is in U_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0.0.0.0.0.0.0.0.0.0 is a position in r6
+we have r6|p6 = b(_1)
+b(a(_2)) -> a(c(b(_2))) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_1/a(_2)} is a mgu of r6|p6 and l'6
+
+==> b(c(a(a(c(a(_1)))))) -> a(a(c(a(b(a(c(b(c(a(b(a(c(b(_1)))))))))))))) is in U_R^7
+let r7 be the right-hand side of this rule
+p7 = 0.0.0.0.0.0.0.0.0.0 is a position in r7
+we have r7|p7 = b(a(c(b(_1))))
+b(a(_2)) -> a(c(b(_2))) is in R
+let l'7 be the left-hand side of this rule
+theta7 = {_2/c(b(_1))} is a mgu of r7|p7 and l'7
+
+==> b(c(a(a(c(a(_1)))))) -> a(a(c(a(b(a(c(b(c(a(a(c(b(c(b(_1))))))))))))))) is in U_R^8
+let r8 be the right-hand side of this rule
+p8 = 0.0.0.0.0.0.0.0.0.0.0.0 is a position in r8
+we have r8|p8 = b(c(b(_1)))
+b(c(_2)) -> a(b(b(_2))) is in R
+let l'8 be the left-hand side of this rule
+theta8 = {_2/b(_1)} is a mgu of r8|p8 and l'8
+
+==> b(c(a(a(c(a(_1)))))) -> a(a(c(a(b(a(c(b(c(a(a(c(a(b(b(b(_1)))))))))))))))) is in U_R^9
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0.0.0.0
+let theta = {}
+let theta' = {_1/b(b(b(_1)))}
+we have r|p = b(c(a(a(c(a(b(b(b(_1))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = b(c(a(a(c(a(_1)))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=9, depth k=0
+6799 rule(s) generated
+*** proof time: 4.18 second(s)
+
+*** Comp07/SRS/Marche/turing_copy.srs
+
+NO
+
+let R be the TRS under consideration
+
+0(q0(h(_1))) -> 0(0(q0(h(_1)))) is in R
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = 0(q0(h(_1))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = 0(q0(h(_1))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=0, depth k=0
+2 rule(s) generated
+*** proof time: 0.05 second(s)
+
+*** Comp07/SRS/Marche/turing_mult.srs
+
+NO
+
+let R be the TRS under consideration
+
+0(q0(0(_1))) -> 0(0(q0(_1))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0 is a position in r0
+we have r0|p0 = q0(_1)
+q0(h(_2)) -> q0(0(h(_2))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/h(_2)} is a mgu of r0|p0 and l'0
+
+==> 0(q0(0(h(_1)))) -> 0(0(q0(0(h(_1))))) is in U_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {}
+we have r|p = 0(q0(0(h(_1)))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = 0(q0(0(h(_1)))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=1, depth k=0
+46 rule(s) generated
+*** proof time: 0.07 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-514.srs
+TIME OUT
+forward process killed -- 46283 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-515.srs
+TIME OUT
+forward process killed -- 57004 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-518.srs
+TIME OUT
+forward process killed -- 38173 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-519.srs
+TIME OUT
+forward process killed -- 37051 rule(s) generated
+*** proof time: 120.02 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-520.srs
+TIME OUT
+forward process killed -- 65713 rule(s) generated
+*** proof time: 120.05 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-521.srs
+TIME OUT
+forward process killed -- 58564 rule(s) generated
+*** proof time: 120.05 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-525.srs
+TIME OUT
+forward process killed -- 75634 rule(s) generated
+*** proof time: 120.05 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-527.srs
+TIME OUT
+forward process killed -- 65697 rule(s) generated
+*** proof time: 120.05 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-530.srs
+TIME OUT
+forward process killed -- 42435 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/secret2007/matchbox/num-539.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(b(_1))) -> c(c(a(a(a(_1))))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0 is a position in r0
+we have r0|p0 = a(a(_1))
+a(a(b(_2))) -> c(c(a(a(a(_2))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(_2)} is a mgu of r0|p0 and l'0
+
+==> a(a(b(b(_1)))) -> c(c(a(c(c(a(a(a(_1)))))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0 is a position in r1
+we have r1|p1 = a(c(c(a(a(a(_1))))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_2/c(a(a(a(_1))))} is a mgu of r1|p1 and l'1
+
+==> a(a(b(b(_1)))) -> c(c(b(a(c(a(a(a(_1)))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = a(c(a(a(a(_1)))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/a(a(a(_1)))} is a mgu of r2|p2 and l'2
+
+==> a(a(b(b(_1)))) -> c(c(b(b(a(a(a(a(_1)))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0.0.0.0 is a position in r3
+we have r3|p3 = a(_1)
+a(a(b(_2))) -> c(c(a(a(a(_2))))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/a(b(_2))} is a mgu of r3|p3 and l'3
+
+==> a(a(b(b(a(b(_1)))))) -> c(c(b(b(a(a(a(c(c(a(a(a(_1)))))))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0.0 is a position in r4
+we have r4|p4 = a(c(c(a(a(a(_1))))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_2/c(a(a(a(_1))))} is a mgu of r4|p4 and l'4
+
+==> a(a(b(b(a(b(_1)))))) -> c(c(b(b(a(a(b(a(c(a(a(a(_1)))))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0.0.0 is a position in r5
+we have r5|p5 = a(c(a(a(a(_1)))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_2/a(a(a(_1)))} is a mgu of r5|p5 and l'5
+
+==> a(a(b(b(a(b(_1)))))) -> c(c(b(b(a(a(b(b(a(a(a(a(_1)))))))))))) is in U_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0.0.0.0.0.0.0.0.0 is a position in r6
+we have r6|p6 = a(a(_1))
+a(a(b(_2))) -> c(c(a(a(a(_2))))) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_1/b(_2)} is a mgu of r6|p6 and l'6
+
+==> a(a(b(b(a(b(b(_1))))))) -> c(c(b(b(a(a(b(b(a(a(c(c(a(a(a(_1))))))))))))))) is in U_R^7
+let r7 be the right-hand side of this rule
+p7 = 0.0.0.0.0.0.0.0.0 is a position in r7
+we have r7|p7 = a(c(c(a(a(a(_1))))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'7 be the left-hand side of this rule
+theta7 = {_2/c(a(a(a(_1))))} is a mgu of r7|p7 and l'7
+
+==> a(a(b(b(a(b(b(_1))))))) -> c(c(b(b(a(a(b(b(a(b(a(c(a(a(a(_1))))))))))))))) is in U_R^8
+let r8 be the right-hand side of this rule
+p8 = 0.0.0.0.0.0.0.0.0.0 is a position in r8
+we have r8|p8 = a(c(a(a(a(_1)))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'8 be the left-hand side of this rule
+theta8 = {_2/a(a(a(_1)))} is a mgu of r8|p8 and l'8
+
+==> a(a(b(b(a(b(b(_1))))))) -> c(c(b(b(a(a(b(b(a(b(b(a(a(a(a(_1))))))))))))))) is in U_R^9
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0
+let theta = {}
+let theta' = {_1/a(a(a(a(_1))))}
+we have r|p = a(a(b(b(a(b(b(a(a(a(a(_1))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(b(b(a(b(b(_1))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=9, depth k=0
+38048 rule(s) generated
+*** proof time: 44.60 second(s)
+
+*** Comp07/SRS/Trafo/un04.srs
+TIME OUT
+forward process killed -- 46002 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann/uni-2.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(a(a(_1)))) -> a(c(a(c(c(_1))))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0 is a position in r0
+we have r0|p0 = c(c(_1))
+c(c(c(_2))) -> a(a(a(_2))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/c(_2)} is a mgu of r0|p0 and l'0
+
+==> a(a(a(a(c(_1))))) -> a(c(a(a(a(a(_1)))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0.0.0 is a position in r1
+we have r1|p1 = a(_1)
+a(a(a(a(_2)))) -> a(c(a(c(c(_2))))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/a(a(a(_2)))} is a mgu of r1|p1 and l'1
+
+==> a(a(a(a(c(a(a(a(_1)))))))) -> a(c(a(a(a(a(c(a(c(c(_1)))))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0.0.0.0 is a position in r2
+we have r2|p2 = c(c(_1))
+c(c(c(_2))) -> a(a(a(_2))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/c(_2)} is a mgu of r2|p2 and l'2
+
+==> a(a(a(a(c(a(a(a(c(_1))))))))) -> a(c(a(a(a(a(c(a(a(a(a(_1))))))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0.0.0.0.0.0 is a position in r3
+we have r3|p3 = a(a(_1))
+a(a(a(a(_2)))) -> a(c(a(c(c(_2))))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/a(a(_2))} is a mgu of r3|p3 and l'3
+
+==> a(a(a(a(c(a(a(a(c(a(a(_1))))))))))) -> a(c(a(a(a(a(c(a(a(a(c(a(c(c(_1)))))))))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0.0.0.0.0.0.0.0 is a position in r4
+we have r4|p4 = c(c(_1))
+c(c(c(_2))) -> a(a(a(_2))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/c(_2)} is a mgu of r4|p4 and l'4
+
+==> a(a(a(a(c(a(a(a(c(a(a(c(_1)))))))))))) -> a(c(a(a(a(a(c(a(a(a(c(a(a(a(a(_1))))))))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0.0.0.0.0.0.0.0 is a position in r5
+we have r5|p5 = a(a(a(_1)))
+a(a(a(a(_2)))) -> a(c(a(c(c(_2))))) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_1/a(_2)} is a mgu of r5|p5 and l'5
+
+==> a(a(a(a(c(a(a(a(c(a(a(c(a(_1))))))))))))) -> a(c(a(a(a(a(c(a(a(a(c(a(a(c(a(c(c(_1))))))))))))))))) is in U_R^6
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {}
+let theta' = {_1/c(c(_1))}
+we have r|p = a(a(a(a(c(a(a(a(c(a(a(c(a(c(c(_1))))))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(a(a(c(a(a(a(c(a(a(c(a(_1))))))))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=6, depth k=0
+627 rule(s) generated
+*** proof time: 0.26 second(s)
+
+*** Comp07/SRS/Waldmann/uni-3.srs
+TIME OUT
+forward process killed -- 57743 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann/uni-4.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(a(a(_1)))) -> b(a(a(a(_1)))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = a(a(a(_1)))
+a(a(a(a(_2)))) -> b(a(a(a(_2)))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/a(_2)} is a mgu of r0|p0 and l'0
+
+==> a(a(a(a(a(_1))))) -> b(b(a(a(a(_1))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = epsilon is a position in r1
+we have r1|p1 = b(b(a(a(a(_1)))))
+b(b(_2)) -> a(a(b(_2))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_2/a(a(a(_1)))} is a mgu of r1|p1 and l'1
+
+==> a(a(a(a(a(_1))))) -> a(a(b(a(a(a(_1)))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = a(a(a(_1)))
+a(a(a(a(_2)))) -> b(a(a(a(_2)))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/a(_2)} is a mgu of r2|p2 and l'2
+
+==> a(a(a(a(a(a(_1)))))) -> a(a(b(b(a(a(a(_1))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0 is a position in r3
+we have r3|p3 = b(b(a(a(a(_1)))))
+b(b(_2)) -> a(a(b(_2))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/a(a(a(_1)))} is a mgu of r3|p3 and l'3
+
+==> a(a(a(a(a(a(_1)))))) -> a(a(a(a(b(a(a(a(_1)))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0 is a position in r4
+we have r4|p4 = a(a(a(_1)))
+a(a(a(a(_2)))) -> b(a(a(a(_2)))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/a(_2)} is a mgu of r4|p4 and l'4
+
+==> a(a(a(a(a(a(a(_1))))))) -> a(a(a(a(b(b(a(a(a(_1))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0 is a position in r5
+we have r5|p5 = b(b(a(a(a(_1)))))
+b(b(_2)) -> a(a(b(_2))) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_2/a(a(a(_1)))} is a mgu of r5|p5 and l'5
+
+==> a(a(a(a(a(a(a(_1))))))) -> a(a(a(a(a(a(b(a(a(a(_1)))))))))) is in U_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0.0.0.0.0.0 is a position in r6
+we have r6|p6 = a(a(a(_1)))
+a(a(a(a(_2)))) -> b(a(a(a(_2)))) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_1/a(_2)} is a mgu of r6|p6 and l'6
+
+==> a(a(a(a(a(a(a(a(_1)))))))) -> a(a(a(a(a(a(b(b(a(a(a(_1))))))))))) is in U_R^7
+let r7 be the right-hand side of this rule
+p7 = 0.0.0.0.0.0 is a position in r7
+we have r7|p7 = b(b(a(a(a(_1)))))
+b(b(_2)) -> a(a(b(_2))) is in R
+let l'7 be the left-hand side of this rule
+theta7 = {_2/a(a(a(_1)))} is a mgu of r7|p7 and l'7
+
+==> a(a(a(a(a(a(a(a(_1)))))))) -> a(a(a(a(a(a(a(a(b(a(a(a(_1)))))))))))) is in U_R^8
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/b(a(a(a(_1))))}
+we have r|p = a(a(a(a(a(a(a(a(b(a(a(a(_1)))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(a(a(a(a(a(a(_1)))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=8, depth k=0
+5606 rule(s) generated
+*** proof time: 4.13 second(s)
+
+*** Comp07/SRS/Waldmann/uni-6.srs
+TIME OUT
+forward process killed -- 75932 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07a/size-11-alpha-3-num-1.srs
+TIME OUT
+forward process killed -- 49568 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07a/size-11-alpha-3-num-15.srs
+TIME OUT
+forward process killed -- 54798 rule(s) generated
+*** proof time: 120.05 second(s)
+
+*** Comp07/SRS/Waldmann07a/size-12-alpha-2-num-10.srs
+TIME OUT
+forward process killed -- 43271 rule(s) generated
+*** proof time: 120.06 second(s)
+
+*** Comp07/SRS/Waldmann07a/size-12-alpha-2-num-11.srs
+TIME OUT
+forward process killed -- 42342 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07a/size-12-alpha-2-num-12.srs
+TIME OUT
+forward process killed -- 31994 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07a/size-12-alpha-2-num-17.srs
+TIME OUT
+forward process killed -- 40386 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07a/size-12-alpha-2-num-18.srs
+TIME OUT
+forward process killed -- 37257 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-120.srs
+TIME OUT
+forward process killed -- 87589 rule(s) generated
+*** proof time: 120.05 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-179.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(b(_1)) -> b(a(c(b(a(a(_1)))))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0.0.0 is a position in r0
+we have r0|p0 = a(_1)
+a(b(_2)) -> b(a(c(b(a(a(_2)))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(_2)} is a mgu of r0|p0 and l'0
+
+==> a(b(b(_1))) -> b(a(c(b(a(b(a(c(b(a(a(_1))))))))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0.0.0.0.0.0.0 is a position in r1
+we have r1|p1 = a(a(_1))
+a(_2) -> _2 is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_2/a(_1)} is a mgu of r1|p1 and l'1
+
+==> a(b(b(_1))) -> b(a(c(b(a(b(a(c(b(a(_1)))))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0.0.0.0.0 is a position in r2
+we have r2|p2 = a(_1)
+a(_2) -> _2 is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/_2} is a mgu of r2|p2 and l'2
+
+==> a(b(b(_1))) -> b(a(c(b(a(b(a(c(b(_1))))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0.0.0.0 is a position in r3
+we have r3|p3 = c(b(_1))
+c(b(c(_2))) -> _2 is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/c(_2)} is a mgu of r3|p3 and l'3
+
+==> a(b(b(c(_1)))) -> b(a(c(b(a(b(a(_1))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0.0 is a position in r4
+we have r4|p4 = a(_1)
+a(b(_2)) -> b(a(c(b(a(a(_2)))))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/b(_2)} is a mgu of r4|p4 and l'4
+
+==> a(b(b(c(b(_1))))) -> b(a(c(b(a(b(b(a(c(b(a(a(_1)))))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0.0.0 is a position in r5
+we have r5|p5 = a(c(b(a(a(_1)))))
+a(_2) -> _2 is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_2/c(b(a(a(_1))))} is a mgu of r5|p5 and l'5
+
+==> a(b(b(c(b(_1))))) -> b(a(c(b(a(b(b(c(b(a(a(_1))))))))))) is in U_R^6
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0
+let theta = {}
+let theta' = {_1/a(a(_1))}
+we have r|p = a(b(b(c(b(a(a(_1))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(b(b(c(b(_1))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=6, depth k=0
+573 rule(s) generated
+*** proof time: 0.53 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-20.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(_1) -> b(_1) is in R
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = b(_1)
+b(a(c(_2))) -> c(c(a(b(a(_2))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/a(c(_2))} is a mgu of r0|p0 and l'0
+
+==> a(a(c(_1))) -> c(c(a(b(a(_1))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0 is a position in r1
+we have r1|p1 = b(a(_1))
+b(a(c(_2))) -> c(c(a(b(a(_2))))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/c(_2)} is a mgu of r1|p1 and l'1
+
+==> a(a(c(c(_1)))) -> c(c(a(c(c(a(b(a(_1)))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = c(c(a(b(a(_1)))))
+c(_2) -> _2 is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/c(a(b(a(_1))))} is a mgu of r2|p2 and l'2
+
+==> a(a(c(c(_1)))) -> c(c(a(c(a(b(a(_1))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0 is a position in r3
+we have r3|p3 = c(a(b(a(_1))))
+c(_2) -> _2 is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/a(b(a(_1)))} is a mgu of r3|p3 and l'3
+
+==> a(a(c(c(_1)))) -> c(c(a(a(b(a(_1)))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0 is a position in r4
+we have r4|p4 = b(a(_1))
+b(a(c(_2))) -> c(c(a(b(a(_2))))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/c(_2)} is a mgu of r4|p4 and l'4
+
+==> a(a(c(c(c(_1))))) -> c(c(a(a(c(c(a(b(a(_1))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0.0 is a position in r5
+we have r5|p5 = a(b(a(_1)))
+a(_2) -> _2 is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_2/b(a(_1))} is a mgu of r5|p5 and l'5
+
+==> a(a(c(c(c(_1))))) -> c(c(a(a(c(c(b(a(_1)))))))) is in U_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0.0.0.0.0 is a position in r6
+we have r6|p6 = b(a(_1))
+b(a(c(_2))) -> c(c(a(b(a(_2))))) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_1/c(_2)} is a mgu of r6|p6 and l'6
+
+==> a(a(c(c(c(c(_1)))))) -> c(c(a(a(c(c(c(c(a(b(a(_1))))))))))) is in U_R^7
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {}
+let theta' = {_1/a(b(a(_1)))}
+we have r|p = a(a(c(c(c(c(a(b(a(_1))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(c(c(c(c(_1)))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=7, depth k=0
+5383 rule(s) generated
+*** proof time: 2.23 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-21.srs
+TIME OUT
+forward process killed -- 56855 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-22.srs
+TIME OUT
+forward process killed -- 55048 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-233.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(b(_1)) -> b(c(a(_1))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0 is a position in r0
+we have r0|p0 = c(a(_1))
+c(a(c(_2))) -> b(a(a(_2))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/c(_2)} is a mgu of r0|p0 and l'0
+
+==> a(b(c(_1))) -> b(b(a(a(_1)))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0 is a position in r1
+we have r1|p1 = a(_1)
+a(b(_2)) -> b(c(a(_2))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/b(_2)} is a mgu of r1|p1 and l'1
+
+==> a(b(c(b(_1)))) -> b(b(a(b(c(a(_1)))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0 is a position in r2
+we have r2|p2 = a(b(c(a(_1))))
+a(b(_2)) -> b(c(a(_2))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/c(a(_1))} is a mgu of r2|p2 and l'2
+
+==> a(b(c(b(_1)))) -> b(b(b(c(a(c(a(_1))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0 is a position in r3
+we have r3|p3 = c(a(c(a(_1))))
+c(a(c(_2))) -> b(a(a(_2))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/a(_1)} is a mgu of r3|p3 and l'3
+
+==> a(b(c(b(_1)))) -> b(b(b(b(a(a(a(_1))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0.0 is a position in r4
+we have r4|p4 = a(_1)
+a(b(_2)) -> b(c(a(_2))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/b(_2)} is a mgu of r4|p4 and l'4
+
+==> a(b(c(b(b(_1))))) -> b(b(b(b(a(a(b(c(a(_1))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0.0.0.0 is a position in r5
+we have r5|p5 = a(_1)
+a(b(_2)) -> b(c(a(_2))) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_1/b(_2)} is a mgu of r5|p5 and l'5
+
+==> a(b(c(b(b(b(_1)))))) -> b(b(b(b(a(a(b(c(b(c(a(_1))))))))))) is in U_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0.0.0.0.0.0.0.0 is a position in r6
+we have r6|p6 = c(a(_1))
+c(a(c(_2))) -> b(a(a(_2))) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_1/c(_2)} is a mgu of r6|p6 and l'6
+
+==> a(b(c(b(b(b(c(_1))))))) -> b(b(b(b(a(a(b(c(b(b(a(a(_1)))))))))))) is in U_R^7
+let r7 be the right-hand side of this rule
+p7 = 0.0.0.0.0.0.0.0.0.0.0 is a position in r7
+we have r7|p7 = a(_1)
+a(b(_2)) -> b(c(a(_2))) is in R
+let l'7 be the left-hand side of this rule
+theta7 = {_1/b(_2)} is a mgu of r7|p7 and l'7
+
+==> a(b(c(b(b(b(c(b(_1)))))))) -> b(b(b(b(a(a(b(c(b(b(a(b(c(a(_1)))))))))))))) is in U_R^8
+let r8 be the right-hand side of this rule
+p8 = 0.0.0.0.0.0.0.0.0.0 is a position in r8
+we have r8|p8 = a(b(c(a(_1))))
+a(b(_2)) -> b(c(a(_2))) is in R
+let l'8 be the left-hand side of this rule
+theta8 = {_2/c(a(_1))} is a mgu of r8|p8 and l'8
+
+==> a(b(c(b(b(b(c(b(_1)))))))) -> b(b(b(b(a(a(b(c(b(b(b(c(a(c(a(_1))))))))))))))) is in U_R^9
+let r9 be the right-hand side of this rule
+p9 = 0.0.0.0.0.0.0.0.0.0.0.0.0 is a position in r9
+we have r9|p9 = c(a(_1))
+c(a(c(_2))) -> b(a(a(_2))) is in R
+let l'9 be the left-hand side of this rule
+theta9 = {_1/c(_2)} is a mgu of r9|p9 and l'9
+
+==> a(b(c(b(b(b(c(b(c(_1))))))))) -> b(b(b(b(a(a(b(c(b(b(b(c(a(b(a(a(_1)))))))))))))))) is in U_R^10
+let r10 be the right-hand side of this rule
+p10 = 0.0.0.0.0.0.0.0.0.0.0.0 is a position in r10
+we have r10|p10 = a(b(a(a(_1))))
+a(b(_2)) -> b(c(a(_2))) is in R
+let l'10 be the left-hand side of this rule
+theta10 = {_2/a(a(_1))} is a mgu of r10|p10 and l'10
+
+==> a(b(c(b(b(b(c(b(c(_1))))))))) -> b(b(b(b(a(a(b(c(b(b(b(c(b(c(a(a(a(_1))))))))))))))))) is in U_R^11
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0.0
+let theta = {}
+let theta' = {_1/a(a(a(_1)))}
+we have r|p = a(b(c(b(b(b(c(b(c(a(a(a(_1)))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(b(c(b(b(b(c(b(c(_1))))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=11, depth k=0
+23617 rule(s) generated
+*** proof time: 13.75 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-243.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(b(_1)) -> b(c(a(a(_1)))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0 is a position in r0
+we have r0|p0 = a(_1)
+a(b(_2)) -> b(c(a(a(_2)))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(_2)} is a mgu of r0|p0 and l'0
+
+==> a(b(b(_1))) -> b(c(a(b(c(a(a(_1))))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0.0.0.0 is a position in r1
+we have r1|p1 = a(_1)
+a(b(_2)) -> b(c(a(a(_2)))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/b(_2)} is a mgu of r1|p1 and l'1
+
+==> a(b(b(b(_1)))) -> b(c(a(b(c(a(b(c(a(a(_1)))))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0 is a position in r2
+we have r2|p2 = a(b(c(a(a(_1)))))
+a(b(_2)) -> b(c(a(a(_2)))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/c(a(a(_1)))} is a mgu of r2|p2 and l'2
+
+==> a(b(b(b(_1)))) -> b(c(a(b(c(b(c(a(a(c(a(a(_1)))))))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0 is a position in r3
+we have r3|p3 = c(b(c(a(a(c(a(a(_1))))))))
+c(b(_2)) -> _2 is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/c(a(a(c(a(a(_1))))))} is a mgu of r3|p3 and l'3
+
+==> a(b(b(b(_1)))) -> b(c(a(b(c(a(a(c(a(a(_1)))))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0 is a position in r4
+we have r4|p4 = a(a(c(a(a(_1)))))
+a(_2) -> _2 is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_2/a(c(a(a(_1))))} is a mgu of r4|p4 and l'4
+
+==> a(b(b(b(_1)))) -> b(c(a(b(c(a(c(a(a(_1))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0 is a position in r5
+we have r5|p5 = a(c(a(a(_1))))
+a(_2) -> _2 is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_2/c(a(a(_1)))} is a mgu of r5|p5 and l'5
+
+==> a(b(b(b(_1)))) -> b(c(a(b(c(c(a(a(_1)))))))) is in U_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0.0.0 is a position in r6
+we have r6|p6 = c(c(a(a(_1))))
+c(c(_2)) -> b(_2) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_2/a(a(_1))} is a mgu of r6|p6 and l'6
+
+==> a(b(b(b(_1)))) -> b(c(a(b(b(a(a(_1))))))) is in U_R^7
+let r7 be the right-hand side of this rule
+p7 = 0.0.0.0.0.0 is a position in r7
+we have r7|p7 = a(_1)
+a(b(_2)) -> b(c(a(a(_2)))) is in R
+let l'7 be the left-hand side of this rule
+theta7 = {_1/b(_2)} is a mgu of r7|p7 and l'7
+
+==> a(b(b(b(b(_1))))) -> b(c(a(b(b(a(b(c(a(a(_1)))))))))) is in U_R^8
+let r8 be the right-hand side of this rule
+p8 = 0.0.0.0.0 is a position in r8
+we have r8|p8 = a(b(c(a(a(_1)))))
+a(b(_2)) -> b(c(a(a(_2)))) is in R
+let l'8 be the left-hand side of this rule
+theta8 = {_2/c(a(a(_1)))} is a mgu of r8|p8 and l'8
+
+==> a(b(b(b(b(_1))))) -> b(c(a(b(b(b(c(a(a(c(a(a(_1)))))))))))) is in U_R^9
+let r9 be the right-hand side of this rule
+p9 = 0.0.0.0.0.0.0 is a position in r9
+we have r9|p9 = a(a(c(a(a(_1)))))
+a(_2) -> _2 is in R
+let l'9 be the left-hand side of this rule
+theta9 = {_2/a(c(a(a(_1))))} is a mgu of r9|p9 and l'9
+
+==> a(b(b(b(b(_1))))) -> b(c(a(b(b(b(c(a(c(a(a(_1))))))))))) is in U_R^10
+let r10 be the right-hand side of this rule
+p10 = 0.0.0.0.0.0.0 is a position in r10
+we have r10|p10 = a(c(a(a(_1))))
+a(_2) -> _2 is in R
+let l'10 be the left-hand side of this rule
+theta10 = {_2/c(a(a(_1)))} is a mgu of r10|p10 and l'10
+
+==> a(b(b(b(b(_1))))) -> b(c(a(b(b(b(c(c(a(a(_1)))))))))) is in U_R^11
+let r11 be the right-hand side of this rule
+p11 = 0.0.0.0.0.0 is a position in r11
+we have r11|p11 = c(c(a(a(_1))))
+c(c(_2)) -> b(_2) is in R
+let l'11 be the left-hand side of this rule
+theta11 = {_2/a(a(_1))} is a mgu of r11|p11 and l'11
+
+==> a(b(b(b(b(_1))))) -> b(c(a(b(b(b(b(a(a(_1))))))))) is in U_R^12
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {}
+let theta' = {_1/a(a(_1))}
+we have r|p = a(b(b(b(b(a(a(_1))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(b(b(b(b(_1))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=12, depth k=0
+46255 rule(s) generated
+*** proof time: 118.14 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-247.srs
+TIME OUT
+forward process killed -- 46564 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-356.srs
+TIME OUT
+forward process killed -- 50515 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-361.srs
+TIME OUT
+forward process killed -- 41947 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-362.srs
+TIME OUT
+forward process killed -- 44393 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-363.srs
+TIME OUT
+forward process killed -- 41812 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-373.srs
+TIME OUT
+forward process killed -- 45242 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-386.srs
+TIME OUT
+forward process killed -- 55444 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-403.srs
+TIME OUT
+forward process killed -- 53694 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-410.srs
+TIME OUT
+forward process killed -- 52044 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-475.srs
+TIME OUT
+forward process killed -- 56563 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-493.srs
+TIME OUT
+forward process killed -- 57711 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-518.srs
+TIME OUT
+forward process killed -- 37733 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-519.srs
+TIME OUT
+forward process killed -- 36659 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-539.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(b(_1))) -> c(c(a(a(a(_1))))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0 is a position in r0
+we have r0|p0 = a(a(_1))
+a(a(b(_2))) -> c(c(a(a(a(_2))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(_2)} is a mgu of r0|p0 and l'0
+
+==> a(a(b(b(_1)))) -> c(c(a(c(c(a(a(a(_1)))))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0 is a position in r1
+we have r1|p1 = a(c(c(a(a(a(_1))))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_2/c(a(a(a(_1))))} is a mgu of r1|p1 and l'1
+
+==> a(a(b(b(_1)))) -> c(c(b(a(c(a(a(a(_1)))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = a(c(a(a(a(_1)))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/a(a(a(_1)))} is a mgu of r2|p2 and l'2
+
+==> a(a(b(b(_1)))) -> c(c(b(b(a(a(a(a(_1)))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0.0.0.0 is a position in r3
+we have r3|p3 = a(_1)
+a(a(b(_2))) -> c(c(a(a(a(_2))))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/a(b(_2))} is a mgu of r3|p3 and l'3
+
+==> a(a(b(b(a(b(_1)))))) -> c(c(b(b(a(a(a(c(c(a(a(a(_1)))))))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0.0 is a position in r4
+we have r4|p4 = a(c(c(a(a(a(_1))))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_2/c(a(a(a(_1))))} is a mgu of r4|p4 and l'4
+
+==> a(a(b(b(a(b(_1)))))) -> c(c(b(b(a(a(b(a(c(a(a(a(_1)))))))))))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0.0.0.0.0.0 is a position in r5
+we have r5|p5 = a(c(a(a(a(_1)))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_2/a(a(a(_1)))} is a mgu of r5|p5 and l'5
+
+==> a(a(b(b(a(b(_1)))))) -> c(c(b(b(a(a(b(b(a(a(a(a(_1)))))))))))) is in U_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0.0.0.0.0.0.0.0.0 is a position in r6
+we have r6|p6 = a(a(_1))
+a(a(b(_2))) -> c(c(a(a(a(_2))))) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_1/b(_2)} is a mgu of r6|p6 and l'6
+
+==> a(a(b(b(a(b(b(_1))))))) -> c(c(b(b(a(a(b(b(a(a(c(c(a(a(a(_1))))))))))))))) is in U_R^7
+let r7 be the right-hand side of this rule
+p7 = 0.0.0.0.0.0.0.0.0 is a position in r7
+we have r7|p7 = a(c(c(a(a(a(_1))))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'7 be the left-hand side of this rule
+theta7 = {_2/c(a(a(a(_1))))} is a mgu of r7|p7 and l'7
+
+==> a(a(b(b(a(b(b(_1))))))) -> c(c(b(b(a(a(b(b(a(b(a(c(a(a(a(_1))))))))))))))) is in U_R^8
+let r8 be the right-hand side of this rule
+p8 = 0.0.0.0.0.0.0.0.0.0 is a position in r8
+we have r8|p8 = a(c(a(a(a(_1)))))
+a(c(_2)) -> b(a(_2)) is in R
+let l'8 be the left-hand side of this rule
+theta8 = {_2/a(a(a(_1)))} is a mgu of r8|p8 and l'8
+
+==> a(a(b(b(a(b(b(_1))))))) -> c(c(b(b(a(a(b(b(a(b(b(a(a(a(a(_1))))))))))))))) is in U_R^9
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0
+let theta = {}
+let theta' = {_1/a(a(a(a(_1))))}
+we have r|p = a(a(b(b(a(b(b(a(a(a(a(_1))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(b(b(a(b(b(_1))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=9, depth k=0
+38048 rule(s) generated
+*** proof time: 44.22 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-540.srs
+TIME OUT
+forward process killed -- 72706 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-564.srs
+TIME OUT
+forward process killed -- 60497 rule(s) generated
+*** proof time: 120.04 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-566.srs
+TIME OUT
+forward process killed -- 70836 rule(s) generated
+*** proof time: 120.05 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-90.srs
+TIME OUT
+forward process killed -- 55206 rule(s) generated
+*** proof time: 120.03 second(s)
+
+*** Comp07/SRS/Waldmann07b/size-12-alpha-3-num-99.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(a(_1))) -> b(_1) is in R
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = b(_1)
+b(c(_2)) -> a(c(c(b(_2)))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/c(_2)} is a mgu of r0|p0 and l'0
+
+==> a(a(a(c(_1)))) -> a(c(c(b(_1)))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = c(c(b(_1)))
+c(_2) -> _2 is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_2/c(b(_1))} is a mgu of r1|p1 and l'1
+
+==> a(a(a(c(_1)))) -> a(c(b(_1))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0 is a position in r2
+we have r2|p2 = c(b(_1))
+c(_2) -> _2 is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/b(_1)} is a mgu of r2|p2 and l'2
+
+==> a(a(a(c(_1)))) -> a(b(_1)) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0 is a position in r3
+we have r3|p3 = b(_1)
+b(c(_2)) -> a(c(c(b(_2)))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/c(_2)} is a mgu of r3|p3 and l'3
+
+==> a(a(a(c(c(_1))))) -> a(a(c(c(b(_1))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0 is a position in r4
+we have r4|p4 = c(c(b(_1)))
+c(_2) -> _2 is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_2/c(b(_1))} is a mgu of r4|p4 and l'4
+
+==> a(a(a(c(c(_1))))) -> a(a(c(b(_1)))) is in U_R^5
+let r5 be the right-hand side of this rule
+p5 = 0.0 is a position in r5
+we have r5|p5 = c(b(_1))
+c(_2) -> _2 is in R
+let l'5 be the left-hand side of this rule
+theta5 = {_2/b(_1)} is a mgu of r5|p5 and l'5
+
+==> a(a(a(c(c(_1))))) -> a(a(b(_1))) is in U_R^6
+let r6 be the right-hand side of this rule
+p6 = 0.0 is a position in r6
+we have r6|p6 = b(_1)
+b(c(_2)) -> a(c(c(b(_2)))) is in R
+let l'6 be the left-hand side of this rule
+theta6 = {_1/c(_2)} is a mgu of r6|p6 and l'6
+
+==> a(a(a(c(c(c(_1)))))) -> a(a(a(c(c(b(_1)))))) is in U_R^7
+let r7 be the right-hand side of this rule
+p7 = 0.0.0.0.0 is a position in r7
+we have r7|p7 = b(_1)
+b(c(_2)) -> a(c(c(b(_2)))) is in R
+let l'7 be the left-hand side of this rule
+theta7 = {_1/c(_2)} is a mgu of r7|p7 and l'7
+
+==> a(a(a(c(c(c(c(_1))))))) -> a(a(a(c(c(a(c(c(b(_1))))))))) is in U_R^8
+let r8 be the right-hand side of this rule
+p8 = 0.0.0.0.0 is a position in r8
+we have r8|p8 = a(c(c(b(_1))))
+a(_2) -> _2 is in R
+let l'8 be the left-hand side of this rule
+theta8 = {_2/c(c(b(_1)))} is a mgu of r8|p8 and l'8
+
+==> a(a(a(c(c(c(c(_1))))))) -> a(a(a(c(c(c(c(b(_1)))))))) is in U_R^9
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {_1/b(_1)}
+we have r|p = a(a(a(c(c(c(c(b(_1)))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(a(c(c(c(c(_1))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=9, depth k=0
+1997 rule(s) generated
+*** proof time: 1.47 second(s)
+
+*** Comp07/SRS/Zantema/z042.srs
+
+NO
+
+let R be the TRS under consideration
+
+c(b(a(b(a(_1))))) -> a(b(a(b(a(b(c(b(c(_1))))))))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0.0.0.0.0.0 is a position in r0
+we have r0|p0 = c(_1)
+c(b(a(b(a(_2))))) -> a(b(a(b(a(b(c(b(c(_2))))))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(a(b(a(_2))))} is a mgu of r0|p0 and l'0
+
+==> c(b(a(b(a(b(a(b(a(_1))))))))) -> a(b(a(b(a(b(c(b(a(b(a(b(a(b(c(b(c(_1))))))))))))))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0 is a position in r1
+we have r1|p1 = c(_1)
+c(b(a(b(a(_2))))) -> a(b(a(b(a(b(c(b(c(_2))))))))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/b(a(b(a(_2))))} is a mgu of r1|p1 and l'1
+
+==> c(b(a(b(a(b(a(b(a(b(a(b(a(_1))))))))))))) -> a(b(a(b(a(b(c(b(a(b(a(b(a(b(c(b(a(b(a(b(a(b(c(b(c(_1))))))))))))))))))))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0.0.0.0.0.0.0.0.0.0 is a position in r2
+we have r2|p2 = c(b(a(b(a(b(a(b(c(b(c(_1)))))))))))
+c(b(a(b(a(_2))))) -> a(b(a(b(a(b(c(b(c(_2))))))))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/b(a(b(c(b(c(_1))))))} is a mgu of r2|p2 and l'2
+
+==> c(b(a(b(a(b(a(b(a(b(a(b(a(_1))))))))))))) -> a(b(a(b(a(b(c(b(a(b(a(b(a(b(a(b(a(b(a(b(c(b(c(b(a(b(c(b(c(_1))))))))))))))))))))))))))))) is in U_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0.0.0
+let theta = {}
+let theta' = {_1/b(c(b(c(b(a(b(c(b(c(_1))))))))))}
+we have r|p = c(b(a(b(a(b(a(b(a(b(a(b(a(b(c(b(c(b(a(b(c(b(c(_1))))))))))))))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = c(b(a(b(a(b(a(b(a(b(a(b(a(_1))))))))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=3, depth k=0
+6 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/SRS/Zantema/z044.srs
+
+NO
+
+let R be the TRS under consideration
+
+c(a(b(a(_1)))) -> a(b(a(b(c(c(a(_1))))))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0.0.0 is a position in r0
+we have r0|p0 = c(a(_1))
+c(a(b(a(_2)))) -> a(b(a(b(c(c(a(_2))))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(a(_2))} is a mgu of r0|p0 and l'0
+
+==> c(a(b(a(b(a(_1)))))) -> a(b(a(b(c(a(b(a(b(c(c(a(_1)))))))))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0.0.0.0.0.0.0.0 is a position in r1
+we have r1|p1 = c(a(_1))
+c(a(b(a(_2)))) -> a(b(a(b(c(c(a(_2))))))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/b(a(_2))} is a mgu of r1|p1 and l'1
+
+==> c(a(b(a(b(a(b(a(_1)))))))) -> a(b(a(b(c(a(b(a(b(c(a(b(a(b(c(c(a(_1))))))))))))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0.0.0.0.0 is a position in r2
+we have r2|p2 = c(a(b(a(b(c(c(a(_1))))))))
+c(a(b(a(_2)))) -> a(b(a(b(c(c(a(_2))))))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/b(c(c(a(_1))))} is a mgu of r2|p2 and l'2
+
+==> c(a(b(a(b(a(b(a(_1)))))))) -> a(b(a(b(c(a(b(a(b(a(b(a(b(c(c(a(b(c(c(a(_1)))))))))))))))))))) is in U_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0
+let theta = {}
+let theta' = {_1/b(c(c(a(b(c(c(a(_1))))))))}
+we have r|p = c(a(b(a(b(a(b(a(b(c(c(a(b(c(c(a(_1)))))))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = c(a(b(a(b(a(b(a(_1)))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=3, depth k=0
+6 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/SRS/Zantema/z046.srs
+
+NO
+
+let R be the TRS under consideration
+
+c(a(a(b(a(_1))))) -> a(a(b(a(c(c(a(a(b(_1))))))))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0.0.0 is a position in r0
+we have r0|p0 = c(a(a(b(_1))))
+c(a(a(b(a(_2))))) -> a(a(b(a(c(c(a(a(b(_2))))))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/a(_2)} is a mgu of r0|p0 and l'0
+
+==> c(a(a(b(a(a(_1)))))) -> a(a(b(a(c(a(a(b(a(c(c(a(a(b(_1)))))))))))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0.0.0.0.0.0.0.0 is a position in r1
+we have r1|p1 = c(a(a(b(_1))))
+c(a(a(b(a(_2))))) -> a(a(b(a(c(c(a(a(b(_2))))))))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/a(_2)} is a mgu of r1|p1 and l'1
+
+==> c(a(a(b(a(a(a(_1))))))) -> a(a(b(a(c(a(a(b(a(c(a(a(b(a(c(c(a(a(b(_1))))))))))))))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0.0.0.0.0 is a position in r2
+we have r2|p2 = c(a(a(b(a(c(c(a(a(b(_1))))))))))
+c(a(a(b(a(_2))))) -> a(a(b(a(c(c(a(a(b(_2))))))))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/c(c(a(a(b(_1)))))} is a mgu of r2|p2 and l'2
+
+==> c(a(a(b(a(a(a(_1))))))) -> a(a(b(a(c(a(a(b(a(a(a(b(a(c(c(a(a(b(c(c(a(a(b(_1))))))))))))))))))))))) is in U_R^3
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0
+let theta = {}
+let theta' = {_1/b(a(c(c(a(a(b(c(c(a(a(b(_1))))))))))))}
+we have r|p = c(a(a(b(a(a(a(b(a(c(c(a(a(b(c(c(a(a(b(_1))))))))))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = c(a(a(b(a(a(a(_1))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=3, depth k=0
+6 rule(s) generated
+*** proof time: 0.02 second(s)
+
+*** Comp07/SRS/Zantema/z096.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(b(b(_1)))) -> b(b(b(b(b(a(a(a(a(a(_1)))))))))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0.0.0.0.0.0 is a position in r0
+we have r0|p0 = a(a(_1))
+a(a(b(b(_2)))) -> b(b(b(b(b(a(a(a(a(a(_2)))))))))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(b(_2))} is a mgu of r0|p0 and l'0
+
+==> a(a(b(b(b(b(_1)))))) -> b(b(b(b(b(a(a(a(b(b(b(b(b(a(a(a(a(a(_1)))))))))))))))))) is in U_R^1
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0.0.0.0.0
+let theta = {}
+let theta' = {_1/b(a(a(a(a(a(_1))))))}
+we have r|p = a(a(b(b(b(b(b(a(a(a(a(a(_1)))))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(b(b(b(b(_1)))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=1, depth k=0
+2 rule(s) generated
+*** proof time: 0.01 second(s)
+
+*** Comp07/SRS/Zantema/z127.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(a(_1))) -> a(b(b(_1))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0 is a position in r0
+we have r0|p0 = b(_1)
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/a(b(_2))} is a mgu of r0|p0 and l'0
+
+==> a(a(a(a(b(_1))))) -> a(b(a(b(a(_1))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = b(a(b(a(_1))))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_2/a(_1)} is a mgu of r1|p1 and l'1
+
+==> a(a(a(a(b(_1))))) -> a(a(b(a(a(_1))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = a(a(_1))
+a(a(a(_2))) -> a(b(b(_2))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/a(_2)} is a mgu of r2|p2 and l'2
+
+==> a(a(a(a(b(a(_1)))))) -> a(a(b(a(b(b(_1)))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0 is a position in r3
+we have r3|p3 = b(a(b(b(_1))))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/b(_1)} is a mgu of r3|p3 and l'3
+
+==> a(a(a(a(b(a(_1)))))) -> a(a(a(b(a(b(_1)))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0 is a position in r4
+we have r4|p4 = b(a(b(_1)))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/_2} is a mgu of r4|p4 and l'4
+
+==> a(a(a(a(b(a(_1)))))) -> a(a(a(a(b(a(_1)))))) is in U_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = a(a(a(a(b(a(_1)))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(a(a(b(a(_1)))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=0
+67 rule(s) generated
+*** proof time: 0.03 second(s)
+
+*** Comp07/SRS/Zantema/z128.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(a(_1))) -> b(a(b(_1))) is in R
+let r0 be the right-hand side of this rule
+p0 = epsilon is a position in r0
+we have r0|p0 = b(a(b(_1)))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/_2} is a mgu of r0|p0 and l'0
+
+==> a(a(a(_1))) -> a(b(a(_1))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0 is a position in r1
+we have r1|p1 = b(a(_1))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/b(_2)} is a mgu of r1|p1 and l'1
+
+==> a(a(a(b(_1)))) -> a(a(b(a(_1)))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0 is a position in r2
+we have r2|p2 = a(_1)
+a(a(a(_2))) -> b(a(b(_2))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/a(a(_2))} is a mgu of r2|p2 and l'2
+
+==> a(a(a(b(a(a(_1)))))) -> a(a(b(b(a(b(_1)))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0 is a position in r3
+we have r3|p3 = b(a(b(_1)))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_1/_2} is a mgu of r3|p3 and l'3
+
+==> a(a(a(b(a(a(_1)))))) -> a(a(b(a(b(a(_1)))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0 is a position in r4
+we have r4|p4 = b(a(b(a(_1))))
+b(a(b(_2))) -> a(b(a(_2))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_2/a(_1)} is a mgu of r4|p4 and l'4
+
+==> a(a(a(b(a(a(_1)))))) -> a(a(a(b(a(a(_1)))))) is in U_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = epsilon
+let theta = {}
+let theta' = {}
+we have r|p = a(a(a(b(a(a(_1)))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(a(b(a(a(_1)))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=0
+89 rule(s) generated
+*** proof time: 0.03 second(s)
+
+*** Comp07/SRS/Zantema06/loop1.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(b(b(_1))) -> b(b(a(a(_1)))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0.0 is a position in r0
+we have r0|p0 = a(_1)
+a(b(b(_2))) -> b(b(a(a(_2)))) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(b(_2))} is a mgu of r0|p0 and l'0
+
+==> a(b(b(b(b(_1))))) -> b(b(a(b(b(a(a(_1))))))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0.0.0.0 is a position in r1
+we have r1|p1 = a(_1)
+a(b(b(_2))) -> b(b(a(a(_2)))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/b(b(_2))} is a mgu of r1|p1 and l'1
+
+==> a(b(b(b(b(b(b(_1))))))) -> b(b(a(b(b(a(b(b(a(a(_1)))))))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0 is a position in r2
+we have r2|p2 = a(b(b(a(a(_1)))))
+a(b(b(_2))) -> b(b(a(a(_2)))) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_2/a(a(_1))} is a mgu of r2|p2 and l'2
+
+==> a(b(b(b(b(b(b(_1))))))) -> b(b(a(b(b(b(b(a(a(a(a(_1))))))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0.0.0.0 is a position in r3
+we have r3|p3 = a(a(a(a(_1))))
+a(a(_2)) -> b(_2) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/a(a(_1))} is a mgu of r3|p3 and l'3
+
+==> a(b(b(b(b(b(b(_1))))))) -> b(b(a(b(b(b(b(b(a(a(_1)))))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0.0.0.0 is a position in r4
+we have r4|p4 = a(a(_1))
+a(a(_2)) -> b(_2) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/_2} is a mgu of r4|p4 and l'4
+
+==> a(b(b(b(b(b(b(_1))))))) -> b(b(a(b(b(b(b(b(b(_1))))))))) is in U_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0.0
+let theta = {}
+let theta' = {}
+we have r|p = a(b(b(b(b(b(b(_1))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(b(b(b(b(b(b(_1))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=0
+82 rule(s) generated
+*** proof time: 0.03 second(s)
+
+*** Comp07/SRS/Zantema06/loop2.srs
+
+NO
+
+let R be the TRS under consideration
+
+a(a(_1)) -> b(a(b(_1))) is in R
+let r0 be the right-hand side of this rule
+p0 = 0.0 is a position in r0
+we have r0|p0 = b(_1)
+b(b(b(_2))) -> a(a(_2)) is in R
+let l'0 be the left-hand side of this rule
+theta0 = {_1/b(b(_2))} is a mgu of r0|p0 and l'0
+
+==> a(a(b(b(_1)))) -> b(a(a(a(_1)))) is in U_R^1
+let r1 be the right-hand side of this rule
+p1 = 0.0.0 is a position in r1
+we have r1|p1 = a(_1)
+a(a(_2)) -> b(a(b(_2))) is in R
+let l'1 be the left-hand side of this rule
+theta1 = {_1/a(_2)} is a mgu of r1|p1 and l'1
+
+==> a(a(b(b(a(_1))))) -> b(a(a(b(a(b(_1)))))) is in U_R^2
+let r2 be the right-hand side of this rule
+p2 = 0.0.0.0.0 is a position in r2
+we have r2|p2 = b(_1)
+b(b(b(_2))) -> a(a(_2)) is in R
+let l'2 be the left-hand side of this rule
+theta2 = {_1/b(b(_2))} is a mgu of r2|p2 and l'2
+
+==> a(a(b(b(a(b(b(_1))))))) -> b(a(a(b(a(a(a(_1))))))) is in U_R^3
+let r3 be the right-hand side of this rule
+p3 = 0.0.0.0 is a position in r3
+we have r3|p3 = a(a(a(_1)))
+a(a(_2)) -> b(a(b(_2))) is in R
+let l'3 be the left-hand side of this rule
+theta3 = {_2/a(_1)} is a mgu of r3|p3 and l'3
+
+==> a(a(b(b(a(b(b(_1))))))) -> b(a(a(b(b(a(b(a(_1)))))))) is in U_R^4
+let r4 be the right-hand side of this rule
+p4 = 0.0.0.0.0.0.0 is a position in r4
+we have r4|p4 = a(_1)
+a(a(_2)) -> b(a(b(_2))) is in R
+let l'4 be the left-hand side of this rule
+theta4 = {_1/a(_2)} is a mgu of r4|p4 and l'4
+
+==> a(a(b(b(a(b(b(a(_1)))))))) -> b(a(a(b(b(a(b(b(a(b(_1)))))))))) is in U_R^5
+let l be the left-hand side and r be the right-hand side of this rule
+let p = 0
+let theta = {}
+let theta' = {_1/b(_1)}
+we have r|p = a(a(b(b(a(b(b(a(b(_1))))))))) and
+theta'(theta(l)) = theta(r|p)
+so, theta(l) = a(a(b(b(a(b(b(a(_1)))))))) is non-terminating w.r.t. R
+
+Termination disproved by the forward process
+proof stopped at iteration i=5, depth k=0
+53 rule(s) generated
+*** proof time: 0.02 second(s)
+
+
+
+***********************************************************
+-- total time: 5515.63 second(s)
+-- 66 files analysed
+-- 22 successful proofs
+-- 2486121 rules generated
+-- iterations (successful proofs): average=5, min=0, max=12
+-- non-termination of the following file(s) could not be proved:
+Comp07/SRS/Gebhardt/03.srs
+Comp07/SRS/Gebhardt/05.srs
+Comp07/SRS/Gebhardt/08.srs
+Comp07/SRS/Gebhardt/12.srs
+Comp07/SRS/Gebhardt/15.srs
+Comp07/SRS/secret2007/matchbox/num-514.srs
+Comp07/SRS/secret2007/matchbox/num-515.srs
+Comp07/SRS/secret2007/matchbox/num-518.srs
+Comp07/SRS/secret2007/matchbox/num-519.srs
+Comp07/SRS/secret2007/matchbox/num-520.srs
+Comp07/SRS/secret2007/matchbox/num-521.srs
+Comp07/SRS/secret2007/matchbox/num-525.srs
+Comp07/SRS/secret2007/matchbox/num-527.srs
+Comp07/SRS/secret2007/matchbox/num-530.srs
+Comp07/SRS/Trafo/un04.srs
+Comp07/SRS/Waldmann/uni-3.srs
+Comp07/SRS/Waldmann/uni-6.srs
+Comp07/SRS/Waldmann07a/size-11-alpha-3-num-1.srs
+Comp07/SRS/Waldmann07a/size-11-alpha-3-num-15.srs
+Comp07/SRS/Waldmann07a/size-12-alpha-2-num-10.srs
+Comp07/SRS/Waldmann07a/size-12-alpha-2-num-11.srs
+Comp07/SRS/Waldmann07a/size-12-alpha-2-num-12.srs
+Comp07/SRS/Waldmann07a/size-12-alpha-2-num-17.srs
+Comp07/SRS/Waldmann07a/size-12-alpha-2-num-18.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-120.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-21.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-22.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-247.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-356.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-361.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-362.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-363.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-373.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-386.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-403.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-410.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-475.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-493.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-518.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-519.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-540.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-564.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-566.srs
+Comp07/SRS/Waldmann07b/size-12-alpha-3-num-90.srs
+***********************************************************

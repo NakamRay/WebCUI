@@ -1,0 +1,430 @@
+Input TRS:
+    1: a__natsFrom(N) -> cons(mark(N),natsFrom(s(N)))
+    2: a__fst(pair(XS,YS)) -> mark(XS)
+    3: a__snd(pair(XS,YS)) -> mark(YS)
+    4: a__splitAt(0(),XS) -> pair(nil(),mark(XS))
+    5: a__splitAt(s(N),cons(X,XS)) -> a__u(a__splitAt(mark(N),mark(XS)),N,X,XS)
+    6: a__u(pair(YS,ZS),N,X,XS) -> pair(cons(mark(X),YS),mark(ZS))
+    7: a__head(cons(N,XS)) -> mark(N)
+    8: a__tail(cons(N,XS)) -> mark(XS)
+    9: a__sel(N,XS) -> a__head(a__afterNth(mark(N),mark(XS)))
+    10: a__take(N,XS) -> a__fst(a__splitAt(mark(N),mark(XS)))
+    11: a__afterNth(N,XS) -> a__snd(a__splitAt(mark(N),mark(XS)))
+    12: mark(natsFrom(X)) -> a__natsFrom(mark(X))
+    13: mark(fst(X)) -> a__fst(mark(X))
+    14: mark(snd(X)) -> a__snd(mark(X))
+    15: mark(splitAt(X1,X2)) -> a__splitAt(mark(X1),mark(X2))
+    16: mark(u(X1,X2,X3,X4)) -> a__u(mark(X1),X2,X3,X4)
+    17: mark(head(X)) -> a__head(mark(X))
+    18: mark(tail(X)) -> a__tail(mark(X))
+    19: mark(sel(X1,X2)) -> a__sel(mark(X1),mark(X2))
+    20: mark(afterNth(X1,X2)) -> a__afterNth(mark(X1),mark(X2))
+    21: mark(take(X1,X2)) -> a__take(mark(X1),mark(X2))
+    22: mark(cons(X1,X2)) -> cons(mark(X1),X2)
+    23: mark(s(X)) -> s(mark(X))
+    24: mark(pair(X1,X2)) -> pair(mark(X1),mark(X2))
+    25: mark(0()) -> 0()
+    26: mark(nil()) -> nil()
+    27: a__natsFrom(X) -> natsFrom(X)
+    28: a__fst(X) -> fst(X)
+    29: a__snd(X) -> snd(X)
+    30: a__splitAt(X1,X2) -> splitAt(X1,X2)
+    31: a__u(X1,X2,X3,X4) -> u(X1,X2,X3,X4)
+    32: a__head(X) -> head(X)
+    33: a__tail(X) -> tail(X)
+    34: a__sel(X1,X2) -> sel(X1,X2)
+    35: a__afterNth(X1,X2) -> afterNth(X1,X2)
+    36: a__take(X1,X2) -> take(X1,X2)
+Number of strict rules: 36
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #a__fst(pair(XS,YS)) -> #mark(XS)
+   #2: #a__u(pair(YS,ZS),N,X,XS) -> #mark(X)
+   #3: #a__u(pair(YS,ZS),N,X,XS) -> #mark(ZS)
+   #4: #mark(fst(X)) -> #a__fst(mark(X))
+   #5: #mark(fst(X)) -> #mark(X)
+   #6: #a__sel(N,XS) -> #a__head(a__afterNth(mark(N),mark(XS)))
+   #7: #a__sel(N,XS) -> #a__afterNth(mark(N),mark(XS))
+   #8: #a__sel(N,XS) -> #mark(N)
+   #9: #a__sel(N,XS) -> #mark(XS)
+   #10: #a__afterNth(N,XS) -> #a__snd(a__splitAt(mark(N),mark(XS)))
+   #11: #a__afterNth(N,XS) -> #a__splitAt(mark(N),mark(XS))
+   #12: #a__afterNth(N,XS) -> #mark(N)
+   #13: #a__afterNth(N,XS) -> #mark(XS)
+   #14: #mark(pair(X1,X2)) -> #mark(X1)
+   #15: #mark(pair(X1,X2)) -> #mark(X2)
+   #16: #mark(s(X)) -> #mark(X)
+   #17: #mark(natsFrom(X)) -> #a__natsFrom(mark(X))
+   #18: #mark(natsFrom(X)) -> #mark(X)
+   #19: #mark(snd(X)) -> #a__snd(mark(X))
+   #20: #mark(snd(X)) -> #mark(X)
+   #21: #mark(afterNth(X1,X2)) -> #a__afterNth(mark(X1),mark(X2))
+   #22: #mark(afterNth(X1,X2)) -> #mark(X1)
+   #23: #mark(afterNth(X1,X2)) -> #mark(X2)
+   #24: #a__head(cons(N,XS)) -> #mark(N)
+   #25: #a__take(N,XS) -> #a__fst(a__splitAt(mark(N),mark(XS)))
+   #26: #a__take(N,XS) -> #a__splitAt(mark(N),mark(XS))
+   #27: #a__take(N,XS) -> #mark(N)
+   #28: #a__take(N,XS) -> #mark(XS)
+   #29: #a__splitAt(s(N),cons(X,XS)) -> #a__u(a__splitAt(mark(N),mark(XS)),N,X,XS)
+   #30: #a__splitAt(s(N),cons(X,XS)) -> #a__splitAt(mark(N),mark(XS))
+   #31: #a__splitAt(s(N),cons(X,XS)) -> #mark(N)
+   #32: #a__splitAt(s(N),cons(X,XS)) -> #mark(XS)
+   #33: #mark(cons(X1,X2)) -> #mark(X1)
+   #34: #mark(head(X)) -> #a__head(mark(X))
+   #35: #mark(head(X)) -> #mark(X)
+   #36: #mark(sel(X1,X2)) -> #a__sel(mark(X1),mark(X2))
+   #37: #mark(sel(X1,X2)) -> #mark(X1)
+   #38: #mark(sel(X1,X2)) -> #mark(X2)
+   #39: #mark(take(X1,X2)) -> #a__take(mark(X1),mark(X2))
+   #40: #mark(take(X1,X2)) -> #mark(X1)
+   #41: #mark(take(X1,X2)) -> #mark(X2)
+   #42: #mark(u(X1,X2,X3,X4)) -> #a__u(mark(X1),X2,X3,X4)
+   #43: #mark(u(X1,X2,X3,X4)) -> #mark(X1)
+   #44: #a__snd(pair(XS,YS)) -> #mark(YS)
+   #45: #a__natsFrom(N) -> #mark(N)
+   #46: #a__tail(cons(N,XS)) -> #mark(XS)
+   #47: #mark(splitAt(X1,X2)) -> #a__splitAt(mark(X1),mark(X2))
+   #48: #mark(splitAt(X1,X2)) -> #mark(X1)
+   #49: #mark(splitAt(X1,X2)) -> #mark(X2)
+   #50: #a__splitAt(0(),XS) -> #mark(XS)
+   #51: #mark(tail(X)) -> #a__tail(mark(X))
+   #52: #mark(tail(X)) -> #mark(X)
+Number of SCCs: 1, DPs: 52
+  SCC { #1..52 }
+POLO(Sum)... POLO(max)... succeeded.
+      s 	w: x1
+      #a__head	w: x1 + 1
+      #a__natsFrom	w: x1 + 1
+      #a__snd	w: x1 + 1
+      a__afterNth	w: max(x1 + 5, x2 + 3)
+      u 	w: max(x1, x3)
+      take	w: max(x1 + 1, x2)
+      pair	w: max(x1, x2)
+      fst	w: x1
+      natsFrom	w: x1 + 2
+      a__snd	w: x1 + 3
+      splitAt	w: max(x1, x2)
+      #a__take	w: max(x1, x2)
+      a__natsFrom	w: x1 + 2
+      a__fst	w: x1
+      tail	w: x1
+      #mark	w: x1
+      0 	w: 1
+      a__u	w: max(x1, x3)
+      sel	w: max(x1 + 10, x2 + 8)
+      afterNth	w: max(x1 + 5, x2 + 3)
+      nil	w: 1
+      a__splitAt	w: max(x1, x2)
+      #a__sel	w: max(x1 + 9, x2 + 7)
+      mark	w: x1
+      a__sel	w: max(x1 + 10, x2 + 8)
+      head	w: x1 + 4
+      #a__afterNth	w: max(x1 + 4, x2 + 2)
+      #a__splitAt	w: max(x1, x2)
+      cons	w: max(x1, x2)
+      snd	w: x1 + 3
+      #a__u	w: max(x1, x3)
+      a__take	w: max(x1 + 1, x2)
+      #a__fst	w: x1
+      a__tail	w: x1
+      #a__tail	w: x1
+      a__head	w: x1 + 4
+    USABLE RULES: { 1..36 }
+    Removed DPs: #6..13 #17..24 #34..38 #40 #44 #45
+Number of SCCs: 1, DPs: 28
+  SCC { #1..5 #14..16 #25..33 #39 #41..43 #46..52 }
+POLO(Sum)... POLO(max)... succeeded.
+      s 	w: x1
+      #a__head	w: x1 + 1
+      #a__natsFrom	w: x1 + 1
+      #a__snd	w: x1 + 1
+      a__afterNth	w: max(x1 + 5, x2 + 4)
+      u 	w: max(x1, x3)
+      take	w: max(x1 + 5, x2 + 4)
+      pair	w: max(x1, x2)
+      fst	w: x1 + 2
+      natsFrom	w: x1 + 2
+      a__snd	w: x1 + 3
+      splitAt	w: max(x1 + 1, x2)
+      #a__take	w: max(x1 + 5, x2 + 5)
+      a__natsFrom	w: x1 + 2
+      a__fst	w: x1 + 2
+      tail	w: x1 + 2
+      #mark	w: x1 + 2
+      0 	w: 1
+      a__u	w: max(x1, x3)
+      sel	w: max(x1 + 10, x2 + 8)
+      afterNth	w: max(x1 + 5, x2 + 4)
+      nil	w: 1
+      a__splitAt	w: max(x1 + 1, x2)
+      #a__sel	w: max(x1 + 9, x2 + 7)
+      mark	w: x1
+      a__sel	w: max(x1 + 10, x2 + 8)
+      head	w: x1 + 4
+      #a__afterNth	w: max(x1 + 4, x2 + 2)
+      #a__splitAt	w: max(x1 + 3, x2 + 2)
+      cons	w: max(x1, x2)
+      snd	w: x1 + 3
+      #a__u	w: max(x1 + 2, x3 + 2)
+      a__take	w: max(x1 + 5, x2 + 4)
+      #a__fst	w: x1 + 3
+      a__tail	w: x1 + 2
+      #a__tail	w: x1 + 3
+      a__head	w: x1 + 4
+    USABLE RULES: { 1..36 }
+    Removed DPs: #1 #4 #5 #25..28 #31 #39 #41 #46 #48 #51 #52
+Number of SCCs: 1, DPs: 14
+  SCC { #2 #3 #14..16 #29 #30 #32 #33 #42 #43 #47 #49 #50 }
+POLO(Sum)... POLO(max)... succeeded.
+      s 	w: x1
+      #a__head	w: x1 + 1
+      #a__natsFrom	w: x1 + 1
+      #a__snd	w: x1 + 1
+      a__afterNth	w: max(x1 + 6, x2 + 5)
+      u 	w: max(x1, x3, x4 + 1)
+      take	w: max(x1 + 6, x2 + 5)
+      pair	w: max(x1, x2)
+      fst	w: x1 + 2
+      natsFrom	w: x1 + 2
+      a__snd	w: x1 + 3
+      splitAt	w: max(x1 + 2, x2 + 1)
+      #a__take	w: max(x1 + 5, x2 + 5)
+      a__natsFrom	w: x1 + 2
+      a__fst	w: x1 + 2
+      tail	w: x1 + 2
+      #mark	w: x1 + 2
+      0 	w: 1
+      a__u	w: max(x1, x3, x4 + 1)
+      sel	w: max(x1 + 10, x2 + 8)
+      afterNth	w: max(x1 + 6, x2 + 5)
+      nil	w: 2
+      a__splitAt	w: max(x1 + 2, x2 + 1)
+      #a__sel	w: max(x1 + 9, x2 + 7)
+      mark	w: x1
+      a__sel	w: max(x1 + 10, x2 + 8)
+      head	w: x1 + 3
+      #a__afterNth	w: max(x1 + 4, x2 + 2)
+      #a__splitAt	w: max(x1 + 4, x2 + 3)
+      cons	w: max(x1, x2)
+      snd	w: x1 + 3
+      #a__u	w: max(x1 + 2, x3 + 2)
+      a__take	w: max(x1 + 6, x2 + 5)
+      #a__fst	w: x1 + 3
+      a__tail	w: x1 + 2
+      #a__tail	w: x1 + 3
+      a__head	w: x1 + 3
+    USABLE RULES: { 1..36 }
+    Removed DPs: #32 #49 #50
+Number of SCCs: 1, DPs: 11
+  SCC { #2 #3 #14..16 #29 #30 #33 #42 #43 #47 }
+POLO(Sum)... POLO(max)... succeeded.
+      s 	w: x1
+      #a__head	w: x1 + 1
+      #a__natsFrom	w: x1 + 1
+      #a__snd	w: x1 + 1
+      a__afterNth	w: max(x1 + 7, x2 + 6)
+      u 	w: max(x1, x3 + 1, x4 + 2)
+      take	w: max(x1 + 7, x2 + 6)
+      pair	w: max(x1, x2)
+      fst	w: x1 + 2
+      natsFrom	w: x1 + 2
+      a__snd	w: x1 + 3
+      splitAt	w: max(x1 + 3, x2 + 2)
+      #a__take	w: max(x1 + 5, x2 + 5)
+      a__natsFrom	w: x1 + 2
+      a__fst	w: x1 + 2
+      tail	w: x1 + 2
+      #mark	w: x1 + 2
+      0 	w: 1
+      a__u	w: max(x1, x3 + 1, x4 + 2)
+      sel	w: max(x1 + 10, x2 + 9)
+      afterNth	w: max(x1 + 7, x2 + 6)
+      nil	w: 3
+      a__splitAt	w: max(x1 + 3, x2 + 2)
+      #a__sel	w: max(x1 + 9, x2 + 7)
+      mark	w: x1
+      a__sel	w: max(x1 + 10, x2 + 9)
+      head	w: x1 + 3
+      #a__afterNth	w: max(x1 + 4, x2 + 2)
+      #a__splitAt	w: max(x1 + 5, x2 + 4)
+      cons	w: max(x1, x2)
+      snd	w: x1 + 3
+      #a__u	w: max(x1 + 2, x3 + 3)
+      a__take	w: max(x1 + 7, x2 + 6)
+      #a__fst	w: x1 + 3
+      a__tail	w: x1 + 2
+      #a__tail	w: x1 + 3
+      a__head	w: x1 + 3
+    USABLE RULES: { 1..36 }
+    Removed DPs: #2
+Number of SCCs: 1, DPs: 10
+  SCC { #3 #14..16 #29 #30 #33 #42 #43 #47 }
+POLO(Sum)... POLO(max)... succeeded.
+      s 	w: x1
+      #a__head	w: 1
+      #a__natsFrom	w: 1
+      #a__snd	w: 1
+      a__afterNth	w: max(x1 + 6, x2 + 5)
+      u 	w: max(x1, x3 + 2, x4 + 4)
+      take	w: max(x1 + 2, x2 + 5)
+      pair	w: max(x1 + 1, x2)
+      fst	w: x1 + 1
+      natsFrom	w: x1 + 1
+      a__snd	w: x1 + 1
+      splitAt	w: max(x1, x2 + 4)
+      #a__take	w: 0
+      a__natsFrom	w: x1 + 1
+      a__fst	w: x1 + 1
+      tail	w: x1 + 1
+      #mark	w: x1
+      0 	w: 0
+      a__u	w: max(x1, x3 + 2, x4 + 4)
+      sel	w: max(x1 + 8, x2 + 7)
+      afterNth	w: max(x1 + 6, x2 + 5)
+      nil	w: 1
+      a__splitAt	w: max(x1, x2 + 4)
+      #a__sel	w: 0
+      mark	w: x1
+      a__sel	w: max(x1 + 8, x2 + 7)
+      head	w: x1 + 1
+      #a__afterNth	w: 0
+      #a__splitAt	w: max(x1, x2 + 4)
+      cons	w: max(x1 + 1, x2)
+      snd	w: x1 + 1
+      #a__u	w: max(x1, x3 + 2, x4 + 3)
+      a__take	w: max(x1 + 2, x2 + 5)
+      #a__fst	w: 3
+      a__tail	w: x1 + 1
+      #a__tail	w: 3
+      a__head	w: x1 + 1
+    USABLE RULES: { 1..36 }
+    Removed DPs: #14 #33
+Number of SCCs: 1, DPs: 8
+  SCC { #3 #15 #16 #29 #30 #42 #43 #47 }
+POLO(Sum)... POLO(max)... succeeded.
+      s 	w: x1
+      #a__head	w: 1
+      #a__natsFrom	w: 1
+      #a__snd	w: 1
+      a__afterNth	w: max(x1 + 10, x2 + 9)
+      u 	w: max(x1, x2, x3 + 5, x4 + 8)
+      take	w: max(x1 + 7, x2 + 10)
+      pair	w: max(x1 + 4, x2 + 3)
+      fst	w: x1 + 1
+      natsFrom	w: x1 + 1
+      a__snd	w: x1 + 1
+      splitAt	w: max(x1, x2 + 8)
+      #a__take	w: 0
+      a__natsFrom	w: x1 + 1
+      a__fst	w: x1 + 1
+      tail	w: x1 + 1
+      #mark	w: x1 + 3
+      0 	w: 3
+      a__u	w: max(x1, x2, x3 + 5, x4 + 8)
+      sel	w: max(x1 + 12, x2 + 11)
+      afterNth	w: max(x1 + 10, x2 + 9)
+      nil	w: 1
+      a__splitAt	w: max(x1, x2 + 8)
+      #a__sel	w: 0
+      mark	w: x1
+      a__sel	w: max(x1 + 12, x2 + 11)
+      head	w: x1 + 1
+      #a__afterNth	w: 0
+      #a__splitAt	w: max(x1 + 2, x2 + 10)
+      cons	w: max(x1 + 1, x2)
+      snd	w: x1 + 1
+      #a__u	w: max(x1 + 1, x2 + 1)
+      a__take	w: max(x1 + 7, x2 + 10)
+      #a__fst	w: 3
+      a__tail	w: x1 + 1
+      #a__tail	w: 3
+      a__head	w: x1 + 1
+    USABLE RULES: { 1..36 }
+    Removed DPs: #3 #15 #29 #42 #47
+Number of SCCs: 2, DPs: 3
+  SCC { #30 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... succeeded.
+      s 	w: max(x1 + 2, 0)
+      #a__head	w: 0
+      #a__natsFrom	w: max(x1 - 1, 0)
+      #a__snd	w: 0
+      a__afterNth	w: max(x1 + x2 + 14, 0)
+      u 	w: max(x1, x2 + 1, x3 + 2, 0)
+      take	w: max(x1 + x2 + 4, 0)
+      pair	w: max(x1 - 3, x2 - 6, 0)
+      fst	w: max(x1 + 4, 0)
+      natsFrom	w: max(x1 + 5, 0)
+      a__snd	w: max(x1 + 6, 0)
+      splitAt	w: max(x1 + x2 - 3, 0)
+      #a__take	w: 0
+      a__natsFrom	w: max(x1 + 5, 0)
+      a__fst	w: max(x1 + 4, 0)
+      tail	w: max(x1 + 2, 0)
+      #mark	w: max(x1 - 1, 0)
+      0 	w: 1
+      a__u	w: max(x1, x2 + 1, x3 + 2, 0)
+      sel	w: max(x1 + x2 + 15, 0)
+      afterNth	w: max(x1 + x2 + 14, 0)
+      nil	w: 2
+      a__splitAt	w: max(x1 + x2 - 3, 0)
+      #a__sel	w: max(x1 - 1, 0)
+      mark	w: max(x1, 0)
+      a__sel	w: max(x1 + x2 + 15, 0)
+      head	w: max(x1 + 1, 0)
+      #a__afterNth	w: 0
+      #a__splitAt	w: max(x1 - 1, 0)
+      cons	w: max(x1 + 5, x2 - 2, 0)
+      snd	w: max(x1 + 6, 0)
+      #a__u	w: max(x2 - 1, 0)
+      a__take	w: max(x1 + x2 + 4, 0)
+      #a__fst	w: 0
+      a__tail	w: max(x1 + 2, 0)
+      #a__tail	w: 0
+      a__head	w: max(x1 + 1, 0)
+    USABLE RULES: { 1..36 }
+    Removed DPs: #30
+Number of SCCs: 1, DPs: 2
+  SCC { #16 #43 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #a__head	w: 0
+      #a__natsFrom	w: 1
+      #a__snd	w: 1
+      a__afterNth	w: x1
+      u 	w: x1 + x3 + 4
+      take	w: x1 + 6
+      pair	w: 4
+      fst	w: 1
+      natsFrom	w: 1
+      a__snd	w: 1
+      splitAt	w: x2 + 3
+      #a__take	w: 0
+      a__natsFrom	w: 2
+      a__fst	w: 1
+      tail	w: x1 + 2
+      #mark	w: x1
+      0 	w: 2
+      a__u	w: x4 + 3
+      sel	w: 5
+      afterNth	w: 0
+      nil	w: 2
+      a__splitAt	w: 2
+      #a__sel	w: 1
+      mark	w: 1
+      a__sel	w: x1 + 4
+      head	w: 1
+      #a__afterNth	w: 1
+      #a__splitAt	w: 0
+      cons	w: 3
+      snd	w: x1 + 2
+      #a__u	w: 0
+      a__take	w: 5
+      #a__fst	w: 0
+      a__tail	w: 1
+      #a__tail	w: 0
+      a__head	w: x1
+    USABLE RULES: { }
+    Removed DPs: #16 #43
+Number of SCCs: 0, DPs: 0

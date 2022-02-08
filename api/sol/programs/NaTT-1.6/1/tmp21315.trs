@@ -1,0 +1,11 @@
+(VAR X Y M K H Z X1 X2 )
+(RULES
+  if(true,X,Y) -> X
+  if(false,X,Y) -> Y
+  lteq(s(M),o) -> false
+  lteq(o,M) -> true
+  lteq(s(M),s(K)) -> lteq(M,K)
+  from(M,nil) -> nil
+  from(M,cons(H,Z)) -> if(lteq(M,H),cons(H,Z),from(M,Z))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

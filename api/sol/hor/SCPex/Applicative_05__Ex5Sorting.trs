@@ -1,0 +1,52 @@
+(VAR
+  X: a 
+  Y: a 
+  U: a 
+  V: a 
+  W: a 
+  P: a 
+  X1: a 
+  Y1: a 
+  G1: a -> a -> a 
+  H1: a -> a -> a 
+  W1: a 
+  J1: a -> a -> a 
+  F2: a -> a -> a 
+  Y2: a 
+  U2: b 
+  V2: a 
+  I2: a -> a -> a 
+  J2: a -> a -> a 
+  F3: a -> a -> a 
+  Z3: a -> a -> a 
+  U3: a 
+  V3: b 
+  W3: b 
+  P3: b 
+)
+(FUN
+  0 : a
+  ascendingbang6220sort : b -> b
+  cons : a -> b -> b
+  descendingbang6220sort : b -> b
+  insert : (a -> a -> a) -> (a -> a -> a) -> b -> a -> b
+  max : a -> a -> a
+  min : a -> a -> a
+  nil : b
+  s : a -> a
+  sort : (a -> a -> a) -> (a -> a -> a) -> b -> b
+)
+(RULES
+  (((max) (0)) X) -> X,
+  (((max) Y) (0)) -> Y,
+  (((max) (s(U))) (s(V))) -> (((max) U) V),
+  (((min) (0)) W) -> (0),
+  (((min) P) (0)) -> (0),
+  (((min) (s(X1))) (s(Y1))) -> (((min) X1) Y1),
+  (insert(G1,H1,(nil),W1)) -> (cons(W1,(nil))),
+  (insert(J1,F2,(cons(Y2,U2)),V2)) -> (cons(((J1 V2) Y2),(insert(J1,F2,U2,((F2 V2) Y2))))),
+  (sort(I2,J2,(nil))) -> (nil),
+  (sort(F3,Z3,(cons(U3,V3)))) -> (insert(F3,Z3,(sort(F3,Z3,V3)),U3)),
+  (ascendingbang6220sort(W3)) -> (sort((min),(max),W3)),
+  (descendingbang6220sort(P3)) -> (sort((max),(min),P3))
+)

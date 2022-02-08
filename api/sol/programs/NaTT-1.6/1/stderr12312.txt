@@ -1,0 +1,104 @@
+Input TRS:
+    1: plus(X,0()) -> X
+    2: plus(Y,s(U)) -> s(plus(Y,U))
+    3: f(0(),s(0()),V) -> f(V,plus(V,V),V)
+    4: g(W,P) -> W
+    5: g(X1,Y1) -> Y1
+    6: map(G1,nil()) -> nil()
+    7: map(H1,cons(W1,P1)) -> cons(H1[W1](),map(H1,P1))
+    8: filter(F2,nil()) -> nil()
+    9: filter(Z2,cons(U2,V2)) -> filter2(Z2[U2](),Z2,U2,V2)
+    10: filter2(true(),I2,P2,X3) -> cons(P2,filter(I2,X3))
+    11: filter2(false(),Z3,U3,V3) -> filter(Z3,V3)
+Number of strict rules: 11
+Direct POLO(bPol) ... failed.
+Uncurrying filter2
+1: plus(X,0()) -> X
+2: plus(Y,s(U)) -> s(plus(Y,U))
+3: f(0(),s(0()),V) -> f(V,plus(V,V),V)
+4: g(W,P) -> W
+5: g(X1,Y1) -> Y1
+6: map(G1,nil()) -> nil()
+7: map(H1,cons(W1,P1)) -> cons(H1[W1](),map(H1,P1))
+8: filter(F2,nil()) -> nil()
+9: filter(Z2,cons(U2,V2)) -> filter2^1_Z2[U2](Z2,U2,V2)
+10: filter2^1_true(I2,P2,X3) -> cons(P2,filter(I2,X3))
+11: filter2^1_false(Z3,U3,V3) -> filter(Z3,V3)
+12: filter2(false(),_3,_4,_5) ->= filter2^1_false(_3,_4,_5)
+13: filter2(true(),_3,_4,_5) ->= filter2^1_true(_3,_4,_5)
+14: filter2(Z2[U2](),_3,_4,_5) ->= filter2^1_Z2[U2](_3,_4,_5)
+Number of strict rules: 11
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #plus(Y,s(U)) -> #plus(Y,U)
+   #2: #filter2(true(),_3,_4,_5) ->? #filter2^1_true(_3,_4,_5)
+   #3: #filter2^1_false(Z3,U3,V3) -> #filter(Z3,V3)
+   #4: #filter2(false(),_3,_4,_5) ->? #filter2^1_false(_3,_4,_5)
+   #5: #map(H1,cons(W1,P1)) -> #map(H1,P1)
+   #6: #filter2^1_true(I2,P2,X3) -> #filter(I2,X3)
+   #7: #f(0(),s(0()),V) -> #f(V,plus(V,V),V)
+   #8: #f(0(),s(0()),V) -> #plus(V,V)
+Number of SCCs: 3, DPs: 3
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #filter2	w: 0
+      #filter	w: 0
+      #plus	w: x2
+      false	w: 0
+      filter2^1_false	w: 0
+      #filter2^1_true	w: 0
+      true	w: 0
+      f 	w: 0
+      filter2	w: 0
+      0 	w: 0
+      nil	w: 0
+      #f 	w: 0
+      #g 	w: 0
+      map	w: 0
+      #map	w: 0
+      plus	w: 0
+      cons	w: 0
+      filter2^1_Z2[U2]	w: 0
+      filter	w: 0
+      #filter2^1_false	w: 0
+      filter2^1_true	w: 0
+      g 	w: 0
+      H1[W1]	w: 0
+      Z2[U2]	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 2, DPs: 2
+  SCC { #5 }
+POLO(Sum)... succeeded.
+      s 	w: 1
+      #filter2	w: 0
+      #filter	w: 0
+      #plus	w: 0
+      false	w: 0
+      filter2^1_false	w: 0
+      #filter2^1_true	w: 0
+      true	w: 0
+      f 	w: 0
+      filter2	w: 0
+      0 	w: 0
+      nil	w: 0
+      #f 	w: 0
+      #g 	w: 0
+      map	w: 0
+      #map	w: x2
+      plus	w: 0
+      cons	w: x2 + 1
+      filter2^1_Z2[U2]	w: 0
+      filter	w: 0
+      #filter2^1_false	w: 0
+      filter2^1_true	w: 0
+      g 	w: 0
+      H1[W1]	w: 0
+      Z2[U2]	w: 0
+    USABLE RULES: { }
+    Removed DPs: #5
+Number of SCCs: 1, DPs: 1
+  SCC { #7 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

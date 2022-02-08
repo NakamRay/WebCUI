@@ -1,0 +1,4 @@
+(VAR X Z )
+(RULES
+  new(X) -> X
+  new(new(Z)) -> new(new(Z)))

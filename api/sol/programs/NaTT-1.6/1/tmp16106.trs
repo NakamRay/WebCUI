@@ -1,0 +1,12 @@
+(VAR X Y U V W J F1 Y1 U1 H1 I1 P1 X2 Z2 U2 V2 I2 P2 X3 )
+(RULES
+  f(0,1,g(X,Y),U) -> f(g(X,Y),g(X,Y),g(X,Y),h(X))
+  g(0,1) -> 0
+  g(0,1) -> 1
+  h(g(V,W)) -> h(V)
+  map(J,nil) -> nil
+  map(F1,cons(Y1,U1)) -> cons(F1[Y1],map(F1,U1))
+  filter(H1,nil) -> nil
+  filter(I1,cons(P1,X2)) -> filter2(I1[P1],I1,P1,X2)
+  filter2(true,Z2,U2,V2) -> cons(U2,filter(Z2,V2))
+  filter2(false,I2,P2,X3) -> filter(I2,X3))

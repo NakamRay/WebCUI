@@ -1,0 +1,657 @@
+Input TRS:
+    1: a__u101(tt(),N,XS) -> a__fst(a__splitAt(mark(N),mark(XS)))
+    2: a__u11(tt(),N,XS) -> a__snd(a__splitAt(mark(N),mark(XS)))
+    3: a__u21(tt(),X) -> mark(X)
+    4: a__u31(tt(),N) -> mark(N)
+    5: a__u41(tt(),N) -> cons(mark(N),natsFrom(s(N)))
+    6: a__u51(tt(),N,XS) -> a__head(a__afterNth(mark(N),mark(XS)))
+    7: a__u61(tt(),Y) -> mark(Y)
+    8: a__u71(tt(),XS) -> pair(nil(),mark(XS))
+    9: a__u81(tt(),N,X,XS) -> a__u82(a__splitAt(mark(N),mark(XS)),X)
+    10: a__u82(pair(YS,ZS),X) -> pair(cons(mark(X),YS),mark(ZS))
+    11: a__u91(tt(),XS) -> mark(XS)
+    12: a__afterNth(N,XS) -> a__u11(a__and(a__isNatural(N),isLNat(XS)),N,XS)
+    13: a__and(tt(),X) -> mark(X)
+    14: a__fst(pair(X,Y)) -> a__u21(a__and(a__isLNat(X),isLNat(Y)),X)
+    15: a__head(cons(N,XS)) -> a__u31(a__and(a__isNatural(N),isLNat(XS)),N)
+    16: a__isLNat(nil()) -> tt()
+    17: a__isLNat(afterNth(V1,V2)) -> a__and(a__isNatural(V1),isLNat(V2))
+    18: a__isLNat(cons(V1,V2)) -> a__and(a__isNatural(V1),isLNat(V2))
+    19: a__isLNat(fst(V1)) -> a__isPLNat(V1)
+    20: a__isLNat(natsFrom(V1)) -> a__isNatural(V1)
+    21: a__isLNat(snd(V1)) -> a__isPLNat(V1)
+    22: a__isLNat(tail(V1)) -> a__isLNat(V1)
+    23: a__isLNat(take(V1,V2)) -> a__and(a__isNatural(V1),isLNat(V2))
+    24: a__isNatural(0()) -> tt()
+    25: a__isNatural(head(V1)) -> a__isLNat(V1)
+    26: a__isNatural(s(V1)) -> a__isNatural(V1)
+    27: a__isNatural(sel(V1,V2)) -> a__and(a__isNatural(V1),isLNat(V2))
+    28: a__isPLNat(pair(V1,V2)) -> a__and(a__isLNat(V1),isLNat(V2))
+    29: a__isPLNat(splitAt(V1,V2)) -> a__and(a__isNatural(V1),isLNat(V2))
+    30: a__natsFrom(N) -> a__u41(a__isNatural(N),N)
+    31: a__sel(N,XS) -> a__u51(a__and(a__isNatural(N),isLNat(XS)),N,XS)
+    32: a__snd(pair(X,Y)) -> a__u61(a__and(a__isLNat(X),isLNat(Y)),Y)
+    33: a__splitAt(0(),XS) -> a__u71(a__isLNat(XS),XS)
+    34: a__splitAt(s(N),cons(X,XS)) -> a__u81(a__and(a__isNatural(N),and(isNatural(X),isLNat(XS))),N,X,XS)
+    35: a__tail(cons(N,XS)) -> a__u91(a__and(a__isNatural(N),isLNat(XS)),XS)
+    36: a__take(N,XS) -> a__u101(a__and(a__isNatural(N),isLNat(XS)),N,XS)
+    37: mark(u101(X1,X2,X3)) -> a__u101(mark(X1),X2,X3)
+    38: mark(fst(X)) -> a__fst(mark(X))
+    39: mark(splitAt(X1,X2)) -> a__splitAt(mark(X1),mark(X2))
+    40: mark(u11(X1,X2,X3)) -> a__u11(mark(X1),X2,X3)
+    41: mark(snd(X)) -> a__snd(mark(X))
+    42: mark(u21(X1,X2)) -> a__u21(mark(X1),X2)
+    43: mark(u31(X1,X2)) -> a__u31(mark(X1),X2)
+    44: mark(u41(X1,X2)) -> a__u41(mark(X1),X2)
+    45: mark(natsFrom(X)) -> a__natsFrom(mark(X))
+    46: mark(u51(X1,X2,X3)) -> a__u51(mark(X1),X2,X3)
+    47: mark(head(X)) -> a__head(mark(X))
+    48: mark(afterNth(X1,X2)) -> a__afterNth(mark(X1),mark(X2))
+    49: mark(u61(X1,X2)) -> a__u61(mark(X1),X2)
+    50: mark(u71(X1,X2)) -> a__u71(mark(X1),X2)
+    51: mark(u81(X1,X2,X3,X4)) -> a__u81(mark(X1),X2,X3,X4)
+    52: mark(u82(X1,X2)) -> a__u82(mark(X1),X2)
+    53: mark(u91(X1,X2)) -> a__u91(mark(X1),X2)
+    54: mark(and(X1,X2)) -> a__and(mark(X1),X2)
+    55: mark(isNatural(X)) -> a__isNatural(X)
+    56: mark(isLNat(X)) -> a__isLNat(X)
+    57: mark(isPLNat(X)) -> a__isPLNat(X)
+    58: mark(tail(X)) -> a__tail(mark(X))
+    59: mark(take(X1,X2)) -> a__take(mark(X1),mark(X2))
+    60: mark(sel(X1,X2)) -> a__sel(mark(X1),mark(X2))
+    61: mark(tt()) -> tt()
+    62: mark(cons(X1,X2)) -> cons(mark(X1),X2)
+    63: mark(s(X)) -> s(mark(X))
+    64: mark(pair(X1,X2)) -> pair(mark(X1),mark(X2))
+    65: mark(nil()) -> nil()
+    66: mark(0()) -> 0()
+    67: a__u101(X1,X2,X3) -> u101(X1,X2,X3)
+    68: a__fst(X) -> fst(X)
+    69: a__splitAt(X1,X2) -> splitAt(X1,X2)
+    70: a__u11(X1,X2,X3) -> u11(X1,X2,X3)
+    71: a__snd(X) -> snd(X)
+    72: a__u21(X1,X2) -> u21(X1,X2)
+    73: a__u31(X1,X2) -> u31(X1,X2)
+    74: a__u41(X1,X2) -> u41(X1,X2)
+    75: a__natsFrom(X) -> natsFrom(X)
+    76: a__u51(X1,X2,X3) -> u51(X1,X2,X3)
+    77: a__head(X) -> head(X)
+    78: a__afterNth(X1,X2) -> afterNth(X1,X2)
+    79: a__u61(X1,X2) -> u61(X1,X2)
+    80: a__u71(X1,X2) -> u71(X1,X2)
+    81: a__u81(X1,X2,X3,X4) -> u81(X1,X2,X3,X4)
+    82: a__u82(X1,X2) -> u82(X1,X2)
+    83: a__u91(X1,X2) -> u91(X1,X2)
+    84: a__and(X1,X2) -> and(X1,X2)
+    85: a__isNatural(X) -> isNatural(X)
+    86: a__isLNat(X) -> isLNat(X)
+    87: a__isPLNat(X) -> isPLNat(X)
+    88: a__tail(X) -> tail(X)
+    89: a__take(X1,X2) -> take(X1,X2)
+    90: a__sel(X1,X2) -> sel(X1,X2)
+    91: _(X1,X2) -> X1
+    92: _(X1,X2) -> X2
+Number of strict rules: 92
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #a__u11(tt(),N,XS) -> #a__snd(a__splitAt(mark(N),mark(XS)))
+   #2: #a__u11(tt(),N,XS) -> #a__splitAt(mark(N),mark(XS))
+   #3: #a__u11(tt(),N,XS) -> #mark(N)
+   #4: #a__u11(tt(),N,XS) -> #mark(XS)
+   #5: #mark(u31(X1,X2)) -> #a__u31(mark(X1),X2)
+   #6: #mark(u31(X1,X2)) -> #mark(X1)
+   #7: #a__isPLNat(splitAt(V1,V2)) -> #a__and(a__isNatural(V1),isLNat(V2))
+   #8: #a__isPLNat(splitAt(V1,V2)) -> #a__isNatural(V1)
+   #9: #a__tail(cons(N,XS)) -> #a__u91(a__and(a__isNatural(N),isLNat(XS)),XS)
+   #10: #a__tail(cons(N,XS)) -> #a__and(a__isNatural(N),isLNat(XS))
+   #11: #a__tail(cons(N,XS)) -> #a__isNatural(N)
+   #12: #mark(u51(X1,X2,X3)) -> #a__u51(mark(X1),X2,X3)
+   #13: #mark(u51(X1,X2,X3)) -> #mark(X1)
+   #14: #mark(u21(X1,X2)) -> #a__u21(mark(X1),X2)
+   #15: #mark(u21(X1,X2)) -> #mark(X1)
+   #16: #mark(snd(X)) -> #a__snd(mark(X))
+   #17: #mark(snd(X)) -> #mark(X)
+   #18: #mark(u101(X1,X2,X3)) -> #a__u101(mark(X1),X2,X3)
+   #19: #mark(u101(X1,X2,X3)) -> #mark(X1)
+   #20: #mark(head(X)) -> #a__head(mark(X))
+   #21: #mark(head(X)) -> #mark(X)
+   #22: #mark(u91(X1,X2)) -> #a__u91(mark(X1),X2)
+   #23: #mark(u91(X1,X2)) -> #mark(X1)
+   #24: #mark(afterNth(X1,X2)) -> #a__afterNth(mark(X1),mark(X2))
+   #25: #mark(afterNth(X1,X2)) -> #mark(X1)
+   #26: #mark(afterNth(X1,X2)) -> #mark(X2)
+   #27: #mark(tail(X)) -> #a__tail(mark(X))
+   #28: #mark(tail(X)) -> #mark(X)
+   #29: #mark(fst(X)) -> #a__fst(mark(X))
+   #30: #mark(fst(X)) -> #mark(X)
+   #31: #a__u51(tt(),N,XS) -> #a__head(a__afterNth(mark(N),mark(XS)))
+   #32: #a__u51(tt(),N,XS) -> #a__afterNth(mark(N),mark(XS))
+   #33: #a__u51(tt(),N,XS) -> #mark(N)
+   #34: #a__u51(tt(),N,XS) -> #mark(XS)
+   #35: #mark(take(X1,X2)) -> #a__take(mark(X1),mark(X2))
+   #36: #mark(take(X1,X2)) -> #mark(X1)
+   #37: #mark(take(X1,X2)) -> #mark(X2)
+   #38: #mark(isNatural(X)) -> #a__isNatural(X)
+   #39: #mark(u11(X1,X2,X3)) -> #a__u11(mark(X1),X2,X3)
+   #40: #mark(u11(X1,X2,X3)) -> #mark(X1)
+   #41: #mark(u81(X1,X2,X3,X4)) -> #a__u81(mark(X1),X2,X3,X4)
+   #42: #mark(u81(X1,X2,X3,X4)) -> #mark(X1)
+   #43: #a__and(tt(),X) -> #mark(X)
+   #44: #a__u81(tt(),N,X,XS) -> #a__u82(a__splitAt(mark(N),mark(XS)),X)
+   #45: #a__u81(tt(),N,X,XS) -> #a__splitAt(mark(N),mark(XS))
+   #46: #a__u81(tt(),N,X,XS) -> #mark(N)
+   #47: #a__u81(tt(),N,X,XS) -> #mark(XS)
+   #48: #a__u91(tt(),XS) -> #mark(XS)
+   #49: #mark(isPLNat(X)) -> #a__isPLNat(X)
+   #50: #a__isLNat(take(V1,V2)) -> #a__and(a__isNatural(V1),isLNat(V2))
+   #51: #a__isLNat(take(V1,V2)) -> #a__isNatural(V1)
+   #52: #mark(natsFrom(X)) -> #a__natsFrom(mark(X))
+   #53: #mark(natsFrom(X)) -> #mark(X)
+   #54: #a__afterNth(N,XS) -> #a__u11(a__and(a__isNatural(N),isLNat(XS)),N,XS)
+   #55: #a__afterNth(N,XS) -> #a__and(a__isNatural(N),isLNat(XS))
+   #56: #a__afterNth(N,XS) -> #a__isNatural(N)
+   #57: #a__sel(N,XS) -> #a__u51(a__and(a__isNatural(N),isLNat(XS)),N,XS)
+   #58: #a__sel(N,XS) -> #a__and(a__isNatural(N),isLNat(XS))
+   #59: #a__sel(N,XS) -> #a__isNatural(N)
+   #60: #mark(isLNat(X)) -> #a__isLNat(X)
+   #61: #a__fst(pair(X,Y)) -> #a__u21(a__and(a__isLNat(X),isLNat(Y)),X)
+   #62: #a__fst(pair(X,Y)) -> #a__and(a__isLNat(X),isLNat(Y))
+   #63: #a__fst(pair(X,Y)) -> #a__isLNat(X)
+   #64: #mark(cons(X1,X2)) -> #mark(X1)
+   #65: #a__natsFrom(N) -> #a__u41(a__isNatural(N),N)
+   #66: #a__natsFrom(N) -> #a__isNatural(N)
+   #67: #mark(u82(X1,X2)) -> #a__u82(mark(X1),X2)
+   #68: #mark(u82(X1,X2)) -> #mark(X1)
+   #69: #mark(u61(X1,X2)) -> #a__u61(mark(X1),X2)
+   #70: #mark(u61(X1,X2)) -> #mark(X1)
+   #71: #a__isNatural(head(V1)) -> #a__isLNat(V1)
+   #72: #a__isLNat(natsFrom(V1)) -> #a__isNatural(V1)
+   #73: #a__u61(tt(),Y) -> #mark(Y)
+   #74: #mark(splitAt(X1,X2)) -> #a__splitAt(mark(X1),mark(X2))
+   #75: #mark(splitAt(X1,X2)) -> #mark(X1)
+   #76: #mark(splitAt(X1,X2)) -> #mark(X2)
+   #77: #a__u82(pair(YS,ZS),X) -> #mark(X)
+   #78: #a__u82(pair(YS,ZS),X) -> #mark(ZS)
+   #79: #mark(pair(X1,X2)) -> #mark(X1)
+   #80: #mark(pair(X1,X2)) -> #mark(X2)
+   #81: #a__splitAt(0(),XS) -> #a__u71(a__isLNat(XS),XS)
+   #82: #a__splitAt(0(),XS) -> #a__isLNat(XS)
+   #83: #a__u41(tt(),N) -> #mark(N)
+   #84: #mark(u41(X1,X2)) -> #a__u41(mark(X1),X2)
+   #85: #mark(u41(X1,X2)) -> #mark(X1)
+   #86: #a__isPLNat(pair(V1,V2)) -> #a__and(a__isLNat(V1),isLNat(V2))
+   #87: #a__isPLNat(pair(V1,V2)) -> #a__isLNat(V1)
+   #88: #a__isLNat(tail(V1)) -> #a__isLNat(V1)
+   #89: #a__splitAt(s(N),cons(X,XS)) -> #a__u81(a__and(a__isNatural(N),and(isNatural(X),isLNat(XS))),N,X,XS)
+   #90: #a__splitAt(s(N),cons(X,XS)) -> #a__and(a__isNatural(N),and(isNatural(X),isLNat(XS)))
+   #91: #a__splitAt(s(N),cons(X,XS)) -> #a__isNatural(N)
+   #92: #a__isNatural(sel(V1,V2)) -> #a__and(a__isNatural(V1),isLNat(V2))
+   #93: #a__isNatural(sel(V1,V2)) -> #a__isNatural(V1)
+   #94: #mark(sel(X1,X2)) -> #a__sel(mark(X1),mark(X2))
+   #95: #mark(sel(X1,X2)) -> #mark(X1)
+   #96: #mark(sel(X1,X2)) -> #mark(X2)
+   #97: #a__isLNat(afterNth(V1,V2)) -> #a__and(a__isNatural(V1),isLNat(V2))
+   #98: #a__isLNat(afterNth(V1,V2)) -> #a__isNatural(V1)
+   #99: #a__snd(pair(X,Y)) -> #a__u61(a__and(a__isLNat(X),isLNat(Y)),Y)
+   #100: #a__snd(pair(X,Y)) -> #a__and(a__isLNat(X),isLNat(Y))
+   #101: #a__snd(pair(X,Y)) -> #a__isLNat(X)
+   #102: #a__isLNat(fst(V1)) -> #a__isPLNat(V1)
+   #103: #mark(s(X)) -> #mark(X)
+   #104: #a__isNatural(s(V1)) -> #a__isNatural(V1)
+   #105: #a__take(N,XS) -> #a__u101(a__and(a__isNatural(N),isLNat(XS)),N,XS)
+   #106: #a__take(N,XS) -> #a__and(a__isNatural(N),isLNat(XS))
+   #107: #a__take(N,XS) -> #a__isNatural(N)
+   #108: #a__isLNat(snd(V1)) -> #a__isPLNat(V1)
+   #109: #a__u21(tt(),X) -> #mark(X)
+   #110: #a__u101(tt(),N,XS) -> #a__fst(a__splitAt(mark(N),mark(XS)))
+   #111: #a__u101(tt(),N,XS) -> #a__splitAt(mark(N),mark(XS))
+   #112: #a__u101(tt(),N,XS) -> #mark(N)
+   #113: #a__u101(tt(),N,XS) -> #mark(XS)
+   #114: #mark(and(X1,X2)) -> #a__and(mark(X1),X2)
+   #115: #mark(and(X1,X2)) -> #mark(X1)
+   #116: #a__u71(tt(),XS) -> #mark(XS)
+   #117: #a__head(cons(N,XS)) -> #a__u31(a__and(a__isNatural(N),isLNat(XS)),N)
+   #118: #a__head(cons(N,XS)) -> #a__and(a__isNatural(N),isLNat(XS))
+   #119: #a__head(cons(N,XS)) -> #a__isNatural(N)
+   #120: #a__u31(tt(),N) -> #mark(N)
+   #121: #mark(u71(X1,X2)) -> #a__u71(mark(X1),X2)
+   #122: #mark(u71(X1,X2)) -> #mark(X1)
+   #123: #a__isLNat(cons(V1,V2)) -> #a__and(a__isNatural(V1),isLNat(V2))
+   #124: #a__isLNat(cons(V1,V2)) -> #a__isNatural(V1)
+Number of SCCs: 1, DPs: 124
+  SCC { #1..124 }
+POLO(Sum)... POLO(max)... succeeded.
+      u81	w: max(x1, x2 + 3, x3 + 9, x4 + 10)
+      a__u31	w: max(x1 + 3, x2 + 2)
+      a__u91	w: max(x1 + 2, x2 + 3)
+      a__u41	w: max(x1, x2)
+      a__u51	w: max(x1, x2 + 33, x3 + 32)
+      s 	w: x1
+      a__u82	w: max(x1, x2 + 7)
+      u91	w: max(x1 + 2, x2 + 3)
+      #a__u41	w: max(x2)
+      #a__head	w: x1 + 3
+      #a__natsFrom	w: x1
+      #a__u51	w: max(x1, x2 + 33, x3 + 32)
+      #a__u82	w: max(x1, x2)
+      isPLNat	w: x1 + 2
+      #a__snd	w: x1
+      a__afterNth	w: max(x1 + 28, x2 + 27)
+      take	w: max(x1 + 22, x2 + 29)
+      #a__u81	w: max(x1, x2 + 3, x3, x4 + 10)
+      and	w: max(x1, x2)
+      a__u21	w: max(x1, x2 + 2)
+      pair	w: max(x1 + 2, x2 + 10)
+      fst	w: x1 + 19
+      natsFrom	w: x1
+      #a__u21	w: max(x2 + 1)
+      a__snd	w: x1 + 16
+      #a__u31	w: max(x2 + 1)
+      splitAt	w: max(x1 + 3, x2 + 10)
+      u61	w: max(x1 + 3, x2 + 2)
+      #a__take	w: max(x1 + 15, x2 + 13)
+      _ 	w: 0
+      isNatural	w: x1
+      #a__u101	w: max(x1 + 6, x2 + 14, x3 + 12)
+      #a__u61	w: max(x2 + 1)
+      u41	w: max(x1, x2)
+      a__u71	w: max(x1, x2 + 10)
+      a__u61	w: max(x1 + 3, x2 + 2)
+      a__u81	w: max(x1, x2 + 3, x3 + 9, x4 + 10)
+      a__fst	w: x1 + 19
+      tail	w: x1 + 4
+      a__natsFrom	w: x1
+      u51	w: max(x1, x2 + 33, x3 + 32)
+      #mark	w: x1
+      0 	w: 6
+      #a__and	w: max(x1, x2)
+      a__isLNat	w: x1 + 2
+      u11	w: max(x1 + 12, x2 + 26, x3 + 27)
+      sel	w: max(x1 + 35, x2 + 36)
+      afterNth	w: max(x1 + 28, x2 + 27)
+      #a__u11	w: max(x1 + 2, x2 + 4, x3 + 11)
+      #a__u71	w: max(x1, x2 + 7)
+      nil	w: 6
+      a__splitAt	w: max(x1 + 3, x2 + 10)
+      isLNat	w: x1 + 2
+      #a__sel	w: max(x1 + 34, x2 + 34)
+      mark	w: x1
+      #a__isLNat	w: x1 + 2
+      u101	w: max(x1 + 15, x2 + 22, x3 + 29)
+      a__sel	w: max(x1 + 35, x2 + 36)
+      u21	w: max(x1, x2 + 2)
+      a__isPLNat	w: x1 + 2
+      u82	w: max(x1, x2 + 7)
+      #_ 	w: 0
+      #a__isPLNat	w: x1 + 1
+      head	w: x1 + 5
+      #a__afterNth	w: max(x1 + 5, x2 + 12)
+      #a__splitAt	w: max(x1 + 3, x2 + 10)
+      a__u11	w: max(x1 + 12, x2 + 26, x3 + 27)
+      cons	w: max(x1, x2)
+      snd	w: x1 + 16
+      a__take	w: max(x1 + 22, x2 + 29)
+      tt	w: 6
+      a__isNatural	w: x1
+      #a__isNatural	w: x1
+      #a__fst	w: x1 + 1
+      u71	w: max(x1, x2 + 10)
+      a__and	w: max(x1, x2)
+      a__tail	w: x1 + 4
+      a__u101	w: max(x1 + 15, x2 + 22, x3 + 29)
+      u31	w: max(x1 + 3, x2 + 2)
+      #a__tail	w: x1 + 3
+      a__head	w: x1 + 5
+      #a__u91	w: max(x2 + 1)
+    USABLE RULES: { 1..90 }
+    Removed DPs: #1..11 #14 #16..37 #39 #40 #46..51 #54..59 #61..63 #69..73 #75 #76 #78..82 #86..88 #90..99 #102 #105..113 #116..120 #124
+Number of SCCs: 2, DPs: 26
+  SCC { #104 }
+POLO(Sum)... succeeded.
+      u81	w: 9
+      a__u31	w: 7
+      a__u91	w: x1 + x2 + 2
+      a__u41	w: x1 + x2 + 2
+      a__u51	w: x1 + x2 + x3 + 2
+      s 	w: x1 + 1
+      a__u82	w: x2 + 7
+      u91	w: 1
+      #a__u41	w: 3
+      #a__head	w: 3
+      #a__natsFrom	w: 3
+      #a__u51	w: 3
+      #a__u82	w: 3
+      isPLNat	w: 3
+      #a__snd	w: 3
+      a__afterNth	w: 1
+      take	w: 1
+      #a__u81	w: 3
+      and	w: x2 + 5
+      a__u21	w: 1
+      pair	w: x2 + 4
+      fst	w: 10
+      natsFrom	w: x1 + 4
+      #a__u21	w: 3
+      a__snd	w: 3
+      #a__u31	w: 3
+      splitAt	w: x1 + x2 + 1
+      u61	w: x1 + 5
+      #a__take	w: 3
+      _ 	w: 0
+      isNatural	w: 3
+      #a__u101	w: 3
+      #a__u61	w: 3
+      u41	w: 1
+      a__u71	w: 8
+      a__u61	w: x2 + 4
+      a__u81	w: x2 + x3 + 8
+      a__fst	w: 9
+      tail	w: 6
+      a__natsFrom	w: x1
+      u51	w: 1
+      #mark	w: 3
+      0 	w: 1
+      #a__and	w: 2
+      a__isLNat	w: 7
+      u11	w: x3 + 3
+      sel	w: 1
+      afterNth	w: x2 + 2
+      #a__u11	w: 3
+      #a__u71	w: 3
+      nil	w: 1
+      a__splitAt	w: 7
+      isLNat	w: x1 + 1
+      #a__sel	w: 3
+      mark	w: x1 + 5
+      #a__isLNat	w: 3
+      u101	w: x1 + x3 + 1
+      a__sel	w: 1
+      u21	w: 2
+      a__isPLNat	w: 8
+      u82	w: x1 + 1
+      #_ 	w: 0
+      #a__isPLNat	w: 3
+      head	w: x1 + 2
+      #a__afterNth	w: 3
+      #a__splitAt	w: 3
+      a__u11	w: x2 + 2
+      cons	w: x1 + x2 + 1
+      snd	w: 4
+      a__take	w: x1 + x2 + 1
+      tt	w: 8
+      a__isNatural	w: x1 + 2
+      #a__isNatural	w: x1 + 3
+      #a__fst	w: 3
+      u71	w: 1
+      a__and	w: 4
+      a__tail	w: x1 + 5
+      a__u101	w: x1
+      u31	w: x1 + 1
+      #a__tail	w: 3
+      a__head	w: 7
+      #a__u91	w: 3
+    USABLE RULES: { }
+    Removed DPs: #104
+Number of SCCs: 1, DPs: 25
+  SCC { #13 #15 #41..45 #52 #53 #60 #64 #65 #67 #68 #74 #77 #83..85 #89 #103 #114 #115 #122 #123 }
+POLO(Sum)... POLO(max)... succeeded.
+      u81	w: max(x1 + 6, x2 + 5, x3 + 3, x4 + 10)
+      a__u31	w: max(x1 + 4, x2 + 2)
+      a__u91	w: max(x1 + 4, x2 + 5)
+      a__u41	w: max(x1 + 3, x2 + 3)
+      a__u51	w: max(x1 + 1, x2 + 34, x3 + 32)
+      s 	w: x1
+      a__u82	w: max(x1, x2 + 2)
+      u91	w: max(x1 + 4, x2 + 5)
+      #a__u41	w: max(x2 + 1)
+      #a__head	w: 3
+      #a__natsFrom	w: x1 + 2
+      #a__u51	w: 0
+      #a__u82	w: max(x2 + 1)
+      isPLNat	w: 0
+      #a__snd	w: 0
+      a__afterNth	w: max(x1 + 28, x2 + 26)
+      take	w: max(x1 + 6, x2 + 29)
+      #a__u81	w: max(x1 + 2, x3 + 2, x4 + 4)
+      and	w: max(x1, x2)
+      a__u21	w: max(x1 + 1, x2 + 2)
+      pair	w: max(x1 + 2, x2 + 10)
+      fst	w: x1 + 1
+      natsFrom	w: x1 + 3
+      #a__u21	w: 0
+      a__snd	w: x1 + 16
+      #a__u31	w: 0
+      splitAt	w: max(x1 + 5, x2 + 10)
+      u61	w: max(x1 + 3, x2 + 2)
+      #a__take	w: 0
+      _ 	w: 0
+      isNatural	w: 0
+      #a__u101	w: 0
+      #a__u61	w: 0
+      u41	w: max(x1 + 3, x2 + 3)
+      a__u71	w: max(x1 + 1, x2 + 10)
+      a__u61	w: max(x1 + 3, x2 + 2)
+      a__u81	w: max(x1 + 6, x2 + 5, x3 + 3, x4 + 10)
+      a__fst	w: x1 + 1
+      tail	w: x1 + 5
+      a__natsFrom	w: x1 + 3
+      u51	w: max(x1 + 1, x2 + 34, x3 + 32)
+      #mark	w: x1
+      0 	w: 4
+      #a__and	w: max(x2)
+      a__isLNat	w: 0
+      u11	w: max(x1 + 21, x2 + 21, x3 + 26)
+      sel	w: max(x1 + 34, x2 + 36)
+      afterNth	w: max(x1 + 28, x2 + 26)
+      #a__u11	w: 0
+      #a__u71	w: 0
+      nil	w: 6
+      a__splitAt	w: max(x1 + 5, x2 + 10)
+      isLNat	w: 0
+      #a__sel	w: 0
+      mark	w: x1
+      #a__isLNat	w: 0
+      u101	w: max(x1 + 1, x2 + 6, x3 + 29)
+      a__sel	w: max(x1 + 34, x2 + 36)
+      u21	w: max(x1 + 1, x2 + 2)
+      a__isPLNat	w: 0
+      u82	w: max(x1, x2 + 2)
+      #_ 	w: 0
+      #a__isPLNat	w: 1
+      head	w: x1 + 6
+      #a__afterNth	w: 0
+      #a__splitAt	w: max(x2 + 4)
+      a__u11	w: max(x1 + 21, x2 + 21, x3 + 26)
+      cons	w: max(x1, x2)
+      snd	w: x1 + 16
+      a__take	w: max(x1 + 6, x2 + 29)
+      tt	w: 0
+      a__isNatural	w: 0
+      #a__isNatural	w: 0
+      #a__fst	w: 1
+      u71	w: max(x1 + 1, x2 + 10)
+      a__and	w: max(x1, x2)
+      a__tail	w: x1 + 5
+      a__u101	w: max(x1 + 1, x2 + 6, x3 + 29)
+      u31	w: max(x1 + 4, x2 + 2)
+      #a__tail	w: 3
+      a__head	w: x1 + 6
+      #a__u91	w: 0
+    USABLE RULES: { 1..90 }
+    Removed DPs: #13 #15 #41 #42 #44 #52 #53 #65 #67 #74 #77 #83..85 #122
+Number of SCCs: 2, DPs: 10
+  SCC { #45 #89 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... succeeded.
+      u81	s: []	p: 7	w: max(x3 + 4, x4 + 5)
+      a__u31	s: []	p: 1	w: max(x2 + 1)
+      a__u91	s: []	p: 0	w: max(x1 + 2, x2 + 1)
+      a__u41	s: [1,2]	p: 2	w: max(x1, x2 + 14)
+      a__u51	s: [3]	p: 10	w: max(x2 + 12, x3 + 11)
+      s 	s: [1]	p: 6	w: x1
+      a__u82	s: []	p: 7	w: max(x1, x2 + 3)
+      u91	s: []	p: 0	w: max(x1 + 2, x2 + 1)
+      #a__u41	s: []	p: 0	w: x2 + 1
+      #a__head	s: []	p: 0	w: 0
+      #a__natsFrom	s: []	p: 0	w: 0
+      #a__u51	s: [3,1,2]	p: 0	w: max(x1 + 1, x2, x3)
+      #a__u82	s: []	p: 0	w: 1
+      isPLNat	s: []	p: 2	w: 14
+      #a__snd	s: []	p: 0	w: 1
+      a__afterNth	s: []	p: 9	w: max(x2 + 8)
+      take	s: []	p: 5	w: x1 + x2 + 21
+      #a__u81	s: [2]	p: 2	w: max(x2)
+      and	s: 2
+      a__u21	s: 2
+      pair	s: [2]	p: 5	w: max(x1 + 1, x2 + 2)
+      fst	s: []	p: 1	w: x1 + 6
+      natsFrom	s: [1]	p: 3	w: x1 + 14
+      #a__u21	s: [1,2]	p: 0	w: x1 + x2
+      a__snd	s: []	p: 1	w: x1 + 1
+      #a__u31	s: [2,1]	p: 0	w: x1 + x2
+      splitAt	s: []	p: 8	w: max(x2 + 5)
+      u61	s: [2]	p: 0	w: max(x2)
+      #a__take	s: []	p: 0	w: 0
+      _ 	s: []	p: 0	w: x2
+      isNatural	s: []	p: 2	w: 14
+      #a__u101	s: [1,2,3]	p: 0	w: x1 + x2 + x3 + 1
+      #a__u61	s: [1,2]	p: 0	w: x1 + x2 + 1
+      u41	s: [1,2]	p: 2	w: max(x1, x2 + 14)
+      a__u71	s: []	p: 8	w: max(x2 + 4)
+      a__u61	s: [2]	p: 0	w: max(x2)
+      a__u81	s: []	p: 7	w: max(x3 + 4, x4 + 5)
+      a__fst	s: []	p: 1	w: x1 + 6
+      tail	s: []	p: 0	w: x1 + 17
+      a__natsFrom	s: [1]	p: 3	w: x1 + 14
+      u51	s: [3]	p: 10	w: max(x2 + 12, x3 + 11)
+      #mark	s: []	p: 0	w: 0
+      0 	s: []	p: 0	w: 15
+      #a__and	s: [1,2]	p: 0	w: max(x1, x2)
+      a__isLNat	s: []	p: 2	w: 14
+      u11	s: []	p: 9	w: max(x3 + 7)
+      sel	s: []	p: 11	w: x1 + x2 + 13
+      afterNth	s: []	p: 9	w: max(x2 + 8)
+      #a__u11	s: [3,1,2]	p: 0	w: x1 + x2 + x3
+      #a__u71	s: []	p: 0	w: 0
+      nil	s: []	p: 8	w: 1
+      a__splitAt	s: []	p: 8	w: max(x2 + 5)
+      isLNat	s: []	p: 2	w: 14
+      #a__sel	s: []	p: 0	w: 1
+      mark	s: 1
+      #a__isLNat	s: []	p: 0	w: 0
+      u101	s: []	p: 4	w: max(x1 + 6, x2 + 1, x3 + 21)
+      a__sel	s: []	p: 11	w: x1 + x2 + 13
+      u21	s: 2
+      a__isPLNat	s: []	p: 2	w: 14
+      u82	s: []	p: 7	w: max(x1, x2 + 3)
+      #_ 	s: [2,1]	p: 0	w: x1 + x2
+      #a__isPLNat	s: []	p: 0	w: 0
+      head	s: []	p: 9	w: x1 + 2
+      #a__afterNth	s: []	p: 0	w: 0
+      #a__splitAt	s: [1]	p: 1	w: max(x1)
+      a__u11	s: []	p: 9	w: max(x3 + 7)
+      cons	s: []	p: 1	w: max(x1, x2)
+      snd	s: []	p: 1	w: x1 + 1
+      a__take	s: []	p: 5	w: x1 + x2 + 21
+      tt	s: []	p: 8	w: 0
+      a__isNatural	s: []	p: 2	w: 14
+      #a__isNatural	s: []	p: 0	w: 1
+      #a__fst	s: []	p: 0	w: 1
+      u71	s: []	p: 8	w: max(x2 + 4)
+      a__and	s: 2
+      a__tail	s: []	p: 0	w: x1 + 17
+      a__u101	s: []	p: 4	w: max(x1 + 6, x2 + 1, x3 + 21)
+      u31	s: []	p: 1	w: max(x2 + 1)
+      #a__tail	s: []	p: 0	w: 0
+      a__head	s: []	p: 9	w: x1 + 2
+      #a__u91	s: [1,2]	p: 0	w: x1 + x2 + 1
+    USABLE RULES: { 1..90 }
+    Removed DPs: #45 #89
+Number of SCCs: 1, DPs: 8
+  SCC { #43 #60 #64 #68 #103 #114 #115 #123 }
+POLO(Sum)... succeeded.
+      u81	w: 15
+      a__u31	w: 12
+      a__u91	w: 5
+      a__u41	w: x2 + 15
+      a__u51	w: x1 + x3 + 3
+      s 	w: x1 + 1
+      a__u82	w: 16
+      u91	w: x1 + x2 + 6
+      #a__u41	w: 2
+      #a__head	w: 3
+      #a__natsFrom	w: 2
+      #a__u51	w: 3
+      #a__u82	w: 2
+      isPLNat	w: 16
+      #a__snd	w: 3
+      a__afterNth	w: 9
+      take	w: x1 + x2 + 15
+      #a__u81	w: 1
+      and	w: x1 + x2 + 13
+      a__u21	w: x2 + 12
+      pair	w: 16
+      fst	w: 15
+      natsFrom	w: 15
+      #a__u21	w: 3
+      a__snd	w: 11
+      #a__u31	w: 3
+      splitAt	w: x1 + x2 + 15
+      u61	w: 12
+      #a__take	w: 3
+      _ 	w: 0
+      isNatural	w: 2
+      #a__u101	w: 3
+      #a__u61	w: 3
+      u41	w: 15
+      a__u71	w: 15
+      a__u61	w: 12
+      a__u81	w: x2 + x3 + x4 + 15
+      a__fst	w: 14
+      tail	w: 2
+      a__natsFrom	w: 14
+      u51	w: 4
+      #mark	w: x1 + 1
+      0 	w: 14
+      #a__and	w: x2 + 2
+      a__isLNat	w: 14
+      u11	w: 11
+      sel	w: 15
+      afterNth	w: 9
+      #a__u11	w: 3
+      #a__u71	w: 3
+      nil	w: 14
+      a__splitAt	w: 14
+      isLNat	w: x1 + 15
+      #a__sel	w: 3
+      mark	w: 13
+      #a__isLNat	w: x1 + 15
+      u101	w: 4
+      a__sel	w: 14
+      u21	w: 12
+      a__isPLNat	w: 15
+      u82	w: x1 + x2 + 17
+      #_ 	w: 0
+      #a__isPLNat	w: 3
+      head	w: 9
+      #a__afterNth	w: 3
+      #a__splitAt	w: 2
+      a__u11	w: x2 + 10
+      cons	w: x1 + x2 + 3
+      snd	w: x1 + 12
+      a__take	w: 14
+      tt	w: 15
+      a__isNatural	w: 1
+      #a__isNatural	w: 3
+      #a__fst	w: 3
+      u71	w: x2 + 16
+      a__and	w: 12
+      a__tail	w: x1 + 1
+      a__u101	w: x1 + x2 + x3 + 3
+      u31	w: 12
+      #a__tail	w: 3
+      a__head	w: x1 + 8
+      #a__u91	w: 3
+    USABLE RULES: { }
+    Removed DPs: #43 #60 #64 #68 #103 #114 #115 #123
+Number of SCCs: 0, DPs: 0

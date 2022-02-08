@@ -1,0 +1,25 @@
+Input TRS:
+    1: app(id(),F) -> F
+    2: app(F,id()) -> F
+    3: times(id(),id()) -> id()
+    4: app(times(H,K),times(F,G)) -> times(app(H,F),app(K,G))
+    5: app(alpha(),times(times(F,G),H)) -> app(times(F,times(G,H)),alpha())
+    6: app(lmd(),times(id(),F)) -> app(F,lmd())
+    7: app(times(F,id()),rho()) -> app(rho(),F)
+    8: app(alpha(),times(times(F,G),H)) -> app(times(F,times(G,H)),alpha())
+    9: app(lmd(),rho()) -> id()
+    10: app(times(id(),lmd()),app(alpha(),times(rho(),id()))) -> id()
+    11: app(app(times(id(),lmd()),alpha()),times(rho(),id())) -> id()
+    12: app(lmd(),alpha()) -> times(lmd(),id())
+    13: app(alpha(),rho()) -> times(id(),rho())
+    14: app(times(id(),alpha()),app(alpha(),times(alpha(),id()))) -> app(alpha(),alpha())
+    15: app(app(times(id(),alpha()),alpha()),times(alpha(),id())) -> app(alpha(),alpha())
+Number of strict rules: 15
+Direct POLO(bPol) ... removes: 4 15 8 1 3 5 10 7 14 12 11 9 13 6 2
+      times	w: 2 * x1 + x2 + 3
+      lmd	w: 1
+      id	w: 1
+      rho	w: 1
+      alpha	w: 5
+      app	w: x1 + x2 + 1
+Number of strict rules: 0

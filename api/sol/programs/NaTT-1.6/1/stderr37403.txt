@@ -1,0 +1,153 @@
+Input TRS:
+    1: btimes(X,bplus(Y,U)) -> bplus(btimes(X,Y),btimes(X,U))
+    2: btimes(bplus(W,P),V) -> bplus(btimes(V,W),btimes(V,P))
+    3: btimes(btimes(X1,Y1),U1) -> btimes(X1,btimes(Y1,U1))
+    4: bplus(bplus(V1,W1),P1) -> bplus(V1,bplus(W1,P1))
+    5: map(F2,nil()) -> nil()
+    6: map(Z2,cons(U2,V2)) -> cons(Z2[U2](),map(Z2,V2))
+    7: filter(I2,nil()) -> nil()
+    8: filter(J2,cons(X3,Y3)) -> filter2(J2[X3](),J2,X3,Y3)
+    9: filter2(true(),G3,V3,W3) -> cons(V3,filter(G3,W3))
+    10: filter2(false(),J3,X4,Y4) -> filter(J3,Y4)
+Number of strict rules: 10
+Direct POLO(bPol) ... failed.
+Uncurrying filter2
+1: btimes(X,bplus(Y,U)) -> bplus(btimes(X,Y),btimes(X,U))
+2: btimes(bplus(W,P),V) -> bplus(btimes(V,W),btimes(V,P))
+3: btimes(btimes(X1,Y1),U1) -> btimes(X1,btimes(Y1,U1))
+4: bplus(bplus(V1,W1),P1) -> bplus(V1,bplus(W1,P1))
+5: map(F2,nil()) -> nil()
+6: map(Z2,cons(U2,V2)) -> cons(Z2[U2](),map(Z2,V2))
+7: filter(I2,nil()) -> nil()
+8: filter(J2,cons(X3,Y3)) -> filter2^1_J2[X3](J2,X3,Y3)
+9: filter2^1_true(G3,V3,W3) -> cons(V3,filter(G3,W3))
+10: filter2^1_false(J3,X4,Y4) -> filter(J3,Y4)
+11: filter2(false(),_3,_4,_5) ->= filter2^1_false(_3,_4,_5)
+12: filter2(true(),_3,_4,_5) ->= filter2^1_true(_3,_4,_5)
+13: filter2(J2[X3](),_3,_4,_5) ->= filter2^1_J2[X3](_3,_4,_5)
+Number of strict rules: 10
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #btimes(bplus(W,P),V) -> #bplus(btimes(V,W),btimes(V,P))
+   #2: #btimes(bplus(W,P),V) -> #btimes(V,W)
+   #3: #btimes(bplus(W,P),V) -> #btimes(V,P)
+   #4: #map(Z2,cons(U2,V2)) -> #map(Z2,V2)
+   #5: #filter2^1_true(G3,V3,W3) -> #filter(G3,W3)
+   #6: #filter2(false(),_3,_4,_5) ->? #filter2^1_false(_3,_4,_5)
+   #7: #filter2(true(),_3,_4,_5) ->? #filter2^1_true(_3,_4,_5)
+   #8: #filter2^1_false(J3,X4,Y4) -> #filter(J3,Y4)
+   #9: #btimes(btimes(X1,Y1),U1) -> #btimes(X1,btimes(Y1,U1))
+   #10: #btimes(btimes(X1,Y1),U1) -> #btimes(Y1,U1)
+   #11: #btimes(X,bplus(Y,U)) -> #bplus(btimes(X,Y),btimes(X,U))
+   #12: #btimes(X,bplus(Y,U)) -> #btimes(X,Y)
+   #13: #btimes(X,bplus(Y,U)) -> #btimes(X,U)
+   #14: #bplus(bplus(V1,W1),P1) -> #bplus(V1,bplus(W1,P1))
+   #15: #bplus(bplus(V1,W1),P1) -> #bplus(W1,P1)
+Number of SCCs: 3, DPs: 9
+  SCC { #4 }
+POLO(Sum)... succeeded.
+      #filter2	w: 0
+      #filter	w: 0
+      false	w: 0
+      filter2^1_false	w: 0
+      #filter2^1_true	w: 0
+      true	w: 0
+      filter2	w: 0
+      J2[X3]	w: 0
+      #btimes	w: 0
+      nil	w: 0
+      bplus	w: 0
+      map	w: 0
+      btimes	w: 0
+      #map	w: x2
+      cons	w: x2 + 1
+      filter	w: 0
+      #filter2^1_false	w: 0
+      filter2^1_true	w: 0
+      filter2^1_J2[X3]	w: 0
+      #bplus	w: 0
+      Z2[U2]	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4
+Number of SCCs: 2, DPs: 8
+  SCC { #14 #15 }
+POLO(Sum)... succeeded.
+      #filter2	w: 0
+      #filter	w: 0
+      false	w: 0
+      filter2^1_false	w: 0
+      #filter2^1_true	w: 0
+      true	w: 0
+      filter2	w: 0
+      J2[X3]	w: 0
+      #btimes	w: 0
+      nil	w: 0
+      bplus	w: x1 + x2 + 1
+      map	w: 0
+      btimes	w: 0
+      #map	w: 0
+      cons	w: 1
+      filter	w: 0
+      #filter2^1_false	w: 0
+      filter2^1_true	w: 0
+      filter2^1_J2[X3]	w: 0
+      #bplus	w: x1
+      Z2[U2]	w: 0
+    USABLE RULES: { }
+    Removed DPs: #14 #15
+Number of SCCs: 1, DPs: 6
+  SCC { #2 #3 #9 #10 #12 #13 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... succeeded.
+      #filter2	w: 0
+      #filter	w: max(x1 - 1, 0)
+      false	w: 0
+      filter2^1_false	w: max(x1 - 1, 0)
+      #filter2^1_true	w: 0
+      true	w: 0
+      filter2	w: max(x2 - 1, 0)
+      J2[X3]	w: 0
+      #btimes	w: max(x1 + x2 - 1, 0)
+      nil	w: 0
+      bplus	w: max(x1 + 2, x2, 0)
+      map	w: max(x2 - 1, 0)
+      btimes	w: max(x1 + x2, 0)
+      #map	w: max(x2 - 1, 0)
+      cons	w: 0
+      filter	w: max(x1 - 1, 0)
+      #filter2^1_false	w: max(x3 - 1, 0)
+      filter2^1_true	w: max(x2 - 1, 0)
+      filter2^1_J2[X3]	w: 0
+      #bplus	w: 0
+      Z2[U2]	w: 0
+    USABLE RULES: { 1..4 }
+    Removed DPs: #2 #12
+Number of SCCs: 1, DPs: 4
+  SCC { #3 #9 #10 #13 }
+POLO(Sum)... succeeded.
+      #filter2	w: 0
+      #filter	w: 0
+      false	w: 0
+      filter2^1_false	w: 0
+      #filter2^1_true	w: 0
+      true	w: 0
+      filter2	w: 0
+      J2[X3]	w: 0
+      #btimes	w: x1 + x2
+      nil	w: 0
+      bplus	w: x2
+      map	w: 0
+      btimes	w: x1 + x2 + 1
+      #map	w: 0
+      cons	w: 1
+      filter	w: 0
+      #filter2^1_false	w: 0
+      filter2^1_true	w: 0
+      filter2^1_J2[X3]	w: 0
+      #bplus	w: 0
+      Z2[U2]	w: 0
+    USABLE RULES: { 1..4 }
+    Removed DPs: #10
+Number of SCCs: 1, DPs: 3
+  SCC { #3 #9 #13 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

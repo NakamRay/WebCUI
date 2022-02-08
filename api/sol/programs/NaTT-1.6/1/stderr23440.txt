@@ -1,0 +1,20 @@
+Input TRS:
+    1: heightf(nil()) -> z()
+    2: heightf(cons(X,Y)) -> max(heightt(X),heightf(Y))
+    3: heightt(leaf()) -> z()
+    4: heightt(node(U)) -> s(heightf(U))
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... removes: 4 1 3 5 6 2
+      heightt	w: 2 * x1 + 1
+      s 	w: 2 * x1
+      z 	w: 0
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      heightf	w: 2 * x1 + 1
+      max	w: 2 * x1 + 2 * x2
+      nil	w: 1
+      cons	w: 2 * x1 + 2 * x2 + 2
+      leaf	w: 1
+      node	w: 2 * x1 + 1
+Number of strict rules: 0

@@ -1,0 +1,58 @@
+Input TRS:
+    1: f(0()) -> true()
+    2: f(1()) -> false()
+    3: f(s(X)) -> f(X)
+    4: g(s(P),s(X1)) -> ifz(f(P),s(P),s(X1))
+    5: g(Y1,c(U1)) -> g(Y1,g(s(c(U1)),U1))
+    6: ifz(true(),T,E) -> T
+    7: ifz(false(),T,E) -> E
+    8: _(X1,X2) -> X1
+    9: _(X1,X2) -> X2
+Number of strict rules: 9
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #g(Y1,c(U1)) -> #g(Y1,g(s(c(U1)),U1))
+   #2: #g(Y1,c(U1)) -> #g(s(c(U1)),U1)
+   #3: #f(s(X)) -> #f(X)
+   #4: #g(s(P),s(X1)) -> #ifz(f(P),s(P),s(X1))
+   #5: #g(s(P),s(X1)) -> #f(P)
+Number of SCCs: 2, DPs: 3
+  SCC { #3 }
+POLO(Sum)... succeeded.
+      1 	w: 0
+      s 	w: x1 + 1
+      false	w: 0
+      #ifz	w: 0
+      c 	w: 0
+      _ 	w: 0
+      true	w: 0
+      f 	w: 0
+      0 	w: 0
+      #f 	w: x1
+      #g 	w: 0
+      #_ 	w: 0
+      g 	w: 0
+      ifz	w: 0
+    USABLE RULES: { }
+    Removed DPs: #3
+Number of SCCs: 1, DPs: 2
+  SCC { #1 #2 }
+POLO(Sum)... succeeded.
+      1 	w: 1
+      s 	w: 1
+      false	w: 1
+      #ifz	w: 0
+      c 	w: x1 + 3
+      _ 	w: 0
+      true	w: 1
+      f 	w: 1
+      0 	w: 1
+      #f 	w: 0
+      #g 	w: x2
+      #_ 	w: 0
+      g 	w: 2
+      ifz	w: x2 + x3
+    USABLE RULES: { 1..7 }
+    Removed DPs: #1 #2
+Number of SCCs: 0, DPs: 0

@@ -1,0 +1,12 @@
+Input TRS:
+    1: append(nil(),X) -> X
+    2: append(cons(Y,U),V) -> cons(Y,append(U,V))
+    3: _(X1,X2) -> X1
+    4: _(X1,X2) -> X2
+Number of strict rules: 4
+Direct POLO(bPol) ... removes: 4 1 3 2
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      append	w: 2 * x1 + 2 * x2 + 1
+      nil	w: 1
+      cons	w: 2 * x1 + x2 + 1
+Number of strict rules: 0

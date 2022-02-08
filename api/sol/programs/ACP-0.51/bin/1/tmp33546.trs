@@ -1,0 +1,8 @@
+(VAR X )
+(RULES
+  a -> g(b)
+  a -> h(k)
+  g(X) -> f(X,X)
+  h(X) -> f(X,X)
+  b -> a
+  k -> a)

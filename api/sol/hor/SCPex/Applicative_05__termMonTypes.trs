@@ -1,0 +1,16 @@
+(VAR
+  X: a 
+  Z: b -> d -> e 
+  U: b 
+  V: c 
+)
+(FUN
+  0 : d
+  f : a -> a
+  g : (b -> d -> e) -> b -> e -> f
+  s : c -> e
+)
+(RULES
+  (f(X)) -> X,
+  (g(Z,U,(s(V)))) -> (g(Z,U,((Z U) (0))))
+)

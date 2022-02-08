@@ -1,0 +1,50 @@
+Input TRS:
+    1: app(nil(),X) -> X
+    2: app(cons(Y,U),V) -> cons(Y,app(U,V))
+    3: reverse(nil()) -> nil()
+    4: reverse(cons(W,P)) -> app(reverse(P),cons(W,nil()))
+    5: shuffle(nil()) -> nil()
+    6: shuffle(cons(X1,Y1)) -> cons(X1,shuffle(reverse(Y1)))
+    7: _(X1,X2) -> X1
+    8: _(X1,X2) -> X2
+Number of strict rules: 8
+Direct POLO(bPol) ... removes: 8 5 7
+      reverse	w: x1
+      _ 	w: x1 + 2 * x2 + 1
+      shuffle	w: x1 + 1
+      nil	w: 0
+      cons	w: 2 * x1 + x2 + 1
+      app	w: x1 + x2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 6
+      reverse	w: x1
+      _ 	w: x1 + 2 * x2 + 1
+      shuffle	w: 2 * x1 + 1
+      nil	w: 0
+      cons	w: 2 * x1 + x2 + 1
+      app	w: x1 + x2
+Number of strict rules: 4
+Direct POLO(bPol) ... removes: 3
+      reverse	w: 2 * x1 + 1
+      _ 	w: x1 + 2 * x2 + 1
+      shuffle	w: x1 + 1
+      nil	w: 0
+      cons	w: 2 * x1 + x2 + 1
+      app	w: x1 + 2 * x2
+Number of strict rules: 3
+Direct POLO(bPol) ... removes: 4 1
+      reverse	w: 2 * x1 + 2
+      _ 	w: x1 + 2 * x2 + 1
+      shuffle	w: 2 * x1 + 1
+      nil	w: 1
+      cons	w: 2 * x1 + x2 + 3
+      app	w: x1 + x2 + 1
+Number of strict rules: 1
+Direct POLO(bPol) ... removes: 2
+      reverse	w: 2 * x1
+      _ 	w: x1 + 2 * x2 + 1
+      shuffle	w: 2 * x1 + 1
+      nil	w: 3
+      cons	w: 2 * x1 + x2 + 5
+      app	w: 2 * x1 + x2 + 1
+Number of strict rules: 0

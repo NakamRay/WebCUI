@@ -1,0 +1,1422 @@
+Input TRS:
+    1: axxu101(tt(),X(),Y()) -> axxu102(axxisNaturalKind(X()),X(),Y())
+    2: axxu102(tt(),U(),V()) -> axxu103(axxisLNatKind(V()),U(),V())
+    3: axxu103(tt(),W(),P()) -> axxu104(axxisLNatKind(P()),W(),P())
+    4: axxu104(tt(),X1,Y1()) -> axxu105(axxisNatural(X1),Y1())
+    5: axxu105(tt(),U1()) -> axxu106(axxisLNat(U1()))
+    6: axxu106(tt()) -> tt()
+    7: axxu11(tt(),V1(),W1()) -> axxu12(axxisNaturalKind(V1()),V1(),W1())
+    8: axxu111(tt(),P1()) -> axxu112(axxisLNatKind(P1()))
+    9: axxu112(tt()) -> tt()
+    10: axxu12(tt(),X2,Y2()) -> axxu13(axxisLNat(Y2()),X2,Y2())
+    11: axxu121(tt(),U2()) -> axxu122(axxisLNatKind(U2()))
+    12: axxu122(tt()) -> tt()
+    13: axxu13(tt(),V2(),W2()) -> axxu14(axxisLNatKind(W2()),V2(),W2())
+    14: axxu131(tt()) -> tt()
+    15: axxu14(tt(),P2(),X3()) -> axxsnd(axxsplitAt(mark(P2()),mark(X3())))
+    16: axxu141(tt()) -> tt()
+    17: axxu151(tt()) -> tt()
+    18: axxu161(tt()) -> tt()
+    19: axxu171(tt(),Y3()) -> axxu172(axxisLNatKind(Y3()))
+    20: axxu172(tt()) -> tt()
+    21: axxu181(tt(),U3()) -> axxu182(axxisLNatKind(U3()),U3())
+    22: axxu182(tt(),V3()) -> axxu183(axxisLNat(V3()))
+    23: axxu183(tt()) -> tt()
+    24: axxu191(tt(),W3()) -> axxu192(axxisNaturalKind(W3()),W3())
+    25: axxu192(tt(),P3()) -> axxu193(axxisNatural(P3()))
+    26: axxu193(tt()) -> tt()
+    27: axxu201(tt(),X4(),Y4()) -> axxu202(axxisNaturalKind(X4()),X4(),Y4())
+    28: axxu202(tt(),U4(),V4()) -> axxu203(axxisLNatKind(V4()),U4(),V4())
+    29: axxu203(tt(),W4(),P4()) -> axxu204(axxisLNatKind(P4()),W4(),P4())
+    30: axxu204(tt(),X5(),Y5()) -> axxu205(axxisNatural(X5()),Y5())
+    31: axxu205(tt(),U5()) -> axxu206(axxisLNat(U5()))
+    32: axxu206(tt()) -> tt()
+    33: axxu21(tt(),V5(),W5()) -> axxu22(axxisLNatKind(V5()),V5(),W5())
+    34: axxu211(tt()) -> tt()
+    35: axxu22(tt(),P5(),X6()) -> axxu23(axxisLNat(X6()),P5(),X6())
+    36: axxu221(tt()) -> tt()
+    37: axxu23(tt(),Y6(),U6()) -> axxu24(axxisLNatKind(U6()),Y6())
+    38: axxu231(tt(),V6()) -> axxu232(axxisLNatKind(V6()))
+    39: axxu232(tt()) -> tt()
+    40: axxu24(tt(),W6()) -> mark(W6())
+    41: axxu241(tt(),P6(),X7()) -> axxu242(axxisLNatKind(P6()),P6(),X7())
+    42: axxu242(tt(),Y7(),U7()) -> axxu243(axxisLNatKind(U7()),Y7(),U7())
+    43: axxu243(tt(),V7(),W7()) -> axxu244(axxisLNatKind(W7()),V7(),W7())
+    44: axxu244(tt(),P7(),X8()) -> axxu245(axxisLNat(P7()),X8())
+    45: axxu245(tt(),Y8()) -> axxu246(axxisLNat(Y8()))
+    46: axxu246(tt()) -> tt()
+    47: axxu251(tt(),U8(),V8()) -> axxu252(axxisNaturalKind(U8()),U8(),V8())
+    48: axxu252(tt(),W8(),P8()) -> axxu253(axxisLNatKind(P8()),W8(),P8())
+    49: axxu253(tt(),X9(),Y9()) -> axxu254(axxisLNatKind(Y9()),X9(),Y9())
+    50: axxu254(tt(),U9(),V9()) -> axxu255(axxisNatural(U9()),V9())
+    51: axxu255(tt(),W9()) -> axxu256(axxisLNat(W9()))
+    52: axxu256(tt()) -> tt()
+    53: axxu261(tt(),P9()) -> axxu262(axxisLNatKind(P9()))
+    54: axxu262(tt()) -> tt()
+    55: axxu271(tt(),X10()) -> axxu272(axxisLNatKind(X10()))
+    56: axxu272(tt()) -> tt()
+    57: axxu281(tt(),Y10()) -> axxu282(axxisNaturalKind(Y10()),Y10())
+    58: axxu282(tt(),U10()) -> cons(mark(U10()),natsFrom(s(U10())))
+    59: axxu291(tt(),V10(),W10()) -> axxu292(axxisNaturalKind(V10()),V10(),W10())
+    60: axxu292(tt(),P10(),X11()) -> axxu293(axxisLNat(X11()),P10(),X11())
+    61: axxu293(tt(),Y11(),U11()) -> axxu294(axxisLNatKind(U11()),Y11(),U11())
+    62: axxu294(tt(),V11(),W11()) -> axxhead(axxafterNth(mark(V11()),mark(W11())))
+    63: axxu301(tt(),P11(),X12()) -> axxu302(axxisLNatKind(P11()),X12())
+    64: axxu302(tt(),Y12()) -> axxu303(axxisLNat(Y12()),Y12())
+    65: axxu303(tt(),U12()) -> axxu304(axxisLNatKind(U12()),U12())
+    66: axxu304(tt(),V12()) -> mark(V12())
+    67: axxu31(tt(),W12(),P12()) -> axxu32(axxisNaturalKind(W12()),W12(),P12())
+    68: axxu311(tt(),X13()) -> axxu312(axxisLNatKind(X13()),X13())
+    69: axxu312(tt(),Y13()) -> pair(nil(),mark(Y13()))
+    70: axxu32(tt(),U13(),V13()) -> axxu33(axxisLNat(V13()),U13(),V13())
+    71: axxu321(tt(),W13(),P13(),X14()) -> axxu322(axxisNaturalKind(W13()),W13(),P13(),X14())
+    72: axxu322(tt(),Y14(),U14(),V14()) -> axxu323(axxisNatural(U14()),Y14(),U14(),V14())
+    73: axxu323(tt(),W14(),P14(),X15()) -> axxu324(axxisNaturalKind(P14()),W14(),P14(),X15())
+    74: axxu324(tt(),Y15(),U15(),V15()) -> axxu325(axxisLNat(V15()),Y15(),U15(),V15())
+    75: axxu325(tt(),W15(),P15(),X16()) -> axxu326(axxisLNatKind(X16()),W15(),P15(),X16())
+    76: axxu326(tt(),Y16(),U16(),V16()) -> axxu327(axxsplitAt(mark(Y16()),mark(V16())),U16())
+    77: axxu327(pair(W16(),P16()),X17()) -> pair(cons(mark(X17()),W16()),mark(P16()))
+    78: axxu33(tt(),Y17(),U17()) -> axxu34(axxisLNatKind(U17()),Y17())
+    79: axxu331(tt(),V17(),W17()) -> axxu332(axxisNaturalKind(V17()),W17())
+    80: axxu332(tt(),P17()) -> axxu333(axxisLNat(P17()),P17())
+    81: axxu333(tt(),X18()) -> axxu334(axxisLNatKind(X18()),X18())
+    82: axxu334(tt(),Y18()) -> mark(Y18())
+    83: axxu34(tt(),U18()) -> mark(U18())
+    84: axxu341(tt(),V18(),W18()) -> axxu342(axxisNaturalKind(V18()),V18(),W18())
+    85: axxu342(tt(),P18(),X19()) -> axxu343(axxisLNat(X19()),P18(),X19())
+    86: axxu343(tt(),Y19(),U19()) -> axxu344(axxisLNatKind(U19()),Y19(),U19())
+    87: axxu344(tt(),V19(),W19()) -> axxfst(axxsplitAt(mark(V19()),mark(W19())))
+    88: axxu41(tt(),P19(),X20()) -> axxu42(axxisNaturalKind(P19()),P19(),X20())
+    89: axxu42(tt(),Y20(),U20()) -> axxu43(axxisLNatKind(U20()),Y20(),U20())
+    90: axxu43(tt(),V20(),W20()) -> axxu44(axxisLNatKind(W20()),V20(),W20())
+    91: axxu44(tt(),P20(),X21()) -> axxu45(axxisNatural(P20()),X21())
+    92: axxu45(tt(),Y21()) -> axxu46(axxisLNat(Y21()))
+    93: axxu46(tt()) -> tt()
+    94: axxu51(tt(),U21(),V21()) -> axxu52(axxisNaturalKind(U21()),U21(),V21())
+    95: axxu52(tt(),W21(),P21()) -> axxu53(axxisLNatKind(P21()),W21(),P21())
+    96: axxu53(tt(),X22(),Y22()) -> axxu54(axxisLNatKind(Y22()),X22(),Y22())
+    97: axxu54(tt(),U22(),V22()) -> axxu55(axxisNatural(U22()),V22())
+    98: axxu55(tt(),W22()) -> axxu56(axxisLNat(W22()))
+    99: axxu56(tt()) -> tt()
+    100: axxu61(tt(),P22()) -> axxu62(axxisPLNatKind(P22()),P22())
+    101: axxu62(tt(),X23()) -> axxu63(axxisPLNat(X23()))
+    102: axxu63(tt()) -> tt()
+    103: axxu71(tt(),Y23()) -> axxu72(axxisNaturalKind(Y23()),Y23())
+    104: axxu72(tt(),U23()) -> axxu73(axxisNatural(U23()))
+    105: axxu73(tt()) -> tt()
+    106: axxu81(tt(),V23()) -> axxu82(axxisPLNatKind(V23()),V23())
+    107: axxu82(tt(),W23()) -> axxu83(axxisPLNat(W23()))
+    108: axxu83(tt()) -> tt()
+    109: axxu91(tt(),P23()) -> axxu92(axxisLNatKind(P23()),P23())
+    110: axxu92(tt(),X24()) -> axxu93(axxisLNat(X24()))
+    111: axxu93(tt()) -> tt()
+    112: axxafterNth(Y24(),U24()) -> axxu11(axxisNatural(Y24()),Y24(),U24())
+    113: axxfst(pair(V24(),W24())) -> axxu21(axxisLNat(V24()),V24(),W24())
+    114: axxhead(cons(P24(),X25())) -> axxu31(axxisNatural(P24()),P24(),X25())
+    115: axxisLNat(nil()) -> tt()
+    116: axxisLNat(afterNth(Y25(),U25())) -> axxu41(axxisNaturalKind(Y25()),Y25(),U25())
+    117: axxisLNat(cons(V25(),W25())) -> axxu51(axxisNaturalKind(V25()),V25(),W25())
+    118: axxisLNat(fst(P25())) -> axxu61(axxisPLNatKind(P25()),P25())
+    119: axxisLNat(natsFrom(X26())) -> axxu71(axxisNaturalKind(X26()),X26())
+    120: axxisLNat(snd(Y26())) -> axxu81(axxisPLNatKind(Y26()),Y26())
+    121: axxisLNat(tail(U26())) -> axxu91(axxisLNatKind(U26()),U26())
+    122: axxisLNat(take(V26(),W26())) -> axxu101(axxisNaturalKind(V26()),V26(),W26())
+    123: axxisLNatKind(nil()) -> tt()
+    124: axxisLNatKind(afterNth(P26(),X27())) -> axxu111(axxisNaturalKind(P26()),X27())
+    125: axxisLNatKind(cons(Y27(),U27())) -> axxu121(axxisNaturalKind(Y27()),U27())
+    126: axxisLNatKind(fst(V27())) -> axxu131(axxisPLNatKind(V27()))
+    127: axxisLNatKind(natsFrom(W27())) -> axxu141(axxisNaturalKind(W27()))
+    128: axxisLNatKind(snd(P27())) -> axxu151(axxisPLNatKind(P27()))
+    129: axxisLNatKind(tail(X28())) -> axxu161(axxisLNatKind(X28()))
+    130: axxisLNatKind(take(Y28(),U28())) -> axxu171(axxisNaturalKind(Y28()),U28())
+    131: axxisNatural(0()) -> tt()
+    132: axxisNatural(head(V28())) -> axxu181(axxisLNatKind(V28()),V28())
+    133: axxisNatural(s(W28())) -> axxu191(axxisNaturalKind(W28()),W28())
+    134: axxisNatural(sel(P28(),X29())) -> axxu201(axxisNaturalKind(P28()),P28(),X29())
+    135: axxisNaturalKind(0()) -> tt()
+    136: axxisNaturalKind(head(Y29())) -> axxu211(axxisLNatKind(Y29()))
+    137: axxisNaturalKind(s(U29())) -> axxu221(axxisNaturalKind(U29()))
+    138: axxisNaturalKind(sel(V29(),W29())) -> axxu231(axxisNaturalKind(V29()),W29())
+    139: axxisPLNat(pair(P29(),X30())) -> axxu241(axxisLNatKind(P29()),P29(),X30())
+    140: axxisPLNat(splitAt(Y30(),U30())) -> axxu251(axxisNaturalKind(Y30()),Y30(),U30())
+    141: axxisPLNatKind(pair(V30(),W30())) -> axxu261(axxisLNatKind(V30()),W30())
+    142: axxisPLNatKind(splitAt(P30(),X31())) -> axxu271(axxisNaturalKind(P30()),X31())
+    143: axxnatsFrom(Y31()) -> axxu281(axxisNatural(Y31()),Y31())
+    144: axxsel(U31(),V31()) -> axxu291(axxisNatural(U31()),U31(),V31())
+    145: axxsnd(pair(W31(),P31())) -> axxu301(axxisLNat(W31()),W31(),P31())
+    146: axxsplitAt(0(),X32()) -> axxu311(axxisLNat(X32()),X32())
+    147: axxsplitAt(s(Y32()),cons(U32(),V32())) -> axxu321(axxisNatural(Y32()),Y32(),U32(),V32())
+    148: axxtail(cons(W32(),P32())) -> axxu331(axxisNatural(W32()),W32(),P32())
+    149: axxtake(X33(),Y33()) -> axxu341(axxisNatural(X33()),X33(),Y33())
+    150: mark(u101(U33(),V33(),W33())) -> axxu101(mark(U33()),V33(),W33())
+    151: mark(u102(P33(),X34(),Y34())) -> axxu102(mark(P33()),X34(),Y34())
+    152: mark(isNaturalKind(U34())) -> axxisNaturalKind(U34())
+    153: mark(u103(V34(),W34(),P34())) -> axxu103(mark(V34()),W34(),P34())
+    154: mark(isLNatKind(X35())) -> axxisLNatKind(X35())
+    155: mark(u104(Y35(),U35(),V35())) -> axxu104(mark(Y35()),U35(),V35())
+    156: mark(u105(W35(),P35())) -> axxu105(mark(W35()),P35())
+    157: mark(isNatural(X36())) -> axxisNatural(X36())
+    158: mark(u106(Y36())) -> axxu106(mark(Y36()))
+    159: mark(isLNat(U36())) -> axxisLNat(U36())
+    160: mark(u11(V36(),W36(),P36())) -> axxu11(mark(V36()),W36(),P36())
+    161: mark(u12(X37(),Y37(),U37())) -> axxu12(mark(X37()),Y37(),U37())
+    162: mark(u111(V37(),W37())) -> axxu111(mark(V37()),W37())
+    163: mark(u112(P37())) -> axxu112(mark(P37()))
+    164: mark(u13(X38(),Y38(),U38())) -> axxu13(mark(X38()),Y38(),U38())
+    165: mark(u121(V38(),W38())) -> axxu121(mark(V38()),W38())
+    166: mark(u122(P38())) -> axxu122(mark(P38()))
+    167: mark(u14(X39(),Y39(),U39())) -> axxu14(mark(X39()),Y39(),U39())
+    168: mark(u131(V39())) -> axxu131(mark(V39()))
+    169: mark(snd(W39())) -> axxsnd(mark(W39()))
+    170: mark(splitAt(P39(),X40())) -> axxsplitAt(mark(P39()),mark(X40()))
+    171: mark(u141(Y40())) -> axxu141(mark(Y40()))
+    172: mark(u151(U40())) -> axxu151(mark(U40()))
+    173: mark(u161(V40())) -> axxu161(mark(V40()))
+    174: mark(u171(W40(),P40())) -> axxu171(mark(W40()),P40())
+    175: mark(u172(X41())) -> axxu172(mark(X41()))
+    176: mark(u181(Y41(),U41())) -> axxu181(mark(Y41()),U41())
+    177: mark(u182(V41(),W41())) -> axxu182(mark(V41()),W41())
+    178: mark(u183(P41())) -> axxu183(mark(P41()))
+    179: mark(u191(X42(),Y42())) -> axxu191(mark(X42()),Y42())
+    180: mark(u192(U42(),V42())) -> axxu192(mark(U42()),V42())
+    181: mark(u193(W42())) -> axxu193(mark(W42()))
+    182: mark(u201(P42(),X43(),Y43())) -> axxu201(mark(P42()),X43(),Y43())
+    183: mark(u202(U43(),V43(),W43())) -> axxu202(mark(U43()),V43(),W43())
+    184: mark(u203(P43(),X44(),Y44())) -> axxu203(mark(P43()),X44(),Y44())
+    185: mark(u204(U44(),V44(),W44())) -> axxu204(mark(U44()),V44(),W44())
+    186: mark(u205(P44(),X45())) -> axxu205(mark(P44()),X45())
+    187: mark(u206(Y45())) -> axxu206(mark(Y45()))
+    188: mark(u21(U45(),V45(),W45())) -> axxu21(mark(U45()),V45(),W45())
+    189: mark(u22(P45(),X46(),Y46())) -> axxu22(mark(P45()),X46(),Y46())
+    190: mark(u211(U46())) -> axxu211(mark(U46()))
+    191: mark(u23(V46(),W46(),P46())) -> axxu23(mark(V46()),W46(),P46())
+    192: mark(u221(X47())) -> axxu221(mark(X47()))
+    193: mark(u24(Y47(),U47())) -> axxu24(mark(Y47()),U47())
+    194: mark(u231(V47(),W47())) -> axxu231(mark(V47()),W47())
+    195: mark(u232(P47())) -> axxu232(mark(P47()))
+    196: mark(u241(X48(),Y48(),U48())) -> axxu241(mark(X48()),Y48(),U48())
+    197: mark(u242(V48(),W48(),P48())) -> axxu242(mark(V48()),W48(),P48())
+    198: mark(u243(X49(),Y49(),U49())) -> axxu243(mark(X49()),Y49(),U49())
+    199: mark(u244(V49(),W49(),P49())) -> axxu244(mark(V49()),W49(),P49())
+    200: mark(u245(X50(),Y50())) -> axxu245(mark(X50()),Y50())
+    201: mark(u246(U50())) -> axxu246(mark(U50()))
+    202: mark(u251(V50(),W50(),P50())) -> axxu251(mark(V50()),W50(),P50())
+    203: mark(u252(X51(),Y51(),U51())) -> axxu252(mark(X51()),Y51(),U51())
+    204: mark(u253(V51(),W51(),P51())) -> axxu253(mark(V51()),W51(),P51())
+    205: mark(u254(X52(),Y52(),U52())) -> axxu254(mark(X52()),Y52(),U52())
+    206: mark(u255(V52(),W52())) -> axxu255(mark(V52()),W52())
+    207: mark(u256(P52())) -> axxu256(mark(P52()))
+    208: mark(u261(X53(),Y53())) -> axxu261(mark(X53()),Y53())
+    209: mark(u262(U53())) -> axxu262(mark(U53()))
+    210: mark(u271(V53(),W53())) -> axxu271(mark(V53()),W53())
+    211: mark(u272(P53())) -> axxu272(mark(P53()))
+    212: mark(u281(X54(),Y54())) -> axxu281(mark(X54()),Y54())
+    213: mark(u282(U54(),V54())) -> axxu282(mark(U54()),V54())
+    214: mark(natsFrom(W54())) -> axxnatsFrom(mark(W54()))
+    215: mark(u291(P54(),X55(),Y55())) -> axxu291(mark(P54()),X55(),Y55())
+    216: mark(u292(U55(),V55(),W55())) -> axxu292(mark(U55()),V55(),W55())
+    217: mark(u293(P55(),X56(),Y56())) -> axxu293(mark(P55()),X56(),Y56())
+    218: mark(u294(U56(),V56(),W56())) -> axxu294(mark(U56()),V56(),W56())
+    219: mark(head(P56())) -> axxhead(mark(P56()))
+    220: mark(afterNth(X57(),Y57())) -> axxafterNth(mark(X57()),mark(Y57()))
+    221: mark(u301(U57(),V57(),W57())) -> axxu301(mark(U57()),V57(),W57())
+    222: mark(u302(P57(),X58())) -> axxu302(mark(P57()),X58())
+    223: mark(u303(Y58(),U58())) -> axxu303(mark(Y58()),U58())
+    224: mark(u304(V58(),W58())) -> axxu304(mark(V58()),W58())
+    225: mark(u31(P58(),X59(),Y59())) -> axxu31(mark(P58()),X59(),Y59())
+    226: mark(u32(U59(),V59(),W59())) -> axxu32(mark(U59()),V59(),W59())
+    227: mark(u311(P59(),X60())) -> axxu311(mark(P59()),X60())
+    228: mark(u312(Y60(),U60())) -> axxu312(mark(Y60()),U60())
+    229: mark(u33(V60(),W60(),P60())) -> axxu33(mark(V60()),W60(),P60())
+    230: mark(u321(X61(),Y61(),U61(),V61())) -> axxu321(mark(X61()),Y61(),U61(),V61())
+    231: mark(u322(W61(),P61(),X62(),Y62())) -> axxu322(mark(W61()),P61(),X62(),Y62())
+    232: mark(u323(U62(),V62(),W62(),P62())) -> axxu323(mark(U62()),V62(),W62(),P62())
+    233: mark(u324(X63(),Y63(),U63(),V63())) -> axxu324(mark(X63()),Y63(),U63(),V63())
+    234: mark(u325(W63(),P63(),X64(),Y64())) -> axxu325(mark(W63()),P63(),X64(),Y64())
+    235: mark(u326(U64(),V64(),W64(),P64())) -> axxu326(mark(U64()),V64(),W64(),P64())
+    236: mark(u327(X65(),Y65())) -> axxu327(mark(X65()),Y65())
+    237: mark(u34(U65(),V65())) -> axxu34(mark(U65()),V65())
+    238: mark(u331(W65(),P65(),X66())) -> axxu331(mark(W65()),P65(),X66())
+    239: mark(u332(Y66(),U66())) -> axxu332(mark(Y66()),U66())
+    240: mark(u333(V66(),W66())) -> axxu333(mark(V66()),W66())
+    241: mark(u334(P66(),X67())) -> axxu334(mark(P66()),X67())
+    242: mark(u341(Y67(),U67(),V67())) -> axxu341(mark(Y67()),U67(),V67())
+    243: mark(u342(W67(),P67(),X68())) -> axxu342(mark(W67()),P67(),X68())
+    244: mark(u343(Y68(),U68(),V68())) -> axxu343(mark(Y68()),U68(),V68())
+    245: mark(u344(W68(),P68(),X69())) -> axxu344(mark(W68()),P68(),X69())
+    246: mark(fst(Y69())) -> axxfst(mark(Y69()))
+    247: mark(u41(U69(),V69(),W69())) -> axxu41(mark(U69()),V69(),W69())
+    248: mark(u42(P69(),X70(),Y70())) -> axxu42(mark(P69()),X70(),Y70())
+    249: mark(u43(U70(),V70(),W70())) -> axxu43(mark(U70()),V70(),W70())
+    250: mark(u44(P70(),X71(),Y71())) -> axxu44(mark(P70()),X71(),Y71())
+    251: mark(u45(U71(),V71())) -> axxu45(mark(U71()),V71())
+    252: mark(u46(W71())) -> axxu46(mark(W71()))
+    253: mark(u51(P71(),X72(),Y72())) -> axxu51(mark(P71()),X72(),Y72())
+    254: mark(u52(U72(),V72(),W72())) -> axxu52(mark(U72()),V72(),W72())
+    255: mark(u53(P72(),X73(),Y73())) -> axxu53(mark(P72()),X73(),Y73())
+    256: mark(u54(U73(),V73(),W73())) -> axxu54(mark(U73()),V73(),W73())
+    257: mark(u55(P73(),X74())) -> axxu55(mark(P73()),X74())
+    258: mark(u56(Y74())) -> axxu56(mark(Y74()))
+    259: mark(u61(U74(),V74())) -> axxu61(mark(U74()),V74())
+    260: mark(u62(W74(),P74())) -> axxu62(mark(W74()),P74())
+    261: mark(isPLNatKind(X75())) -> axxisPLNatKind(X75())
+    262: mark(u63(Y75())) -> axxu63(mark(Y75()))
+    263: mark(isPLNat(U75())) -> axxisPLNat(U75())
+    264: mark(u71(V75(),W75())) -> axxu71(mark(V75()),W75())
+    265: mark(u72(P75(),X76())) -> axxu72(mark(P75()),X76())
+    266: mark(u73(Y76())) -> axxu73(mark(Y76()))
+    267: mark(u81(U76(),V76())) -> axxu81(mark(U76()),V76())
+    268: mark(u82(W76(),P76())) -> axxu82(mark(W76()),P76())
+    269: mark(u83(X77())) -> axxu83(mark(X77()))
+    270: mark(u91(Y77(),U77())) -> axxu91(mark(Y77()),U77())
+    271: mark(u92(V77(),W77())) -> axxu92(mark(V77()),W77())
+    272: mark(u93(P77())) -> axxu93(mark(P77()))
+    273: mark(tail(X78())) -> axxtail(mark(X78()))
+    274: mark(take(Y78(),U78())) -> axxtake(mark(Y78()),mark(U78()))
+    275: mark(sel(V78(),W78())) -> axxsel(mark(V78()),mark(W78()))
+    276: mark(tt()) -> tt()
+    277: mark(cons(P78(),X79())) -> cons(mark(P78()),X79())
+    278: mark(s(Y79())) -> s(mark(Y79()))
+    279: mark(pair(U79(),V79())) -> pair(mark(U79()),mark(V79()))
+    280: mark(nil()) -> nil()
+    281: mark(0()) -> 0()
+    282: axxu101(W79(),P79(),X80()) -> u101(W79(),P79(),X80())
+    283: axxu102(Y80(),U80(),V80()) -> u102(Y80(),U80(),V80())
+    284: axxisNaturalKind(W80()) -> isNaturalKind(W80())
+    285: axxu103(P80(),X81(),Y81()) -> u103(P80(),X81(),Y81())
+    286: axxisLNatKind(U81()) -> isLNatKind(U81())
+    287: axxu104(V81(),W81(),P81()) -> u104(V81(),W81(),P81())
+    288: axxu105(X82(),Y82()) -> u105(X82(),Y82())
+    289: axxisNatural(U82()) -> isNatural(U82())
+    290: axxu106(V82()) -> u106(V82())
+    291: axxisLNat(W82()) -> isLNat(W82())
+    292: axxu11(P82(),X83(),Y83()) -> u11(P82(),X83(),Y83())
+    293: axxu12(U83(),V83(),W83()) -> u12(U83(),V83(),W83())
+    294: axxu111(P83(),X84()) -> u111(P83(),X84())
+    295: axxu112(Y84()) -> u112(Y84())
+    296: axxu13(U84(),V84(),W84()) -> u13(U84(),V84(),W84())
+    297: axxu121(P84(),X85()) -> u121(P84(),X85())
+    298: axxu122(Y85()) -> u122(Y85())
+    299: axxu14(U85(),V85(),W85()) -> u14(U85(),V85(),W85())
+    300: axxu131(P85()) -> u131(P85())
+    301: axxsnd(X86()) -> snd(X86())
+    302: axxsplitAt(Y86(),U86()) -> splitAt(Y86(),U86())
+    303: axxu141(V86()) -> u141(V86())
+    304: axxu151(W86()) -> u151(W86())
+    305: axxu161(P86()) -> u161(P86())
+    306: axxu171(X87(),Y87()) -> u171(X87(),Y87())
+    307: axxu172(U87()) -> u172(U87())
+    308: axxu181(V87(),W87()) -> u181(V87(),W87())
+    309: axxu182(P87(),X88()) -> u182(P87(),X88())
+    310: axxu183(Y88()) -> u183(Y88())
+    311: axxu191(U88(),V88()) -> u191(U88(),V88())
+    312: axxu192(W88(),P88()) -> u192(W88(),P88())
+    313: axxu193(X89()) -> u193(X89())
+    314: axxu201(Y89(),U89(),V89()) -> u201(Y89(),U89(),V89())
+    315: axxu202(W89(),P89(),X90()) -> u202(W89(),P89(),X90())
+    316: axxu203(Y90(),U90(),V90()) -> u203(Y90(),U90(),V90())
+    317: axxu204(W90(),P90(),X91()) -> u204(W90(),P90(),X91())
+    318: axxu205(Y91(),U91()) -> u205(Y91(),U91())
+    319: axxu206(V91()) -> u206(V91())
+    320: axxu21(W91(),P91(),X92()) -> u21(W91(),P91(),X92())
+    321: axxu22(Y92(),U92(),V92()) -> u22(Y92(),U92(),V92())
+    322: axxu211(W92()) -> u211(W92())
+    323: axxu23(P92(),X93(),Y93()) -> u23(P92(),X93(),Y93())
+    324: axxu221(U93()) -> u221(U93())
+    325: axxu24(V93(),W93()) -> u24(V93(),W93())
+    326: axxu231(P93(),X94()) -> u231(P93(),X94())
+    327: axxu232(Y94()) -> u232(Y94())
+    328: axxu241(U94(),V94(),W94()) -> u241(U94(),V94(),W94())
+    329: axxu242(P94(),X95(),Y95()) -> u242(P94(),X95(),Y95())
+    330: axxu243(U95(),V95(),W95()) -> u243(U95(),V95(),W95())
+    331: axxu244(P95(),X96(),Y96()) -> u244(P95(),X96(),Y96())
+    332: axxu245(U96(),V96()) -> u245(U96(),V96())
+    333: axxu246(W96()) -> u246(W96())
+    334: axxu251(P96(),X97(),Y97()) -> u251(P96(),X97(),Y97())
+    335: axxu252(U97(),V97(),W97()) -> u252(U97(),V97(),W97())
+    336: axxu253(P97(),X98(),Y98()) -> u253(P97(),X98(),Y98())
+    337: axxu254(U98(),V98(),W98()) -> u254(U98(),V98(),W98())
+    338: axxu255(P98(),X99()) -> u255(P98(),X99())
+    339: axxu256(Y99()) -> u256(Y99())
+    340: axxu261(U99(),V99()) -> u261(U99(),V99())
+    341: axxu262(W99()) -> u262(W99())
+    342: axxu271(P99(),X100()) -> u271(P99(),X100())
+    343: axxu272(Y100()) -> u272(Y100())
+    344: axxu281(U100(),V100()) -> u281(U100(),V100())
+    345: axxu282(W100(),P100()) -> u282(W100(),P100())
+    346: axxnatsFrom(X101()) -> natsFrom(X101())
+    347: axxu291(Y101(),U101(),V101()) -> u291(Y101(),U101(),V101())
+    348: axxu292(W101(),P101(),X102()) -> u292(W101(),P101(),X102())
+    349: axxu293(Y102(),U102(),V102()) -> u293(Y102(),U102(),V102())
+    350: axxu294(W102(),P102(),X103()) -> u294(W102(),P102(),X103())
+    351: axxhead(Y103()) -> head(Y103())
+    352: axxafterNth(U103(),V103()) -> afterNth(U103(),V103())
+    353: axxu301(W103(),P103(),X104()) -> u301(W103(),P103(),X104())
+    354: axxu302(Y104(),U104()) -> u302(Y104(),U104())
+    355: axxu303(V104(),W104()) -> u303(V104(),W104())
+    356: axxu304(P104(),X105()) -> u304(P104(),X105())
+    357: axxu31(Y105(),U105(),V105()) -> u31(Y105(),U105(),V105())
+    358: axxu32(W105(),P105(),X106()) -> u32(W105(),P105(),X106())
+    359: axxu311(Y106(),U106()) -> u311(Y106(),U106())
+    360: axxu312(V106(),W106()) -> u312(V106(),W106())
+    361: axxu33(P106(),X107(),Y107()) -> u33(P106(),X107(),Y107())
+    362: axxu321(U107(),V107(),W107(),P107()) -> u321(U107(),V107(),W107(),P107())
+    363: axxu322(X108(),Y108(),U108(),V108()) -> u322(X108(),Y108(),U108(),V108())
+    364: axxu323(W108(),P108(),X109(),Y109()) -> u323(W108(),P108(),X109(),Y109())
+    365: axxu324(U109(),V109(),W109(),P109()) -> u324(U109(),V109(),W109(),P109())
+    366: axxu325(X110(),Y110(),U110(),V110()) -> u325(X110(),Y110(),U110(),V110())
+    367: axxu326(W110(),P110(),X111(),Y111()) -> u326(W110(),P110(),X111(),Y111())
+    368: axxu327(U111(),V111()) -> u327(U111(),V111())
+    369: axxu34(W111(),P111()) -> u34(W111(),P111())
+    370: axxu331(X112(),Y112(),U112()) -> u331(X112(),Y112(),U112())
+    371: axxu332(V112(),W112()) -> u332(V112(),W112())
+    372: axxu333(P112(),X113()) -> u333(P112(),X113())
+    373: axxu334(Y113(),U113()) -> u334(Y113(),U113())
+    374: axxu341(V113(),W113(),P113()) -> u341(V113(),W113(),P113())
+    375: axxu342(X114(),Y114(),U114()) -> u342(X114(),Y114(),U114())
+    376: axxu343(V114(),W114(),P114()) -> u343(V114(),W114(),P114())
+    377: axxu344(X115(),Y115(),U115()) -> u344(X115(),Y115(),U115())
+    378: axxfst(V115()) -> fst(V115())
+    379: axxu41(W115(),P115(),X116()) -> u41(W115(),P115(),X116())
+    380: axxu42(Y116(),U116(),V116()) -> u42(Y116(),U116(),V116())
+    381: axxu43(W116(),P116(),X117()) -> u43(W116(),P116(),X117())
+    382: axxu44(Y117(),U117(),V117()) -> u44(Y117(),U117(),V117())
+    383: axxu45(W117(),P117()) -> u45(W117(),P117())
+    384: axxu46(X118()) -> u46(X118())
+    385: axxu51(Y118(),U118(),V118()) -> u51(Y118(),U118(),V118())
+    386: axxu52(W118(),P118(),X119()) -> u52(W118(),P118(),X119())
+    387: axxu53(Y119(),U119(),V119()) -> u53(Y119(),U119(),V119())
+    388: axxu54(W119(),P119(),X120()) -> u54(W119(),P119(),X120())
+    389: axxu55(Y120(),U120()) -> u55(Y120(),U120())
+    390: axxu56(V120()) -> u56(V120())
+    391: axxu61(W120(),P120()) -> u61(W120(),P120())
+    392: axxu62(X121(),Y121()) -> u62(X121(),Y121())
+    393: axxisPLNatKind(U121()) -> isPLNatKind(U121())
+    394: axxu63(V121()) -> u63(V121())
+    395: axxisPLNat(W121()) -> isPLNat(W121())
+    396: axxu71(P121(),X122()) -> u71(P121(),X122())
+    397: axxu72(Y122(),U122()) -> u72(Y122(),U122())
+    398: axxu73(V122()) -> u73(V122())
+    399: axxu81(W122(),P122()) -> u81(W122(),P122())
+    400: axxu82(X123(),Y123()) -> u82(X123(),Y123())
+    401: axxu83(U123()) -> u83(U123())
+    402: axxu91(V123(),W123()) -> u91(V123(),W123())
+    403: axxu92(P123(),X124()) -> u92(P123(),X124())
+    404: axxu93(Y124()) -> u93(Y124())
+    405: axxtail(U124()) -> tail(U124())
+    406: axxtake(V124(),W124()) -> take(V124(),W124())
+    407: axxsel(P124(),X125()) -> sel(P124(),X125())
+    408: _(X1,X2) -> X1
+    409: _(X1,X2) -> X2
+Number of strict rules: 409
+Direct POLO(bPol) ... removes: 239 386 182 318 18 50 80 301 104 302 354 188 4 219 258 103 189 102 272 145 378 15 221 180 275 400 121 141 216 168 152 205 385 8 160 204 235 246 335 195 54 305 124 370 140 403 1 77 242 332 343 159 3 16 21 36 131 231 68 213 323 122 181 237 306 382 85 100 402 26 105 296 225 247 377 135 63 279 307 176 186 357 297 192 211 259 271 125 320 143 326 392 19 32 227 17 172 228 391 349 226 313 199 264 269 295 117 208 328 60 150 353 187 244 161 381 405 404 142 144 137 262 389 27 243 157 194 289 334 212 319 395 87 84 183 171 34 274 364 241 251 330 169 281 127 359 317 22 215 222 286 298 355 28 148 65 280 325 379 44 5 120 184 365 162 72 261 33 64 394 292 93 119 175 338 276 233 92 309 10 224 361 136 254 153 39 207 387 7 88 398 174 367 126 179 329 350 20 315 294 352 409 129 397 108 166 358 376 130 310 371 25 49 52 369 200 333 250 30 62 185 284 106 206 14 111 266 277 82 133 89 291 56 79 217 270 164 341 31 12 101 209 69 201 366 346 203 96 288 396 45 78 118 303 81 128 236 356 23 285 273 70 134 337 399 24 351 94 109 190 167 393 407 76 197 245 57 156 257 360 299 98 214 11 202 9 13 220 344 51 107 312 347 375 146 390 249 316 304 90 322 331 268 388 40 210 67 55 132 110 193 339 345 59 165 321 196 223 314 401 6 155 308 383 116 300 154 151 342 348 384 406 38 61 158 113 138 256 374 278 58 170 74 112 178 255 75 123 267 48 362 139 147 71 234 173 293 260 53 240 372 380 191 218 311 47 73 373 91 282 408 97 163 230 99 114 37 368 252 265 248 327 41 283 95 149 198 232 115 290 42 253 287 324 229 46 177 66 83 363 340 35 263 336 238 29 43 86 2
+      W61	w: 1
+      V1	w: 1
+      u81	w: 2 * x1 + 2 * x2
+      Y101	w: 1
+      U59	w: 1
+      U123	w: 1
+      U57	w: 1
+      X120	w: 1
+      U16	w: 1
+      W18	w: 1
+      U21	w: 1
+      V58	w: 1
+      axxu104	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      Y29	w: 1
+      V38	w: 1
+      u83	w: 2 * x1 + 2
+      axxu302	w: 2 * x1 + 2 * x2 + 2
+      u172	w: 2 * x1 + 2
+      V106	w: 1
+      X110	w: 1
+      Y41	w: 1
+      u292	w: 2 * x1 + 2 * x2 + 2 * x3
+      W118	w: 1
+      V23	w: 1
+      P59	w: 1
+      V72	w: 1
+      Y79	w: 1
+      axxu13	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      X67	w: 1
+      u62	w: 2 * x1 + 2 * x2
+      X19	w: 1
+      axxu211	w: 2 * x1 + 3
+      axxu62	w: 2 * x1 + 2 * x2 + 14
+      u253	w: 2 * x1 + 2 * x2 + 2 * x3
+      P17	w: 1
+      Y38	w: 1
+      U64	w: 1
+      u344	w: 2 * x1 + 2 * x2 + 2 * x3 + 4
+      Y110	w: 1
+      V12	w: 1
+      u241	w: 2 * x1 + 2 * x2 + 2 * x3
+      W123	w: 1
+      axxu253	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      P20	w: 1
+      u322	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4
+      Y104	w: 1
+      axxisLNat	w: 2 * x1 + 1
+      axxu324	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4 + 1
+      P121	w: 1
+      V65	w: 1
+      Y66	w: 1
+      axxu121	w: 2 * x1 + 2 * x2 + 1
+      axxu311	w: 2 * x1 + 2 * x2 + 2
+      V14	w: 1
+      axxisPLNatKind	w: 2 * x1 + 1
+      u91	w: 2 * x1 + 2 * x2
+      V42	w: 1
+      X11	w: 1
+      X38	w: 1
+      u246	w: 2 * x1 + 2
+      axxu327	w: 2 * x1 + 2 * x2 + 6
+      u261	w: 2 * x1 + 2 * x2
+      X37	w: 1
+      isPLNatKind	w: 2 * x1
+      X104	w: 1
+      V30	w: 1
+      Y61	w: 1
+      u104	w: 2 * x1 + 2 * x2 + 2 * x3
+      V64	w: 1
+      V92	w: 1
+      axxu294	w: 2 * x1 + 2 * x2 + 2 * x3 + 13
+      V50	w: 1
+      X96	w: 1
+      W5	w: 1
+      U56	w: 1
+      X122	w: 1
+      Y7	w: 1
+      X83	w: 1
+      axxsnd	w: 2 * x1 + 4
+      U28	w: 1
+      Y121	w: 1
+      W 	w: 1
+      W26	w: 1
+      u102	w: 2 * x1 + 2 * x2 + 2 * x3
+      P40	w: 3
+      X62	w: 1
+      P64	w: 1
+      Y 	w: 1
+      axxu191	w: 2 * x1 + 2 * x2 + 2
+      P13	w: 1
+      U91	w: 1
+      U97	w: 1
+      u121	w: 2 * x1 + 2 * x2
+      axxu172	w: 2 * x1 + 3
+      X44	w: 1
+      W59	w: 1
+      V63	w: 1
+      X6	w: 1
+      U26	w: 1
+      u243	w: 2 * x1 + 2 * x2 + 2 * x3
+      W80	w: 1
+      W46	w: 1
+      P106	w: 1
+      P107	w: 1
+      take	w: x1 + 2 * x2 + 9
+      u105	w: 2 * x1 + 2 * x2
+      X73	w: 1
+      U71	w: 1
+      V61	w: 1
+      Y124	w: 1
+      U115	w: 1
+      V120	w: 1
+      Y77	w: 1
+      U80	w: 1
+      P56	w: 1
+      P96	w: 1
+      U98	w: 1
+      V34	w: 1
+      u103	w: 2 * x1 + 2 * x2 + 2 * x3
+      P120	w: 1
+      P99	w: 1
+      u205	w: 2 * x1 + 2 * x2
+      V69	w: 1
+      axxu242	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxu33	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxu304	w: 2 * x1 + 2 * x2 + 2
+      X13	w: 1
+      u54	w: 2 * x1 + 2 * x2 + 2 * x3
+      Y14	w: 1
+      P19	w: 1
+      Y53	w: 2
+      X17	w: 1
+      W78	w: 1
+      U95	w: 1
+      fst	w: 2 * x1 + 4
+      V59	w: 1
+      Y73	w: 1
+      V22	w: 1
+      Y37	w: 1
+      P94	w: 1
+      u24	w: 2 * x1 + 2 * x2
+      V32	w: 1
+      u252	w: 2 * x1 + 2 * x2 + 2 * x3
+      W105	w: 1
+      X21	w: 1
+      Y33	w: 1
+      u282	w: 2 * x1 + 2 * x2 + 14
+      U103	w: 1
+      P118	w: 1
+      X51	w: 1
+      V90	w: 1
+      Y13	w: 1
+      u182	w: 2 * x1 + 2 * x2
+      X118	w: 1
+      V105	w: 1
+      W121	w: 1
+      U23	w: 1
+      X26	w: 1
+      U35	w: 1
+      u33	w: 2 * x1 + 2 * x2 + 2 * x3
+      axxu14	w: 2 * x1 + 2 * x2 + 2 * x3 + 3
+      W100	w: 1
+      W93	w: 1
+      W14	w: 1
+      W77	w: 1
+      Y4	w: 1
+      U93	w: 1
+      X48	w: 1
+      V56	w: 1
+      X80	w: 1
+      Y5	w: 1
+      P16	w: 1
+      splitAt	w: 2 * x1 + 2 * x2 + 2
+      isNaturalKind	w: 2 * x1
+      u192	w: 2 * x1 + 2 * x2
+      V111	w: 1
+      V21	w: 1
+      u52	w: x1 + 2 * x2 + 2 * x3
+      W116	w: 1
+      W74	w: 1
+      W122	w: 1
+      P9	w: 1
+      U94	w: 1
+      u61	w: 2 * x1 + 2 * x2
+      X108	w: 1
+      Y117	w: 1
+      u92	w: 2 * x1 + 2 * x2
+      X79	w: 1
+      P88	w: 1
+      V7	w: 1
+      Y15	w: 1
+      U34	w: 1
+      X12	w: 1
+      P69	w: 1
+      P72	w: 1
+      P76	w: 2
+      W106	w: 1
+      U50	w: 1
+      U118	w: 1
+      axxu246	w: 2 * x1 + 3
+      u221	w: 2 * x1 + 2
+      V62	w: 1
+      V10	w: 1
+      V49	w: 1
+      Y115	w: 1
+      U12	w: 1
+      U68	w: 1
+      u56	w: 2 * x1 + 2
+      Y88	w: 1
+      _ 	w: x1 + 2 * x2 + 1
+      V27	w: 1
+      V48	w: 1
+      axxu192	w: 2 * x1 + 2 * x2 + 1
+      U27	w: 2
+      W120	w: 1
+      X29	w: 1
+      u151	w: 2 * x1 + 2
+      Y98	w: 1
+      P23	w: 1
+      u202	w: 2 * x1 + 2 * x2 + 2 * x3
+      Y51	w: 1
+      V9	w: 1
+      isNatural	w: 2 * x1
+      V2	w: 1
+      u106	w: 2 * x1 + 2
+      X42	w: 1
+      U109	w: 1
+      axxu341	w: 2 * x1 + 2 * x2 + 2 * x3 + 2
+      X16	w: 1
+      U54	w: 1
+      axxu323	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4 + 1
+      V33	w: 1
+      W88	w: 1
+      axxu344	w: 2 * x1 + 2 * x2 + 2 * x3 + 6
+      P63	w: 1
+      V116	w: 1
+      axxu291	w: 2 * x1 + 2 * x2 + 2 * x3 + 2
+      U19	w: 1
+      W70	w: 1
+      U100	w: 1
+      X30	w: 2
+      u41	w: 2 * x1 + 2 * x2 + 2 * x3
+      axxisNatural	w: 2 * x1 + 1
+      V43	w: 1
+      u211	w: 2 * x1 + 2
+      U104	w: 1
+      V95	w: 1
+      W114	w: 1
+      X78	w: 1
+      axxu181	w: 2 * x1 + 2 * x2 + 2
+      U37	w: 1
+      P32	w: 1
+      P51	w: 1
+      W27	w: 1
+      Y44	w: 1
+      axxu334	w: 2 * x1 + 2 * x2 + 1
+      tail	w: 2 * x1 + 4
+      V5	w: 1
+      U17	w: 1
+      U83	w: 1
+      Y95	w: 1
+      V110	w: 1
+      V89	w: 1
+      X20	w: 1
+      0 	w: 6
+      axxu244	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      X23	w: 1
+      X116	w: 1
+      axxu141	w: 2 * x1 + 3
+      W60	w: 1
+      V25	w: 1
+      V114	w: 1
+      U36	w: 1
+      U119	w: 1
+      P10	w: 1
+      axxu182	w: 2 * x1 + 2 * x2 + 1
+      axxu204	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      Y39	w: 1
+      u312	w: 2 * x1 + 2 * x2 + 11
+      axxu292	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxu301	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      X59	w: 1
+      u32	w: 2 * x1 + 2 * x2 + 2 * x3
+      V81	w: 1
+      X94	w: 1
+      afterNth	w: 2 * x1 + 2 * x2 + 5
+      W42	w: 1
+      W6	w: 1
+      W85	w: 1
+      W65	w: 1
+      P123	w: 1
+      axxu73	w: 2 * x1 + 3
+      u14	w: 2 * x1 + 2 * x2 + 2 * x3 + 2
+      X75	w: 1
+      W63	w: 1
+      P95	w: 1
+      isLNat	w: 2 * x1
+      X54	w: 1
+      X100	w: 1
+      U114	w: 1
+      U62	w: 1
+      X107	w: 1
+      axxafterNth	w: 2 * x1 + 2 * x2 + 8
+      X95	w: 1
+      X106	w: 1
+      W110	w: 1
+      mark	w: 2 * x1
+      axxu332	w: x1 + 2 * x2 + 2
+      u12	w: 2 * x1 + 2 * x2 + 2 * x3
+      axxu205	w: 2 * x1 + 2 * x2 + 1
+      P70	w: 1
+      W99	w: 1
+      Y23	w: 1
+      Y54	w: 2
+      U78	w: 1
+      P122	w: 1
+      W19	w: 1
+      axxu71	w: 2 * x1 + 2 * x2
+      V97	w: 1
+      W51	w: 1
+      W72	w: 1
+      Y112	w: 1
+      U32	w: 1
+      W35	w: 1
+      W4	w: 1
+      V39	w: 1
+      u72	w: 2 * x1 + 2 * x2
+      W41	w: 1
+      u201	w: 2 * x1 + 2 * x2 + 2 * x3
+      W3	w: 1
+      u331	w: 2 * x1 + 2 * x2 + 2 * x3
+      axxu122	w: 2 * x1 + 3
+      U33	w: 1
+      u93	w: 2 * x1 + 2
+      u206	w: 2 * x1 + 2
+      X58	w: 2
+      X119	w: 1
+      U14	w: 1
+      isLNatKind	w: 2 * x1
+      u255	w: 2 * x1 + 2 * x2
+      V123	w: 1
+      P74	w: 8
+      axxu326	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4 + 5
+      Y60	w: 1
+      V93	w: 1
+      axxu61	w: 2 * x1 + 2 * x2 + 2
+      u43	w: 2 * x1 + 2 * x2 + 2 * x3
+      axxu106	w: 2 * x1 + 3
+      Y10	w: 1
+      axxu321	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4 + 1
+      W75	w: 2
+      X43	w: 1
+      Y72	w: 1
+      P78	w: 1
+      V104	w: 1
+      U7	w: 1
+      P35	w: 1
+      u161	w: 2 * x1 + 3
+      Y58	w: 1
+      P42	w: 1
+      U46	w: 1
+      X27	w: 1
+      W44	w: 1
+      Y122	w: 1
+      U65	w: 1
+      axxisNaturalKind	w: 2 * x1 + 1
+      U15	w: 1
+      W112	w: 1
+      V113	w: 1
+      U39	w: 1
+      W73	w: 1
+      U5	w: 1
+      P45	w: 1
+      W81	w: 1
+      X22	w: 1
+      V98	w: 1
+      U31	w: 1
+      U85	w: 1
+      W86	w: 1
+      P24	w: 1
+      u334	w: 2 * x1 + 2 * x2
+      W83	w: 1
+      U92	w: 1
+      P100	w: 1
+      V51	w: 1
+      X55	w: 1
+      X69	w: 1
+      cons	w: 2 * x1 + 2 * x2
+      P27	w: 1
+      P66	w: 1
+      axxu303	w: 2 * x1 + 2 * x2 + 1
+      X68	w: 1
+      V35	w: 1
+      W43	w: 1
+      P 	w: 1
+      snd	w: 2 * x1 + 3
+      axxu54	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxu105	w: x1 + 2 * x2 + 2
+      U81	w: 1
+      U88	w: 1
+      Y105	w: 1
+      X63	w: 1
+      V28	w: 1
+      u42	w: 2 * x1 + 2 * x2 + 2 * x3
+      Y18	w: 1
+      U18	w: 1
+      U69	w: 1
+      X86	w: 1
+      V3	w: 1
+      axxu42	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      Y120	w: 1
+      u232	w: 2 * x1 + 2
+      u343	w: 2 * x1 + 2 * x2 + 2 * x3
+      Y123	w: 1
+      U13	w: 1
+      V76	w: 1
+      axxu262	w: 2 * x1 + 3
+      P101	w: 1
+      Y111	w: 1
+      axxu202	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      W23	w: 1
+      X56	w: 1
+      U67	w: 1
+      Y102	w: 1
+      Y20	w: 1
+      V77	w: 1
+      Y94	w: 1
+      axxu231	w: 2 * x1 + 2 * x2 + 2
+      Y70	w: 1
+      Y118	w: 1
+      U4	w: 1
+      U22	w: 1
+      axxtake	w: 2 * x1 + 2 * x2 + 10
+      Y52	w: 1
+      Y16	w: 1
+      U51	w: 1
+      P85	w: 1
+      U107	w: 1
+      U74	w: 1
+      P12	w: 1
+      X39	w: 1
+      X105	w: 1
+      V11	w: 1
+      Y6	w: 1
+      P104	w: 1
+      U53	w: 1
+      V 	w: 1
+      X10	w: 1
+      V20	w: 1
+      W48	w: 1
+      X64	w: 1
+      P81	w: 1
+      U90	w: 1
+      V94	w: 1
+      axxu112	w: 2 * x1 + 3
+      u31	w: 2 * x1 + 2 * x2 + 2 * x3
+      Y50	w: 2
+      P60	w: 1
+      U 	w: 1
+      U66	w: 1
+      V91	w: 1
+      Y71	w: 1
+      P75	w: 1
+      axxu322	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4 + 1
+      u141	w: 2 * x1 + 2
+      P67	w: 1
+      Y100	w: 1
+      axxu21	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      W15	w: 1
+      W40	w: 1
+      W49	w: 1
+      V87	w: 1
+      U116	w: 1
+      W64	w: 1
+      V68	w: 1
+      W97	w: 1
+      U121	w: 1
+      V46	w: 1
+      U120	w: 1
+      axxu43	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      V52	w: 1
+      u256	w: 2 * x1 + 3
+      W34	w: 1
+      u326	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4 + 4
+      Y91	w: 1
+      axxhead	w: 2 * x1 + 4
+      V26	w: 1
+      P48	w: 1
+      P77	w: 1
+      P87	w: 1
+      P110	w: 1
+      P79	w: 1
+      V15	w: 1
+      P18	w: 1
+      Y113	w: 1
+      U1	w: 2
+      P47	w: 1
+      u327	w: 2 * x1 + 2 * x2 + 5
+      W31	w: 1
+      W52	w: 9
+      X87	w: 1
+      axxu245	w: x1 + x2 + 1
+      W24	w: 1
+      u244	w: 2 * x1 + 2 * x2 + 2 * x3
+      P55	w: 1
+      V109	w: 1
+      V17	w: 1
+      u13	w: 2 * x1 + 2 * x2 + 2 * x3
+      P124	w: 1
+      axxu232	w: 2 * x1 + 3
+      U11	w: 1
+      V18	w: 1
+      u341	w: 2 * x1 + 2 * x2 + 2 * x3
+      V44	w: 1
+      P108	w: 1
+      W58	w: 2
+      Y81	w: 1
+      Y2	w: 1
+      W38	w: 1
+      V83	w: 1
+      W96	w: 1
+      s 	w: 2 * x1 + 3
+      P8	w: 1
+      V31	w: 1
+      u304	w: 2 * x1 + 2 * x2
+      U105	w: 1
+      W25	w: 4
+      X40	w: 1
+      W84	w: 1
+      W104	w: 1
+      Y11	w: 1
+      V16	w: 1
+      P98	w: 1
+      X111	w: 1
+      X3	w: 1
+      W8	w: 1
+      U24	w: 1
+      Y69	w: 1
+      V96	w: 1
+      V13	w: 1
+      U106	w: 1
+      Y82	w: 1
+      axxu63	w: 2 * x1 + 3
+      Y32	w: 1
+      u111	w: 2 * x1 + 2 * x2
+      P53	w: 1
+      u53	w: 2 * x1 + 2 * x2 + 2 * x3
+      axxu46	w: 2 * x1 + 3
+      X33	w: 1
+      U25	w: 1
+      u23	w: 2 * x1 + 2 * x2 + 2 * x3
+      X74	w: 1
+      axxu131	w: 2 * x1 + 5
+      W32	w: 1
+      u191	w: 2 * x1 + 2 * x2
+      U77	w: 1
+      Y93	w: 1
+      axxu252	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      W33	w: 1
+      P37	w: 1
+      isPLNat	w: 2 * x1
+      Y22	w: 1
+      U89	w: 1
+      X109	w: 1
+      P50	w: 1
+      W92	w: 1
+      U42	w: 1
+      X47	w: 1
+      X66	w: 1
+      axxu11	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxu32	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      Y36	w: 1
+      P52	w: 1
+      X60	w: 2
+      V80	w: 1
+      U108	w: 1
+      X4	w: 1
+      P4	w: 1
+      P43	w: 1
+      u181	w: 2 * x1 + 2 * x2
+      Y103	w: 1
+      Y109	w: 1
+      W113	w: 1
+      W17	w: 1
+      Y45	w: 1
+      axxu55	w: 2 * x1 + 2 * x2 + 1
+      W30	w: 1
+      W21	w: 1
+      P22	w: 1
+      P25	w: 1
+      u293	w: 2 * x1 + 2 * x2 + 2 * x3
+      U3	w: 1
+      P3	w: 1
+      u122	w: 2 * x1 + 2
+      Y1	w: 1
+      X8	w: 1
+      axxu255	w: 2 * x1 + 2 * x2 + 16
+      u302	w: 2 * x1 + 2 * x2
+      axxsplitAt	w: 2 * x1 + 2 * x2 + 3
+      P109	w: 1
+      U58	w: 1
+      Y86	w: 1
+      Y96	w: 1
+      V99	w: 1
+      P80	w: 1
+      W67	w: 1
+      X70	w: 1
+      Y75	w: 1
+      X117	w: 1
+      axxu312	w: 2 * x1 + 2 * x2 + 12
+      U101	w: 1
+      P115	w: 1
+      pair	w: 2 * x1 + 2 * x2 + 1
+      X46	w: 1
+      W71	w: 1
+      axxu91	w: 2 * x1 + 2 * x2 + 1
+      P113	w: 1
+      U8	w: 1
+      X99	w: 1
+      U29	w: 1
+      U43	w: 1
+      U111	w: 1
+      P117	w: 1
+      P11	w: 1
+      axxu56	w: 2 * x1 + 3
+      Y25	w: 1
+      P15	w: 1
+      Y49	w: 1
+      W87	w: 1
+      W91	w: 1
+      u131	w: 2 * x1 + 3
+      U86	w: 1
+      X114	w: 1
+      natsFrom	w: 2 * x1 + 6
+      V88	w: 1
+      P41	w: 1
+      U48	w: 1
+      V24	w: 1
+      X32	w: 1
+      u303	w: 2 * x1 + 2 * x2
+      X85	w: 1
+      U44	w: 1
+      U55	w: 1
+      Y76	w: 1
+      W10	w: 1
+      V70	w: 1
+      axxu261	w: 2 * x1 + 2 * x2 + 2
+      V36	w: 1
+      U84	w: 1
+      Y17	w: 1
+      axxu103	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      V4	w: 1
+      u294	w: 2 * x1 + 2 * x2 + 2 * x3 + 12
+      u251	w: 2 * x1 + 2 * x2 + 2 * x3
+      u332	w: 2 * x1 + 2 * x2
+      P28	w: 1
+      u323	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4
+      U63	w: 1
+      W62	w: 1
+      Y27	w: 1
+      W76	w: 1
+      W95	w: 1
+      U72	w: 1
+      axxu201	w: x1 + 2 * x2 + 2 * x3 + 2
+      axxu102	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      u291	w: 2 * x1 + 2 * x2 + 2 * x3
+      W90	w: 1
+      U38	w: 1
+      W101	w: 1
+      V122	w: 1
+      U124	w: 1
+      W20	w: 1
+      axxu83	w: 2 * x1 + 3
+      W55	w: 1
+      P114	w: 1
+      axxu31	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      W56	w: 1
+      X57	w: 1
+      U110	w: 1
+      V19	w: 1
+      V101	w: 1
+      W28	w: 1
+      W57	w: 1
+      axxu72	w: 2 * x1 + 2 * x2 + 12
+      P44	w: 1
+      P1	w: 1
+      axxu203	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      W7	w: 1
+      W11	w: 1
+      W66	w: 1
+      W37	w: 6
+      X49	w: 1
+      Y92	w: 1
+      U9	w: 1
+      axxu342	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      V45	w: 1
+      W45	w: 1
+      P31	w: 1
+      Y116	w: 1
+      axxu183	w: 2 * x1 + 3
+      axxu281	w: 2 * x1 + 2 * x2 + 2
+      axxu193	w: 2 * x1 + 3
+      P21	w: 1
+      u324	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4
+      X65	w: 1
+      V40	w: 1
+      axxu22	w: 2 * x1 + x2 + 2 * x3 + 2
+      U40	w: 1
+      P65	w: 1
+      U20	w: 1
+      P84	w: 1
+      axxu44	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxu333	w: 2 * x1 + 2 * x2 + 1
+      X113	w: 1
+      axxu24	w: 2 * x1 + 2 * x2 + 1
+      P61	w: 1
+      Y63	w: 1
+      P103	w: 1
+      W54	w: 1
+      Y21	w: 1
+      P33	w: 1
+      P46	w: 1
+      U99	w: 1
+      V103	w: 1
+      P49	w: 1
+      Y85	w: 1
+      X28	w: 1
+      W117	w: 1
+      Y84	w: 1
+      axxnatsFrom	w: 2 * x1 + 10
+      P38	w: 1
+      W69	w: 1
+      P83	w: 1
+      W94	w: 1
+      axxu151	w: 2 * x1 + 3
+      V47	w: 1
+      u45	w: 2 * x1 + 2 * x2
+      W107	w: 1
+      u63	w: 2 * x1 + 2
+      V102	w: 1
+      axxu23	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      X14	w: 1
+      Y64	w: 1
+      X71	w: 1
+      V67	w: 1
+      X91	w: 1
+      U113	w: 1
+      U10	w: 1
+      W39	w: 1
+      u342	w: 2 * x1 + 2 * x2 + 2 * x3
+      u51	w: 2 * x1 + 2 * x2 + 2 * x3
+      V119	w: 1
+      P2	w: 1
+      u271	w: 2 * x1 + 2 * x2
+      axxu82	w: 2 * x1 + 2 * x2 + 2
+      V79	w: 1
+      axxu243	w: 2 * x1 + 2 * x2 + 2 * x3 + 3
+      W12	w: 1
+      Y3	w: 1
+      axxisPLNat	w: 2 * x1 + 2
+      axxu81	w: 2 * x1 + 2 * x2 + 1
+      U30	w: 1
+      U73	w: 1
+      X84	w: 1
+      P91	w: 1
+      V55	w: 1
+      u333	w: 2 * x1 + 2 * x2
+      Y12	w: 1
+      Y48	w: 1
+      Y19	w: 1
+      u11	w: 2 * x1 + 2 * x2 + 2 * x3
+      Y40	w: 1
+      V115	w: 1
+      sel	w: 2 * x1 + 2 * x2 + 8
+      Y55	w: 1
+      P90	w: 1
+      u73	w: 2 * x1 + 2
+      P14	w: 1
+      Y30	w: 1
+      X15	w: 1
+      Y35	w: 1
+      W82	w: 1
+      axxu293	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      P58	w: 1
+      u46	w: 2 * x1 + 2
+      W2	w: 1
+      X25	w: 1
+      P97	w: 1
+      nil	w: 14
+      axxu343	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      X36	w: 1
+      u325	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4
+      X77	w: 1
+      X121	w: 1
+      P89	w: 1
+      V6	w: 1
+      axxu41	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      V74	w: 2
+      U76	w: 1
+      P82	w: 1
+      X92	w: 1
+      Y28	w: 0
+      P5	w: 1
+      Y78	w: 1
+      W79	w: 1
+      X97	w: 1
+      X102	w: 1
+      W1	w: 1
+      X5	w: 1
+      U45	w: 1
+      P92	w: 1
+      Y59	w: 1
+      Y67	w: 1
+      P73	w: 1
+      u203	w: 2 * x1 + 2 * x2 + 2 * x3
+      U75	w: 2
+      axxu331	w: 2 * x1 + 2 * x2 + 2 * x3 + 2
+      u101	w: 2 * x1 + 2 * x2 + 2 * x3
+      u301	w: 2 * x1 + 2 * x2 + 2 * x3
+      W115	w: 1
+      P68	w: 1
+      V8	w: 1
+      X31	w: 1
+      axxsel	w: 2 * x1 + 2 * x2 + 10
+      P86	w: 1
+      V107	w: 1
+      W108	w: 1
+      X125	w: 1
+      V41	w: 1
+      U60	w: 1
+      X103	w: 1
+      W109	w: 1
+      u21	w: 2 * x1 + 2 * x2 + 2 * x3
+      u262	w: 2 * x1 + 2
+      axxu52	w: 2 * x1 + 2 * x2 + 2 * x3
+      V37	w: 1
+      Y56	w: 1
+      P39	w: 1
+      Y47	w: 1
+      X124	w: 1
+      X7	w: 1
+      Y68	w: 1
+      V118	w: 1
+      P29	w: 1
+      V112	w: 1
+      P119	w: 1
+      W103	w: 1
+      W22	w: 1
+      V60	w: 1
+      V84	w: 1
+      P34	w: 1
+      u272	w: 2 * x1 + 2
+      axxu111	w: 2 * x1 + 2 * x2 + 10
+      axxfst	w: 2 * x1 + 6
+      P116	w: 1
+      X18	w: 1
+      u183	w: 2 * x1 + 2
+      P62	w: 1
+      axxu171	w: 2 * x1 + x2
+      axxu282	w: 2 * x1 + 2 * x2 + 15
+      X76	w: 7
+      X34	w: 1
+      V53	w: 1
+      u82	w: 2 * x1 + 2 * x2
+      X9	w: 1
+      Y26	w: 1
+      P112	w: 1
+      u204	w: 2 * x1 + 2 * x2 + 2 * x3
+      W50	w: 1
+      U52	w: 1
+      V54	w: 1
+      P7	w: 1
+      W9	w: 1
+      X35	w: 1
+      Y46	w: 1
+      U61	w: 1
+      P93	w: 1
+      V100	w: 1
+      u321	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4
+      X82	w: 1
+      axxu241	w: 2 * x1 + 2 * x2 + 2 * x3 + 2
+      X88	w: 1
+      U96	w: 1
+      axxu325	w: 2 * x1 + 2 * x2 + 2 * x3 + 2 * x4 + 1
+      V82	w: 1
+      axxu51	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      u171	w: x1 + x2
+      Y57	w: 1
+      V73	w: 1
+      Y80	w: 1
+      Y83	w: 1
+      X112	w: 1
+      X98	w: 1
+      axxu221	w: 2 * x1 + 3
+      head	w: 2 * x1 + 3
+      X89	w: 1
+      U112	w: 1
+      Y31	w: 1
+      u34	w: x1 + x2 + 2
+      X90	w: 1
+      W13	w: 1
+      P26	w: 1
+      V71	w: 9
+      X72	w: 1
+      W89	w: 1
+      Y108	w: 1
+      axxu92	w: 2 * x1 + 2 * x2 + 1
+      u245	w: x1 + x2
+      Y62	w: 1
+      u311	w: 2 * x1 + 2 * x2
+      W119	w: 1
+      axxu45	w: 2 * x1 + 2 * x2 + 16
+      P30	w: 1
+      Y89	w: 1
+      U102	w: 1
+      Y107	w: 1
+      U70	w: 1
+      u22	w: 2 * x1 + 2 * x2 + 2 * x3
+      W47	w: 2
+      u281	w: 2 * x1 + 2 * x2
+      axxu206	w: 2 * x1 + 3
+      V29	w: 1
+      V57	w: 1
+      axxu12	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      U49	w: 1
+      U82	w: 1
+      axxu254	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxtail	w: 2 * x1 + 6
+      W36	w: 1
+      u112	w: 2 * x1 + 2
+      Y65	w: 1
+      tt	w: 10
+      Y43	w: 1
+      u55	w: 2 * x1 + 2 * x2
+      Y8	w: 1
+      Y42	w: 2
+      X93	w: 1
+      X61	w: 1
+      V86	w: 1
+      X101	w: 1
+      Y106	w: 1
+      U47	w: 1
+      W68	w: 1
+      axxu251	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      axxu271	w: 2 * x1 + 2 * x2 + 4
+      W102	w: 1
+      X81	w: 1
+      axxisLNatKind	w: 2 * x1 + 1
+      axxu161	w: 2 * x1 + 5
+      V78	w: 1
+      U2	w: 1
+      V85	w: 1
+      Y114	w: 1
+      X52	w: 1
+      P71	w: 1
+      Y74	w: 1
+      V117	w: 1
+      X 	w: 1
+      W16	w: 1
+      Y87	w: 1
+      u242	w: 2 * x1 + 2 * x2 + 2 * x3
+      u71	w: x1 + 2 * x2
+      axxu93	w: 2 * x1 + 3
+      X53	w: 1
+      axxu53	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      P105	w: 1
+      axxu101	w: 2 * x1 + 2 * x2 + 2 * x3 + 1
+      X41	w: 1
+      u231	w: 2 * x1 + 2 * x2
+      V75	w: 1
+      U79	w: 1
+      Y119	w: 1
+      axxu256	w: 2 * x1 + 4
+      U6	w: 1
+      P36	w: 1
+      X115	w: 1
+      U117	w: 1
+      P57	w: 1
+      P6	w: 1
+      Y34	w: 1
+      u193	w: 2 * x1 + 2
+      W111	w: 1
+      W124	w: 1
+      axxu272	w: 2 * x1 + 3
+      X24	w: 1
+      axxu34	w: 2 * x1 + 2 * x2
+      U41	w: 2
+      W53	w: 3
+      P111	w: 2
+      P54	w: 1
+      X123	w: 1
+      Y9	w: 1
+      X45	w: 1
+      Y99	w: 1
+      W29	w: 1
+      u44	w: 2 * x1 + 2 * x2 + 2 * x3
+      Y90	w: 1
+      P102	w: 1
+      X50	w: 1
+      V108	w: 1
+      Y24	w: 1
+      Y97	w: 1
+      V66	w: 1
+      V121	w: 1
+      W98	w: 1
+      U122	w: 1
+      V124	w: 1
+      u254	w: 2 * x1 + 2 * x2 + 2 * x3
+      U87	w: 1
+Number of strict rules: 0

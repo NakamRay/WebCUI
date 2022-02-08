@@ -1,0 +1,6 @@
+(VAR X1 X2 Y2 Z2 X3 Y3 X4 )
+(RULES
+  sum(nil,X1) -> X1
+  sum(sum(X2,Y2),Z2) -> sum(X2,sum(Y2,Z2))
+  sum(X3,Y3) -> sum(Y3,X3)
+  new(new(X4)) -> new(new(X4)))

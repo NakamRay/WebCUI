@@ -1,0 +1,7 @@
+(VAR )
+(RULES
+  c -> c
+  a -> b
+  b -> a
+  a -> c
+  b -> d)

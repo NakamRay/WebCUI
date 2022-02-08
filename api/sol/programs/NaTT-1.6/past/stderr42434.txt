@@ -1,0 +1,107 @@
+Input TRS:
+    1: p(s(X)) -> X
+    2: fact(0()) -> s(0())
+    3: fact(s(Y)) -> bangtimes(s(Y),fact(p(s(Y))))
+    4: bangtimes(0(),U) -> 0()
+    5: bangtimes(s(V),W) -> bangplus(bangtimes(V,W),W)
+    6: bangplus(P,0()) -> P
+    7: bangplus(X1,s(Y1)) -> s(bangplus(X1,Y1))
+    8: _(X1,X2) -> X1
+    9: _(X1,X2) -> X2
+Number of strict rules: 9
+Direct POLO(bPol) ... failed.
+Uncurrying p bangtimes
+1: p^1_s(X) -> X
+2: fact(0()) -> s(0())
+3: fact(s(Y)) -> bangtimes^1_s(Y,fact(p^1_s(Y)))
+4: bangtimes^1_0(U) -> 0()
+5: bangtimes^1_s(V,W) -> bangplus(bangtimes(V,W),W)
+6: bangplus(P,0()) -> P
+7: bangplus(X1,s(Y1)) -> s(bangplus(X1,Y1))
+8: _(X1,X2) -> X1
+9: _(X1,X2) -> X2
+10: bangtimes(0(),_1) ->= bangtimes^1_0(_1)
+11: bangtimes(s(_1),_2) ->= bangtimes^1_s(_1,_2)
+12: p(s(_1)) ->= p^1_s(_1)
+Number of strict rules: 9
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #bangtimes(s(_1),_2) ->? #bangtimes^1_s(_1,_2)
+   #2: #p(s(_1)) ->? #p^1_s(_1)
+   #3: #bangplus(X1,s(Y1)) -> #bangplus(X1,Y1)
+   #4: #bangtimes(0(),_1) ->? #bangtimes^1_0(_1)
+   #5: #bangtimes^1_s(V,W) -> #bangplus(bangtimes(V,W),W)
+   #6: #bangtimes^1_s(V,W) -> #bangtimes(V,W)
+   #7: #fact(s(Y)) -> #bangtimes^1_s(Y,fact(p^1_s(Y)))
+   #8: #fact(s(Y)) -> #fact(p^1_s(Y))
+   #9: #fact(s(Y)) -> #p^1_s(Y)
+Number of SCCs: 3, DPs: 4
+  SCC { #8 }
+POLO(Sum)... succeeded.
+      bangtimes	w: 0
+      s 	w: x1 + 2
+      bangtimes^1_0	w: 0
+      #p^1_s	w: 0
+      p^1_s	w: x1 + 1
+      #fact	w: x1
+      #p 	w: 0
+      _ 	w: 0
+      bangplus	w: 0
+      p 	w: 0
+      0 	w: 0
+      fact	w: 0
+      bangtimes^1_s	w: 0
+      #_ 	w: 0
+      #bangplus	w: 0
+      #bangtimes^1_s	w: 0
+      #bangtimes^1_0	w: 0
+      #bangtimes	w: 0
+    USABLE RULES: { 1 }
+    Removed DPs: #8
+Number of SCCs: 2, DPs: 3
+  SCC { #3 }
+POLO(Sum)... succeeded.
+      bangtimes	w: 0
+      s 	w: x1 + 1
+      bangtimes^1_0	w: 0
+      #p^1_s	w: 0
+      p^1_s	w: x1 + 1
+      #fact	w: x1
+      #p 	w: 0
+      _ 	w: 0
+      bangplus	w: 0
+      p 	w: 0
+      0 	w: 0
+      fact	w: 0
+      bangtimes^1_s	w: 0
+      #_ 	w: 0
+      #bangplus	w: x2
+      #bangtimes^1_s	w: 0
+      #bangtimes^1_0	w: 0
+      #bangtimes	w: 0
+    USABLE RULES: { 1 }
+    Removed DPs: #3
+Number of SCCs: 1, DPs: 2
+  SCC { #1 #6 }
+POLO(Sum)... succeeded.
+      bangtimes	w: 0
+      s 	w: x1 + 2
+      bangtimes^1_0	w: 0
+      #p^1_s	w: 0
+      p^1_s	w: x1 + 1
+      #fact	w: x1
+      #p 	w: 0
+      _ 	w: 0
+      bangplus	w: 0
+      p 	w: 0
+      0 	w: 0
+      fact	w: 0
+      bangtimes^1_s	w: 0
+      #_ 	w: 0
+      #bangplus	w: 0
+      #bangtimes^1_s	w: x1 + 1
+      #bangtimes^1_0	w: 0
+      #bangtimes	w: x1
+    USABLE RULES: { 1 }
+    Removed DPs: #1 #6
+Number of SCCs: 0, DPs: 0

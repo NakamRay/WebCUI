@@ -1,0 +1,7 @@
+Input TRS:
+    1: and(P,all(Q)) -> all(and(P,Q))
+    2: and(all(Q),P) -> all(and(Q,P))
+    3: or(P,all(Q)) -> all(or(P,Q))
+    4: or(all(Q),P) -> all(or(Q,P))
+    5: all(all(F)) -> all(all(F))
+Trivially nonterminating rule 5.

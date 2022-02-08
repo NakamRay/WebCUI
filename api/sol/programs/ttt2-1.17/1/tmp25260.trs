@@ -1,0 +1,6 @@
+(VAR X Y F )
+(RULES
+  g(X,Y,F) -> f(f(X,F),F)
+  f(X,F) -> b
+  b -> a
+  f(b,g(z,z,F)) -> g(f(a,g(z,z,F)),f(b,b),F))

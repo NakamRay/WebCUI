@@ -1,0 +1,5 @@
+(VAR S T )
+(RULES
+  fix(S) -> S
+  fix(x) -> 0
+  fix(fix(T)) -> fix(T))

@@ -1,0 +1,5 @@
+Input TRS:
+    1: and(A,all(B)) -> all(and(A,B))
+    2: and(all(B),A) -> all(and(B,A))
+    3: all(all(F)) -> all(all(F))
+Trivially nonterminating rule 3.

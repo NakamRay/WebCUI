@@ -1,0 +1,39 @@
+(VAR
+  X: a 
+  Y: b 
+  U: b 
+  H: d -> d 
+  I: d -> d 
+  P: d 
+  X1: e 
+  Z1: d -> c 
+  G1: d -> c 
+  V1: d 
+  W1: e 
+  J1: d -> c 
+  X2: d 
+  Y2: e 
+  G2: d -> c 
+  V2: d 
+  W2: e 
+)
+(FUN
+  bangplus : b -> b -> b
+  bangtimes : a -> b -> b
+  cons : d -> e -> e
+  false : c
+  filter : (d -> c) -> e -> e
+  filter2 : c -> (d -> c) -> d -> e -> e
+  map : (d -> d) -> e -> e
+  nil : e
+  true : c
+)
+(RULES
+  (bangtimes(X,(bangplus(Y,U)))) -> (bangplus((bangtimes(X,Y)),(bangtimes(X,U)))),
+  (map(H,(nil))) -> (nil),
+  (map(I,(cons(P,X1)))) -> (cons((I P),(map(I,X1)))),
+  (filter(Z1,(nil))) -> (nil),
+  (filter(G1,(cons(V1,W1)))) -> (filter2((G1 V1),G1,V1,W1)),
+  (filter2((true),J1,X2,Y2)) -> (cons(X2,(filter(J1,Y2)))),
+  (filter2((false),G2,V2,W2)) -> (filter(G2,W2))
+)

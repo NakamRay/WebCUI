@@ -1,0 +1,113 @@
+Input TRS:
+    1: sel(s(x()),cons(y(),u())) -> sel(x(),activate(u()))
+    2: sel(0(),cons(v(),w())) -> v()
+    3: first(0(),p()) -> nil()
+    4: first(s(x1()),cons(y1(),u1())) -> cons(y1(),nxxfirst(x1(),activate(u1())))
+    5: from(v1()) -> cons(v1(),nxxfrom(nxxs(v1())))
+    6: sel1(s(w1()),cons(p1(),x2())) -> sel1(w1(),activate(x2()))
+    7: sel1(0(),cons(y2(),u2())) -> quote(y2())
+    8: first1(0(),v2()) -> nil1()
+    9: first1(s(w2()),cons(p2(),x3())) -> cons1(quote(p2()),first1(w2(),activate(x3())))
+    10: quote(nxx0()) -> 01()
+    11: quote1(nxxcons(y3(),u3())) -> cons1(quote(activate(y3())),quote1(activate(u3())))
+    12: quote1(nxxnil()) -> nil1()
+    13: quote(nxxs(v3())) -> s1(quote(activate(v3())))
+    14: quote(nxxsel(w3(),p3())) -> sel1(activate(w3()),activate(p3()))
+    15: quote1(nxxfirst(x4(),y4())) -> first1(activate(x4()),activate(y4()))
+    16: unquote(01()) -> 0()
+    17: unquote(s1(u4())) -> s(unquote(u4()))
+    18: unquote1(nil1()) -> nil()
+    19: unquote1(cons1(v4(),w4())) -> fcons(unquote(v4()),unquote1(w4()))
+    20: fcons(p4(),x5()) -> cons(p4(),x5())
+    21: first(y5(),u5()) -> nxxfirst(y5(),u5())
+    22: from(v5()) -> nxxfrom(v5())
+    23: s(w5()) -> nxxs(w5())
+    24: 0() -> nxx0()
+    25: cons(p5(),x6()) -> nxxcons(p5(),x6())
+    26: nil() -> nxxnil()
+    27: sel(y6(),u6()) -> nxxsel(y6(),u6())
+    28: activate(nxxfirst(v6(),w6())) -> first(activate(v6()),activate(w6()))
+    29: activate(nxxfrom(p6())) -> from(activate(p6()))
+    30: activate(nxxs(x7())) -> s(activate(x7()))
+    31: activate(nxx0()) -> 0()
+    32: activate(nxxcons(y7(),u7())) -> cons(activate(y7()),u7())
+    33: activate(nxxnil()) -> nil()
+    34: activate(nxxsel(v7(),w7())) -> sel(activate(v7()),activate(w7()))
+    35: activate(p7()) -> p7()
+Number of strict rules: 35
+Direct POLO(bPol) ... removes: 18 4 15 8 1 3 16 21 26 19 32 17 27 34 22 28 5 33 10 7 20 25 30 14 31 12 23 24 11 9 13 6 35 29 2
+      u3	w: 5
+      x6	w: 1
+      u1	w: 1
+      p6	w: 39
+      u7	w: 1
+      v6	w: 1
+      01	w: 3
+      s 	w: 2 * x1
+      v 	w: 1
+      w1	w: 1
+      unquote1	w: 2 * x1 + 1
+      y3	w: 1
+      p3	w: 2
+      v4	w: 1
+      v2	w: 1
+      u 	w: 1
+      w6	w: 1
+      activate	w: x1 + 2
+      y 	w: 1
+      v3	w: 1
+      nxx0	w: 3
+      w 	w: 1
+      nxxfirst	w: 2 * x1 + x2 + 8
+      u6	w: 1
+      x7	w: 1
+      x3	w: 1
+      y7	w: 1
+      u4	w: 1
+      y6	w: 1
+      x2	w: 1
+      x1	w: 1
+      x4	w: 1
+      nxxnil	w: 1
+      p5	w: 5
+      x 	w: 1
+      w3	w: 1
+      cons1	w: 2 * x1 + x2 + 31
+      w5	w: 5
+      p 	w: 1
+      0 	w: 4
+      sel	w: x1 + 2 * x2 + 2
+      from	w: x1 + 38
+      w4	w: 1
+      w7	w: 1
+      nil	w: 2
+      quote1	w: 2 * x1
+      y1	w: 2
+      nil1	w: 1
+      v5	w: 1
+      w2	w: 1
+      first	w: 2 * x1 + 2 * x2
+      nxxfrom	w: 2 * x1
+      p4	w: 1
+      p2	w: 1
+      first1	w: 2 * x1 + 2 * x2
+      nxxcons	w: x1 + 2 * x2 + 20
+      y4	w: 1
+      u2	w: 1
+      nxxsel	w: 2 * x1 + 2 * x2
+      x5	w: 1
+      quote	w: 2 * x1
+      cons	w: 2 * x1 + 2 * x2 + 16
+      u5	w: 9
+      y5	w: 1
+      nxxs	w: x1 + 4
+      v7	w: 7
+      sel1	w: 2 * x1 + x2
+      v1	w: 1
+      p7	w: 1
+      s1	w: x1 + 2
+      unquote	w: 2 * x1
+      y2	w: 1
+      fcons	w: 2 * x1 + 2 * x2 + 17
+      p1	w: 1
+Number of strict rules: 0

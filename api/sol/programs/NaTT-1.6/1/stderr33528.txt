@@ -1,0 +1,186 @@
+Input TRS:
+    1: sel(s(X),cons(Y,U)) -> sel(X,activate(U))
+    2: sel(0(),cons(V,W)) -> V
+    3: first(0(),P) -> nil()
+    4: first(s(X1),cons(Y1,U1)) -> cons(Y1,nxxfirst(X1,activate(U1)))
+    5: from(V1) -> cons(V1,nxxfrom(nxxs(V1)))
+    6: sel1(s(W1),cons(P1,X2)) -> sel1(W1,activate(X2))
+    7: sel1(0(),cons(Y2,U2)) -> quote(Y2)
+    8: first1(0(),V2) -> nil1()
+    9: first1(s(W2),cons(P2,X3)) -> cons1(quote(P2),first1(W2,activate(X3)))
+    10: quote(nxx0()) -> 01()
+    11: quote1(nxxcons(Y3,U3)) -> cons1(quote(activate(Y3)),quote1(activate(U3)))
+    12: quote1(nxxnil()) -> nil1()
+    13: quote(nxxs(V3)) -> s1(quote(activate(V3)))
+    14: quote(nxxsel(W3,P3)) -> sel1(activate(W3),activate(P3))
+    15: quote1(nxxfirst(X4,Y4)) -> first1(activate(X4),activate(Y4))
+    16: unquote(01()) -> 0()
+    17: unquote(s1(U4)) -> s(unquote(U4))
+    18: unquote1(nil1()) -> nil()
+    19: unquote1(cons1(V4,W4)) -> fcons(unquote(V4),unquote1(W4))
+    20: fcons(P4,X5) -> cons(P4,X5)
+    21: first(Y5,U5) -> nxxfirst(Y5,U5)
+    22: from(V5) -> nxxfrom(V5)
+    23: s(W5) -> nxxs(W5)
+    24: 0() -> nxx0()
+    25: cons(P5,X6) -> nxxcons(P5,X6)
+    26: nil() -> nxxnil()
+    27: sel(Y6,U6) -> nxxsel(Y6,U6)
+    28: activate(nxxfirst(V6,W6)) -> first(activate(V6),activate(W6))
+    29: activate(nxxfrom(P6)) -> from(activate(P6))
+    30: activate(nxxs(X7)) -> s(activate(X7))
+    31: activate(nxx0()) -> 0()
+    32: activate(nxxcons(Y7,U7)) -> cons(activate(Y7),U7)
+    33: activate(nxxnil()) -> nil()
+    34: activate(nxxsel(V7,W7)) -> sel(activate(V7),activate(W7))
+    35: activate(P7) -> P7
+Number of strict rules: 35
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #activate(nxxfrom(P6)) -> #from(activate(P6))
+   #2: #activate(nxxfrom(P6)) -> #activate(P6)
+   #3: #sel1(s(W1),cons(P1,X2)) -> #sel1(W1,activate(X2))
+   #4: #sel1(s(W1),cons(P1,X2)) -> #activate(X2)
+   #5: #quote(nxxs(V3)) -> #quote(activate(V3))
+   #6: #quote(nxxs(V3)) -> #activate(V3)
+   #7: #first1(s(W2),cons(P2,X3)) -> #quote(P2)
+   #8: #first1(s(W2),cons(P2,X3)) -> #first1(W2,activate(X3))
+   #9: #first1(s(W2),cons(P2,X3)) -> #activate(X3)
+   #10: #quote1(nxxcons(Y3,U3)) -> #quote(activate(Y3))
+   #11: #quote1(nxxcons(Y3,U3)) -> #activate(Y3)
+   #12: #quote1(nxxcons(Y3,U3)) -> #quote1(activate(U3))
+   #13: #quote1(nxxcons(Y3,U3)) -> #activate(U3)
+   #14: #activate(nxx0()) -> #0()
+   #15: #quote(nxxsel(W3,P3)) -> #sel1(activate(W3),activate(P3))
+   #16: #quote(nxxsel(W3,P3)) -> #activate(W3)
+   #17: #quote(nxxsel(W3,P3)) -> #activate(P3)
+   #18: #activate(nxxs(X7)) -> #s(activate(X7))
+   #19: #activate(nxxs(X7)) -> #activate(X7)
+   #20: #fcons(P4,X5) -> #cons(P4,X5)
+   #21: #sel1(0(),cons(Y2,U2)) -> #quote(Y2)
+   #22: #activate(nxxnil()) -> #nil()
+   #23: #from(V1) -> #cons(V1,nxxfrom(nxxs(V1)))
+   #24: #activate(nxxfirst(V6,W6)) -> #first(activate(V6),activate(W6))
+   #25: #activate(nxxfirst(V6,W6)) -> #activate(V6)
+   #26: #activate(nxxfirst(V6,W6)) -> #activate(W6)
+   #27: #activate(nxxsel(V7,W7)) -> #sel(activate(V7),activate(W7))
+   #28: #activate(nxxsel(V7,W7)) -> #activate(V7)
+   #29: #activate(nxxsel(V7,W7)) -> #activate(W7)
+   #30: #unquote(s1(U4)) -> #s(unquote(U4))
+   #31: #unquote(s1(U4)) -> #unquote(U4)
+   #32: #activate(nxxcons(Y7,U7)) -> #cons(activate(Y7),U7)
+   #33: #activate(nxxcons(Y7,U7)) -> #activate(Y7)
+   #34: #unquote1(cons1(V4,W4)) -> #fcons(unquote(V4),unquote1(W4))
+   #35: #unquote1(cons1(V4,W4)) -> #unquote(V4)
+   #36: #unquote1(cons1(V4,W4)) -> #unquote1(W4)
+   #37: #unquote(01()) -> #0()
+   #38: #first(0(),P) -> #nil()
+   #39: #sel(s(X),cons(Y,U)) -> #sel(X,activate(U))
+   #40: #sel(s(X),cons(Y,U)) -> #activate(U)
+   #41: #quote1(nxxfirst(X4,Y4)) -> #first1(activate(X4),activate(Y4))
+   #42: #quote1(nxxfirst(X4,Y4)) -> #activate(X4)
+   #43: #quote1(nxxfirst(X4,Y4)) -> #activate(Y4)
+   #44: #first(s(X1),cons(Y1,U1)) -> #cons(Y1,nxxfirst(X1,activate(U1)))
+   #45: #first(s(X1),cons(Y1,U1)) -> #activate(U1)
+   #46: #unquote1(nil1()) -> #nil()
+Number of SCCs: 6, DPs: 20
+  SCC { #31 }
+POLO(Sum)... succeeded.
+      #0 	w: 0
+      01	w: 0
+      #cons	w: 0
+      s 	w: 0
+      unquote1	w: 0
+      #quote1	w: 0
+      activate	w: 0
+      #unquote1	w: 0
+      nxx0	w: 0
+      #activate	w: 0
+      nxxfirst	w: 0
+      #fcons	w: 0
+      #first1	w: 0
+      nxxnil	w: 0
+      cons1	w: 0
+      0 	w: 0
+      #sel	w: 0
+      sel	w: 0
+      from	w: 0
+      #s 	w: 0
+      #first	w: 0
+      nil	w: 0
+      #sel1	w: 0
+      quote1	w: 0
+      #nil	w: 0
+      nil1	w: 0
+      first	w: 0
+      nxxfrom	w: 0
+      first1	w: 0
+      nxxcons	w: 0
+      #unquote	w: x1
+      #from	w: 0
+      nxxsel	w: 0
+      quote	w: 0
+      cons	w: 0
+      #quote	w: 0
+      nxxs	w: 0
+      sel1	w: 0
+      s1	w: x1 + 1
+      unquote	w: 0
+      fcons	w: 0
+    USABLE RULES: { }
+    Removed DPs: #31
+Number of SCCs: 5, DPs: 19
+  SCC { #36 }
+POLO(Sum)... succeeded.
+      #0 	w: 0
+      01	w: 0
+      #cons	w: 0
+      s 	w: 0
+      unquote1	w: 0
+      #quote1	w: 0
+      activate	w: 0
+      #unquote1	w: x1
+      nxx0	w: 0
+      #activate	w: 0
+      nxxfirst	w: 0
+      #fcons	w: 0
+      #first1	w: 0
+      nxxnil	w: 0
+      cons1	w: x2 + 1
+      0 	w: 0
+      #sel	w: 0
+      sel	w: 0
+      from	w: 0
+      #s 	w: 0
+      #first	w: 0
+      nil	w: 0
+      #sel1	w: 0
+      quote1	w: 0
+      #nil	w: 0
+      nil1	w: 0
+      first	w: 0
+      nxxfrom	w: 0
+      first1	w: 0
+      nxxcons	w: 0
+      #unquote	w: 0
+      #from	w: 0
+      nxxsel	w: 0
+      quote	w: 0
+      cons	w: 0
+      #quote	w: 0
+      nxxs	w: 0
+      sel1	w: 0
+      s1	w: 1
+      unquote	w: 0
+      fcons	w: 0
+    USABLE RULES: { }
+    Removed DPs: #36
+Number of SCCs: 4, DPs: 18
+  SCC { #12 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #quote1(nxxcons(Y3,nxxfrom(P6_{i10})))	-#12->
+  #quote1(activate(nxxfrom(P6_{i10})))	--->*
+  #quote1(nxxcons(activate(P6_{i10}),nxxfrom(nxxs(activate(P6_{i10})))))
+  Looping with: [ P6_{i10} := nxxs(activate(P6_{i10})); Y3 := activate(P6_{i10}); ]

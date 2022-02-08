@@ -1,0 +1,10 @@
+(VAR X Y U V W P X1 X2 )
+(RULES
+  intlist(nil) -> nil
+  intlist(cons(X,Y)) -> cons(s(X),intlist(Y))
+  int(0,0) -> cons(0,nil)
+  int(0,s(U)) -> cons(0,int(s(0),s(U)))
+  int(s(V),0) -> nil
+  int(s(W),s(P)) -> intlist(int(W,P))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

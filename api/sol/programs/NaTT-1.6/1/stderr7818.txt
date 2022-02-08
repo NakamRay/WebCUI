@@ -1,0 +1,36 @@
+Input TRS:
+    1: xpls(X,0()) -> X
+    2: xmul(X,0()) -> 0()
+    3: xmul(X,s(Y)) -> xpls(xmul(X,Y),X)
+    4: xpls(xpls(X,Y),Z) -> xpls(X,xpls(Y,Z))
+    5: xpls(X,Y) -> xpls(Y,X)
+    6: xmul(X,Y) -> xmul(Y,X)
+Number of strict rules: 6
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #xmul(X,Y) -> #xmul(Y,X)
+   #2: #xpls(X,Y) -> #xpls(Y,X)
+   #3: #xmul(X,s(Y)) -> #xpls(xmul(X,Y),X)
+   #4: #xmul(X,s(Y)) -> #xmul(X,Y)
+   #5: #xpls(xpls(X,Y),Z) -> #xpls(X,xpls(Y,Z))
+   #6: #xpls(xpls(X,Y),Z) -> #xpls(Y,Z)
+Number of SCCs: 2, DPs: 5
+  SCC { #1 #4 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #xpls	w: 0
+      0 	w: 0
+      xmul	w: 0
+      #xmul	w: x1 + x2
+      xpls	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4
+Number of SCCs: 2, DPs: 4
+  SCC { #1 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  found.
+  #xmul(Y_{1},X_{1})	-#1->
+  #xmul(X_{1},Y_{1})	--->*
+  #xmul(X_{1},Y_{1})
+  Looping with: [ Y_{1} := X_{1}; X_{1} := Y_{1}; ]

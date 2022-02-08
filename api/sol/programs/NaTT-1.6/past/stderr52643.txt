@@ -1,0 +1,85 @@
+Input TRS:
+    1: minus(X,0()) -> X
+    2: minus(s(Y),s(U)) -> minus(Y,U)
+    3: quot(0(),s(V)) -> 0()
+    4: quot(s(W),s(P)) -> s(quot(minus(W,P),s(P)))
+    5: plus(0(),X1) -> X1
+    6: plus(s(Y1),U1) -> s(plus(Y1,U1))
+    7: plus(minus(V1,s(0())),minus(W1,s(s(P1)))) -> plus(minus(W1,s(s(P1))),minus(V1,s(0())))
+    8: plus(plus(X2,s(0())),plus(Y2,s(s(U2)))) -> plus(plus(Y2,s(s(U2))),plus(X2,s(0())))
+    9: _(X1,X2) -> X1
+    10: _(X1,X2) -> X2
+Number of strict rules: 10
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #minus(s(Y),s(U)) -> #minus(Y,U)
+   #2: #plus(s(Y1),U1) -> #plus(Y1,U1)
+   #3: #plus(minus(V1,s(0())),minus(W1,s(s(P1)))) -> #plus(minus(W1,s(s(P1))),minus(V1,s(0())))
+   #4: #plus(plus(X2,s(0())),plus(Y2,s(s(U2)))) -> #plus(plus(Y2,s(s(U2))),plus(X2,s(0())))
+   #5: #quot(s(W),s(P)) -> #quot(minus(W,P),s(P))
+   #6: #quot(s(W),s(P)) -> #minus(W,P)
+Number of SCCs: 3, DPs: 5
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      minus	w: 0
+      #plus	w: 0
+      _ 	w: 0
+      0 	w: 0
+      quot	w: 0
+      #minus	w: x1 + x2
+      #_ 	w: 0
+      plus	w: 0
+      #quot	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 2, DPs: 4
+  SCC { #5 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 2
+      minus	w: x1 + 1
+      #plus	w: 0
+      _ 	w: 0
+      0 	w: 1
+      quot	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      plus	w: 0
+      #quot	w: x1
+    USABLE RULES: { 1 2 }
+    Removed DPs: #5
+Number of SCCs: 1, DPs: 3
+  SCC { #2..4 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      minus	w: x1 + x2 + 1
+      #plus	w: x1 + x2
+      _ 	w: 0
+      0 	w: 1
+      quot	w: 0
+      #minus	w: 0
+      #_ 	w: 0
+      plus	w: x1 + x2 + 2
+      #quot	w: x1
+    USABLE RULES: { 1 2 5..8 }
+    Removed DPs: #2
+Number of SCCs: 1, DPs: 2
+  SCC { #3 #4 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... succeeded.
+      s 	w: [0,1;1,0] * x1 + [1;1]
+      minus	w: [1,1;1,1] * x1 + [1,1;0,0] * x2 + [0;1]
+      #plus	w: [0,1;1,0] * x1 + [1,0;1,0] * x2
+      _ 	w: [0;0]
+      0 	w: [1;0]
+      quot	w: [0;0]
+      #minus	w: [0;0]
+      #_ 	w: [0;0]
+      plus	w: [1,1;1,1] * x1 + [1,1;1,1] * x2 + [1;1]
+      #quot	w: [0;0]
+    USABLE RULES: { 1 2 5..8 }
+    Removed DPs: #3
+Number of SCCs: 1, DPs: 1
+  SCC { #4 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... Mat2b... failed.
+Finding a loop...  failed.

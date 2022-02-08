@@ -1,0 +1,6 @@
+(VAR Y Y' X1 X2 )
+(RULES
+  f(a,Y) -> Y
+  f(Y',b) -> Y'
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

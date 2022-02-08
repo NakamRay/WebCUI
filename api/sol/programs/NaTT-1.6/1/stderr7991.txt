@@ -1,0 +1,4364 @@
+Input TRS:
+    1: active(zeros()) -> mark(cons(0(),zeros()))
+    2: active(u101(tt(),X,Y)) -> mark(u102(isNatKind(X),X,Y))
+    3: active(u102(tt(),U,V)) -> mark(u103(isNatIListKind(V),U,V))
+    4: active(u103(tt(),W,P)) -> mark(u104(isNatIListKind(P),W,P))
+    5: active(u104(tt(),X1,Y1)) -> mark(u105(isNat(X1),Y1))
+    6: active(u105(tt(),U1)) -> mark(u106(isNatIList(U1)))
+    7: active(u106(tt())) -> mark(tt())
+    8: active(u11(tt(),V1)) -> mark(u12(isNatIListKind(V1),V1))
+    9: active(u111(tt(),W1,P1)) -> mark(u112(isNatIListKind(W1),W1,P1))
+    10: active(u112(tt(),X2,Y2)) -> mark(u113(isNat(Y2),X2,Y2))
+    11: active(u113(tt(),U2,V2)) -> mark(u114(isNatKind(V2),U2))
+    12: active(u114(tt(),W2)) -> mark(s(length(W2)))
+    13: active(u12(tt(),P2)) -> mark(u13(isNatList(P2)))
+    14: active(u121(tt(),X3)) -> mark(u122(isNatIListKind(X3)))
+    15: active(u122(tt())) -> mark(nil())
+    16: active(u13(tt())) -> mark(tt())
+    17: active(u131(tt(),Y3,U3,V3)) -> mark(u132(isNatIListKind(Y3),Y3,U3,V3))
+    18: active(u132(tt(),W3,P3,X4)) -> mark(u133(isNat(P3),W3,P3,X4))
+    19: active(u133(tt(),Y4,U4,V4)) -> mark(u134(isNatKind(U4),Y4,U4,V4))
+    20: active(u134(tt(),W4,P4,X5)) -> mark(u135(isNat(X5),W4,P4,X5))
+    21: active(u135(tt(),Y5,U5,V5)) -> mark(u136(isNatKind(V5),Y5,U5,V5))
+    22: active(u136(tt(),W5,P5,X6)) -> mark(cons(X6,take(P5,W5)))
+    23: active(u21(tt(),Y6)) -> mark(u22(isNatKind(Y6),Y6))
+    24: active(u22(tt(),U6)) -> mark(u23(isNat(U6)))
+    25: active(u23(tt())) -> mark(tt())
+    26: active(u31(tt(),V6)) -> mark(u32(isNatIListKind(V6),V6))
+    27: active(u32(tt(),W6)) -> mark(u33(isNatList(W6)))
+    28: active(u33(tt())) -> mark(tt())
+    29: active(u41(tt(),P6,X7)) -> mark(u42(isNatKind(P6),P6,X7))
+    30: active(u42(tt(),Y7,U7)) -> mark(u43(isNatIListKind(U7),Y7,U7))
+    31: active(u43(tt(),V7,W7)) -> mark(u44(isNatIListKind(W7),V7,W7))
+    32: active(u44(tt(),P7,X8)) -> mark(u45(isNat(P7),X8))
+    33: active(u45(tt(),Y8)) -> mark(u46(isNatIList(Y8)))
+    34: active(u46(tt())) -> mark(tt())
+    35: active(u51(tt(),U8)) -> mark(u52(isNatIListKind(U8)))
+    36: active(u52(tt())) -> mark(tt())
+    37: active(u61(tt(),V8)) -> mark(u62(isNatIListKind(V8)))
+    38: active(u62(tt())) -> mark(tt())
+    39: active(u71(tt())) -> mark(tt())
+    40: active(u81(tt())) -> mark(tt())
+    41: active(u91(tt(),W8,P8)) -> mark(u92(isNatKind(W8),W8,P8))
+    42: active(u92(tt(),X9,Y9)) -> mark(u93(isNatIListKind(Y9),X9,Y9))
+    43: active(u93(tt(),U9,V9)) -> mark(u94(isNatIListKind(V9),U9,V9))
+    44: active(u94(tt(),W9,P9)) -> mark(u95(isNat(W9),P9))
+    45: active(u95(tt(),X10)) -> mark(u96(isNatList(X10)))
+    46: active(u96(tt())) -> mark(tt())
+    47: active(isNat(0())) -> mark(tt())
+    48: active(isNat(length(Y10))) -> mark(u11(isNatIListKind(Y10),Y10))
+    49: active(isNat(s(U10))) -> mark(u21(isNatKind(U10),U10))
+    50: active(isNatIList(V10)) -> mark(u31(isNatIListKind(V10),V10))
+    51: active(isNatIList(zeros())) -> mark(tt())
+    52: active(isNatIList(cons(W10,P10))) -> mark(u41(isNatKind(W10),W10,P10))
+    53: active(isNatIListKind(nil())) -> mark(tt())
+    54: active(isNatIListKind(zeros())) -> mark(tt())
+    55: active(isNatIListKind(cons(X11,Y11))) -> mark(u51(isNatKind(X11),Y11))
+    56: active(isNatIListKind(take(U11,V11))) -> mark(u61(isNatKind(U11),V11))
+    57: active(isNatKind(0())) -> mark(tt())
+    58: active(isNatKind(length(W11))) -> mark(u71(isNatIListKind(W11)))
+    59: active(isNatKind(s(P11))) -> mark(u81(isNatKind(P11)))
+    60: active(isNatList(nil())) -> mark(tt())
+    61: active(isNatList(cons(X12,Y12))) -> mark(u91(isNatKind(X12),X12,Y12))
+    62: active(isNatList(take(U12,V12))) -> mark(u101(isNatKind(U12),U12,V12))
+    63: active(length(nil())) -> mark(0())
+    64: active(length(cons(W12,P12))) -> mark(u111(isNatList(P12),P12,W12))
+    65: active(take(0(),X13)) -> mark(u121(isNatIList(X13),X13))
+    66: active(take(s(Y13),cons(U13,V13))) -> mark(u131(isNatIList(V13),V13,Y13,U13))
+    67: mark(zeros()) -> active(zeros())
+    68: mark(cons(W13,P13)) -> active(cons(mark(W13),P13))
+    69: mark(0()) -> active(0())
+    70: mark(u101(X14,Y14,U14)) -> active(u101(mark(X14),Y14,U14))
+    71: mark(tt()) -> active(tt())
+    72: mark(u102(V14,W14,P14)) -> active(u102(mark(V14),W14,P14))
+    73: mark(isNatKind(X15)) -> active(isNatKind(X15))
+    74: mark(u103(Y15,U15,V15)) -> active(u103(mark(Y15),U15,V15))
+    75: mark(isNatIListKind(W15)) -> active(isNatIListKind(W15))
+    76: mark(u104(P15,X16,Y16)) -> active(u104(mark(P15),X16,Y16))
+    77: mark(u105(U16,V16)) -> active(u105(mark(U16),V16))
+    78: mark(isNat(W16)) -> active(isNat(W16))
+    79: mark(u106(P16)) -> active(u106(mark(P16)))
+    80: mark(isNatIList(X17)) -> active(isNatIList(X17))
+    81: mark(u11(Y17,U17)) -> active(u11(mark(Y17),U17))
+    82: mark(u12(V17,W17)) -> active(u12(mark(V17),W17))
+    83: mark(u111(P17,X18,Y18)) -> active(u111(mark(P17),X18,Y18))
+    84: mark(u112(U18,V18,W18)) -> active(u112(mark(U18),V18,W18))
+    85: mark(u113(P18,X19,Y19)) -> active(u113(mark(P18),X19,Y19))
+    86: mark(u114(U19,V19)) -> active(u114(mark(U19),V19))
+    87: mark(s(W19)) -> active(s(mark(W19)))
+    88: mark(length(P19)) -> active(length(mark(P19)))
+    89: mark(u13(X20)) -> active(u13(mark(X20)))
+    90: mark(isNatList(Y20)) -> active(isNatList(Y20))
+    91: mark(u121(U20,V20)) -> active(u121(mark(U20),V20))
+    92: mark(u122(W20)) -> active(u122(mark(W20)))
+    93: mark(nil()) -> active(nil())
+    94: mark(u131(P20,X21,Y21,U21)) -> active(u131(mark(P20),X21,Y21,U21))
+    95: mark(u132(V21,W21,P21,X22)) -> active(u132(mark(V21),W21,P21,X22))
+    96: mark(u133(Y22,U22,V22,W22)) -> active(u133(mark(Y22),U22,V22,W22))
+    97: mark(u134(P22,X23,Y23,U23)) -> active(u134(mark(P22),X23,Y23,U23))
+    98: mark(u135(V23,W23,P23,X24)) -> active(u135(mark(V23),W23,P23,X24))
+    99: mark(u136(Y24,U24,V24,W24)) -> active(u136(mark(Y24),U24,V24,W24))
+    100: mark(take(P24,X25)) -> active(take(mark(P24),mark(X25)))
+    101: mark(u21(Y25,U25)) -> active(u21(mark(Y25),U25))
+    102: mark(u22(V25,W25)) -> active(u22(mark(V25),W25))
+    103: mark(u23(P25)) -> active(u23(mark(P25)))
+    104: mark(u31(X26,Y26)) -> active(u31(mark(X26),Y26))
+    105: mark(u32(U26,V26)) -> active(u32(mark(U26),V26))
+    106: mark(u33(W26)) -> active(u33(mark(W26)))
+    107: mark(u41(P26,X27,Y27)) -> active(u41(mark(P26),X27,Y27))
+    108: mark(u42(U27,V27,W27)) -> active(u42(mark(U27),V27,W27))
+    109: mark(u43(P27,X28,Y28)) -> active(u43(mark(P27),X28,Y28))
+    110: mark(u44(U28,V28,W28)) -> active(u44(mark(U28),V28,W28))
+    111: mark(u45(P28,X29)) -> active(u45(mark(P28),X29))
+    112: mark(u46(Y29)) -> active(u46(mark(Y29)))
+    113: mark(u51(U29,V29)) -> active(u51(mark(U29),V29))
+    114: mark(u52(W29)) -> active(u52(mark(W29)))
+    115: mark(u61(P29,X30)) -> active(u61(mark(P29),X30))
+    116: mark(u62(Y30)) -> active(u62(mark(Y30)))
+    117: mark(u71(U30)) -> active(u71(mark(U30)))
+    118: mark(u81(V30)) -> active(u81(mark(V30)))
+    119: mark(u91(W30,P30,X31)) -> active(u91(mark(W30),P30,X31))
+    120: mark(u92(Y31,U31,V31)) -> active(u92(mark(Y31),U31,V31))
+    121: mark(u93(W31,P31,X32)) -> active(u93(mark(W31),P31,X32))
+    122: mark(u94(Y32,U32,V32)) -> active(u94(mark(Y32),U32,V32))
+    123: mark(u95(W32,P32)) -> active(u95(mark(W32),P32))
+    124: mark(u96(X33)) -> active(u96(mark(X33)))
+    125: cons(mark(Y33),U33) -> cons(Y33,U33)
+    126: cons(V33,mark(W33)) -> cons(V33,W33)
+    127: cons(active(P33),X34) -> cons(P33,X34)
+    128: cons(Y34,active(U34)) -> cons(Y34,U34)
+    129: u101(mark(V34),W34,P34) -> u101(V34,W34,P34)
+    130: u101(X35,mark(Y35),U35) -> u101(X35,Y35,U35)
+    131: u101(V35,W35,mark(P35)) -> u101(V35,W35,P35)
+    132: u101(active(X36),Y36,U36) -> u101(X36,Y36,U36)
+    133: u101(V36,active(W36),P36) -> u101(V36,W36,P36)
+    134: u101(X37,Y37,active(U37)) -> u101(X37,Y37,U37)
+    135: u102(mark(V37),W37,P37) -> u102(V37,W37,P37)
+    136: u102(X38,mark(Y38),U38) -> u102(X38,Y38,U38)
+    137: u102(V38,W38,mark(P38)) -> u102(V38,W38,P38)
+    138: u102(active(X39),Y39,U39) -> u102(X39,Y39,U39)
+    139: u102(V39,active(W39),P39) -> u102(V39,W39,P39)
+    140: u102(X40,Y40,active(U40)) -> u102(X40,Y40,U40)
+    141: isNatKind(mark(V40)) -> isNatKind(V40)
+    142: isNatKind(active(W40)) -> isNatKind(W40)
+    143: u103(mark(P40),X41,Y41) -> u103(P40,X41,Y41)
+    144: u103(U41,mark(V41),W41) -> u103(U41,V41,W41)
+    145: u103(P41,X42,mark(Y42)) -> u103(P41,X42,Y42)
+    146: u103(active(U42),V42,W42) -> u103(U42,V42,W42)
+    147: u103(P42,active(X43),Y43) -> u103(P42,X43,Y43)
+    148: u103(U43,V43,active(W43)) -> u103(U43,V43,W43)
+    149: isNatIListKind(mark(P43)) -> isNatIListKind(P43)
+    150: isNatIListKind(active(X44)) -> isNatIListKind(X44)
+    151: u104(mark(Y44),U44,V44) -> u104(Y44,U44,V44)
+    152: u104(W44,mark(P44),X45) -> u104(W44,P44,X45)
+    153: u104(Y45,U45,mark(V45)) -> u104(Y45,U45,V45)
+    154: u104(active(W45),P45,X46) -> u104(W45,P45,X46)
+    155: u104(Y46,active(U46),V46) -> u104(Y46,U46,V46)
+    156: u104(W46,P46,active(X47)) -> u104(W46,P46,X47)
+    157: u105(mark(Y47),U47) -> u105(Y47,U47)
+    158: u105(V47,mark(W47)) -> u105(V47,W47)
+    159: u105(active(P47),X48) -> u105(P47,X48)
+    160: u105(Y48,active(U48)) -> u105(Y48,U48)
+    161: isNat(mark(V48)) -> isNat(V48)
+    162: isNat(active(W48)) -> isNat(W48)
+    163: u106(mark(P48)) -> u106(P48)
+    164: u106(active(X49)) -> u106(X49)
+    165: isNatIList(mark(Y49)) -> isNatIList(Y49)
+    166: isNatIList(active(U49)) -> isNatIList(U49)
+    167: u11(mark(V49),W49) -> u11(V49,W49)
+    168: u11(P49,mark(X50)) -> u11(P49,X50)
+    169: u11(active(Y50),U50) -> u11(Y50,U50)
+    170: u11(V50,active(W50)) -> u11(V50,W50)
+    171: u12(mark(P50),X51) -> u12(P50,X51)
+    172: u12(Y51,mark(U51)) -> u12(Y51,U51)
+    173: u12(active(V51),W51) -> u12(V51,W51)
+    174: u12(P51,active(X52)) -> u12(P51,X52)
+    175: u111(mark(Y52),U52,V52) -> u111(Y52,U52,V52)
+    176: u111(W52,mark(P52),X53) -> u111(W52,P52,X53)
+    177: u111(Y53,U53,mark(V53)) -> u111(Y53,U53,V53)
+    178: u111(active(W53),P53,X54) -> u111(W53,P53,X54)
+    179: u111(Y54,active(U54),V54) -> u111(Y54,U54,V54)
+    180: u111(W54,P54,active(X55)) -> u111(W54,P54,X55)
+    181: u112(mark(Y55),U55,V55) -> u112(Y55,U55,V55)
+    182: u112(W55,mark(P55),X56) -> u112(W55,P55,X56)
+    183: u112(Y56,U56,mark(V56)) -> u112(Y56,U56,V56)
+    184: u112(active(W56),P56,X57) -> u112(W56,P56,X57)
+    185: u112(Y57,active(U57),V57) -> u112(Y57,U57,V57)
+    186: u112(W57,P57,active(X58)) -> u112(W57,P57,X58)
+    187: u113(mark(Y58),U58,V58) -> u113(Y58,U58,V58)
+    188: u113(W58,mark(P58),X59) -> u113(W58,P58,X59)
+    189: u113(Y59,U59,mark(V59)) -> u113(Y59,U59,V59)
+    190: u113(active(W59),P59,X60) -> u113(W59,P59,X60)
+    191: u113(Y60,active(U60),V60) -> u113(Y60,U60,V60)
+    192: u113(W60,P60,active(X61)) -> u113(W60,P60,X61)
+    193: u114(mark(Y61),U61) -> u114(Y61,U61)
+    194: u114(V61,mark(W61)) -> u114(V61,W61)
+    195: u114(active(P61),X62) -> u114(P61,X62)
+    196: u114(Y62,active(U62)) -> u114(Y62,U62)
+    197: s(mark(V62)) -> s(V62)
+    198: s(active(W62)) -> s(W62)
+    199: length(mark(P62)) -> length(P62)
+    200: length(active(X63)) -> length(X63)
+    201: u13(mark(Y63)) -> u13(Y63)
+    202: u13(active(U63)) -> u13(U63)
+    203: isNatList(mark(V63)) -> isNatList(V63)
+    204: isNatList(active(W63)) -> isNatList(W63)
+    205: u121(mark(P63),X64) -> u121(P63,X64)
+    206: u121(Y64,mark(U64)) -> u121(Y64,U64)
+    207: u121(active(V64),W64) -> u121(V64,W64)
+    208: u121(P64,active(X65)) -> u121(P64,X65)
+    209: u122(mark(Y65)) -> u122(Y65)
+    210: u122(active(U65)) -> u122(U65)
+    211: u131(mark(V65),W65,P65,X66) -> u131(V65,W65,P65,X66)
+    212: u131(Y66,mark(U66),V66,W66) -> u131(Y66,U66,V66,W66)
+    213: u131(P66,X67,mark(Y67),U67) -> u131(P66,X67,Y67,U67)
+    214: u131(V67,W67,P67,mark(X68)) -> u131(V67,W67,P67,X68)
+    215: u131(active(Y68),U68,V68,W68) -> u131(Y68,U68,V68,W68)
+    216: u131(P68,active(X69),Y69,U69) -> u131(P68,X69,Y69,U69)
+    217: u131(V69,W69,active(P69),X70) -> u131(V69,W69,P69,X70)
+    218: u131(Y70,U70,V70,active(W70)) -> u131(Y70,U70,V70,W70)
+    219: u132(mark(P70),X71,Y71,U71) -> u132(P70,X71,Y71,U71)
+    220: u132(V71,mark(W71),P71,X72) -> u132(V71,W71,P71,X72)
+    221: u132(Y72,U72,mark(V72),W72) -> u132(Y72,U72,V72,W72)
+    222: u132(P72,X73,Y73,mark(U73)) -> u132(P72,X73,Y73,U73)
+    223: u132(active(V73),W73,P73,X74) -> u132(V73,W73,P73,X74)
+    224: u132(Y74,active(U74),V74,W74) -> u132(Y74,U74,V74,W74)
+    225: u132(P74,X75,active(Y75),U75) -> u132(P74,X75,Y75,U75)
+    226: u132(V75,W75,P75,active(X76)) -> u132(V75,W75,P75,X76)
+    227: u133(mark(Y76),U76,V76,W76) -> u133(Y76,U76,V76,W76)
+    228: u133(P76,mark(X77),Y77,U77) -> u133(P76,X77,Y77,U77)
+    229: u133(V77,W77,mark(P77),X78) -> u133(V77,W77,P77,X78)
+    230: u133(Y78,U78,V78,mark(W78)) -> u133(Y78,U78,V78,W78)
+    231: u133(active(P78),X79,Y79,U79) -> u133(P78,X79,Y79,U79)
+    232: u133(V79,active(W79),P79,X80) -> u133(V79,W79,P79,X80)
+    233: u133(Y80,U80,active(V80),W80) -> u133(Y80,U80,V80,W80)
+    234: u133(P80,X81,Y81,active(U81)) -> u133(P80,X81,Y81,U81)
+    235: u134(mark(V81),W81,P81,X82) -> u134(V81,W81,P81,X82)
+    236: u134(Y82,mark(U82),V82,W82) -> u134(Y82,U82,V82,W82)
+    237: u134(P82,X83,mark(Y83),U83) -> u134(P82,X83,Y83,U83)
+    238: u134(V83,W83,P83,mark(X84)) -> u134(V83,W83,P83,X84)
+    239: u134(active(Y84),U84,V84,W84) -> u134(Y84,U84,V84,W84)
+    240: u134(P84,active(X85),Y85,U85) -> u134(P84,X85,Y85,U85)
+    241: u134(V85,W85,active(P85),X86) -> u134(V85,W85,P85,X86)
+    242: u134(Y86,U86,V86,active(W86)) -> u134(Y86,U86,V86,W86)
+    243: u135(mark(P86),X87,Y87,U87) -> u135(P86,X87,Y87,U87)
+    244: u135(V87,mark(W87),P87,X88) -> u135(V87,W87,P87,X88)
+    245: u135(Y88,U88,mark(V88),W88) -> u135(Y88,U88,V88,W88)
+    246: u135(P88,X89,Y89,mark(U89)) -> u135(P88,X89,Y89,U89)
+    247: u135(active(V89),W89,P89,X90) -> u135(V89,W89,P89,X90)
+    248: u135(Y90,active(U90),V90,W90) -> u135(Y90,U90,V90,W90)
+    249: u135(P90,X91,active(Y91),U91) -> u135(P90,X91,Y91,U91)
+    250: u135(V91,W91,P91,active(X92)) -> u135(V91,W91,P91,X92)
+    251: u136(mark(Y92),U92,V92,W92) -> u136(Y92,U92,V92,W92)
+    252: u136(P92,mark(X93),Y93,U93) -> u136(P92,X93,Y93,U93)
+    253: u136(V93,W93,mark(P93),X94) -> u136(V93,W93,P93,X94)
+    254: u136(Y94,U94,V94,mark(W94)) -> u136(Y94,U94,V94,W94)
+    255: u136(active(P94),X95,Y95,U95) -> u136(P94,X95,Y95,U95)
+    256: u136(V95,active(W95),P95,X96) -> u136(V95,W95,P95,X96)
+    257: u136(Y96,U96,active(V96),W96) -> u136(Y96,U96,V96,W96)
+    258: u136(P96,X97,Y97,active(U97)) -> u136(P96,X97,Y97,U97)
+    259: take(mark(V97),W97) -> take(V97,W97)
+    260: take(P97,mark(X98)) -> take(P97,X98)
+    261: take(active(Y98),U98) -> take(Y98,U98)
+    262: take(V98,active(W98)) -> take(V98,W98)
+    263: u21(mark(P98),X99) -> u21(P98,X99)
+    264: u21(Y99,mark(U99)) -> u21(Y99,U99)
+    265: u21(active(V99),W99) -> u21(V99,W99)
+    266: u21(P99,active(X100)) -> u21(P99,X100)
+    267: u22(mark(Y100),U100) -> u22(Y100,U100)
+    268: u22(V100,mark(W100)) -> u22(V100,W100)
+    269: u22(active(P100),X101) -> u22(P100,X101)
+    270: u22(Y101,active(U101)) -> u22(Y101,U101)
+    271: u23(mark(V101)) -> u23(V101)
+    272: u23(active(W101)) -> u23(W101)
+    273: u31(mark(P101),X102) -> u31(P101,X102)
+    274: u31(Y102,mark(U102)) -> u31(Y102,U102)
+    275: u31(active(V102),W102) -> u31(V102,W102)
+    276: u31(P102,active(X103)) -> u31(P102,X103)
+    277: u32(mark(Y103),U103) -> u32(Y103,U103)
+    278: u32(V103,mark(W103)) -> u32(V103,W103)
+    279: u32(active(P103),X104) -> u32(P103,X104)
+    280: u32(Y104,active(U104)) -> u32(Y104,U104)
+    281: u33(mark(V104)) -> u33(V104)
+    282: u33(active(W104)) -> u33(W104)
+    283: u41(mark(P104),X105,Y105) -> u41(P104,X105,Y105)
+    284: u41(U105,mark(V105),W105) -> u41(U105,V105,W105)
+    285: u41(P105,X106,mark(Y106)) -> u41(P105,X106,Y106)
+    286: u41(active(U106),V106,W106) -> u41(U106,V106,W106)
+    287: u41(P106,active(X107),Y107) -> u41(P106,X107,Y107)
+    288: u41(U107,V107,active(W107)) -> u41(U107,V107,W107)
+    289: u42(mark(P107),X108,Y108) -> u42(P107,X108,Y108)
+    290: u42(U108,mark(V108),W108) -> u42(U108,V108,W108)
+    291: u42(P108,X109,mark(Y109)) -> u42(P108,X109,Y109)
+    292: u42(active(U109),V109,W109) -> u42(U109,V109,W109)
+    293: u42(P109,active(X110),Y110) -> u42(P109,X110,Y110)
+    294: u42(U110,V110,active(W110)) -> u42(U110,V110,W110)
+    295: u43(mark(P110),X111,Y111) -> u43(P110,X111,Y111)
+    296: u43(U111,mark(V111),W111) -> u43(U111,V111,W111)
+    297: u43(P111,X112,mark(Y112)) -> u43(P111,X112,Y112)
+    298: u43(active(U112),V112,W112) -> u43(U112,V112,W112)
+    299: u43(P112,active(X113),Y113) -> u43(P112,X113,Y113)
+    300: u43(U113,V113,active(W113)) -> u43(U113,V113,W113)
+    301: u44(mark(P113),X114,Y114) -> u44(P113,X114,Y114)
+    302: u44(U114,mark(V114),W114) -> u44(U114,V114,W114)
+    303: u44(P114,X115,mark(Y115)) -> u44(P114,X115,Y115)
+    304: u44(active(U115),V115,W115) -> u44(U115,V115,W115)
+    305: u44(P115,active(X116),Y116) -> u44(P115,X116,Y116)
+    306: u44(U116,V116,active(W116)) -> u44(U116,V116,W116)
+    307: u45(mark(P116),X117) -> u45(P116,X117)
+    308: u45(Y117,mark(U117)) -> u45(Y117,U117)
+    309: u45(active(V117),W117) -> u45(V117,W117)
+    310: u45(P117,active(X118)) -> u45(P117,X118)
+    311: u46(mark(Y118)) -> u46(Y118)
+    312: u46(active(U118)) -> u46(U118)
+    313: u51(mark(V118),W118) -> u51(V118,W118)
+    314: u51(P118,mark(X119)) -> u51(P118,X119)
+    315: u51(active(Y119),U119) -> u51(Y119,U119)
+    316: u51(V119,active(W119)) -> u51(V119,W119)
+    317: u52(mark(P119)) -> u52(P119)
+    318: u52(active(X120)) -> u52(X120)
+    319: u61(mark(Y120),U120) -> u61(Y120,U120)
+    320: u61(V120,mark(W120)) -> u61(V120,W120)
+    321: u61(active(P120),X121) -> u61(P120,X121)
+    322: u61(Y121,active(U121)) -> u61(Y121,U121)
+    323: u62(mark(V121)) -> u62(V121)
+    324: u62(active(W121)) -> u62(W121)
+    325: u71(mark(P121)) -> u71(P121)
+    326: u71(active(X122)) -> u71(X122)
+    327: u81(mark(Y122)) -> u81(Y122)
+    328: u81(active(U122)) -> u81(U122)
+    329: u91(mark(V122),W122,P122) -> u91(V122,W122,P122)
+    330: u91(X123,mark(Y123),U123) -> u91(X123,Y123,U123)
+    331: u91(V123,W123,mark(P123)) -> u91(V123,W123,P123)
+    332: u91(active(X124),Y124,U124) -> u91(X124,Y124,U124)
+    333: u91(V124,active(W124),P124) -> u91(V124,W124,P124)
+    334: u91(X125,Y125,active(U125)) -> u91(X125,Y125,U125)
+    335: u92(mark(V125),W125,P125) -> u92(V125,W125,P125)
+    336: u92(X126,mark(Y126),U126) -> u92(X126,Y126,U126)
+    337: u92(V126,W126,mark(P126)) -> u92(V126,W126,P126)
+    338: u92(active(X127),Y127,U127) -> u92(X127,Y127,U127)
+    339: u92(V127,active(W127),P127) -> u92(V127,W127,P127)
+    340: u92(X128,Y128,active(U128)) -> u92(X128,Y128,U128)
+    341: u93(mark(V128),W128,P128) -> u93(V128,W128,P128)
+    342: u93(X129,mark(Y129),U129) -> u93(X129,Y129,U129)
+    343: u93(V129,W129,mark(P129)) -> u93(V129,W129,P129)
+    344: u93(active(X130),Y130,U130) -> u93(X130,Y130,U130)
+    345: u93(V130,active(W130),P130) -> u93(V130,W130,P130)
+    346: u93(X131,Y131,active(U131)) -> u93(X131,Y131,U131)
+    347: u94(mark(V131),W131,P131) -> u94(V131,W131,P131)
+    348: u94(X132,mark(Y132),U132) -> u94(X132,Y132,U132)
+    349: u94(V132,W132,mark(P132)) -> u94(V132,W132,P132)
+    350: u94(active(X133),Y133,U133) -> u94(X133,Y133,U133)
+    351: u94(V133,active(W133),P133) -> u94(V133,W133,P133)
+    352: u94(X134,Y134,active(U134)) -> u94(X134,Y134,U134)
+    353: u95(mark(V134),W134) -> u95(V134,W134)
+    354: u95(P134,mark(X135)) -> u95(P134,X135)
+    355: u95(active(Y135),U135) -> u95(Y135,U135)
+    356: u95(V135,active(W135)) -> u95(V135,W135)
+    357: u96(mark(P135)) -> u96(P135)
+    358: u96(active(X136)) -> u96(X136)
+    359: _(X1,X2) -> X1
+    360: _(X1,X2) -> X2
+Number of strict rules: 360
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #active(u101(tt(),X,Y)) -> #mark(u102(isNatKind(X),X,Y))
+   #2: #active(u101(tt(),X,Y)) -> #u102(isNatKind(X),X,Y)
+   #3: #active(u101(tt(),X,Y)) -> #isNatKind(X)
+   #4: #mark(u114(U19,V19)) -> #active(u114(mark(U19),V19))
+   #5: #mark(u114(U19,V19)) -> #u114(mark(U19),V19)
+   #6: #mark(u114(U19,V19)) -> #mark(U19)
+   #7: #active(u93(tt(),U9,V9)) -> #mark(u94(isNatIListKind(V9),U9,V9))
+   #8: #active(u93(tt(),U9,V9)) -> #u94(isNatIListKind(V9),U9,V9)
+   #9: #active(u93(tt(),U9,V9)) -> #isNatIListKind(V9)
+   #10: #active(u41(tt(),P6,X7)) -> #mark(u42(isNatKind(P6),P6,X7))
+   #11: #active(u41(tt(),P6,X7)) -> #u42(isNatKind(P6),P6,X7)
+   #12: #active(u41(tt(),P6,X7)) -> #isNatKind(P6)
+   #13: #u134(V83,W83,P83,mark(X84)) -> #u134(V83,W83,P83,X84)
+   #14: #u92(X126,mark(Y126),U126) -> #u92(X126,Y126,U126)
+   #15: #u21(mark(P98),X99) -> #u21(P98,X99)
+   #16: #active(u51(tt(),U8)) -> #mark(u52(isNatIListKind(U8)))
+   #17: #active(u51(tt(),U8)) -> #u52(isNatIListKind(U8))
+   #18: #active(u51(tt(),U8)) -> #isNatIListKind(U8)
+   #19: #u92(X128,Y128,active(U128)) -> #u92(X128,Y128,U128)
+   #20: #mark(u111(P17,X18,Y18)) -> #active(u111(mark(P17),X18,Y18))
+   #21: #mark(u111(P17,X18,Y18)) -> #u111(mark(P17),X18,Y18)
+   #22: #mark(u111(P17,X18,Y18)) -> #mark(P17)
+   #23: #active(take(s(Y13),cons(U13,V13))) -> #mark(u131(isNatIList(V13),V13,Y13,U13))
+   #24: #active(take(s(Y13),cons(U13,V13))) -> #u131(isNatIList(V13),V13,Y13,U13)
+   #25: #active(take(s(Y13),cons(U13,V13))) -> #isNatIList(V13)
+   #26: #u111(Y53,U53,mark(V53)) -> #u111(Y53,U53,V53)
+   #27: #active(u96(tt())) -> #mark(tt())
+   #28: #u133(V77,W77,mark(P77),X78) -> #u133(V77,W77,P77,X78)
+   #29: #u62(active(W121)) -> #u62(W121)
+   #30: #u41(P106,active(X107),Y107) -> #u41(P106,X107,Y107)
+   #31: #u136(V93,W93,mark(P93),X94) -> #u136(V93,W93,P93,X94)
+   #32: #active(u92(tt(),X9,Y9)) -> #mark(u93(isNatIListKind(Y9),X9,Y9))
+   #33: #active(u92(tt(),X9,Y9)) -> #u93(isNatIListKind(Y9),X9,Y9)
+   #34: #active(u92(tt(),X9,Y9)) -> #isNatIListKind(Y9)
+   #35: #u42(U108,mark(V108),W108) -> #u42(U108,V108,W108)
+   #36: #mark(u61(P29,X30)) -> #active(u61(mark(P29),X30))
+   #37: #mark(u61(P29,X30)) -> #u61(mark(P29),X30)
+   #38: #mark(u61(P29,X30)) -> #mark(P29)
+   #39: #u133(V79,active(W79),P79,X80) -> #u133(V79,W79,P79,X80)
+   #40: #s(active(W62)) -> #s(W62)
+   #41: #isNatIListKind(mark(P43)) -> #isNatIListKind(P43)
+   #42: #mark(u132(V21,W21,P21,X22)) -> #active(u132(mark(V21),W21,P21,X22))
+   #43: #mark(u132(V21,W21,P21,X22)) -> #u132(mark(V21),W21,P21,X22)
+   #44: #mark(u132(V21,W21,P21,X22)) -> #mark(V21)
+   #45: #u41(mark(P104),X105,Y105) -> #u41(P104,X105,Y105)
+   #46: #active(u91(tt(),W8,P8)) -> #mark(u92(isNatKind(W8),W8,P8))
+   #47: #active(u91(tt(),W8,P8)) -> #u92(isNatKind(W8),W8,P8)
+   #48: #active(u91(tt(),W8,P8)) -> #isNatKind(W8)
+   #49: #u81(mark(Y122)) -> #u81(Y122)
+   #50: #u135(Y90,active(U90),V90,W90) -> #u135(Y90,U90,V90,W90)
+   #51: #u21(active(V99),W99) -> #u21(V99,W99)
+   #52: #u136(P92,mark(X93),Y93,U93) -> #u136(P92,X93,Y93,U93)
+   #53: #active(u61(tt(),V8)) -> #mark(u62(isNatIListKind(V8)))
+   #54: #active(u61(tt(),V8)) -> #u62(isNatIListKind(V8))
+   #55: #active(u61(tt(),V8)) -> #isNatIListKind(V8)
+   #56: #mark(u52(W29)) -> #active(u52(mark(W29)))
+   #57: #mark(u52(W29)) -> #u52(mark(W29))
+   #58: #mark(u52(W29)) -> #mark(W29)
+   #59: #mark(u136(Y24,U24,V24,W24)) -> #active(u136(mark(Y24),U24,V24,W24))
+   #60: #mark(u136(Y24,U24,V24,W24)) -> #u136(mark(Y24),U24,V24,W24)
+   #61: #mark(u136(Y24,U24,V24,W24)) -> #mark(Y24)
+   #62: #u133(Y78,U78,V78,mark(W78)) -> #u133(Y78,U78,V78,W78)
+   #63: #u106(mark(P48)) -> #u106(P48)
+   #64: #mark(u134(P22,X23,Y23,U23)) -> #active(u134(mark(P22),X23,Y23,U23))
+   #65: #mark(u134(P22,X23,Y23,U23)) -> #u134(mark(P22),X23,Y23,U23)
+   #66: #mark(u134(P22,X23,Y23,U23)) -> #mark(P22)
+   #67: #u33(active(W104)) -> #u33(W104)
+   #68: #mark(u121(U20,V20)) -> #active(u121(mark(U20),V20))
+   #69: #mark(u121(U20,V20)) -> #u121(mark(U20),V20)
+   #70: #mark(u121(U20,V20)) -> #mark(U20)
+   #71: #mark(isNatKind(X15)) -> #active(isNatKind(X15))
+   #72: #active(isNat(0())) -> #mark(tt())
+   #73: #u46(mark(Y118)) -> #u46(Y118)
+   #74: #u131(Y70,U70,V70,active(W70)) -> #u131(Y70,U70,V70,W70)
+   #75: #u113(Y60,active(U60),V60) -> #u113(Y60,U60,V60)
+   #76: #u134(P84,active(X85),Y85,U85) -> #u134(P84,X85,Y85,U85)
+   #77: #active(isNatIListKind(nil())) -> #mark(tt())
+   #78: #take(P97,mark(X98)) -> #take(P97,X98)
+   #79: #u42(P109,active(X110),Y110) -> #u42(P109,X110,Y110)
+   #80: #u12(active(V51),W51) -> #u12(V51,W51)
+   #81: #u133(P80,X81,Y81,active(U81)) -> #u133(P80,X81,Y81,U81)
+   #82: #mark(tt()) -> #active(tt())
+   #83: #u103(P42,active(X43),Y43) -> #u103(P42,X43,Y43)
+   #84: #u102(V39,active(W39),P39) -> #u102(V39,W39,P39)
+   #85: #active(isNat(length(Y10))) -> #mark(u11(isNatIListKind(Y10),Y10))
+   #86: #active(isNat(length(Y10))) -> #u11(isNatIListKind(Y10),Y10)
+   #87: #active(isNat(length(Y10))) -> #isNatIListKind(Y10)
+   #88: #u22(mark(Y100),U100) -> #u22(Y100,U100)
+   #89: #mark(u95(W32,P32)) -> #active(u95(mark(W32),P32))
+   #90: #mark(u95(W32,P32)) -> #u95(mark(W32),P32)
+   #91: #mark(u95(W32,P32)) -> #mark(W32)
+   #92: #mark(isNatIListKind(W15)) -> #active(isNatIListKind(W15))
+   #93: #u136(active(P94),X95,Y95,U95) -> #u136(P94,X95,Y95,U95)
+   #94: #u111(active(W53),P53,X54) -> #u111(W53,P53,X54)
+   #95: #mark(u46(Y29)) -> #active(u46(mark(Y29)))
+   #96: #mark(u46(Y29)) -> #u46(mark(Y29))
+   #97: #mark(u46(Y29)) -> #mark(Y29)
+   #98: #mark(u103(Y15,U15,V15)) -> #active(u103(mark(Y15),U15,V15))
+   #99: #mark(u103(Y15,U15,V15)) -> #u103(mark(Y15),U15,V15)
+   #100: #mark(u103(Y15,U15,V15)) -> #mark(Y15)
+   #101: #u11(V50,active(W50)) -> #u11(V50,W50)
+   #102: #active(isNatKind(length(W11))) -> #mark(u71(isNatIListKind(W11)))
+   #103: #active(isNatKind(length(W11))) -> #u71(isNatIListKind(W11))
+   #104: #active(isNatKind(length(W11))) -> #isNatIListKind(W11)
+   #105: #u32(V103,mark(W103)) -> #u32(V103,W103)
+   #106: #u136(V95,active(W95),P95,X96) -> #u136(V95,W95,P95,X96)
+   #107: #u102(active(X39),Y39,U39) -> #u102(X39,Y39,U39)
+   #108: #mark(u51(U29,V29)) -> #active(u51(mark(U29),V29))
+   #109: #mark(u51(U29,V29)) -> #u51(mark(U29),V29)
+   #110: #mark(u51(U29,V29)) -> #mark(U29)
+   #111: #u105(V47,mark(W47)) -> #u105(V47,W47)
+   #112: #active(isNatList(cons(X12,Y12))) -> #mark(u91(isNatKind(X12),X12,Y12))
+   #113: #active(isNatList(cons(X12,Y12))) -> #u91(isNatKind(X12),X12,Y12)
+   #114: #active(isNatList(cons(X12,Y12))) -> #isNatKind(X12)
+   #115: #active(u62(tt())) -> #mark(tt())
+   #116: #u94(X132,mark(Y132),U132) -> #u94(X132,Y132,U132)
+   #117: #u93(X129,mark(Y129),U129) -> #u93(X129,Y129,U129)
+   #118: #u104(mark(Y44),U44,V44) -> #u104(Y44,U44,V44)
+   #119: #u104(active(W45),P45,X46) -> #u104(W45,P45,X46)
+   #120: #u43(U113,V113,active(W113)) -> #u43(U113,V113,W113)
+   #121: #mark(u62(Y30)) -> #active(u62(mark(Y30)))
+   #122: #mark(u62(Y30)) -> #u62(mark(Y30))
+   #123: #mark(u62(Y30)) -> #mark(Y30)
+   #124: #u45(Y117,mark(U117)) -> #u45(Y117,U117)
+   #125: #u104(Y46,active(U46),V46) -> #u104(Y46,U46,V46)
+   #126: #active(u105(tt(),U1)) -> #mark(u106(isNatIList(U1)))
+   #127: #active(u105(tt(),U1)) -> #u106(isNatIList(U1))
+   #128: #active(u105(tt(),U1)) -> #isNatIList(U1)
+   #129: #u51(P118,mark(X119)) -> #u51(P118,X119)
+   #130: #u132(active(V73),W73,P73,X74) -> #u132(V73,W73,P73,X74)
+   #131: #u114(Y62,active(U62)) -> #u114(Y62,U62)
+   #132: #u61(active(P120),X121) -> #u61(P120,X121)
+   #133: #isNatIList(mark(Y49)) -> #isNatIList(Y49)
+   #134: #active(isNatKind(s(P11))) -> #mark(u81(isNatKind(P11)))
+   #135: #active(isNatKind(s(P11))) -> #u81(isNatKind(P11))
+   #136: #active(isNatKind(s(P11))) -> #isNatKind(P11)
+   #137: #u93(V130,active(W130),P130) -> #u93(V130,W130,P130)
+   #138: #u92(V127,active(W127),P127) -> #u92(V127,W127,P127)
+   #139: #u114(mark(Y61),U61) -> #u114(Y61,U61)
+   #140: #mark(u44(U28,V28,W28)) -> #active(u44(mark(U28),V28,W28))
+   #141: #mark(u44(U28,V28,W28)) -> #u44(mark(U28),V28,W28)
+   #142: #mark(u44(U28,V28,W28)) -> #mark(U28)
+   #143: #u101(active(X36),Y36,U36) -> #u101(X36,Y36,U36)
+   #144: #active(isNatIListKind(cons(X11,Y11))) -> #mark(u51(isNatKind(X11),Y11))
+   #145: #active(isNatIListKind(cons(X11,Y11))) -> #u51(isNatKind(X11),Y11)
+   #146: #active(isNatIListKind(cons(X11,Y11))) -> #isNatKind(X11)
+   #147: #mark(zeros()) -> #active(zeros())
+   #148: #u122(active(U65)) -> #u122(U65)
+   #149: #active(u81(tt())) -> #mark(tt())
+   #150: #u22(V100,mark(W100)) -> #u22(V100,W100)
+   #151: #u91(V123,W123,mark(P123)) -> #u91(V123,W123,P123)
+   #152: #u61(Y121,active(U121)) -> #u61(Y121,U121)
+   #153: #mark(isNatList(Y20)) -> #active(isNatList(Y20))
+   #154: #u44(active(U115),V115,W115) -> #u44(U115,V115,W115)
+   #155: #u51(V119,active(W119)) -> #u51(V119,W119)
+   #156: #u135(P90,X91,active(Y91),U91) -> #u135(P90,X91,Y91,U91)
+   #157: #u103(active(U42),V42,W42) -> #u103(U42,V42,W42)
+   #158: #u94(mark(V131),W131,P131) -> #u94(V131,W131,P131)
+   #159: #u46(active(U118)) -> #u46(U118)
+   #160: #mark(u41(P26,X27,Y27)) -> #active(u41(mark(P26),X27,Y27))
+   #161: #mark(u41(P26,X27,Y27)) -> #u41(mark(P26),X27,Y27)
+   #162: #mark(u41(P26,X27,Y27)) -> #mark(P26)
+   #163: #active(isNatIList(zeros())) -> #mark(tt())
+   #164: #u93(active(X130),Y130,U130) -> #u93(X130,Y130,U130)
+   #165: #u132(V71,mark(W71),P71,X72) -> #u132(V71,W71,P71,X72)
+   #166: #active(u12(tt(),P2)) -> #mark(u13(isNatList(P2)))
+   #167: #active(u12(tt(),P2)) -> #u13(isNatList(P2))
+   #168: #active(u12(tt(),P2)) -> #isNatList(P2)
+   #169: #active(u111(tt(),W1,P1)) -> #mark(u112(isNatIListKind(W1),W1,P1))
+   #170: #active(u111(tt(),W1,P1)) -> #u112(isNatIListKind(W1),W1,P1)
+   #171: #active(u111(tt(),W1,P1)) -> #isNatIListKind(W1)
+   #172: #u13(active(U63)) -> #u13(U63)
+   #173: #active(u113(tt(),U2,V2)) -> #mark(u114(isNatKind(V2),U2))
+   #174: #active(u113(tt(),U2,V2)) -> #u114(isNatKind(V2),U2)
+   #175: #active(u113(tt(),U2,V2)) -> #isNatKind(V2)
+   #176: #u131(V67,W67,P67,mark(X68)) -> #u131(V67,W67,P67,X68)
+   #177: #mark(u135(V23,W23,P23,X24)) -> #active(u135(mark(V23),W23,P23,X24))
+   #178: #mark(u135(V23,W23,P23,X24)) -> #u135(mark(V23),W23,P23,X24)
+   #179: #mark(u135(V23,W23,P23,X24)) -> #mark(V23)
+   #180: #u43(P112,active(X113),Y113) -> #u43(P112,X113,Y113)
+   #181: #u136(Y96,U96,active(V96),W96) -> #u136(Y96,U96,V96,W96)
+   #182: #u104(W46,P46,active(X47)) -> #u104(W46,P46,X47)
+   #183: #active(isNatKind(0())) -> #mark(tt())
+   #184: #u135(Y88,U88,mark(V88),W88) -> #u135(Y88,U88,V88,W88)
+   #185: #s(mark(V62)) -> #s(V62)
+   #186: #mark(u104(P15,X16,Y16)) -> #active(u104(mark(P15),X16,Y16))
+   #187: #mark(u104(P15,X16,Y16)) -> #u104(mark(P15),X16,Y16)
+   #188: #mark(u104(P15,X16,Y16)) -> #mark(P15)
+   #189: #u11(mark(V49),W49) -> #u11(V49,W49)
+   #190: #u113(active(W59),P59,X60) -> #u113(W59,P59,X60)
+   #191: #mark(u43(P27,X28,Y28)) -> #active(u43(mark(P27),X28,Y28))
+   #192: #mark(u43(P27,X28,Y28)) -> #u43(mark(P27),X28,Y28)
+   #193: #mark(u43(P27,X28,Y28)) -> #mark(P27)
+   #194: #mark(u131(P20,X21,Y21,U21)) -> #active(u131(mark(P20),X21,Y21,U21))
+   #195: #mark(u131(P20,X21,Y21,U21)) -> #u131(mark(P20),X21,Y21,U21)
+   #196: #mark(u131(P20,X21,Y21,U21)) -> #mark(P20)
+   #197: #u94(V133,active(W133),P133) -> #u94(V133,W133,P133)
+   #198: #active(u22(tt(),U6)) -> #mark(u23(isNat(U6)))
+   #199: #active(u22(tt(),U6)) -> #u23(isNat(U6))
+   #200: #active(u22(tt(),U6)) -> #isNat(U6)
+   #201: #u92(V126,W126,mark(P126)) -> #u92(V126,W126,P126)
+   #202: #u101(X37,Y37,active(U37)) -> #u101(X37,Y37,U37)
+   #203: #mark(u101(X14,Y14,U14)) -> #active(u101(mark(X14),Y14,U14))
+   #204: #mark(u101(X14,Y14,U14)) -> #u101(mark(X14),Y14,U14)
+   #205: #mark(u101(X14,Y14,U14)) -> #mark(X14)
+   #206: #u31(mark(P101),X102) -> #u31(P101,X102)
+   #207: #u41(P105,X106,mark(Y106)) -> #u41(P105,X106,Y106)
+   #208: #active(u21(tt(),Y6)) -> #mark(u22(isNatKind(Y6),Y6))
+   #209: #active(u21(tt(),Y6)) -> #u22(isNatKind(Y6),Y6)
+   #210: #active(u21(tt(),Y6)) -> #isNatKind(Y6)
+   #211: #u95(V135,active(W135)) -> #u95(V135,W135)
+   #212: #u134(Y82,mark(U82),V82,W82) -> #u134(Y82,U82,V82,W82)
+   #213: #cons(Y34,active(U34)) -> #cons(Y34,U34)
+   #214: #mark(u11(Y17,U17)) -> #active(u11(mark(Y17),U17))
+   #215: #mark(u11(Y17,U17)) -> #u11(mark(Y17),U17)
+   #216: #mark(u11(Y17,U17)) -> #mark(Y17)
+   #217: #u44(P114,X115,mark(Y115)) -> #u44(P114,X115,Y115)
+   #218: #mark(u81(V30)) -> #active(u81(mark(V30)))
+   #219: #mark(u81(V30)) -> #u81(mark(V30))
+   #220: #mark(u81(V30)) -> #mark(V30)
+   #221: #mark(isNat(W16)) -> #active(isNat(W16))
+   #222: #active(u95(tt(),X10)) -> #mark(u96(isNatList(X10)))
+   #223: #active(u95(tt(),X10)) -> #u96(isNatList(X10))
+   #224: #active(u95(tt(),X10)) -> #isNatList(X10)
+   #225: #u41(U107,V107,active(W107)) -> #u41(U107,V107,W107)
+   #226: #mark(u133(Y22,U22,V22,W22)) -> #active(u133(mark(Y22),U22,V22,W22))
+   #227: #mark(u133(Y22,U22,V22,W22)) -> #u133(mark(Y22),U22,V22,W22)
+   #228: #mark(u133(Y22,U22,V22,W22)) -> #mark(Y22)
+   #229: #isNatList(mark(V63)) -> #isNatList(V63)
+   #230: #u93(X131,Y131,active(U131)) -> #u93(X131,Y131,U131)
+   #231: #u13(mark(Y63)) -> #u13(Y63)
+   #232: #mark(0()) -> #active(0())
+   #233: #u122(mark(Y65)) -> #u122(Y65)
+   #234: #mark(u21(Y25,U25)) -> #active(u21(mark(Y25),U25))
+   #235: #mark(u21(Y25,U25)) -> #u21(mark(Y25),U25)
+   #236: #mark(u21(Y25,U25)) -> #mark(Y25)
+   #237: #active(u114(tt(),W2)) -> #mark(s(length(W2)))
+   #238: #active(u114(tt(),W2)) -> #s(length(W2))
+   #239: #active(u114(tt(),W2)) -> #length(W2)
+   #240: #active(u43(tt(),V7,W7)) -> #mark(u44(isNatIListKind(W7),V7,W7))
+   #241: #active(u43(tt(),V7,W7)) -> #u44(isNatIListKind(W7),V7,W7)
+   #242: #active(u43(tt(),V7,W7)) -> #isNatIListKind(W7)
+   #243: #u93(mark(V128),W128,P128) -> #u93(V128,W128,P128)
+   #244: #u106(active(X49)) -> #u106(X49)
+   #245: #u22(Y101,active(U101)) -> #u22(Y101,U101)
+   #246: #u131(V69,W69,active(P69),X70) -> #u131(V69,W69,P69,X70)
+   #247: #mark(u106(P16)) -> #active(u106(mark(P16)))
+   #248: #mark(u106(P16)) -> #u106(mark(P16))
+   #249: #mark(u106(P16)) -> #mark(P16)
+   #250: #active(isNatIListKind(take(U11,V11))) -> #mark(u61(isNatKind(U11),V11))
+   #251: #active(isNatIListKind(take(U11,V11))) -> #u61(isNatKind(U11),V11)
+   #252: #active(isNatIListKind(take(U11,V11))) -> #isNatKind(U11)
+   #253: #u42(P108,X109,mark(Y109)) -> #u42(P108,X109,Y109)
+   #254: #mark(u13(X20)) -> #active(u13(mark(X20)))
+   #255: #mark(u13(X20)) -> #u13(mark(X20))
+   #256: #mark(u13(X20)) -> #mark(X20)
+   #257: #u101(V36,active(W36),P36) -> #u101(V36,W36,P36)
+   #258: #mark(u12(V17,W17)) -> #active(u12(mark(V17),W17))
+   #259: #mark(u12(V17,W17)) -> #u12(mark(V17),W17)
+   #260: #mark(u12(V17,W17)) -> #mark(V17)
+   #261: #u32(mark(Y103),U103) -> #u32(Y103,U103)
+   #262: #u21(P99,active(X100)) -> #u21(P99,X100)
+   #263: #mark(u45(P28,X29)) -> #active(u45(mark(P28),X29))
+   #264: #mark(u45(P28,X29)) -> #u45(mark(P28),X29)
+   #265: #mark(u45(P28,X29)) -> #mark(P28)
+   #266: #active(u121(tt(),X3)) -> #mark(u122(isNatIListKind(X3)))
+   #267: #active(u121(tt(),X3)) -> #u122(isNatIListKind(X3))
+   #268: #active(u121(tt(),X3)) -> #isNatIListKind(X3)
+   #269: #u121(Y64,mark(U64)) -> #u121(Y64,U64)
+   #270: #mark(u33(W26)) -> #active(u33(mark(W26)))
+   #271: #mark(u33(W26)) -> #u33(mark(W26))
+   #272: #mark(u33(W26)) -> #mark(W26)
+   #273: #u41(U105,mark(V105),W105) -> #u41(U105,V105,W105)
+   #274: #u112(Y57,active(U57),V57) -> #u112(Y57,U57,V57)
+   #275: #active(isNatList(take(U12,V12))) -> #mark(u101(isNatKind(U12),U12,V12))
+   #276: #active(isNatList(take(U12,V12))) -> #u101(isNatKind(U12),U12,V12)
+   #277: #active(isNatList(take(U12,V12))) -> #isNatKind(U12)
+   #278: #active(u42(tt(),Y7,U7)) -> #mark(u43(isNatIListKind(U7),Y7,U7))
+   #279: #active(u42(tt(),Y7,U7)) -> #u43(isNatIListKind(U7),Y7,U7)
+   #280: #active(u42(tt(),Y7,U7)) -> #isNatIListKind(U7)
+   #281: #u135(V91,W91,P91,active(X92)) -> #u135(V91,W91,P91,X92)
+   #282: #u91(V124,active(W124),P124) -> #u91(V124,W124,P124)
+   #283: #length(active(X63)) -> #length(X63)
+   #284: #active(isNatIList(cons(W10,P10))) -> #mark(u41(isNatKind(W10),W10,P10))
+   #285: #active(isNatIList(cons(W10,P10))) -> #u41(isNatKind(W10),W10,P10)
+   #286: #active(isNatIList(cons(W10,P10))) -> #isNatKind(W10)
+   #287: #active(isNat(s(U10))) -> #mark(u21(isNatKind(U10),U10))
+   #288: #active(isNat(s(U10))) -> #u21(isNatKind(U10),U10)
+   #289: #active(isNat(s(U10))) -> #isNatKind(U10)
+   #290: #active(u23(tt())) -> #mark(tt())
+   #291: #u45(P117,active(X118)) -> #u45(P117,X118)
+   #292: #u101(X35,mark(Y35),U35) -> #u101(X35,Y35,U35)
+   #293: #u96(active(X136)) -> #u96(X136)
+   #294: #isNatIList(active(U49)) -> #isNatIList(U49)
+   #295: #mark(u42(U27,V27,W27)) -> #active(u42(mark(U27),V27,W27))
+   #296: #mark(u42(U27,V27,W27)) -> #u42(mark(U27),V27,W27)
+   #297: #mark(u42(U27,V27,W27)) -> #mark(U27)
+   #298: #u101(mark(V34),W34,P34) -> #u101(V34,W34,P34)
+   #299: #u94(X134,Y134,active(U134)) -> #u94(X134,Y134,U134)
+   #300: #u42(U110,V110,active(W110)) -> #u42(U110,V110,W110)
+   #301: #u51(active(Y119),U119) -> #u51(Y119,U119)
+   #302: #active(u134(tt(),W4,P4,X5)) -> #mark(u135(isNat(X5),W4,P4,X5))
+   #303: #active(u134(tt(),W4,P4,X5)) -> #u135(isNat(X5),W4,P4,X5)
+   #304: #active(u134(tt(),W4,P4,X5)) -> #isNat(X5)
+   #305: #u94(active(X133),Y133,U133) -> #u94(X133,Y133,U133)
+   #306: #u91(mark(V122),W122,P122) -> #u91(V122,W122,P122)
+   #307: #u111(Y54,active(U54),V54) -> #u111(Y54,U54,V54)
+   #308: #cons(V33,mark(W33)) -> #cons(V33,W33)
+   #309: #u12(P51,active(X52)) -> #u12(P51,X52)
+   #310: #mark(length(P19)) -> #active(length(mark(P19)))
+   #311: #mark(length(P19)) -> #length(mark(P19))
+   #312: #mark(length(P19)) -> #mark(P19)
+   #313: #active(u106(tt())) -> #mark(tt())
+   #314: #u121(active(V64),W64) -> #u121(V64,W64)
+   #315: #active(u71(tt())) -> #mark(tt())
+   #316: #u104(Y45,U45,mark(V45)) -> #u104(Y45,U45,V45)
+   #317: #u136(Y94,U94,V94,mark(W94)) -> #u136(Y94,U94,V94,W94)
+   #318: #u102(X38,mark(Y38),U38) -> #u102(X38,Y38,U38)
+   #319: #u132(Y74,active(U74),V74,W74) -> #u132(Y74,U74,V74,W74)
+   #320: #active(u112(tt(),X2,Y2)) -> #mark(u113(isNat(Y2),X2,Y2))
+   #321: #active(u112(tt(),X2,Y2)) -> #u113(isNat(Y2),X2,Y2)
+   #322: #active(u112(tt(),X2,Y2)) -> #isNat(Y2)
+   #323: #u45(active(V117),W117) -> #u45(V117,W117)
+   #324: #mark(u122(W20)) -> #active(u122(mark(W20)))
+   #325: #mark(u122(W20)) -> #u122(mark(W20))
+   #326: #mark(u122(W20)) -> #mark(W20)
+   #327: #u133(Y80,U80,active(V80),W80) -> #u133(Y80,U80,V80,W80)
+   #328: #u31(P102,active(X103)) -> #u31(P102,X103)
+   #329: #u92(active(X127),Y127,U127) -> #u92(X127,Y127,U127)
+   #330: #u111(mark(Y52),U52,V52) -> #u111(Y52,U52,V52)
+   #331: #mark(u91(W30,P30,X31)) -> #active(u91(mark(W30),P30,X31))
+   #332: #mark(u91(W30,P30,X31)) -> #u91(mark(W30),P30,X31)
+   #333: #mark(u91(W30,P30,X31)) -> #mark(W30)
+   #334: #mark(nil()) -> #active(nil())
+   #335: #u42(active(U109),V109,W109) -> #u42(U109,V109,W109)
+   #336: #active(length(cons(W12,P12))) -> #mark(u111(isNatList(P12),P12,W12))
+   #337: #active(length(cons(W12,P12))) -> #u111(isNatList(P12),P12,W12)
+   #338: #active(length(cons(W12,P12))) -> #isNatList(P12)
+   #339: #active(u45(tt(),Y8)) -> #mark(u46(isNatIList(Y8)))
+   #340: #active(u45(tt(),Y8)) -> #u46(isNatIList(Y8))
+   #341: #active(u45(tt(),Y8)) -> #isNatIList(Y8)
+   #342: #take(active(Y98),U98) -> #take(Y98,U98)
+   #343: #mark(u102(V14,W14,P14)) -> #active(u102(mark(V14),W14,P14))
+   #344: #mark(u102(V14,W14,P14)) -> #u102(mark(V14),W14,P14)
+   #345: #mark(u102(V14,W14,P14)) -> #mark(V14)
+   #346: #isNat(active(W48)) -> #isNat(W48)
+   #347: #u112(active(W56),P56,X57) -> #u112(W56,P56,X57)
+   #348: #mark(u92(Y31,U31,V31)) -> #active(u92(mark(Y31),U31,V31))
+   #349: #mark(u92(Y31,U31,V31)) -> #u92(mark(Y31),U31,V31)
+   #350: #mark(u92(Y31,U31,V31)) -> #mark(Y31)
+   #351: #active(u104(tt(),X1,Y1)) -> #mark(u105(isNat(X1),Y1))
+   #352: #active(u104(tt(),X1,Y1)) -> #u105(isNat(X1),Y1)
+   #353: #active(u104(tt(),X1,Y1)) -> #isNat(X1)
+   #354: #active(u94(tt(),W9,P9)) -> #mark(u95(isNat(W9),P9))
+   #355: #active(u94(tt(),W9,P9)) -> #u95(isNat(W9),P9)
+   #356: #active(u94(tt(),W9,P9)) -> #isNat(W9)
+   #357: #u71(mark(P121)) -> #u71(P121)
+   #358: #u32(Y104,active(U104)) -> #u32(Y104,U104)
+   #359: #active(take(0(),X13)) -> #mark(u121(isNatIList(X13),X13))
+   #360: #active(take(0(),X13)) -> #u121(isNatIList(X13),X13)
+   #361: #active(take(0(),X13)) -> #isNatIList(X13)
+   #362: #u103(U43,V43,active(W43)) -> #u103(U43,V43,W43)
+   #363: #active(u33(tt())) -> #mark(tt())
+   #364: #u95(active(Y135),U135) -> #u95(Y135,U135)
+   #365: #u43(active(U112),V112,W112) -> #u43(U112,V112,W112)
+   #366: #u41(active(U106),V106,W106) -> #u41(U106,V106,W106)
+   #367: #u132(P72,X73,Y73,mark(U73)) -> #u132(P72,X73,Y73,U73)
+   #368: #u131(active(Y68),U68,V68,W68) -> #u131(Y68,U68,V68,W68)
+   #369: #active(u136(tt(),W5,P5,X6)) -> #mark(cons(X6,take(P5,W5)))
+   #370: #active(u136(tt(),W5,P5,X6)) -> #cons(X6,take(P5,W5))
+   #371: #active(u136(tt(),W5,P5,X6)) -> #take(P5,W5)
+   #372: #u52(mark(P119)) -> #u52(P119)
+   #373: #cons(active(P33),X34) -> #cons(P33,X34)
+   #374: #u33(mark(V104)) -> #u33(V104)
+   #375: #u11(active(Y50),U50) -> #u11(Y50,U50)
+   #376: #u91(X123,mark(Y123),U123) -> #u91(X123,Y123,U123)
+   #377: #u136(mark(Y92),U92,V92,W92) -> #u136(Y92,U92,V92,W92)
+   #378: #u134(V85,W85,active(P85),X86) -> #u134(V85,W85,P85,X86)
+   #379: #u31(Y102,mark(U102)) -> #u31(Y102,U102)
+   #380: #active(u46(tt())) -> #mark(tt())
+   #381: #u12(mark(P50),X51) -> #u12(P50,X51)
+   #382: #u112(Y56,U56,mark(V56)) -> #u112(Y56,U56,V56)
+   #383: #mark(u112(U18,V18,W18)) -> #active(u112(mark(U18),V18,W18))
+   #384: #mark(u112(U18,V18,W18)) -> #u112(mark(U18),V18,W18)
+   #385: #mark(u112(U18,V18,W18)) -> #mark(U18)
+   #386: #mark(s(W19)) -> #active(s(mark(W19)))
+   #387: #mark(s(W19)) -> #s(mark(W19))
+   #388: #mark(s(W19)) -> #mark(W19)
+   #389: #u61(mark(Y120),U120) -> #u61(Y120,U120)
+   #390: #u131(Y66,mark(U66),V66,W66) -> #u131(Y66,U66,V66,W66)
+   #391: #u91(X125,Y125,active(U125)) -> #u91(X125,Y125,U125)
+   #392: #u42(mark(P107),X108,Y108) -> #u42(P107,X108,Y108)
+   #393: #u114(V61,mark(W61)) -> #u114(V61,W61)
+   #394: #u105(mark(Y47),U47) -> #u105(Y47,U47)
+   #395: #u135(mark(P86),X87,Y87,U87) -> #u135(P86,X87,Y87,U87)
+   #396: #active(u32(tt(),W6)) -> #mark(u33(isNatList(W6)))
+   #397: #active(u32(tt(),W6)) -> #u33(isNatList(W6))
+   #398: #active(u32(tt(),W6)) -> #isNatList(W6)
+   #399: #take(V98,active(W98)) -> #take(V98,W98)
+   #400: #u102(V38,W38,mark(P38)) -> #u102(V38,W38,P38)
+   #401: #u103(U41,mark(V41),W41) -> #u103(U41,V41,W41)
+   #402: #isNatKind(active(W40)) -> #isNatKind(W40)
+   #403: #isNat(mark(V48)) -> #isNat(V48)
+   #404: #u135(V87,mark(W87),P87,X88) -> #u135(V87,W87,P87,X88)
+   #405: #u113(mark(Y58),U58,V58) -> #u113(Y58,U58,V58)
+   #406: #u95(mark(V134),W134) -> #u95(V134,W134)
+   #407: #isNatIListKind(active(X44)) -> #isNatIListKind(X44)
+   #408: #active(isNatList(nil())) -> #mark(tt())
+   #409: #u81(active(U122)) -> #u81(U122)
+   #410: #u121(P64,active(X65)) -> #u121(P64,X65)
+   #411: #mark(u71(U30)) -> #active(u71(mark(U30)))
+   #412: #mark(u71(U30)) -> #u71(mark(U30))
+   #413: #mark(u71(U30)) -> #mark(U30)
+   #414: #u43(mark(P110),X111,Y111) -> #u43(P110,X111,Y111)
+   #415: #u22(active(P100),X101) -> #u22(P100,X101)
+   #416: #u21(Y99,mark(U99)) -> #u21(Y99,U99)
+   #417: #length(mark(P62)) -> #length(P62)
+   #418: #u51(mark(V118),W118) -> #u51(V118,W118)
+   #419: #u132(V75,W75,P75,active(X76)) -> #u132(V75,W75,P75,X76)
+   #420: #u94(V132,W132,mark(P132)) -> #u94(V132,W132,P132)
+   #421: #u133(P76,mark(X77),Y77,U77) -> #u133(P76,X77,Y77,U77)
+   #422: #u12(Y51,mark(U51)) -> #u12(Y51,U51)
+   #423: #active(u131(tt(),Y3,U3,V3)) -> #mark(u132(isNatIListKind(Y3),Y3,U3,V3))
+   #424: #active(u131(tt(),Y3,U3,V3)) -> #u132(isNatIListKind(Y3),Y3,U3,V3)
+   #425: #active(u131(tt(),Y3,U3,V3)) -> #isNatIListKind(Y3)
+   #426: #u133(mark(Y76),U76,V76,W76) -> #u133(Y76,U76,V76,W76)
+   #427: #active(u44(tt(),P7,X8)) -> #mark(u45(isNat(P7),X8))
+   #428: #active(u44(tt(),P7,X8)) -> #u45(isNat(P7),X8)
+   #429: #active(u44(tt(),P7,X8)) -> #isNat(P7)
+   #430: #active(u133(tt(),Y4,U4,V4)) -> #mark(u134(isNatKind(U4),Y4,U4,V4))
+   #431: #active(u133(tt(),Y4,U4,V4)) -> #u134(isNatKind(U4),Y4,U4,V4)
+   #432: #active(u133(tt(),Y4,U4,V4)) -> #isNatKind(U4)
+   #433: #u71(active(X122)) -> #u71(X122)
+   #434: #u103(mark(P40),X41,Y41) -> #u103(P40,X41,Y41)
+   #435: #u61(V120,mark(W120)) -> #u61(V120,W120)
+   #436: #cons(mark(Y33),U33) -> #cons(Y33,U33)
+   #437: #u23(mark(V101)) -> #u23(V101)
+   #438: #take(mark(V97),W97) -> #take(V97,W97)
+   #439: #u131(mark(V65),W65,P65,X66) -> #u131(V65,W65,P65,X66)
+   #440: #u113(W60,P60,active(X61)) -> #u113(W60,P60,X61)
+   #441: #u43(P111,X112,mark(Y112)) -> #u43(P111,X112,Y112)
+   #442: #u96(mark(P135)) -> #u96(P135)
+   #443: #u112(W57,P57,active(X58)) -> #u112(W57,P57,X58)
+   #444: #u111(W52,mark(P52),X53) -> #u111(W52,P52,X53)
+   #445: #u45(mark(P116),X117) -> #u45(P116,X117)
+   #446: #u32(active(P103),X104) -> #u32(P103,X104)
+   #447: #active(length(nil())) -> #mark(0())
+   #448: #u102(mark(V37),W37,P37) -> #u102(V37,W37,P37)
+   #449: #u135(active(V89),W89,P89,X90) -> #u135(V89,W89,P89,X90)
+   #450: #u132(P74,X75,active(Y75),U75) -> #u132(P74,X75,Y75,U75)
+   #451: #u43(U111,mark(V111),W111) -> #u43(U111,V111,W111)
+   #452: #mark(u32(U26,V26)) -> #active(u32(mark(U26),V26))
+   #453: #mark(u32(U26,V26)) -> #u32(mark(U26),V26)
+   #454: #mark(u32(U26,V26)) -> #mark(U26)
+   #455: #active(u31(tt(),V6)) -> #mark(u32(isNatIListKind(V6),V6))
+   #456: #active(u31(tt(),V6)) -> #u32(isNatIListKind(V6),V6)
+   #457: #active(u31(tt(),V6)) -> #isNatIListKind(V6)
+   #458: #mark(take(P24,X25)) -> #active(take(mark(P24),mark(X25)))
+   #459: #mark(take(P24,X25)) -> #take(mark(P24),mark(X25))
+   #460: #mark(take(P24,X25)) -> #mark(P24)
+   #461: #mark(take(P24,X25)) -> #mark(X25)
+   #462: #mark(u113(P18,X19,Y19)) -> #active(u113(mark(P18),X19,Y19))
+   #463: #mark(u113(P18,X19,Y19)) -> #u113(mark(P18),X19,Y19)
+   #464: #mark(u113(P18,X19,Y19)) -> #mark(P18)
+   #465: #u44(U116,V116,active(W116)) -> #u44(U116,V116,W116)
+   #466: #u134(P82,X83,mark(Y83),U83) -> #u134(P82,X83,Y83,U83)
+   #467: #u112(mark(Y55),U55,V55) -> #u112(Y55,U55,V55)
+   #468: #mark(u94(Y32,U32,V32)) -> #active(u94(mark(Y32),U32,V32))
+   #469: #mark(u94(Y32,U32,V32)) -> #u94(mark(Y32),U32,V32)
+   #470: #mark(u94(Y32,U32,V32)) -> #mark(Y32)
+   #471: #u62(mark(V121)) -> #u62(V121)
+   #472: #u131(P66,X67,mark(Y67),U67) -> #u131(P66,X67,Y67,U67)
+   #473: #mark(cons(W13,P13)) -> #active(cons(mark(W13),P13))
+   #474: #mark(cons(W13,P13)) -> #cons(mark(W13),P13)
+   #475: #mark(cons(W13,P13)) -> #mark(W13)
+   #476: #u133(active(P78),X79,Y79,U79) -> #u133(P78,X79,Y79,U79)
+   #477: #u101(V35,W35,mark(P35)) -> #u101(V35,W35,P35)
+   #478: #active(u52(tt())) -> #mark(tt())
+   #479: #active(u135(tt(),Y5,U5,V5)) -> #mark(u136(isNatKind(V5),Y5,U5,V5))
+   #480: #active(u135(tt(),Y5,U5,V5)) -> #u136(isNatKind(V5),Y5,U5,V5)
+   #481: #active(u135(tt(),Y5,U5,V5)) -> #isNatKind(V5)
+   #482: #active(u13(tt())) -> #mark(tt())
+   #483: #active(u102(tt(),U,V)) -> #mark(u103(isNatIListKind(V),U,V))
+   #484: #active(u102(tt(),U,V)) -> #u103(isNatIListKind(V),U,V)
+   #485: #active(u102(tt(),U,V)) -> #isNatIListKind(V)
+   #486: #u105(active(P47),X48) -> #u105(P47,X48)
+   #487: #u93(V129,W129,mark(P129)) -> #u93(V129,W129,P129)
+   #488: #u91(active(X124),Y124,U124) -> #u91(X124,Y124,U124)
+   #489: #u134(Y86,U86,V86,active(W86)) -> #u134(Y86,U86,V86,W86)
+   #490: #mark(u105(U16,V16)) -> #active(u105(mark(U16),V16))
+   #491: #mark(u105(U16,V16)) -> #u105(mark(U16),V16)
+   #492: #mark(u105(U16,V16)) -> #mark(U16)
+   #493: #active(zeros()) -> #mark(cons(0(),zeros()))
+   #494: #active(zeros()) -> #cons(0(),zeros())
+   #495: #u102(X40,Y40,active(U40)) -> #u102(X40,Y40,U40)
+   #496: #mark(u96(X33)) -> #active(u96(mark(X33)))
+   #497: #mark(u96(X33)) -> #u96(mark(X33))
+   #498: #mark(u96(X33)) -> #mark(X33)
+   #499: #u44(P115,active(X116),Y116) -> #u44(P115,X116,Y116)
+   #500: #active(isNatIListKind(zeros())) -> #mark(tt())
+   #501: #u114(active(P61),X62) -> #u114(P61,X62)
+   #502: #u92(mark(V125),W125,P125) -> #u92(V125,W125,P125)
+   #503: #u135(P88,X89,Y89,mark(U89)) -> #u135(P88,X89,Y89,U89)
+   #504: #u134(mark(V81),W81,P81,X82) -> #u134(V81,W81,P81,X82)
+   #505: #isNatList(active(W63)) -> #isNatList(W63)
+   #506: #u105(Y48,active(U48)) -> #u105(Y48,U48)
+   #507: #active(u11(tt(),V1)) -> #mark(u12(isNatIListKind(V1),V1))
+   #508: #active(u11(tt(),V1)) -> #u12(isNatIListKind(V1),V1)
+   #509: #active(u11(tt(),V1)) -> #isNatIListKind(V1)
+   #510: #u121(mark(P63),X64) -> #u121(P63,X64)
+   #511: #u104(W44,mark(P44),X45) -> #u104(W44,P44,X45)
+   #512: #u11(P49,mark(X50)) -> #u11(P49,X50)
+   #513: #u131(P68,active(X69),Y69,U69) -> #u131(P68,X69,Y69,U69)
+   #514: #isNatKind(mark(V40)) -> #isNatKind(V40)
+   #515: #mark(u93(W31,P31,X32)) -> #active(u93(mark(W31),P31,X32))
+   #516: #mark(u93(W31,P31,X32)) -> #u93(mark(W31),P31,X32)
+   #517: #mark(u93(W31,P31,X32)) -> #mark(W31)
+   #518: #u31(active(V102),W102) -> #u31(V102,W102)
+   #519: #u111(W54,P54,active(X55)) -> #u111(W54,P54,X55)
+   #520: #u132(Y72,U72,mark(V72),W72) -> #u132(Y72,U72,V72,W72)
+   #521: #active(u122(tt())) -> #mark(nil())
+   #522: #u103(P41,X42,mark(Y42)) -> #u103(P41,X42,Y42)
+   #523: #u23(active(W101)) -> #u23(W101)
+   #524: #mark(u22(V25,W25)) -> #active(u22(mark(V25),W25))
+   #525: #mark(u22(V25,W25)) -> #u22(mark(V25),W25)
+   #526: #mark(u22(V25,W25)) -> #mark(V25)
+   #527: #u113(Y59,U59,mark(V59)) -> #u113(Y59,U59,V59)
+   #528: #mark(u23(P25)) -> #active(u23(mark(P25)))
+   #529: #mark(u23(P25)) -> #u23(mark(P25))
+   #530: #mark(u23(P25)) -> #mark(P25)
+   #531: #u136(P96,X97,Y97,active(U97)) -> #u136(P96,X97,Y97,U97)
+   #532: #u132(mark(P70),X71,Y71,U71) -> #u132(P70,X71,Y71,U71)
+   #533: #active(u103(tt(),W,P)) -> #mark(u104(isNatIListKind(P),W,P))
+   #534: #active(u103(tt(),W,P)) -> #u104(isNatIListKind(P),W,P)
+   #535: #active(u103(tt(),W,P)) -> #isNatIListKind(P)
+   #536: #u113(W58,mark(P58),X59) -> #u113(W58,P58,X59)
+   #537: #u95(P134,mark(X135)) -> #u95(P134,X135)
+   #538: #u44(U114,mark(V114),W114) -> #u44(U114,V114,W114)
+   #539: #mark(u31(X26,Y26)) -> #active(u31(mark(X26),Y26))
+   #540: #mark(u31(X26,Y26)) -> #u31(mark(X26),Y26)
+   #541: #mark(u31(X26,Y26)) -> #mark(X26)
+   #542: #u44(mark(P113),X114,Y114) -> #u44(P113,X114,Y114)
+   #543: #mark(isNatIList(X17)) -> #active(isNatIList(X17))
+   #544: #active(isNatIList(V10)) -> #mark(u31(isNatIListKind(V10),V10))
+   #545: #active(isNatIList(V10)) -> #u31(isNatIListKind(V10),V10)
+   #546: #active(isNatIList(V10)) -> #isNatIListKind(V10)
+   #547: #active(u132(tt(),W3,P3,X4)) -> #mark(u133(isNat(P3),W3,P3,X4))
+   #548: #active(u132(tt(),W3,P3,X4)) -> #u133(isNat(P3),W3,P3,X4)
+   #549: #active(u132(tt(),W3,P3,X4)) -> #isNat(P3)
+   #550: #u52(active(X120)) -> #u52(X120)
+   #551: #u112(W55,mark(P55),X56) -> #u112(W55,P55,X56)
+   #552: #u134(active(Y84),U84,V84,W84) -> #u134(Y84,U84,V84,W84)
+Number of SCCs: 55, DPs: 374
+  SCC { #372 #550 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: x1
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #372 #550
+Number of SCCs: 54, DPs: 372
+  SCC { #73 #159 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: x1
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #73 #159
+Number of SCCs: 53, DPs: 370
+  SCC { #49 #409 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: x1
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #49 #409
+Number of SCCs: 52, DPs: 368
+  SCC { #63 #244 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: x1
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #63 #244
+Number of SCCs: 51, DPs: 366
+  SCC { #172 #231 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: x1
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #172 #231
+Number of SCCs: 50, DPs: 364
+  SCC { #67 #374 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: x1
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #67 #374
+Number of SCCs: 49, DPs: 362
+  SCC { #283 #417 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: x1
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #283 #417
+Number of SCCs: 48, DPs: 360
+  SCC { #148 #233 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: x1
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #148 #233
+Number of SCCs: 47, DPs: 358
+  SCC { #40 #185 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: x1
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #40 #185
+Number of SCCs: 46, DPs: 356
+  SCC { #357 #433 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: x1
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #357 #433
+Number of SCCs: 45, DPs: 354
+  SCC { #229 #505 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: x1
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #229 #505
+Number of SCCs: 44, DPs: 352
+  SCC { #402 #514 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: x1
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #402 #514
+Number of SCCs: 43, DPs: 350
+  SCC { #293 #442 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: x1
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #293 #442
+Number of SCCs: 42, DPs: 348
+  SCC { #346 #403 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: x1
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #346 #403
+Number of SCCs: 41, DPs: 346
+  SCC { #437 #523 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: x1
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #437 #523
+Number of SCCs: 40, DPs: 344
+  SCC { #41 #407 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: x1
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #41 #407
+Number of SCCs: 39, DPs: 342
+  SCC { #133 #294 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: x1
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #133 #294
+Number of SCCs: 38, DPs: 340
+  SCC { #29 #471 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: x1
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #29 #471
+Number of SCCs: 37, DPs: 338
+  SCC { #132 #152 #389 #435 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: x2
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #152 #435
+Number of SCCs: 37, DPs: 336
+  SCC { #132 #389 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: x1
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #132 #389
+Number of SCCs: 36, DPs: 334
+  SCC { #129 #155 #301 #418 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: x1
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #301 #418
+Number of SCCs: 36, DPs: 332
+  SCC { #129 #155 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: x2
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #129 #155
+Number of SCCs: 35, DPs: 330
+  SCC { #15 #51 #262 #416 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: x2
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #262 #416
+Number of SCCs: 35, DPs: 328
+  SCC { #15 #51 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: x1
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #15 #51
+Number of SCCs: 34, DPs: 326
+  SCC { #80 #309 #381 #422 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: x1
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #80 #381
+Number of SCCs: 34, DPs: 324
+  SCC { #309 #422 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: x2
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: 0
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #309 #422
+Number of SCCs: 33, DPs: 322
+  SCC { #124 #291 #323 #445 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: x2
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #124 #291
+Number of SCCs: 33, DPs: 320
+  SCC { #323 #445 }
+POLO(Sum)... succeeded.
+      u81	w: 0
+      #isNatIListKind	w: 0
+      #u101	w: 0
+      isNatKind	w: 0
+      #u96	w: 0
+      #u22	w: 0
+      isNatList	w: 0
+      u95	w: 0
+      u13	w: 0
+      u62	w: 0
+      #u23	w: 0
+      #u103	w: 0
+      #u113	w: 0
+      u133	w: 0
+      #cons	w: 0
+      s 	w: 0
+      #isNat	w: 0
+      u132	w: 0
+      u91	w: 0
+      #u52	w: 0
+      #u136	w: 0
+      #take	w: 0
+      u111	w: 0
+      u23	w: 0
+      u104	w: 0
+      u102	w: 0
+      u121	w: 0
+      #u51	w: 0
+      u136	w: 0
+      u105	w: 0
+      take	w: 0
+      #u21	w: 0
+      u122	w: 0
+      u135	w: 0
+      u103	w: 0
+      isNatIList	w: 0
+      #u105	w: 0
+      u131	w: 0
+      #u12	w: 0
+      #u102	w: 0
+      u33	w: 0
+      #u93	w: 0
+      #u61	w: 0
+      u52	w: 0
+      #u45	w: x1
+      #u11	w: 0
+      zeros	w: 0
+      u61	w: 0
+      u92	w: 0
+      #u81	w: 0
+      u113	w: 0
+      _ 	w: 0
+      #u91	w: 0
+      u106	w: 0
+      #u134	w: 0
+      #u104	w: 0
+      u41	w: 0
+      u45	w: 0
+      #u112	w: 0
+      u51	w: 0
+      #u95	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #isNatList	w: 0
+      u11	w: 0
+      u32	w: 0
+      #s 	w: 0
+      u46	w: 0
+      nil	w: 0
+      isNatIListKind	w: 0
+      #u46	w: 0
+      #u33	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      u101	w: 0
+      #u122	w: 0
+      u21	w: 0
+      #u41	w: 0
+      u93	w: 0
+      u43	w: 0
+      isNat	w: 0
+      #_ 	w: 0
+      u96	w: 0
+      #u133	w: 0
+      active	w: x1 + 1
+      #u44	w: 0
+      #u42	w: 0
+      #u135	w: 0
+      #u106	w: 0
+      cons	w: 0
+      #active	w: 0
+      #u31	w: 0
+      u22	w: 0
+      #isNatIList	w: 0
+      #u114	w: 0
+      u112	w: 0
+      u42	w: 0
+      tt	w: 0
+      #u131	w: 0
+      u134	w: 0
+      u94	w: 0
+      u71	w: 0
+      #isNatKind	w: 0
+      u114	w: 0
+      #u32	w: 0
+      #u43	w: 0
+      #u94	w: 0
+      length	w: 0
+      #u62	w: 0
+      u31	w: 0
+      #length	w: 0
+      u44	w: 0
+      #u121	w: 0
+      #u13	w: 0
+      #u111	w: 0
+      #u71	w: 0
+      #u132	w: 0
+      #u92	w: 0
+    USABLE RULES: { }
+    Removed DPs: #323 #445
+Number of SCCs: 32, DPs: 318
+  SCC { #269 #314 #410 #510 }
+POLO(Sum)... succeeded.

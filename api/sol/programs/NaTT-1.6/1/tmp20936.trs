@@ -1,0 +1,5 @@
+(VAR V X1 X2 )
+(RULES
+  id(V) -> V
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,10 @@
+(VAR X U Y W P V Y1 U1 X1 W1 P1 X2 V1 )
+(RULES
+  perfectp(0) -> false
+  perfectp(s(X)) -> f(X,s(0),s(X),s(X))
+  f(0,U,0,Y) -> true
+  f(0,W,s(P),V) -> false
+  f(s(Y1),0,U1,X1) -> f(Y1,X1,minus(U1,s(Y1)),X1)
+  f(s(W1),s(P1),X2,V1) -> if(le(W1,P1),f(s(W1),minus(P1,W1),X2,V1),f(W1,V1,X2,V1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

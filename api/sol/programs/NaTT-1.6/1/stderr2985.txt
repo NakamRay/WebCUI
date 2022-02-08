@@ -1,0 +1,6 @@
+Input TRS:
+    1: f(0()) -> f(0())
+    2: 0() -> 1()
+    3: _(X1,X2) -> X1
+    4: _(X1,X2) -> X2
+Trivially nonterminating rule 1.

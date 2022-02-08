@@ -1,0 +1,16 @@
+(VAR X Y U V W P X1 Y1 V1 U1 W1 P1 X2 Y2 U2 V2 P2 W2 )
+(RULES
+  b3220(X,X) -> e
+  b3220(e,Y) -> Y
+  b3220(U,bdot(U,V)) -> V
+  b3220(bdiv(W,P),W) -> P
+  bdiv(X1,X1) -> e
+  bdiv(Y1,e) -> Y1
+  bdiv(bdot(V1,U1),U1) -> V1
+  bdiv(W1,b3220(P1,W1)) -> P1
+  bdot(e,X2) -> X2
+  bdot(Y2,e) -> Y2
+  bdot(U2,b3220(U2,V2)) -> V2
+  bdot(bdiv(P2,W2),W2) -> P2
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sys=./programs/ACP-0.51/bin
+fn=`basename $1`
+
+cp $1 $sys
+cd $sys
+./starexec_run_default $fn
+#rm -f $sys/$fn 

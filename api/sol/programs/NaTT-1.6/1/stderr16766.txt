@@ -1,0 +1,43 @@
+Input TRS:
+    1: half(0()) -> 0()
+    2: half(s(0())) -> 0()
+    3: half(s(s(X))) -> s(half(X))
+    4: bits(0()) -> 0()
+    5: bits(s(Y)) -> s(bits(half(s(Y))))
+    6: _(X1,X2) -> X1
+    7: _(X1,X2) -> X2
+Number of strict rules: 7
+Direct POLO(bPol) ... removes: 4 7 6
+      s 	w: x1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      half	w: x1
+      0 	w: 1
+      bits	w: x1 + 1
+Number of strict rules: 4
+Direct POLO(bPol) ... failed.
+Uncurrying half
+1: half^1_0() -> 0()
+2: half^1_s(0()) -> 0()
+3: half^1_s(s(X)) -> s(half(X))
+5: bits(s(Y)) -> s(bits(half^1_s(Y)))
+8: half(0()) ->= half^1_0()
+9: half(s(_1)) ->= half^1_s(_1)
+Number of strict rules: 4
+Direct POLO(bPol) ... removes: 9
+      s 	w: x1 + 1
+      _ 	w: x1 + x2
+      half^1_s	w: x1
+      half	w: x1
+      0 	w: 4
+      half^1_0	w: 4
+      bits	w: x1 + 1
+Number of strict rules: 4
+Direct POLO(bPol) ... removes: 8 1 3 5 2
+      s 	w: x1 + 7
+      _ 	w: x1 + x2
+      half^1_s	w: x1 + 3
+      half	w: x1 + 2
+      0 	w: 2
+      half^1_0	w: 3
+      bits	w: 2 * x1 + 1
+Number of strict rules: 0

@@ -1,0 +1,1571 @@
+Input TRS:
+    1: active(u11(tt(),X,Y,U)) -> mark(u12(splitAt(X,U),Y))
+    2: active(u12(pair(V,W),P)) -> mark(pair(cons(P,V),W))
+    3: active(afterNth(X1,Y1)) -> mark(snd(splitAt(X1,Y1)))
+    4: active(and(tt(),U1)) -> mark(U1)
+    5: active(fst(pair(V1,W1))) -> mark(V1)
+    6: active(head(cons(P1,X2))) -> mark(P1)
+    7: active(natsFrom(Y2)) -> mark(cons(Y2,natsFrom(s(Y2))))
+    8: active(sel(U2,V2)) -> mark(head(afterNth(U2,V2)))
+    9: active(snd(pair(W2,P2))) -> mark(P2)
+    10: active(splitAt(0(),X3)) -> mark(pair(nil(),X3))
+    11: active(splitAt(s(Y3),cons(U3,V3))) -> mark(u11(tt(),Y3,U3,V3))
+    12: active(tail(cons(W3,P3))) -> mark(P3)
+    13: active(take(X4,Y4)) -> mark(fst(splitAt(X4,Y4)))
+    14: mark(u11(U4,V4,W4,P4)) -> active(u11(mark(U4),V4,W4,P4))
+    15: mark(tt()) -> active(tt())
+    16: mark(u12(X5,Y5)) -> active(u12(mark(X5),Y5))
+    17: mark(splitAt(U5,V5)) -> active(splitAt(mark(U5),mark(V5)))
+    18: mark(pair(W5,P5)) -> active(pair(mark(W5),mark(P5)))
+    19: mark(cons(X6,Y6)) -> active(cons(mark(X6),Y6))
+    20: mark(afterNth(U6,V6)) -> active(afterNth(mark(U6),mark(V6)))
+    21: mark(snd(W6)) -> active(snd(mark(W6)))
+    22: mark(and(P6,X7)) -> active(and(mark(P6),X7))
+    23: mark(fst(Y7)) -> active(fst(mark(Y7)))
+    24: mark(head(U7)) -> active(head(mark(U7)))
+    25: mark(natsFrom(V7)) -> active(natsFrom(mark(V7)))
+    26: mark(s(W7)) -> active(s(mark(W7)))
+    27: mark(sel(P7,X8)) -> active(sel(mark(P7),mark(X8)))
+    28: mark(0()) -> active(0())
+    29: mark(nil()) -> active(nil())
+    30: mark(tail(Y8)) -> active(tail(mark(Y8)))
+    31: mark(take(U8,V8)) -> active(take(mark(U8),mark(V8)))
+    32: u11(mark(W8),P8,X9,Y9) -> u11(W8,P8,X9,Y9)
+    33: u11(U9,mark(V9),W9,P9) -> u11(U9,V9,W9,P9)
+    34: u11(X10,Y10,mark(U10),V10) -> u11(X10,Y10,U10,V10)
+    35: u11(W10,P10,X11,mark(Y11)) -> u11(W10,P10,X11,Y11)
+    36: u11(active(U11),V11,W11,P11) -> u11(U11,V11,W11,P11)
+    37: u11(X12,active(Y12),U12,V12) -> u11(X12,Y12,U12,V12)
+    38: u11(W12,P12,active(X13),Y13) -> u11(W12,P12,X13,Y13)
+    39: u11(U13,V13,W13,active(P13)) -> u11(U13,V13,W13,P13)
+    40: u12(mark(X14),Y14) -> u12(X14,Y14)
+    41: u12(U14,mark(V14)) -> u12(U14,V14)
+    42: u12(active(W14),P14) -> u12(W14,P14)
+    43: u12(X15,active(Y15)) -> u12(X15,Y15)
+    44: splitAt(mark(U15),V15) -> splitAt(U15,V15)
+    45: splitAt(W15,mark(P15)) -> splitAt(W15,P15)
+    46: splitAt(active(X16),Y16) -> splitAt(X16,Y16)
+    47: splitAt(U16,active(V16)) -> splitAt(U16,V16)
+    48: pair(mark(W16),P16) -> pair(W16,P16)
+    49: pair(X17,mark(Y17)) -> pair(X17,Y17)
+    50: pair(active(U17),V17) -> pair(U17,V17)
+    51: pair(W17,active(P17)) -> pair(W17,P17)
+    52: cons(mark(X18),Y18) -> cons(X18,Y18)
+    53: cons(U18,mark(V18)) -> cons(U18,V18)
+    54: cons(active(W18),P18) -> cons(W18,P18)
+    55: cons(X19,active(Y19)) -> cons(X19,Y19)
+    56: afterNth(mark(U19),V19) -> afterNth(U19,V19)
+    57: afterNth(W19,mark(P19)) -> afterNth(W19,P19)
+    58: afterNth(active(X20),Y20) -> afterNth(X20,Y20)
+    59: afterNth(U20,active(V20)) -> afterNth(U20,V20)
+    60: snd(mark(W20)) -> snd(W20)
+    61: snd(active(P20)) -> snd(P20)
+    62: and(mark(X21),Y21) -> and(X21,Y21)
+    63: and(U21,mark(V21)) -> and(U21,V21)
+    64: and(active(W21),P21) -> and(W21,P21)
+    65: and(X22,active(Y22)) -> and(X22,Y22)
+    66: fst(mark(U22)) -> fst(U22)
+    67: fst(active(V22)) -> fst(V22)
+    68: head(mark(W22)) -> head(W22)
+    69: head(active(P22)) -> head(P22)
+    70: natsFrom(mark(X23)) -> natsFrom(X23)
+    71: natsFrom(active(Y23)) -> natsFrom(Y23)
+    72: s(mark(U23)) -> s(U23)
+    73: s(active(V23)) -> s(V23)
+    74: sel(mark(W23),P23) -> sel(W23,P23)
+    75: sel(X24,mark(Y24)) -> sel(X24,Y24)
+    76: sel(active(U24),V24) -> sel(U24,V24)
+    77: sel(W24,active(P24)) -> sel(W24,P24)
+    78: tail(mark(X25)) -> tail(X25)
+    79: tail(active(Y25)) -> tail(Y25)
+    80: take(mark(U25),V25) -> take(U25,V25)
+    81: take(W25,mark(P25)) -> take(W25,P25)
+    82: take(active(X26),Y26) -> take(X26,Y26)
+    83: take(U26,active(V26)) -> take(U26,V26)
+    84: map(I26,nil()) -> nil()
+    85: map(J26,cons(X27,Y27)) -> cons(J26[X27](),map(J26,Y27))
+    86: app(G27,V27) -> G27[V27]()
+Number of strict rules: 86
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #active(u12(pair(V,W),P)) -> #mark(pair(cons(P,V),W))
+   #2: #active(u12(pair(V,W),P)) -> #pair(cons(P,V),W)
+   #3: #active(u12(pair(V,W),P)) -> #cons(P,V)
+   #4: #u12(X15,active(Y15)) -> #u12(X15,Y15)
+   #5: #mark(nil()) -> #active(nil())
+   #6: #u11(W10,P10,X11,mark(Y11)) -> #u11(W10,P10,X11,Y11)
+   #7: #take(U26,active(V26)) -> #take(U26,V26)
+   #8: #fst(mark(U22)) -> #fst(U22)
+   #9: #splitAt(active(X16),Y16) -> #splitAt(X16,Y16)
+   #10: #u12(active(W14),P14) -> #u12(W14,P14)
+   #11: #u12(U14,mark(V14)) -> #u12(U14,V14)
+   #12: #u11(X12,active(Y12),U12,V12) -> #u11(X12,Y12,U12,V12)
+   #13: #s(active(V23)) -> #s(V23)
+   #14: #splitAt(U16,active(V16)) -> #splitAt(U16,V16)
+   #15: #cons(U18,mark(V18)) -> #cons(U18,V18)
+   #16: #natsFrom(active(Y23)) -> #natsFrom(Y23)
+   #17: #pair(mark(W16),P16) -> #pair(W16,P16)
+   #18: #sel(X24,mark(Y24)) -> #sel(X24,Y24)
+   #19: #sel(mark(W23),P23) -> #sel(W23,P23)
+   #20: #afterNth(active(X20),Y20) -> #afterNth(X20,Y20)
+   #21: #snd(active(P20)) -> #snd(P20)
+   #22: #u11(W12,P12,active(X13),Y13) -> #u11(W12,P12,X13,Y13)
+   #23: #active(head(cons(P1,X2))) -> #mark(P1)
+   #24: #afterNth(U20,active(V20)) -> #afterNth(U20,V20)
+   #25: #cons(X19,active(Y19)) -> #cons(X19,Y19)
+   #26: #fst(active(V22)) -> #fst(V22)
+   #27: #u12(mark(X14),Y14) -> #u12(X14,Y14)
+   #28: #pair(W17,active(P17)) -> #pair(W17,P17)
+   #29: #active(take(X4,Y4)) -> #mark(fst(splitAt(X4,Y4)))
+   #30: #active(take(X4,Y4)) -> #fst(splitAt(X4,Y4))
+   #31: #active(take(X4,Y4)) -> #splitAt(X4,Y4)
+   #32: #active(snd(pair(W2,P2))) -> #mark(P2)
+   #33: #active(splitAt(s(Y3),cons(U3,V3))) -> #mark(u11(tt(),Y3,U3,V3))
+   #34: #active(splitAt(s(Y3),cons(U3,V3))) -> #u11(tt(),Y3,U3,V3)
+   #35: #afterNth(W19,mark(P19)) -> #afterNth(W19,P19)
+   #36: #sel(active(U24),V24) -> #sel(U24,V24)
+   #37: #mark(head(U7)) -> #active(head(mark(U7)))
+   #38: #mark(head(U7)) -> #head(mark(U7))
+   #39: #mark(head(U7)) -> #mark(U7)
+   #40: #natsFrom(mark(X23)) -> #natsFrom(X23)
+   #41: #mark(fst(Y7)) -> #active(fst(mark(Y7)))
+   #42: #mark(fst(Y7)) -> #fst(mark(Y7))
+   #43: #mark(fst(Y7)) -> #mark(Y7)
+   #44: #take(W25,mark(P25)) -> #take(W25,P25)
+   #45: #tail(mark(X25)) -> #tail(X25)
+   #46: #splitAt(W15,mark(P15)) -> #splitAt(W15,P15)
+   #47: #head(active(P22)) -> #head(P22)
+   #48: #active(tail(cons(W3,P3))) -> #mark(P3)
+   #49: #mark(take(U8,V8)) -> #active(take(mark(U8),mark(V8)))
+   #50: #mark(take(U8,V8)) -> #take(mark(U8),mark(V8))
+   #51: #mark(take(U8,V8)) -> #mark(U8)
+   #52: #mark(take(U8,V8)) -> #mark(V8)
+   #53: #tail(active(Y25)) -> #tail(Y25)
+   #54: #afterNth(mark(U19),V19) -> #afterNth(U19,V19)
+   #55: #take(active(X26),Y26) -> #take(X26,Y26)
+   #56: #mark(u11(U4,V4,W4,P4)) -> #active(u11(mark(U4),V4,W4,P4))
+   #57: #mark(u11(U4,V4,W4,P4)) -> #u11(mark(U4),V4,W4,P4)
+   #58: #mark(u11(U4,V4,W4,P4)) -> #mark(U4)
+   #59: #and(mark(X21),Y21) -> #and(X21,Y21)
+   #60: #mark(tail(Y8)) -> #active(tail(mark(Y8)))
+   #61: #mark(tail(Y8)) -> #tail(mark(Y8))
+   #62: #mark(tail(Y8)) -> #mark(Y8)
+   #63: #cons(mark(X18),Y18) -> #cons(X18,Y18)
+   #64: #pair(X17,mark(Y17)) -> #pair(X17,Y17)
+   #65: #mark(natsFrom(V7)) -> #active(natsFrom(mark(V7)))
+   #66: #mark(natsFrom(V7)) -> #natsFrom(mark(V7))
+   #67: #mark(natsFrom(V7)) -> #mark(V7)
+   #68: #mark(afterNth(U6,V6)) -> #active(afterNth(mark(U6),mark(V6)))
+   #69: #mark(afterNth(U6,V6)) -> #afterNth(mark(U6),mark(V6))
+   #70: #mark(afterNth(U6,V6)) -> #mark(U6)
+   #71: #mark(afterNth(U6,V6)) -> #mark(V6)
+   #72: #active(natsFrom(Y2)) -> #mark(cons(Y2,natsFrom(s(Y2))))
+   #73: #active(natsFrom(Y2)) -> #cons(Y2,natsFrom(s(Y2)))
+   #74: #active(natsFrom(Y2)) -> #natsFrom(s(Y2))
+   #75: #active(natsFrom(Y2)) -> #s(Y2)
+   #76: #u11(U13,V13,W13,active(P13)) -> #u11(U13,V13,W13,P13)
+   #77: #active(splitAt(0(),X3)) -> #mark(pair(nil(),X3))
+   #78: #active(splitAt(0(),X3)) -> #pair(nil(),X3)
+   #79: #and(active(W21),P21) -> #and(W21,P21)
+   #80: #u11(U9,mark(V9),W9,P9) -> #u11(U9,V9,W9,P9)
+   #81: #s(mark(U23)) -> #s(U23)
+   #82: #active(fst(pair(V1,W1))) -> #mark(V1)
+   #83: #splitAt(mark(U15),V15) -> #splitAt(U15,V15)
+   #84: #and(X22,active(Y22)) -> #and(X22,Y22)
+   #85: #mark(0()) -> #active(0())
+   #86: #mark(and(P6,X7)) -> #active(and(mark(P6),X7))
+   #87: #mark(and(P6,X7)) -> #and(mark(P6),X7)
+   #88: #mark(and(P6,X7)) -> #mark(P6)
+   #89: #u11(X10,Y10,mark(U10),V10) -> #u11(X10,Y10,U10,V10)
+   #90: #mark(sel(P7,X8)) -> #active(sel(mark(P7),mark(X8)))
+   #91: #mark(sel(P7,X8)) -> #sel(mark(P7),mark(X8))
+   #92: #mark(sel(P7,X8)) -> #mark(P7)
+   #93: #mark(sel(P7,X8)) -> #mark(X8)
+   #94: #snd(mark(W20)) -> #snd(W20)
+   #95: #mark(splitAt(U5,V5)) -> #active(splitAt(mark(U5),mark(V5)))
+   #96: #mark(splitAt(U5,V5)) -> #splitAt(mark(U5),mark(V5))
+   #97: #mark(splitAt(U5,V5)) -> #mark(U5)
+   #98: #mark(splitAt(U5,V5)) -> #mark(V5)
+   #99: #u11(mark(W8),P8,X9,Y9) -> #u11(W8,P8,X9,Y9)
+   #100: #mark(cons(X6,Y6)) -> #active(cons(mark(X6),Y6))
+   #101: #mark(cons(X6,Y6)) -> #cons(mark(X6),Y6)
+   #102: #mark(cons(X6,Y6)) -> #mark(X6)
+   #103: #and(U21,mark(V21)) -> #and(U21,V21)
+   #104: #mark(s(W7)) -> #active(s(mark(W7)))
+   #105: #mark(s(W7)) -> #s(mark(W7))
+   #106: #mark(s(W7)) -> #mark(W7)
+   #107: #map(J26,cons(X27,Y27)) -> #cons(J26[X27](),map(J26,Y27))
+   #108: #map(J26,cons(X27,Y27)) -> #map(J26,Y27)
+   #109: #head(mark(W22)) -> #head(W22)
+   #110: #u11(active(U11),V11,W11,P11) -> #u11(U11,V11,W11,P11)
+   #111: #mark(snd(W6)) -> #active(snd(mark(W6)))
+   #112: #mark(snd(W6)) -> #snd(mark(W6))
+   #113: #mark(snd(W6)) -> #mark(W6)
+   #114: #mark(u12(X5,Y5)) -> #active(u12(mark(X5),Y5))
+   #115: #mark(u12(X5,Y5)) -> #u12(mark(X5),Y5)
+   #116: #mark(u12(X5,Y5)) -> #mark(X5)
+   #117: #active(afterNth(X1,Y1)) -> #mark(snd(splitAt(X1,Y1)))
+   #118: #active(afterNth(X1,Y1)) -> #snd(splitAt(X1,Y1))
+   #119: #active(afterNth(X1,Y1)) -> #splitAt(X1,Y1)
+   #120: #sel(W24,active(P24)) -> #sel(W24,P24)
+   #121: #active(u11(tt(),X,Y,U)) -> #mark(u12(splitAt(X,U),Y))
+   #122: #active(u11(tt(),X,Y,U)) -> #u12(splitAt(X,U),Y)
+   #123: #active(u11(tt(),X,Y,U)) -> #splitAt(X,U)
+   #124: #cons(active(W18),P18) -> #cons(W18,P18)
+   #125: #active(sel(U2,V2)) -> #mark(head(afterNth(U2,V2)))
+   #126: #active(sel(U2,V2)) -> #head(afterNth(U2,V2))
+   #127: #active(sel(U2,V2)) -> #afterNth(U2,V2)
+   #128: #mark(tt()) -> #active(tt())
+   #129: #active(and(tt(),U1)) -> #mark(U1)
+   #130: #take(mark(U25),V25) -> #take(U25,V25)
+   #131: #pair(active(U17),V17) -> #pair(U17,V17)
+   #132: #mark(pair(W5,P5)) -> #active(pair(mark(W5),mark(P5)))
+   #133: #mark(pair(W5,P5)) -> #pair(mark(W5),mark(P5))
+   #134: #mark(pair(W5,P5)) -> #mark(W5)
+   #135: #mark(pair(W5,P5)) -> #mark(P5)
+Number of SCCs: 17, DPs: 98
+  SCC { #108 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: 0
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: x2
+      G27[V27]	w: 0
+      active	w: 0
+      head	w: 0
+      #snd	w: 0
+      cons	w: x2 + 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #108
+Number of SCCs: 16, DPs: 97
+  SCC { #47 #109 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: x1
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #47 #109
+Number of SCCs: 15, DPs: 95
+  SCC { #8 #26 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: x1
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #8 #26
+Number of SCCs: 14, DPs: 93
+  SCC { #45 #53 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: x1
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #45 #53
+Number of SCCs: 13, DPs: 91
+  SCC { #16 #40 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: x1
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #16 #40
+Number of SCCs: 12, DPs: 89
+  SCC { #13 #81 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: x1
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #13 #81
+Number of SCCs: 11, DPs: 87
+  SCC { #21 #94 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: x1
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #21 #94
+Number of SCCs: 10, DPs: 85
+  SCC { #7 #44 #55 #130 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: x1
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #55 #130
+Number of SCCs: 10, DPs: 83
+  SCC { #7 #44 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: x2
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #7 #44
+Number of SCCs: 9, DPs: 81
+  SCC { #59 #79 #84 #103 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: x1
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #59 #79
+Number of SCCs: 9, DPs: 79
+  SCC { #84 #103 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: x2
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #84 #103
+Number of SCCs: 8, DPs: 77
+  SCC { #18 #19 #36 #120 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: x1
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #19 #36
+Number of SCCs: 8, DPs: 75
+  SCC { #18 #120 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: x2
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #18 #120
+Number of SCCs: 7, DPs: 73
+  SCC { #9 #14 #46 #83 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: x2
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #14 #46
+Number of SCCs: 7, DPs: 71
+  SCC { #9 #83 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: x1
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #9 #83
+Number of SCCs: 6, DPs: 69
+  SCC { #15 #25 #63 #124 }
+POLO(Sum)... succeeded.
+      #cons	w: x2
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #15 #25
+Number of SCCs: 6, DPs: 67
+  SCC { #63 #124 }
+POLO(Sum)... succeeded.
+      #cons	w: x1
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #63 #124
+Number of SCCs: 5, DPs: 65
+  SCC { #4 #10 #11 #27 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: x2
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4 #11
+Number of SCCs: 5, DPs: 63
+  SCC { #10 #27 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: x1
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #10 #27
+Number of SCCs: 4, DPs: 61
+  SCC { #17 #28 #64 #131 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: x1
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #17 #131
+Number of SCCs: 4, DPs: 59
+  SCC { #28 #64 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: x2
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #28 #64
+Number of SCCs: 3, DPs: 57
+  SCC { #20 #24 #35 #54 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: x2
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #24 #35
+Number of SCCs: 3, DPs: 55
+  SCC { #20 #54 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: x1
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #20 #54
+Number of SCCs: 2, DPs: 53
+  SCC { #6 #12 #22 #76 #80 #89 #99 #110 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: x2 + x3 + x4
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #6 #12 #22 #76 #80 #89
+Number of SCCs: 2, DPs: 47
+  SCC { #99 #110 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: 0
+      #take	w: 0
+      take	w: 0
+      and	w: 0
+      pair	w: 0
+      fst	w: 0
+      natsFrom	w: 0
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 0
+      #u11	w: x1
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 0
+      #mark	w: 0
+      0 	w: 0
+      #sel	w: 0
+      u11	w: 0
+      sel	w: 0
+      #s 	w: 0
+      afterNth	w: 0
+      nil	w: 0
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: 0
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 1
+      head	w: 0
+      #snd	w: 0
+      cons	w: 1
+      #natsFrom	w: 0
+      #active	w: 0
+      snd	w: 0
+      tt	w: 0
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { }
+    Removed DPs: #99 #110
+Number of SCCs: 1, DPs: 45
+  SCC { #1 #23 #29 #32 #33 #37 #39 #41 #43 #48 #49 #51 #52 #56 #58 #60 #62 #65 #67 #68 #70..72 #77 #82 #86 #88 #90 #92 #93 #95 #97 #98 #102 #106 #111 #113 #114 #116 #117 #121 #125 #129 #134 #135 }
+POLO(Sum)... POLO(max)... succeeded.
+      #cons	w: 0
+      s 	w: x1
+      #take	w: 0
+      take	w: max(x1 + 10, x2 + 9)
+      and	w: max(x1 + 2, x2 + 1)
+      pair	w: max(x1 + 2, x2 + 1)
+      fst	w: x1 + 1
+      natsFrom	w: x1 + 3
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: max(x1 + 7, x2 + 6)
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: x1 + 1
+      #mark	w: x1
+      0 	w: 1
+      #sel	w: 0
+      u11	w: max(x1 + 1, x2 + 7, x3 + 8, x4 + 6)
+      sel	w: max(x1 + 12, x2 + 13)
+      #s 	w: 0
+      afterNth	w: max(x1 + 9, x2 + 10)
+      nil	w: 6
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1
+      u12	w: max(x1, x2 + 5)
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1
+      head	w: x1 + 1
+      #snd	w: 0
+      cons	w: max(x1 + 2, x2)
+      #natsFrom	w: 0
+      #active	w: x1
+      snd	w: x1 + 1
+      tt	w: 7
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { 1..83 }
+    Removed DPs: #23 #29 #32 #39 #43 #48 #51 #52 #58 #62 #67 #70 #71 #82 #88 #92 #93 #97 #98 #102 #113 #117 #125 #129 #134 #135
+Number of SCCs: 1, DPs: 6
+  SCC { #33 #56 #95 #106 #116 #121 }
+POLO(Sum)... succeeded.
+      #cons	w: 0
+      s 	w: x1 + 1
+      #take	w: 0
+      take	w: x1 + 1
+      and	w: x2 + 1
+      pair	w: x1 + 1
+      fst	w: x1 + 1
+      natsFrom	w: x1 + 1
+      #u12	w: 0
+      #head	w: 0
+      splitAt	w: 1
+      #u11	w: 0
+      #fst	w: 0
+      J26[X27]	w: 0
+      tail	w: 1
+      #mark	w: x1
+      0 	w: 1
+      #sel	w: 0
+      u11	w: 1
+      sel	w: x1 + 1
+      #s 	w: 0
+      afterNth	w: 3
+      nil	w: 1
+      #tail	w: 0
+      #splitAt	w: 0
+      mark	w: x1 + 1
+      u12	w: x1
+      #app	w: 0
+      #afterNth	w: 0
+      map	w: 0
+      #map	w: 0
+      G27[V27]	w: 0
+      active	w: x1 + 3
+      head	w: x1 + 1
+      #snd	w: 0
+      cons	w: x2 + 1
+      #natsFrom	w: 0
+      #active	w: 1
+      snd	w: x1 + 1
+      tt	w: 2
+      #pair	w: 0
+      #and	w: 0
+      app	w: 0
+    USABLE RULES: { 32..59 62..65 72 73 78 79 }
+    Removed DPs: #106
+Number of SCCs: 1, DPs: 5
+  SCC { #33 #56 #95 #116 #121 }
+POLO(Sum)... POLO(max)... QLPOS... POLO(mSum)... QWPOpS(mSum)... succeeded.
+      #cons	s: [2,1]	p: 0	w: max(x1 + 1, x2 + 1)
+      s 	s: [1]	p: 5	w: x1
+      #take	s: [1]	p: 0	w: x1 + 1
+      take	s: [2,1]	p: 5	w: x1 + x2 + 9
+      and	s: []	p: 5	w: x2 + 1
+      pair	s: [1]	p: 0	w: max(x1, x2 + 1)
+      fst	s: [1]	p: 6	w: x1 + 1
+      natsFrom	s: [1]	p: 1	w: x1 + 4
+      #u12	s: [2,1]	p: 0	w: max(x1 + 1, x2)
+      #head	s: []	p: 0	w: 0
+      splitAt	s: [1]	p: 3	w: max(x1 + 7, x2 + 5)
+      #u11	s: [3,1]	p: 0	w: max(x1, x2 + 1, x3)
+      #fst	s: []	p: 0	w: 0
+      J26[X27]	s: []	p: 0	w: 1
+      tail	s: [1]	p: 5	w: x1 + 1
+      #mark	s: 1
+      0 	s: []	p: 6	w: 8
+      #sel	s: [1]	p: 0	w: x1 + 1
+      u11	s: [2,4]	p: 3	w: max(x1 + 2, x2 + 7, x3 + 4, x4 + 5)
+      sel	s: [1,2]	p: 0	w: x1 + x2 + 11
+      #s 	s: []	p: 0	w: 0
+      afterNth	s: [2,1]	p: 4	w: x1 + x2 + 9
+      nil	s: []	p: 5	w: 8
+      #tail	s: []	p: 0	w: 0
+      #splitAt	s: []	p: 0	w: max(x2)
+      mark	s: 1
+      u12	s: [2,1]	p: 1	w: max(x1, x2 + 3)
+      #app	s: []	p: 0	w: x2
+      #afterNth	s: [2]	p: 0	w: x2
+      map	s: [2,1]	p: 0	w: x1 + x2
+      #map	s: [2]	p: 0	w: x2 + 1
+      G27[V27]	s: []	p: 0	w: 0
+      active	s: 1
+      head	s: []	p: 0	w: x1 + 1
+      #snd	s: []	p: 0	w: 1
+      cons	s: []	p: 1	w: max(x1 + 3, x2)
+      #natsFrom	s: []	p: 0	w: 0
+      #active	s: 1
+      snd	s: []	p: 4	w: x1 + 1
+      tt	s: []	p: 6	w: 6
+      #pair	s: [1,2]	p: 0	w: max(x1 + 1, x2 + 1)
+      #and	s: []	p: 0	w: x1 + 1
+      app	s: []	p: 0	w: x2 + 1
+    USABLE RULES: { 1..83 }
+    Removed DPs: #33 #116 #121
+Number of SCCs: 0, DPs: 0

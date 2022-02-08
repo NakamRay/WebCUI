@@ -1,0 +1,239 @@
+Input TRS:
+    1: eq(0(),0()) -> true()
+    2: eq(0(),s(X)) -> false()
+    3: eq(s(Y),0()) -> false()
+    4: eq(s(V),s(U)) -> eq(V,U)
+    5: le(0(),W) -> true()
+    6: le(s(P),0()) -> false()
+    7: le(s(Y1),s(X1)) -> le(Y1,X1)
+    8: min(cons(0(),nil())) -> 0()
+    9: min(cons(s(U1),nil())) -> s(U1)
+    10: min(cons(W1,cons(V1,P1))) -> ifP(le(W1,V1),min(cons(W1,P1)),min(cons(V1,P1)))
+    11: replace(Y3,X3,nil()) -> nil()
+    12: replace(W3,V3,cons(U3,P3)) -> ifH(eq(W3,U3),cons(V3,P3),cons(U3,replace(W3,V3,P3)))
+    13: ifxb6220replace(true(),U4,Y4,cons(X4,V4)) -> cons(Y4,V4)
+    14: ifxb6220replace(false(),X5,P4,cons(W4,Y5)) -> cons(W4,replace(X5,P4,Y5))
+    15: sort(nil()) -> nil()
+    16: sort(cons(U5,V5)) -> cons(min(cons(U5,V5)),sort(replace(min(cons(U5,V5)),U5,V5)))
+    17: ifxb6220min(true(),cons(Y2,cons(X2,U2))) -> min(cons(Y2,U2))
+    18: ifxb6220min(false(),cons(W2,cons(V2,P2))) -> min(cons(V2,P2))
+    19: ifP(true(),T,E) -> T
+    20: ifP(false(),T,E) -> E
+    21: ifH(true(),T,E) -> T
+    22: ifH(false(),T,E) -> E
+    23: _(X1,X2) -> X1
+    24: _(X1,X2) -> X2
+Number of strict rules: 24
+Direct POLO(bPol) ... failed.
+Uncurrying min
+1: eq(0(),0()) -> true()
+2: eq(0(),s(X)) -> false()
+3: eq(s(Y),0()) -> false()
+4: eq(s(V),s(U)) -> eq(V,U)
+5: le(0(),W) -> true()
+6: le(s(P),0()) -> false()
+7: le(s(Y1),s(X1)) -> le(Y1,X1)
+8: min^1_cons(0(),nil()) -> 0()
+9: min^1_cons(s(U1),nil()) -> s(U1)
+10: min^1_cons(W1,cons(V1,P1)) -> ifP(le(W1,V1),min^1_cons(W1,P1),min^1_cons(V1,P1))
+11: replace(Y3,X3,nil()) -> nil()
+12: replace(W3,V3,cons(U3,P3)) -> ifH(eq(W3,U3),cons(V3,P3),cons(U3,replace(W3,V3,P3)))
+13: ifxb6220replace(true(),U4,Y4,cons(X4,V4)) -> cons(Y4,V4)
+14: ifxb6220replace(false(),X5,P4,cons(W4,Y5)) -> cons(W4,replace(X5,P4,Y5))
+15: sort(nil()) -> nil()
+16: sort(cons(U5,V5)) -> cons(min^1_cons(U5,V5),sort(replace(min^1_cons(U5,V5),U5,V5)))
+17: ifxb6220min(true(),cons(Y2,cons(X2,U2))) -> min^1_cons(Y2,U2)
+18: ifxb6220min(false(),cons(W2,cons(V2,P2))) -> min^1_cons(V2,P2)
+19: ifP(true(),T,E) -> T
+20: ifP(false(),T,E) -> E
+21: ifH(true(),T,E) -> T
+22: ifH(false(),T,E) -> E
+23: _(X1,X2) -> X1
+24: _(X1,X2) -> X2
+25: min(cons(_1,_2)) ->= min^1_cons(_1,_2)
+Number of strict rules: 24
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #replace(W3,V3,cons(U3,P3)) -> #ifH(eq(W3,U3),cons(V3,P3),cons(U3,replace(W3,V3,P3)))
+   #2: #replace(W3,V3,cons(U3,P3)) -> #eq(W3,U3)
+   #3: #replace(W3,V3,cons(U3,P3)) -> #replace(W3,V3,P3)
+   #4: #ifxb6220replace(false(),X5,P4,cons(W4,Y5)) -> #replace(X5,P4,Y5)
+   #5: #min(cons(_1,_2)) ->? #min^1_cons(_1,_2)
+   #6: #le(s(Y1),s(X1)) -> #le(Y1,X1)
+   #7: #min^1_cons(W1,cons(V1,P1)) -> #ifP(le(W1,V1),min^1_cons(W1,P1),min^1_cons(V1,P1))
+   #8: #min^1_cons(W1,cons(V1,P1)) -> #le(W1,V1)
+   #9: #min^1_cons(W1,cons(V1,P1)) -> #min^1_cons(W1,P1)
+   #10: #min^1_cons(W1,cons(V1,P1)) -> #min^1_cons(V1,P1)
+   #11: #ifxb6220min(true(),cons(Y2,cons(X2,U2))) -> #min^1_cons(Y2,U2)
+   #12: #sort(cons(U5,V5)) -> #min^1_cons(U5,V5)
+   #13: #sort(cons(U5,V5)) -> #sort(replace(min^1_cons(U5,V5),U5,V5))
+   #14: #sort(cons(U5,V5)) -> #replace(min^1_cons(U5,V5),U5,V5)
+   #15: #sort(cons(U5,V5)) -> #min^1_cons(U5,V5)
+   #16: #eq(s(V),s(U)) -> #eq(V,U)
+   #17: #ifxb6220min(false(),cons(W2,cons(V2,P2))) -> #min^1_cons(V2,P2)
+Number of SCCs: 5, DPs: 6
+  SCC { #6 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #le	w: x1 + x2
+      ifxb6220replace	w: 0
+      #ifxb6220min	w: 0
+      #ifH	w: 0
+      ifH	w: 0
+      min^1_cons	w: 0
+      eq	w: 0
+      false	w: 0
+      #ifxb6220replace	w: 0
+      #min	w: 0
+      #ifP	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      #sort	w: 0
+      ifxb6220min	w: 0
+      ifP	w: 0
+      0 	w: 0
+      nil	w: 0
+      sort	w: 0
+      #replace	w: 0
+      #_ 	w: 0
+      min	w: 0
+      #min^1_cons	w: 0
+      cons	w: 0
+      replace	w: 0
+    USABLE RULES: { }
+    Removed DPs: #6
+Number of SCCs: 4, DPs: 5
+  SCC { #16 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #le	w: 0
+      ifxb6220replace	w: 0
+      #ifxb6220min	w: 0
+      #ifH	w: 0
+      ifH	w: 0
+      min^1_cons	w: 0
+      eq	w: 0
+      false	w: 0
+      #ifxb6220replace	w: 0
+      #min	w: 0
+      #ifP	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: x2
+      #sort	w: 0
+      ifxb6220min	w: 0
+      ifP	w: 0
+      0 	w: 0
+      nil	w: 0
+      sort	w: 0
+      #replace	w: 0
+      #_ 	w: 0
+      min	w: 0
+      #min^1_cons	w: 0
+      cons	w: 0
+      replace	w: 0
+    USABLE RULES: { }
+    Removed DPs: #16
+Number of SCCs: 3, DPs: 4
+  SCC { #3 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: 1
+      #le	w: 0
+      ifxb6220replace	w: 0
+      #ifxb6220min	w: 0
+      #ifH	w: 0
+      ifH	w: 0
+      min^1_cons	w: 0
+      eq	w: 0
+      false	w: 0
+      #ifxb6220replace	w: 0
+      #min	w: 0
+      #ifP	w: 0
+      _ 	w: 0
+      true	w: 0
+      #eq	w: 0
+      #sort	w: 0
+      ifxb6220min	w: 0
+      ifP	w: 0
+      0 	w: 0
+      nil	w: 0
+      sort	w: 0
+      #replace	w: x3
+      #_ 	w: 0
+      min	w: 0
+      #min^1_cons	w: 0
+      cons	w: x2 + 1
+      replace	w: 0
+    USABLE RULES: { }
+    Removed DPs: #3
+Number of SCCs: 2, DPs: 3
+  SCC { #13 }
+POLO(Sum)... POLO(max)... succeeded.
+      le	w: max(x1 + 2, x2 + 1)
+      s 	w: 0
+      #le	w: 0
+      ifxb6220replace	w: 0
+      #ifxb6220min	w: 0
+      #ifH	w: 0
+      ifH	w: max(x2 + 1, x3)
+      min^1_cons	w: max(x2 + 3)
+      eq	w: 0
+      false	w: 3
+      #ifxb6220replace	w: 0
+      #min	w: 0
+      #ifP	w: 0
+      _ 	w: 0
+      true	w: 4
+      #eq	w: 0
+      #sort	w: x1
+      ifxb6220min	w: 0
+      ifP	w: max(x2 + 3, x3)
+      0 	w: 1
+      nil	w: 1
+      sort	w: 0
+      #replace	w: 0
+      #_ 	w: 0
+      min	w: 0
+      #min^1_cons	w: 0
+      cons	w: max(x2 + 2)
+      replace	w: max(x3 + 1)
+    USABLE RULES: { 8 9 11 12 19..22 }
+    Removed DPs: #13
+Number of SCCs: 1, DPs: 2
+  SCC { #9 #10 }
+POLO(Sum)... succeeded.
+      le	w: x1 + x2 + 1
+      s 	w: 1
+      #le	w: 0
+      ifxb6220replace	w: 0
+      #ifxb6220min	w: 0
+      #ifH	w: 0
+      ifH	w: x1
+      min^1_cons	w: 1
+      eq	w: x1 + 2
+      false	w: 4
+      #ifxb6220replace	w: 0
+      #min	w: 0
+      #ifP	w: 0
+      _ 	w: 0
+      true	w: 4
+      #eq	w: 0
+      #sort	w: 0
+      ifxb6220min	w: 0
+      ifP	w: x2 + x3
+      0 	w: 1
+      nil	w: 2
+      sort	w: 0
+      #replace	w: 0
+      #_ 	w: 0
+      min	w: 0
+      #min^1_cons	w: x2
+      cons	w: x2 + 2
+      replace	w: x1 + x2 + 1
+    USABLE RULES: { 8 9 19 20 }
+    Removed DPs: #9 #10
+Number of SCCs: 0, DPs: 0

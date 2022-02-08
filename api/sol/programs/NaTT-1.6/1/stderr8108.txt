@@ -1,0 +1,154 @@
+Input TRS:
+    1: minus(0(),X) -> 0()
+    2: minus(s(Y),0()) -> s(Y)
+    3: minus(s(U),s(V)) -> minus(U,V)
+    4: le(0(),W) -> true()
+    5: le(s(P),0()) -> false()
+    6: le(s(X1),s(Y1)) -> le(X1,Y1)
+    7: if(true(),U1,V1) -> U1
+    8: if(false(),W1,P1) -> P1
+    9: perfectp(0()) -> false()
+    10: perfectp(s(X2)) -> f(X2,s(0()),s(X2),s(X2))
+    11: f(0(),U2,0(),Y2) -> true()
+    12: f(0(),W2,s(P2),V2) -> false()
+    13: f(s(Y3),0(),U3,X3) -> f(Y3,X3,minus(U3,s(Y3)),X3)
+    14: f(s(W3),s(P3),X4,V3) -> if(le(W3,P3),f(s(W3),minus(P3,W3),X4,V3),f(W3,V3,X4,V3))
+    15: _(X1,X2) -> X1
+    16: _(X1,X2) -> X2
+Number of strict rules: 16
+Direct POLO(bPol) ... failed.
+Uncurrying f
+1: minus(0(),X) -> 0()
+2: minus(s(Y),0()) -> s(Y)
+3: minus(s(U),s(V)) -> minus(U,V)
+4: le(0(),W) -> true()
+5: le(s(P),0()) -> false()
+6: le(s(X1),s(Y1)) -> le(X1,Y1)
+7: if(true(),U1,V1) -> U1
+8: if(false(),W1,P1) -> P1
+9: perfectp(0()) -> false()
+10: perfectp(s(X2)) -> f(X2,s(0()),s(X2),s(X2))
+11: f^1_0(U2,0(),Y2) -> true()
+12: f^1_0(W2,s(P2),V2) -> false()
+13: f^1_s(Y3,0(),U3,X3) -> f(Y3,X3,minus(U3,s(Y3)),X3)
+14: f^1_s(W3,s(P3),X4,V3) -> if(le(W3,P3),f^1_s(W3,minus(P3,W3),X4,V3),f(W3,V3,X4,V3))
+15: _(X1,X2) -> X1
+16: _(X1,X2) -> X2
+17: f(0(),_3,_4,_5) ->= f^1_0(_3,_4,_5)
+18: f(s(_1),_4,_5,_6) ->= f^1_s(_1,_4,_5,_6)
+Number of strict rules: 16
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #le(s(X1),s(Y1)) -> #le(X1,Y1)
+   #2: #f^1_s(Y3,0(),U3,X3) -> #f(Y3,X3,minus(U3,s(Y3)),X3)
+   #3: #f^1_s(Y3,0(),U3,X3) -> #minus(U3,s(Y3))
+   #4: #f^1_s(W3,s(P3),X4,V3) -> #if(le(W3,P3),f^1_s(W3,minus(P3,W3),X4,V3),f(W3,V3,X4,V3))
+   #5: #f^1_s(W3,s(P3),X4,V3) -> #le(W3,P3)
+   #6: #f^1_s(W3,s(P3),X4,V3) -> #f^1_s(W3,minus(P3,W3),X4,V3)
+   #7: #f^1_s(W3,s(P3),X4,V3) -> #minus(P3,W3)
+   #8: #f^1_s(W3,s(P3),X4,V3) -> #f(W3,V3,X4,V3)
+   #9: #perfectp(s(X2)) -> #f(X2,s(0()),s(X2),s(X2))
+   #10: #f(0(),_3,_4,_5) ->? #f^1_0(_3,_4,_5)
+   #11: #minus(s(U),s(V)) -> #minus(U,V)
+   #12: #f(s(_1),_4,_5,_6) ->? #f^1_s(_1,_4,_5,_6)
+Number of SCCs: 3, DPs: 6
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #le	w: x1 + x2
+      minus	w: 0
+      #f^1_s	w: 0
+      #perfectp	w: 0
+      false	w: 0
+      _ 	w: 0
+      true	w: 0
+      f 	w: 0
+      0 	w: 0
+      if	w: 0
+      #f 	w: 0
+      #minus	w: 0
+      #f^1_0	w: 0
+      #_ 	w: 0
+      #if	w: 0
+      perfectp	w: 0
+      f^1_0	w: 0
+      f^1_s	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 2, DPs: 5
+  SCC { #11 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 1
+      #le	w: 0
+      minus	w: 0
+      #f^1_s	w: 0
+      #perfectp	w: 0
+      false	w: 0
+      _ 	w: 0
+      true	w: 0
+      f 	w: 0
+      0 	w: 0
+      if	w: 0
+      #f 	w: 0
+      #minus	w: x1
+      #f^1_0	w: 0
+      #_ 	w: 0
+      #if	w: 0
+      perfectp	w: 0
+      f^1_0	w: 0
+      f^1_s	w: 0
+    USABLE RULES: { }
+    Removed DPs: #11
+Number of SCCs: 1, DPs: 4
+  SCC { #2 #6 #8 #12 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 4
+      #le	w: 0
+      minus	w: x2 + 1
+      #f^1_s	w: x1 + x4 + 1
+      #perfectp	w: 0
+      false	w: 0
+      _ 	w: 0
+      true	w: 0
+      f 	w: 0
+      0 	w: 2
+      if	w: 0
+      #f 	w: x1 + x4
+      #minus	w: 0
+      #f^1_0	w: 0
+      #_ 	w: 0
+      #if	w: 0
+      perfectp	w: 0
+      f^1_0	w: 0
+      f^1_s	w: 0
+    USABLE RULES: { }
+    Removed DPs: #2 #8 #12
+Number of SCCs: 1, DPs: 1
+  SCC { #6 }
+POLO(Sum)... succeeded.
+      le	w: 0
+      s 	w: x1 + 2
+      #le	w: 0
+      minus	w: x1 + 1
+      #f^1_s	w: x2 + 1
+      #perfectp	w: 0
+      false	w: 0
+      _ 	w: 0
+      true	w: 0
+      f 	w: 0
+      0 	w: 1
+      if	w: 0
+      #f 	w: 0
+      #minus	w: 0
+      #f^1_0	w: 0
+      #_ 	w: 0
+      #if	w: 0
+      perfectp	w: 0
+      f^1_0	w: 0
+      f^1_s	w: 0
+    USABLE RULES: { 1..3 }
+    Removed DPs: #6
+Number of SCCs: 0, DPs: 0

@@ -1,0 +1,12 @@
+(VAR W P X1 Y1 U1 V1 W1 P1 X2 Y2 U2 V2 W2 P2 X3 )
+(RULES
+  append(W,nil) -> W
+  append(nil,P) -> P
+  append(cons(X1,Y1),U1) -> cons(X1,append(Y1,U1))
+  zip(nil,V1) -> V1
+  zip(W1,nil) -> W1
+  zip(cons(P1,X2),cons(Y2,U2)) -> cons(append(P1,Y2),zip(X2,U2))
+  combine(V2,nil) -> V2
+  combine(W2,cons(P2,X3)) -> combine(zip(W2,P2),X3)
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

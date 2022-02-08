@@ -1,0 +1,14 @@
+(VAR X Y Z G1 H1 W1 P1 )
+(RULES
+  plus(X,plus(Y,Z)) -> plus(plus(X,Y),Z)
+  plus(plus(X,Y),Z) -> plus(X,plus(Y,Z))
+  plus(X,Y) -> plus(Y,X)
+  plus(s(X),Y) -> plus(X,s(Y))
+  plus(X,s(Y)) -> plus(s(X),Y)
+  times(X,s(Y)) -> plus(X,times(X,Y))
+  times(s(X),Y) -> plus(times(X,Y),Y)
+  times(X,Y) -> times(Y,X)
+  sq(X) -> times(X,X)
+  sq(s(X)) -> plus(times(X,X),s(plus(X,X)))
+  map(G1,nil) -> nil
+  map(H1,cons(W1,P1)) -> cons(H1[W1],map(H1,P1)))

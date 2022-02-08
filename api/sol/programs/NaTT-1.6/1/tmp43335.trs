@@ -1,0 +1,10 @@
+(VAR X Y U V W P X1 Y1 X2 )
+(RULES
+  f(0,1,X) -> f(X,X,X)
+  f(Y,U,V) -> 2
+  0 -> 2
+  1 -> 2
+  g(W,W,P) -> P
+  g(X1,Y1,Y1) -> X1
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

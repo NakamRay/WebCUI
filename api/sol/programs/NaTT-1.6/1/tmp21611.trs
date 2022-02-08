@@ -1,0 +1,6 @@
+(VAR X1 Y1 U1 X2 )
+(RULES
+  plusc(X1,0) -> X1
+  plusc(Y1,s(U1)) -> s(plusc(Y1,U1))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,47 @@
+Input TRS:
+    1: times(X,plus(Y,s(U))) -> plus(times(X,plus(Y,times(s(U),0()))),times(X,s(U)))
+    2: times(V,0()) -> 0()
+    3: times(W,s(P)) -> plus(times(W,P),W)
+    4: plus(X1,0()) -> X1
+    5: plus(Y1,s(U1)) -> s(plus(Y1,U1))
+    6: _(X1,X2) -> X1
+    7: _(X1,X2) -> X2
+Number of strict rules: 7
+Direct POLO(bPol) ... failed.
+Uncurrying ... failed.
+Dependency Pairs:
+   #1: #plus(Y1,s(U1)) -> #plus(Y1,U1)
+   #2: #times(W,s(P)) -> #plus(times(W,P),W)
+   #3: #times(W,s(P)) -> #times(W,P)
+   #4: #times(X,plus(Y,s(U))) -> #plus(times(X,plus(Y,times(s(U),0()))),times(X,s(U)))
+   #5: #times(X,plus(Y,s(U))) -> #times(X,plus(Y,times(s(U),0())))
+   #6: #times(X,plus(Y,s(U))) -> #plus(Y,times(s(U),0()))
+   #7: #times(X,plus(Y,s(U))) -> #times(s(U),0())
+   #8: #times(X,plus(Y,s(U))) -> #times(X,s(U))
+Number of SCCs: 2, DPs: 4
+  SCC { #1 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 1
+      #plus	w: x2
+      _ 	w: 0
+      #times	w: 0
+      0 	w: 0
+      times	w: 0
+      #_ 	w: 0
+      plus	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1
+Number of SCCs: 1, DPs: 3
+  SCC { #3 #5 #8 }
+POLO(Sum)... succeeded.
+      s 	w: x1 + 2
+      #plus	w: 0
+      _ 	w: 0
+      #times	w: x2
+      0 	w: 1
+      times	w: 1
+      #_ 	w: 0
+      plus	w: x1 + x2 + 1
+    USABLE RULES: { 2 4 5 }
+    Removed DPs: #3 #5 #8
+Number of SCCs: 0, DPs: 0

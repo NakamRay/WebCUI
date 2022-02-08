@@ -1,0 +1,81 @@
+Input TRS:
+    1: append(nil(),U) -> U
+    2: append(cons(X,Y),U) -> cons(X,append(Y,U))
+    3: reverse(nil()) -> nil()
+    4: shuffle(nil()) -> nil()
+    5: shuffle(cons(X,Y)) -> cons(X,shuffle(reverse(Y)))
+    6: mirror(nil()) -> nil()
+    7: mirror(cons(X,Y)) -> append(cons(X,mirror(Y)),cons(X,nil()))
+    8: _(X1,X2) -> X1
+    9: _(X1,X2) -> X2
+Number of strict rules: 9
+Direct POLO(bPol) ... removes: 4 8 9 6
+      mirror	w: 2 * x1 + 2
+      reverse	w: x1
+      _ 	w: x1 + 2 * x2 + 1
+      shuffle	w: x1 + 1
+      append	w: x1 + x2
+      nil	w: 0
+      cons	w: 2 * x1 + x2
+Number of strict rules: 5
+Direct POLO(bPol) ... removes: 3 5
+      mirror	w: 2 * x1 + 1
+      reverse	w: x1 + 1
+      _ 	w: x1 + 2 * x2 + 1
+      shuffle	w: 2 * x1 + 1
+      append	w: x1 + x2
+      nil	w: 0
+      cons	w: 2 * x1 + x2 + 5
+Number of strict rules: 3
+Direct POLO(bPol) ... failed.
+Uncurrying append
+1: append^1_nil(U) -> U
+2: append^1_cons(X,Y,U) -> cons(X,append(Y,U))
+7: mirror(cons(X,Y)) -> append^1_cons(X,mirror(Y),cons(X,nil()))
+10: append(cons(_1,_2),_3) ->= append^1_cons(_1,_2,_3)
+11: append(nil(),_1) ->= append^1_nil(_1)
+Number of strict rules: 3
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #append^1_cons(X,Y,U) -> #append(Y,U)
+   #2: #append(nil(),_1) ->? #append^1_nil(_1)
+   #3: #mirror(cons(X,Y)) -> #append^1_cons(X,mirror(Y),cons(X,nil()))
+   #4: #mirror(cons(X,Y)) -> #mirror(Y)
+   #5: #append(cons(_1,_2),_3) ->? #append^1_cons(_1,_2,_3)
+Number of SCCs: 2, DPs: 3
+  SCC { #4 }
+POLO(Sum)... succeeded.
+      mirror	w: 0
+      append^1_cons	w: 0
+      #append	w: 0
+      #mirror	w: x1
+      #append^1_cons	w: 0
+      #append^1_nil	w: 0
+      reverse	w: 0
+      _ 	w: 0
+      shuffle	w: 0
+      append	w: 0
+      nil	w: 0
+      cons	w: x2 + 1
+      append^1_nil	w: 0
+    USABLE RULES: { }
+    Removed DPs: #4
+Number of SCCs: 1, DPs: 2
+  SCC { #1 #5 }
+POLO(Sum)... succeeded.
+      mirror	w: 0
+      append^1_cons	w: 0
+      #append	w: x1
+      #mirror	w: 0
+      #append^1_cons	w: x2 + 1
+      #append^1_nil	w: 0
+      reverse	w: 0
+      _ 	w: 0
+      shuffle	w: 0
+      append	w: 0
+      nil	w: 0
+      cons	w: x1 + x2 + 2
+      append^1_nil	w: 0
+    USABLE RULES: { }
+    Removed DPs: #1 #5
+Number of SCCs: 0, DPs: 0

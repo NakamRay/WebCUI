@@ -1,0 +1,49 @@
+Input TRS:
+    1: f(cons(nil(),X)) -> X
+    2: f(cons(f(cons(nil(),Y)),U)) -> copy(n(),Y,U)
+    3: copy(0(),V,W) -> f(W)
+    4: copy(s(P),X1,Y1) -> copy(P,X1,cons(f(X1),Y1))
+    5: _(X1,X2) -> X1
+    6: _(X1,X2) -> X2
+Number of strict rules: 6
+Direct POLO(bPol) ... failed.
+Uncurrying copy
+1: f(cons(nil(),X)) -> X
+2: f(cons(f(cons(nil(),Y)),U)) -> copy^1_n(Y,U)
+3: copy^1_0(V,W) -> f(W)
+4: copy^1_s(P,X1,Y1) -> copy(P,X1,cons(f(X1),Y1))
+5: _(X1,X2) -> X1
+6: _(X1,X2) -> X2
+7: copy(0(),_2,_3) ->= copy^1_0(_2,_3)
+8: copy(s(_1),_3,_4) ->= copy^1_s(_1,_3,_4)
+9: copy(n(),_2,_3) ->= copy^1_n(_2,_3)
+Number of strict rules: 6
+Direct POLO(bPol) ... failed.
+Dependency Pairs:
+   #1: #copy(0(),_2,_3) ->? #copy^1_0(_2,_3)
+   #2: #copy^1_0(V,W) -> #f(W)
+   #3: #copy(s(_1),_3,_4) ->? #copy^1_s(_1,_3,_4)
+   #4: #copy^1_s(P,X1,Y1) -> #copy(P,X1,cons(f(X1),Y1))
+   #5: #copy^1_s(P,X1,Y1) -> #f(X1)
+Number of SCCs: 1, DPs: 2
+  SCC { #3 #4 }
+POLO(Sum)... succeeded.
+      copy^1_0	w: 0
+      s 	w: x1 + 3
+      n 	w: 0
+      #copy	w: x1 + x2 + x3
+      _ 	w: 0
+      f 	w: 1
+      0 	w: 0
+      nil	w: 1
+      copy^1_s	w: 0
+      copy^1_n	w: 0
+      #f 	w: 0
+      #copy^1_s	w: x1 + x2 + 2
+      #_ 	w: 0
+      cons	w: 1
+      copy	w: 0
+      #copy^1_0	w: 0
+    USABLE RULES: { }
+    Removed DPs: #3 #4
+Number of SCCs: 0, DPs: 0

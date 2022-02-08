@@ -1,0 +1,27 @@
+Input TRS:
+    1: if(true(),Xs,Ys) -> Xs
+    2: if(false(),Xs,Ys) -> Ys
+    3: app(nil(),Xs) -> Xs
+    4: app(cons(X,Xs),Ys) -> cons(X,app(Xs,Ys))
+    5: le(0(),Y) -> true()
+    6: le(s(X),0()) -> false()
+    7: le(s(X),s(Y)) -> le(X,Y)
+    8: gr(0(),Y) -> false()
+    9: gr(s(X),0()) -> true()
+    10: gr(s(X),s(Y)) -> gr(X,Y)
+    11: _(X1,X2) -> X1
+    12: _(X1,X2) -> X2
+Number of strict rules: 12
+Direct POLO(bPol) ... removes: 4 8 1 3 5 10 7 12 11 9 6 2
+      le	w: 2 * x1 + x2
+      s 	w: 2 * x1 + 1
+      false	w: 1
+      _ 	w: 2 * x1 + 2 * x2 + 1
+      true	w: 1
+      if	w: 2 * x1 + 2 * x2 + 2 * x3
+      0 	w: 1
+      nil	w: 1
+      cons	w: x1 + x2 + 1
+      gr	w: 2 * x1 + 2 * x2
+      app	w: 2 * x1 + 2 * x2 + 1
+Number of strict rules: 0

@@ -1,0 +1,15 @@
+(VAR D X Y X1 X2 )
+(RULES
+  dec(0,D) -> 0
+  dec(X,0) -> X
+  dec(s(X),s(D)) -> dec(X,D)
+  pls(0,X) -> X
+  pls(s(X),Y) -> s(pls(X,Y))
+  quad(0) -> 0
+  quad(s(X)) -> s(s(s(s(quad(X)))))
+  sqr(p(0,0)) -> 0
+  sqr(p(s(s(X)),Y)) -> sqr(p(X,s(Y)))
+  sqr(p(s(0),Y)) -> pls(quad(sqr(p(Y,0))),s(quad(Y)))
+  sqr(p(0,s(Y))) -> quad(sqr(p(s(Y),0)))
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)

@@ -1,0 +1,7 @@
+(VAR X Y X1 X2 )
+(RULES
+  put(X,get(X)) -> X
+  get(put(X,Y)) -> Y
+  put(put(X,Y),Y) -> put(X,Y)
+  _(X1,X2) -> X1
+  _(X1,X2) -> X2)
